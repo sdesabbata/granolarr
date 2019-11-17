@@ -1,0 +1,244 @@
+---
+title: "GY7702 07 Exploratory analysis"
+author: "Stefano De Sabbata"
+date: "`r Sys.Date()`"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+# Exploratory analysis
+
+*[Stefano De Sabbata](https://stefanodesabbata.com)*
+
+[This work](https://github.com/sdesabbata/GY7702) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence).
+
+## Introduction
+
+
+```{r, echo=TRUE, eval=FALSE}
+library(tidyverse)
+library(knitr)
+library(broom)
+leicester_2011OAC <- read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+library(broom)
+leicester_2011OAC <- read_csv("~/Repos/GY7702/Data/2011_OAC_Raw_uVariables_Leicester.csv")
+```
+
+`u011` Age 20 to 24
+
+## Data visualisation
+
+figures in RMarkdown `message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4`
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.height = 3, fig.width = 6}
+leicester_2011OAC %>%
+  ggplot(
+    aes(
+      x = u011
+    )
+  ) +
+  geom_histogram(binwidth = 5) +
+  theme_bw()
+```
+
+`fig.height = 4` only
+
+colour vs fill
+https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html
+
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.height = 3}
+leicester_2011OAC %>%
+  ggplot(
+    aes(
+      x = Total_Population,
+      y = u011,
+      colour = supgrpname
+    )
+  ) +
+  geom_point(size = 1) +
+  coord_fixed(ratio = 1) +
+  theme_bw()
+```
+
+forcats, fct_reorder and 
+colorbrewer
+`\n`
+  
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.height = 3}
+leicester_2011OAC %>%
+  ggplot(
+    aes(
+      x = Total_Population,
+      y = u011,
+      colour = fct_reorder(supgrpname, supgrpcode)
+    )
+  ) +
+  geom_point(size = 1) +
+  scale_colour_brewer(palette = "Set1") +
+  coord_fixed(ratio = 1) +
+  guides(
+    colour = guide_legend(title = "2011 Output Area Classification\n(supergroups)")
+  ) +
+  theme_bw()
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.height = 3, fig.width = 6}
+leicester_2011OAC %>%
+  mutate(
+    perc_age_20_to_24 = (u011 / Total_Population) * 100
+  ) %>%
+  ggplot(
+    aes(
+      x = perc_age_20_to_24
+    )
+  ) +
+  geom_histogram(
+    binwidth = 1
+  )+
+  xlab("Percentage of residents aged 20 to 24") +
+  theme_bw() 
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.height = 5, fig.width = 6}
+leicester_2011OAC %>%
+  mutate(
+    perc_age_20_to_24 = (u011 / Total_Population) * 100
+  ) %>%
+  ggplot(
+    aes(
+      x = supgrpname,
+      y = perc_age_20_to_24
+    )
+  ) +
+  geom_boxplot() +
+  xlab("2011 Output Area Classification (supergroups)") +
+  ylab("Percentage of residents aged 20 to 24") +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1)
+  )
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.height = 5, fig.width = 6}
+leicester_2011OAC %>%
+  mutate(
+    perc_age_20_to_24 = (u011 / Total_Population) * 100
+  ) %>%
+  ggplot(
+    aes(
+      x = fct_reorder(supgrpname, supgrpcode),
+      y = perc_age_20_to_24,
+      fill = fct_reorder(supgrpname, supgrpcode)
+    )
+  ) +
+  geom_boxplot() +
+  scale_fill_brewer(palette = "Set1") +
+  xlab("2011 Output Area Classification (supergroups)") +
+  ylab("Percentage of residents aged 20 to 24") +
+  guides(
+    fill = guide_legend(title = "2011 Output Area Classification\n(supergroups)")
+  ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1)
+  )
+```
+
+## Exercise 6.1
+
+Create a RMarkdown analysis docuement that replicates the analysis above for another age group of your choice. Include conclusions that you can draw from each plot (about 100 words per plot). Also, `geom_bin2d()`
+
+## Exploratory statistics
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pastecs)
+library(car)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+leic_2011OAC_20to24 <- leicester_2011OAC %>%
+  mutate(
+    perc_age_20_to_24 = (u011 / Total_Population) * 100,
+    supgrpname = dplyr::recode(supgrpname, 
+      `Suburbanites` = "SU",
+      `Cosmopolitans` = "CP",
+      `Multicultural Metropolitans` = "MM",
+      `Ethnicity Central` = "EC",
+      `Constrained City Dwellers` = "CD",
+      `Hard-Pressed Living` = "HP",
+      `Urbanites` = "UR"
+    )
+  ) %>%
+  select(OA11CD, supgrpname, perc_age_20_to_24)
+
+leic_2011OAC_20to24 %>%
+  top_n(5) %>%
+  kable()
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+leic_2011OAC_20to24 %>%
+  select(perc_age_20_to_24) %>%
+  stat.desc() %>%
+  kable(digits = 3)
+```
+
+recode, dplyr vs car
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+leic_2011OAC_20to24_supgrp_desc <- leic_2011OAC_20to24 %>%
+  spread(
+    key = supgrpname,
+    value = perc_age_20_to_24
+  ) %>%
+  select(-OA11CD) %>%
+  stat.desc(norm = TRUE)
+
+leic_2011OAC_20to24_supgrp_desc %>%
+  kable(digits = 3)
+```
+
+**Levene’s test** for equality of variance in different levels
+
+- If significant, the variance is different in different levels
+
+Used to test assumptions of regression, but also useful here.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+leveneTest(leic_2011OAC_20to24$perc_age_20_to_24, leic_2011OAC_20to24$supgrpname)
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 6, out.width='100%'}
+leic_2011OAC_20to24 %>%
+  filter(supgrpname == "CP") %>%
+  ggplot(
+    aes(
+      x = perc_age_20_to_24
+    )
+  ) +
+  geom_histogram(
+    aes(
+      y =..density..
+    ),
+    binwidth = 5
+  ) + 
+  stat_function(
+    fun = dnorm, 
+    args = list(
+      mean = leic_2011OAC_20to24_supgrp_desc["mean", "CP"],
+      sd = leic_2011OAC_20to24_supgrp_desc["std.dev", "CP"]),
+    colour = "red", size = 1
+  )
+```

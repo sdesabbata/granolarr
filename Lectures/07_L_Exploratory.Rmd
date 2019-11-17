@@ -1,0 +1,722 @@
+---
+title: "Lecture 7<br/>Exploratory analysis"
+author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
+date: "`r Sys.Date()`"
+output:
+  ioslides_presentation:
+    template: ../Utils/IOSlides/UoL_Template.html
+    logo: ../Utils/IOSlides/uol_logo.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+
+# Lecture 7<br/>Summary
+
+
+
+## Previous lectures
+
+- What is reproducible data analysis?
+    - why is it important?
+    - software engineering
+    - practical principles
+- Tools
+    - Markdown
+    - RMarkdown
+    - Git
+
+
+
+## Today
+
+- Data visualisation
+    - histograms
+    - boxplots
+    - scatterplots
+- Descriptive statistics
+- Exploring assumptions
+    - Shapiro–Wilk test
+    - skewness and kurtosis
+    - Levene’s test
+
+
+
+# Lecture 7<br/>Data visualisation
+
+
+
+## Visual variables
+
+A **visual variable** is an aspect of a **mark** that can be controlled to change its appearance. 
+
+Visual variables include: 
+
+- Size
+- Shape 
+- Orientation
+- Colour (hue)
+- Colour value (brightness)
+- Texture
+- Position (2 dimensions)
+
+
+## Grammar of graphics
+
+Grammars provide rules for languages
+
+*"The grammar of graphics takes us beyond a limited set of charts (words) to an almost unlimited world of graphical forms (statements)"* (Wilkinson, 2005)
+
+Statistical graphic specifications are expressed in six statements:
+
+1. **Data** manipulation 
+2. **Variable** transformations (e.g., rank),
+3. **Scale** transformations (e.g., log),
+4. **Coordinate system** transformations (e.g., polar),
+5. **Element**: mark (e.g., points) and visual variables (e.g., color)
+6. **Guides** (axes, legends, etc.).
+
+
+## ggplot2
+
+The `ggplot2` library offers a series of functions for creating graphics **declaratively**, based on the Grammar of Graphics. 
+
+To create a graph in `ggplot2`:
+
+- provide the data
+- specify elements
+    - which visual variables (`aes`)
+    - which marks (e.g., `geom_point`)
+- apply transformations
+- guides
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(nycflights13)
+library(knitr)
+```
+
+
+## Aesthetics
+
+The `aes` element is the second parameter of the main `ggplot` function after the data
+
+It provides a mapping from the data's *variables* to the graphic's *visual variables*
+
+- `x` and `y`
+- `colour`
+- `shape`
+- `size`
+
+```{r, echo=TRUE, eval=FALSE}
+ggplot(
+  aes(
+    x = x_var, y = y_var
+  )
+```
+
+
+
+## Graphical primitives
+
+Marks (graphical primitives) can be specified through a series of functions, such as `geom_bar`, `geom_line`, or `geom_point`
+
+These can be added to the construction of the graph using `+`
+
+```{r, echo=TRUE, eval=FALSE}
+ggplot(
+  aes(
+    x = x_var, y = y_var
+  )
+) +
+geom_point()
+```
+
+## Histograms
+
+<div class="columns-2">
+
+- `x` variable to plot
+- `geom_histogram`
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4}
+nycflights13::flights %>%
+  filter(month == 11) %>%
+  ggplot(
+    aes(
+      x = dep_delay
+    )
+  ) +
+  geom_histogram(
+    binwidth = 10
+  )
+```
+
+
+<br/><br/>
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  filter(month == 11) %>%
+  ggplot(
+    aes(
+      x = dep_delay
+    )
+  ) +
+  geom_histogram(
+    binwidth = 1
+  )
+```
+
+</div>
+
+## Scale transformation
+
+<div class="columns-2">
+
+For instance `scale_x_log10` (use only if all values `> 0`)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4}
+nycflights13::flights %>%
+  filter(month == 11) %>%
+  ggplot(
+    aes(
+      x = distance
+    )
+  ) +
+  geom_histogram() +
+  scale_x_log10()
+```
+
+<br/><br/>
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  filter(month == 11) %>%
+  ggplot(
+    aes(
+      x = distance
+    )
+  ) +
+  geom_histogram() +
+  scale_x_log10()
+```
+
+</div>
+
+## Boxplots
+
+<div class="columns-2">
+
+- `x` categorical variable
+- `y` variable to plot
+- `geom_boxplot`
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4}
+nycflights13::flights %>%
+  filter(month == 11) %>%
+  ggplot(
+    aes(
+      x = carrier, 
+      y = arr_delay
+    )
+  ) +
+  geom_boxplot()
+```
+
+<br/><br/>
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  filter(month == 11) %>%
+  ggplot(
+    aes(
+      x = carrier, 
+      y = arr_delay
+    )
+  ) +
+  geom_boxplot()
+```
+
+
+</div>
+
+
+## Lines
+
+<div class="columns-2">
+
+- `x` e.g., a temporal variable
+- `y` variable to plot
+- `geom_line`
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4}
+nycflights13::flights %>%
+  filter(
+    !is.na(dep_delay)
+  ) %>%
+  mutate(
+    flight_date = ISOdate(
+      year, month, day
+  )) %>%
+  group_by(flight_date) %>%
+  summarize(
+    avg_dep_delay = mean(
+      dep_delay
+  )) %>%
+  ggplot(aes(
+    x = flight_date,
+    y = avg_dep_delay
+  )) +
+  geom_line()
+```
+
+<br/><br/>
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  filter(
+    !is.na(dep_delay)
+  ) %>%
+  mutate(
+    flight_date = ISOdate(
+      year, month, day
+  )) %>%
+  group_by(flight_date) %>%
+  summarize(
+    avg_dep_delay = mean(
+      dep_delay
+  )) %>%
+  ggplot(aes(
+    x = flight_date,
+    y = avg_dep_delay
+  )) +
+  geom_line()
+```
+
+</div>
+
+## Scatterplots
+
+<div class="columns-2">
+
+- `x` and `y` variable to plot
+- `geom_point`
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4}
+nycflights13::flights %>%
+  filter(
+    month == 11, 
+    carrier == "US",
+    !is.na(dep_delay),
+    !is.na(arr_delay)
+  ) %>%
+  ggplot(aes(
+    x = dep_delay,
+    y = arr_delay
+  )) +
+  geom_point()
+```
+
+<br/><br/>
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  filter(
+    month == 11, 
+    carrier == "US",
+    !is.na(dep_delay),
+    !is.na(arr_delay)
+  ) %>%
+  ggplot(aes(
+    x = dep_delay,
+    y = arr_delay
+  )) +
+  geom_point()
+```
+
+</div>
+
+## Bin counts
+
+<div class="columns-2">
+
+- `x` and `y` variable to plot
+- `geom_bin2d`
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4}
+nycflights13::flights %>%
+  filter(
+    month == 11, 
+    carrier == "US",
+    !is.na(dep_delay),
+    !is.na(arr_delay)
+  ) %>%
+  ggplot(aes(
+    x = dep_delay,
+    y = arr_delay
+  )) +
+  geom_bin2d() +
+  theme(legend.position = "bottom")
+```
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  filter(
+    month == 11, 
+    carrier == "US",
+    !is.na(dep_delay),
+    !is.na(arr_delay)
+  ) %>%
+  ggplot(aes(
+    x = dep_delay,
+    y = arr_delay
+  )) +
+  geom_bin2d() +
+  theme(
+    legend.position = "bottom"
+  )
+```
+
+</div>
+
+
+# Lecture 7<br/>Descriptive statistics
+
+
+
+## Descriptive statistics
+
+Quantitatively describe or summarize variables
+
+- `stat.desc` from `pastecs` library
+    - `base` includes counts
+    - `desc` includes descriptive stats
+    - `norm` (default is `FALSE`) includes distribution stats
+
+```{r, echo=TRUE, eval=FALSE}
+library(pastecs)
+
+nycflights13::flights %>%
+  filter(month == 11, carrier == "US") %>%
+  select(dep_delay, arr_delay, distance) %>%
+  stat.desc() %>%
+  kable()
+```
+
+
+## stat.desc output
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pastecs)
+
+nycflights13::flights %>%
+  filter(month == 11, carrier == "US") %>%
+  select(dep_delay, arr_delay, distance) %>%
+  stat.desc() %>%
+  kable()
+```
+
+
+
+## stat.desc: basic
+
+- `nbr.val`: overall number of values in the dataset
+- `nbr.null`: number of `NULL` values -- NULL is often returned by expressions and functions whose values are undefined
+- `nbr.na`: number of `NA`s -- missing value indicator
+
+
+
+## stat.desc: desc
+
+- `min` (also `min()`): **minimum** value in the dataset
+- `max` (also `max()`): **minimum** value in the dataset
+- `range`: difference between `min` and `max` (different from `range()`)
+- `sum` (also `sum()`): sum of the values in the dataset
+- `mean` (also `mean()`): **arithmetic mean**, that is `sum` over the number of values not `NA`
+- `median` (also `median()`): **median**, that is the value separating the higher half from the lower half the values
+- `mode()`functio is available: **mode**, the value that appears most often in the values
+
+
+
+## Sample statistics
+
+Assuming that the data in the dataset are a sample of a population
+
+- `SE.mean`: **standard error of the mean** -- estimation of the variability of the mean calculated on different samples of the data (see also *central limit theorem*)
+
+- `CI.mean.0.95`: **95% confidence interval of the mean** -- indicates that there is a 95% probability that the actual mean is within that distance from the sample mean
+
+<!--
+Excerpt From: Field, Andy. “Discovering Statistics Using R.” iBooks. 
+
+Section 2.5.1
+
+“If you were to calculate the standard deviation between sample means then this too would give you a measure of how much variability there was between the means of different samples. The standard deviation of sample means is known as the standard error of the mean (SE). Therefore, the standard error could be calculated by taking the difference between each sample mean and the overall mean, squaring these differences, adding them up, and then dividing by the number of samples. Finally, the square root of this value would need to be taken to get the standard deviation of sample means, the standard error.”
+
+“as samples get large (usually defined as greater than 30), the sampling distribution has a normal distribution with a mean equal to the population mean, and a standard deviation of: stddev / sqrt(N)”
+
+“This is known as the central limit theorem and it is useful in this context because it means that if our sample is large we can use the above equation to approximate the standard error (because, remember, it is the standard deviation of the sampling distribution).7 When the sample is relatively small (fewer than 30) the sampling distribution has a different shape, known as a t-distribution, which we’ll come back to later.”
+-->
+
+
+
+## Estimating variation
+
+- `var`: **variance** ($\sigma^2$), it quantifies the amount of variation as the average of squared distances from the mean
+
+$$\sigma^2 = \frac{1}{n} \sum_{i=1}^n (\mu-x_i)^2$$
+
+- `std.dev`: **standard deviation** ($\sigma$), it quantifies the amount of variation as the square root of the variance
+
+$$\sigma = \sqrt{\frac{1}{n} \sum_{i=1}^n (\mu-x_i)^2}$$
+
+- `coef.var`: **variation coefficient** it quantifies the amount of variation as the standard deviation divided by the mean
+
+<!--
+## Broom
+
+Part `tidymodels` (under development), converts statistical analysis objects into tidy format
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(broom)
+
+nycflights13::flights %>%
+  filter(month == 11, carrier == "US") %>%
+  select(dep_delay, arr_delay, distance) %>%
+  stat.desc() %>%
+  tidy()
+```
+-->
+
+
+
+# Lecture 7<br/>Exploring assumptions
+
+
+
+## Normal distribution
+
+<div class="columns-2">
+
+- characterized by the bell-shaped curve 
+- majority of values lie around the centre of the distribution
+- the further the values are from the centre, the lower their frequency
+- about 95% of values within 2 standard deviations from the mean
+
+<br/><br/><br/>
+
+```{r, echo=FALSE, fig.height=6, fig.width=6, out.width='100%'}
+x <- seq(-4, 4, length=100)
+hx <- dnorm(x)
+
+plot(x, hx, type="l", xlab="Values",
+  ylab="Density", main="Normal distribution")
+```
+
+</div>
+
+
+## Density histogram
+
+<div class="columns-2">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+flights_desc_stats <- nycflights13::flights %>%
+  filter(month == 11, carrier == "US") %>%
+  select(dep_delay, arr_delay, distance) %>%
+  stat.desc(norm = TRUE)
+
+dep_delay_mean <- flights_desc_stats["mean", "dep_delay"]
+dep_delay_sd <- flights_desc_stats["std.dev", "dep_delay"]
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 5.5, fig.width = 4, out.width='100%'}
+nycflights13::flights %>% 
+  ggplot(
+    aes(
+      x = dep_delay
+    )
+  ) +
+  geom_histogram(
+    aes(
+      y =..density..
+    ),
+    binwidth = 10) + 
+  stat_function(
+    fun = dnorm, 
+    args = list(
+      mean = dep_delay_mean,
+      sd = dep_delay_sd),
+    colour = "red", size = 1)
+```
+
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>% 
+  ggplot(
+    aes(
+      x = dep_delay
+    )
+  ) +
+  geom_histogram(
+    aes(
+      y =..density..
+    ),
+    binwidth = 10
+  ) + 
+  stat_function(
+    fun = dnorm, 
+    args = list(
+      mean = dep_delay_mean,
+      sd = dep_delay_sd),
+    colour = "black", size = 1)
+```
+
+</div>
+
+
+## Q-Q plot
+
+<div class="columns-2">
+
+Cumulative values against the cumulative probability of a particular distribution
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4}
+nycflights13::flights %>%
+  filter(
+    month == 11, 
+    carrier == "US"
+  ) %>%
+  qplot(
+    sample = dep_delay, 
+    data = .,
+    stat = "qq", 
+    xlab = "Theoretical", 
+    ylab = "Sample"
+  )
+```
+
+<br/><br/>
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  filter(
+    month == 11, 
+    carrier == "US"
+  ) %>%
+  qplot(
+    sample = dep_delay, 
+    data = .,
+    stat = "qq", 
+    xlab = "Theoretical", 
+    ylab = "Sample"
+  )
+```
+
+</div>
+
+
+## stat.desc: norm
+
+```{r, echo=TRUE}
+nycflights13::flights %>%
+  filter(month == 11, carrier == "US") %>%
+  select(dep_delay, arr_delay, distance) %>%
+  stat.desc(basic = FALSE, desc = FALSE, norm = TRUE) %>%
+  kable()
+```
+
+
+
+## Normality
+
+**Shapiro–Wilk test** compares the distribution of a variable with a normal distribution having same mean and standard deviation
+
+- If significant, the distribution is not normal
+- `normtest.W` (test statistics) and `normtest.p` (significance)
+- also, `shapiro.test` function is available
+
+```{r, echo=TRUE}
+nycflights13::flights %>%
+  filter(month == 11, carrier == "US") %>%
+  pull(dep_delay) %>%
+  shapiro.test()
+```
+
+
+
+## Significance
+
+Most statistical tests are based on the idea of hypothesis testing
+
+- a **null hypothesis** is set
+- the data are fit into a statistical model
+- the model is assessed with a **test statistic**
+- the **significance** is the probability of obtaining that test statistic value by chance
+
+The threshold to accept or reject an hypotheis is arbitrary and based on conventions (e.g., *p < .01* or *p < .05*)
+
+**Example:** The null hypotheis of the Shapiro–Wilk test is that the sample is normally distributed and *p < .01* indicates that the probability of that being true is very low.
+
+
+
+## Skewness and kurtosis
+
+In a normal distribution, the values of *skewness* and *kurtosis* should be zero
+
+- `skewness`: **skewness** value indicates
+    - positive: the distribution is skewed towards the left
+    - negative: the distribution is skewed towards the right
+- `kurtosis`: **kurtosis** value indicates
+    - positive: heavy-tailed distribution
+    - negative: flat distribution
+- `skew.2SE` and `kurt.2SE`: skewness and kurtosis divided by 2 standard errors. If greater than 1, the respective statistics is significant (*p < .05*).
+
+
+
+## Homogeneity of variance
+
+**Levene’s test** for equality of variance in different levels
+
+- If significant, the variance is different in different levels
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+dep_delay_carrier <- nycflights13::flights %>%
+  filter(month == 11) %>%
+  select(dep_delay, carrier)
+
+library(car)
+leveneTest(dep_delay_carrier$dep_delay, dep_delay_carrier$carrier)
+```
+
+
+# Lecture 7<br/>Summary
+
+
+
+## Summary
+
+- Data visualisation
+    - histograms
+    - boxplots
+    - scatterplots
+- Descriptive statistics
+- Exploring assumptions
+    - Shapiro–Wilk test
+    - skewness and kurtosis
+    - Levene’s test
+
+
+
+
+## Practical session
+
+In the practical session, we will see:

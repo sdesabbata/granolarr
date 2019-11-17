@@ -1,0 +1,178 @@
+VariableCode,VariableTable,VariableMeasurementUnit,VariableStatisticalUnit,VariableSubDomain,VariableDomain,VariableDescription,VariableTitle,EW_Code,SC_Code,NI_Code
+Total_Population,Usual Resident Population,Count,Person,Totals,Totals,Total Population,Total_Population,KS101EW0001,KS101SC0001,KS101NI0001
+Total_Households,Household Composition,Count,Household,Totals,Totals,Total Households,Total_Households,KS105EW0001,KS105SC0001,KS105NI0001
+Total_Dwellings,"Dwellings, Household Spaces and Accomodation Type",Count,Dwelling,Totals,Totals,Total Dwellings,Total_Dwellings,KS401EW0001,KS401SC0001,KS401NI0001
+Total_Household_Spaces,"Dwellings, Household Spaces and Accomodation Type",Count,Household_Spaces,Totals,Totals,Total Household Spaces,Total Number of Household Spaces,KS401EW0005,KS401SC0005,KS401NI0004
+Total_Population_16_and_over,Age Structure,Count,Person_16_Over,Totals,Totals,Total Population (16 and over),Total_Population_16_and_over,"KS102EW0007, KS102EW0008, KS102EW0009, KS102EW0010, KS102EW0011, KS102EW0012, KS102EW0013, KS102EW0014, KS102EW0015, KS102EW0016, KS102EW0017",KS103SC0001,KS103NI0001
+Total_Population_16_to_74,Age Structure,Count,Person_16_to_74,Totals,Totals,Total Population (16 to 74),Total_Population_16_to_74,"KS102EW0007, KS102EW0008, KS102EW0009, KS102EW0010, KS102EW0011, KS102EW0012, KS102EW0013, KS102EW0014",KS601SC0001,KS601NI0001
+Total_Pop_No_NI_Students_16_to_74,Age Structure,Count,Not_Students_16_to_74,Totals,Totals,Total Population (16 to 74),Total_Population_16_to_74,QS701EW0001,QS701SC0001,KS701NI0001
+Total_Employment_16_to_74,Age Structure,Count,Employment_16_to_74,Totals,Totals,Total Employment (16 to 74),Total_Employment_16_to_74,KS605EW0001,KS605SC0001,KS605NI0001
+Total_Pop_in_Housesholds_16_and_over,Age Structure,Count,Pop_Household_16_Over,Totals,Totals,Total Population in Households (16 and over),Total_Population_in_Households_16_and_over,QS108EW0001,QS108SC0001,QS107NI0001
+Total_Population_3_and_over,Age Structure,Count,Person_3_Over,Totals,Totals,Total Population (3 and over),Total_Population_3_and_over,QS204EW0001,QS205SC0001,KS207NI0001
+u001,Usual Resident Population,Count,Person,Population Structure,Demographic,Males,Males,KS101EW0002,KS101SC0002,KS101NI0002
+u002,Usual Resident Population,Count,Person,Population Structure,Demographic,Females,Females,KS101EW0003,KS101SC0003,KS101NI0003
+u003,Usual Resident Population,Count,Person,Population Structure,Demographic,Lives in a household,Lives_in_a_household,KS101EW0004,KS101SC0004,KS101NI0004
+u004,Usual Resident Population,Count,Person,Population Structure,Demographic,Lives in a communal establishment,Lives_in_a_communal_establishment,KS101EW0005,KS101SC0005,KS101NI0005
+u005,Usual Resident Population,Area,Area (Hectares),Population Structure,Demographic,Area hectares,Area_hectares,KS101EW0007,QS102SC0002,QS102NI0002
+u006,Usual Resident Population,Ratio,Density,Population Structure,Demographic,Density (number of persons per hectare),Density_(number_of_persons_per_hectare),KS101EW0008,QS102SC0003,QS102NI0003
+u007,Age Structure,Count,Person,Population Age,Demographic,Age 0 to 4,Age_0_to_4,KS102EW0002,KS102SC0002,KS102NI0002
+u008,Age Structure,Count,Person,Population Age,Demographic,Age 5 to 9,Age_5_to_9,"KS102EW0003, KS102EW0004","KS102SC0003, KS102SC0004","KS102NI0003, KS102NI0004"
+u009,Age Structure,Count,Person,Population Age,Demographic,Age 10 to 14,Age_10_to_14,KS102EW0005,KS102SC0005,KS102NI0005
+u010,Age Structure,Count,Person,Population Age,Demographic,Age 15 to 19,Age_15_to_19,"KS102EW0006, KS102EW0007, KS102EW0008","KS102SC0006, KS102SC0007, KS102SC0008","KS102NI0006, KS102NI0007, KS102NI0008"
+u011,Age Structure,Count,Person,Population Age,Demographic,Age 20 to 24,Age_20_to_24,KS102EW0009,KS102SC0009,KS102NI0009
+u012,Age Structure,Count,Person,Population Age,Demographic,Age 25 to 29,Age_25_to_29,KS102EW0010,KS102SC0010,KS102NI0010
+u013,Age Structure,Count,Person,Population Age,Demographic,Age 30 to 44,Age_30_to_44,KS102EW0011,KS102SC0011,KS102NI0011
+u014,Age Structure,Count,Person,Population Age,Demographic,Age 45 to 59,Age_45_to_59,KS102EW0012,KS102SC0012,KS102NI0012
+u015,Age Structure,Count,Person,Population Age,Demographic,Age 60 to 64,Age_60_to_64,KS102EW0013,KS102SC0013,KS102NI0013
+u016,Age Structure,Count,Person,Population Age,Demographic,Age 65 to 74,Age_65_to_74,KS102EW0014,KS102SC0014,KS102NI0014
+u017,Age Structure,Count,Person,Population Age,Demographic,Age 75 to 84,Age_75_to_84,KS102EW0015,KS102SC0015,KS102NI0015
+u018,Age Structure,Count,Person,Population Age,Demographic,Age 85 to 89,Age_85_to_89,KS102EW0016,KS102SC0016,KS102NI0016
+u019,Age Structure,Count,Person,Population Age,Demographic,Age 90 and over,Age_90_and_over,KS102EW0017,KS102SC0017,KS102NI0017
+u020,Age Structure,Years,Person,Population Age,Demographic,Mean age,Mean_age,KS102EW0018,KS102SC0018,KS102NI0018
+u021,Age Structure,Years,Person,Population Age,Demographic,Median age,Median_age,KS102EW0019,KS102SC0019,KS102NI0019
+u022,Marital and Civil Partnership Status,Count,Person_16_Over,Marital and Civil Partnership Status,Demographic,Single (never married or never registered a same-sex civil partnership),Single_(never_married_or_never_registered_a_samesex_civil_partnership),KS103EW0002,KS103SC0002,KS103NI0002
+u023,Marital and Civil Partnership Status,Count,Person_16_Over,Marital and Civil Partnership Status,Demographic,Married,Married,KS103EW0003,KS103SC0003,KS103NI0003
+u024,Marital and Civil Partnership Status,Count,Person_16_Over,Marital and Civil Partnership Status,Demographic,In a registered same-sex civil partnership,In_a_registered_samesex_civil_partnership,KS103EW0004,KS103SC0004,KS103NI0004
+u025,Marital and Civil Partnership Status,Count,Person_16_Over,Marital and Civil Partnership Status,Demographic,Separated (but still legally married or still legally in a same-sex civil partnership),Separated_(but_still_legally_married_or_still_legally_in_a_samesex_civil_partnership),KS103EW0005,KS103SC0005,KS103NI0005
+u026,Marital and Civil Partnership Status,Count,Person_16_Over,Marital and Civil Partnership Status,Demographic,Divorced or formerly in a same-sex civil partnership which is now legally dissolved,Divorced_or_formerly_in_a_samesex_civil_partnership_which_is_now_legally_dissolved,KS103EW0006,KS103SC0006,KS103NI0006
+u027,Marital and Civil Partnership Status,Count,Person_16_Over,Marital and Civil Partnership Status,Demographic,Widowed or surviving partner from a same-sex civil partnership,Widowed_or_surviving_partner_from_a_samesex_civil_partnership,KS103EW0007,KS103SC0007,KS103NI0007
+u028,Ethnic Group,Count,Person,Ethnicity,Demographic,White: British and Irish,White_British_and_Irish,"KS201EW0002, KS201EW0003","KS201SC0003, KS201SC0004, KS201SC0005",KS201NI0002
+u029,Ethnic Group,Count,Person,Ethnicity,Demographic,White: Other White,White_Other_White,"KS201EW0004, KS201EW0005","KS201SC0006, KS201SC0007, KS201SC0008",KS201NI0004
+u030,Ethnic Group,Count,Person,Ethnicity,Demographic,Mixed/multiple ethnic group: Other Mixed,Mixed_or_multiple_ethnic_group,"KS201EW0006, KS201EW0007, KS201EW0008, KS201EW0009",KS201SC0009,KS201NI0012
+u031,Ethnic Group,Count,Person,Ethnicity,Demographic,Asian/Asian British: Indian,Asian_or_Asian_British_Indian,KS201EW0010,KS201SC0012,KS201NI0005
+u032,Ethnic Group,Count,Person,Ethnicity,Demographic,Asian/Asian British: Pakistani,Asian_or_Asian_British_Pakistani,KS201EW0011,KS201SC0011,KS201NI0006
+u033,Ethnic Group,Count,Person,Ethnicity,Demographic,Asian/Asian British: Bangladeshi,Asian_or_Asian_British_Bangladeshi,KS201EW0012,KS201SC0013,KS201NI0007
+u034,Ethnic Group,Count,Person,Ethnicity,Demographic,Asian/Asian British: Chinese,Asian_or_Asian_British_Chinese,KS201EW0013,KS201SC0014,KS201NI0003
+u035,Ethnic Group,Count,Person,Ethnicity,Demographic,Asian/Asian British: Other Asian,Asian_or_Asian_British_Other_Asian,KS201EW0014,KS201SC0015,KS201NI0008
+u036,Ethnic Group,Count,Person,Ethnicity,Demographic,Black/African/Caribbean/Black British: African,Black_or_African_or_Caribbean_or_Black_British_African,"KS201EW0015, KS201EW0016, KS201EW0017","KS201SC0016, KS201SC0019","KS201NI0009, KS201NI0010, KS201NI0011"
+u037,Ethnic Group,Count,Person,Ethnicity,Demographic,Arab or Other Ethnic Groups,Arab_or_Other_Ethnic_Groups,"KS201EW0018,KS201EW0019","KS201SC0024, KS201SC0025",KS201NI0013
+u038,Religion,Count,Person,Religious Beliefs,Demographic,Christian,Christian,KS209EW0002,KS209SCa0002,"KS211NI0002, KS211NI0003, KS211NI0004, KS211NI0005, KS211NI0006"
+u039,Religion,Count,Person,Religious Beliefs,Demographic,Other religion,Other_religion,"KS209EW0003, KS209EW0004, KS209EW0005, KS209EW0006, KS209EW0007, KS209EW0008","KS209SCa0003, KS209SCa0004, KS209SCa0005, KS209SCa0006, KS209SCa0007, KS209SCa0008",KS211NI0007
+u040,Religion,Count,Person,Religious Beliefs,Demographic,No religion,No_religion,KS209EW0009,KS209SCa0009,KS211NI0008
+u041,Religion,Count,Person,Religious Beliefs,Demographic,Religion not stated,Religion_not_stated,KS209EW0010,KS209SCa0010,KS211NI0009
+u042,Country of Birth,Count,Person,Region of Birth,Demographic,United Kingdom,United_Kingdom,"KS204EW0002, KS204EW0003, KS204EW0004, KS204EW0005, KS204EW0006","KS204SC0002, KS204SC0003, KS204SC0004, KS204SC0005","KS204NI0002, KS204NI0003, KS204NI0004, KS204NI0005"
+u043,Country of Birth,Count,Person,Region of Birth,Demographic,Ireland,Ireland,KS204EW0007,KS204SC0006,KS204NI0006
+u044,Country of Birth,Count,Person,Region of Birth,Demographic,Other EU: Member countries in March 2001,Other_EU_Member_countries_in_March_2001,KS204EW0008,KS204SC0007,KS204NI0007
+u045,Country of Birth,Count,Person,Region of Birth,Demographic,Other EU: Accession countries April 2001 to March 2011,Other_EU_Accession_countries_April_2001_to_March_2011,KS204EW0009,KS204SC0008,KS204NI0008
+u046,Country of Birth,Count,Person,Region of Birth,Demographic,Other countries,Other_countries,KS204EW0010,KS204SC0009,KS204NI0009
+u047,Proficiency in English,Count,Person_3_Over,Proficiency in English,Demographic,Main language is English or Main language not English: Can speak English very well,Main_language_is_English_or_Main_language_not_English__Can_speak_English_very_well,"QS205EW0002, QS205EW0003",QS205SC0002,"QS211NI0002,QS211NI0003"
+u048,Proficiency in English,Count,Person_3_Over,Proficiency in English,Demographic,Main language is not English: Can speak English well,Main_language_is_not_English__Can_speak_English_well,QS205EW0004,QS205SC0003,QS211NI0004
+u049,Proficiency in English,Count,Person_3_Over,Proficiency in English,Demographic,Main language is not English: Cannot speak English well,Main_language_is_not_English__Cannot_speak_English_well,QS205EW0005,QS205SC0004,QS211NI0005
+u050,Proficiency in English,Count,Person_3_Over,Proficiency in English,Demographic,Main language is not English: Cannot speak English,Main_language_is_not_English__Cannot_speak_English,QS205EW0006,QS205SC0005,QS211NI0006
+u051,Living Arrangements,Count,Pop_Household_16_Over,Living Arrangements,Household Composition,Living in a couple: Married,Living_in_a_couple_Married,QS108EW0003,QS108SC0003,QS107NI0003
+u052,Living Arrangements,Count,Pop_Household_16_Over,Living Arrangements,Household Composition,Living in a couple: Cohabiting (opposite-sex),Living_in_a_couple_Cohabiting_(oppositesex),QS108EW0004,QS108SC0004,QS107NI0004
+u053,Living Arrangements,Count,Pop_Household_16_Over,Living Arrangements,Household Composition,Living in a couple: In a registered same-sex civil partnership or cohabiting (same-sex),Living_in_a_couple_In_a_registered_samesex_civil_partnership_or_cohabiting_(samesex),QS108EW0005,QS108SC0005,"QS107NI0005,QS107NI0006"
+u054,Living Arrangements,Count,Pop_Household_16_Over,Living Arrangements,Household Composition,Not living in a couple: Single (never married or never registered a same-sex civil partnership),Not_living_in_a_couple_Single_(never_married_or_never_registered_a_samesex_civil_partnership),QS108EW0007,QS108SC0007,QS107NI0008
+u055,Living Arrangements,Count,Pop_Household_16_Over,Living Arrangements,Household Composition,Not living in a couple: Married or in a registered same-sex civil partnership,Not_living_in_a_couple_Married_or_in_a_registered_samesex_civil_partnership,QS108EW0008,QS108SC0008,QS107NI0009
+u056,Living Arrangements,Count,Pop_Household_16_Over,Living Arrangements,Household Composition,Not living in a couple: Separated (but still legally married or still legally in a same-sex civil partnership),Not_living_in_a_couple_Separated_(but_still_legally_married_or_still_legally_in_a_samesex_civil_partnership),QS108EW0009,QS108SC0009,QS107NI0010
+u057,Living Arrangements,Count,Pop_Household_16_Over,Living Arrangements,Household Composition,Not living in a couple: Divorced or formerly in a same-sex civil partnership which is now legally dissolved,Not_living_in_a_couple_Divorced_or_formerly_in_a_samesex_civil_partnership_which_is_now_legally_dissolved,QS108EW0010,QS108SC0010,QS107NI0011
+u058,Living Arrangements,Count,Pop_Household_16_Over,Living Arrangements,Household Composition,Not living in a couple: Widowed or surviving partner from a same-sex civil partnership,Not_living_in_a_couple_Widowed_or_surviving_partner_from_a_samesex_civil_partnership,QS108EW0011,QS108SC0011,QS107NI0012
+u059,Household Composition,Count,Household,Household Type,Household Composition,One person household: Aged 65 and over,One_person_household_Aged_65_and_over,KS105EW0002,KS105SC0002,KS105NI0002
+u060,Household Composition,Count,Household,Household Type,Household Composition,One person household: Other,One_person_household_Other,KS105EW0003,KS105SC0003,KS105NI0003
+u061,Household Composition,Count,Household,Household Type,Household Composition,One family only: All aged 65 and over,One_family_only_All_aged_65_and_over,KS105EW0004,KS105SC0004,KS105NI0004
+u062,Household Composition,Count,Household,Household Type,Household Composition,One family only: Married or same-sex civil partnership couple: No children,One_family_only_Married_or_samesex_civil_partnership_couple_No_children,KS105EW0005,KS105SC0005,KS105NI0005
+u063,Household Composition,Count,Household,Household Type,Household Composition,One family only: Married or same-sex civil partnership couple: Dependent children,One_family_only_Married_or_samesex_civil_partnership_couple_Dependent_children,KS105EW0006,KS105SC0006,KS105NI0006
+u064,Household Composition,Count,Household,Household Type,Household Composition,One family only: Married or same-sex civil partnership couple: All children non-dependent,One_family_only_Married_or_samesex_civil_partnership_couple_All_children_nondependent,KS105EW0007,KS105SC0007,KS105NI0007
+u065,Household Composition,Count,Household,Household Type,Household Composition,One family only: Cohabiting couple: No children,One_family_only_Cohabiting_couple_No_children,KS105EW0008,KS105SC0008,KS105NI0008
+u066,Household Composition,Count,Household,Household Type,Household Composition,One family only: Cohabiting couple: Dependent children,One_family_only_Cohabiting_couple_Dependent_children,KS105EW0009,KS105SC0009,KS105NI0009
+u067,Household Composition,Count,Household,Household Type,Household Composition,One family only: Cohabiting couple: All children non-dependent,One_family_only_Cohabiting_couple_All_children_nondependent,KS105EW0010,KS105SC0010,KS105NI0010
+u068,Household Composition,Count,Household,Household Type,Household Composition,One family only: Lone parent: Dependent children,One_family_only_Lone_parent_Dependent_children,KS105EW0011,KS105SC0011,KS105NI0011
+u069,Household Composition,Count,Household,Household Type,Household Composition,One family only: Lone parent: All children non-dependent,One_family_only_Lone_parent_All_children_nondependent,KS105EW0012,KS105SC0012,KS105NI0012
+u070,Household Composition,Count,Household,Household Type,Household Composition,Other household types: With dependent children,Other_household_types_With_dependent_children,KS105EW0013,KS105SC0013,KS105NI0013
+u071,Household Composition,Count,Household,Household Type,Household Composition,Other household types: All full-time students,Other_household_types_All_fulltime_students,KS105EW0014,KS105SC0014,KS105NI0014
+u072,Household Composition,Count,Household,Household Type,Household Composition,Other household types: All aged 65 and over,Other_household_types_All_aged_65_and_over,KS105EW0015,KS105SC0015,KS105NI0015
+u073,Household Composition,Count,Household,Household Type,Household Composition,Other household types: Other,Other_household_types_Other,KS105EW0016,KS105SC0016,KS105NI0016
+u074,Adults Not in Employment,Count,Household,Constrained Circumstance Households,Household Composition,No adults in employment in household: With dependent children,No_adults_in_employment_in_household_With_dependent_children,KS106EW0002,KS106SC0002,KS106NI0002
+u075,Adults Not in Employment,Count,Household,Constrained Circumstance Households,Household Composition,No adults in employment in household: No dependent children,No_adults_in_employment_in_household_No_dependent_children,KS106EW0003,KS106SC0003,KS106NI0003
+u076,Lone Parent Households With Dependent Children,Count,Household,Constrained Circumstance Households,Household Composition,Lone parent in part-time employment: Total,Lone_parent_in_parttime_employment_Total,KS107EW0002,KS107SC0002,KS107NI0002
+u077,Lone Parent Households With Dependent Children,Count,Household,Constrained Circumstance Households,Household Composition,Lone parent in full-time employment: Total,Lone_parent_in_fulltime_employment_Total,KS107EW0003,KS107SC0003,KS107NI0003
+u078,Lone Parent Households With Dependent Children,Count,Household,Constrained Circumstance Households,Household Composition,Lone parent not in employment: Total,Lone_parent_not_in_employment_Total,KS107EW0004,KS107SC0004,KS107NI0004
+u079,Multiple Ethnic Groups,Count,Household,Household Ethnicity,Household Composition,One person ethnic household,One_person_ethnic_household,QS202EW0002,QS202SC0002,QS204NI0002
+u080,Multiple Ethnic Groups,Count,Household,Household Ethnicity,Household Composition,All household members have the same ethnic group,All_household_members_have_the_same_ethnic_group,QS202EW0003,QS202SC0003,QS204NI0003
+u081,Multiple Ethnic Groups,Count,Household,Household Ethnicity,Household Composition,Different ethnic groups between the generations only,Different_ethnic_groups_between_the_generations_only,QS202EW0004,QS202SC0004,QS204NI0004
+u082,Multiple Ethnic Groups,Count,Household,Household Ethnicity,Household Composition,Different ethnic groups within partnerships (whether or not different ethnic groups between generations),Different_ethnic_groups_within_partnerships_(whether_or_not_different_ethnic_groups_between_generations),QS202EW0005,QS202SC0005,QS204NI0005
+u083,Multiple Ethnic Groups,Count,Household,Household Ethnicity,Household Composition,Any other combination of multiple ethnic groups,Any_other_combination_of_multiple_ethnic_groups,QS202EW0006,QS202SC0006,QS204NI0006
+u084,"Dwellings, Household Spaces and Accomodation Type",Count,Dwelling,Housing Occupation,Housing,Household spaces with at least one usual resident,Household_spaces_with_at_least_one_usual_resident,KS401EW0006,KS401SC0006,KS401NI0005
+u085,"Dwellings, Household Spaces and Accomodation Type",Count,Dwelling,Housing Occupation,Housing,Household spaces with no usual residents,Household_spaces_with_no_usual_residents,KS401EW0007,"KS401SC0007, KS401SC0008",KS401NI0006
+u086,"Dwellings, Household Spaces and Accomodation Type",Count,Household_Spaces,Housing Type,Housing,Whole house or bungalow: Detached,Whole_house_or_bungalow_Detached,KS401EW0008,KS401SC0009,KS401NI0007
+u087,"Dwellings, Household Spaces and Accomodation Type",Count,Household_Spaces,Housing Type,Housing,Whole house or bungalow: Semi-detached,Whole_house_or_bungalow_Semidetached,KS401EW0009,KS401SC0010,KS401NI0008
+u088,"Dwellings, Household Spaces and Accomodation Type",Count,Household_Spaces,Housing Type,Housing,Whole house or bungalow: Terraced (including end-terrace),Whole_house_or_bungalow_Terraced_(including_endterrace),KS401EW0010,KS401SC0011,KS401NI0009
+u089,"Dwellings, Household Spaces and Accomodation Type",Count,Household_Spaces,Housing Type,Housing,Flats,Flats,"KS401EW0011, KS401EW0012, KS401EW0013","KS401SC0012, KS401SC0013, KS401SC0014","KS401NI0010, KS401NI0011,KS401NI0012"
+u090,"Dwellings, Household Spaces and Accomodation Type",Count,Household_Spaces,Housing Type,Housing,Caravan or other mobile or temporary structure,Caravan_or_other_mobile_or_temporary_structure,KS401EW0014,KS401SC0015,KS401NI0013
+u091,Tenure,Count,Household,Housing Ownership,Housing,Owned and Shared Ownership,Owned_and_Shared_Ownership,"KS402EW0002, KS402EW0003, KS402EW0004","KS402SC0002, KS402SC0003, KS402SC0004","KS402NI0002, KS402NI0003, KS402NI0004"
+u092,Tenure,Count,Household,Housing Ownership,Housing,Social rented,Social_rented,"KS402EW0005, KS402EW0006","KS402SC0005, KS402SC0006","KS402NI0005, KS402NI0006"
+u093,Tenure,Count,Household,Housing Ownership,Housing,Private rented,Private_rented,"KS402EW0007, KS402EW0008","KS402SC0007,KS402SC0008","KS402NI0007, KS402NI0008"
+u094,Tenure,Count,Household,Housing Ownership,Housing,Living rent free,Living_rent_free,KS402EW0009,KS402SC0009,KS402NI0009
+u095,Occupancy Rating (rooms),Count,Household,Housing Crowding,Housing,Occupancy rating (rooms) of +2 or more,Occupancy_rating_rooms_of_+2_or_more,QS408EW0002,QS408SC0002,QS407NI0002
+u096,Occupancy Rating (rooms),Count,Household,Housing Crowding,Housing,Occupancy rating (rooms) of +1,Occupancy_rating_rooms_of_+1,QS408EW0003,QS408SC0003,QS407NI0003
+u097,Occupancy Rating (rooms),Count,Household,Housing Crowding,Housing,Occupancy rating (rooms) of 0,Occupancy_rating_rooms_of_0,QS408EW0004,QS408SC0004,QS407NI0004
+u098,Occupancy Rating (rooms),Count,Household,Housing Crowding,Housing,Occupancy rating (rooms) of -1,Occupancy_rating_rooms_of_-1,QS408EW0005,QS408SC0005,QS407NI0005
+u099,Occupancy Rating (rooms),Count,Household,Housing Crowding,Housing,Occupancy rating (rooms) of -2 or less,Occupancy_rating_rooms_of_+2_or_less,QS408EW0006,QS408SC0006,QS407NI0006
+u100,Persons per room - Households,Count,Household,Housing Crowding,Housing,Up to 0.5 persons per room,Up_to_0.5_persons_per_room,QS409EW0002,QS409SC0002,QS408NI0002
+u101,Persons per room - Households,Count,Household,Housing Crowding,Housing,Over 0.5 and up to 1.0 persons per room,Over_0.5_and_up_to_1.0_persons_per_room,QS409EW0003,QS409SC0003,QS408NI0003
+u102,Persons per room - Households,Count,Household,Housing Crowding,Housing,Over 1.0 and up to 1.5 persons per room,Over_1.0_and_up_to_1.5_persons_per_room,QS409EW0004,QS409SC0004,QS408NI0004
+u103,Persons per room - Households,Count,Household,Housing Crowding,Housing,Over 1.5 persons per room,Over_1.5_persons_per_room,QS409EW0005,QS409SC0005,QS408NI0005
+u104,Health and Provision of Unpaid Care,Ratio,SIR,Population Health and Care,Socio-Economic,Day-to-day activities limited a lot or a little Standardised Illness Ratio,Daytoday_activities_limited_a_lot_or_a_little_Standardised_Illness_Ratio,"KS301EW0002, KS301EW0003, KS301EW0006, KS301EW0007","KS301SCb0002, KS301SCb0003, KS301SCb0006,KS301SCb0007","KS301NI0002, KS301NI0003, KS301NI0006, KS301NI0007"
+u105,Health and Provision of Unpaid Care,Count,Person,Population Health and Care,Socio-Economic,Very good health,Very_good_health,KS301EW0008,KS301SCb0008,KS301NI0008
+u106,Health and Provision of Unpaid Care,Count,Person,Population Health and Care,Socio-Economic,Good health,Good_health,KS301EW0009,KS301SCb0009,KS301NI0009
+u107,Health and Provision of Unpaid Care,Count,Person,Population Health and Care,Socio-Economic,Fair health,Fair_health,KS301EW0010,KS301SCb0010,KS301NI0010
+u108,Health and Provision of Unpaid Care,Count,Person,Population Health and Care,Socio-Economic,Bad health,Bad_health,KS301EW0011,KS301SCb0011,KS301NI0011
+u109,Health and Provision of Unpaid Care,Count,Person,Population Health and Care,Socio-Economic,Very bad health,Very_bad_health,KS301EW0012,KS301SCb0012,KS301NI0012
+u110,Health and Provision of Unpaid Care,Count,Person,Population Health and Care,Socio-Economic,Provides unpaid care,Provides_unpaid_care,"KS301EW0014, KS301EW0015, KS301EW0016","KS301SCb0014, KS301SCb0015, KS301SCb0016, KS301SCb0017","KS301NI0014, KS301NI0015, KS301NI0016"
+u111,Qualifications and Students,Count,Person_16_Over,Population Education,Socio-Economic,No qualifications,No_qualifications,KS501EW0002,KS501SC0002,KS501NI0002
+u112,Qualifications and Students,Count,Person_16_Over,Population Education,Socio-Economic,"Highest level of qualification: Level 1, Level 2 or Apprenticeship",Highest_level_of_qualification_Level_1_Level_2_or_Apprenticeship,"KS501EW0003, KS501EW0004, KS501EW0004","KS501SC0003, KS501SC0004","KS501NI0003, KS501NI0004,KS501NI0005"
+u113,Qualifications and Students,Count,Person_16_Over,Population Education,Socio-Economic,Highest level of qualification: Level 3 qualifications,Highest_level_of_qualification_Level_3_qualifications,KS501EW0006,KS501SC0005,KS501NI0006
+u114,Qualifications and Students,Count,Person_16_Over,Population Education,Socio-Economic,Highest level of qualification: Level 4 qualifications and above,Highest_level_of_qualification_Level_4_qualifications_and_above,KS501EW0007,KS501SC0006,KS501NI0007
+u115,Qualifications and Students,Count,Person_16_Over,Population Education,Socio-Economic,Schoolchildren and full-time students: Age 16 and over,Schoolchildren_and_fulltime_students_Age_16_and_over,"KS501EW0009, KS501EW0010","KS501SC0007, KS501SC0008","KS501NI0009, KS501NI0010"
+u116,Car or Van Availability,Count,Household,Vehcile Availability,Socio-Economic,No cars or vans in household,No_cars_or_vans_in_household,KS404EW0002,KS404SC0002,KS405NI0002
+u117,Car or Van Availability,Count,Household,Vehcile Availability,Socio-Economic,1 car or van in household,1_car_or_van_in_household,KS404EW0003,KS404SC0003,KS405NI0003
+u118,Car or Van Availability,Count,Household,Vehcile Availability,Socio-Economic,2 or more cars or vans in household,2_or_more_cars_or_vans_in_household,"KS404EW0004, KS404EW0005, KS404EW0006","KS404SC0004, KS404SC0005, KS404SC0006","KS405NI0004, KS405NI0005, KS405NI0006"
+u119,Method of Travel to Work,Count,Not_Students_16_to_74,Travel-to-Work,Socio-Economic,Work mainly at or from home,Work_mainly_at_or_from_home,QS701EW0002,QS701SC0002,KS701NI0002
+u120,Method of Travel to Work,Count,Not_Students_16_to_74,Travel-to-Work,Socio-Economic,Public Transport,Public_Transport,"QS701EW0003, QS701EW0004, QS701EW0005, QS701EW0006","QS701SC0003, QS701SC0004, QS701SC0005, QS701SC0006","KS701NI0003, KS701NI0004, KS701NI0009"
+u121,Method of Travel to Work,Count,Not_Students_16_to_74,Travel-to-Work,Socio-Economic,Private Transport,Private_Transport,"QS701EW0007, QS701EW0008, QS701EW0009","QS701SC0007, QS701SC0008, QS701SC0009","KS701NI0005, KS701NI0006, KS701NI0007, KS701NI0008"
+u122,Method of Travel to Work,Count,Not_Students_16_to_74,Travel-to-Work,Socio-Economic,"On foot, Bicycle or Other",On_foot_Bicycle_or_Other,"QS701EW0010, QS701EW0011, QS701EW0012","QS701SC0010, QS701SC0011, QS701SC0012","KS701NI0010, KS701NI0011, KS701NI0012"
+u123,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically active: Employee: Part-time,Economically_active_Employee_Parttime,KS601EW0002,KS601SC0002,KS601NI0002
+u124,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically active: Employee: Full-time,Economically_active_Employee_Fulltime,KS601EW0003,KS601SC0003,KS601NI0003
+u125,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically active: Self-employed,Economically_active_Selfemployed,KS601EW0004,KS601SC0004,KS601NI0004
+u126,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically active: Unemployed,Economically_active_Unemployed,KS601EW0005,KS601SC0005,KS601NI0005
+u127,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically active: Full-time student,Economically_active_Fulltime_student,KS601EW0006,KS601SC0006,KS601NI0006
+u128,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically inactive: Retired,Economically_inactive_Retired,KS601EW0007,KS601SC0007,KS601NI0007
+u129,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically inactive: Student (including full-time students),Economically_inactive_Student_(including_fulltime_students),KS601EW0008,KS601SC0008,KS601NI0008
+u130,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically inactive: Looking after home or family,Economically_inactive_Looking_after_home_or_family,KS601EW0009,KS601SC0009,KS601NI0009
+u131,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically inactive: Long-term sick or disabled,Economically_inactive_Longterm_sick_or_disabled,KS601EW0010,KS601SC0010,KS601NI0010
+u132,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Economically inactive: Other,Economically_inactive_Other,KS601EW0011,KS601SC0011,KS601NI0011
+u133,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Unemployed: Age 16 to 24,Unemployed_Age_16_to_24,KS601EW0012,KS601SC0012,KS601NI0013
+u134,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Unemployed: Age 50 to 74,Unemployed_Age_50_to_74,KS601EW0013,KS601SC0013,KS601NI0014
+u135,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Unemployed: Never worked,Unemployed_Never_worked,KS601EW0014,KS601SC0014,KS601NI0015
+u136,Economic Activity,Count,Person_16_to_74,Population Employment,Employment,Long-term unemployed,Longterm_unemployed,KS601EW0015,KS601SC0015,KS601NI0016
+u137,Hours Worked,Count,Employment_16_to_74,Employment Hours,Employment,Part-time: 15 hours or less worked,Parttime_15_hours_or_less_worked,KS604EW0002,KS604SCa0002,KS604NI0002
+u138,Hours Worked,Count,Employment_16_to_74,Employment Hours,Employment,Part-time: 16 to 30 hours worked,Parttime_16_to_30_hours_worked,KS604EW0003,KS604SCa0003,KS604NI0003
+u139,Hours Worked,Count,Employment_16_to_74,Employment Hours,Employment,Full-time: 31 to 48 hours worked,Fulltime_31_to_48_hours_worked,KS604EW0004,KS604SCa0004,KS604NI0004
+u140,Hours Worked,Count,Employment_16_to_74,Employment Hours,Employment,Full-time: 49 or more hours worked,Fulltime_49_or_more_hours_worked,KS604EW0005,KS604SCa0005,KS604NI0005
+u141,Industry,Count,Employment_16_to_74,Industry Sector,Employment,"Agriculture, forestry and fishing",Agriculture_forestry_and_fishing,KS605EW0002,KS605SC0002,KS605NI0002
+u142,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Mining and quarrying,Mining_and_quarrying,KS605EW0003,KS605SC0003,KS605NI0003
+u143,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Manufacturing,Manufacturing,KS605EW0004,KS605SC0004,KS605NI0004
+u144,Industry,Count,Employment_16_to_74,Industry Sector,Employment,"Electricity, gas, steam and air conditioning supply ",Electricity_gas_steam_and_air_conditioning_supply_,KS605EW0005,KS605SC0005,KS605NI0005
+u145,Industry,Count,Employment_16_to_74,Industry Sector,Employment,"Water supply; sewerage, waste management and remediation activities",Water_supply_sewerage_waste_management_and_remediation_activities,KS605EW0006,KS605SC0006,KS605NI0006
+u146,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Construction,Construction,KS605EW0007,KS605SC0007,KS605NI0007
+u147,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Wholesale and retail trade; repair of motor vehicles and motor cycles,Wholesale_and_retail_trade_repair_of_motor_vehicles_and_motor_cycles,KS605EW0008,KS605SC0008,KS605NI0008
+u148,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Transport and storage,Transport_and_storage,KS605EW0009,KS605SC0009,KS605NI0009
+u149,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Accommodation and food service activities,Accommodation_and_food_service_activities,KS605EW0010,KS605SC0010,KS605NI0010
+u150,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Information and communication,Information_and_communication,KS605EW0011,KS605SC0011,KS605NI0011
+u151,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Financial and insurance activities,Financial_and_insurance_activities,KS605EW0012,KS605SC0012,KS605NI0012
+u152,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Real estate activities,Real_estate_activities,KS605EW0013,KS605SC0013,KS605NI0013
+u153,Industry,Count,Employment_16_to_74,Industry Sector,Employment,"Professional, scientific and technical activities",Professional_scientific_and_technical_activities,KS605EW0014,KS605SC0014,KS605NI0014
+u154,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Administrative and support service activities,Administrative_and_support_service_activities,KS605EW0015,KS605SC0015,KS605NI0015
+u155,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Public administration and defence; compulsory social security,Public_administration_and_defence_compulsory_social_security,KS605EW0016,KS605SC0016,KS605NI0016
+u156,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Education,Education,KS605EW0017,KS605SC0017,KS605NI0017
+u157,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Human health and social work activities,Human_health_and_social_work_activities,KS605EW0018,KS605SC0018,KS605NI0018
+u158,Industry,Count,Employment_16_to_74,Industry Sector,Employment,Other industry,Other_industry,KS605EW0019,KS605SC0019,KS605NI0019
+u159,Occupation,Count,Employment_16_to_74,Employment Type,Employment,"Managers, directors and senior officials",Managers_directors_and_senior_officials,KS608EW0002,KS608SC0002,KS608NI0002
+u160,Occupation,Count,Employment_16_to_74,Employment Type,Employment,Professional occupations,Professional_occupations,KS608EW0003,KS608SC0003,KS608NI0003
+u161,Occupation,Count,Employment_16_to_74,Employment Type,Employment,Associate professional and technical occupations,Associate_professional_and_technical_occupations,KS608EW0004,KS608SC0004,KS608NI0004
+u162,Occupation,Count,Employment_16_to_74,Employment Type,Employment,Administrative and secretarial occupations,Administrative_and_secretarial_occupations,KS608EW0005,KS608SC0005,KS608NI0005
+u163,Occupation,Count,Employment_16_to_74,Employment Type,Employment,Skilled trades occupations,Skilled_trades_occupations,KS608EW0006,KS608SC0006,KS608NI0006
+u164,Occupation,Count,Employment_16_to_74,Employment Type,Employment,"Caring, leisure and other service occupations",Caring_leisure_and_other_service_occupations,KS608EW0007,KS608SC0007,KS608NI0007
+u165,Occupation,Count,Employment_16_to_74,Employment Type,Employment,Sales and customer service occupations,Sales_and_customer_service_occupations,KS608EW0008,KS608SC0008,KS608NI0008
+u166,Occupation,Count,Employment_16_to_74,Employment Type,Employment,"Process, plant and machine operatives",Process_plant_and_machine_operatives,KS608EW0009,KS608SC0009,KS608NI0009
+u167,Occupation,Count,Employment_16_to_74,Employment Type,Employment,Elementary occupations,Elementary_occupations,KS608EW0010,KS608SC0010,KS608NI0010

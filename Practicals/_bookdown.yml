@@ -1,0 +1,4 @@
+title: "GY7702 Practical Programming in R"
+author: "Stefano De Sabbata"
+date: "`r Sys.Date()`"
+new_session: yes
