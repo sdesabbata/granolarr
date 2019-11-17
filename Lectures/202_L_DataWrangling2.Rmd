@@ -1,5 +1,5 @@
 ---
-title: "Lecture 4<br/>Data wrangling Pt. 2"
+title: "Lecture 202<br/>Data wrangling Pt. 2"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
 date: "`r Sys.Date()`"
 output:
@@ -17,7 +17,7 @@ rm(list = ls())
 
 
 
-# Lecture 4<br/>Recap
+# Lecture 202<br/>Recap
 
 
 
@@ -40,7 +40,7 @@ Moving on towards data science
 - Read and write data
 
 
-# Lecture 4<br/>Join
+# Lecture 202<br/>Join
 
 
 
@@ -168,7 +168,7 @@ employees %>% inner_join(
 
 
 
-# Lecture 4<br/>Re-shape
+# Lecture 202<br/>Re-shape
 
 
 ## Wide data
@@ -257,7 +257,7 @@ kable(city_info_back_to_wide)
 
 
 
-# Lecture 4<br/>Read and write
+# Lecture 202<br/>Read and write
 
 
 
@@ -324,7 +324,7 @@ read_csv("2011_OAC_Raw_uVariables_Leicester.csv") %>%
 
 
 
-# Lecture 4<br/>Summary
+# Lecture 202<br/>Summary
 
 
 

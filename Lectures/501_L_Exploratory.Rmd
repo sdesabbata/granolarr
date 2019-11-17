@@ -1,5 +1,5 @@
 ---
-title: "Lecture 7<br/>Exploratory analysis"
+title: "Lecture 501<br/>Exploratory analysis"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
 date: "`r Sys.Date()`"
 output:
@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 7<br/>Summary
+# Lecture 501<br/>Summary
 
 
 
@@ -47,7 +47,7 @@ rm(list = ls())
 
 
 
-# Lecture 7<br/>Data visualisation
+# Lecture 501<br/>Data visualisation
 
 
 
@@ -388,7 +388,7 @@ nycflights13::flights %>%
 </div>
 
 
-# Lecture 7<br/>Descriptive statistics
+# Lecture 501<br/>Descriptive statistics
 
 
 
@@ -498,7 +498,7 @@ nycflights13::flights %>%
 
 
 
-# Lecture 7<br/>Exploring assumptions
+# Lecture 501<br/>Exploring assumptions
 
 
 
@@ -698,7 +698,7 @@ leveneTest(dep_delay_carrier$dep_delay, dep_delay_carrier$carrier)
 ```
 
 
-# Lecture 7<br/>Summary
+# Lecture 501<br/>Summary
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Lecture 2<br/>Data types"
+title: "Lecture 102<br/>Data types"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
 date: "`r Sys.Date()`"
 output:
@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 2<br/>Recap
+# Lecture 102<br/>Recap
 
 
 
@@ -46,7 +46,7 @@ More complex data types
 
 
 
-# Lecture 2<br/>Vectors
+# Lecture 102<br/>Vectors
 
 ## Vectors
 **Vectors** are ordered list of values.
@@ -147,7 +147,7 @@ all(a_numeric_vector >= 3)
 ```
 
 
-# Lecture 2<br/>Factors
+# Lecture 102<br/>Factors
 
 ## Factors
 
@@ -216,7 +216,7 @@ sort(income_ordered)
 
 
 
-# Lecture 2<br/>Matrices and arrays
+# Lecture 102<br/>Matrices and arrays
 
 
 ## Matrices
@@ -345,7 +345,7 @@ apply(a3dim_array, 2, min) # apply on second dimension
 ```
 
 
-# Lecture 2<br/>Lists
+# Lecture 102<br/>Lists
 
 ## Lists
 
@@ -397,7 +397,7 @@ various
 -->
 
 
-# Lecture 2<br/>Data frames
+# Lecture 102<br/>Data frames
 
 
 
@@ -476,7 +476,7 @@ This forces you to confront problems earlier, typically leading to cleaner, more
 
 
 
-# Lecture 2<br/>Summary
+# Lecture 102<br/>Summary
 
 
 

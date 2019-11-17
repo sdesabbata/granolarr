@@ -1,5 +1,5 @@
 ---
-title: "GY7702 02 Data types"
+title: "102 Data types"
 author: "Stefano De Sabbata"
 date: "`r Sys.Date()`"
 output: pdf_document

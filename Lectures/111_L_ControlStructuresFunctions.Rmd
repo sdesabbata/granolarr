@@ -1,5 +1,5 @@
 ---
-title: "Lecture 6<br/>Control and Functions"
+title: "Lecture 111<br/>Control and Functions"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
 date: "`r Sys.Date()`"
 output:
@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 6<br/>Recap
+# Lecture 111<br/>Recap
 
 
 
@@ -48,7 +48,7 @@ How to control the data processing flow
 - Scope of a variable
 
 
-# Lecture 6<br/>Conditional statements
+# Lecture 111<br/>Conditional statements
 
 ## If
 Format: **if** (*condition*) *statement*
@@ -111,7 +111,7 @@ if (first_value > second_value) {
 
 
 
-# Lecture 6<br/>Loops
+# Lecture 111<br/>Loops
 
 ## Loops
 Loops are a fundamental component of (procedural) programming.
@@ -202,7 +202,7 @@ for (i in 3:0) {
 
 
 
-# Lecture 6<br/>Functions
+# Lecture 111<br/>Functions
 
 
 ## Defining functions
@@ -333,7 +333,7 @@ Hint: try *debug* the function above and observe how the *local* environment is 
 
 
 <!--
-# Lecture 6<br/>Debugging
+# Lecture 111<br/>Debugging
 
 ## What is debugging?
 
@@ -380,7 +380,7 @@ percentage_change <- function (before, after){
 -->
 
 
-# Lecture 6<br/>Summary
+# Lecture 111<br/>Summary
 
 
 

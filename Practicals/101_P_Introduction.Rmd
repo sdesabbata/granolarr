@@ -1,5 +1,5 @@
 ---
-title: "GY7702 01 Introduction"
+title: "101 Introduction"
 author: "Stefano De Sabbata"
 date: "`r Sys.Date()`"
 output: pdf_document

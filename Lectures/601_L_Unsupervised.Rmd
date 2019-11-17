@@ -1,5 +1,5 @@
 ---
-title: "Lecture 9<br/>Unsupervised ML"
+title: "Lecture 601<br/>Unsupervised ML"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
 date: "`r Sys.Date()`"
 output:
@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 9<br/>Summary
+# Lecture 601<br/>Summary
 
 
 
@@ -32,7 +32,7 @@ TODO
 
 
 
-# Lecture 9<br/>Machine Learning
+# Lecture 601<br/>Machine Learning
 
 
 
@@ -77,7 +77,7 @@ Incl. overfitting
 
 
 
-# Lecture 9<br/>Clustering
+# Lecture 601<br/>Clustering
 
 
 ## Clustering task
@@ -108,7 +108,7 @@ Incl. overfitting
 
 
 
-# Lecture 9<br/>Summary
+# Lecture 601<br/>Summary
 
 
 

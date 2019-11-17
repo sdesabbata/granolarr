@@ -1,5 +1,5 @@
 ---
-title: "GY7702 04 Data wrangling Pt. 2"
+title: "202 Data wrangling Pt. 2"
 author: "Stefano De Sabbata"
 date: "`r Sys.Date()`"
 output: pdf_document

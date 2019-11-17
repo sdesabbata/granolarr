@@ -1,5 +1,5 @@
 ---
-title: "Lecture 7<br/>Univariate analysis"
+title: "Lecture 502<br/>Univariate analysis"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
 date: "`r Sys.Date()`"
 output:
@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 7<br/>Summary
+# Lecture 502<br/>Summary
 
 
 
@@ -32,7 +32,7 @@ TODO
 
 
 
-# Lecture 7<br/>Correlation
+# Lecture 502<br/>Correlation
 
 
 
@@ -56,7 +56,7 @@ TODO
 
 
 
-# Lecture 7<br/>Data transformations
+# Lecture 502<br/>Data transformations
 
 
 # Z-scores
@@ -71,7 +71,7 @@ TODO
 
 
 
-# Lecture 7<br/> Regression
+# Lecture 502<br/> Regression
 
 
 
@@ -132,7 +132,7 @@ List all in 7.7.2.1 excluding those for multivariate
 
 
 
-# Lecture 7<br/>Comparing means
+# Lecture 502<br/>Comparing means
 
 
 
@@ -152,7 +152,7 @@ List all in 7.7.2.1 excluding those for multivariate
 
 
 
-# Lecture 7<br/>Summary
+# Lecture 502<br/>Summary
 
 
 

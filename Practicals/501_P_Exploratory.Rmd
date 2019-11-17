@@ -1,5 +1,5 @@
 ---
-title: "GY7702 07 Exploratory analysis"
+title: "501 Exploratory analysis"
 author: "Stefano De Sabbata"
 date: "`r Sys.Date()`"
 output: pdf_document

@@ -1,5 +1,5 @@
 ---
-title: "GY7702 | Practical session materials"
+title: "Geographic data science reproducible teaching resource in R<br/>Practical session materials"
 author: "Stefano De Sabbata"
 date: "`r Sys.Date()`"
 output: html_document
