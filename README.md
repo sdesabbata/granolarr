@@ -2,7 +2,7 @@
 
 GeogRaphic dAta scieNce reprOducibLe teAching Resource in R
 
-*[Stefano De Sabbata](https://stefanodesabbata.com)*
+by *[Stefano De Sabbata](https://stefanodesabbata.com)*
 
 [This work](https://github.com/sdesabbata/GY7702) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence).
 
@@ -14,12 +14,7 @@ This content was created using [R](https://www.r-project.org/), [RStudio](https:
 
 ## Reference books
 
-Lectures 1 to 6
-
 - *Programming Skills for Data Science: Start Writing Code to Wrangle, Analyze, and Visualize Data with R* by Michael Freeman and Joel Ross, Addison-Wesley, 2019. See book [webpage](https://www.pearson.com/us/higher-education/program/Freeman-Programming-Skills-for-Data-Science-Start-Writing-Code-to-Wrangle-Analyze-and-Visualize-Data-with-R/PGM2047488.html) and [repository](https://programming-for-data-science.github.io/).
-
-Lectures 7 and 10
-
 - *Machine Learning with R: Expert techniques for predictive modeling* by Brett Lantz, Packt Publishing, 2019. See book [webpage](https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788295864).
 
 Further reading
