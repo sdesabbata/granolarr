@@ -1,0 +1,539 @@
+---
+title: "Lecture 111<br/>Control and Functions"
+author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
+date: "2019-11-18"
+output:
+  ioslides_presentation:
+    template: ../Utils/IOSlides/UoL_Template.html
+    logo: ../Utils/IOSlides/uol_logo.png
+---
+
+
+
+
+
+# Recap @ 111
+
+
+
+## Previous lectures
+
+Moving from programming to data science
+
+- Basic types and variables
+- The pipe operator
+- Coding style
+- Complex data types
+    - Vectors
+    - Data Frames
+- Data selection and filtering
+- Join operations
+- Table re-shaping
+
+
+
+## Today
+
+How to control the data processing flow
+
+- Conditional statements
+- Loops
+    - While
+    - For
+- Functions
+- Scope of a variable
+
+
+# Conditional statements
+
+## If
+Format: **if** (*condition*) *statement*
+
+- *condition*: expression returning a logic value (`TRUE` or `FALSE`)
+- *statement*: any valid R statement
+- *statement* only executed if *condition* is `TRUE`
+
+
+
+```r
+a_value <- -7
+if (a_value < 0) cat("Negative")
+```
+
+```
+## Negative
+```
+
+```r
+a_value <- 8
+if (a_value < 0) cat("Negative")
+```
+
+
+## Else
+Format: **if** (*condition*) *statement1* **else** *statement2*
+
+- *condition*: expression returning a logic value (`TRUE` or `FALSE`)
+- *statement1* and *statement2*: any valid R statements
+- *statement1*  executed if *condition* is `TRUE`
+- *statement2*  executed if *condition* is `FALSE`
+
+
+
+```r
+a_value <- -7
+if (a_value < 0) cat("Negative") else cat("Positive")
+```
+
+```
+## Negative
+```
+
+```r
+a_value <- 8
+if (a_value < 0) cat("Negative") else cat("Positive")
+```
+
+```
+## Positive
+```
+
+<!--
+## Example
+
+
+```r
+x <- 10
+if (is.numeric(x) & (!(x < 0) & (x != 0)) ) cat("greater than zero")
+```
+
+```
+## greater than zero
+```
+-->
+
+
+## Code blocks
+
+Suppose you want to execute **several** statements within a function, or if a condition is true
+
+- Such a group of statements are called **code blocks**
+- `{` and `}` contain code blocks
+
+
+```r
+first_value <- 8
+second_value <- 5
+if (first_value > second_value) {
+  cat("First is greater than second\n") 
+  difference <- first_value - second_value
+  cat("Their difference is ", difference)
+}
+```
+
+```
+## First is greater than second
+## Their difference is  3
+```
+
+
+
+# Loops
+
+## Loops
+Loops are a fundamental component of (procedural) programming.
+
+
+There are two main types of loops:
+
+- **conditional** loops are executed as long as a defined condition holds true
+    - construct `while`
+    - construct `repeat`
+- **deterministic** loops are executed a pre-determined number of times
+    - construct `for`
+
+
+## While
+
+The *while* construct can be defined using the `while` reserved word, followed by the conditional statement between simple brackets, and a code block. The instructions in the code block are re-executed as long as the result of the evaluation of the conditional statement is `TRUE`.
+
+
+```r
+current_value <- 0
+
+while (current_value < 3) {
+  cat("Current value is", current_value, "\n")
+  current_value <- current_value + 1
+}
+```
+
+```
+## Current value is 0 
+## Current value is 1 
+## Current value is 2
+```
+
+<!--
+## Repeat
+
+The *repeat* construct can be defined using the `repeat` reserved word, followed by a code block. The instructions in the code block are re-executed until the command `break` is given. The latter is currently given through an `if` construct, which tests the condition that would stop the loop.
+
+
+```r
+current_value <- 0
+
+repeat {
+  cat("Current value is", current_value, "\n")
+  current_value <- current_value + 1
+  if (current_value >= 3) break
+}
+```
+
+```
+## Current value is 0 
+## Current value is 1 
+## Current value is 2
+```
+
+
+## While vs Repeat
+The difference between `while` and `repeat` is mostly syntactical.
+
+- Sometimes one or the other might fit better with the algorithm you have in mind
+- Use the one that comes easier to you in the given situation
+-->
+
+## For
+
+The *for* construct can be defined using the `for` reserved word, followed by the definition of an **iterator**. The iterator is a variable which is temporarily assigned with the current element of a vector, as the construct iterates through all elements of the list. This definition is followed by a code block, whose instructions are re-executed once for each element of the vector.
+
+
+```r
+cities <- c("Derby", "Leicester", "Lincoln", "Nottingham")
+for (city in cities) {
+  cat("Do you live in", city, "?\n")
+}
+```
+
+```
+## Do you live in Derby ?
+## Do you live in Leicester ?
+## Do you live in Lincoln ?
+## Do you live in Nottingham ?
+```
+
+
+## For
+
+It is common practice to create a vector of integers on the spot in order to execute a certain sequence of steps a pre-defined number of times.
+
+
+```r
+for (i in 1:3) {
+  cat("This is exectuion number", i, ":\n")
+  cat("    See you later!\n")
+}
+```
+
+```
+## This is exectuion number 1 :
+##     See you later!
+## This is exectuion number 2 :
+##     See you later!
+## This is exectuion number 3 :
+##     See you later!
+```
+
+
+## Loops with conditional statements
+
+
+```r
+3:0
+```
+
+```
+## [1] 3 2 1 0
+```
+
+```r
+#Example: countdown!
+for (i in 3:0) {
+  if (i == 0) {
+    cat("Go!\n")
+  } else {
+    cat(i, "\n")
+  }
+}
+```
+
+```
+## 3 
+## 2 
+## 1 
+## Go!
+```
+
+
+
+# Functions
+
+
+## Defining functions
+
+A function can be defined 
+
+- using an **identifier** (e.g., `add_one`) 
+- on the left of an **assignment operator** `<-`
+- followed by the corpus of the function
+
+
+```r
+add_one <- function (input_value) {
+  output_value <- input_value + 1
+  output_value
+  }
+```
+
+## Defining functions
+
+The corpus 
+
+- starts with the reserved word `function`
+- followed by the **parameter(s)** (e.g., `input_value`) between simple brackets
+- and the instruction(s) to be executed in a code block
+- the value of the last statement is returned as output
+
+
+```r
+add_one <- function (input_value) {
+  output_value <- input_value + 1
+  output_value
+  }
+```
+
+
+## Defining functions
+
+After being defined, a function can be invoked by specifying the **identifier**
+
+
+```r
+add_one (3)
+```
+
+```
+## [1] 4
+```
+
+
+## More parameters
+
+- a function can be defined as having two or more **parameters** by specifying  more than one parameter name (separated by **commas**) in the function definition
+- a function always take as input as many values as the number of parameters specified in the definition
+    - otherwise an error is generated
+
+
+```r
+area_rectangle <- function (hight, width) {
+  area <- hight * width
+  area
+}
+
+area_rectangle(3, 2)
+```
+
+```
+## [1] 6
+```
+
+
+## Functions and control structures
+
+Functions can contain both loops and conditional statements in their corpus
+
+
+```r
+factorial <- function (input_value) {
+  result <- 1
+  for (i in 1:input_value) {
+    cat("current:", result, " | i:", i, "\n")
+    result <- result * i
+  }
+  result
+}
+factorial(3)
+```
+
+```
+## current: 1  | i: 1 
+## current: 1  | i: 2 
+## current: 2  | i: 3
+```
+
+```
+## [1] 6
+```
+
+
+<!--
+## Functions and control structures
+
+Factorial using `while`
+
+
+```r
+factorial <- function (input_value) {
+  result <- 1
+  while (input_value > 0) {
+    cat("current:", result, " | input:", input_value, "\n")
+    result <- result * input_value
+    input_value <- input_value - 1
+  }
+  result
+}
+factorial(3)
+```
+
+```
+## current: 1  | input: 3 
+## current: 3  | input: 2 
+## current: 6  | input: 1
+```
+
+```
+## [1] 6
+```
+-->
+
+
+
+## Scope
+
+The **scope of a variable** is the part of code in which the variable is ``visible''
+
+In R, variables have a **hierarchical** scope:
+
+- a variable defined in a script can be used referred to from within a definition of a function in the same scrip
+- a variable defined within a definition of a function will **not** be referable from outside the definition
+- scope does **not** apply to `if` or loop constructs
+
+
+## Example
+
+In the case below
+
+- `x_value` is **global** to the function `times_x`
+- `new_value` and `input_value` are **local** to the function `times_x`
+    - referring to `new_value` or `input_value` from outside the definition of `times_x` would result in an error
+
+
+```r
+x_value <- 10
+times_x <- function (input_value) {
+  new_value <- input_value * x_value
+  new_value
+}
+times_x(2)
+```
+
+```
+## [1] 20
+```
+<!--
+Hint: try *debug* the function above and observe how the *local* environment is created and then discarded
+-->
+
+
+<!--
+# Debugging
+
+## What is debugging?
+
+- Hardly any reasonably sized function works first time!
+- Two broad kinds of problem
+    - The function crashes (i.e. throws up an error)
+    - The function doesn't crash  but returns the wrong answer
+    - Generally, the second kind of error is the worst
+- Prevention is better than cure, test the code as you write.
+- **Debugging** is the process of finding the problems in the code.
+- A typical approach
+    - `Step' through the function line by line.  Find out where a crash occurs,  if one does.
+    - Check the values of variables, and see if they are doing what they are supposed to.
+- R has tools to help with this.
+
+
+## To debug a function
+
+- Enter `debug( <<Function Name>> )`
+- For example: `debug(area.tri)`
+- Then just use the function - it goes into 'debug mode'.
+- Prompt becomes `Browse>`
+- Line of function about to be executed is listed
+- Pressing return executes it and goes to the next line
+- Typing in a variable name lists the value of that variable
+- Typing in any other command executes that command
+- Typing in `c` and the return runs to the end of a function/block
+- Typing in `Q` exits the function
+- R can `see' variables that are specific to the function
+- Enter `undebug(<<Function Name>>)` to return to normal
+
+
+## Example
+
+Debug the following example
+
+
+```r
+percentage_change <- function (before, after){
+  difference <- before - after
+  prop_change <- difference / before
+  perc_change <- prop_change * 100
+  perc_change
+```
+-->
+
+
+# Summary
+
+
+
+## Summary
+
+How to control the data processing flow
+
+- Conditional statements
+- Loops
+    - While
+    - For
+- Functions
+- Scope of a variable
+- Debugging
+
+
+
+## Practical session
+
+In the practical session, we will see
+
+- Conditional statements
+- Loops
+    - While
+    - For
+- Functions
+    - Loading functions from scripts
+- Debugging
+
+
+
+## Next week
+
+- Data visualisation
+    - histograms
+    - boxplots
+    - scatterplots
+- Descriptive statistics
+- Exploring assumptions
+    - Shapiro–Wilk test
+    - skewness and kurtosis
+    - Levene’s test

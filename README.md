@@ -18,7 +18,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
 
 1. Programming, a practical introduction
     - **101 Introduction**
-        - Lecture ([slides](Lectures/01_L_Introduction.html), [bookdown](Lectures/bookdown/lecture-1-about-this-module.html))
+        - Lecture ([slides](Lectures/101_L_Introduction.html), [bookdown](Lectures/bookdown/about-this-module.html))
             - Basic types
             - Basic operators
             - Variables
@@ -33,7 +33,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Tidyverse
             - Coding style
     - **102 Data types**
-        - Lecture ([slides](Lectures/02_L_DataTypes.html), [bookdown](Lectures/bookdown/lecture-2-recap.html))
+        - Lecture ([slides](Lectures/102_L_DataTypes.html), [bookdown](Lectures/bookdown/recap-102.html))
             - Vectors
             - Factors
             - Matrices
@@ -48,7 +48,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Lists
             - Data Frames
     - **111 Control structures and functions**
-        - Lecture ([slides](Lectures/06_L_ControlStructuresFunctions.html), [bookdown](Lectures/bookdown/lecture-6-recap.html))
+        - Lecture ([slides](Lectures/111_L_ControlStructuresFunctions.html), [bookdown](Lectures/bookdown/recap-111.html))
             - Conditional statements
             - Loops
             - Functions
@@ -59,7 +59,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Functions
 2. Data wrangling
     - **201 Selection and manipulation**
-        - Lecture ([slides](Lectures/03_L_DataWrangling1.html), [bookdown](Lectures/bookdown/lecture-3-recap.html))
+        - Lecture ([slides](Lectures/201_L_DataWrangling1.html), [bookdown](Lectures/bookdown/recap-201.html))
             - Data selection
             - Data filtering
             - Data manipulation
@@ -68,7 +68,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Creating R scripts
             - Data wrangling script
     - **202 Table operations**
-        - Lecture ([slides](Lectures/04_L_DataWrangling2.html), [bookdown](Lectures/bookdown/lecture-4-recap.html))
+        - Lecture ([slides](Lectures/202_L_DataWrangling2.html), [bookdown](Lectures/bookdown/recap-202.html))
             - Join operations
             - Table re-shaping
             - Read and write data
@@ -78,7 +78,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Read and write data
 3. **Reproducibility**
     - **301 Reproducible analysis**
-        - Lecture ([slides](Lectures/05_L_Reproducibility.html), [bookdown](Lectures/bookdown/lecture-5-recap.html))
+        - Lecture ([slides](Lectures/301_L_Reproducibility.html), [bookdown](Lectures/bookdown/recap-301.html))
             - Reproducibility
             - Versioning
             - R and Markdown
@@ -87,11 +87,11 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Reproducibile data analysis
             - RMarkdown
             - Git
-4. Information Visualisation
+4. Data visualisation
     - *Coming soon*
 5. **Data analysis**
     - **501 Exploratory data analysis**
-        - Lecture ([slides](Lectures/07_L_Exploratory.html), [bookdown](Lectures/bookdown/lecture-7-recap.html))
+        - Lecture ([slides](Lectures/501_L_Exploratory.html), [bookdown](Lectures/bookdown/recap-501.html))
             - Data visualisation
             - Descriptive statistics
             - Exploring assumptions

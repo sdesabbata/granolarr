@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Data wrangling Pt. 1 | Geographic data science reproducible teaching resource in R Practical session materials</title>
+  <meta name="description" content="Geographic data science reproducible teaching resource in RPractical session materials" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Data wrangling Pt. 1 | Geographic data science reproducible teaching resource in R Practical session materials" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Data wrangling Pt. 1 | Geographic data science reproducible teaching resource in R Practical session materials" />
+  
+  
+  
+
+<meta name="author" content="Stefano De Sabbata" />
+
+
+<meta name="date" content="2019-11-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="control-structures-and-functions.html"/>
+<link rel="next" href="data-wrangling-pt-2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i><b>0.1</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-r-programming-language"><i class="fa fa-check"></i><b>1.1</b> The R programming language</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#using-rstudio"><i class="fa fa-check"></i><b>1.1.1</b> Using RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#interpreting-values"><i class="fa fa-check"></i><b>1.2</b> Interpreting values</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variables"><i class="fa fa-check"></i><b>1.3</b> Variables</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#basic-types"><i class="fa fa-check"></i><b>1.4</b> Basic types</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#numeric"><i class="fa fa-check"></i><b>1.4.1</b> Numeric</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#logical"><i class="fa fa-check"></i><b>1.4.2</b> Logical</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#character"><i class="fa fa-check"></i><b>1.4.3</b> Character</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.5</b> Tidyverse</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#stringr"><i class="fa fa-check"></i><b>1.5.1</b> stringr</a></li>
+<li class="chapter" data-level="1.5.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-pipe-operator"><i class="fa fa-check"></i><b>1.5.2</b> The pipe operator</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#coding-style"><i class="fa fa-check"></i><b>1.6</b> Coding style</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#exercise-1.1"><i class="fa fa-check"></i><b>1.7</b> Exercise 1.1</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#exercise-1.2"><i class="fa fa-check"></i><b>1.8</b> Exercise 1.2</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>2</b> Data types</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-types.html"><a href="data-types.html#vectors"><i class="fa fa-check"></i><b>2.1</b> Vectors</a></li>
+<li class="chapter" data-level="2.2" data-path="data-types.html"><a href="data-types.html#filtering"><i class="fa fa-check"></i><b>2.2</b> Filtering</a></li>
+<li class="chapter" data-level="2.3" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>2.3</b> Factors</a></li>
+<li class="chapter" data-level="2.4" data-path="data-types.html"><a href="data-types.html#exercise-2.1"><i class="fa fa-check"></i><b>2.4</b> Exercise 2.1</a></li>
+<li class="chapter" data-level="2.5" data-path="data-types.html"><a href="data-types.html#matrices-and-arrays"><i class="fa fa-check"></i><b>2.5</b> Matrices and arrays</a></li>
+<li class="chapter" data-level="2.6" data-path="data-types.html"><a href="data-types.html#exercise-2.2"><i class="fa fa-check"></i><b>2.6</b> Exercise 2.2</a></li>
+<li class="chapter" data-level="2.7" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>2.7</b> Lists</a></li>
+<li class="chapter" data-level="2.8" data-path="data-types.html"><a href="data-types.html#data-frames"><i class="fa fa-check"></i><b>2.8</b> Data frames</a></li>
+<li class="chapter" data-level="2.9" data-path="data-types.html"><a href="data-types.html#exercise-2.3"><i class="fa fa-check"></i><b>2.9</b> Exercise 2.3</a></li>
+<li class="chapter" data-level="2.10" data-path="data-types.html"><a href="data-types.html#solutions"><i class="fa fa-check"></i><b>2.10</b> Solutions</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="data-types.html"><a href="data-types.html#exercise-2.1-1"><i class="fa fa-check"></i><b>2.10.1</b> Exercise 2.1</a></li>
+<li class="chapter" data-level="2.10.2" data-path="data-types.html"><a href="data-types.html#exercise-2.2-1"><i class="fa fa-check"></i><b>2.10.2</b> Exercise 2.2</a></li>
+<li class="chapter" data-level="2.10.3" data-path="data-types.html"><a href="data-types.html#exercise-2.3-1"><i class="fa fa-check"></i><b>2.10.3</b> Exercise 2.3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html"><i class="fa fa-check"></i><b>3</b> Control structures and Functions</a><ul>
+<li class="chapter" data-level="3.1" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#conditional-structures"><i class="fa fa-check"></i><b>3.1</b> Conditional structures</a></li>
+<li class="chapter" data-level="3.2" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#loops"><i class="fa fa-check"></i><b>3.2</b> Loops</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#conditional-loops"><i class="fa fa-check"></i><b>3.2.1</b> Conditional Loops</a></li>
+<li class="chapter" data-level="3.2.2" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#deterministic-loops"><i class="fa fa-check"></i><b>3.2.2</b> Deterministic Loops</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#function-definition"><i class="fa fa-check"></i><b>3.3</b> Function definition</a></li>
+<li class="chapter" data-level="3.4" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#exercise-6.1"><i class="fa fa-check"></i><b>3.4</b> Exercise 6.1</a></li>
+<li class="chapter" data-level="3.5" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#data-checking"><i class="fa fa-check"></i><b>3.5</b> Data Checking</a></li>
+<li class="chapter" data-level="3.6" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#exercise-6.2"><i class="fa fa-check"></i><b>3.6</b> Exercise 6.2</a></li>
+<li class="chapter" data-level="3.7" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#solutions-1"><i class="fa fa-check"></i><b>3.7</b> Solutions</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#exercise-6.1-1"><i class="fa fa-check"></i><b>3.7.1</b> Exercise 6.1</a></li>
+<li class="chapter" data-level="3.7.2" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#exercise-6.2-1"><i class="fa fa-check"></i><b>3.7.2</b> Exercise 6.2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html"><i class="fa fa-check"></i><b>4</b> Data wrangling Pt. 1</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#working-with-rstudio"><i class="fa fa-check"></i><b>4.1</b> Working with RStudio</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#r-projects"><i class="fa fa-check"></i><b>4.1.1</b> R Projects</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#r-scripts"><i class="fa fa-check"></i><b>4.1.2</b> R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#install-libraries"><i class="fa fa-check"></i><b>4.2</b> Install libraries</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#data-manipulation"><i class="fa fa-check"></i><b>4.3</b> Data manipulation</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#summarise"><i class="fa fa-check"></i><b>4.3.1</b> Summarise</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#select-and-filter"><i class="fa fa-check"></i><b>4.3.2</b> Select and filter</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#mutate"><i class="fa fa-check"></i><b>4.3.3</b> Mutate</a></li>
+<li class="chapter" data-level="4.3.4" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#arrange"><i class="fa fa-check"></i><b>4.3.4</b> Arrange</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#data-manipulation-example"><i class="fa fa-check"></i><b>4.4</b> Data manipulation example</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#exercise-3.1"><i class="fa fa-check"></i><b>4.5</b> Exercise 3.1</a></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#solutions-2"><i class="fa fa-check"></i><b>4.6</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html"><i class="fa fa-check"></i><b>5</b> Data wrangling Pt. 2</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#table-manipulation"><i class="fa fa-check"></i><b>5.1</b> Table manipulation</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#long-and-wide-formats"><i class="fa fa-check"></i><b>5.1.1</b> Long and wide formats</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#join"><i class="fa fa-check"></i><b>5.1.2</b> Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#read-and-write-data"><i class="fa fa-check"></i><b>5.2</b> Read and write data</a></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#data-wrangling-example"><i class="fa fa-check"></i><b>5.3</b> Data wrangling example</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#re-shaping"><i class="fa fa-check"></i><b>5.3.1</b> Re-shaping</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#join-1"><i class="fa fa-check"></i><b>5.3.2</b> Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#exercise-3.1-1"><i class="fa fa-check"></i><b>5.4</b> Exercise 3.1</a></li>
+<li class="chapter" data-level="5.5" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#exercise-3.2"><i class="fa fa-check"></i><b>5.5</b> Exercise 3.2</a></li>
+<li class="chapter" data-level="5.6" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#solutions-3"><i class="fa fa-check"></i><b>5.6</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>6</b> Reproducibility</a><ul>
+<li class="chapter" data-level="6.1" data-path="reproducibility.html"><a href="reproducibility.html#markdown"><i class="fa fa-check"></i><b>6.1</b> Markdown</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="reproducibility.html"><a href="reproducibility.html#r-markdown"><i class="fa fa-check"></i><b>6.1.1</b> R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.1"><i class="fa fa-check"></i><b>6.2</b> Exercise 5.1</a></li>
+<li class="chapter" data-level="6.3" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.2"><i class="fa fa-check"></i><b>6.3</b> Exercise 5.2</a></li>
+<li class="chapter" data-level="6.4" data-path="reproducibility.html"><a href="reproducibility.html#git"><i class="fa fa-check"></i><b>6.4</b> Git</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="reproducibility.html"><a href="reproducibility.html#git-and-rstudio"><i class="fa fa-check"></i><b>6.4.1</b> Git and RStudio</a></li>
+<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-gy7702"><i class="fa fa-check"></i><b>6.4.2</b> Cloning GY7702</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.3"><i class="fa fa-check"></i><b>6.5</b> Exercise 5.3</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory analysis</a><ul>
+<li class="chapter" data-level="7.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#data-visualisation"><i class="fa fa-check"></i><b>7.2</b> Data visualisation</a></li>
+<li class="chapter" data-level="7.3" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#exercise-6.1-2"><i class="fa fa-check"></i><b>7.3</b> Exercise 6.1</a></li>
+<li class="chapter" data-level="7.4" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#exploratory-statistics"><i class="fa fa-check"></i><b>7.4</b> Exploratory statistics</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Geographic data science reproducible teaching resource in R<br/>Practical session materials</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-wrangling-pt.-1" class="section level1">
+<h1><span class="header-section-number">4</span> Data wrangling Pt. 1</h1>
+<p><em><a href="https://stefanodesabbata.com">Stefano De Sabbata</a></em></p>
+<p><a href="https://github.com/sdesabbata/GY7702">This work</a> is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0</a>. Contains public sector information licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence">Open Government Licence v3.0</a>.</p>
+<div id="working-with-rstudio" class="section level2">
+<h2><span class="header-section-number">4.1</span> Working with RStudio</h2>
+<div id="r-projects" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> R Projects</h3>
+<p>RStudio provides an extremely useful functionality to organise all your code and data, that is <strong>R Projects</strong>. Those are specialised files that RStudio can use to store all the information it has on a specific project that you are working on – <em>Environment</em>, <em>History</em>, working directory, and much more, as we will see in the coming weeks.</p>
+<p>In RStudio Server, in the <em>Files</em> tab of the bottom-left panel, click on <em>Home</em> to make sure you are in your home folder – if you are working on your own computer, create a folder for GY7702 wherever most convenient. Click on <em>New Folder</em> and enter <em>Practicals</em> in the prompt dialogue, to create a folder named <em>Practicals</em>.</p>
+<p>Select <em>File &gt; New Project …</em> from the main menu, then from the prompt menu, <em>New Directory</em>, and then <em>New Project</em>. Insert <em>Practical_03</em> as the directory name, and select the <em>Practicals</em> folder for the field <em>Create project as subdirectory of</em>. Finally, click <em>Create Project</em>.</p>
+<p>RStudio has now created the project, and it should have activated it. If that is the case, the <em>Files</em> tab in the bottom-right panel should be in the <em>Practical_03</em> folder, which contains only the <em>Practical_03.Rproj</em> file. The <em>Practical_03.Rproj</em> stores all the <em>Environment</em> information for the current project and all the project files (e.g., R scripts, data, output files) should be stored within the <em>Practical_03</em> folder. Moreover, the <em>Practical_03</em> is now your working directory, which means that you can refer to a file in the folder by using only its name and if you save a file that is the default directory where to save it.</p>
+<p>On the top-right corner of RStudio, you should see a blue icon representing an R in a cube, next to the name of the project (<em>Practical_03</em>). That also indicates that you are within the <em>Practical_03</em> project. Click on <em>Practical_03</em> and select <em>Close Project</em> to close the project. Next to the R in a cube icon, you should now see <em>Project: (None)</em>. Click on <em>Project: (None)</em> and select <em>Practical_03</em> from the list to reactivate the <em>Practical_03</em> project.</p>
+</div>
+<div id="r-scripts" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> R Scripts</h3>
+<p>The RStudio console is handy to interact with the R interpreter and obtain results of operations and commands. However, moving from simple instructions to an actual program or scripts to conduct data analysis, the console is usually not sufficient anymore. In fact, the console is not a very comfortable way of providing long and complex instructions to the interpreter and editing past instructions when you want to change something. A better option to create programs or data analysis script of any significant size is to use the RStudio integrated editor to create an <em>R script</em>.</p>
+<p>With the <em>Practical_03</em> project activated, select from the top menu <em>File &gt; New File &gt; R Script</em>. That opens the embedded RStudio editor and a new empty R script folder. Copy the two lines below into the file. The first loads the <code>tidyverse</code> library, whereas the second loads another library that the code below uses to produce well-formatted tables.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb233-2" data-line-number="2"><span class="kw">library</span>(knitr)</a></code></pre></div>
+<p>From the top menu, select <em>File &gt; Save</em>, type in <em>My_first_script.R</em> (make sure to include the underscore and the <em>.R</em> extension) as <em>File name</em>, and click <em>Save</em>. That is your first R script, congratulations!</p>
+<p>New lines of code can be added to the file, and the whole script can then be executed. Edit the file by adding the line of code shown below, and save it. Then click the <em>Source</em> button on the top-right of the editor to execute the file. What happens the first time? What happens if you click <em>Source</em> again?</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1">a_variable &lt;-<span class="st"> &quot;This is my first script&quot;</span></a></code></pre></div>
+<p>Alternatively, you can click on a specific line or select one or more lines, and click <em>Run</em> to execute only the selected line(s).</p>
+<p>Delete the last line above from the script. In the following sections, add the code to the script to execute it, rather than using the console.</p>
+</div>
+</div>
+<div id="install-libraries" class="section level2">
+<h2><span class="header-section-number">4.2</span> Install libraries</h2>
+<p>RStudio and RStudio Server come with a number of libraries already pre-installed. However, you might find yourself in the position of wanting to install additional libraries to work with.</p>
+<p>The remainder of this practical requires the library <code>nycflights13</code>. To install it, select <em>Tools &gt; Install Packages…</em> from the top menu. Insert <code>nycflights13</code> in the <em>Packages (separate multiple with space or comma)</em> field and click install. RStudio will automatically execute the command <code>install.packages(&quot;nycflights13&quot;)</code> (so, no need to execute that yourself) and install the required library.</p>
+<p>As usual, use the function <code>library</code> to load the newly installed library.</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="kw">library</span>(nycflights13)</a></code></pre></div>
+<p>The library <code>nycflights13</code> contains a dataset storing data about all the flights departed from New York City in 2013. The code below, loads the data frame <code>flights</code> from the library <code>nycflights13</code> into the variable <code>flights_from_nyc</code>, using the <code>::</code> operator to indicate that the data frame <code>flights</code> is situated within the library <code>nycflights13</code>.</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1">flights_from_nyc &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights</a></code></pre></div>
+<p>Add both lines above to your R script, as well as the code snippets provided as an example below.</p>
+</div>
+<div id="data-manipulation" class="section level2">
+<h2><span class="header-section-number">4.3</span> Data manipulation</h2>
+<p>The analysis below uses the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> library (also part of the Tidyverse), which it offers a grammar for data manipulation.</p>
+<p>For instance, the function <code>count</code> can be used to count the number rows of a data frame. The code below provides <code>flights_from_nyc</code> as input to the function <code>count</code> through the pipe operator, thus creating a new <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> with only one row and one column.</p>
+<p>As discussed in the previous lecture, a <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> is data type similar to data frames, used by all the Tidyverse libraries.</p>
+<p>All Tidyverse functions output <code>tibble</code> rather than <code>data.frame</code> objects when representing a table. However, <code>data.frame</code> object can be provided as input, as they are automatically converted by Tidyverse functions before proceeding with the processing steps.</p>
+<p>In the <code>tibble</code> outputted by the <code>count</code> function below, the column <code>n</code> provides the count. The function <code>kable</code> of the library <code>knitr</code> is used to produce a well-formatted table.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb237-2" data-line-number="2"><span class="st">  </span><span class="kw">count</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb237-3" data-line-number="3"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">336776</td>
+</tr>
+</tbody>
+</table>
+<p>The example above already shows how the <strong>pipe operator</strong> can be used effectively in a multi-step operation.</p>
+<p>The function <code>count</code> can also be used to count the number rows of a table that have the same value for a given column, usually representing a category.</p>
+<p>In the example below, the column name <code>origin</code> is provided as an argument to the function <code>count</code>, so rows representing flights from the same origin are counted together – EWR is the Newark Liberty International Airport, JFK is the John F. Kennedy International Airport, and LGA is LaGuardia Airport.</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb238-2" data-line-number="2"><span class="st">  </span><span class="kw">count</span>(origin) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb238-3" data-line-number="3"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">origin</th>
+<th align="right">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">EWR</td>
+<td align="right">120835</td>
+</tr>
+<tr class="even">
+<td align="left">JFK</td>
+<td align="right">111279</td>
+</tr>
+<tr class="odd">
+<td align="left">LGA</td>
+<td align="right">104662</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, the code above is formatted in a way similar to a code block, although it is not a code block. The code goes to a new line after every <code>%&gt;%</code>, and space is added at the beginning of new lines. That is very common in R programming (especially when functions have many parameters) as it makes the code more readable.</p>
+<div id="summarise" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Summarise</h3>
+<p>To carry out more complex aggregations, the function <code>summarise</code> can be used in combination with the function <code>group_by</code> to summarise the values of the rows of a data frame. Rows having the same value for a selected column (in the example below, the same origin) are grouped together, then values are aggregated based on the defined function (using one or more columns in the calculation).</p>
+<p>In the example below, the function <code>sum</code> is applied to the column <code>distance</code> to calculate <code>distance_traveled_from</code> (the total distance travelled by flights starting from each airport).</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb239-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(origin) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb239-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb239-4" data-line-number="4">    <span class="dt">distance_traveled_from =</span> <span class="kw">sum</span>(distance)</a>
+<a class="sourceLine" id="cb239-5" data-line-number="5">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb239-6" data-line-number="6"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">origin</th>
+<th align="right">distance_traveled_from</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">EWR</td>
+<td align="right">127691515</td>
+</tr>
+<tr class="even">
+<td align="left">JFK</td>
+<td align="right">140906931</td>
+</tr>
+<tr class="odd">
+<td align="left">LGA</td>
+<td align="right">81619161</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="select-and-filter" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Select and filter</h3>
+<p>The function <code>select</code> can be used to select some <strong>columns</strong> to output. For instance in the code below, the function <code>select</code> is used to select the columns <code>origin</code>, <code>dest</code>, and <code>dep_delay</code>, in combination with the function <code>top_n</code>, which can be used to include only the first <em>n</em> rows (<code>5</code> in the example below) to output.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb240-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(origin, dest, dep_delay) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb240-3" data-line-number="3"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb240-4" data-line-number="4"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">origin</th>
+<th align="left">dest</th>
+<th align="right">dep_delay</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">1301</td>
+</tr>
+<tr class="even">
+<td align="left">EWR</td>
+<td align="left">ORD</td>
+<td align="right">1126</td>
+</tr>
+<tr class="odd">
+<td align="left">JFK</td>
+<td align="left">CMH</td>
+<td align="right">1137</td>
+</tr>
+<tr class="even">
+<td align="left">JFK</td>
+<td align="left">CVG</td>
+<td align="right">1005</td>
+</tr>
+<tr class="odd">
+<td align="left">JFK</td>
+<td align="left">SFO</td>
+<td align="right">1014</td>
+</tr>
+</tbody>
+</table>
+<p>The function <code>filter</code> can instead be used to filter <strong>rows</strong> based on a specified condition. In the example below, the output of the <code>filter</code> step only includes the rows where the value of <code>month</code> is <code>11</code> (i.e., the eleventh month, November).</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb241-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(origin, dest, year, month, day, dep_delay) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb241-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb241-4" data-line-number="4"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb241-5" data-line-number="5"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">origin</th>
+<th align="left">dest</th>
+<th align="right">year</th>
+<th align="right">month</th>
+<th align="right">day</th>
+<th align="right">dep_delay</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">EWR</td>
+<td align="left">ATL</td>
+<td align="right">2013</td>
+<td align="right">11</td>
+<td align="right">3</td>
+<td align="right">798</td>
+</tr>
+<tr class="even">
+<td align="left">LGA</td>
+<td align="left">DFW</td>
+<td align="right">2013</td>
+<td align="right">11</td>
+<td align="right">4</td>
+<td align="right">413</td>
+</tr>
+<tr class="odd">
+<td align="left">EWR</td>
+<td align="left">RDU</td>
+<td align="right">2013</td>
+<td align="right">11</td>
+<td align="right">20</td>
+<td align="right">398</td>
+</tr>
+<tr class="even">
+<td align="left">JFK</td>
+<td align="left">MIA</td>
+<td align="right">2013</td>
+<td align="right">11</td>
+<td align="right">24</td>
+<td align="right">636</td>
+</tr>
+<tr class="odd">
+<td align="left">JFK</td>
+<td align="left">BUF</td>
+<td align="right">2013</td>
+<td align="right">11</td>
+<td align="right">27</td>
+<td align="right">408</td>
+</tr>
+</tbody>
+</table>
+<p>Notice how <code>filter</code> is used in combination with <code>select</code>. All functions in the <code>dplyr</code> library can be combined, in any other order that makes logical sense. However, if the <code>select</code> step didn’t include <code>month</code>, that same column couldn’t have been used in the <code>filter</code> step.</p>
+</div>
+<div id="mutate" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Mutate</h3>
+<p>The function <code>manipulate</code> can be used to add a new column to an output table. The <code>mutate</code> step in the code below adds a new column <code>air_time_hours</code> to the table obtained through the pipe, that is the flight air time in hours, dividing the flight air time in minutes by <code>60</code>.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb242-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(flight, origin, dest, air_time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb242-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb242-4" data-line-number="4">    <span class="dt">air_time_hours =</span> air_time <span class="op">/</span><span class="st"> </span><span class="dv">60</span></a>
+<a class="sourceLine" id="cb242-5" data-line-number="5">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb242-6" data-line-number="6"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb242-7" data-line-number="7"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">flight</th>
+<th align="left">origin</th>
+<th align="left">dest</th>
+<th align="right">air_time</th>
+<th align="right">air_time_hours</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">691</td>
+<td align="right">11.51667</td>
+</tr>
+<tr class="even">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">686</td>
+<td align="right">11.43333</td>
+</tr>
+<tr class="odd">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">683</td>
+<td align="right">11.38333</td>
+</tr>
+<tr class="even">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">686</td>
+<td align="right">11.43333</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="left">EWR</td>
+<td align="left">HNL</td>
+<td align="right">695</td>
+<td align="right">11.58333</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="arrange" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Arrange</h3>
+<p>The function <code>arrange</code> can be used to sort a tibble by ascending order of the values in the specified column. If the operator <code>-</code> is specified before the column name, the descending order is used. The code below would produce a table showing all the rows when ordered by descending order of air time.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(flight, origin, dest, air_time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>air_time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-4" data-line-number="4"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<p>Note that in the examples above, we have used <code>top_n</code> to present only the first <code>n</code> (in the examples <code>5</code>) rows in a table. Note however, that <code>top_n</code> already incorporates an ordering functionality (see <a href="https://dplyr.tidyverse.org/reference/top_n.html"><code>top_n</code> reference page</a>), which by default orders the rows according to the values in the last column of the table, and selects the <code>n</code> highest values but presenting them in the order in which they are found.</p>
+<p>As such, the following code produces a table showing the 5 rows when ordered by descending (highest on <em>top</em>) order of air time.</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb244-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(flight, origin, dest, air_time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb244-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>air_time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb244-4" data-line-number="4"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb244-5" data-line-number="5"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">flight</th>
+<th align="left">origin</th>
+<th align="left">dest</th>
+<th align="right">air_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">15</td>
+<td align="left">EWR</td>
+<td align="left">HNL</td>
+<td align="right">695</td>
+</tr>
+<tr class="even">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">691</td>
+</tr>
+<tr class="odd">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">686</td>
+</tr>
+<tr class="even">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">686</td>
+</tr>
+<tr class="odd">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">683</td>
+</tr>
+</tbody>
+</table>
+<p>However, reversing the order of airtime and using <code>top_n</code> would still select the <code>5</code> highest values, but presented by ascending value.</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb245-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(flight, origin, dest, air_time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb245-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(air_time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb245-4" data-line-number="4"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb245-5" data-line-number="5"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">flight</th>
+<th align="left">origin</th>
+<th align="left">dest</th>
+<th align="right">air_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">683</td>
+</tr>
+<tr class="even">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">686</td>
+</tr>
+<tr class="odd">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">686</td>
+</tr>
+<tr class="even">
+<td align="right">51</td>
+<td align="left">JFK</td>
+<td align="left">HNL</td>
+<td align="right">691</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="left">EWR</td>
+<td align="left">HNL</td>
+<td align="right">695</td>
+</tr>
+</tbody>
+</table>
+<p>To obtain a table with the five lowest values ordered by ascending value, a minus should be added before the value specifying the number of rows (i.e., <code>-5</code> instead of <code>5</code>). If the table contains ties, all rows are presented, as it is the case with the rows containing the value <code>21</code> below.</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb246-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(flight, origin, dest, air_time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb246-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(air_time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb246-4" data-line-number="4"><span class="st">  </span><span class="kw">top_n</span>(<span class="op">-</span><span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb246-5" data-line-number="5"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">flight</th>
+<th align="left">origin</th>
+<th align="left">dest</th>
+<th align="right">air_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">4368</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="right">4631</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="right">4276</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">4619</td>
+<td align="left">EWR</td>
+<td align="left">PHL</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="right">4368</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">4619</td>
+<td align="left">EWR</td>
+<td align="left">PHL</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="right">2132</td>
+<td align="left">LGA</td>
+<td align="left">BOS</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">3650</td>
+<td align="left">JFK</td>
+<td align="left">PHL</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="right">4118</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">4276</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="right">4276</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">4276</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="right">4276</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">4577</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="right">6062</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">3847</td>
+<td align="left">EWR</td>
+<td align="left">BDL</td>
+<td align="right">21</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="data-manipulation-example" class="section level2">
+<h2><span class="header-section-number">4.4</span> Data manipulation example</h2>
+<p>Finally, the code below illustrates a more complex, multi-step operation using all the functions discussed above.</p>
+<ol style="list-style-type: decimal">
+<li>Start from the <code>flights_from_nyc</code> data.</li>
+<li>Select origin, destination, departure delay, year, month, and day.</li>
+<li>Filter only rows referring to flights in November.</li>
+<li>Filter only rows where departure delay is not (notice that the negation operator <code>!</code> is used) <code>NA</code>.</li>
+</ol>
+<ul>
+<li>That is necessary because the function <code>mean</code> would return <code>NA</code> as output if any of the values in the column is <code>NA</code>.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Group by destination.</li>
+<li>Calculated the average delay per destination.</li>
+<li>Add a column with the delay calculated in hours (minutes over 60).</li>
+<li>Sort the table by <em>descending</em> delay (note that <code>-</code> is used before the column name).</li>
+<li>Only show the first 5 rows.</li>
+<li>Create a well-formatted table.</li>
+</ol>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1">flights_from_nyc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(origin, dest, year, month, day, dep_delay) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(dest) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-6" data-line-number="6"><span class="st">  </span><span class="kw">summarize</span>(</a>
+<a class="sourceLine" id="cb247-7" data-line-number="7">    <span class="dt">avg_dep_delay =</span> <span class="kw">mean</span>(dep_delay)</a>
+<a class="sourceLine" id="cb247-8" data-line-number="8">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb247-10" data-line-number="10">    <span class="dt">avg_dep_delay_hours =</span> avg_dep_delay <span class="op">/</span><span class="st"> </span><span class="dv">60</span></a>
+<a class="sourceLine" id="cb247-11" data-line-number="11">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-12" data-line-number="12"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>avg_dep_delay_hours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-13" data-line-number="13"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-14" data-line-number="14"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dest</th>
+<th align="right">avg_dep_delay</th>
+<th align="right">avg_dep_delay_hours</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">SBN</td>
+<td align="right">67.50000</td>
+<td align="right">1.1250000</td>
+</tr>
+<tr class="even">
+<td align="left">BDL</td>
+<td align="right">26.66667</td>
+<td align="right">0.4444444</td>
+</tr>
+<tr class="odd">
+<td align="left">CAK</td>
+<td align="right">19.70909</td>
+<td align="right">0.3284848</td>
+</tr>
+<tr class="even">
+<td align="left">BHM</td>
+<td align="right">19.61905</td>
+<td align="right">0.3269841</td>
+</tr>
+<tr class="odd">
+<td align="left">DSM</td>
+<td align="right">16.14815</td>
+<td align="right">0.2691358</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exercise-3.1" class="section level2">
+<h2><span class="header-section-number">4.5</span> Exercise 3.1</h2>
+<p>Extend the code in the script <code>My_first_script.R</code> to include the code necessary to solve the questions below.</p>
+<p><strong>Question 3.1.1:</strong> Write a piece of code using the pipe operator and the <code>dplyr</code> library to generate a table showing the average air time in hours, calculated grouping flights by carrier, but only for flights starting from the JFK airport.</p>
+<p><strong>Question 3.1.2:</strong> Write a piece of code using the pipe operator and the <code>dplyr</code> library to generate a table showing the average arrival delay compared to the overall air time (<strong>tip</strong>: use manipulate to create a new column that takes the result of <code>arr_delay / air_time</code>) calculated grouping flights by carrier, but only for flights starting from the JFK airport.</p>
+<p><strong>Question 3.1.3:</strong> Write a piece of code using the pipe operator and the <code>dplyr</code> library to generate a table showing the average arrival delay compared to the overall air time calculated grouping flights by origin and destination, sorted by destination.</p>
+</div>
+<div id="solutions-2" class="section level2">
+<h2><span class="header-section-number">4.6</span> Solutions</h2>
+<p>An R Script including the solutions to the 3 questions above is available in the Exercise folder of the repository and on BlackBoard (<code>03_X_Data_Wrangling1_Example.R</code>).</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="control-structures-and-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-wrangling-pt-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

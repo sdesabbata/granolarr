@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Exploratory analysis | Geographic data science reproducible teaching resource in R Practical session materials</title>
+  <meta name="description" content="Geographic data science reproducible teaching resource in RPractical session materials" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Exploratory analysis | Geographic data science reproducible teaching resource in R Practical session materials" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Exploratory analysis | Geographic data science reproducible teaching resource in R Practical session materials" />
+  
+  
+  
+
+<meta name="author" content="Stefano De Sabbata" />
+
+
+<meta name="date" content="2019-11-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="reproducibility.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i><b>0.1</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-r-programming-language"><i class="fa fa-check"></i><b>1.1</b> The R programming language</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#using-rstudio"><i class="fa fa-check"></i><b>1.1.1</b> Using RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#interpreting-values"><i class="fa fa-check"></i><b>1.2</b> Interpreting values</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variables"><i class="fa fa-check"></i><b>1.3</b> Variables</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#basic-types"><i class="fa fa-check"></i><b>1.4</b> Basic types</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#numeric"><i class="fa fa-check"></i><b>1.4.1</b> Numeric</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#logical"><i class="fa fa-check"></i><b>1.4.2</b> Logical</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#character"><i class="fa fa-check"></i><b>1.4.3</b> Character</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.5</b> Tidyverse</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#stringr"><i class="fa fa-check"></i><b>1.5.1</b> stringr</a></li>
+<li class="chapter" data-level="1.5.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-pipe-operator"><i class="fa fa-check"></i><b>1.5.2</b> The pipe operator</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#coding-style"><i class="fa fa-check"></i><b>1.6</b> Coding style</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#exercise-1.1"><i class="fa fa-check"></i><b>1.7</b> Exercise 1.1</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#exercise-1.2"><i class="fa fa-check"></i><b>1.8</b> Exercise 1.2</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>2</b> Data types</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-types.html"><a href="data-types.html#vectors"><i class="fa fa-check"></i><b>2.1</b> Vectors</a></li>
+<li class="chapter" data-level="2.2" data-path="data-types.html"><a href="data-types.html#filtering"><i class="fa fa-check"></i><b>2.2</b> Filtering</a></li>
+<li class="chapter" data-level="2.3" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>2.3</b> Factors</a></li>
+<li class="chapter" data-level="2.4" data-path="data-types.html"><a href="data-types.html#exercise-2.1"><i class="fa fa-check"></i><b>2.4</b> Exercise 2.1</a></li>
+<li class="chapter" data-level="2.5" data-path="data-types.html"><a href="data-types.html#matrices-and-arrays"><i class="fa fa-check"></i><b>2.5</b> Matrices and arrays</a></li>
+<li class="chapter" data-level="2.6" data-path="data-types.html"><a href="data-types.html#exercise-2.2"><i class="fa fa-check"></i><b>2.6</b> Exercise 2.2</a></li>
+<li class="chapter" data-level="2.7" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>2.7</b> Lists</a></li>
+<li class="chapter" data-level="2.8" data-path="data-types.html"><a href="data-types.html#data-frames"><i class="fa fa-check"></i><b>2.8</b> Data frames</a></li>
+<li class="chapter" data-level="2.9" data-path="data-types.html"><a href="data-types.html#exercise-2.3"><i class="fa fa-check"></i><b>2.9</b> Exercise 2.3</a></li>
+<li class="chapter" data-level="2.10" data-path="data-types.html"><a href="data-types.html#solutions"><i class="fa fa-check"></i><b>2.10</b> Solutions</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="data-types.html"><a href="data-types.html#exercise-2.1-1"><i class="fa fa-check"></i><b>2.10.1</b> Exercise 2.1</a></li>
+<li class="chapter" data-level="2.10.2" data-path="data-types.html"><a href="data-types.html#exercise-2.2-1"><i class="fa fa-check"></i><b>2.10.2</b> Exercise 2.2</a></li>
+<li class="chapter" data-level="2.10.3" data-path="data-types.html"><a href="data-types.html#exercise-2.3-1"><i class="fa fa-check"></i><b>2.10.3</b> Exercise 2.3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html"><i class="fa fa-check"></i><b>3</b> Control structures and Functions</a><ul>
+<li class="chapter" data-level="3.1" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#conditional-structures"><i class="fa fa-check"></i><b>3.1</b> Conditional structures</a></li>
+<li class="chapter" data-level="3.2" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#loops"><i class="fa fa-check"></i><b>3.2</b> Loops</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#conditional-loops"><i class="fa fa-check"></i><b>3.2.1</b> Conditional Loops</a></li>
+<li class="chapter" data-level="3.2.2" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#deterministic-loops"><i class="fa fa-check"></i><b>3.2.2</b> Deterministic Loops</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#function-definition"><i class="fa fa-check"></i><b>3.3</b> Function definition</a></li>
+<li class="chapter" data-level="3.4" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#exercise-6.1"><i class="fa fa-check"></i><b>3.4</b> Exercise 6.1</a></li>
+<li class="chapter" data-level="3.5" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#data-checking"><i class="fa fa-check"></i><b>3.5</b> Data Checking</a></li>
+<li class="chapter" data-level="3.6" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#exercise-6.2"><i class="fa fa-check"></i><b>3.6</b> Exercise 6.2</a></li>
+<li class="chapter" data-level="3.7" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#solutions-1"><i class="fa fa-check"></i><b>3.7</b> Solutions</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#exercise-6.1-1"><i class="fa fa-check"></i><b>3.7.1</b> Exercise 6.1</a></li>
+<li class="chapter" data-level="3.7.2" data-path="control-structures-and-functions.html"><a href="control-structures-and-functions.html#exercise-6.2-1"><i class="fa fa-check"></i><b>3.7.2</b> Exercise 6.2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html"><i class="fa fa-check"></i><b>4</b> Data wrangling Pt. 1</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#working-with-rstudio"><i class="fa fa-check"></i><b>4.1</b> Working with RStudio</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#r-projects"><i class="fa fa-check"></i><b>4.1.1</b> R Projects</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#r-scripts"><i class="fa fa-check"></i><b>4.1.2</b> R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#install-libraries"><i class="fa fa-check"></i><b>4.2</b> Install libraries</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#data-manipulation"><i class="fa fa-check"></i><b>4.3</b> Data manipulation</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#summarise"><i class="fa fa-check"></i><b>4.3.1</b> Summarise</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#select-and-filter"><i class="fa fa-check"></i><b>4.3.2</b> Select and filter</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#mutate"><i class="fa fa-check"></i><b>4.3.3</b> Mutate</a></li>
+<li class="chapter" data-level="4.3.4" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#arrange"><i class="fa fa-check"></i><b>4.3.4</b> Arrange</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#data-manipulation-example"><i class="fa fa-check"></i><b>4.4</b> Data manipulation example</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#exercise-3.1"><i class="fa fa-check"></i><b>4.5</b> Exercise 3.1</a></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling-pt-1.html"><a href="data-wrangling-pt-1.html#solutions-2"><i class="fa fa-check"></i><b>4.6</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html"><i class="fa fa-check"></i><b>5</b> Data wrangling Pt. 2</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#table-manipulation"><i class="fa fa-check"></i><b>5.1</b> Table manipulation</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#long-and-wide-formats"><i class="fa fa-check"></i><b>5.1.1</b> Long and wide formats</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#join"><i class="fa fa-check"></i><b>5.1.2</b> Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#read-and-write-data"><i class="fa fa-check"></i><b>5.2</b> Read and write data</a></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#data-wrangling-example"><i class="fa fa-check"></i><b>5.3</b> Data wrangling example</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#re-shaping"><i class="fa fa-check"></i><b>5.3.1</b> Re-shaping</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#join-1"><i class="fa fa-check"></i><b>5.3.2</b> Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#exercise-3.1-1"><i class="fa fa-check"></i><b>5.4</b> Exercise 3.1</a></li>
+<li class="chapter" data-level="5.5" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#exercise-3.2"><i class="fa fa-check"></i><b>5.5</b> Exercise 3.2</a></li>
+<li class="chapter" data-level="5.6" data-path="data-wrangling-pt-2.html"><a href="data-wrangling-pt-2.html#solutions-3"><i class="fa fa-check"></i><b>5.6</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>6</b> Reproducibility</a><ul>
+<li class="chapter" data-level="6.1" data-path="reproducibility.html"><a href="reproducibility.html#markdown"><i class="fa fa-check"></i><b>6.1</b> Markdown</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="reproducibility.html"><a href="reproducibility.html#r-markdown"><i class="fa fa-check"></i><b>6.1.1</b> R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.1"><i class="fa fa-check"></i><b>6.2</b> Exercise 5.1</a></li>
+<li class="chapter" data-level="6.3" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.2"><i class="fa fa-check"></i><b>6.3</b> Exercise 5.2</a></li>
+<li class="chapter" data-level="6.4" data-path="reproducibility.html"><a href="reproducibility.html#git"><i class="fa fa-check"></i><b>6.4</b> Git</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="reproducibility.html"><a href="reproducibility.html#git-and-rstudio"><i class="fa fa-check"></i><b>6.4.1</b> Git and RStudio</a></li>
+<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-gy7702"><i class="fa fa-check"></i><b>6.4.2</b> Cloning GY7702</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.3"><i class="fa fa-check"></i><b>6.5</b> Exercise 5.3</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory analysis</a><ul>
+<li class="chapter" data-level="7.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#data-visualisation"><i class="fa fa-check"></i><b>7.2</b> Data visualisation</a></li>
+<li class="chapter" data-level="7.3" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#exercise-6.1-2"><i class="fa fa-check"></i><b>7.3</b> Exercise 6.1</a></li>
+<li class="chapter" data-level="7.4" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#exploratory-statistics"><i class="fa fa-check"></i><b>7.4</b> Exploratory statistics</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Geographic data science reproducible teaching resource in R<br/>Practical session materials</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exploratory-analysis" class="section level1">
+<h1><span class="header-section-number">7</span> Exploratory analysis</h1>
+<p><em><a href="https://stefanodesabbata.com">Stefano De Sabbata</a></em></p>
+<p><a href="https://github.com/sdesabbata/GY7702">This work</a> is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0</a>. Contains public sector information licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence">Open Government Licence v3.0</a>.</p>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">7.1</span> Introduction</h2>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb284-2" data-line-number="2"><span class="kw">library</span>(knitr)</a>
+<a class="sourceLine" id="cb284-3" data-line-number="3"><span class="kw">library</span>(broom)</a>
+<a class="sourceLine" id="cb284-4" data-line-number="4">leicester_2011OAC &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>)</a></code></pre></div>
+<p><code>u011</code> Age 20 to 24</p>
+</div>
+<div id="data-visualisation" class="section level2">
+<h2><span class="header-section-number">7.2</span> Data visualisation</h2>
+<p>figures in RMarkdown <code>message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4</code></p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1">leicester_2011OAC <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb285-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb285-3" data-line-number="3">    <span class="kw">aes</span>(</a>
+<a class="sourceLine" id="cb285-4" data-line-number="4">      <span class="dt">x =</span> u011</a>
+<a class="sourceLine" id="cb285-5" data-line-number="5">    )</a>
+<a class="sourceLine" id="cb285-6" data-line-number="6">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb285-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb285-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<p><img src="501_P_Exploratory_files/figure-html/unnamed-chunk-3-1.png" width="576" /></p>
+<p><code>fig.height = 4</code> only</p>
+<p>colour vs fill
+<a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="uri">https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html</a></p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1">leicester_2011OAC <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb286-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb286-3" data-line-number="3">    <span class="kw">aes</span>(</a>
+<a class="sourceLine" id="cb286-4" data-line-number="4">      <span class="dt">x =</span> Total_Population,</a>
+<a class="sourceLine" id="cb286-5" data-line-number="5">      <span class="dt">y =</span> u011,</a>
+<a class="sourceLine" id="cb286-6" data-line-number="6">      <span class="dt">colour =</span> supgrpname</a>
+<a class="sourceLine" id="cb286-7" data-line-number="7">    )</a>
+<a class="sourceLine" id="cb286-8" data-line-number="8">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb286-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb286-10" data-line-number="10"><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">ratio =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb286-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<p><img src="501_P_Exploratory_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>forcats, fct_reorder and
+colorbrewer
+<code>\n</code></p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">leicester_2011OAC <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb287-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb287-3" data-line-number="3">    <span class="kw">aes</span>(</a>
+<a class="sourceLine" id="cb287-4" data-line-number="4">      <span class="dt">x =</span> Total_Population,</a>
+<a class="sourceLine" id="cb287-5" data-line-number="5">      <span class="dt">y =</span> u011,</a>
+<a class="sourceLine" id="cb287-6" data-line-number="6">      <span class="dt">colour =</span> <span class="kw">fct_reorder</span>(supgrpname, supgrpcode)</a>
+<a class="sourceLine" id="cb287-7" data-line-number="7">    )</a>
+<a class="sourceLine" id="cb287-8" data-line-number="8">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb287-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb287-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb287-11" data-line-number="11"><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">ratio =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb287-12" data-line-number="12"><span class="st">  </span><span class="kw">guides</span>(</a>
+<a class="sourceLine" id="cb287-13" data-line-number="13">    <span class="dt">colour =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="st">&quot;2011 Output Area Classification</span><span class="ch">\n</span><span class="st">(supergroups)&quot;</span>)</a>
+<a class="sourceLine" id="cb287-14" data-line-number="14">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb287-15" data-line-number="15"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<p><img src="501_P_Exploratory_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" data-line-number="1">leicester_2011OAC <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb288-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb288-3" data-line-number="3">    <span class="dt">perc_age_20_to_24 =</span> (u011 <span class="op">/</span><span class="st"> </span>Total_Population) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb288-4" data-line-number="4">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb288-5" data-line-number="5"><span class="st">  </span><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb288-6" data-line-number="6">    <span class="kw">aes</span>(</a>
+<a class="sourceLine" id="cb288-7" data-line-number="7">      <span class="dt">x =</span> perc_age_<span class="dv">20</span>_to_<span class="dv">24</span></a>
+<a class="sourceLine" id="cb288-8" data-line-number="8">    )</a>
+<a class="sourceLine" id="cb288-9" data-line-number="9">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb288-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_histogram</span>(</a>
+<a class="sourceLine" id="cb288-11" data-line-number="11">    <span class="dt">binwidth =</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb288-12" data-line-number="12">  )<span class="op">+</span></a>
+<a class="sourceLine" id="cb288-13" data-line-number="13"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Percentage of residents aged 20 to 24&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb288-14" data-line-number="14"><span class="st">  </span><span class="kw">theme_bw</span>() </a></code></pre></div>
+<p><img src="501_P_Exploratory_files/figure-html/unnamed-chunk-6-1.png" width="576" /></p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">leicester_2011OAC <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb289-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb289-3" data-line-number="3">    <span class="dt">perc_age_20_to_24 =</span> (u011 <span class="op">/</span><span class="st"> </span>Total_Population) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb289-4" data-line-number="4">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb289-5" data-line-number="5"><span class="st">  </span><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb289-6" data-line-number="6">    <span class="kw">aes</span>(</a>
+<a class="sourceLine" id="cb289-7" data-line-number="7">      <span class="dt">x =</span> supgrpname,</a>
+<a class="sourceLine" id="cb289-8" data-line-number="8">      <span class="dt">y =</span> perc_age_<span class="dv">20</span>_to_<span class="dv">24</span></a>
+<a class="sourceLine" id="cb289-9" data-line-number="9">    )</a>
+<a class="sourceLine" id="cb289-10" data-line-number="10">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb289-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb289-12" data-line-number="12"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;2011 Output Area Classification (supergroups)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb289-13" data-line-number="13"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Percentage of residents aged 20 to 24&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb289-14" data-line-number="14"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb289-15" data-line-number="15"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb289-16" data-line-number="16">    <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb289-17" data-line-number="17">  )</a></code></pre></div>
+<p><img src="501_P_Exploratory_files/figure-html/unnamed-chunk-7-1.png" width="576" /></p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1">leicester_2011OAC <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb290-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb290-3" data-line-number="3">    <span class="dt">perc_age_20_to_24 =</span> (u011 <span class="op">/</span><span class="st"> </span>Total_Population) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb290-4" data-line-number="4">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb290-5" data-line-number="5"><span class="st">  </span><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb290-6" data-line-number="6">    <span class="kw">aes</span>(</a>
+<a class="sourceLine" id="cb290-7" data-line-number="7">      <span class="dt">x =</span> <span class="kw">fct_reorder</span>(supgrpname, supgrpcode),</a>
+<a class="sourceLine" id="cb290-8" data-line-number="8">      <span class="dt">y =</span> perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>,</a>
+<a class="sourceLine" id="cb290-9" data-line-number="9">      <span class="dt">fill =</span> <span class="kw">fct_reorder</span>(supgrpname, supgrpcode)</a>
+<a class="sourceLine" id="cb290-10" data-line-number="10">    )</a>
+<a class="sourceLine" id="cb290-11" data-line-number="11">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb290-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb290-13" data-line-number="13"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb290-14" data-line-number="14"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;2011 Output Area Classification (supergroups)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb290-15" data-line-number="15"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Percentage of residents aged 20 to 24&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb290-16" data-line-number="16"><span class="st">  </span><span class="kw">guides</span>(</a>
+<a class="sourceLine" id="cb290-17" data-line-number="17">    <span class="dt">fill =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="st">&quot;2011 Output Area Classification</span><span class="ch">\n</span><span class="st">(supergroups)&quot;</span>)</a>
+<a class="sourceLine" id="cb290-18" data-line-number="18">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb290-19" data-line-number="19"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb290-20" data-line-number="20"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb290-21" data-line-number="21">    <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb290-22" data-line-number="22">  )</a></code></pre></div>
+<p><img src="501_P_Exploratory_files/figure-html/unnamed-chunk-8-1.png" width="576" /></p>
+</div>
+<div id="exercise-6.1-2" class="section level2">
+<h2><span class="header-section-number">7.3</span> Exercise 6.1</h2>
+<p>Create a RMarkdown analysis docuement that replicates the analysis above for another age group of your choice. Include conclusions that you can draw from each plot (about 100 words per plot). Also, <code>geom_bin2d()</code></p>
+</div>
+<div id="exploratory-statistics" class="section level2">
+<h2><span class="header-section-number">7.4</span> Exploratory statistics</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">OA11CD</th>
+<th align="left">supgrpname</th>
+<th align="right">perc_age_20_to_24</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">E00169455</td>
+<td align="left">CP</td>
+<td align="right">57.65125</td>
+</tr>
+<tr class="even">
+<td align="left">E00169481</td>
+<td align="left">CP</td>
+<td align="right">60.70111</td>
+</tr>
+<tr class="odd">
+<td align="left">E00169446</td>
+<td align="left">CP</td>
+<td align="right">60.75085</td>
+</tr>
+<tr class="even">
+<td align="left">E00168096</td>
+<td align="left">CP</td>
+<td align="right">58.19209</td>
+</tr>
+<tr class="odd">
+<td align="left">E00169043</td>
+<td align="left">CP</td>
+<td align="right">56.83761</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">perc_age_20_to_24</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nbr.val</td>
+<td align="right">969.000</td>
+</tr>
+<tr class="even">
+<td>nbr.null</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td>nbr.na</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td>min</td>
+<td align="right">1.064</td>
+</tr>
+<tr class="odd">
+<td>max</td>
+<td align="right">60.751</td>
+</tr>
+<tr class="even">
+<td>range</td>
+<td align="right">59.687</td>
+</tr>
+<tr class="odd">
+<td>sum</td>
+<td align="right">10238.502</td>
+</tr>
+<tr class="even">
+<td>median</td>
+<td align="right">7.514</td>
+</tr>
+<tr class="odd">
+<td>mean</td>
+<td align="right">10.566</td>
+</tr>
+<tr class="even">
+<td>SE.mean</td>
+<td align="right">0.304</td>
+</tr>
+<tr class="odd">
+<td>CI.mean.0.95</td>
+<td align="right">0.596</td>
+</tr>
+<tr class="even">
+<td>var</td>
+<td align="right">89.386</td>
+</tr>
+<tr class="odd">
+<td>std.dev</td>
+<td align="right">9.454</td>
+</tr>
+<tr class="even">
+<td>coef.var</td>
+<td align="right">0.895</td>
+</tr>
+</tbody>
+</table>
+<p>recode, dplyr vs car</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">CD</th>
+<th align="right">CP</th>
+<th align="right">EC</th>
+<th align="right">HP</th>
+<th align="right">MM</th>
+<th align="right">SU</th>
+<th align="right">UR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nbr.val</td>
+<td align="right">36.000</td>
+<td align="right">83.000</td>
+<td align="right">57.000</td>
+<td align="right">101.000</td>
+<td align="right">573.000</td>
+<td align="right">54.000</td>
+<td align="right">65.000</td>
+</tr>
+<tr class="even">
+<td>nbr.null</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td>nbr.na</td>
+<td align="right">933.000</td>
+<td align="right">886.000</td>
+<td align="right">912.000</td>
+<td align="right">868.000</td>
+<td align="right">396.000</td>
+<td align="right">915.000</td>
+<td align="right">904.000</td>
+</tr>
+<tr class="even">
+<td>min</td>
+<td align="right">1.064</td>
+<td align="right">3.141</td>
+<td align="right">2.066</td>
+<td align="right">1.515</td>
+<td align="right">2.490</td>
+<td align="right">1.462</td>
+<td align="right">2.256</td>
+</tr>
+<tr class="odd">
+<td>max</td>
+<td align="right">12.963</td>
+<td align="right">60.751</td>
+<td align="right">36.299</td>
+<td align="right">11.261</td>
+<td align="right">52.507</td>
+<td align="right">9.562</td>
+<td align="right">13.505</td>
+</tr>
+<tr class="even">
+<td>range</td>
+<td align="right">11.899</td>
+<td align="right">57.609</td>
+<td align="right">34.233</td>
+<td align="right">9.746</td>
+<td align="right">50.018</td>
+<td align="right">8.100</td>
+<td align="right">11.249</td>
+</tr>
+<tr class="odd">
+<td>sum</td>
+<td align="right">252.108</td>
+<td align="right">2646.551</td>
+<td align="right">838.415</td>
+<td align="right">619.266</td>
+<td align="right">5214.286</td>
+<td align="right">295.867</td>
+<td align="right">372.010</td>
+</tr>
+<tr class="even">
+<td>median</td>
+<td align="right">6.854</td>
+<td align="right">30.457</td>
+<td align="right">10.881</td>
+<td align="right">6.053</td>
+<td align="right">7.880</td>
+<td align="right">5.476</td>
+<td align="right">5.380</td>
+</tr>
+<tr class="odd">
+<td>mean</td>
+<td align="right">7.003</td>
+<td align="right">31.886</td>
+<td align="right">14.709</td>
+<td align="right">6.131</td>
+<td align="right">9.100</td>
+<td align="right">5.479</td>
+<td align="right">5.723</td>
+</tr>
+<tr class="even">
+<td>SE.mean</td>
+<td align="right">0.471</td>
+<td align="right">1.574</td>
+<td align="right">1.373</td>
+<td align="right">0.172</td>
+<td align="right">0.230</td>
+<td align="right">0.233</td>
+<td align="right">0.264</td>
+</tr>
+<tr class="odd">
+<td>CI.mean.0.95</td>
+<td align="right">0.956</td>
+<td align="right">3.131</td>
+<td align="right">2.751</td>
+<td align="right">0.341</td>
+<td align="right">0.452</td>
+<td align="right">0.467</td>
+<td align="right">0.528</td>
+</tr>
+<tr class="even">
+<td>var</td>
+<td align="right">7.983</td>
+<td align="right">205.556</td>
+<td align="right">107.523</td>
+<td align="right">2.980</td>
+<td align="right">30.285</td>
+<td align="right">2.929</td>
+<td align="right">4.545</td>
+</tr>
+<tr class="odd">
+<td>std.dev</td>
+<td align="right">2.825</td>
+<td align="right">14.337</td>
+<td align="right">10.369</td>
+<td align="right">1.726</td>
+<td align="right">5.503</td>
+<td align="right">1.712</td>
+<td align="right">2.132</td>
+</tr>
+<tr class="even">
+<td>coef.var</td>
+<td align="right">0.403</td>
+<td align="right">0.450</td>
+<td align="right">0.705</td>
+<td align="right">0.282</td>
+<td align="right">0.605</td>
+<td align="right">0.312</td>
+<td align="right">0.372</td>
+</tr>
+<tr class="odd">
+<td>skewness</td>
+<td align="right">0.322</td>
+<td align="right">0.067</td>
+<td align="right">0.633</td>
+<td align="right">0.124</td>
+<td align="right">3.320</td>
+<td align="right">0.005</td>
+<td align="right">1.042</td>
+</tr>
+<tr class="even">
+<td>skew.2SE</td>
+<td align="right">0.410</td>
+<td align="right">0.127</td>
+<td align="right">1.001</td>
+<td align="right">0.258</td>
+<td align="right">16.266</td>
+<td align="right">0.008</td>
+<td align="right">1.753</td>
+</tr>
+<tr class="odd">
+<td>kurtosis</td>
+<td align="right">-0.142</td>
+<td align="right">-0.825</td>
+<td align="right">-1.009</td>
+<td align="right">0.220</td>
+<td align="right">15.143</td>
+<td align="right">-0.391</td>
+<td align="right">1.441</td>
+</tr>
+<tr class="even">
+<td>kurt.2SE</td>
+<td align="right">-0.093</td>
+<td align="right">-0.789</td>
+<td align="right">-0.810</td>
+<td align="right">0.231</td>
+<td align="right">37.156</td>
+<td align="right">-0.306</td>
+<td align="right">1.229</td>
+</tr>
+<tr class="odd">
+<td>normtest.W</td>
+<td align="right">0.965</td>
+<td align="right">0.980</td>
+<td align="right">0.889</td>
+<td align="right">0.993</td>
+<td align="right">0.684</td>
+<td align="right">0.991</td>
+<td align="right">0.937</td>
+</tr>
+<tr class="even">
+<td>normtest.p</td>
+<td align="right">0.310</td>
+<td align="right">0.239</td>
+<td align="right">0.000</td>
+<td align="right">0.886</td>
+<td align="right">0.000</td>
+<td align="right">0.954</td>
+<td align="right">0.002</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Levene’s test</strong> for equality of variance in different levels</p>
+<ul>
+<li>If significant, the variance is different in different levels</li>
+</ul>
+<p>Used to test assumptions of regression, but also useful here.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="kw">leveneTest</span>(leic_2011OAC_20to24<span class="op">$</span>perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>, leic_2011OAC_20to24<span class="op">$</span>supgrpname)</a></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value    Pr(&gt;F)    
+## group   6  62.011 &lt; 2.2e-16 ***
+##       962                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><img src="501_P_Exploratory_files/figure-html/unnamed-chunk-14-1.png" width="100%" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reproducibility.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

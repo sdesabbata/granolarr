@@ -16,19 +16,19 @@
 source("Make_Clean.R")
 
 # Step 1: execute the scripts
-#source("Utils/Gather_Ofcom_data_2012.R")
+#
 
 # Step 2-1: Compile the lecture files to html slides
-rmarkdown::render("Lectures/01_L_Introduction.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/02_L_DataTypes.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/03_L_DataWrangling1.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/04_L_DataWrangling2.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/05_L_Reproducibility.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/06_L_ControlStructuresFunctions.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/07_L_Exploratory.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/08_L_Regression.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/09_L_Unsupervised.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/10_L_Supervised.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/101_L_Introduction.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/102_L_DataTypes.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/111_L_ControlStructuresFunctions.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/201_L_DataWrangling1.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/202_L_DataWrangling2.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/301_L_Reproducibility.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/501_L_Exploratory.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/502_L_Regression.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/601_L_Unsupervised.Rmd", quiet = TRUE)
+rmarkdown::render("Lectures/611_L_Supervised.Rmd", quiet = TRUE)
 
 # Step 2-2: Compile the lecture files to bookdown
 
@@ -40,13 +40,13 @@ bookdown::render_book( "index.Rmd", "bookdown::gitbook", new_session = TRUE, out
 setwd(rprojroot::find_rstudio_root_file())
 
 # Step 3-1: Compile the practical files to pdf
-rmarkdown::render("Practicals/01_P_Introduction.Rmd", quiet = TRUE)
-rmarkdown::render("Practicals/02_P_DataTypes.Rmd", quiet = TRUE)
-rmarkdown::render("Practicals/03_P_DataWrangling1.Rmd", quiet = TRUE)
-rmarkdown::render("Practicals/04_P_DataWrangling2.Rmd", quiet = TRUE)
-rmarkdown::render("Practicals/05_P_Reproducibility.Rmd", quiet = TRUE)
-rmarkdown::render("Practicals/06_P_ControlStructuresFunctions.Rmd", quiet = TRUE)
-rmarkdown::render("Practicals/07_P_Exploratory.Rmd", quiet = TRUE)
+rmarkdown::render("Practicals/101_P_Introduction.Rmd", quiet = TRUE)
+rmarkdown::render("Practicals/102_P_DataTypes.Rmd", quiet = TRUE)
+rmarkdown::render("Practicals/111_P_ControlStructuresFunctions.Rmd", quiet = TRUE)
+rmarkdown::render("Practicals/201_P_DataWrangling1.Rmd", quiet = TRUE)
+rmarkdown::render("Practicals/202_P_DataWrangling2.Rmd", quiet = TRUE)
+rmarkdown::render("Practicals/301_P_Reproducibility.Rmd", quiet = TRUE)
+rmarkdown::render("Practicals/501_P_Exploratory.Rmd", quiet = TRUE)
 
 # Step 3-1: Compile the practical files to bookdown
 
