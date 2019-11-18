@@ -16,7 +16,7 @@ This content was created using [R](https://www.r-project.org/), [RStudio](https:
 
 All the materials are available through the **[lectures bookdown](Lectures/bookdown)** and **[practical sessions bookdown](Practicals/bookdown)** pages. Links to the lecture slides and bookdown chapters for each week are listed below.
 
-1. Programming, a practical introduction
+1. **Programming, a practical introduction**
     - **101 Introduction**
         - Lecture ([slides](Lectures/101_L_Introduction.html), [bookdown](Lectures/bookdown/about-this-module.html))
             - Basic types
@@ -57,7 +57,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Conditional statements
             - Loops
             - Functions
-2. Data wrangling
+2. **Data wrangling**
     - **201 Selection and manipulation**
         - Lecture ([slides](Lectures/201_L_DataWrangling1.html), [bookdown](Lectures/bookdown/recap-201.html))
             - Data selection
@@ -87,7 +87,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Reproducibile data analysis
             - RMarkdown
             - Git
-4. Data visualisation
+4. **Data visualisation**
     - *Coming soon*
 5. **Data analysis**
     - **501 Exploratory data analysis**
