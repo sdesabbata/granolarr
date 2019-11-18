@@ -1,6 +1,6 @@
 # granolarr
 
-**G**eog**R**aphic d**A**ta scie**N**ce repr**O**ducib**L**e te**A**ching **R**esource in **R**
+A geog**GR**aphic d**A**ta scie**N**ce repr**O**ducib**L**e te**A**ching **R**esource in **R**
 
 by *[Stefano De Sabbata](https://stefanodesabbata.com)*
 
