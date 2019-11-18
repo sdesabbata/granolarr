@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 111<br/>Recap
+# Recap
 
 
 
@@ -48,7 +48,7 @@ How to control the data processing flow
 - Scope of a variable
 
 
-# Lecture 111<br/>Conditional statements
+# Conditional statements
 
 ## If
 Format: **if** (*condition*) *statement*
@@ -111,7 +111,7 @@ if (first_value > second_value) {
 
 
 
-# Lecture 111<br/>Loops
+# Loops
 
 ## Loops
 Loops are a fundamental component of (procedural) programming.
@@ -202,7 +202,7 @@ for (i in 3:0) {
 
 
 
-# Lecture 111<br/>Functions
+# Functions
 
 
 ## Defining functions
@@ -333,7 +333,7 @@ Hint: try *debug* the function above and observe how the *local* environment is 
 
 
 <!--
-# Lecture 111<br/>Debugging
+# Debugging
 
 ## What is debugging?
 
@@ -380,7 +380,7 @@ percentage_change <- function (before, after){
 -->
 
 
-# Lecture 111<br/>Summary
+# Summary
 
 
 

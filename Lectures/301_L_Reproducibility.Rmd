@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 301<br/>Summary
+# Recap
 
 
 
@@ -54,7 +54,7 @@ See also: [Christopher Gandrud, *Reproducible Research with R and R Studio*](htt
 
 
 
-# Lecture 301<br/>Reproducibility
+# Reproducibility
 
 
 
@@ -224,7 +224,7 @@ GitHub Page at <a href="https://sdesabbata.github.io/GY7702/">https://sdesabbata
 
 
 
-# Lecture 301<br/>RMarkdown
+# RMarkdown
 
 
 ## Markdown
@@ -313,7 +313,7 @@ a_variable
 
 
 
-# Lecture 301<br/>Git
+# Git
 
 
 ## What's git?
@@ -398,7 +398,7 @@ RStudio includes a git plug-in
 </center>
 
 
-# Lecture 301<br/>Recap
+# Recap
 
 
 

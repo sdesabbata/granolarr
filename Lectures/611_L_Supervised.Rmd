@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 611<br/>Summary
+# Recap
 
 
 
@@ -32,7 +32,7 @@ TODO
 
 
 
-# Lecture 611<br/>k Nearest Neighbors
+# k Nearest Neighbors
 
 
 
@@ -48,7 +48,7 @@ TODO
 
 
 
-# Lecture 611<br/>Neural networks
+# Neural networks
 
 
 
@@ -97,7 +97,7 @@ Note from Machine Learning with R: Expert techniques for predictive modeling by 
 
 
 
-# Lecture 611<br/>Support Vector Machines
+# Support Vector Machines
 
 
 
@@ -129,7 +129,7 @@ the SVM learning combines aspects of both the instance-based nearest neighbor le
 
 
 
-# Lecture 611<br/>Summary
+# Summary
 
 
 

@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 101<br/>About this module
+# About this module
 
 
 
@@ -127,7 +127,7 @@ Addison-Wesley, 2019
 
 
 
-# Lecture 101<br/>R
+# R
 
 
 ## R
@@ -394,7 +394,7 @@ sqrt(2) %>%
 
 
 
-# Lecture 101<br/>Summary
+# Summary
 
 
 

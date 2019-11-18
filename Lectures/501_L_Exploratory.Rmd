@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 501<br/>Summary
+# Recap
 
 
 
@@ -47,7 +47,7 @@ rm(list = ls())
 
 
 
-# Lecture 501<br/>Data visualisation
+# Data visualisation
 
 
 
@@ -388,7 +388,7 @@ nycflights13::flights %>%
 </div>
 
 
-# Lecture 501<br/>Descriptive statistics
+# Descriptive statistics
 
 
 
@@ -498,7 +498,7 @@ nycflights13::flights %>%
 
 
 
-# Lecture 501<br/>Exploring assumptions
+# Exploring assumptions
 
 
 
@@ -698,7 +698,7 @@ leveneTest(dep_delay_carrier$dep_delay, dep_delay_carrier$carrier)
 ```
 
 
-# Lecture 501<br/>Summary
+# Summary
 
 
 

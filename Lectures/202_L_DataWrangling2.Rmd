@@ -17,7 +17,7 @@ rm(list = ls())
 
 
 
-# Lecture 202<br/>Recap
+# Recap
 
 
 
@@ -40,7 +40,7 @@ Moving on towards data science
 - Read and write data
 
 
-# Lecture 202<br/>Join
+# Join
 
 
 
@@ -168,7 +168,7 @@ employees %>% inner_join(
 
 
 
-# Lecture 202<br/>Re-shape
+# Re-shape
 
 
 ## Wide data
@@ -257,7 +257,7 @@ kable(city_info_back_to_wide)
 
 
 
-# Lecture 202<br/>Read and write
+# Read and write
 
 
 
@@ -324,7 +324,7 @@ read_csv("2011_OAC_Raw_uVariables_Leicester.csv") %>%
 
 
 
-# Lecture 202<br/>Summary
+# Summary
 
 
 

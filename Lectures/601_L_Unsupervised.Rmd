@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 601<br/>Summary
+# Recap
 
 
 
@@ -32,7 +32,7 @@ TODO
 
 
 
-# Lecture 601<br/>Machine Learning
+# Machine Learning
 
 
 
@@ -77,7 +77,7 @@ Incl. overfitting
 
 
 
-# Lecture 601<br/>Clustering
+# Clustering
 
 
 ## Clustering task
@@ -108,7 +108,7 @@ Incl. overfitting
 
 
 
-# Lecture 601<br/>Summary
+# Summary
 
 
 

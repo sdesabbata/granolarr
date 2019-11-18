@@ -16,7 +16,7 @@ rm(list = ls())
 
 
 
-# Lecture 102<br/>Recap
+# Recap
 
 
 
@@ -46,7 +46,7 @@ More complex data types
 
 
 
-# Lecture 102<br/>Vectors
+# Vectors
 
 ## Vectors
 **Vectors** are ordered list of values.
@@ -147,7 +147,7 @@ all(a_numeric_vector >= 3)
 ```
 
 
-# Lecture 102<br/>Factors
+# Factors
 
 ## Factors
 
@@ -216,7 +216,7 @@ sort(income_ordered)
 
 
 
-# Lecture 102<br/>Matrices and arrays
+# Matrices and arrays
 
 
 ## Matrices
@@ -345,7 +345,7 @@ apply(a3dim_array, 2, min) # apply on second dimension
 ```
 
 
-# Lecture 102<br/>Lists
+# Lists
 
 ## Lists
 
@@ -397,7 +397,7 @@ various
 -->
 
 
-# Lecture 102<br/>Data frames
+# Data frames
 
 
 
@@ -476,7 +476,7 @@ This forces you to confront problems earlier, typically leading to cleaner, more
 
 
 
-# Lecture 102<br/>Summary
+# Summary
 
 
 

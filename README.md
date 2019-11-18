@@ -1,6 +1,6 @@
 # granolarr
 
-GeogRaphic dAta scieNce reprOducibLe teAching Resource in R
+**G**eog**R**aphic d**A**ta scie**N**ce repr**O**ducib**L**e te**A**ching **R**esource in **R**
 
 by *[Stefano De Sabbata](https://stefanodesabbata.com)*
 
@@ -9,6 +9,101 @@ by *[Stefano De Sabbata](https://stefanodesabbata.com)*
 This repository contains reproducible materials to teach geographic information and data science in R. Part of the materials are derived from the lectures and practical sessions for the module [GY7702 Practical Programming in R](https://sdesabbata.github.io/GY7702/) of the [MSc in Geographic Information Science](https://le.ac.uk/courses/geographical-information-science-msc/2019) at the [School of Geography, Geology, and the Environment](https://le.ac.uk/gge) of the [University of Leicester](https://le.ac.uk/), convened by [Dr Stefano De Sabbata](https://stefanodesabbata.com/) in the academic year 2019/20.
 
 This content was created using [R](https://www.r-project.org/), [RStudio](https://www.rstudio.com/), [RMarkdown](https://rmarkdown.rstudio.com/), [Bookdown](https://bookdown.org/), and [GitHub](https://github.com/sdesabbata).
+
+
+
+## Materials
+
+All the materials are available through the **[lectures bookdown](Lectures/bookdown)** and **[practical sessions bookdown](Practicals/bookdown)** pages. Links to the lecture slides and bookdown chapters for each week are listed below.
+
+1. Programming, a practical introduction
+    - **101 Introduction**
+        - Lecture ([slides](Lectures/01_L_Introduction.html), [bookdown](Lectures/bookdown/lecture-1-about-this-module.html))
+            - Basic types
+            - Basic operators
+            - Variables
+            - Libraries
+            - The pipe operator
+            - Coding style
+        - Practical session ([bookdown](Practicals/bookdown/introduction-to-r.html))
+            - The R programming language
+            - Interpreting values
+            - Variables
+            - Basic types
+            - Tidyverse
+            - Coding style
+    - **102 Data types**
+        - Lecture ([slides](Lectures/02_L_DataTypes.html), [bookdown](Lectures/bookdown/lecture-2-recap.html))
+            - Vectors
+            - Factors
+            - Matrices
+            - Arrays
+            - Lists
+            - Data Frames
+        - Practical session ([bookdown](Practicals/bookdown/data-types.html))
+            - Vectors
+            - Factors
+            - Matrices
+            - Arrays
+            - Lists
+            - Data Frames
+    - **111 Control structures and functions**
+        - Lecture ([slides](Lectures/06_L_ControlStructuresFunctions.html), [bookdown](Lectures/bookdown/lecture-6-recap.html))
+            - Conditional statements
+            - Loops
+            - Functions
+            - Scope of a variable
+        - Practical session ([bookdown](Practicals/bookdown/control-structures-and-functions.html))
+            - Conditional statements
+            - Loops
+            - Functions
+2. Data wrangling
+    - **201 Selection and manipulation**
+        - Lecture ([slides](Lectures/03_L_DataWrangling1.html), [bookdown](Lectures/bookdown/lecture-3-recap.html))
+            - Data selection
+            - Data filtering
+            - Data manipulation
+        - Practical session ([bookdown](Practicals/bookdown/data-wrangling-pt-1.html))
+            - Creating R projects
+            - Creating R scripts
+            - Data wrangling script
+    - **202 Table operations**
+        - Lecture ([slides](Lectures/04_L_DataWrangling2.html), [bookdown](Lectures/bookdown/lecture-4-recap.html))
+            - Join operations
+            - Table re-shaping
+            - Read and write data
+        - Practical session ([bookdown](Practicals/bookdown/data-wrangling-pt-2.html))
+            - Join operations
+            - Table re-shaping
+            - Read and write data
+3. **Reproducibility**
+    - **301 Reproducible analysis**
+        - Lecture ([slides](Lectures/05_L_Reproducibility.html), [bookdown](Lectures/bookdown/lecture-5-recap.html))
+            - Reproducibility
+            - Versioning
+            - R and Markdown
+            - Git
+        - Practical session ([bookdown](Practicals/bookdown/reproducibility.html))
+            - Reproducibile data analysis
+            - RMarkdown
+            - Git
+4. Information Visualisation
+    - *Coming soon*
+5. **Data analysis**
+    - **501 Exploratory data analysis**
+        - Lecture ([slides](Lectures/07_L_Exploratory.html), [bookdown](Lectures/bookdown/lecture-7-recap.html))
+            - Data visualisation
+            - Descriptive statistics
+            - Exploring assumptions
+        - Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
+            - Data visualisation
+            - Descriptive statistics
+            - Exploring assumptions
+    - **502 Regression models** 
+        - *Coming soon*
+6. **Machine learning**
+    - *Coming soon*
+
 
 
 
