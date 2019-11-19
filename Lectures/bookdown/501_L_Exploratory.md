@@ -1,7 +1,7 @@
 ---
 title: "Lecture 501<br/>Exploratory analysis"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
-date: "2019-11-18"
+date: "2019-11-19"
 output:
   ioslides_presentation:
     template: ../Utils/IOSlides/UoL_Template.html
@@ -98,7 +98,7 @@ library(nycflights13)
 library(knitr)
 ```
 
-
+<!--
 ## Aesthetics
 
 The `aes` element is the second parameter of the main `ggplot` function after the data
@@ -135,18 +135,12 @@ ggplot(
 ) +
 geom_point()
 ```
+-->
 
 ## Histograms
 
-<div class="columns-2">
-
 - `x` variable to plot
 - `geom_histogram`
-
-<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-4-1.png" width="384" />
-
-
-<br/><br/>
 
 
 ```r
@@ -158,12 +152,17 @@ nycflights13::flights %>%
     )
   ) +
   geom_histogram(
-    binwidth = 1
+    binwidth = 10
   )
 ```
 
-</div>
+## Histograms
 
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+
+
+
+<!--
 ## Scale transformation
 
 <div class="columns-2">
@@ -188,19 +187,13 @@ nycflights13::flights %>%
 ```
 
 </div>
+-->
 
 ## Boxplots
-
-<div class="columns-2">
 
 - `x` categorical variable
 - `y` variable to plot
 - `geom_boxplot`
-
-
-<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-8-1.png" width="384" />
-
-<br/><br/>
 
 
 ```r
@@ -215,38 +208,77 @@ nycflights13::flights %>%
   geom_boxplot()
 ```
 
+## Boxplots
 
-</div>
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+
+
+
+
+## Jittered points
+
+- `x` categorical variable
+- `y` variable to plot
+- `geom_jitter`
+
+
+
+```r
+nycflights13::flights %>%
+  filter(month == 11) %>%
+  ggplot(
+    aes(
+      x = carrier, 
+      y = arr_delay
+    )
+  ) +
+  geom_jitter()
+```
+
+## Jittered points
+
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+
+
+## Jittered points
+
+- `x` categorical variable
+- `y` variable to plot
+- `geom_jitter`
+
+
+
+```r
+nycflights13::flights %>%
+  filter(month == 11) %>%
+  ggplot(
+    aes(
+      x = carrier, 
+      y = arr_delay
+    )
+  ) +
+  geom_violin()
+```
+
+## Jittered points
+
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 
 ## Lines
-
-<div class="columns-2">
 
 - `x` e.g., a temporal variable
 - `y` variable to plot
 - `geom_line`
 
 
-<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-10-1.png" width="384" />
-
-<br/><br/>
-
 
 ```r
 nycflights13::flights %>%
-  filter(
-    !is.na(dep_delay)
-  ) %>%
-  mutate(
-    flight_date = ISOdate(
-      year, month, day
-  )) %>%
+  filter(!is.na(dep_delay)) %>%
+  mutate(flight_date = ISOdate(year, month, day)) %>%
   group_by(flight_date) %>%
-  summarize(
-    avg_dep_delay = mean(
-      dep_delay
-  )) %>%
+  summarize(avg_dep_delay = mean(dep_delay)) %>%
   ggplot(aes(
     x = flight_date,
     y = avg_dep_delay
@@ -254,18 +286,17 @@ nycflights13::flights %>%
   geom_line()
 ```
 
-</div>
+
+## Lines
+
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+
+
 
 ## Scatterplots
 
-<div class="columns-2">
-
 - `x` and `y` variable to plot
 - `geom_point`
-
-<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-12-1.png" width="384" />
-
-<br/><br/>
 
 
 ```r
@@ -283,16 +314,41 @@ nycflights13::flights %>%
   geom_point()
 ```
 
-</div>
+
+## Scatterplots
+
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+
+
+## Overlapping points
+
+- `x` and `y` variable to plot
+- `geom_count` counts overlapping points and maps the count to size
+
+
+```r
+nycflights13::flights %>%
+  filter(
+    month == 11, carrier == "US",
+    !is.na(dep_delay), !is.na(arr_delay)
+  ) %>%
+  ggplot(aes(
+    x = dep_delay,
+    y = arr_delay
+  )) +
+  geom_count()
+```
+
+
+## Overlapping points
+
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+
 
 ## Bin counts
 
-<div class="columns-2">
-
 - `x` and `y` variable to plot
 - `geom_bin2d`
-
-<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-14-1.png" width="384" />
 
 
 ```r
@@ -307,13 +363,13 @@ nycflights13::flights %>%
     x = dep_delay,
     y = arr_delay
   )) +
-  geom_bin2d() +
-  theme(
-    legend.position = "bottom"
-  )
+  geom_bin2d()
 ```
 
-</div>
+## Bin counts
+
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+
 
 
 # Descriptive statistics
@@ -461,7 +517,7 @@ nycflights13::flights %>%
 
 <br/><br/><br/>
 
-<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-19-1.png" width="100%" />
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-25-1.png" width="100%" />
 
 </div>
 
@@ -472,7 +528,7 @@ nycflights13::flights %>%
 
 
 
-<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-21-1.png" width="100%" />
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-27-1.png" width="100%" />
 
 
 
@@ -506,7 +562,7 @@ nycflights13::flights %>%
 
 Cumulative values against the cumulative probability of a particular distribution
 
-<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-23-1.png" width="384" />
+<img src="501_L_Exploratory_files/figure-html/unnamed-chunk-29-1.png" width="384" />
 
 <br/><br/>
 
@@ -650,7 +706,16 @@ leveneTest(dep_delay_carrier$dep_delay, dep_delay_carrier$carrier)
 
 
 
-
 ## Practical session
 
 In the practical session, we will see:
+
+- Data visualisation
+    - histograms
+    - boxplots
+    - scatterplots
+- Descriptive statistics
+- Exploring assumptions
+    - Shapiro–Wilk test
+    - skewness and kurtosis
+    - Levene’s test

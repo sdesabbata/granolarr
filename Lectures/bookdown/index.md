@@ -1,7 +1,7 @@
 ---
 title: "Geographic data science reproducible teaching resource in R<br/>Lecture materials"
 author: "Stefano De Sabbata"
-date: "2019-11-18"
+date: "2019-11-19"
 output: html_document
 ---
 
