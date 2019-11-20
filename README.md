@@ -95,7 +95,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Data visualisation
             - Descriptive statistics
             - Exploring assumptions
-        - Practical session
+        - Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
             - Data visualisation
             - Descriptive statistics
             - Exploring assumptions
