@@ -278,11 +278,11 @@ nycflights13::flights %>%
 ```
 
 
-## Jittered points
+## Violin plot
 
 - `x` categorical variable
 - `y` variable to plot
-- `geom_jitter`
+- `geom_violin`
 
 
 ```{r, echo=TRUE, eval=FALSE}
@@ -297,7 +297,7 @@ nycflights13::flights %>%
   geom_violin()
 ```
 
-## Jittered points
+## Violin plot
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 nycflights13::flights %>%

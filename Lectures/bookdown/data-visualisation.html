@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2019-11-19" />
+<meta name="date" content="2019-11-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -344,8 +344,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="31.7" data-path="data-visualisation.html"><a href="data-visualisation.html#boxplots-1"><i class="fa fa-check"></i><b>31.7</b> Boxplots</a></li>
 <li class="chapter" data-level="31.8" data-path="data-visualisation.html"><a href="data-visualisation.html#jittered-points"><i class="fa fa-check"></i><b>31.8</b> Jittered points</a></li>
 <li class="chapter" data-level="31.9" data-path="data-visualisation.html"><a href="data-visualisation.html#jittered-points-1"><i class="fa fa-check"></i><b>31.9</b> Jittered points</a></li>
-<li class="chapter" data-level="31.10" data-path="data-visualisation.html"><a href="data-visualisation.html#jittered-points-2"><i class="fa fa-check"></i><b>31.10</b> Jittered points</a></li>
-<li class="chapter" data-level="31.11" data-path="data-visualisation.html"><a href="data-visualisation.html#jittered-points-3"><i class="fa fa-check"></i><b>31.11</b> Jittered points</a></li>
+<li class="chapter" data-level="31.10" data-path="data-visualisation.html"><a href="data-visualisation.html#violin-plot"><i class="fa fa-check"></i><b>31.10</b> Violin plot</a></li>
+<li class="chapter" data-level="31.11" data-path="data-visualisation.html"><a href="data-visualisation.html#violin-plot-1"><i class="fa fa-check"></i><b>31.11</b> Violin plot</a></li>
 <li class="chapter" data-level="31.12" data-path="data-visualisation.html"><a href="data-visualisation.html#lines"><i class="fa fa-check"></i><b>31.12</b> Lines</a></li>
 <li class="chapter" data-level="31.13" data-path="data-visualisation.html"><a href="data-visualisation.html#lines-1"><i class="fa fa-check"></i><b>31.13</b> Lines</a></li>
 <li class="chapter" data-level="31.14" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplots"><i class="fa fa-check"></i><b>31.14</b> Scatterplots</a></li>
@@ -667,12 +667,12 @@ nycflights13::flights %>%
 <h2><span class="header-section-number">31.9</span> Jittered points</h2>
 <p><img src="501_L_Exploratory_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
-<div id="jittered-points-2" class="section level2">
-<h2><span class="header-section-number">31.10</span> Jittered points</h2>
+<div id="violin-plot" class="section level2">
+<h2><span class="header-section-number">31.10</span> Violin plot</h2>
 <ul>
 <li><code>x</code> categorical variable</li>
 <li><code>y</code> variable to plot</li>
-<li><code>geom_jitter</code></li>
+<li><code>geom_violin</code></li>
 </ul>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1">nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb195-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></a>
@@ -684,8 +684,8 @@ nycflights13::flights %>%
 <a class="sourceLine" id="cb195-8" data-line-number="8">  ) <span class="op">+</span></a>
 <a class="sourceLine" id="cb195-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_violin</span>()</a></code></pre></div>
 </div>
-<div id="jittered-points-3" class="section level2">
-<h2><span class="header-section-number">31.11</span> Jittered points</h2>
+<div id="violin-plot-1" class="section level2">
+<h2><span class="header-section-number">31.11</span> Violin plot</h2>
 <p><img src="501_L_Exploratory_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 <div id="lines" class="section level2">
