@@ -100,9 +100,23 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Descriptive statistics
             - Exploring assumptions
     - **502 Regression models** 
-        - *Coming soon*
+        - Lecture ([slides](Lectures/502_L_Regression.html), [bookdown](Lectures/bookdown/recap-502.html))
+            - Comparing means
+            - Correlation
+            - Regression
 6. **Machine learning**
-    - *Coming soon*
+    - **601 Unsupervised**
+        - Lecture ([slides](Lectures/601_L_Unsupervised.html), [bookdown](Lectures/bookdown/recap-601.html))
+            - Machine Learning: definition and types
+            - Unsupervised machine Learning
+            - Clustering
+            - Geodemographic classification
+        - Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
+            - Data visualisation
+            - Descriptive statistics
+            - Exploring assumptions
+    - **602 Supervised** 
+        - *Coming soon*
 
 
 

@@ -87,7 +87,7 @@ a_number
 
 ## Exercise 5.1
 
-Create a new R project named *Practical_05* as the directory name. Create an RMarkdown document in RStudio by selecting *File > New File > R Markdown ...* -- this might prompt RStudio to update some packages. On the RMarkdown document creation menu, specify "Practical 05" as title and your name as the author, and select *PDF* as default output format. 
+Create a new R project named *Practical_301* as the directory name. Create an RMarkdown document in RStudio by selecting *File > New File > R Markdown ...* -- this might prompt RStudio to update some packages. On the RMarkdown document creation menu, specify "Practical 05" as title and your name as the author, and select *PDF* as default output format. 
 
 The new document should contain the core document information, as in the example below, plus some additional content that simply explains how RMarkdown works.
 
@@ -151,13 +151,13 @@ As illustrated in the image below, when working with a git repository, the most 
 
 ### Git and RStudio
 
-In RStudio Server, in the *Files* tab of the bottom-left panel, click on *Home* to make sure you are in your home folder -- if you are working on your own computer, create a folder for GY7702 wherever most convenient. Click on *New Folder* and enter *Repos* (short for repositories) in the prompt dialogue, to create a folder named *Repos*. 
+In RStudio Server, in the *Files* tab of the bottom-left panel, click on *Home* to make sure you are in your home folder -- if you are working on your own computer, create a folder for granolarr wherever most convenient. Click on *New Folder* and enter *Repos* (short for repositories) in the prompt dialogue, to create a folder named *Repos*. 
 
-Create a GitHub account at [github.com](https://github.com/), if you don't have one, and create a new repository named *myGY7702*, following the instructions available on the [GitHub help pages](https://help.github.com/en/articles/creating-a-new-repository). Make sure you tick the box next to *Initialize this repository with a README*, which adds a `README.md` markdown file to your repository.
+Create a GitHub account at [github.com](https://github.com/), if you don't have one, and create a new repository named *my-granolarr*, following the instructions available on the [GitHub help pages](https://help.github.com/en/articles/creating-a-new-repository). Make sure you tick the box next to *Initialize this repository with a README*, which adds a `README.md` markdown file to your repository.
 
 Once the repository has been created, GitHub will take you to the repository page. Copy the link to the repository `.git` file by clicking on the green *Clone or download* button and copying the `https` URL there available. Back to RStudio Server, select *File > New Project...* from the top menu and select *Version Control* and then *Git* from the *New Project* panel. Paste the copied URL in the *Repository URL* field, select the *Repos* folder created above as folder for *Create project as subdirectory of*, and click *Create Project*. RStudio might ask you for your GitHub username and password at this point.
 
-![Cloning myGY7702 as R project in RStudio](Images/git_clone_myGY7702.png){width=60%}
+![Cloning my-granolarr as R project in RStudio](Images/git_clone_my-granolarr.png){width=60%}
 
 Before continuing, you need to record your identity with the Git system installed on the RStudio Server, for it to be able to communicate with the GitHub's server. Open the *Terminal* tab in RStudio (if not visible, select *Tools > Terminal > New Terminal* from the top menu). First, paste the command below substituting `you@example.com` with your university email (make sure to maintain the double quotes) and press the return button.
 
@@ -171,7 +171,7 @@ Then, paste the command below substituting `Your Name` with your name (make sure
 git config --global user.name "Your Name"
 ```
 
-RStudio should have now switched to a new R project linked to you *myGY7702* repository. In the RStudio *File* tab in the bottom-right panel, navigate to the file created for the exercises above, select the files and copy them in the folder of the new project (in the *File* tab, *More > Copy To...*).
+RStudio should have now switched to a new R project linked to you *my-granolarr* repository. In the RStudio *File* tab in the bottom-right panel, navigate to the file created for the exercises above, select the files and copy them in the folder of the new project (in the *File* tab, *More > Copy To...*).
 
 Check the now available *Git* tab on the top-right panel, and you should see at least the newly copied files marked as untracked. Tick the checkboxes in the *Staged* column to stage the files, then click on the *Commit* button. 
 
@@ -181,9 +181,9 @@ Congratulations, you have completed your first commit! Check the repository page
 
 
 
-### Cloning GY7702
+### Cloning granolarr
 
-You can follow the steps listed below to clone the GY7702 repository.
+You can follow the steps listed below to clone the granolarr repository.
 
 1. Create a folder named `Repos` in your home directory. If you are working on RStudio Server, in the *Files* panel, click on the `Home` button (second bar, next to the house icon), then click on `New Folder`, enter the name `Repos` and click `Ok`.
 
@@ -191,13 +191,13 @@ You can follow the steps listed below to clone the GY7702 repository.
 
 3. Select `Version Control` and then `Git` (you might need to set up Git first if you are working on your own computer)
 
-4. Copy `https://github.com/sdesabbata/GY7702.git` in the `Repository URL` field and select the Repos folder for the field `Create project as subdirectory of`, and click on `Create Project`.
+4. Copy `https://github.com/sdesabbata/granolarr.git` in the `Repository URL` field and select the Repos folder for the field `Create project as subdirectory of`, and click on `Create Project`.
 
 5. Have a look around
 
-6. Click on the project name `GY7702` on the top-left of the interface and select `Close Project` to close the project.
+6. Click on the project name `granolarr` on the top-left of the interface and select `Close Project` to close the project.
 
-As GY7702 is a public repository, you can clone it, edit it as you wish and push it to your own copy of the repository. However, contributing your edits to the original repository would require a few further steps. Check out the [GitHub help pages](https://help.github.com/en/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork) if you are interested.
+As granolarr is a public repository, you can clone it, edit it as you wish and push it to your own copy of the repository. However, contributing your edits to the original repository would require a few further steps. Check out the [GitHub help pages](https://help.github.com/en/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork) if you are interested.
 
 
 

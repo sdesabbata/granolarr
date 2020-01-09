@@ -28,7 +28,6 @@ rmarkdown::render("Lectures/301_L_Reproducibility.Rmd", quiet = TRUE)
 rmarkdown::render("Lectures/501_L_Exploratory.Rmd", quiet = TRUE)
 rmarkdown::render("Lectures/502_L_Regression.Rmd", quiet = TRUE)
 rmarkdown::render("Lectures/601_L_Unsupervised.Rmd", quiet = TRUE)
-rmarkdown::render("Lectures/611_L_Supervised.Rmd", quiet = TRUE)
 
 # Step 2-2: Compile the lecture files to bookdown
 
@@ -47,6 +46,8 @@ rmarkdown::render("Practicals/201_P_DataWrangling1.Rmd", quiet = TRUE)
 rmarkdown::render("Practicals/202_P_DataWrangling2.Rmd", quiet = TRUE)
 rmarkdown::render("Practicals/301_P_Reproducibility.Rmd", quiet = TRUE)
 rmarkdown::render("Practicals/501_P_Exploratory.Rmd", quiet = TRUE)
+rmarkdown::render("Practicals/502_P_Regression.Rmd", quiet = TRUE)
+rmarkdown::render("Practicals/601_P_GeoDemographicClassification.Rmd", quiet = TRUE)
 
 # Step 3-1: Compile the practical files to bookdown
 
