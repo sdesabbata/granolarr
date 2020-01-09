@@ -1,7 +1,7 @@
 ---
 title: "111 Control structures and Functions"
 author: "Stefano De Sabbata"
-date: "2019-11-20"
+date: "2020-01-09"
 output: pdf_document
 urlcolor: blue
 ---
@@ -179,7 +179,7 @@ cube_root <- function (input_value) {
 
 Functions can be defined by typing the definition in the Console in RStudio. However,  entering functions from the command line is not always very convenient. If you make a typing error in an early line of the definition, it isn't possible to go back and correct it. You would have to type in the definition every time you used R A more sensible approach is to type the function definition into an R script.
 
-Create a new R project for this practical, named *Practical_06*. Create a new R script named `functions_practical_06.R`. Copy the definition of `cube_root` in the R script, and save the file. If you execute the script, the R interpreter creates the new function from its definition, which should then be visible in the *Environment* tab in RStudio. 
+Create a new R project for this practical, named *Practical_111*. Create a new R script named `functions_Practical_111.R`. Copy the definition of `cube_root` in the R script, and save the file. If you execute the script, the R interpreter creates the new function from its definition, which should then be visible in the *Environment* tab in RStudio. 
 
 If you type the instruction below in the *Console*, the function is called using `27` as an argument, thus returning `3`.
 
@@ -192,16 +192,16 @@ cube_root(27)
 ## [1] 3
 ```
 
-It is furthermore possible to load the function(s) defined in one script from another script -- in a fashion similar to when a library is loaded. Create a new R script as part of the *Practical_06* project, named `main_practical_06.R` and copy the code below in that second R script and save the file.
+It is furthermore possible to load the function(s) defined in one script from another script -- in a fashion similar to when a library is loaded. Create a new R script as part of the *Practical_111* project, named `main_Practical_111.R` and copy the code below in that second R script and save the file.
 
 
 ```r
-source("functions_practical_06.R")
+source("functions_Practical_111.R")
 
 cube_root(27)
 ```
 
-Executing the `main_practical_06.R` instructs the interpreter first to run the `functions_practical_06.R` script, thus creating the `cube_root` function, and then invoke the function using `27` as an argument, thus returning again `3`. That is a simple example, but this can be an extremely powerful tool to create your own library of functions to be used by different scripts.
+Executing the `main_Practical_111.R` instructs the interpreter first to run the `functions_Practical_111.R` script, thus creating the `cube_root` function, and then invoke the function using `27` as an argument, thus returning again `3`. That is a simple example, but this can be an extremely powerful tool to create your own library of functions to be used by different scripts.
 
 
 <!--
@@ -220,7 +220,7 @@ The algorithm is set out below:
 
 Even without considering the details of why this algorithm works,  it should be clear that it makes use of a conditional loop.  The test to see whether further looping occurs in step *back*.  It should also be clear that *divisor*, *dividend* and *remainder* are all variables.  
 
-Given these observations, we can turn Euclid's algorithm into the R function below, and include it in the script `functions_practical_06.R`. Remember, the `%%` symbol is the remainder operator - the value of `x %% y` is the remainder when `x` is divided by `y`.
+Given these observations, we can turn Euclid's algorithm into the R function below, and include it in the script `functions_Practical_111.R`. Remember, the `%%` symbol is the remainder operator - the value of `x %% y` is the remainder when `x` is divided by `y`.
 
 
 ```r
@@ -270,7 +270,7 @@ As an exercise,  try to match up the lines in the function definition with the l
 
 ## Exercise 6.1
 
-Extend the code in the script `functions_practical_06.R` to include the code necessary to solve the questions below.
+Extend the code in the script `functions_Practical_111.R` to include the code necessary to solve the questions below.
 
 **Question 6.1.1:** Write a function that calculates the areas of a circle, taking the radius as the first parameter.
 
@@ -319,7 +319,7 @@ cube_root <- function (input_value) {
 } 
 ```
 
-Edit the code in `functions_practical_06.R` accordingly and test the new function using the two commands listed below from the RStudio *Console*.
+Edit the code in `functions_Practical_111.R` accordingly and test the new function using the two commands listed below from the RStudio *Console*.
 
 
 ```r
@@ -429,4 +429,4 @@ function_question_1_3(c(3, -1, 0), c("Derby", "Leicester", "Lincoln", "Nottingha
 
 ### Exercise 6.2
 
-A full R Script is available in the Exercise folder of the repository and on BlackBoard (`06_X_Data_Wrangling_with_Functions.R`). Upload the prepared script to your *Practical_06* project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.
+A full R Script is available in the Exercise folder of the repository (`111_X_Data_Wrangling_with_Functions.R`). Upload the prepared script to your *Practical_111* project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.

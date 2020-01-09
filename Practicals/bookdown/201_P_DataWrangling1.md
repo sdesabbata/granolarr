@@ -1,7 +1,7 @@
 ---
 title: "201 Data wrangling Pt. 1"
 author: "Stefano De Sabbata"
-date: "2019-11-20"
+date: "2020-01-09"
 output: pdf_document
 urlcolor: blue
 ---
@@ -22,13 +22,13 @@ urlcolor: blue
 
 RStudio provides an extremely useful functionality to organise all your code and data, that is **R Projects**. Those are specialised files that RStudio can use to store all the information it has on a specific project that you are working on -- *Environment*, *History*, working directory, and much more, as we will see in the coming weeks.
 
-In RStudio Server, in the *Files* tab of the bottom-left panel, click on *Home* to make sure you are in your home folder -- if you are working on your own computer, create a folder for GY7702 wherever most convenient. Click on *New Folder* and enter *Practicals* in the prompt dialogue, to create a folder named *Practicals*. 
+In RStudio Server, in the *Files* tab of the bottom-left panel, click on *Home* to make sure you are in your home folder -- if you are working on your own computer, create a folder for these practicals wherever most convenient. Click on *New Folder* and enter *Practicals* in the prompt dialogue, to create a folder named *Practicals*. 
 
-Select *File > New Project ...* from the main menu, then from the prompt menu, *New Directory*, and then *New Project*. Insert *Practical_03* as the directory name, and select the *Practicals* folder for the field *Create project as subdirectory of*. Finally, click *Create Project*. 
+Select *File > New Project ...* from the main menu, then from the prompt menu, *New Directory*, and then *New Project*. Insert *Practical_201* as the directory name, and select the *Practicals* folder for the field *Create project as subdirectory of*. Finally, click *Create Project*. 
 
-RStudio has now created the project, and it should have activated it. If that is the case, the *Files* tab in the bottom-right panel should be in the *Practical_03* folder, which contains only the *Practical_03.Rproj* file. The *Practical_03.Rproj* stores all the *Environment* information for the current project and all the project files (e.g., R scripts, data, output files) should be stored within the *Practical_03* folder. Moreover, the *Practical_03* is now your working directory, which means that you can refer to a file in the folder by using only its name and if you save a file that is the default directory where to save it. 
+RStudio has now created the project, and it should have activated it. If that is the case, the *Files* tab in the bottom-right panel should be in the *Practical_201* folder, which contains only the *Practical_201.Rproj* file. The *Practical_201.Rproj* stores all the *Environment* information for the current project and all the project files (e.g., R scripts, data, output files) should be stored within the *Practical_201* folder. Moreover, the *Practical_201* is now your working directory, which means that you can refer to a file in the folder by using only its name and if you save a file that is the default directory where to save it. 
 
-On the top-right corner of RStudio, you should see a blue icon representing an R in a cube, next to the name of the project (*Practical_03*). That also indicates that you are within the *Practical_03* project. Click on *Practical_03* and select *Close Project* to close the project. Next to the R in a cube icon, you should now see *Project: (None)*. Click on *Project: (None)* and select *Practical_03* from the list to reactivate the *Practical_03* project.
+On the top-right corner of RStudio, you should see a blue icon representing an R in a cube, next to the name of the project (*Practical_201*). That also indicates that you are within the *Practical_201* project. Click on *Practical_201* and select *Close Project* to close the project. Next to the R in a cube icon, you should now see *Project: (None)*. Click on *Project: (None)* and select *Practical_201* from the list to reactivate the *Practical_201* project.
 
 
 
@@ -36,7 +36,7 @@ On the top-right corner of RStudio, you should see a blue icon representing an R
 
 The RStudio console is handy to interact with the R interpreter and obtain results of operations and commands. However, moving from simple instructions to an actual program or scripts to conduct data analysis, the console is usually not sufficient anymore. In fact, the console is not a very comfortable way of providing long and complex instructions to the interpreter and editing past instructions when you want to change something. A better option to create programs or data analysis script of any significant size is to use the RStudio integrated editor to create an *R script*.
 
-With the *Practical_03* project activated, select from the top menu *File > New File > R Script*. That opens the embedded RStudio editor and a new empty R script folder. Copy the two lines below into the file. The first loads the `tidyverse` library, whereas the second loads another library that the code below uses to produce well-formatted tables.
+With the *Practical_201* project activated, select from the top menu *File > New File > R Script*. That opens the embedded RStudio editor and a new empty R script folder. Copy the two lines below into the file. The first loads the `tidyverse` library, whereas the second loads another library that the code below uses to produce well-formatted tables.
 
 
 ```r
@@ -371,4 +371,4 @@ Extend the code in the script `My_first_script.R` to include the code necessary 
 
 ## Solutions
 
-An R Script including the solutions to the 3 questions above is available in the Exercise folder of the repository and on BlackBoard (`03_X_Data_Wrangling1_Example.R`).
+An R Script including the solutions to the 3 questions above is available in the Exercise folder of the repository (`201_X_Data_Wrangling1_Example.R`).

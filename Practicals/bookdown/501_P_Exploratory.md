@@ -1,7 +1,7 @@
 ---
 title: "501 Exploratory analysis"
 author: "Stefano De Sabbata"
-date: "2019-11-20"
+date: "2020-01-09"
 output: pdf_document
 urlcolor: blue
 ---
@@ -33,7 +33,7 @@ leicester_2011OAC <- read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
 
 ## GGlot2 recap
 
-As seen in the practical session 401, the [`ggplot2` library](https://ggplot2.tidyverse.org) is part of the Tidyverse, and it offers a series of functions for creating graphics **declaratively**, based on the concepts outlined in the Grammar of Graphics. While the `dplyr` library offers functionalities that cover *data manipulation* and *variable transformations* (as seen in the [module GY7702](https://sdesabbata.github.io/GY7702/)), the `ggplot2` library offers functionalities that allow to specify elements, define guides, and apply scale and coordinate system transformations.
+As seen in the practical session 401, the [`ggplot2` library](https://ggplot2.tidyverse.org) is part of the Tidyverse, and it offers a series of functions for creating graphics **declaratively**, based on the concepts outlined in the Grammar of Graphics. While the `dplyr` library offers functionalities that cover *data manipulation* and *variable transformations*, the `ggplot2` library offers functionalities that allow to specify elements, define guides, and apply scale and coordinate system transformations.
 
 - **Marks** can be specified in `ggplot2` using the [`geom_` functions](https://ggplot2.tidyverse.org/reference/index.html#section-layer-geoms).
 - The mapping of variables (table columns) to **visual variables** can be specified in `ggplot2` using the [`aes` element](https://ggplot2.tidyverse.org/reference/aes.html).

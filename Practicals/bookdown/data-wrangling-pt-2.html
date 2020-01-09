@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2019-11-20" />
+<meta name="date" content="2020-01-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -218,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.2"><i class="fa fa-check"></i><b>6.3</b> Exercise 5.2</a></li>
 <li class="chapter" data-level="6.4" data-path="reproducibility.html"><a href="reproducibility.html#git"><i class="fa fa-check"></i><b>6.4</b> Git</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="reproducibility.html"><a href="reproducibility.html#git-and-rstudio"><i class="fa fa-check"></i><b>6.4.1</b> Git and RStudio</a></li>
-<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-gy7702"><i class="fa fa-check"></i><b>6.4.2</b> Cloning GY7702</a></li>
+<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-granolarr"><i class="fa fa-check"></i><b>6.4.2</b> Cloning granolarr</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.3"><i class="fa fa-check"></i><b>6.5</b> Exercise 5.3</a></li>
 </ul></li>
@@ -234,6 +234,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>7.5.1</b> Descriptive statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#exercise-7.2"><i class="fa fa-check"></i><b>7.6</b> Exercise 7.2</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i><b>8</b> Regression analysis</a><ul>
+<li class="chapter" data-level="8.1" data-path="regression-analysis.html"><a href="regression-analysis.html#introduction-1"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="regression-analysis.html"><a href="regression-analysis.html#anova"><i class="fa fa-check"></i><b>8.2</b> ANOVA</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example"><i class="fa fa-check"></i><b>8.2.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="regression-analysis.html"><a href="regression-analysis.html#simple-regression"><i class="fa fa-check"></i><b>8.3</b> Simple regression</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example-1"><i class="fa fa-check"></i><b>8.3.1</b> Example</a></li>
+<li class="chapter" data-level="8.3.2" data-path="regression-analysis.html"><a href="regression-analysis.html#checking-assumptions"><i class="fa fa-check"></i><b>8.3.2</b> Checking assumptions</a></li>
+<li class="chapter" data-level="8.3.3" data-path="regression-analysis.html"><a href="regression-analysis.html#how-to-report"><i class="fa fa-check"></i><b>8.3.3</b> How to report</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="regression-analysis.html"><a href="regression-analysis.html#multiple-regression"><i class="fa fa-check"></i><b>8.4</b> Multiple regression</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example-2"><i class="fa fa-check"></i><b>8.4.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="regression-analysis.html"><a href="regression-analysis.html#exercise-9.1"><i class="fa fa-check"></i><b>8.5</b> Exercise 9.1</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="geodemographic-classification.html"><a href="geodemographic-classification.html"><i class="fa fa-check"></i><b>9</b> Geodemographic classification</a><ul>
+<li class="chapter" data-level="9.1" data-path="geodemographic-classification.html"><a href="geodemographic-classification.html#introduction-2"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
 </ul></li>
 </ul>
 
@@ -679,13 +697,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="read-and-write-data" class="section level2">
 <h2><span class="header-section-number">5.2</span> Read and write data</h2>
 <p>The <a href="https://readr.tidyverse.org/index.html"><code>readr</code> library</a> (also part of the Tidyverse) provides a series of functions that can be used to load from and save data to different file formats.</p>
-<p>Download from BlackBoard (or from the <a href="https://github.com/sdesabbata/GY7702/tree/master/Data">Data</a> folder of the repository) the following files:</p>
+<p>Download from the <a href="https://github.com/sdesabbata/granolarr/tree/master/Data">Data</a> folder of the repository the following files:</p>
 <ul>
 <li><code>2011_OAC_Raw_uVariables_Leicester.csv</code></li>
 <li><code>IndexesMultipleDeprivation2015_Leicester.csv</code></li>
 </ul>
-<p>Create a <em>Practical_04</em> project and make sure it is activated and thus the <em>Practical_04</em> showing in the <em>File</em> tab in the bottom-right panel. Upload the two files to the <em>Practical_04</em> folder by clicking on the <em>Upload</em> button and selecting the files from your computer (at the time of writing, Chrome seems to upload the file correctly, whereas it might be necessary to change the names of the files after upload using Microsoft Edge).</p>
-<p>Create a new R script named <code>Data_Wrangling_Example.R</code> in the <em>Practical_04</em> project, and add <code>library(tidyverse)</code> as the first line. Use that new script for this and the following sections of this practical session.</p>
+<p>Create a <em>Practical_202</em> project and make sure it is activated and thus the <em>Practical_202</em> showing in the <em>File</em> tab in the bottom-right panel. Upload the two files to the <em>Practical_202</em> folder by clicking on the <em>Upload</em> button and selecting the files from your computer (at the time of writing, Chrome seems to upload the file correctly, whereas it might be necessary to change the names of the files after upload using Microsoft Edge).</p>
+<p>Create a new R script named <code>Data_Wrangling_Example.R</code> in the <em>Practical_202</em> project, and add <code>library(tidyverse)</code> as the first line. Use that new script for this and the following sections of this practical session.</p>
 <p>The <a href="https://github.com/geogale/2011OAC">2011 Output Area Classification</a> (2011 OAC) is a geodemographic classification of the census Output Areas (OA) of the UK, which was created by <a href="http://josis.org/index.php/josis/article/viewArticle/232">Gale et al. (2016)</a> starting from an initial set of 167 prospective variables from the United Kingdom Census 2011: 86 were removed, 41 were retained as they are, and 40 were combined, leading to a final set of 60 variables. <a href="http://josis.org/index.php/josis/article/viewArticle/232">Gale et al. (2016)</a> finally used the k-means clustering approach to create 8 clusters or supergroups (see <a href="https://oac.datashine.org.uk">map at datashine.org.uk</a>), as well as 26 groups and 76 subgroups. The dataset in the file <code>2011_OAC_Raw_uVariables_Leicester.csv</code> contains all the original 167 variables, as well as the resulting groups, for the city of Leicester. The full variable names can be found in the file <code>2011_OAC_Raw_uVariables_Lookup.csv</code>.</p>
 <p>The <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2015">Indexes of Multiple Deprivation 2015</a> (see <a href="https://maps.cdrc.ac.uk/#/geodemographics/imde2015">map at cdrc.ac.uk</a>) are based on a series of variables across seven distinct domains of deprivation which are combined to calculate the Index of Multiple Deprivation 2015 (IMD 2015). That is an overall measure of multiple deprivations experienced by people living in an area. These indexes are calculated for every Lower layer Super Output Area (LSOA), which are larger geographic unit than the OAs used for the 2011 OAC. The dataset in the file <code>IndexesMultipleDeprivation2015_Leicester.csv</code> contains the main Index of Multiple Deprivation, as well as the values for the seven distinct domains of deprivation, and two additional indexes regarding deprivation affecting children and older people. The dataset includes scores, ranks (where 1 indicates the most deprived area), and decile (i.e., the first decile includes the 10% most deprived areas in England).</p>
 <!--
@@ -918,7 +936,7 @@ Note that the `~` in the path below indicates the home folder -- a different pat
 </div>
 <div id="solutions-3" class="section level2">
 <h2><span class="header-section-number">5.6</span> Solutions</h2>
-<p>A full R Script including the code for the analysis presented in this practical session and the solutions to the 5 questions above is available in the Exercise folder of the repository and on BlackBoard (<code>04_X_Data_Wrangling2_Example.R</code>). Upload the prepared script to your <em>Practical_04</em> project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.</p>
+<p>A full R Script including the code for the analysis presented in this practical session and the solutions to the 5 questions above is available in the Exercise folder of the repository (<code>202_X_Data_Wrangling2_Example.R</code>). Upload the prepared script to your <em>Practical_202</em> project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.</p>
 
 </div>
 </div>

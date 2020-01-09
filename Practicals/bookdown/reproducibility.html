@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2019-11-20" />
+<meta name="date" content="2020-01-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -218,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.2"><i class="fa fa-check"></i><b>6.3</b> Exercise 5.2</a></li>
 <li class="chapter" data-level="6.4" data-path="reproducibility.html"><a href="reproducibility.html#git"><i class="fa fa-check"></i><b>6.4</b> Git</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="reproducibility.html"><a href="reproducibility.html#git-and-rstudio"><i class="fa fa-check"></i><b>6.4.1</b> Git and RStudio</a></li>
-<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-gy7702"><i class="fa fa-check"></i><b>6.4.2</b> Cloning GY7702</a></li>
+<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-granolarr"><i class="fa fa-check"></i><b>6.4.2</b> Cloning granolarr</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.3"><i class="fa fa-check"></i><b>6.5</b> Exercise 5.3</a></li>
 </ul></li>
@@ -234,6 +234,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>7.5.1</b> Descriptive statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#exercise-7.2"><i class="fa fa-check"></i><b>7.6</b> Exercise 7.2</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i><b>8</b> Regression analysis</a><ul>
+<li class="chapter" data-level="8.1" data-path="regression-analysis.html"><a href="regression-analysis.html#introduction-1"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="regression-analysis.html"><a href="regression-analysis.html#anova"><i class="fa fa-check"></i><b>8.2</b> ANOVA</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example"><i class="fa fa-check"></i><b>8.2.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="regression-analysis.html"><a href="regression-analysis.html#simple-regression"><i class="fa fa-check"></i><b>8.3</b> Simple regression</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example-1"><i class="fa fa-check"></i><b>8.3.1</b> Example</a></li>
+<li class="chapter" data-level="8.3.2" data-path="regression-analysis.html"><a href="regression-analysis.html#checking-assumptions"><i class="fa fa-check"></i><b>8.3.2</b> Checking assumptions</a></li>
+<li class="chapter" data-level="8.3.3" data-path="regression-analysis.html"><a href="regression-analysis.html#how-to-report"><i class="fa fa-check"></i><b>8.3.3</b> How to report</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="regression-analysis.html"><a href="regression-analysis.html#multiple-regression"><i class="fa fa-check"></i><b>8.4</b> Multiple regression</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example-2"><i class="fa fa-check"></i><b>8.4.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="regression-analysis.html"><a href="regression-analysis.html#exercise-9.1"><i class="fa fa-check"></i><b>8.5</b> Exercise 9.1</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="geodemographic-classification.html"><a href="geodemographic-classification.html"><i class="fa fa-check"></i><b>9</b> Geodemographic classification</a><ul>
+<li class="chapter" data-level="9.1" data-path="geodemographic-classification.html"><a href="geodemographic-classification.html#introduction-2"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
 </ul></li>
 </ul>
 
@@ -309,7 +327,7 @@ a_number
 </div>
 <div id="exercise-5.1" class="section level2">
 <h2><span class="header-section-number">6.2</span> Exercise 5.1</h2>
-<p>Create a new R project named <em>Practical_05</em> as the directory name. Create an RMarkdown document in RStudio by selecting <em>File &gt; New File &gt; R Markdown …</em> – this might prompt RStudio to update some packages. On the RMarkdown document creation menu, specify “Practical 05” as title and your name as the author, and select <em>PDF</em> as default output format.</p>
+<p>Create a new R project named <em>Practical_301</em> as the directory name. Create an RMarkdown document in RStudio by selecting <em>File &gt; New File &gt; R Markdown …</em> – this might prompt RStudio to update some packages. On the RMarkdown document creation menu, specify “Practical 05” as title and your name as the author, and select <em>PDF</em> as default output format.</p>
 <p>The new document should contain the core document information, as in the example below, plus some additional content that simply explains how RMarkdown works.</p>
 <pre><code>---
 title: &quot;Practical 05&quot;
@@ -356,34 +374,34 @@ The code uses the pipe operator:
 </div>
 <div id="git-and-rstudio" class="section level3">
 <h3><span class="header-section-number">6.4.1</span> Git and RStudio</h3>
-<p>In RStudio Server, in the <em>Files</em> tab of the bottom-left panel, click on <em>Home</em> to make sure you are in your home folder – if you are working on your own computer, create a folder for GY7702 wherever most convenient. Click on <em>New Folder</em> and enter <em>Repos</em> (short for repositories) in the prompt dialogue, to create a folder named <em>Repos</em>.</p>
-<p>Create a GitHub account at <a href="https://github.com/">github.com</a>, if you don’t have one, and create a new repository named <em>myGY7702</em>, following the instructions available on the <a href="https://help.github.com/en/articles/creating-a-new-repository">GitHub help pages</a>. Make sure you tick the box next to <em>Initialize this repository with a README</em>, which adds a <code>README.md</code> markdown file to your repository.</p>
+<p>In RStudio Server, in the <em>Files</em> tab of the bottom-left panel, click on <em>Home</em> to make sure you are in your home folder – if you are working on your own computer, create a folder for granolarr wherever most convenient. Click on <em>New Folder</em> and enter <em>Repos</em> (short for repositories) in the prompt dialogue, to create a folder named <em>Repos</em>.</p>
+<p>Create a GitHub account at <a href="https://github.com/">github.com</a>, if you don’t have one, and create a new repository named <em>my-granolarr</em>, following the instructions available on the <a href="https://help.github.com/en/articles/creating-a-new-repository">GitHub help pages</a>. Make sure you tick the box next to <em>Initialize this repository with a README</em>, which adds a <code>README.md</code> markdown file to your repository.</p>
 <p>Once the repository has been created, GitHub will take you to the repository page. Copy the link to the repository <code>.git</code> file by clicking on the green <em>Clone or download</em> button and copying the <code>https</code> URL there available. Back to RStudio Server, select <em>File &gt; New Project…</em> from the top menu and select <em>Version Control</em> and then <em>Git</em> from the <em>New Project</em> panel. Paste the copied URL in the <em>Repository URL</em> field, select the <em>Repos</em> folder created above as folder for <em>Create project as subdirectory of</em>, and click <em>Create Project</em>. RStudio might ask you for your GitHub username and password at this point.</p>
 <div class="figure">
-<img src="Images/git_clone_myGY7702.PNG" alt="Cloning myGY7702 as R project in RStudio" style="width:60.0%" />
-<p class="caption">Cloning myGY7702 as R project in RStudio</p>
+<img src="Images/git_clone_my-granolarr.png" alt="Cloning my-granolarr as R project in RStudio" style="width:60.0%" />
+<p class="caption">Cloning my-granolarr as R project in RStudio</p>
 </div>
 <p>Before continuing, you need to record your identity with the Git system installed on the RStudio Server, for it to be able to communicate with the GitHub’s server. Open the <em>Terminal</em> tab in RStudio (if not visible, select <em>Tools &gt; Terminal &gt; New Terminal</em> from the top menu). First, paste the command below substituting <code>you@example.com</code> with your university email (make sure to maintain the double quotes) and press the return button.</p>
 <pre><code>git config --global user.email &quot;you@example.com&quot;</code></pre>
 <p>Then, paste the command below substituting <code>Your Name</code> with your name (make sure to maintain the double quotes) and press the return button.</p>
 <pre><code>git config --global user.name &quot;Your Name&quot;</code></pre>
-<p>RStudio should have now switched to a new R project linked to you <em>myGY7702</em> repository. In the RStudio <em>File</em> tab in the bottom-right panel, navigate to the file created for the exercises above, select the files and copy them in the folder of the new project (in the <em>File</em> tab, <em>More &gt; Copy To…</em>).</p>
+<p>RStudio should have now switched to a new R project linked to you <em>my-granolarr</em> repository. In the RStudio <em>File</em> tab in the bottom-right panel, navigate to the file created for the exercises above, select the files and copy them in the folder of the new project (in the <em>File</em> tab, <em>More &gt; Copy To…</em>).</p>
 <p>Check the now available <em>Git</em> tab on the top-right panel, and you should see at least the newly copied files marked as untracked. Tick the checkboxes in the <em>Staged</em> column to stage the files, then click on the <em>Commit</em> button.</p>
 <p>In the newly opened panel <em>Commit</em> window, the top-left section shows the files, and the bottom section shows the edits. Write <code>My first commit</code> in the <em>Commit message</em> section in the top-right, and click the <em>Commit</em> button. A pop-up should notify the completed commit. Close both the pop-up panel, and click the <em>Push</em> button on the top-right of the <em>Commit</em> window. Another pop-up panel should ask you for your GitHub username and password and then show the executed push operation. Close both the pop-up panel and the <em>Commit</em> window.</p>
 <p>Congratulations, you have completed your first commit! Check the repository page on GitHub. If you reload the page, the top bar should show <em>2 commits</em> on the left and your files should now be visible in the file list below. If you click on <em>2 commits</em>, you can see the commit history, including both the initial commit that created the repository and the commit you just completed.</p>
 </div>
-<div id="cloning-gy7702" class="section level3">
-<h3><span class="header-section-number">6.4.2</span> Cloning GY7702</h3>
-<p>You can follow the steps listed below to clone the GY7702 repository.</p>
+<div id="cloning-granolarr" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Cloning granolarr</h3>
+<p>You can follow the steps listed below to clone the granolarr repository.</p>
 <ol style="list-style-type: decimal">
 <li><p>Create a folder named <code>Repos</code> in your home directory. If you are working on RStudio Server, in the <em>Files</em> panel, click on the <code>Home</code> button (second bar, next to the house icon), then click on <code>New Folder</code>, enter the name <code>Repos</code> and click <code>Ok</code>.</p></li>
 <li><p>In RStudio or RStudio Server select <code>File &gt; New Project...</code></p></li>
 <li><p>Select <code>Version Control</code> and then <code>Git</code> (you might need to set up Git first if you are working on your own computer)</p></li>
-<li><p>Copy <code>https://github.com/sdesabbata/GY7702.git</code> in the <code>Repository URL</code> field and select the Repos folder for the field <code>Create project as subdirectory of</code>, and click on <code>Create Project</code>.</p></li>
+<li><p>Copy <code>https://github.com/sdesabbata/granolarr.git</code> in the <code>Repository URL</code> field and select the Repos folder for the field <code>Create project as subdirectory of</code>, and click on <code>Create Project</code>.</p></li>
 <li><p>Have a look around</p></li>
-<li><p>Click on the project name <code>GY7702</code> on the top-left of the interface and select <code>Close Project</code> to close the project.</p></li>
+<li><p>Click on the project name <code>granolarr</code> on the top-left of the interface and select <code>Close Project</code> to close the project.</p></li>
 </ol>
-<p>As GY7702 is a public repository, you can clone it, edit it as you wish and push it to your own copy of the repository. However, contributing your edits to the original repository would require a few further steps. Check out the <a href="https://help.github.com/en/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork">GitHub help pages</a> if you are interested.</p>
+<p>As granolarr is a public repository, you can clone it, edit it as you wish and push it to your own copy of the repository. However, contributing your edits to the original repository would require a few further steps. Check out the <a href="https://help.github.com/en/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork">GitHub help pages</a> if you are interested.</p>
 </div>
 </div>
 <div id="exercise-5.3" class="section level2">

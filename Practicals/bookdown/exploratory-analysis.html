@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2019-11-20" />
+<meta name="date" content="2020-01-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="reproducibility.html"/>
-
+<link rel="next" href="regression-analysis.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -218,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.2"><i class="fa fa-check"></i><b>6.3</b> Exercise 5.2</a></li>
 <li class="chapter" data-level="6.4" data-path="reproducibility.html"><a href="reproducibility.html#git"><i class="fa fa-check"></i><b>6.4</b> Git</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="reproducibility.html"><a href="reproducibility.html#git-and-rstudio"><i class="fa fa-check"></i><b>6.4.1</b> Git and RStudio</a></li>
-<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-gy7702"><i class="fa fa-check"></i><b>6.4.2</b> Cloning GY7702</a></li>
+<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-granolarr"><i class="fa fa-check"></i><b>6.4.2</b> Cloning granolarr</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.3"><i class="fa fa-check"></i><b>6.5</b> Exercise 5.3</a></li>
 </ul></li>
@@ -234,6 +234,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>7.5.1</b> Descriptive statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#exercise-7.2"><i class="fa fa-check"></i><b>7.6</b> Exercise 7.2</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i><b>8</b> Regression analysis</a><ul>
+<li class="chapter" data-level="8.1" data-path="regression-analysis.html"><a href="regression-analysis.html#introduction-1"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="regression-analysis.html"><a href="regression-analysis.html#anova"><i class="fa fa-check"></i><b>8.2</b> ANOVA</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example"><i class="fa fa-check"></i><b>8.2.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="regression-analysis.html"><a href="regression-analysis.html#simple-regression"><i class="fa fa-check"></i><b>8.3</b> Simple regression</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example-1"><i class="fa fa-check"></i><b>8.3.1</b> Example</a></li>
+<li class="chapter" data-level="8.3.2" data-path="regression-analysis.html"><a href="regression-analysis.html#checking-assumptions"><i class="fa fa-check"></i><b>8.3.2</b> Checking assumptions</a></li>
+<li class="chapter" data-level="8.3.3" data-path="regression-analysis.html"><a href="regression-analysis.html#how-to-report"><i class="fa fa-check"></i><b>8.3.3</b> How to report</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="regression-analysis.html"><a href="regression-analysis.html#multiple-regression"><i class="fa fa-check"></i><b>8.4</b> Multiple regression</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example-2"><i class="fa fa-check"></i><b>8.4.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="regression-analysis.html"><a href="regression-analysis.html#exercise-9.1"><i class="fa fa-check"></i><b>8.5</b> Exercise 9.1</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="geodemographic-classification.html"><a href="geodemographic-classification.html"><i class="fa fa-check"></i><b>9</b> Geodemographic classification</a><ul>
+<li class="chapter" data-level="9.1" data-path="geodemographic-classification.html"><a href="geodemographic-classification.html#introduction-2"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
 </ul></li>
 </ul>
 
@@ -266,7 +284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="gglot2-recap" class="section level2">
 <h2><span class="header-section-number">7.2</span> GGlot2 recap</h2>
-<p>As seen in the practical session 401, the <a href="https://ggplot2.tidyverse.org"><code>ggplot2</code> library</a> is part of the Tidyverse, and it offers a series of functions for creating graphics <strong>declaratively</strong>, based on the concepts outlined in the Grammar of Graphics. While the <code>dplyr</code> library offers functionalities that cover <em>data manipulation</em> and <em>variable transformations</em> (as seen in the <a href="https://sdesabbata.github.io/GY7702/">module GY7702</a>), the <code>ggplot2</code> library offers functionalities that allow to specify elements, define guides, and apply scale and coordinate system transformations.</p>
+<p>As seen in the practical session 401, the <a href="https://ggplot2.tidyverse.org"><code>ggplot2</code> library</a> is part of the Tidyverse, and it offers a series of functions for creating graphics <strong>declaratively</strong>, based on the concepts outlined in the Grammar of Graphics. While the <code>dplyr</code> library offers functionalities that cover <em>data manipulation</em> and <em>variable transformations</em>, the <code>ggplot2</code> library offers functionalities that allow to specify elements, define guides, and apply scale and coordinate system transformations.</p>
 <ul>
 <li><strong>Marks</strong> can be specified in <code>ggplot2</code> using the <a href="https://ggplot2.tidyverse.org/reference/index.html#section-layer-geoms"><code>geom_</code> functions</a>.</li>
 <li>The mapping of variables (table columns) to <strong>visual variables</strong> can be specified in <code>ggplot2</code> using the <a href="https://ggplot2.tidyverse.org/reference/aes.html"><code>aes</code> element</a>.</li>
@@ -1090,8 +1108,8 @@ between 20 and 24. </code></pre>
           </div>
         </div>
       </div>
-<a href="reproducibility.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regression-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2019-11-20" />
+<meta name="date" content="2020-01-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -218,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.2"><i class="fa fa-check"></i><b>6.3</b> Exercise 5.2</a></li>
 <li class="chapter" data-level="6.4" data-path="reproducibility.html"><a href="reproducibility.html#git"><i class="fa fa-check"></i><b>6.4</b> Git</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="reproducibility.html"><a href="reproducibility.html#git-and-rstudio"><i class="fa fa-check"></i><b>6.4.1</b> Git and RStudio</a></li>
-<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-gy7702"><i class="fa fa-check"></i><b>6.4.2</b> Cloning GY7702</a></li>
+<li class="chapter" data-level="6.4.2" data-path="reproducibility.html"><a href="reproducibility.html#cloning-granolarr"><i class="fa fa-check"></i><b>6.4.2</b> Cloning granolarr</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="reproducibility.html"><a href="reproducibility.html#exercise-5.3"><i class="fa fa-check"></i><b>6.5</b> Exercise 5.3</a></li>
 </ul></li>
@@ -234,6 +234,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>7.5.1</b> Descriptive statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#exercise-7.2"><i class="fa fa-check"></i><b>7.6</b> Exercise 7.2</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i><b>8</b> Regression analysis</a><ul>
+<li class="chapter" data-level="8.1" data-path="regression-analysis.html"><a href="regression-analysis.html#introduction-1"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="regression-analysis.html"><a href="regression-analysis.html#anova"><i class="fa fa-check"></i><b>8.2</b> ANOVA</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example"><i class="fa fa-check"></i><b>8.2.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="regression-analysis.html"><a href="regression-analysis.html#simple-regression"><i class="fa fa-check"></i><b>8.3</b> Simple regression</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example-1"><i class="fa fa-check"></i><b>8.3.1</b> Example</a></li>
+<li class="chapter" data-level="8.3.2" data-path="regression-analysis.html"><a href="regression-analysis.html#checking-assumptions"><i class="fa fa-check"></i><b>8.3.2</b> Checking assumptions</a></li>
+<li class="chapter" data-level="8.3.3" data-path="regression-analysis.html"><a href="regression-analysis.html#how-to-report"><i class="fa fa-check"></i><b>8.3.3</b> How to report</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="regression-analysis.html"><a href="regression-analysis.html#multiple-regression"><i class="fa fa-check"></i><b>8.4</b> Multiple regression</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="regression-analysis.html"><a href="regression-analysis.html#example-2"><i class="fa fa-check"></i><b>8.4.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="regression-analysis.html"><a href="regression-analysis.html#exercise-9.1"><i class="fa fa-check"></i><b>8.5</b> Exercise 9.1</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="geodemographic-classification.html"><a href="geodemographic-classification.html"><i class="fa fa-check"></i><b>9</b> Geodemographic classification</a><ul>
+<li class="chapter" data-level="9.1" data-path="geodemographic-classification.html"><a href="geodemographic-classification.html#introduction-2"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
 </ul></li>
 </ul>
 
@@ -352,15 +370,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb219-3" data-line-number="3">   result</a>
 <a class="sourceLine" id="cb219-4" data-line-number="4">}</a></code></pre></div>
 <p>Functions can be defined by typing the definition in the Console in RStudio. However, entering functions from the command line is not always very convenient. If you make a typing error in an early line of the definition, it isn’t possible to go back and correct it. You would have to type in the definition every time you used R A more sensible approach is to type the function definition into an R script.</p>
-<p>Create a new R project for this practical, named <em>Practical_06</em>. Create a new R script named <code>functions_practical_06.R</code>. Copy the definition of <code>cube_root</code> in the R script, and save the file. If you execute the script, the R interpreter creates the new function from its definition, which should then be visible in the <em>Environment</em> tab in RStudio.</p>
+<p>Create a new R project for this practical, named <em>Practical_111</em>. Create a new R script named <code>functions_Practical_111.R</code>. Copy the definition of <code>cube_root</code> in the R script, and save the file. If you execute the script, the R interpreter creates the new function from its definition, which should then be visible in the <em>Environment</em> tab in RStudio.</p>
 <p>If you type the instruction below in the <em>Console</em>, the function is called using <code>27</code> as an argument, thus returning <code>3</code>.</p>
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="kw">cube_root</span>(<span class="dv">27</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<p>It is furthermore possible to load the function(s) defined in one script from another script – in a fashion similar to when a library is loaded. Create a new R script as part of the <em>Practical_06</em> project, named <code>main_practical_06.R</code> and copy the code below in that second R script and save the file.</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&quot;functions_practical_06.R&quot;</span>)</a>
+<p>It is furthermore possible to load the function(s) defined in one script from another script – in a fashion similar to when a library is loaded. Create a new R script as part of the <em>Practical_111</em> project, named <code>main_Practical_111.R</code> and copy the code below in that second R script and save the file.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&quot;functions_Practical_111.R&quot;</span>)</a>
 <a class="sourceLine" id="cb222-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb222-3" data-line-number="3"><span class="kw">cube_root</span>(<span class="dv">27</span>)</a></code></pre></div>
-<p>Executing the <code>main_practical_06.R</code> instructs the interpreter first to run the <code>functions_practical_06.R</code> script, thus creating the <code>cube_root</code> function, and then invoke the function using <code>27</code> as an argument, thus returning again <code>3</code>. That is a simple example, but this can be an extremely powerful tool to create your own library of functions to be used by different scripts.</p>
+<p>Executing the <code>main_Practical_111.R</code> instructs the interpreter first to run the <code>functions_Practical_111.R</code> script, thus creating the <code>cube_root</code> function, and then invoke the function using <code>27</code> as an argument, thus returning again <code>3</code>. That is a simple example, but this can be an extremely powerful tool to create your own library of functions to be used by different scripts.</p>
 <!--
 ### Euclid's algorithm
 
@@ -377,7 +395,7 @@ The algorithm is set out below:
 
 Even without considering the details of why this algorithm works,  it should be clear that it makes use of a conditional loop.  The test to see whether further looping occurs in step *back*.  It should also be clear that *divisor*, *dividend* and *remainder* are all variables.  
 
-Given these observations, we can turn Euclid's algorithm into the R function below, and include it in the script `functions_practical_06.R`. Remember, the `%%` symbol is the remainder operator - the value of `x %% y` is the remainder when `x` is divided by `y`.
+Given these observations, we can turn Euclid's algorithm into the R function below, and include it in the script `functions_Practical_111.R`. Remember, the `%%` symbol is the remainder operator - the value of `x %% y` is the remainder when `x` is divided by `y`.
 
 
 ```r
@@ -426,7 +444,7 @@ As an exercise,  try to match up the lines in the function definition with the l
 </div>
 <div id="exercise-6.1" class="section level2">
 <h2><span class="header-section-number">3.4</span> Exercise 6.1</h2>
-<p>Extend the code in the script <code>functions_practical_06.R</code> to include the code necessary to solve the questions below.</p>
+<p>Extend the code in the script <code>functions_Practical_111.R</code> to include the code necessary to solve the questions below.</p>
 <p><strong>Question 6.1.1:</strong> Write a function that calculates the areas of a circle, taking the radius as the first parameter.</p>
 <p><strong>Question 6.1.2:</strong> Write a function that calculates the volume of a cylinder, taking the radius of the base as the first parameter and the height as the second parameter. The function should call the function defined above and multiply the returned value by the height to calculate the result.</p>
 <p><strong>Question 6.1.3:</strong> Write a function with two parameters, a vector of numbers and a vector of characters (text). The function should check that the input has the correct data type. If all the numbers in the first vector are greater than zero, return the elements of the second vector from the first to the length of the first vector.</p>
@@ -454,7 +472,7 @@ As an exercise,  try to match up the lines in the function definition with the l
 <a class="sourceLine" id="cb225-6" data-line-number="6">    }</a>
 <a class="sourceLine" id="cb225-7" data-line-number="7">    result</a>
 <a class="sourceLine" id="cb225-8" data-line-number="8">} </a></code></pre></div>
-<p>Edit the code in <code>functions_practical_06.R</code> accordingly and test the new function using the two commands listed below from the RStudio <em>Console</em>.</p>
+<p>Edit the code in <code>functions_Practical_111.R</code> accordingly and test the new function using the two commands listed below from the RStudio <em>Console</em>.</p>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="kw">cube_root</span>(<span class="dv">343</span>)</a></code></pre></div>
 <pre><code>## [1] 7</code></pre>
 <div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="kw">cube_root</span>(<span class="op">-</span><span class="dv">343</span>)</a></code></pre></div>
@@ -524,7 +542,7 @@ When you are done, enter `undebug(cube_root)`. That tells R that you are ready t
 </div>
 <div id="exercise-6.2-1" class="section level3">
 <h3><span class="header-section-number">3.7.2</span> Exercise 6.2</h3>
-<p>A full R Script is available in the Exercise folder of the repository and on BlackBoard (<code>06_X_Data_Wrangling_with_Functions.R</code>). Upload the prepared script to your <em>Practical_06</em> project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.</p>
+<p>A full R Script is available in the Exercise folder of the repository (<code>111_X_Data_Wrangling_with_Functions.R</code>). Upload the prepared script to your <em>Practical_111</em> project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.</p>
 
 </div>
 </div>

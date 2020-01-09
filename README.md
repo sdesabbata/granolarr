@@ -104,17 +104,18 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Comparing means
             - Correlation
             - Regression
+        - Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
+            - Comparing means
+            - Correlation
+            - Regression
 6. **Machine learning**
     - **601 Unsupervised**
         - Lecture ([slides](Lectures/601_L_Unsupervised.html), [bookdown](Lectures/bookdown/recap-601.html))
             - Machine Learning: definition and types
             - Unsupervised machine Learning
             - Clustering
-            - Geodemographic classification
         - Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
-            - Data visualisation
-            - Descriptive statistics
-            - Exploring assumptions
+            - Geodemographic classification
     - **602 Supervised** 
         - *Coming soon*
 

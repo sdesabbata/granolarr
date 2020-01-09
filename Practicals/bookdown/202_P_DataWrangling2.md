@@ -1,7 +1,7 @@
 ---
 title: "202 Data wrangling Pt. 2"
 author: "Stefano De Sabbata"
-date: "2019-11-20"
+date: "2020-01-09"
 output: pdf_document
 urlcolor: blue
 ---
@@ -235,14 +235,14 @@ Leicester        329839   73.3      4500  0116
 
 The [`readr` library](https://readr.tidyverse.org/index.html) (also part of the Tidyverse) provides a series of functions that can be used to load from and save data to different file formats. 
 
-Download from BlackBoard (or from the [Data](https://github.com/sdesabbata/GY7702/tree/master/Data) folder of the repository) the following files:
+Download from the [Data](https://github.com/sdesabbata/granolarr/tree/master/Data) folder of the repository the following files:
 
 - `2011_OAC_Raw_uVariables_Leicester.csv`
 - `IndexesMultipleDeprivation2015_Leicester.csv`
 
-Create a *Practical_04* project and make sure it is activated and thus the *Practical_04* showing in the *File* tab in the bottom-right panel. Upload the two files to the *Practical_04* folder by clicking on the *Upload* button and selecting the files from your computer (at the time of writing, Chrome seems to upload the file correctly, whereas it might be necessary to change the names of the files after upload using Microsoft Edge).
+Create a *Practical_202* project and make sure it is activated and thus the *Practical_202* showing in the *File* tab in the bottom-right panel. Upload the two files to the *Practical_202* folder by clicking on the *Upload* button and selecting the files from your computer (at the time of writing, Chrome seems to upload the file correctly, whereas it might be necessary to change the names of the files after upload using Microsoft Edge).
 
-Create a new R script named `Data_Wrangling_Example.R` in the *Practical_04* project, and add `library(tidyverse)` as the first line. Use that new script for this and the following sections of this practical session.
+Create a new R script named `Data_Wrangling_Example.R` in the *Practical_202* project, and add `library(tidyverse)` as the first line. Use that new script for this and the following sections of this practical session.
 
 The [2011 Output Area Classification](https://github.com/geogale/2011OAC) (2011 OAC) is a geodemographic classification of the census Output Areas (OA) of the UK, which was created by [Gale et al. (2016)](http://josis.org/index.php/josis/article/viewArticle/232) starting from an initial set of 167 prospective variables from the United Kingdom Census 2011: 86 were removed, 41 were retained as they are, and 40 were combined, leading to a final set of 60 variables. [Gale et al. (2016)](http://josis.org/index.php/josis/article/viewArticle/232) finally used the k-means clustering approach to create 8 clusters or supergroups (see [map at datashine.org.uk](https://oac.datashine.org.uk)), as well as 26 groups and 76 subgroups. The dataset in the file `2011_OAC_Raw_uVariables_Leicester.csv` contains all the original 167 variables, as well as the resulting groups, for the city of Leicester. The full variable names can be found in the file `2011_OAC_Raw_uVariables_Lookup.csv`.
 
@@ -508,4 +508,4 @@ Extend the code in the script `Data_Wrangling_Example.R` to include the code nec
 
 ## Solutions
 
-A full R Script including the code for the analysis presented in this practical session and the solutions to the 5 questions above is available in the Exercise folder of the repository and on BlackBoard (`04_X_Data_Wrangling2_Example.R`). Upload the prepared script to your *Practical_04* project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.
+A full R Script including the code for the analysis presented in this practical session and the solutions to the 5 questions above is available in the Exercise folder of the repository (`202_X_Data_Wrangling2_Example.R`). Upload the prepared script to your *Practical_202* project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.
