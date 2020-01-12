@@ -1,6 +1,6 @@
 # Images
 
-Where not specified, images in this folder are licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Note that some of the images contained in this folder and used in the materials under [**fair use for quotation purposes**](https://www.bl.uk/business-and-ip-centre/articles/fair-use-copyright-explained) are **NOT** licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html), as detailed below.
+Where not specified, images in this folder are licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Note that some of the images contained in this folder and used in the materials under [**fair use for the purposes of criticism, review or quotation**](https://www.bl.uk/business-and-ip-centre/articles/fair-use-copyright-explained) are **NOT** licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html), as detailed below.
 
 ## Open Licenses
 
