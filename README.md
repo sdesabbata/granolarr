@@ -12,7 +12,7 @@ This content was created using [R](https://www.r-project.org/), [RStudio](https:
 
 
 
-## Materials
+## Materials by topic
 
 All the materials are available through the **[lectures bookdown](Lectures/bookdown)** and **[practical sessions bookdown](Practicals/bookdown)** pages. Links to the lecture slides and bookdown chapters for each week are listed below.
 
@@ -119,6 +119,27 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
     - **602 Supervised** 
         - *Coming soon*
 
+
+
+## Suggested schedule
+
+The lectures and practical sessions have been designed to follow the schedule below:
+
+- Programming, a practical introduction
+    - 101 Introduction
+    - 102 Data types
+- Data wrangling
+    - 201 Selection and manipulation
+    - 202 Table operations
+- Reproducibility
+    - 301 Reproducible analysis
+- Programming
+    - 111 Control structures and functions
+- Data analysis
+    - 501 Exploratory data analysis
+    - 502 Regression models
+- Machine learning
+    - 601 Unsupervised
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Lecture 301<br/>Reproducibility"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
-date: "2020-01-09"
+date: "2020-01-13"
 output:
   ioslides_presentation:
     template: ../Utils/IOSlides/UoL_Template.html
@@ -33,7 +33,7 @@ Moving from programming to data science
 
 
 
-## Today
+## This lecture
 
 Reproducibility in (geographic) data science
 
@@ -138,34 +138,18 @@ Well documented R scripts are and excellent way to document your project.
 
 
 
-## Future-proof formats
-
-Complex formats (e.g., .docx, .xlsx, .shp, ArcGIS .mxd)
-
-- can become obsolete
-- are not always portable
-- usually require proprietary software
-
-Use the simplest format to **future-proof** your analysis.<br/>**Text files** are the most versatile
-
-- data: .txt, .csv, .tsv
-- analysis: R scrpts, python scripts
-- write-up: LaTeX, Markdown, HTML
-
-
-
-## Human-readable
+## Document well
 
 Create code that can be **easily understandable** to someone outside your project, including yourself in six-month time!
 
 - use a style guide (e.g. [tidyverse](http://style.tidyverse.org/)) consistently
-- add a comment at the beginning of a file, including
+- add a **comment** at the beginning of a file, including
     - date
     - contributors
     - other files the current file depends on
     - materials, sources and other references 
-- add a comment before each code block, describing what the code does
-- also add a comment before any line that could be ambiguous or particularly difficult or important
+- add a **comment** before each code block, describing what the code does
+- also add a **comment** before any line that could be ambiguous or particularly difficult or important
 
 
 
@@ -182,6 +166,22 @@ A common solution is using **make files**
 - they can be written in R, using commands like
     - *source* to execute R scripts
     - *system* to interact with the operative system
+
+
+
+## Future-proof formats
+
+Complex formats (e.g., .docx, .xlsx, .shp, ArcGIS .mxd)
+
+- can become obsolete
+- are not always portable
+- usually require proprietary software
+
+Use the simplest format to **future-proof** your analysis.<br/>**Text files** are the most versatile
+
+- data: .txt, .csv, .tsv
+- analysis: R scrpts, python scripts
+- write-up: LaTeX, Markdown, HTML
 
 
 
@@ -203,17 +203,14 @@ Reproducible data analysis is particularly important when working in teams, to s
 
 ## This repository
 
-My GitHub repository [GY7702](https://github.com/sdesabbata/GY7702) stores lectures and practical session materials for this module
-
 <div class="img50">
 
 ![](Images/imgs002_github_repo_001.png){width=30%}
 
 <center>
-<font size="4">
-<a href="https://github.com/sdesabbata/GY7702">https://github.com/sdesabbata/GY7702</a>
-GitHub Page at <a href="https://sdesabbata.github.io/GY7702/">https://sdesabbata.github.io/GY7702/</a>
-</font>
+<p style="font-size:75%; width: 30%;">
+[github.com/sdesabbata/granolarr](https://github.com/sdesabbata/granolarr)
+</p>
 </center>
 
 </div>
@@ -423,6 +420,6 @@ In the practical session, we will see
 
 
 
-## Next week
+## Next lecture
 
 Exploratory data analysis

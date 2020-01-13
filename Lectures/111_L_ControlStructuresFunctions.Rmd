@@ -36,7 +36,7 @@ Moving from programming to data science
 
 
 
-## Today
+## This lecture
 
 How to control the data processing flow
 
@@ -412,7 +412,7 @@ In the practical session, we will see
 
 
 
-## Next week
+## Next lecture
 
 - Data visualisation
     - histograms

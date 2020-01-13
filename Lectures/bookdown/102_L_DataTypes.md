@@ -1,7 +1,7 @@
 ---
 title: "Lecture 102<br/>Data types"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
-date: "2020-01-09"
+date: "2020-01-13"
 output:
   ioslides_presentation:
     template: ../Utils/IOSlides/UoL_Template.html
@@ -29,7 +29,7 @@ An introduction to R
 
 
 
-## Today
+## This lecture
 
 More complex data types
 
@@ -801,7 +801,7 @@ In the practical session, we will see (surprise, surprise)
 
 
 
-## Next week
+## Next lecture
 
 Moving on towards data science
 

@@ -33,7 +33,7 @@ rm(list = ls())
 
 
 
-## Today
+## This lecture
 
 - Machine Learning
     - Definition

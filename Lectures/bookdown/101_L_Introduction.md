@@ -1,7 +1,7 @@
 ---
 title: "Lecture 101<br/>Introduction"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
-date: "2020-01-09"
+date: "2020-01-13"
 output:
   ioslides_presentation:
     template: ../Utils/IOSlides/UoL_Template.html
@@ -54,28 +54,26 @@ One of the most widely used programming languages and an effective tool for *(ge
 
 
 
-## Schedule
+## Suggested schedule
 
-<font size="4">
+The lectures and practical sessions have been designed to follow the schedule below
 
-**Lectures**: Wednesdays, 09:00 - 10:00, Attenborough 205
+- Programming, a practical introduction
+    - 101 Introduction
+    - 102 Data types
+- Data wrangling
+    - 201 Selection and manipulation
+    - 202 Table operations
+- Reproducibility
+    - 301 Reproducible analysis
+- Programming
+    - 111 Control structures and functions
+- Data analysis
+    - 501 Exploratory data analysis
+    - 502 Regression models
+- Machine learning
+    - 601 Unsupervised
 
-**Practicals**: Thursdays, 15:00 - 17:00, David Wilson Library IT R1
-
-### Topics
-
-1. GIScience, Programming and Reproducibility
-2. Data types
-3. Data wrangling
-4. Control structures and functions
-5. Reproducibility 
-6. Exploratory data analysis
-7. Univariate analysis
-8. Multivariate analysis
-9. Unsupervised machine learning
-10. Supervised machine learning
-
-</font>
 
 
 
@@ -493,7 +491,7 @@ In the practical session, we will see
 
 
 
-## Next week
+## Next lecture
 
 More complex data types
 

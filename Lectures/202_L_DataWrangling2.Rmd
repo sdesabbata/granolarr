@@ -31,7 +31,7 @@ Moving on towards data science
 
 
 
-## Today
+## This lecture
 
 Moving on towards data science
 
@@ -348,7 +348,7 @@ In the practical session, we will see
 
 
 
-## Next week
+## Next lecture
 
 
 Reproducibility in (geographic) data science

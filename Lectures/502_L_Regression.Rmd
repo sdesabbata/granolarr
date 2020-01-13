@@ -47,7 +47,7 @@ rm(list = ls())
 
 
 
-## Today
+## This lecture
 
 - Comparing means
     - t-test
@@ -792,3 +792,15 @@ In the practical session, we will see:
 - Regression
     - univariate
     - multivariate
+
+
+
+## Next lecture
+
+- Machine Learning
+    - Definition
+    - Types
+- Unsupervised
+    - Clustering
+- In GIScience
+    - Geodemographic classification

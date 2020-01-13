@@ -33,7 +33,7 @@ rm(list = ls())
 
 
 
-## Today
+## This lecture
 
 - Data visualisation
     - histograms
@@ -814,3 +814,17 @@ In the practical session, we will see:
     - Shapiro–Wilk test
     - skewness and kurtosis
     - Levene’s test
+
+
+
+## Next lecture
+
+- Comparing means
+    - t-test
+    - ANOVA
+- Correlation
+    - Pearson's r
+    - Spearman's rho
+    - Kendall's tau
+- Regression
+    - univariate

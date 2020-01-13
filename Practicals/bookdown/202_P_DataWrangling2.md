@@ -1,7 +1,7 @@
 ---
 title: "202 Data wrangling Pt. 2"
 author: "Stefano De Sabbata"
-date: "2020-01-09"
+date: "2020-01-13"
 output: pdf_document
 urlcolor: blue
 ---

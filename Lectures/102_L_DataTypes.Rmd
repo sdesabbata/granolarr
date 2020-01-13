@@ -33,7 +33,7 @@ An introduction to R
 
 
 
-## Today
+## This lecture
 
 More complex data types
 
@@ -506,7 +506,7 @@ In the practical session, we will see (surprise, surprise)
 
 
 
-## Next week
+## Next lecture
 
 Moving on towards data science
 

@@ -79,28 +79,26 @@ if(length(list.files(path = "./tmp", include.dirs = TRUE)) == 0){
 
 
 
-## Schedule
+## Suggested schedule
 
-<font size="4">
+The lectures and practical sessions have been designed to follow the schedule below
 
-**Lectures**: Wednesdays, 09:00 - 10:00, Attenborough 205
+- Programming, a practical introduction
+    - 101 Introduction
+    - 102 Data types
+- Data wrangling
+    - 201 Selection and manipulation
+    - 202 Table operations
+- Reproducibility
+    - 301 Reproducible analysis
+- Programming
+    - 111 Control structures and functions
+- Data analysis
+    - 501 Exploratory data analysis
+    - 502 Regression models
+- Machine learning
+    - 601 Unsupervised
 
-**Practicals**: Thursdays, 15:00 - 17:00, David Wilson Library IT R1
-
-### Topics
-
-1. GIScience, Programming and Reproducibility
-2. Data types
-3. Data wrangling
-4. Control structures and functions
-5. Reproducibility 
-6. Exploratory data analysis
-7. Univariate analysis
-8. Multivariate analysis
-9. Unsupervised machine learning
-10. Supervised machine learning
-
-</font>
 
 
 
@@ -424,7 +422,7 @@ In the practical session, we will see
 
 
 
-## Next week
+## Next lecture
 
 More complex data types
 

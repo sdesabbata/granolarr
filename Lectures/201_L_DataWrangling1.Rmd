@@ -34,7 +34,7 @@ Basis of R programming
 
 
 
-## Today
+## This lecture
 
 Moving on towards data science
 
@@ -268,7 +268,7 @@ In the practical session we will see
 
 
 
-## Next week
+## Next lecture
 
 Moving on towards data science
 
