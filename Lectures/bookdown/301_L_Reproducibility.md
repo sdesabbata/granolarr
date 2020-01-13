@@ -203,17 +203,15 @@ Reproducible data analysis is particularly important when working in teams, to s
 
 ## This repository
 
-<div class="img50">
-
-![](Images/imgs002_github_repo_001.png){width=30%}
-
 <center>
+
+![](Images/imgs002_github_repo_001.png){width=70%}
+
 <p style="font-size:75%; width: 30%;">
+<br/>
 [github.com/sdesabbata/granolarr](https://github.com/sdesabbata/granolarr)
 </p>
 </center>
-
-</div>
 
 
 
