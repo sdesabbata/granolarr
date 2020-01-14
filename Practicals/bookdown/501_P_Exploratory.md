@@ -1,7 +1,7 @@
 ---
 title: "501 Exploratory analysis"
 author: "Stefano De Sabbata"
-date: "2020-01-13"
+date: "2020-01-14"
 output: pdf_document
 urlcolor: blue
 ---

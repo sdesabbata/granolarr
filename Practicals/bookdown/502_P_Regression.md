@@ -1,7 +1,7 @@
 ---
 title: "502 Regression analysis"
 author: "Stefano De Sabbata"
-date: "2020-01-13"
+date: "2020-01-14"
 output: pdf_document
 urlcolor: blue
 ---
@@ -356,7 +356,7 @@ stargazer(delay_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Jan 13, 2020 - 22:58:35
+% Date and time: Tue, Jan 14, 2020 - 18:30:37
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -460,7 +460,7 @@ stargazer(public_transp_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Jan 13, 2020 - 22:58:35
+% Date and time: Tue, Jan 14, 2020 - 18:30:37
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
