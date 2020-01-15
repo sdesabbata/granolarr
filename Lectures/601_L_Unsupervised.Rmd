@@ -51,18 +51,11 @@ rm(list = ls())
 
 ## Definition
 
-<div class="columns-2">
+<br/>
 *"The field of machine learning is concerned with the question of how to construct computer programs that automatically improve with experience."*
 
-<font size="4">
 Mitchell, T. (1997). Machine Learning. McGraw Hill.
-</font>
 
-<center>
-![](Images/MachineLearningMitchell.jpg){width=75%}
-</center>
-
-</div>
 
 ## Origines
 
@@ -257,18 +250,12 @@ by Aphex34 via Wikimedia Commons, CC-BY-SA-4.0
 - Complexity
 - Training dataset quality
     - garbage in, garbage out
-    
-<center>
-![](Images/FacialRecognition_NYT.png){width=80%}
-</center>
-
-<br/>
-
+    - e.g., [Facial Recognition Is Accurate, if You’re a White Guy](https://www.nytimes.com/2018/02/09/technology/facial-recognition-race-artificial-intelligence.html) by Steve Lohr (New York Times, Feb. 9, 2018)
 - Overfitting
     - creating a model perfect for the training data, but not generic enough to be useful
 
 <center>
-![](Images/Overfitting.svg.png){width=50%}
+![](Images/Overfitting.svg.png){width=100%}
 
 <br/>
 <font size="4">	
@@ -296,6 +283,8 @@ Methods:
     - bootstrap aggregating
 - Density-based
     - DBSCAN
+
+
 
 ## Example
 

@@ -1,7 +1,7 @@
 ---
 title: "Lecture 601<br/>Unsupervised ML"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
-date: "2020-01-14"
+date: "2020-01-15"
 output:
   ioslides_presentation:
     template: ../Utils/IOSlides/UoL_Template.html
@@ -47,18 +47,11 @@ output:
 
 ## Definition
 
-<div class="columns-2">
+<br/>
 *"The field of machine learning is concerned with the question of how to construct computer programs that automatically improve with experience."*
 
-<font size="4">
 Mitchell, T. (1997). Machine Learning. McGraw Hill.
-</font>
 
-<center>
-![](Images/MachineLearningMitchell.jpg){width=75%}
-</center>
-
-</div>
 
 ## Origines
 
@@ -253,18 +246,12 @@ by Aphex34 via Wikimedia Commons, CC-BY-SA-4.0
 - Complexity
 - Training dataset quality
     - garbage in, garbage out
-    
-<center>
-![](Images/FacialRecognition_NYT.png){width=80%}
-</center>
-
-<br/>
-
+    - e.g., [Facial Recognition Is Accurate, if You’re a White Guy](https://www.nytimes.com/2018/02/09/technology/facial-recognition-race-artificial-intelligence.html) by Steve Lohr (New York Times, Feb. 9, 2018)
 - Overfitting
     - creating a model perfect for the training data, but not generic enough to be useful
 
 <center>
-![](Images/Overfitting.svg.png){width=50%}
+![](Images/Overfitting.svg.png){width=100%}
 
 <br/>
 <font size="4">	
@@ -292,6 +279,8 @@ Methods:
     - bootstrap aggregating
 - Density-based
     - DBSCAN
+
+
 
 ## Example
 

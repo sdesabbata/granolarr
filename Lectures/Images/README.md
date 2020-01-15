@@ -1,6 +1,6 @@
 # Images
 
-Where not specified, images in this folder are licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Note that some of the images contained in this folder and used in the materials under [**fair use for the purposes of criticism, review or quotation**](https://www.bl.uk/business-and-ip-centre/articles/fair-use-copyright-explained) are **NOT** licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html), as detailed below.
+[This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html) except where specified.
 
 ## Open Licenses
 
@@ -28,15 +28,3 @@ Where not specified, images in this folder are licensed under the [GNU General P
 
 - [The Code Project Open License](https://www.codeproject.com/info/cpol10.aspx)
     - `joins.png` by C.L. Moffatt, via [The Code Project](https://www.codeproject.com/articles/33052/visual-representation-of-sql-joins)
-
-## Other
-
-### Book covers
-
-- `0135133106.jpg`: book cover for *Programming Skills for Data Science: Start Writing Code to Wrangle, Analyze, and Visualize Data with R* by Michael Freeman and Joel Ross, Addison-Wesley, 2019. See book [webpage](https://www.pearson.com/us/higher-education/program/Freeman-Programming-Skills-for-Data-Science-Start-Writing-Code-to-Wrangle-Analyze-and-Visualize-Data-with-R/PGM2047488.html) and [repository](https://programming-for-data-science.github.io/). © 2019 Addison-Wesley Professional.
-
-- `MachineLearningMitchell.jpg`: book cover for Mitchell, T. (1997). [Machine Learning](http://www.cs.cmu.edu/~tom/mlbook.html). McGraw Hill. © 1997 McGraw Hill.
-
-### Screenshots
-
-- `FacialRecognition_NYT.png`: screenshot from [*"Facial Recognition Is Accurate, if You’re a White Guy"* by Steve Lohr](https://www.nytimes.com/2018/02/09/technology/facial-recognition-race-artificial-intelligence.html) in The New York Times. © 2020 The New York Times Company.
