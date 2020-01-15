@@ -176,10 +176,12 @@ To reproduce these materials:
     - `pastecs`, `car`, `psych`, `lmtest`, `lm.beta`
     - `e1071`, `dbscan`
     - `sp`, `rgdal`, `tmap`
+- install [tinytex](https://yihui.org/tinytex/r/)
 - clone this repository as an RStudio project
     - install [R](https://www.r-project.org/), [RStudio](https://rstudio.com/products/rstudio/download/) and [Git](https://git-scm.com/downloads)
     - open RStudio
     - make sure Git is correctly set up in `Tools > Global Options... > Git/SVN`
+    - make sure that the selected option for `Typeset LaTeX into PDF using` is `XeLaTeX` in `Tools > Global Options... > Sweave` (practicals are also compiled locally as PDF files)
     - select `File > New Project...`, then`Version Control` and finally `Git`
     - copy `https://github.com/sdesabbata/granolarr.git` in the `Repository URL` field, select a folder for the field `Create project as subdirectory of` and click on `Create Project`
 - execute `Make.R`
