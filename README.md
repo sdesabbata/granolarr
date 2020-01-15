@@ -174,7 +174,7 @@ To reproduce these materials:
     - open RStudio
     - make sure Git is correctly set up in `Tools > Global Options... > Git/SVN`
     - select `File > New Project...`, then`Version Control` and finally `Git`
-    - copy `https://github.com/sdesabbata/granolarr.git` in the `Repository URL` field and select a folder for the field `Create project as subdirectory of`, and click on `Create Project`
+    - copy `https://github.com/sdesabbata/granolarr.git` in the `Repository URL` field, select a folder for the field `Create project as subdirectory of` and click on `Create Project`
 - install the following R libraries
     - `tidyverse`, `magrittr`
     - `knitr`, `stargazer`
