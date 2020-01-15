@@ -176,7 +176,7 @@ To reproduce these materials:
     - `pastecs`, `car`, `psych`, `lmtest`, `lm.beta`
     - `e1071`, `dbscan`
     - `sp`, `rgdal`, `tmap`
-- clone this repository as a RStudio project
+- clone this repository as an RStudio project
     - install RStudio and Git
     - open RStudio
     - make sure Git is correctly set up in `Tools > Global Options... > Git/SVN`
