@@ -169,6 +169,7 @@ Further reading
 
 To reproduce these materials:
 
+- install [R](https://www.r-project.org/), [RStudio](https://rstudio.com/products/rstudio/download/) and [Git](https://git-scm.com/downloads)
 - install the following R libraries
     - `tidyverse`, `magrittr`
     - `knitr`, `stargazer`
@@ -178,7 +179,6 @@ To reproduce these materials:
     - `sp`, `rgdal`, `tmap`
 - install [tinytex](https://yihui.org/tinytex/r/)
 - clone this repository as an RStudio project
-    - install [R](https://www.r-project.org/), [RStudio](https://rstudio.com/products/rstudio/download/) and [Git](https://git-scm.com/downloads)
     - open RStudio
     - make sure Git is correctly set up in `Tools > Global Options... > Git/SVN`
     - make sure that the selected option for `Typeset LaTeX into PDF using` is `XeLaTeX` in `Tools > Global Options... > Sweave` (practicals are also compiled locally as PDF files)
