@@ -15,6 +15,7 @@ This content was created using [R](https://www.r-project.org/), [RStudio](https:
 - [Materials by topic](#materials-by-topic)
 - [Suggested schedule](#suggested-schedule)
 - [Reference books](#reference-books)
+- [Reproducibility](#reproducibility)
 - [Credits and acknowledgements](#credits-and-acknowledgements)
 
 ## Materials by topic
@@ -163,6 +164,25 @@ Further reading
 - *An Introduction to R for Spatial Analysis and Mapping* by Chris Brunsdon and Lex Comber, Sage, 2015. See book [webpage](https://uk.sagepub.com/en-gb/eur/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031)
 
 
+
+## Reproducibility
+
+To reproduce these materials:
+
+- clone this repository as a RStudio project
+    - install RStudio and Git
+    - open RStudio
+    - make sure Git is correctly set up in `Tools > Global Options... > Git/SVN`
+    - select `File > New Project...`, then`Version Control` and finally `Git`
+    - copy `https://github.com/sdesabbata/granolarr.git` in the `Repository URL` field and select a folder for the field `Create project as subdirectory of`, and click on `Create Project`
+- install the following R libraries
+    - `tidyverse`, `magrittr`
+    - `knitr`, `stargazer`
+    - `nycflights13`
+    - `pastecs`, `car`, `psych`, `lmtest`, `lm.beta`
+    - `e1071`, `dbscan`
+    - `sp`, `rgdal`, `tmap`
+- execute `Make.R`
 
 
 ## Credits and acknowledgements
