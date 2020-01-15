@@ -177,7 +177,7 @@ To reproduce these materials:
     - `e1071`, `dbscan`
     - `sp`, `rgdal`, `tmap`
 - clone this repository as an RStudio project
-    - install RStudio and Git
+    - install [R](https://www.r-project.org/), [RStudio](https://rstudio.com/products/rstudio/download/) and [Git](https://git-scm.com/downloads)
     - open RStudio
     - make sure Git is correctly set up in `Tools > Global Options... > Git/SVN`
     - select `File > New Project...`, then`Version Control` and finally `Git`
