@@ -22,107 +22,117 @@ This content was created using [R](https://www.r-project.org/), [RStudio](https:
 
 All the materials are available through the **[lectures bookdown](Lectures/bookdown)** and **[practical sessions bookdown](Practicals/bookdown)** pages. Links to the lecture slides and bookdown chapters for each week are listed below.
 
-1. **Programming, a practical introduction**
-    - **101 Introduction**
-        - Lecture ([slides](Lectures/101_L_Introduction.html), [bookdown](Lectures/bookdown/about-this-module.html))
-            - Basic types
-            - Basic operators
-            - Variables
-            - Libraries
-            - The pipe operator
-            - Coding style
-        - Practical session ([bookdown](Practicals/bookdown/introduction-to-r.html))
+**Currently under review to meet the University of Leicester ["Ingite"](https://le.ac.uk/ignite) approach to blended learning for the academic year 2020/2021.**
+
+1. **R coding**
+    - **100 Introduction**
+        - 101 Lecture ([slides](Lectures/101_L_Introduction.html), [bookdown](Lectures/bookdown/about-this-module.html))
+            - Introduction to R (basic types and operators)
+        - 102 Lecture
+            - Core concepts (variables, functions, libraries)
+        - 103 Lecture
+            - Tidyverse (incl. pipe operator)
+        - 104 Practical session ([bookdown](Practicals/bookdown/introduction-to-r.html))
             - The R programming language
             - Interpreting values
             - Variables
             - Basic types
             - Tidyverse
             - Coding style
-    - **102 Data types**
-        - Lecture ([slides](Lectures/102_L_DataTypes.html), [bookdown](Lectures/bookdown/recap-102.html))
-            - Vectors
-            - Factors
-            - Matrices
-            - Arrays
+    - **110 R programming**
+        - 111 Lecture ([slides](Lectures/102_L_DataTypes.html), [bookdown](Lectures/bookdown/recap-102.html))
+            - Data types (vectors, factors, matrices, arrays, lists)
+        - 112 Lecture
+            - Control structures (conditional statements, loops)
+        - 113 Lecutre
+            - Functions
+        - 114 Practical session ([bookdown](Practicals/bookdown/data-types.html))
+            - Vectorss
             - Lists
-            - Data Frames
-        - Practical session ([bookdown](Practicals/bookdown/data-types.html))
-            - Vectors
-            - Factors
-            - Matrices
-            - Arrays
-            - Lists
-            - Data Frames
-    - **111 Control structures and functions**
-        - Lecture ([slides](Lectures/111_L_ControlStructuresFunctions.html), [bookdown](Lectures/bookdown/recap-111.html))
             - Conditional statements
             - Loops
             - Functions
             - Scope of a variable
-        - Practical session ([bookdown](Practicals/bookdown/control-structures-and-functions.html))
-            - Conditional statements
-            - Loops
-            - Functions
 2. **Data wrangling**
-    - **201 Selection and manipulation**
-        - Lecture ([slides](Lectures/201_L_DataWrangling1.html), [bookdown](Lectures/bookdown/recap-201.html))
-            - Data selection
-            - Data filtering
+    - **200 Selection and manipulation**
+        - 201 Lecture ([slides](Lectures/201_L_DataWrangling1.html), [bookdown](Lectures/bookdown/recap-201.html))
+            - Data Frames
+        - 202 Lecture
+            - Data selection and filtering
+        - 203 Lecture
             - Data manipulation
-        - Practical session ([bookdown](Practicals/bookdown/data-wrangling-pt-1.html))
+        - 204 Practical session ([bookdown](Practicals/bookdown/data-wrangling-pt-1.html))
             - Creating R projects
             - Creating R scripts
             - Data wrangling script
-    - **202 Table operations**
-        - Lecture ([slides](Lectures/202_L_DataWrangling2.html), [bookdown](Lectures/bookdown/recap-202.html))
+    - **210 Table operations**
+        - 211 Lecture ([slides](Lectures/202_L_DataWrangling2.html), [bookdown](Lectures/bookdown/recap-202.html))
+            - Join operations
+        - 212 Lecture
+            - Table re-shaping
+        - 213 Lecture
+            - Read and write data
+        - 214 Practical session ([bookdown](Practicals/bookdown/data-wrangling-pt-2.html))
             - Join operations
             - Table re-shaping
             - Read and write data
-        - Practical session ([bookdown](Practicals/bookdown/data-wrangling-pt-2.html))
-            - Join operations
-            - Table re-shaping
-            - Read and write data
-3. **Reproducibility**
-    - **301 Reproducible analysis**
-        - Lecture ([slides](Lectures/301_L_Reproducibility.html), [bookdown](Lectures/bookdown/recap-301.html))
+    - **220 Reproducibility**
+        - 221 Lecture ([slides](Lectures/301_L_Reproducibility.html), [bookdown](Lectures/bookdown/recap-301.html))
             - Reproducibility
-            - Versioning
+        - 222 Lecture
             - R and Markdown
+        - 223 Lecture
             - Git
-        - Practical session ([bookdown](Practicals/bookdown/reproducibility.html))
+        - 224 Practical session ([bookdown](Practicals/bookdown/reproducibility.html))
             - Reproducibile data analysis
             - RMarkdown
             - Git
-4. **Data visualisation**
-    - *Coming soon*
-5. **Data analysis**
-    - **501 Exploratory data analysis**
-        - Lecture ([slides](Lectures/501_L_Exploratory.html), [bookdown](Lectures/bookdown/recap-501.html))
+3. **Data analysis**
+    - **300 Exploratory data analysis**
+        - 301 Lecture ([slides](Lectures/501_L_Exploratory.html), [bookdown](Lectures/bookdown/recap-501.html))
+            - Data visualisation
+        - 302 Lecture
+            - Descriptive statistics
+        - 303 Lecture
+            - Exploring assumptions
+        - 304 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
             - Data visualisation
             - Descriptive statistics
             - Exploring assumptions
-        - Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
-            - Data visualisation
-            - Descriptive statistics
-            - Exploring assumptions
-    - **502 Regression models** 
-        - Lecture ([slides](Lectures/502_L_Regression.html), [bookdown](Lectures/bookdown/recap-502.html))
+    - **310 Comparing data** 
+        - 311 Lecture ([slides](Lectures/502_L_Regression.html), [bookdown](Lectures/bookdown/recap-502.html))
+            - Comparing means
+        - 312 Lecture
+            - Correlation
+        - 313 Lecture
+            - Comparing frequencies
+        - 314 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
             - Comparing means
             - Correlation
-            - Regression
-        - Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
-            - Comparing means
-            - Correlation
-            - Regression
-6. **Machine learning**
-    - **601 Unsupervised**
-        - Lecture ([slides](Lectures/601_L_Unsupervised.html), [bookdown](Lectures/bookdown/recap-601.html))
+            - Chi-square
+    - **320 Regression models**
+        - 321 Lecture
+            - Simple regression
+        - 322 Lecture
+            - Testing assumptions
+        - 323 Lecture
+            - Multiple regression
+        - 324 Practical session
+            - Simple regression
+            - Testing assumptions
+            - Multiple regression
+4. **Machine learning**
+    - **400 Unsupervised**
+        - 401 Lecture ([slides](Lectures/601_L_Unsupervised.html), [bookdown](Lectures/bookdown/recap-601.html))
             - Machine Learning: definition and types
             - Unsupervised machine Learning
+        - 402 Lecture
             - Clustering
-        - Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
+        - 403 Lecture
+            - Geodemographics
+        - 404 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
             - Geodemographic classification
-    - **602 Supervised** 
+    - **410 Supervised** 
         - *Coming soon*
 
 
