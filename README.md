@@ -12,13 +12,12 @@ This content was created using [R](https://www.r-project.org/), [RStudio](https:
 
 ## Table of contents
 
-- [Materials by topic](#materials-by-topic)
-- [Suggested schedule](#suggested-schedule)
+- [Materials by topic](#materials)
 - [Reference books](#reference-books)
 - [Reproducibility](#reproducibility)
 - [Credits and acknowledgements](#credits-and-acknowledgements)
 
-## Materials by topic
+## Materials
 
 All the materials are available through the **[lectures bookdown](Lectures/bookdown)** and **[practical sessions bookdown](Practicals/bookdown)** pages. Links to the lecture slides and bookdown chapters for each week are listed below.
 
@@ -134,28 +133,6 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Geodemographic classification
     - **410 Supervised** 
         - *Coming soon*
-
-
-
-## Suggested schedule
-
-The lectures and practical sessions have been designed to follow the schedule below:
-
-- Programming, a practical introduction
-    - 101 Introduction
-    - 102 Data types
-- Data wrangling
-    - 201 Selection and manipulation
-    - 202 Table operations
-- Reproducibility
-    - 301 Reproducible analysis
-- Programming
-    - 111 Control structures and functions
-- Data analysis
-    - 501 Exploratory data analysis
-    - 502 Regression models
-- Machine learning
-    - 601 Unsupervised
 
 
 
