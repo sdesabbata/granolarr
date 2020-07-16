@@ -1,0 +1,134 @@
+---
+title: "Lecture 222"
+author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
+date: "`r Sys.Date()`"
+output:
+  ioslides_presentation:
+    template: ../Utils/IOSlides/UoL_Template.html
+    logo: ../Utils/IOSlides/uol_logo.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+
+# RMarkdown
+
+
+
+## Recap
+
+**Prev**: Reproduciblity
+
+- Reproduciblity and software engineering
+- Reproduciblity in GIScience
+- Guidelines
+
+**Now**: RMarkdown
+
+- Markdown
+- RMarkdown
+
+
+
+## Markdown
+
+**Markdown** is a simple markup language
+
+- allows to mark-up plain text 
+- to specify more complex features (such as *italics text*)
+- using a very simple [syntax](https://daringfireball.net/projects/markdown/syntax)
+
+Markdown can be used in conjunction with numerous tools
+
+- to produce HTML pages
+- or even more complex formats (such as PDF)
+
+These slides are written in Markdown
+
+
+
+## Markdown example code
+
+```
+### This is a third level heading
+
+Text can be specified as *italic* or **bold**
+
+- and list can be created
+    - very simply
+
+1. also numbered lists
+    1. [add a link like this](http://le.ac.uk)
+
+|Tables |Can         |Be       |
+|-------|------------|---------|
+|a bit  |complicated |at first |
+|but    |it gets     |easier   |
+```
+
+
+
+## Markdown example output
+
+### This is a third level heading
+
+Text can be specified as *italic* or **bold**
+
+- and list can be created
+    - very simply
+
+1. also numbered lists
+    1. [add a link like this](http://le.ac.uk)
+
+|Tables |Can         |Be       |
+|-------|------------|---------|
+|a bit  |complicated |at first |
+|but    |it gets     |easier   |
+
+
+
+## RMarkdown example code
+
+````
+Let's write an example of **R** code including 
+
+- a variable `a_variable`
+- an assignment operation (i.e., `<-`)
+- a mathematical operation (i.e., `+`)
+
+`r ''````{r, echo=TRUE}
+a_variable <- 0
+a_variable <- a_variable + 1
+a_variable <- a_variable + 1
+a_variable <- a_variable + 1
+a_variable
+`r ''````
+````
+
+
+## Writing RMarkdown docs
+
+**RMarkdown** documents contain both Markdown and R code. These files can be created in RStudio, and compiled to create an html page (like this document), a pdf, or a Microsoft Word document.
+
+<center>
+![](Images/Lecture1_RMarkdown001.png){width=80% style="border: 1px solid black"}
+</center>
+
+
+## Summary
+
+RMarkdown
+
+- Markdown
+- RMarkdown
+
+**Next**: Git
+
+- Git operations
+- Git and RStudio
+

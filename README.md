@@ -68,12 +68,12 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
         - 211 Lecture ([slides](Lectures/202_L_DataWrangling2.html), [bookdown](Lectures/bookdown/recap-202.html))
             - Join operations
         - 212 Lecture
-            - Table re-shaping
+            - Table pivot
         - 213 Lecture
             - Read and write data
         - 214 Practical session ([bookdown](Practicals/bookdown/data-wrangling-pt-2.html))
             - Join operations
-            - Table re-shaping
+            - Data pivot
             - Read and write data
     - **220 Reproducibility**
         - 221 Lecture ([slides](Lectures/301_L_Reproducibility.html), [bookdown](Lectures/bookdown/recap-301.html))
@@ -100,11 +100,11 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Exploring assumptions
     - **310 Comparing data** 
         - 311 Lecture ([slides](Lectures/502_L_Regression.html), [bookdown](Lectures/bookdown/recap-502.html))
-            - Comparing means
+            - Comparing groups
         - 312 Lecture
             - Correlation
         - 313 Lecture
-            - Comparing frequencies
+            - Data transformations
         - 314 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
             - Comparing means
             - Correlation
@@ -113,7 +113,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
         - 321 Lecture
             - Simple regression
         - 322 Lecture
-            - Testing assumptions
+            - Assessing regression assumptions
         - 323 Lecture
             - Multiple regression
         - 324 Practical session
@@ -131,8 +131,15 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Geodemographics
         - 404 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
             - Geodemographic classification
-    - **410 Supervised** 
-        - *Coming soon*
+    - **410 Supervised**
+        - 411 Lecture
+            - Supervised machine Learning
+        - 412 Lecture
+            - Support vector machines
+        - 413 Lecture
+            - Deep learning
+        - 404 Practical session
+            - Support vector machines
 
 
 

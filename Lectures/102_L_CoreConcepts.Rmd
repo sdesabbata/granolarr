@@ -1,0 +1,165 @@
+---
+title: "Lecture 102"
+author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
+date: "`r Sys.Date()`"
+output:
+  ioslides_presentation:
+    template: ../Utils/IOSlides/UoL_Template.html
+    logo: ../Utils/IOSlides/uol_logo.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+
+# Core concepts
+
+
+
+## Recap
+
+**Prev**: An introduction to R
+
+- Basic types
+- Basic operators
+
+**Now**: Core concepts
+
+- Variables
+- Functions
+- Libraries
+
+
+
+## Variables
+
+Variables **store data** and can be defined 
+
+- using an *identifier* (e.g., `a_variable`) 
+- on the left of an *assignment operator* `<-`
+- followed by the object to be linked to the identifier
+- such as a *value* (e.g., `1`) 
+
+```{r, echo=TRUE}
+a_variable <- 1
+```
+
+The value of the variable can be invoked by simply specifying the **identifier**.
+
+```{r, echo=TRUE}
+a_variable
+```
+
+
+
+## Algorithms and functions
+
+*An* **algorithm** *or effective procedure is a mechanical rule, or automatic method, or programme for performing some mathematical operation* (Cutland, 1980).
+
+A **program** is a specific set of instructions that implement an abstract algorithm.
+
+The definition of an algorithm (and thus a program) can consist of one or more **function**s
+
+- set of instructions that preform a task 
+- possibly using an input, possibly returning an output value
+
+Programming languages usually provide pre-defined functions that implement common algorithms (e.g., to find the square root of a number or to calculate a linear regression)
+
+
+
+## Functions
+
+Functions execute complex operations and can be invoked 
+
+- specifying the *function name*
+- the *arguments* (input values) between simple brackets
+    - each *argument* corresponds to a *parameter*
+    - sometimes the *parameter* name must be specified
+
+```{r, echo=TRUE}
+sqrt(2)
+round(1.414214, digits = 2)
+```
+
+
+
+## Functions and variables
+
+- functions can be used on the right side of `<-` 
+- variables and functions can be used as *arguments*
+
+```{r, echo=TRUE}
+sqrt_of_two <- sqrt(2)
+sqrt_of_two
+round(sqrt_of_two, digits = 2)
+round(sqrt(2), digits = 2)
+```
+
+
+
+## Naming
+
+When creating an identifier for a variable or function
+
+- R is a **case sensitive** language
+    - UPPER and lower case are not the same
+    - `a_variable` is different from `a_VARIABLE`
+- names can include
+    -  alphanumeric symbols
+    - `.` and `_`
+- names must start with
+    - a letter
+
+
+
+## Coding style
+
+A *coding style* is a way of writing the code, including
+
+- how variable and functions are named
+    - lower case and `_`
+- how spaces are used in the code
+- which libraries are used
+
+```{r, echo=TRUE, eval=FALSE}
+# Bad
+X<-round(sqrt(2),2)
+
+#Good
+sqrt_of_two <- sqrt(2) %>%
+ round(digits = 2)
+```
+
+Study the [Tidyverse Style Guid](http://style.tidyverse.org/) and use it consistently!
+
+
+
+## stringr
+
+R provides some basic functions to manipulate strings, but the `stringr` library provides a more consistent and well-defined set
+
+```{r, echo=TRUE}
+str_length("Leicester")
+str_detect("Leicester", "e")
+str_replace_all("Leicester", "e", "x")
+```
+
+
+
+
+## Summary
+
+Core concepts
+
+- Variables
+- Functions
+- Libraries
+
+**Next**: Tidyverse
+
+- Tidyverse libraries
+- *pipe* operator

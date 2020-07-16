@@ -1,0 +1,208 @@
+---
+title: "Lecture 313"
+author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
+date: "`r Sys.Date()`"
+output:
+  ioslides_presentation:
+    template: ../Utils/IOSlides/UoL_Template.html
+    logo: ../Utils/IOSlides/uol_logo.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+
+<style type="text/css">
+.small_r_all pre{
+  font-size: 16px;
+  line-height: 18px;
+}
+.small_r_output pre:not(.prettyprint){
+  font-size: 16px;
+  line-height: 18px;
+}
+.verysmall_r_output pre:not(.prettyprint){
+  font-size: 12px;
+  line-height: 14px;
+}
+</style>
+
+
+
+# Data transformations
+
+
+## Recapt
+
+**Prev**: Correlation
+
+- Pearson’s r
+- Spearman’s rho
+- Kendall’s tau
+- Pairs plot
+
+**Next**: Data transformations
+
+- Z-scores
+- Logarithmic transformations
+
+
+## Z-scores
+
+*Z-scores* transform the values as relative to the distribution mean and standard deviation
+
+<div class="columns-2">
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+flights_nov_20 %>%
+  ggplot(aes(x = dep_delay)) +
+  geom_histogram()
+```
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+flights_nov_20 %>%
+  mutate(
+    dep_delay_zscore = 
+      scale(dep_delay)
+  ) %>%
+  ggplot(
+    aes(x = dep_delay_zscore)
+  ) +
+  geom_histogram()
+```
+
+<br/>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
+flights_nov_20 %>%
+  ggplot(aes(x = dep_delay)) +
+  geom_histogram()
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
+flights_nov_20 %>%
+  mutate(
+    dep_delay_zscore = scale(dep_delay)
+  ) %>%
+  ggplot(
+    aes(x = dep_delay_zscore)
+  ) +
+  geom_histogram()
+```
+
+</div>
+
+
+
+## Log transformation
+
+*Logarithmic* transformations (e.g., `log` and `log10`) are useful to *"un-skew"* variables, but only possible on values `> 0`
+
+<div class="columns-2">
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+flights_nov_20 %>%
+  filter(dep_delay > 0) %>%
+  ggplot(aes(x = dep_delay)) +
+  geom_histogram()
+```
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+flights_nov_20 %>%
+  filter(dep_delay > 0) %>%
+  mutate(
+    dep_delay_log = 
+      log(dep_delay)
+  ) %>%
+  ggplot(
+    aes(x = dep_delay_log)) + 
+  geom_histogram()
+```
+
+<br/>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
+flights_nov_20 %>%
+  filter(dep_delay > 0) %>%
+  ggplot(aes(x = dep_delay)) +
+  geom_histogram()
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
+flights_nov_20 %>%
+  filter(dep_delay > 0) %>%
+  mutate(
+    dep_delay_log = 
+      log(dep_delay)
+  ) %>%
+  ggplot(
+    aes(x = dep_delay_log)) + 
+  geom_histogram()
+```
+
+</div>
+
+
+
+## Inverse hyperbolic sine
+
+
+*Inverse hyperbolic sine* (`asinh`) transformations are useful to *"un-skew"* variables, similar to logarithmic transformations, work on all values
+
+<div class="columns-2">
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+flights_nov_20 %>%
+  ggplot(aes(x = dep_delay)) +
+  geom_histogram()
+```
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+flights_nov_20 %>%
+  mutate(
+    dep_delay_ihs = 
+      asinh(dep_delay)
+  ) %>%
+  ggplot(
+    aes(x = dep_delay_ihs)) + 
+  geom_histogram()
+```
+
+<br/>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
+flights_nov_20 %>%
+  ggplot(aes(x = dep_delay)) +
+  geom_histogram()
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
+flights_nov_20 %>%
+  mutate(
+    dep_delay_ihs = 
+      asinh(dep_delay)
+  ) %>%
+  ggplot(
+    aes(x = dep_delay_ihs)) + 
+  geom_histogram()
+```
+
+</div>
+
+
+
+## Summary
+
+Data transformations
+
+- Z-scores
+- Logarithmic transformations
+
+**Next**: Practical session
+
+- Comparing means
+- Correlation

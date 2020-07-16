@@ -1,0 +1,302 @@
+---
+title: "Lecture 502<br/>Univariate analysis"
+author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
+date: "`r Sys.Date()`"
+output:
+  ioslides_presentation:
+    template: ../Utils/IOSlides/UoL_Template.html
+    logo: ../Utils/IOSlides/uol_logo.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+<style type="text/css">
+.small_r_all pre{
+  font-size: 16px;
+  line-height: 18px;
+}
+.small_r_output pre:not(.prettyprint){
+  font-size: 16px;
+  line-height: 18px;
+}
+.verysmall_r_output pre:not(.prettyprint){
+  font-size: 12px;
+  line-height: 14px;
+}
+</style>
+
+
+
+# Regression
+
+
+
+## Regression analysis
+
+**Regression analysis** is a supervised machine learning approach
+
+Predict the value of one outcome variable as
+
+$$outcome_i = (model) + error_i $$
+
+- one predictor variable (**simple / univariate** regression)
+
+$$Y_i = (b_0 + b_1 * X_{i1}) + \epsilon_i $$
+    
+- more predictor variables (**multiple / multivariate** regression)
+
+$$Y_i = (b_0 + b_1 * X_{i1} + b_2 * X_{i2} + \dots + b_M * X_{iM}) + \epsilon_i $$
+
+
+
+## Least squares
+
+<div class="columns-2">
+
+**Least squares** is the most commonly used approach to generate a regression model
+
+The model fits a line
+    
+- to minimise the squared values of the **residuals** (errors)
+- that is squared difference between
+    - **observed values**
+    - **model**
+
+
+<center>
+![](Images/489px-Linear_least_squares_example2.svg.png){width=70%}
+
+<br/>
+<font size="4">	
+by 	Krishnavedala<br/>
+via Wikimedia Commons,<br/>CC-BY-SA-3.0
+</font>
+</center>
+
+</div>
+
+$$deviation = \sum(observed - model)^2$$
+
+
+
+## Example
+
+<font size="4">	
+$$arr\_delay_i = (b_0 + b_1 * dep\_delay_{i1}) + \epsilon_i $$
+</font>
+
+<div class="small_r_output">
+
+```{r, echo=TRUE}
+delay_model <- flights_nov_20 %$% # Note %$%
+  lm(arr_delay ~ dep_delay)
+
+delay_model %>%  summary()
+```
+
+</div>
+
+
+
+## Overall fit
+
+```{r, echo=FALSE}
+delay_model_summary <- delay_model %>%
+  summary()
+```
+
+The output indicates
+
+- **p-value: < 2.2e-16**: $p<.001$ the model is significant
+    - derived by comparing the calulated **F-statistic** value to F distribution `r delay_model_summary$fstatistic[1] %>% round(digits = 2)` having specified degrees of freedom (`r delay_model_summary$fstatistic[2]`, `r delay_model_summary$fstatistic[3]`)
+    - Report as: F(`r delay_model_summary$fstatistic[2]`, `r delay_model_summary$fstatistic[3]`) = `r delay_model_summary$fstatistic[1] %>% round(digits = 2)`
+- **Adjusted R-squared: `r delay_model_summary$adj.r.squared %>% round(digits = 4)`**: the departure delay can account for `r (delay_model_summary$adj.r.squared * 100) %>% round(digits = 2)`% of the arrival delay
+- **Coefficients**
+    - Intercept estimate `r delay_model_summary$coefficients[1,1] %>% round(digits = 4)` is significant
+    - `dep_delay` (slope) estimate `r delay_model_summary$coefficients[2,1] %>% round(digits = 4)` is significant
+
+
+
+## Parameters
+
+<font size="4">	
+$$arr\_delay_i = (Intercept + Coefficient_{dep\_delay} * dep\_delay_{i1}) + \epsilon_i $$
+</font>
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
+flights_nov_20 %>%
+  ggplot(aes(x = dep_delay, y = arr_delay)) +
+  geom_point() + coord_fixed(ratio = 1) +
+  geom_abline(intercept = 4.0943, slope = 1.04229, color="red")
+```
+
+<center>
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
+flights_nov_20 %>%
+  ggplot(aes(x = dep_delay, y = arr_delay)) +
+  geom_point() + coord_fixed(ratio = 1) +
+  geom_abline(intercept = 4.0943, slope = 1.04229, color="red")
+```
+</center>
+
+
+<!--
+## Outliers and residuals
+## Influential cases
+-->
+
+
+
+## Checking assumptions
+
+- **Linearity**
+    - the relationship is actually linear
+- **Normality** of residuals
+    - standard residuals are normally distributed with mean `0`
+- **Homoscedasticity** of residuals
+    - at each level of the predictor variable(s) the variance of the standard residuals should be the same (*homo-scedasticity*) rather than different (*hetero-scedasticity*) 
+- **Independence** of residuals
+    - adjacent standard residuals are not correlated
+- When more than one predictor: **no multicollinearity**
+    - if two or more predictor variables are used in the model, each pair of variables not correlated
+
+
+
+## Normality
+
+Shapiro-Wilk test for normality of standard residuals, 
+
+- robust models: should be not significant 
+
+<div class="columns-2">
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+delay_model %>% 
+  rstandard() %>% 
+  shapiro.test()
+```
+
+<font size="4">	
+**Standard residuals are NOT normally distributed**
+</font>
+
+<center>
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 4}
+delay_model %>% 
+  rstandard() %>%
+  data.frame(std_res = .) %>%
+  ggplot(aes(x = std_res)) +
+  geom_histogram(
+    aes(
+      y =..density..
+    ),
+    bins = 100
+  ) + 
+  stat_function(
+    fun = dnorm, 
+    args = list(
+      mean = delay_model %>% rstandard() %>% mean(),
+      sd = delay_model %>% rstandard() %>% sd()),
+    colour = "red", size = 1)
+```
+</center>
+
+</div>
+
+
+
+## Homoscedasticity
+
+Breusch-Pagan test for homoscedasticity of standard residuals
+
+- robust models: should be not significant
+
+<div class="columns-2 small_r_output">
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
+library(lmtest)
+
+delay_model %>% 
+  bptest()
+```
+
+<font size="4">	
+**Standard residuals are homoscedastic**
+</font>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
+delay_model %>% 
+  plot(which = c(1))
+```
+
+</div>
+
+
+
+## Independence
+
+Durbin-Watson test for the independence of residuals
+
+- robust models: statistic should be close to 2 (between 1 and 3) and not significant
+
+<div class="small_r_output">
+
+```{r, echo=TRUE}
+# Also part of the library lmtest
+delay_model %>%
+  dwtest()
+```
+
+</div>
+
+<font size="4">	
+**Standard residuals might not be completely indipendent**
+
+Note: the result depends on the order of the data.
+</font>
+
+
+
+# Lecture 502<br/>Summary
+
+
+
+## Summary
+
+- Comparing means
+    - t-test
+    - ANOVA
+- Correlation
+    - Pearson's r
+    - Spearman's rho
+    - Kendall's tau
+- Regression
+    - univariate
+
+
+
+## Practical session
+
+In the practical session, we will see:
+
+- Comparing means
+    - ANOVA
+- Regression
+    - univariate
+    - multivariate
+
+
+
+## Next lecture
+
+- Machine Learning
+    - Definition
+    - Types
+- Unsupervised
+    - Clustering
+- In GIScience
+    - Geodemographic classification

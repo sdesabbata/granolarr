@@ -1,5 +1,5 @@
 ---
-title: "Lecture 102<br/>Data types"
+title: "Lecture 111"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
 date: "`r Sys.Date()`"
 output:
@@ -16,37 +16,27 @@ rm(list = ls())
 
 
 
-# Recap @ 102
+# Data types
 
 
 
-## Previous lecture
+## Recap
 
-An introduction to R
+**Prev**: Introduction
 
-- Basic types
-- Basic operators
-- Variables
-- Libraries
-- The pipe operator
-- Coding style
+- 101 Lecture: Introduction to R
+- 102 Lecture: Core concepts
+- 103 Lecture: Tidyverse
+- 104 Practical session
 
+**Now**: Data types
 
-
-## This lecture
-
-More complex data types
-
-- Vectors
-- Factors
-- Matrices
-- Arrays
-- Lists
-- Data Frames
+- vectors
+- factors
+- matrices, arrays
+- lists
 
 
-
-# Vectors
 
 ## Vectors
 **Vectors** are ordered list of values.
@@ -147,7 +137,6 @@ all(a_numeric_vector >= 3)
 ```
 
 
-# Factors
 
 ## Factors
 
@@ -345,7 +334,6 @@ apply(a3dim_array, 2, min) # apply on second dimension
 ```
 
 
-# Lists
 
 ## Lists
 
@@ -397,121 +385,17 @@ various
 -->
 
 
-# Data frames
 
+## Recap
 
-
-## Data Frames
-
-A **data frame** is equivalent to a *named list* where all elements are *vectors of the same length*.
-
-```{r, echo=TRUE}
-employees <- data.frame(
-  Name = c("Maria", "Pete", "Sarah"),
-  Age = c(47, 34, 32),
-  Role = c("Professor", "Researcher", "Researcher"))
-employees
-```
-
-Data frames are the most common way to represent tabular data in R. Matrices and lists can be converted to data frames.
-
-<!--
-**Note:** As is common in R, the elements of an eventual too short column are recycled to match column lengths.
--->
-
-## Selection
-
-Selection is similar to vectors and lists.
-
-```{r, echo=TRUE}
-employees[1, ] # row selection
-employees[, 1] # column selection, as for matrices
-```
-
-
-## Selection
-
-Selection is similar to vectors and lists.
-
-```{r, echo=TRUE}
-employees$Name # column selection, as for named lists
-employees$Name[1]
-```
-
-
-
-## Value assignment
-
-Values can be assigned to cells through filtering and `<-`
-
-```{r, echo=TRUE}
-employees$Age[3] <- 33 
-employees
-```
-
-
-## Column processing
-
-Operations can be performed on columns, and new columns created.
-
-```{r, echo=TRUE}
-current_year <- as.integer(format(Sys.Date(), "%Y"))
-employees$Year_of_birth <- current_year - employees$Age
-employees
-```
-
-
-
-## tibble
-
-A [tibble](https://tibble.tidyverse.org/) is a modern reimagining of the data.frame within `tidyverse`
-
-- they do less 
-    - don’t change variable names or types
-    - don’t do partial matching
-- complain more
-    - e.g. when a variable does not exist
-    
-This forces you to confront problems earlier, typically leading to cleaner, more expressive code.
-
-
-
-# Summary
-
-
-
-## Summary
-
-More complex data types
+Data types
 
 - Vectors
 - Factors
-- Matrices
-- Arrays
+- Matrices, arrays
 - Lists
-- Data Frames
 
+**Next**: Control structures
 
-
-## Practical session
-
-In the practical session, we will see (surprise, surprise)
-
-- Vectors
-- Factors
-- Matrices
-- Arrays
-- Lists
-- Data Frames
-
-
-
-## Next lecture
-
-Moving on towards data science
-
-- Data selection
-- Data filtering
-- Data manipulation
-- Join operations
-- Table re-shaping
+- Conditional statements
+- Loops

@@ -1,0 +1,208 @@
+---
+title: "Lecture 311"
+author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
+date: "`r Sys.Date()`"
+output:
+  ioslides_presentation:
+    template: ../Utils/IOSlides/UoL_Template.html
+    logo: ../Utils/IOSlides/uol_logo.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+<style type="text/css">
+.small_r_all pre{
+  font-size: 16px;
+  line-height: 18px;
+}
+.small_r_output pre:not(.prettyprint){
+  font-size: 16px;
+  line-height: 18px;
+}
+.verysmall_r_output pre:not(.prettyprint){
+  font-size: 12px;
+  line-height: 14px;
+}
+</style>
+
+
+
+# Comparing groups
+
+
+## Recap
+
+**Prev**: Exploratory data analysis
+
+- 301 Lecture Data visualisation
+- 302 Lecture Descriptive statistics
+- 303 Lecture Exploring assumptions
+- 304 Practical session
+
+**Now**: Comparing groups
+
+- T-test
+- ANOVA
+- Chi-square
+
+
+## Libraries
+
+<div class="columns-2">
+
+Today's libraries
+
+- mostly working with the usual `nycflights13`
+- exposition pipe `%$%` from the library `magrittr`
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)  
+library(nycflights13)
+```
+
+But let's start from a simple example from `datasets`
+
+- 50 flowers from each of 3 species of iris
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3.5, fig.height = 5}
+iris %>%
+  ggplot(
+    aes(
+      x = Species, 
+      y = Petal.Length
+    )
+  ) +
+  geom_boxplot()
+```
+
+</div>
+
+
+
+## Example
+
+<div class="small_r_all">
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+iris %>% filter(Species == "setosa") %>% pull(Petal.Length) %>% shapiro.test()
+
+iris %>% filter(Species == "versicolor") %>% pull(Petal.Length) %>% shapiro.test()
+
+iris %>% filter(Species == "virginica") %>% pull(Petal.Length) %>% shapiro.test()
+```
+
+</div>
+
+
+
+## T-test
+
+Independent T-test tests whether two group means are different
+
+$$outcome_i = (group\ mean) + error_i $$
+
+- groups defined by a predictor, categorical variable
+- outcome is a continuous variable
+- assuming
+    - normally distributed values in groups
+    - homogeneity of variance of values in groups
+        - if groups have different sizes
+    - independence of groups
+
+
+
+## Example
+
+Values are normally distributed, groups have same size, and they are independent (different flowers, check using `leveneTest`)
+
+<div class="small_r_output">
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+iris %>%
+  filter(Species %in% c("versicolor", "virginica")) %$% # Note %$%
+  t.test(Petal.Length ~ Species)
+```
+
+</div>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+iris_t_test <- iris %>%
+  filter(Species %in% c("versicolor", "virginica")) %$%
+  t.test(Petal.Length ~ Species)
+```
+
+The difference is significant t(`r iris_t_test %$% parameter[["df"]] %>% round(digits = 2)`) = `r iris_t_test %$% statistic[["t"]] %>% round(digits = 2)`, *p* < .01
+
+
+
+## ANOVA
+
+ANOVA (analysis of variance) tests whether more than two group means are different
+
+$$outcome_i = (group\ mean) + error_i $$
+
+- groups defined by a predictor, categorical variable
+- outcome is a continuous variable
+- assuming
+    - normally distributed values in groups
+        - especially if groups have different sizes
+    - homogeneity of variance of values in groups
+        - if groups have different sizes
+    - independence of groups
+
+
+
+## Example
+
+Values are normally distributed, groups have same size, they are independent (different flowers, check using `leveneTest`)
+
+<div class="small_r_output">
+
+<!--
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(car)
+
+iris %$%
+leveneTest(Petal.Length, Species)
+```
+-->
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+iris %$%
+  aov(Petal.Length ~ Species) %>%
+  summary()
+```
+
+</div>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+iris_anova_summary <- iris %$%
+  aov(Petal.Length ~ Species) %>%
+  summary()
+```
+
+The difference is significant t(`r iris_anova_summary[[1]] %$% Df[1] %>% round(digits = 2)`, `r iris_anova_summary[[1]] %$% Df[2] %>% round(digits = 2)`) = `r iris_anova_summary[[1]][1, 4] %>% round(digits = 2)`, *p* < .01
+
+
+## Summary
+
+Comparing groups
+
+- T-test
+- ANOVA
+- Chi-square
+
+**Next**: Correlation
+
+- Pearson’s r
+- Spearman’s rho
+- Kendall’s tau
+- Pairs plot
+
+- 
