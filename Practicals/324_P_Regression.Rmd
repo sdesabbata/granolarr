@@ -1,5 +1,5 @@
 ---
-title: "502 Regression analysis"
+title: "Practical 324"
 author: "Stefano De Sabbata"
 date: "`r Sys.Date()`"
 output: pdf_document

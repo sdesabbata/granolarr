@@ -105,7 +105,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Correlation
         - 313 Lecture
             - Data transformations
-        - 314 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
+        - *314 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html)) (to do)*
             - Comparing means
             - Correlation
             - Chi-square

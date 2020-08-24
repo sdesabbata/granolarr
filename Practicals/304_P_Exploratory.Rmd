@@ -1,5 +1,5 @@
 ---
-title: "501 Exploratory analysis"
+title: "Practical 304"
 author: "Stefano De Sabbata"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -11,7 +11,7 @@ knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 rm(list = ls())
 ```
 
-# Exploratory analysis
+# Exploratory data analysis
 
 *[Stefano De Sabbata](https://stefanodesabbata.com)*
 

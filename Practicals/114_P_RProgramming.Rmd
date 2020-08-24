@@ -1,5 +1,5 @@
 ---
-title: "111 Control structures and Functions"
+title: "Practical 114"
 author: "Stefano De Sabbata"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -11,11 +11,110 @@ knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 rm(list = ls())
 ```
 
-# Control structures and Functions
+# R programming
 
 *[Stefano De Sabbata](https://stefanodesabbata.com)*
 
-[This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence).
+[This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). 
+
+## Vectors
+
+Vectors can be defined in R by using the function `c`, which takes as parameters the items to be stored in the vector -- stored in the order in which they are provided. 
+
+```{r, echo=TRUE}
+east_midlands_cities <- c("Derby", "Leicester", "Lincoln", "Nottingham")
+length(east_midlands_cities)
+```
+
+Once the vector has been created and assigned to an identifier, elements within the vector can be retrieved by specifying the identifier, followed by square brackets, and the *index* (or indices as we will see further below) of the elements to be retrieved -- remember that indices start from 1.
+
+```{r, echo=TRUE}
+# Retrieve third city
+east_midlands_cities[3]
+```
+
+To retrieve any subset of a vector (i.e., not just one element), specify an integer vector containing the indices of interest (rather than a single integer value) between square brackets. 
+
+```{r, echo=TRUE}
+# Retrieve first and third city
+east_midlands_cities[c(1, 3)]
+```
+
+The operator `:` can be used to create integer vectors, starting from the number specified before the operator to the number specified after the operator. 
+
+```{r, echo=TRUE}
+# Create a vector containing integers between 2 and 4
+two_to_four <- 2:4
+two_to_four
+# Retrieve cities between the second and the fourth
+east_midlands_cities[two_to_four]
+# As the second element of two_to_four is 3...
+two_to_four[2]
+# the following command will retrieve the third city
+east_midlands_cities[two_to_four[2]]
+# Create a vector with cities from the previous vector
+selected_cities <- c(east_midlands_cities[1], east_midlands_cities[3:4])
+```
+
+
+The functions `seq` and `rep` can also be used to create vectors, as illustrated below.
+
+```{r, echo=TRUE}
+seq(1, 10, by = 0.5)
+seq(1, 10, length.out = 6)
+rep("Ciao", 4)
+```
+
+
+The logical operators `any` and `all` can be used to test conditional statements on the vector. The former returns `TRUE` if at least one element satisfies the statement, the second returns `TRUE` if all elements satisfy the condition
+
+```{r, echo=TRUE}
+any(east_midlands_cities == "Leicester")
+my_sequence <- seq(1, 10, length.out = 7)
+my_sequence
+any(my_sequence > 5)
+all(my_sequence > 5)
+```
+
+
+
+## Filtering
+
+All built-in numerical functions in R can be used on a vector variable directly. That is, if a vector is specified as input, the selected function is applied to each element of the vector.
+
+```{r, echo=TRUE}
+one_to_ten <- 1:10
+one_to_ten
+one_to_ten + 1
+sqrt(one_to_ten)
+```
+
+As seen in the first practical session, a conditional statement entered in the console is evaluated for the provided input, and a logical value (`TRUE` or `FALSE`) is provided as output. Similarly, if the provided input is a vector, the conditional statement is evaluated for each element of the vector, and a vector of logical values is returned -- which contains the respective results of the conditional statements for each element.
+
+```{r, echo=TRUE}
+minus_three <- -3
+minus_three > 0
+minus_three_to_three <- -3:3
+minus_three_to_three
+minus_three_to_three > 0
+```
+
+A subset of the elements of a vector can also be selected by providing a vector of logical values between brackets after the identifier. A new vector returned, containing only the values for which a `TRUE` value has been specified correspondingly.
+
+```{r, echo=TRUE}
+minus_two_to_two <- -2:2
+minus_two_to_two
+minus_two_to_two[c(TRUE, TRUE, FALSE, FALSE, TRUE)]
+```
+
+As the result of evaluating the conditional statement on a vector is a vector of logical values, this can be used to filter vectors based on conditional statements. If a conditional statement is provided between square brackets (after the vector identifier, instead of an index), a new vector is returned, which contains only the elements for which the conditional statement is true. 
+
+```{r, echo=TRUE}
+minus_two_to_two > 0
+minus_two_to_two[minus_two_to_two > 0]
+```
+
+
 
 
 ## Conditional structures
@@ -155,48 +254,6 @@ cube_root(27)
 Executing the `main_Practical_111.R` instructs the interpreter first to run the `functions_Practical_111.R` script, thus creating the `cube_root` function, and then invoke the function using `27` as an argument, thus returning again `3`. That is a simple example, but this can be an extremely powerful tool to create your own library of functions to be used by different scripts.
 
 
-<!--
-### Euclid's algorithm
-
-The *Euclid's algorithm* - a method for finding the *greatest common divisor* (GCD) of a pair of numbers -- is a very old example of a procedure that can be defined using a conditional loop.  The GCD of a pair of numbers is the largest number that divides exactly (i.e. with remainder zero) into each number in the pair.
-
-The algorithm is set out below:
-
-- Take a pair of numbers `a` and `b` - let the *dividend* be `max(a, b)`,  and the *divisor* be `min(a, b)`
-- *loop* Let the *remainder* be the arithmetic remainder when the *dividend* is divided by the *divisor*
-- Replace the *dividend* with the *divisor*
-- Replace the **divisor** with the *remainder*
-- *back* If the *remainder* is not equal to zero,  repeat from step *loop* to here.
-- Once the *remainder* is zero,  the GCD is the *dividend*
-
-Even without considering the details of why this algorithm works,  it should be clear that it makes use of a conditional loop.  The test to see whether further looping occurs in step *back*.  It should also be clear that *divisor*, *dividend* and *remainder* are all variables.  
-
-Given these observations, we can turn Euclid's algorithm into the R function below, and include it in the script `functions_Practical_111.R`. Remember, the `%%` symbol is the remainder operator - the value of `x %% y` is the remainder when `x` is divided by `y`.
-
-```{r, echo=TRUE}
-gcd <- function (a, b) {
-    divisor <- min(a, b)
-    dividend <- max(a, b)
-    repeat { 
-        remainder <- dividend %% divisor
-        dividend <- divisor
-        divisor <- remainder
-        if (remainder == 0) break
-    }
-    dividend
- }
-```
-
-Execute the script to instruct the R interpreter to create the new function from its definition, and type the instruction below one by one in the *Console* to observe the results.
-
-```{r, echo=TRUE}
-gcd(6, 15)
-gcd(25, 75)
-gcd(31, 33)
-```
-
-As an exercise,  try to match up the lines in the function definition with the lines in the description of Euclid's algorithm.  You may also find it useful to step through an example of `gcd` in debug mode.
--->
 
 
 ## Exercise 6.1
@@ -214,7 +271,7 @@ Extend the code in the script `functions_Practical_111.R` to include the code ne
 -->
 
 
-
+<!--
 ## Data Checking
 
 One issue when writing functions is making sure that the data that has been given to the data is the right kind.  For example,  what happens when you try to compute the cube root of a negative number?
@@ -272,7 +329,7 @@ cube_root <- function (input_value) {
 ```
 
 Finally, `cat` is a printing function, that instructs R to display the provided argument (in this case, the phrase within quotes) as output in the console. The `\n` in `cat` tells R to add a *newline* when printing out the warning.
-
+-->
 
 <!--
 ## Debugging
@@ -286,6 +343,7 @@ At any stage in the process, you can type an R expression to check its value.  F
 When you are done, enter `undebug(cube_root)`. That tells R that you are ready to return `cube_root` to running in normal mode.  For further details about the debugger,  enter `help(debug)` in the RStudio *Console*.
 -->
 
+<!--
 ## Exercise 6.2
 
 Create a new R script as part of *Project_06*, named `Data_Wrangling_with_Functions.R`. Copy from the script `Data_Wrangling_Example.R` created in *Project_03* the first part that included loading both datasets, the part that created the tibble `leicester_IMD2015_decile_wide` and the part that left-joined it with `leicester_2011OAC` to create `leicester_2011OAC_IMD2015`.
@@ -340,3 +398,4 @@ function_question_1_3(c(3, -1, 0), c("Derby", "Leicester", "Lincoln", "Nottingha
 ### Exercise 6.2
 
 A full R Script is available in the Exercise folder of the repository (`111_X_Data_Wrangling_with_Functions.R`). Upload the prepared script to your *Practical_111* project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.
+-->
