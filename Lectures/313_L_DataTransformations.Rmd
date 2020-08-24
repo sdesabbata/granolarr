@@ -36,7 +36,7 @@ rm(list = ls())
 # Data transformations
 
 
-## Recapt
+## Recap
 
 **Prev**: Correlation
 
@@ -45,7 +45,7 @@ rm(list = ls())
 - Kendall’s tau
 - Pairs plot
 
-**Next**: Data transformations
+**Now**: Data transformations
 
 - Z-scores
 - Logarithmic transformations

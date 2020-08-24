@@ -114,7 +114,7 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Simple regression
         - 322 Lecture
             - Assessing regression assumptions
-        - 323 Lecture
+        - *323 Lecture (to do)*
             - Multiple regression
         - 324 Practical session
             - Simple regression
@@ -123,22 +123,21 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
 4. **Machine learning**
     - **400 Unsupervised**
         - 401 Lecture ([slides](Lectures/601_L_Unsupervised.html), [bookdown](Lectures/bookdown/recap-601.html))
-            - Machine Learning: definition and types
-            - Unsupervised machine Learning
+            - Introduction to Machine Learning
         - 402 Lecture
             - Clustering
         - 403 Lecture
             - Geodemographics
-        - 404 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
+        - *404 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html)) (to do)*
             - Geodemographic classification
     - **410 Supervised**
-        - 411 Lecture
-            - Supervised machine Learning
-        - 412 Lecture
+        - *411 Lecture (to do)*
+            - K-nearest neighbors
+        - *412 Lecture (to do)*
             - Support vector machines
-        - 413 Lecture
+        - *413 Lecture (to do)*
             - Deep learning
-        - 404 Practical session
+        - *414 Practical session (to do)*
             - Support vector machines
 
 

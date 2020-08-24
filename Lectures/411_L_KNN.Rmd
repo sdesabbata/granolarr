@@ -1,0 +1,68 @@
+---
+title: "Lecture 411"
+author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
+date: "`r Sys.Date()`"
+output:
+  ioslides_presentation:
+    template: ../Utils/IOSlides/UoL_Template.html
+    logo: ../Utils/IOSlides/uol_logo.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+<style type="text/css">
+.small_r_all pre{
+  font-size: 16px;
+  line-height: 18px;
+}
+.small_r_output pre:not(.prettyprint){
+  font-size: 16px;
+  line-height: 18px;
+}
+.verysmall_r_output pre:not(.prettyprint){
+  font-size: 12px;
+  line-height: 14px;
+}
+</style>
+
+
+
+# kNN
+
+## Recap
+
+**Prev**: Comparing data
+
+- 321 Lecture Introduction to Machine Learning
+- 322 Lecture Centroid-based clustering
+- 323 Lecture Hierarchical and density-based clustering
+- 324 Practical session
+
+**Now**: kNN
+
+- X
+- Y
+- Z
+
+
+
+## TO-DO
+
+
+## Summary
+
+Support vector machines
+
+- X
+- Y
+- Z
+
+**Next**: TBC
+
+- X
+- Y
+- Z

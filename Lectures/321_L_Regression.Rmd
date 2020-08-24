@@ -1,5 +1,5 @@
 ---
-title: "Lecture 502<br/>Univariate analysis"
+title: "Lecture 321"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
 date: "`r Sys.Date()`"
 output:
@@ -31,7 +31,23 @@ rm(list = ls())
 
 
 
-# Regression
+# Simple Regression
+
+
+## Recap
+
+**Prev**: Comparing data
+
+- 311 Lecture Comparing groups
+- 312 Lecture Correlation
+- 313 Lecture Data transformations
+- 314 Practical session
+
+**Now**: Simple Regression
+
+- Regression
+- Ordinary Least Squares
+- Fit
 
 
 
@@ -151,152 +167,16 @@ flights_nov_20 %>%
 
 
 
-## Checking assumptions
-
-- **Linearity**
-    - the relationship is actually linear
-- **Normality** of residuals
-    - standard residuals are normally distributed with mean `0`
-- **Homoscedasticity** of residuals
-    - at each level of the predictor variable(s) the variance of the standard residuals should be the same (*homo-scedasticity*) rather than different (*hetero-scedasticity*) 
-- **Independence** of residuals
-    - adjacent standard residuals are not correlated
-- When more than one predictor: **no multicollinearity**
-    - if two or more predictor variables are used in the model, each pair of variables not correlated
-
-
-
-## Normality
-
-Shapiro-Wilk test for normality of standard residuals, 
-
-- robust models: should be not significant 
-
-<div class="columns-2">
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-delay_model %>% 
-  rstandard() %>% 
-  shapiro.test()
-```
-
-<font size="4">	
-**Standard residuals are NOT normally distributed**
-</font>
-
-<center>
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 4}
-delay_model %>% 
-  rstandard() %>%
-  data.frame(std_res = .) %>%
-  ggplot(aes(x = std_res)) +
-  geom_histogram(
-    aes(
-      y =..density..
-    ),
-    bins = 100
-  ) + 
-  stat_function(
-    fun = dnorm, 
-    args = list(
-      mean = delay_model %>% rstandard() %>% mean(),
-      sd = delay_model %>% rstandard() %>% sd()),
-    colour = "red", size = 1)
-```
-</center>
-
-</div>
-
-
-
-## Homoscedasticity
-
-Breusch-Pagan test for homoscedasticity of standard residuals
-
-- robust models: should be not significant
-
-<div class="columns-2 small_r_output">
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
-library(lmtest)
-
-delay_model %>% 
-  bptest()
-```
-
-<font size="4">	
-**Standard residuals are homoscedastic**
-</font>
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
-delay_model %>% 
-  plot(which = c(1))
-```
-
-</div>
-
-
-
-## Independence
-
-Durbin-Watson test for the independence of residuals
-
-- robust models: statistic should be close to 2 (between 1 and 3) and not significant
-
-<div class="small_r_output">
-
-```{r, echo=TRUE}
-# Also part of the library lmtest
-delay_model %>%
-  dwtest()
-```
-
-</div>
-
-<font size="4">	
-**Standard residuals might not be completely indipendent**
-
-Note: the result depends on the order of the data.
-</font>
-
-
-
-# Lecture 502<br/>Summary
-
-
-
 ## Summary
 
-- Comparing means
-    - t-test
-    - ANOVA
-- Correlation
-    - Pearson's r
-    - Spearman's rho
-    - Kendall's tau
+Simple Regression
+
 - Regression
-    - univariate
+- Ordinary Least Squares
+- Fit
 
+**Next**: Assessing regression assumptions
 
-
-## Practical session
-
-In the practical session, we will see:
-
-- Comparing means
-    - ANOVA
-- Regression
-    - univariate
-    - multivariate
-
-
-
-## Next lecture
-
-- Machine Learning
-    - Definition
-    - Types
-- Unsupervised
-    - Clustering
-- In GIScience
-    - Geodemographic classification
+- Normality
+- Homoscedasticity
+- Independence
