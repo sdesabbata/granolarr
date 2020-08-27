@@ -143,6 +143,8 @@ Study the [Tidyverse Style Guid](http://style.tidyverse.org/) and use it consist
 R provides some basic functions to manipulate strings, but the `stringr` library provides a more consistent and well-defined set
 
 ```{r, echo=TRUE}
+library(tidyverse)
+
 str_length("Leicester")
 str_detect("Leicester", "e")
 str_replace_all("Leicester", "e", "x")

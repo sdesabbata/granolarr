@@ -33,6 +33,22 @@ rm(list = ls())
 - Homogeneity of variance
 
 
+## Libraries and data
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)
+library(knitr)
+
+library(pastecs)
+
+library(nycflights13)
+
+flights_nov_20 <- nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+```
+
+
 ## Normal distribution
 
 <div class="columns-2">

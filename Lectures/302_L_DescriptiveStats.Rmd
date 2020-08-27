@@ -33,6 +33,24 @@ Data visualisation
 
 
 
+## Libraries and data
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)
+library(knitr)
+
+library(pastecs)
+
+library(nycflights13)
+
+flights_nov_20 <- nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+```
+
+
+
+
 ## Descriptive statistics
 
 Quantitatively describe or summarize variables
@@ -43,8 +61,6 @@ Quantitatively describe or summarize variables
     - `norm` (default is `FALSE`) includes distribution stats
 
 ```{r, echo=TRUE, eval=FALSE}
-library(pastecs)
-
 nycflights13::flights %>%
   filter(month == 11, carrier == "US") %>%
   select(dep_delay, arr_delay, distance) %>%
@@ -56,8 +72,6 @@ nycflights13::flights %>%
 ## stat.desc output
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-library(pastecs)
-
 nycflights13::flights %>%
   filter(month == 11, carrier == "US") %>%
   select(dep_delay, arr_delay, distance) %>%

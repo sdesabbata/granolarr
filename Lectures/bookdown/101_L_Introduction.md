@@ -1,0 +1,219 @@
+---
+title: "Lecture 101"
+author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
+date: "2020-08-27"
+output:
+  ioslides_presentation:
+    template: ../Utils/IOSlides/UoL_Template.html
+    logo: ../Utils/IOSlides/uol_logo.png
+---
+
+
+
+
+
+# Introduction to R
+
+
+
+## About this module
+
+This module will provide you with the fundamental skills in
+
+- basic programming in R
+- reproducibility
+- data wrangling
+- data analysis
+
+basis for
+
+- *Geospatial Data Analysis*
+- *Geospatial Databases and Information Retrieval*
+
+
+
+## R programming language
+    
+One of the most widely used programming languages and an effective tool for *(geospatial)* data science
+
+<div class="columns-2">
+
+- data wrangling
+- statistical analysis
+- machine learning
+- data visualisation and maps
+- processing spatial data
+- geographic information analysis
+
+<br/><br/><br/>
+
+<img src="101_L_Introduction_files/figure-html/unnamed-chunk-1-1.png" width="384" />
+
+</div>
+
+
+
+## Suggested schedule
+
+The lectures and practical sessions have been designed to follow the schedule below
+
+- 101 Introduction
+- 102 Data types
+- 201 Selection and manipulation
+- 202 Table operations
+- 301 Reproducible analysis
+- 111 Control structures and functions
+- 501 Exploratory data analysis
+- 502 Regression models
+- 601 Unsupervised
+
+
+
+## Reference books
+
+<div style="font-size:80%;">
+Suggested reading
+
+- *Programming Skills for Data Science: Start Writing Code to Wrangle, Analyze, and Visualize Data with R* by Michael Freeman and Joel Ross, Addison-Wesley, 2019. See book [webpage](https://www.pearson.com/us/higher-education/program/Freeman-Programming-Skills-for-Data-Science-Start-Writing-Code-to-Wrangle-Analyze-and-Visualize-Data-with-R/PGM2047488.html) and [repository](https://programming-for-data-science.github.io/).
+- *Machine Learning with R: Expert techniques for predictive modeling* by Brett Lantz, Packt Publishing, 2019. See book [webpage](https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788295864).
+
+Further reading
+
+- *The Art of R Programming: A Tour of Statistical Software Design* by Norman Matloff, No Starch Press, 2011. See book [webpage](https://nostarch.com/artofr.htm)
+- *Discovering Statistics Using R* by Andy Field, Jeremy Miles and Zoë Field, SAGE Publications Ltd, 2012. See book [webpage](https://www.discoveringstatistics.com/books/discovering-statistics-using-r/).
+- *R for Data Science* by Garrett Grolemund and Hadley Wickham, O'Reilly Media, 2016. See [online book](https://r4ds.had.co.nz/).
+- *An Introduction to R for Spatial Analysis and Mapping* by Chris Brunsdon and Lex Comber, Sage, 2015. See book [webpage](https://uk.sagepub.com/en-gb/eur/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031)
+</div>
+
+# R
+
+
+## R
+
+Created in 1992 by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand
+
+- Free, open-source implementation of *S*
+    - statistical programming language 
+    - Bell Labs
+
+<br/>
+
+- Functional programming language
+- Supports (and commonly used as) procedural (i.e., imperative) programming
+- Object-oriented
+- Interpreted (not compiled)
+
+
+
+## Interpreting values
+
+When values and operations are inputted in the *Console*, the interpreter returns the results of its interpretation of the expression
+
+
+```r
+2
+```
+
+```
+## [1] 2
+```
+
+```r
+"String value"
+```
+
+```
+## [1] "String value"
+```
+
+```r
+# comments are ignored
+```
+
+
+
+## Basic types
+
+R provides three core data types
+
+- numeric 
+    - both integer and real numbers
+- character 
+    - i.e., text, also called *strings*
+- logical
+    - `TRUE` or `FALSE`
+
+
+## Numeric operators
+
+R provides a series of basic numeric operators
+
+<div class="packedtable">
+
+|Operator|Meaning         |Example  |Output     |
+|--------|----------------|---------|-----------|
+|+       |Plus            |`5 + 2`  |7  |
+|-       |Minus           |`5 - 2`  |3  |
+|`*`     |Product         |`5 * 2`  |10  |
+|/       |Division        |`5 / 2`  |2.5  |
+|%/%     |Integer division|`5 %/% 2`|2|
+|%%      |Module          |`5 %% 2` |1 |
+|^       |Power           |`5^2`    |25    |
+
+</div>
+<br/>
+
+
+```r
+5 + 2
+```
+
+```
+## [1] 7
+```
+
+
+
+## Logical operators
+
+
+R provides a series of basic logical operators to test
+
+<div class="packedtable">
+
+|Operator|Meaning           |Example           |Output              |
+|--------|------------------|------------------|--------------------|
+|==      |Equal             |`5 == 2`          |FALSE          |
+|!=      |Not equal         |`5 != 2`          |TRUE          |
+|> (>=)  |Greater (or equal)|`5 > 2`           |TRUE           |
+|< (<=)  |Less (or equal)   |`5 <= 2`          |FALSE          |
+|!       |Not               |`!TRUE`           |FALSE           |
+|&       |And               |`TRUE & FALSE`    |FALSE    |
+|\|      |Or                |`TRUE | FALSE`    |TRUE    |
+
+</div>
+<br/>
+
+
+```r
+5 >= 2
+```
+
+```
+## [1] TRUE
+```
+
+
+
+## Summary
+
+An introduction to R
+
+- Basic types
+- Basic operators
+
+**Next**: Core concepts
+
+- Variables
+- Functions
+- Libraries

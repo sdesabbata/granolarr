@@ -62,6 +62,37 @@ rm(list = ls())
     - if two or more predictor variables are used in the model, each pair of variables not correlated
 
 
+## Libraries and data
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)  
+library(nycflights13)
+
+flights_nov_20 <- nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+```
+
+
+## Example
+
+<font size="4">	
+$$arr\_delay_i = (b_0 + b_1 * dep\_delay_{i1}) + \epsilon_i $$
+</font>
+
+<div class="small_r_output">
+
+```{r, echo=TRUE}
+delay_model <- flights_nov_20 %$% # Note %$%
+  lm(arr_delay ~ dep_delay)
+
+delay_model %>%  summary()
+```
+
+</div>
+
+
+
 
 ## Normality
 

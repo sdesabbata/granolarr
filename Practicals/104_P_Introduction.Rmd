@@ -139,8 +139,6 @@ is.double(a_number) # i.e., is real
 
 Base numeric operators.
 
-<div class="packedtable">
-
 |Operator|Meaning         |Example|Output   |
 |--------|----------------|-------|---------|
 |+       |Plus            |`5+2`  |`r 5+2`  |
@@ -151,7 +149,6 @@ Base numeric operators.
 |%%      |Module          |`5%%2` |`r 5%%2` |
 |^       |Power           |`5^2`  |`r 5^2`  |
 
-</div>
 
 Some pre-defined functions in R:
 
@@ -195,8 +192,6 @@ as.logical(0) # TRUE if not zero
 
 Basic logic operators
 
-<div class="packedtable">
-
 |Operator|Meaning          |Example         |Output            |
 |--------|-----------------|----------------|------------------|
 |==      |Equal            |`5==2`          |`r 5==2`          |
@@ -209,7 +204,6 @@ Basic logic operators
 |&       |And              |`TRUE & FALSE`  |`r TRUE & FALSE`  |
 |\|      |Or               |`TRUE | FALSE`  |`r TRUE | FALSE`  |
 
-</div>
 
 
 ### Character

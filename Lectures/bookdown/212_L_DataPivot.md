@@ -1,7 +1,7 @@
 ---
 title: "Lecture 211"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
-date: "`r Sys.Date()`"
+date: "2020-08-27"
 output:
   ioslides_presentation:
     template: ../Utils/IOSlides/UoL_Template.html
@@ -9,11 +9,7 @@ output:
     highlight: tango
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-rm(list = ls())
-```
+
 
 
 
@@ -70,12 +66,41 @@ This is probably a less common approach, but still necessary in many cases
 |Nottingham|   Density|  4,412|
 
 
+## Libraries
+
+
+```r
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+```
+
+```
+## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+## ✓ tibble  3.0.3     ✓ dplyr   1.0.0
+## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0
+```
+
+```
+## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+```
+
+```r
+library(knitr)
+```
+
 
 ## tidyr
 
 The `tidyr` (pronounced *tidy-er*) library is part of `tidyverse` and it  provides functions to re-shape your data
 
-```{r, echo=TRUE}
+
+```r
 city_info_wide <- data.frame(
   City = c("Leicester", "Nottingham"),
   Population = c(329839, 321500),
@@ -88,11 +113,19 @@ kable(city_info_wide)
 
 
 
+|City       | Population| Area| Density|
+|:----------|----------:|----:|-------:|
+|Leicester  |     329839| 73.3|    4500|
+|Nottingham |     321500| 74.6|    4412|
+
+
+
 ## tidyr::gather
 
 Re-shape from *wide* to *long* format
 
-```{r, echo=TRUE}
+
+```r
 city_info_long <- city_info_wide %>%
   gather(
     -City, # exclude city names from gathering
@@ -100,9 +133,15 @@ city_info_long <- city_info_wide %>%
     value = "Value" # name for the new value column
   )
 ```
-```{r, echo=FALSE}
-kable(city_info_long)
-```
+
+|City       |Attribute  |    Value|
+|:----------|:----------|--------:|
+|Leicester  |Population | 329839.0|
+|Nottingham |Population | 321500.0|
+|Leicester  |Area       |     73.3|
+|Nottingham |Area       |     74.6|
+|Leicester  |Density    |   4500.0|
+|Nottingham |Density    |   4412.0|
 
 
 
@@ -110,16 +149,19 @@ kable(city_info_long)
 
 Rre-shape from *long* to *wide* format
 
-```{r, echo=TRUE}
+
+```r
 city_info_back_to_wide <- city_info_long %>%
   spread(
     key = "Attribute", # specify key column
     value = "Value" # specify value column
   )
 ```
-```{r, echo=FALSE}
-kable(city_info_back_to_wide)
-```
+
+|City       | Area| Density| Population|
+|:----------|----:|-------:|----------:|
+|Leicester  | 73.3|    4500|     329839|
+|Nottingham | 74.6|    4412|     321500|
 
 
 

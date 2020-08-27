@@ -66,6 +66,8 @@ round(sqrt(2), digits = 2)
 ```
 
 ```{r, echo=TRUE}
+library(tidyverse)
+
 sqrt(2) %>%
  round(digits = 2)
 ```

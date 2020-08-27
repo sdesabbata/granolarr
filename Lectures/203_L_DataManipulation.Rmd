@@ -38,6 +38,34 @@ rm(list = ls())
 
 
 
+## dplyr
+
+The `dplyr` (pronounced *dee-ply-er*) library is part of `tidyverse` and it offers a grammar for data manipulation
+
+- `select`: select specific columns
+- `filter`: select specific rows
+- `arrange`: arrange rows in a particular order
+- `summarise`: calculate aggregated values (e.g., mean, max, etc)
+- `group_by`: group data based on common column values
+- `mutate`: add columns
+- `join`: merge data frames
+
+
+## Libraries
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(nycflights13)
+
+nov_dep_delays <- 
+  nycflights13::flights %>%
+  select(origin, dest, dep_delay, arr_delay, year:day) %>%
+  select(-arr_delay) %>%
+  filter(month == 11)
+```
+
+
+
 ## dplyr::arrange
 
 ```{r, echo=TRUE}

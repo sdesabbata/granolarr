@@ -51,6 +51,20 @@ rm(list = ls())
 - Logarithmic transformations
 
 
+## Libraries and data
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)  
+library(nycflights13)
+
+flights_nov_20 <- nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+```
+
+
+
+
 ## Z-scores
 
 *Z-scores* transform the values as relative to the distribution mean and standard deviation
