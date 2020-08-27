@@ -339,9 +339,6 @@ sort(income_ordered)
 
 
 
-# Matrices and arrays
-
-
 ## Matrices
 
 **Matrices** are collections of numerics arranged in a two-dimensional rectangular layout

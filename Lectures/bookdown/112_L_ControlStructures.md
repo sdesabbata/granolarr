@@ -33,6 +33,7 @@ output:
 
 
 ## If
+
 Format: **if** (*condition*) *statement*
 
 - *condition*: expression returning a logic value (`TRUE` or `FALSE`)
@@ -123,8 +124,6 @@ if (first_value > second_value) {
 ```
 
 
-
-# Loops
 
 ## Loops
 Loops are a fundamental component of (procedural) programming.

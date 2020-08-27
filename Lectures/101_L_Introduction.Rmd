@@ -78,19 +78,32 @@ if(length(list.files(path = "./tmp", include.dirs = TRUE)) == 0){
 
 
 
-## Suggested schedule
+## Schedule
 
 The lectures and practical sessions have been designed to follow the schedule below
 
-- 101 Introduction
-- 102 Data types
-- 201 Selection and manipulation
-- 202 Table operations
-- 301 Reproducible analysis
-- 111 Control structures and functions
-- 501 Exploratory data analysis
-- 502 Regression models
-- 601 Unsupervised
+
+<div class="columns-2">
+
+- **1 R coding**
+  - 100 Introduction
+  - 110 R programming
+- **2 Data wrangling**
+  - 200 Selection and manipulation
+  - 210 Table operations
+  - 220 Reproducibility
+  
+<br/><br/>
+
+- **3 Data analysis**
+  - 300 Exploratory data analysis
+  - 310 Comparing data
+  - 320 Regression models
+- **4 Machine learning**
+  - 400 Unsupervised
+  - 410 Supervised
+
+</div>
 
 
 
@@ -109,8 +122,6 @@ Further reading
 - *R for Data Science* by Garrett Grolemund and Hadley Wickham, O'Reilly Media, 2016. See [online book](https://r4ds.had.co.nz/).
 - *An Introduction to R for Spatial Analysis and Mapping* by Chris Brunsdon and Lex Comber, Sage, 2015. See book [webpage](https://uk.sagepub.com/en-gb/eur/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031)
 </div>
-
-# R
 
 
 ## R
