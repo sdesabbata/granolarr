@@ -42,6 +42,8 @@ One of the most widely used programming languages and an effective tool for *(ge
 
 <div class="columns-2">
 
+<br/>
+
 - data wrangling
 - statistical analysis
 - machine learning
@@ -49,7 +51,7 @@ One of the most widely used programming languages and an effective tool for *(ge
 - processing spatial data
 - geographic information analysis
 
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide', fig.height = 4, fig.width = 4}
 ifelse(!dir.exists(file.path(".", "tmp")), dir.create(file.path(".", "tmp")), FALSE)
@@ -64,9 +66,18 @@ leic_2011OAC <- readOGR("tmp/E06000016/E06000016_Leicester.shp")
 
 library(tmap)
 tm_shape(leic_2011OAC) +
-  tm_polygons("supgrpname") +
-  tm_layout(legend.bg.color = TRUE) +
-  tm_credits("Contains public sector information licensed\nunder the Open Government Licence v3.0.")
+  tm_polygons(
+    "supgrpname", 
+    legend.show = FALSE,
+    border.alpha = 0) +
+  tm_layout(
+    bg.color = "#EBE3E1", 
+    frame = FALSE) +
+  tm_credits(
+    "Contains public sectorinformation licensed\nunder the Open Government Licence v3.0", 
+    size = 0.5, 
+    position = c("right", "bottom")
+  )
 
 unlink("tmp/E06000016", recursive = TRUE)
 if(length(list.files(path = "./tmp", include.dirs = TRUE)) == 0){

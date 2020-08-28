@@ -1,7 +1,7 @@
 ---
 title: "Lecture 101"
 author: "Dr Stefano De Sabbata<br/>School of Geography, Geology, and the Env.<br/><a href=\"mailto:s.desabbata@le.ac.uk\">s.desabbata&commat;le.ac.uk</a> &vert; <a href=\"https://twitter.com/maps4thought\">&commat;maps4thought</a><br/><a href=\"https://github.com/sdesabbata/GY7702\">github.com/sdesabbata/GY7702</a> licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL v3.0</a>"
-date: "2020-08-27"
+date: "2020-08-28"
 output:
   ioslides_presentation:
     template: ../Utils/IOSlides/UoL_Template.html
@@ -38,6 +38,8 @@ One of the most widely used programming languages and an effective tool for *(ge
 
 <div class="columns-2">
 
+<br/>
+
 - data wrangling
 - statistical analysis
 - machine learning
@@ -45,7 +47,7 @@ One of the most widely used programming languages and an effective tool for *(ge
 - processing spatial data
 - geographic information analysis
 
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 <img src="101_L_Introduction_files/figure-html/unnamed-chunk-1-1.png" width="384" />
 
