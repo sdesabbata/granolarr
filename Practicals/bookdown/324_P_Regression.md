@@ -1,7 +1,7 @@
 ---
 title: "Practical 324"
 author: "Stefano De Sabbata"
-date: "2020-08-28"
+date: "2020-08-31"
 output: pdf_document
 urlcolor: blue
 ---
@@ -362,7 +362,7 @@ stargazer(delay_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Fri, Aug 28, 2020 - 00:49:37
+% Date and time: Mon, Aug 31, 2020 - 11:47:56
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -466,7 +466,7 @@ stargazer(public_transp_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Fri, Aug 28, 2020 - 00:49:37
+% Date and time: Mon, Aug 31, 2020 - 11:47:56
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
