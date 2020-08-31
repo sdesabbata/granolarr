@@ -30,9 +30,9 @@ basis for
     
 One of the most widely used programming languages and an effective tool for *(geospatial)* data science
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
 
-<br/>
+::: {.col data-latex="{0.5\textwidth}"}
 
 - data wrangling
 - statistical analysis
@@ -41,7 +41,9 @@ One of the most widely used programming languages and an effective tool for *(ge
 - processing spatial data
 - geographic information analysis
 
-<br/><br/><br/><br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide', fig.height = 4, fig.width = 4}
 ifelse(!dir.exists(file.path(".", "tmp")), dir.create(file.path(".", "tmp")), FALSE)
@@ -75,7 +77,8 @@ if(length(list.files(path = "./tmp", include.dirs = TRUE)) == 0){
 }
 ```
 
-</div>
+:::
+::::::
 
 
 
@@ -84,7 +87,10 @@ if(length(list.files(path = "./tmp", include.dirs = TRUE)) == 0){
 The lectures and practical sessions have been designed to follow the schedule below
 
 
-<div class="columns-2">
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 - **1 R coding**
   - 100 Introduction
@@ -94,7 +100,9 @@ The lectures and practical sessions have been designed to follow the schedule be
   - 210 Table operations
   - 220 Reproducibility
   
-<br/><br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 - **3 Data analysis**
   - 300 Exploratory data analysis
@@ -104,7 +112,8 @@ The lectures and practical sessions have been designed to follow the schedule be
   - 400 Unsupervised
   - 410 Supervised
 
-</div>
+:::
+::::::
 
 
 
@@ -170,7 +179,7 @@ R provides three core data types
 
 R provides a series of basic numeric operators
 
-<div class="packedtable">
+<div>
 
 |Operator|Meaning         |Example  |Output     |
 |--------|----------------|---------|-----------|
@@ -196,7 +205,7 @@ R provides a series of basic numeric operators
 
 R provides a series of basic logical operators to test
 
-<div class="packedtable">
+<div>
 
 |Operator|Meaning           |Example           |Output              |
 |--------|------------------|------------------|--------------------|

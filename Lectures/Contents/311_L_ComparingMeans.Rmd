@@ -43,7 +43,9 @@ rm(list = ls())
 
 ## Libraries
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 Today's libraries
 
@@ -55,6 +57,10 @@ library(tidyverse)
 library(magrittr)  
 library(nycflights13)
 ```
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 But let's start from a simple example from `datasets`
 
@@ -71,7 +77,8 @@ iris %>%
   geom_boxplot()
 ```
 
-</div>
+:::
+::::::
 
 
 

@@ -150,7 +150,9 @@ nycflights13::flights %>%
 <!--
 ## Scale transformation
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 For instance `scale_x_log10` (use only if all values `> 0`)
 
@@ -166,7 +168,9 @@ nycflights13::flights %>%
   scale_x_log10()
 ```
 
-<br/><br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=TRUE, eval=FALSE}
 nycflights13::flights %>%
@@ -180,7 +184,8 @@ nycflights13::flights %>%
   scale_x_log10()
 ```
 
-</div>
+:::
+::::::
 -->
 
 ## Boxplots

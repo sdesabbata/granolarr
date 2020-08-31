@@ -6,6 +6,7 @@ output:
   ioslides_presentation:
     template: ../Utils/IOSlides/UoL_Template.html
     logo: ../Utils/IOSlides/uol_logo.png
+    css: ../Utils/RMarkdown/columns.css
 ---
 
 ```{r child = 'Contents/101_L_Introduction.Rmd'}
