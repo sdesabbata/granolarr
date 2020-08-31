@@ -1,0 +1,250 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+
+# Exploring assumptions
+
+
+## Recap
+
+**Prev**: Descriptive statistics
+
+- stat.desc
+- dplyr::across
+
+**Next**: Exploring assumptions
+
+- Normality
+- Skewness and kurtosis
+- Homogeneity of variance
+
+
+## Libraries and data
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)
+library(knitr)
+
+library(pastecs)
+
+library(nycflights13)
+
+flights_nov_20 <- nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+```
+
+
+## Normal distribution
+
+<div class="columns-2">
+
+- characterized by the bell-shaped curve 
+- majority of values lie around the centre of the distribution
+- the further the values are from the centre, the lower their frequency
+- about 95% of values within 2 standard deviations from the mean
+
+<br/><br/><br/>
+
+```{r, echo=FALSE, fig.height=6, fig.width=6, out.width='100%'}
+x <- seq(-4, 4, length=100)
+hx <- dnorm(x)
+
+plot(x, hx, type="l", xlab="Values",
+  ylab="Density", main="Normal distribution")
+```
+
+</div>
+
+
+## Density histogram
+
+<div class="columns-2">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+flights_desc_stats <- nycflights13::flights %>%
+  filter(month == 11, carrier == "US") %>%
+  select(dep_delay, arr_delay, distance) %>%
+  stat.desc(norm = TRUE)
+
+dep_delay_mean <- flights_desc_stats["mean", "dep_delay"]
+dep_delay_sd <- flights_desc_stats["std.dev", "dep_delay"]
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 5.5, fig.width = 4, out.width='100%'}
+nycflights13::flights %>% 
+  ggplot(
+    aes(
+      x = dep_delay
+    )
+  ) +
+  geom_histogram(
+    aes(
+      y =..density..
+    ),
+    binwidth = 10) + 
+  stat_function(
+    fun = dnorm, 
+    args = list(
+      mean = dep_delay_mean,
+      sd = dep_delay_sd),
+    colour = "red", size = 1)
+```
+
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>% 
+  ggplot(
+    aes(
+      x = dep_delay
+    )
+  ) +
+  geom_histogram(
+    aes(
+      y =..density..
+    ),
+    binwidth = 10
+  ) + 
+  stat_function(
+    fun = dnorm, 
+    args = list(
+      mean = dep_delay_mean,
+      sd = dep_delay_sd),
+    colour = "black", size = 1)
+```
+
+</div>
+
+
+## Q-Q plot
+
+<div class="columns-2">
+
+Cumulative values against the cumulative probability of a particular distribution
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 4}
+nycflights13::flights %>%
+  filter(
+    month == 11, 
+    carrier == "US"
+  ) %>%
+  qplot(
+    sample = dep_delay, 
+    data = .,
+    stat = "qq", 
+    xlab = "Theoretical", 
+    ylab = "Sample"
+  )
+```
+
+<br/><br/>
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  filter(
+    month == 11, 
+    carrier == "US"
+  ) %>%
+  qplot(
+    sample = dep_delay, 
+    data = .,
+    stat = "qq", 
+    xlab = "Theoretical", 
+    ylab = "Sample"
+  )
+```
+
+</div>
+
+
+## stat.desc: norm
+
+```{r, echo=TRUE}
+nycflights13::flights %>%
+  filter(month == 11, carrier == "US") %>%
+  select(dep_delay, arr_delay, distance) %>%
+  stat.desc(basic = FALSE, desc = FALSE, norm = TRUE) %>%
+  kable()
+```
+
+
+
+## Normality
+
+**Shapiro–Wilk test** compares the distribution of a variable with a normal distribution having same mean and standard deviation
+
+- If significant, the distribution is not normal
+- `normtest.W` (test statistics) and `normtest.p` (significance)
+- also, `shapiro.test` function is available
+
+```{r, echo=TRUE}
+nycflights13::flights %>%
+  filter(month == 11, carrier == "US") %>%
+  pull(dep_delay) %>%
+  shapiro.test()
+```
+
+
+
+## Significance
+
+Most statistical tests are based on the idea of hypothesis testing
+
+- a **null hypothesis** is set
+- the data are fit into a statistical model
+- the model is assessed with a **test statistic**
+- the **significance** is the probability of obtaining that test statistic value by chance
+
+The threshold to accept or reject an hypotheis is arbitrary and based on conventions (e.g., *p < .01* or *p < .05*)
+
+**Example:** The null hypotheis of the Shapiro–Wilk test is that the sample is normally distributed and *p < .01* indicates that the probability of that being true is very low.
+
+
+
+## Skewness and kurtosis
+
+In a normal distribution, the values of *skewness* and *kurtosis* should be zero
+
+- `skewness`: **skewness** value indicates
+    - positive: the distribution is skewed towards the left
+    - negative: the distribution is skewed towards the right
+- `kurtosis`: **kurtosis** value indicates
+    - positive: heavy-tailed distribution
+    - negative: flat distribution
+- `skew.2SE` and `kurt.2SE`: skewness and kurtosis divided by 2 standard errors. If greater than 1, the respective statistics is significant (*p < .05*).
+
+
+
+## Homogeneity of variance
+
+**Levene’s test** for equality of variance in different levels
+
+- If significant, the variance is different in different levels
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+dep_delay_carrier <- nycflights13::flights %>%
+  filter(month == 11) %>%
+  select(dep_delay, carrier)
+
+library(car)
+leveneTest(dep_delay_carrier$dep_delay, dep_delay_carrier$carrier)
+```
+
+
+## Summary
+
+Exploring assumptions
+
+- Normality
+- Skewness and kurtosis
+- Homogeneity of variance
+
+**Next**: Practical session
+
+- Data visualisation
+- Descriptive statistics
+- Exploring assumptions

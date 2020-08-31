@@ -1,0 +1,115 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+
+# Data Frames
+
+
+
+## Recap
+
+**Prev**: R programming
+
+- 111 Lecture: Data types
+- 112 Lecture: Control structures
+- 113 Lecture: Functions
+- 114 Practical session
+
+**Now**: Data Frames
+
+- Data Frames
+- Tibbles
+
+
+
+### Data Frames
+
+A **data frame** is equivalent to a *named list* where all elements are *vectors of the same length*.
+
+```{r, echo=TRUE}
+employees <- data.frame(
+  Name = c("Maria", "Pete", "Sarah"),
+  Age = c(47, 34, 32),
+  Role = c("Professor", "Researcher", "Researcher"))
+employees
+```
+
+Data frames are the most common way to represent tabular data in R. Matrices and lists can be converted to data frames.
+
+<!--
+**Note:** As is common in R, the elements of an eventual too short column are recycled to match column lengths.
+-->
+
+## Selection
+
+Selection is similar to vectors and lists.
+
+```{r, echo=TRUE}
+employees[1, ] # row selection
+employees[, 1] # column selection, as for matrices
+```
+
+
+## Selection
+
+Selection is similar to vectors and lists.
+
+```{r, echo=TRUE}
+employees$Name # column selection, as for named lists
+employees$Name[1]
+```
+
+
+
+## Value assignment
+
+Values can be assigned to cells through filtering and `<-`
+
+```{r, echo=TRUE}
+employees$Age[3] <- 33 
+employees
+```
+
+
+## Column processing
+
+Operations can be performed on columns, and new columns created.
+
+```{r, echo=TRUE}
+current_year <- as.integer(format(Sys.Date(), "%Y"))
+employees$Year_of_birth <- current_year - employees$Age
+employees
+```
+
+
+
+## tibble
+
+A [tibble](https://tibble.tidyverse.org/) is a modern reimagining of the data.frame within `tidyverse`
+
+- they do less 
+    - don’t change variable names or types
+    - don’t do partial matching
+- complain more
+    - e.g. when a variable does not exist
+    
+This forces you to confront problems earlier, typically leading to cleaner, more expressive code.
+
+
+
+## Summary
+
+Data Frames
+
+- Data Frames
+- Tibbles
+
+**Next**: Data selection and filtering
+
+- dplyr
+- dplyr::select
+- dplyr::filter

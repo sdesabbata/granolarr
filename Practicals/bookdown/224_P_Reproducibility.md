@@ -1,11 +1,3 @@
----
-title: "Practical 224"
-author: "Stefano De Sabbata"
-date: "2020-08-31"
-output: pdf_document
-urlcolor: blue
----
-
 
 
 # Reproducibility

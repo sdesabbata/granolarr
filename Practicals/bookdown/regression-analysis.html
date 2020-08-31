@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Regression analysis | Practical 404</title>
-  <meta name="description" content="8 Regression analysis | Practical 404" />
+  <title>8 Regression analysis | granolarr ⋅ practical session materials</title>
+  <meta name="description" content="Geographic data science reproducible teaching resource in R, Practical session materials" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Regression analysis | Practical 404" />
+  <meta property="og:title" content="8 Regression analysis | granolarr ⋅ practical session materials" />
   <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://sdesabbata.github.io/granolarr/" />
   
-  
-  
-  
+  <meta property="og:description" content="Geographic data science reproducible teaching resource in R, Practical session materials" />
+  <meta name="github-repo" content="sdesabbata/granolarr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Regression analysis | Practical 404" />
+  <meta name="twitter:title" content="8 Regression analysis | granolarr ⋅ practical session materials" />
   
-  
+  <meta name="twitter:description" content="Geographic data science reproducible teaching resource in R, Practical session materials" />
   
 
 <meta name="author" content="Stefano De Sabbata" />
@@ -129,9 +129,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="...">granolarr &sdot; practicals</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i><b>0.1</b> Session info</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i>Session info</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
 <ul>
@@ -261,6 +264,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>10</b> Support vector machines</a></li>
+<li class="divider"></li>
+<li><a href="https://sdesabbata.github.io/granolarr/">granolarr</a></li>
+
 </ul>
 
       </nav>
@@ -270,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Practical 404</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">granolarr ⋅ practical session materials</a>
           </h1>
         </div>
 
@@ -509,7 +515,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb249-6"><a href="regression-analysis.html#cb249-6" aria-hidden="true"></a><span class="co"># Not rendered in bookdown</span></span>
 <span id="cb249-7"><a href="regression-analysis.html#cb249-7" aria-hidden="true"></a><span class="kw">stargazer</span>(delay_model)</span></code></pre></div>
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Aug 31, 2020 - 11:47:56
+% Date and time: Mon, Aug 31, 2020 - 19:16:25
 </div>
 </div>
 <div id="multiple-regression" class="section level2" number="8.4">
@@ -563,7 +569,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="regression-analysis.html#cb253-1" aria-hidden="true"></a><span class="co"># Not rendered in bookdown</span></span>
 <span id="cb253-2"><a href="regression-analysis.html#cb253-2" aria-hidden="true"></a><span class="kw">stargazer</span>(public_transp_model)</span></code></pre></div>
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Aug 31, 2020 - 11:47:56
+% Date and time: Mon, Aug 31, 2020 - 19:16:25
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="regression-analysis.html#cb254-1" aria-hidden="true"></a>public_transp_model <span class="op">%&gt;%</span></span>
 <span id="cb254-2"><a href="regression-analysis.html#cb254-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">rstandard</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb254-3"><a href="regression-analysis.html#cb254-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
@@ -666,10 +672,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["_main.pdf", "_main.epub"],
 "toc": {
 "collapse": "subsection"
-}
+},
+"search": true
 });
 });
 </script>

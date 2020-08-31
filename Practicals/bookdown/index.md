@@ -1,8 +1,23 @@
 ---
-title: "Geographic data science reproducible teaching resource in R<br/>Practical session materials"
+title: "granolarr &sdot; practical session materials"
 author: "Stefano De Sabbata"
 date: "2020-08-31"
-output: html_document
+description: "Geographic data science reproducible teaching resource in R, Practical session materials"
+url: 'https://sdesabbata.github.io/granolarr/'
+github-repo: "sdesabbata/granolarr"
+site: bookdown::bookdown_site
+output:
+  bookdown::gitbook:
+    config:
+      toc:
+        before: |
+          <li><a href="...">granolarr &sdot; practicals</a></li>
+        after: |
+          <li><a href="https://sdesabbata.github.io/granolarr/">granolarr</a></li>
+      search: yes
+      download: ["pdf", "epub"]
+  bookdown::pdf_book:
+     latex_engine: xelatex
 ---
 
 # Preface {-}
@@ -17,7 +32,7 @@ This book was created using [R](https://www.r-project.org/), [RStudio](https://w
 
 
 
-## Session info
+## Session info {-}
 
 ```r
 sessionInfo()

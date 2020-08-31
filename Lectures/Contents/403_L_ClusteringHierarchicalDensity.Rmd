@@ -1,0 +1,205 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+
+# Hierarchical and density-based clustering
+
+
+
+## Recap
+
+**Prev**: Centroid-based clustering
+
+- K-means
+- Fuzzy c-means
+- Geodemographic classification
+
+**Now**: Hierarchical and density-based clustering
+
+- Hierarchical
+- Mixed 
+- Density-based
+
+
+## Libraries
+
+```{r, echo=TRUE}
+library(tidyverse)
+library(e1071)
+library(dbscan)
+```
+
+
+## Example
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+data_to_cluster <- data.frame(
+  x_values = c(rnorm(40, 5, 1), rnorm(60, 10, 1), rnorm(20, 12, 3)),
+  y_values = c(rnorm(40, 5, 1), rnorm(60, 5, 3), rnorm(20, 15, 1)),
+  original_group = c(rep("A", 40), rep("B", 60), rep("C", 20)) )
+```
+
+
+
+## Hierarchical clustering
+
+<font size="4">	
+**Algorithm**: each object is initialised as, then repeat
+
+- join the two most similar clusters based on a distance-based metric
+- e.g., Ward's (1963) approach is based on variance
+
+until only one single cluster is achieved
+</font>
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+hclust_result <- data_to_cluster %>%
+  select(x_values, y_values) %>%
+  dist(method="euclidean") %>%
+  hclust(method="ward.D2")
+
+data_to_cluster <- data_to_cluster %>%
+  add_column(hclust_cluster = cutree(hclust_result, k=3))
+```
+
+## Clustering tree
+
+This approach generates a clustering tree (dendrogram), which can then be *"cut"* at the desired height
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+plot(hclust_result) + abline(h = 30, col = "red")
+```
+
+## Hierarchical clustering result
+
+<div class="columns-2">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
+data_to_cluster %>%
+  ggplot(aes(
+    x = x_values, y = y_values, 
+    colour = original_group)) +
+  geom_point() +
+  theme(legend.position = "bottom") +
+  scale_color_manual(values = c("#e41a1c", "#377eb8", "#4daf4a")) +
+  coord_fixed(ratio = 1)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
+data_to_cluster %>%
+  ggplot(aes(
+    x = x_values, y = y_values, 
+    colour = factor(hclust_cluster))) +
+  geom_point() +
+  theme(legend.position = "bottom") +
+  scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
+  coord_fixed(ratio = 1)
+```
+
+</div>
+
+
+## Bagged clustering
+
+Bootstrap aggregating (*b-agg-ed*) clustering approach (Leisch, 1999)
+
+- first k-means on samples
+- then a hierarchical clustering of the centroids generated through the samples
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, results="hide"}
+bclust_result <- data_to_cluster %>%
+  select(x_values, y_values) %>%
+  bclust(hclust.method="ward.D2", resample = TRUE)
+
+data_to_cluster <- data_to_cluster %>%
+  add_column(bclust_cluster = clusters.bclust(bclust_result, 3))
+```
+
+## Bagged clustering result
+
+<div class="columns-2">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
+data_to_cluster %>%
+  ggplot(aes(
+    x = x_values, y = y_values, 
+    colour = original_group)) +
+  geom_point() +
+  theme(legend.position = "bottom") +
+  scale_color_manual(values = c("#e41a1c", "#377eb8", "#4daf4a")) +
+  coord_fixed(ratio = 1)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
+data_to_cluster %>%
+  ggplot(aes(
+    x = x_values, y = y_values, 
+    colour = factor(bclust_cluster))) +
+  geom_point() +
+  theme(legend.position = "bottom") +
+  scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
+  coord_fixed(ratio = 1)
+```
+
+</div>
+
+
+
+## Density based clustering
+
+DBSCAN (*"density-based spatial clustering of applications with noise"*) starts from an unclustered point and proceeds by aggregating its neighbours to the same cluster, as long as they are within a certain distance. (Ester *et al*, 1996)
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+dbscan_result <- data_to_cluster %>%
+  select(x_values, y_values) %>%
+   dbscan(eps = 1, minPts = 5)
+
+data_to_cluster <- data_to_cluster %>%
+  add_column(dbscan_cluster = dbscan_result$cluster)
+```
+
+## DBSCAN result
+
+<div class="columns-2">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
+data_to_cluster %>%
+  ggplot(aes(
+    x = x_values, y = y_values, 
+    colour = original_group)) +
+  geom_point() +
+  theme(legend.position = "bottom") +
+  scale_color_manual(values = c("#e41a1c", "#377eb8", "#4daf4a")) +
+  coord_fixed(ratio = 1)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
+data_to_cluster %>%
+  ggplot(aes(
+    x = x_values, y = y_values, 
+    colour = factor(dbscan_cluster))) +
+  geom_point() +
+  theme(legend.position = "bottom") +
+  scale_color_manual(values = c("#666666", "#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02", "#a6761d")) +
+  coord_fixed(ratio = 1)
+```
+
+</div>
+
+
+
+## Summary
+
+Hierarchical and density-based clustering
+
+- Hierarchical
+- Mixed 
+- Density-based
+
+**Next**: Practical session
+
+- Geodemographic classification

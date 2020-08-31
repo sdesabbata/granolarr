@@ -1,0 +1,241 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+
+<style type="text/css">
+.small_r_all pre{
+  font-size: 16px;
+  line-height: 18px;
+}
+.small_r_output pre:not(.prettyprint){
+  font-size: 16px;
+  line-height: 18px;
+}
+.verysmall_r_output pre:not(.prettyprint){
+  font-size: 12px;
+  line-height: 14px;
+}
+</style>
+
+
+
+# Correlation
+
+
+## Recap
+
+**Prev**: Comparing groups
+
+- T-test
+- ANOVA
+- Chi-square
+
+**Now**: Correlation
+
+- Pearson’s r
+- Spearman’s rho
+- Kendall’s tau
+- Pairs plot
+
+
+## Correlation
+
+Two variables can be related in three different ways
+
+- related
+    - positively: entities with high values in one tend to have high values in the other
+    - negatively: entities with high values in one tend to have low values in the other
+- not related at all
+
+**Correlation** is a standardised measure of covariance
+
+
+
+## Libraries and data
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)  
+library(nycflights13)
+
+flights_nov_20 <- nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+```
+
+
+
+## Example
+
+<center>
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 4}
+flights_nov_20 %>%
+  ggplot(aes(x = dep_delay, y = arr_delay)) +
+  geom_point() + coord_fixed(ratio = 1)
+```
+</center>
+
+
+## Example
+
+<div class="small_r_output">
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+flights_nov_20 %>%
+  pull(dep_delay) %>% shapiro.test()
+
+flights_nov_20 %>%
+  pull(arr_delay) %>% shapiro.test()
+```
+
+</div>
+
+
+
+## Pearson’s r
+
+<div class="columns-2 small_r_output">
+
+If  two variables are **normally distributed**, use **Pearson's r**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+flights_nov_20_cor <- flights_nov_20 %$%
+  cor.test(dep_delay, arr_delay)
+```
+
+The square of the correlation value indicates the percentage of shared variance
+
+*If they were normally distributed, but they are not* 
+
+- `r flights_nov_20_cor$estimate %>% round(digits = 3)` ^ 2 = `r flights_nov_20_cor$estimate ^ 2 %>% round(digits = 3)`
+- departure and arrival delay *would* share `r ((flights_nov_20_cor$estimate ^ 2) * 100) %>% round(digits = 1)`% of variance
+
+<br/><br/>
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+# note the use of %$%
+#instead of %>%
+flights_nov_20 %$%
+  cor.test(dep_delay, arr_delay)
+```
+
+</div>
+
+
+
+## Spearman’s rho
+
+<div class="columns-2 small_r_output">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+flights_nov_20_cor_spearman <- flights_nov_20 %$%
+  cor.test(dep_delay, arr_delay, method = "spearman")
+```
+
+If  two variables are **not normally distributed**, use **Spearman’s rho**
+
+- non-parametric
+- based on rank difference
+
+The square of the correlation value indicates the percentage of shared variance
+
+*If few ties, but there are*
+
+- `r flights_nov_20_cor_spearman$estimate %>% round(digits = 3)` ^ 2 = `r flights_nov_20_cor_spearman$estimate ^ 2 %>% round(digits = 3)`
+- departure and arrival delay *would* share `r ((flights_nov_20_cor_spearman$estimate ^ 2) * 100) %>% round(digits = 1)`% of variance
+
+
+```{r, echo=TRUE, message=FALSE}
+flights_nov_20 %$%
+  cor.test(
+    dep_delay, arr_delay, 
+    method = "spearman")
+```
+
+</div>
+
+
+
+## Kendall’s tau
+
+<div class="columns-2 small_r_output">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+flights_nov_20_cor_kendall <- flights_nov_20 %$%
+  cor.test(dep_delay, arr_delay, method = "kendall")
+```
+
+If **not normally distributed** and there is a **large number of ties**, use **Kendall’s tau**
+
+- non-parametric
+- based on rank difference
+
+The square of the correlation value indicates the percentage of shared variance
+
+**Departure and arrival delay seem actually to share**
+
+- `r flights_nov_20_cor_kendall$estimate %>% round(digits = 3)` ^ 2 = `r flights_nov_20_cor_kendall$estimate ^ 2 %>% round(digits = 3)`
+- **`r ((flights_nov_20_cor_kendall$estimate ^ 2) * 100) %>% round(digits = 1)`% of variance**
+
+
+```{r, echo=TRUE, message=FALSE}
+flights_nov_20 %$%
+  cor.test(
+    dep_delay, arr_delay, 
+    method = "kendall")
+```
+
+</div>
+
+
+
+## Pairs plot
+
+Combines in one visualisation: histograms, scatter plots, and correlation values for a set of variables
+
+<div class="columns-2">
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+library(psych)
+
+flights_nov_20 %>%
+  select(
+    dep_delay, 
+    arr_delay, 
+    air_time
+  ) %>%
+  pairs.panels(
+    method = "kendall"
+  )
+```
+
+<center>
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 4}
+library(psych)
+
+flights_nov_20 %>%
+  select(dep_delay, arr_delay, air_time) %>%
+  pairs.panels(method = "kendall")
+```
+</center>
+
+</div>
+
+
+
+## Summary
+
+Correlation
+
+- Pearson’s r
+- Spearman’s rho
+- Kendall’s tau
+- Pairs plot
+
+**Next**: Data transformations
+
+- Z-scores
+- Logarithmic transformations

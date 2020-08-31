@@ -53,9 +53,11 @@ rmarkdown::render("Lectures/413_L_DeepLearning.Rmd", quiet = TRUE)
 # Step 2-2: Compile the lecture files to bookdown
 
 # Change working directory to the Practicals folder
-setwd(paste0(rprojroot::find_rstudio_root_file(), "/Lectures"))
+setwd(paste0(rprojroot::find_rstudio_root_file(), "/Lectures/Contents"))
 # Render the book
-bookdown::render_book( "index.Rmd", "bookdown::gitbook", new_session = TRUE, output_dir = "bookdown", quiet = TRUE)
+bookdown::render_book( "index.Rmd", "bookdown::gitbook", new_session = TRUE, output_dir = "../bookdown", quiet = TRUE)
+#bookdown::render_book( "index.Rmd", "bookdown::pdf_book", new_session = TRUE, output_dir = "../bookdown", quiet = TRUE)
+#bookdown::render_book( "index.Rmd", "bookdown::epub_book", new_session = TRUE, output_dir = "../bookdown", quiet = TRUE)
 # Change back working directory
 setwd(rprojroot::find_rstudio_root_file())
 
@@ -71,11 +73,13 @@ rmarkdown::render("Practicals/324_P_Regression.Rmd", quiet = TRUE)
 rmarkdown::render("Practicals/404_P_GeoDemographicClassification.Rmd", quiet = TRUE)
 rmarkdown::render("Practicals/414_P_SupportVectorMachines.Rmd", quiet = TRUE)
 
-# Step 3-1: Compile the practical files to bookdown
+# Step 3-2: Compile the practical files to bookdown
 
 # Change working directory to the Practicals folder
-setwd(paste0(rprojroot::find_rstudio_root_file(), "/Practicals"))
+setwd(paste0(rprojroot::find_rstudio_root_file(), "/Practicals/Contents"))
 # Render the book
-bookdown::render_book("index.Rmd", "bookdown::gitbook", new_session = TRUE, output_dir = "bookdown", quiet = TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook", new_session = TRUE, output_dir = "../bookdown", quiet = TRUE)
+#bookdown::render_book("index.Rmd", "bookdown::pdf_book", new_session = TRUE, output_dir = "../bookdown", quiet = TRUE)
+#bookdown::render_book("index.Rmd", "bookdown::epub_book", new_session = TRUE, output_dir = "../bookdown", quiet = TRUE)
 # Change back working directory
 setwd(rprojroot::find_rstudio_root_file())

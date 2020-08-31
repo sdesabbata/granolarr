@@ -1,11 +1,3 @@
----
-title: "Practical 324"
-author: "Stefano De Sabbata"
-date: "2020-08-31"
-output: pdf_document
-urlcolor: blue
----
-
 
 
 # Regression analysis
@@ -362,7 +354,7 @@ stargazer(delay_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Aug 31, 2020 - 11:47:56
+% Date and time: Mon, Aug 31, 2020 - 19:16:25
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -466,7 +458,7 @@ stargazer(public_transp_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Aug 31, 2020 - 11:47:56
+% Date and time: Mon, Aug 31, 2020 - 19:16:25
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
