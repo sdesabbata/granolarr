@@ -18,12 +18,12 @@
 .Rproj.user/
 
 # produced documents
-/READNE.html
-/Lectures/*.pdf
-/Practicals/*.pdf
-/Practicals/*.tex
-/Exercises/*.html
-/Exercises/*.pdf
+#/README.html
+#/Lectures/*.pdf
+#/Practicals/*.pdf
+#/Practicals/*.tex
+#/Exercises/*.html
+#/Exercises/*.pdf
 
 # Items in Data and tmp folder
 /Storage/*

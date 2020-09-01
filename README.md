@@ -4,6 +4,8 @@
 
 by *[Stefano De Sabbata](https://stefanodesabbata.com)*
 
+This is a **revised version** of granolarr, currently under development to meet the University of Leicester ["Ingite"](https://le.ac.uk/ignite) approach to blended learning for the academic year 2020/2021. The first version of granolarr is still available at [granolarr_v1](https://sdesabbata.github.io/granolarr_v1/).
+
 [This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html) except where specified. Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence), see [`Data / README.md`](https://github.com/sdesabbata/granolarr/blob/master/Data/README.md). See [`Lectures / Images / README.md`](https://github.com/sdesabbata/granolarr/blob/master/Lectures/Images/README.md), [`Practicals / Images / README.md`](https://github.com/sdesabbata/granolarr/blob/master/Practicals/Images/README.md) and [`Utils / IOSlides / README.md`](https://github.com/sdesabbata/granolarr/blob/master/Utils/IOSlides/README.md) for information regarding the images used in the materials.
 
 This repository contains reproducible materials to teach geographic information and data science in R. Part of the materials are derived from the lectures and practical sessions for the module [GY7702 Practical Programming in R](https://sdesabbata.github.io/GY7702/) of the [MSc in Geographic Information Science](https://le.ac.uk/courses/geographical-information-science-msc/2019) at the [School of Geography, Geology, and the Environment](https://le.ac.uk/gge) of the [University of Leicester](https://le.ac.uk/), by [Dr Stefano De Sabbata](https://stefanodesabbata.com/).
@@ -20,8 +22,6 @@ This content was created using [R](https://www.r-project.org/), [RStudio](https:
 ## Materials
 
 All the materials are available through the **[lectures bookdown](Lectures/bookdown)** and **[practical sessions bookdown](Practicals/bookdown)** pages. Links to the lecture slides and bookdown chapters for each week are listed below.
-
-**Currently under review to meet the University of Leicester ["Ingite"](https://le.ac.uk/ignite) approach to blended learning for the academic year 2020/2021.**
 
 1. **R coding**
     - **100 Introduction**

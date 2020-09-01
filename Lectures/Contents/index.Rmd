@@ -1,17 +1,19 @@
 ---
-title: "granolarr &sdot; lecture materials"
+title: "Lecture materials | granolarr"
 author: "Stefano De Sabbata"
 date: "`r Sys.Date()`"
 description: "Geographic data science reproducible teaching resource in R, Lecture materials"
 url: 'https://sdesabbata.github.io/granolarr/'
 github-repo: "sdesabbata/granolarr"
 site: bookdown::bookdown_site
+documentclass: book
+biblio-style: apalike
 output:
   bookdown::gitbook:
     config:
       toc:
         before: |
-          <li><a href="...">granolarr &sdot; lectures</a></li>
+          <li><a href="...">Lectures | granolarr</a></li>
         after: |
           <li><a href="https://sdesabbata.github.io/granolarr/">granolarr</a></li>
       search: yes
@@ -19,7 +21,7 @@ output:
   bookdown::pdf_book:
     latex_engine: xelatex
     includes:
-      in_header: ../../Utils/RMarkdown/columns.tex
+      in_header: ../../Utils/RMarkdown/rmarkdown_classes.tex
 ---
 
 # Preface {-}
@@ -34,7 +36,7 @@ This book was created using [R](https://www.r-project.org/), [RStudio](https://w
 
 
 
-## Session info
+## Session info {-}
 ```{r}
 sessionInfo()
 ```
