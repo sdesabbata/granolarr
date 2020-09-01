@@ -17,7 +17,9 @@ output:
         after: |
           <li><a href="https://sdesabbata.github.io/granolarr/">granolarr</a></li>
       search: yes
-      download: ["pdf", "epub"]
+      download:
+        - ["granolarr_lecture_materials.pdf", "PDF"]
+        - ["granolarr_lecture_materials.epub", "EPUB"]
   bookdown::pdf_book:
     latex_engine: xelatex
     includes:

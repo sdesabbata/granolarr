@@ -56,6 +56,8 @@ rmarkdown::render("Lectures/413_L_DeepLearning.Rmd", quiet = TRUE, output_dir = 
 setwd(paste0(rprojroot::find_rstudio_root_file(), "/Lectures/Contents"))
 # Render the book
 bookdown::render_book( "index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), new_session = TRUE, output_dir = "../bookdown", quiet = TRUE)
+file.rename("../bookdown/_main.pdf", "../bookdown/granolarr_lecture_materials.pdf")
+file.rename("../bookdown/_main.epub", "../bookdown/granolarr_lecture_materials.epub")
 # Change back working directory
 setwd(rprojroot::find_rstudio_root_file())
 
@@ -77,5 +79,7 @@ rmarkdown::render("Practicals/414_P_SupportVectorMachines.Rmd", quiet = TRUE, ou
 setwd(paste0(rprojroot::find_rstudio_root_file(), "/Practicals/Contents"))
 # Render the book
 bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), new_session = TRUE, output_dir = "../bookdown", quiet = TRUE)
+file.rename("../bookdown/_main.pdf", "../bookdown/granolarr_practical_session_materials.pdf")
+file.rename("../bookdown/_main.epub", "../bookdown/granolarr_practical_session_materials.epub")
 # Change back working directory
 setwd(rprojroot::find_rstudio_root_file())
