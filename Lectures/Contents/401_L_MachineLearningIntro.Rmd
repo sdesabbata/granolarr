@@ -73,7 +73,9 @@ Machine learning approaches are divided into two main types
 
 ## Supervised
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 - Training dataset
     - input attribute(s)
@@ -85,7 +87,9 @@ Machine learning approaches are divided into two main types
 - Evaluation function
     - evaluates difference between prediction and output in testing data
 
-<br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 <center>
 ![](Images/MnistExamples.png){width=90%}
@@ -98,11 +102,16 @@ CC-BY-SA-4.0
 </font>
 </center>
 
-</div>
+:::
+::::::
+
+
 
 ## Unsupervised
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 - Dataset
     - input attribute(s) to explore
@@ -112,6 +121,9 @@ CC-BY-SA-4.0
 - Evaluation function
     - evaluates the quality of the pattern under consideration during one iteration
 
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 <center>
 ![](Images/DBSCAN-Gaussian-data.png){width=90%}
@@ -124,7 +136,8 @@ CC-BY-SA-3.0
 </font>
 </center>
 
-</div>
+:::
+::::::
 
 
 ## ... more
@@ -143,7 +156,9 @@ CC-BY-SA-3.0
 
 ## Neural networks
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 Supervised learning approach simulating simplistic neurons
 
@@ -155,7 +170,9 @@ Supervised learning approach simulating simplistic neurons
         - **activation function**
 - The **traning algorithm** is used to define the best weights
 
-<br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 <center>
 ![](Images/ANN_description.png){width=70%}
@@ -168,12 +185,15 @@ CC-BY-SA-3.0
 </font>
 </center>
 
-</div>
+:::
+::::::
 
 
 ## Deep neural networks
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 Neural networks with **multiple hidden layers**
 
@@ -183,7 +203,9 @@ The fundamental idea is that *"deeper"* neurons allow for the encoding of more c
 **Example**: De Sabbata, S. and Liu, P. (2019). [Deep learning geodemographics with autoencoders and geographic convolution](https://www.researchgate.net/publication/334251358_Deep_learning_geodemographics_with_autoencoders_and_geographic_convolution). In proceedings of the 22nd AGILE Conference on Geographic Information Science, Limassol, Cyprus.
 </font>
 
-<br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 <center>
 ![](Images/Colored_deep_neural_network-01.png){width=70%}
@@ -196,7 +218,8 @@ CC-BY-SA-3.0
 </font>
 </center>
 
-</div>
+:::
+::::::
 
 
 ## Convolutional neural networks
@@ -223,7 +246,9 @@ by Aphex34 via Wikimedia Commons, CC-BY-SA-4.0
 
 ## Limits
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 - Complexity
 - Training dataset quality
@@ -231,6 +256,10 @@ by Aphex34 via Wikimedia Commons, CC-BY-SA-4.0
     - e.g., [Facial Recognition Is Accurate, if You’re a White Guy](https://www.nytimes.com/2018/02/09/technology/facial-recognition-race-artificial-intelligence.html) by Steve Lohr (New York Times, Feb. 9, 2018)
 - Overfitting
     - creating a model perfect for the training data, but not generic enough to be useful
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 <center>
 ![](Images/Overfitting.svg.png){width=100%}
@@ -241,7 +270,8 @@ by Chabacano<br/>ia Wikimedia Commons,<br/>CC-BY-SA-4.0
 </font>
 </center>
 
-</div>
+:::
+::::::
 
 
 ## Summary

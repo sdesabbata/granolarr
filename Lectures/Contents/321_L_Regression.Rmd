@@ -61,7 +61,9 @@ $$Y_i = (b_0 + b_1 * X_{i1} + b_2 * X_{i2} + \dots + b_M * X_{iM}) + \epsilon_i 
 
 ## Least squares
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 **Least squares** is the most commonly used approach to generate a regression model
 
@@ -72,6 +74,9 @@ The model fits a line
     - **observed values**
     - **model**
 
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 <center>
 ![](Images/489px-Linear_least_squares_example2.svg.png){width=70%}
@@ -83,7 +88,8 @@ via Wikimedia Commons,<br/>CC-BY-SA-3.0
 </font>
 </center>
 
-</div>
+:::
+::::::
 
 $$deviation = \sum(observed - model)^2$$
 

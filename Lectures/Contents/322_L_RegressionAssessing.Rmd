@@ -90,7 +90,9 @@ Shapiro-Wilk test for normality of standard residuals,
 
 - robust models: should be not significant 
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 delay_model %>% 
@@ -101,6 +103,10 @@ delay_model %>%
 <font size="4">	
 **Standard residuals are NOT normally distributed**
 </font>
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 <center>
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 4}
@@ -123,6 +129,9 @@ delay_model %>%
 ```
 </center>
 
+:::
+::::::
+
 </div>
 
 
@@ -133,7 +142,11 @@ Breusch-Pagan test for homoscedasticity of standard residuals
 
 - robust models: should be not significant
 
-<div class="columns-2 small_r_output">
+<div class="small_r_output">
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
 library(lmtest)
@@ -146,10 +159,17 @@ delay_model %>%
 **Standard residuals are homoscedastic**
 </font>
 
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
 delay_model %>% 
   plot(which = c(1))
 ```
+
+:::
+::::::
 
 </div>
 

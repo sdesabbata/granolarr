@@ -93,7 +93,9 @@ data_to_cluster <- data_to_cluster %>%
 
 ## K-means result
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
 data_to_cluster %>%
@@ -106,6 +108,10 @@ data_to_cluster %>%
   coord_fixed(ratio = 1)
 ```
 
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
 data_to_cluster %>%
   ggplot(aes(
@@ -117,7 +123,8 @@ data_to_cluster %>%
   coord_fixed(ratio = 1)
 ```
 
-</div>
+:::
+::::::
 
 ## Fuzzy c-means
 
@@ -163,7 +170,9 @@ data_to_cluster <- data_to_cluster %>%
 
 ## Fuzzy c-means result
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
 data_to_cluster %>%
@@ -176,6 +185,10 @@ data_to_cluster %>%
   coord_fixed(ratio = 1)
 ```
 
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
 data_to_cluster %>%
   ggplot(aes(
@@ -187,7 +200,8 @@ data_to_cluster %>%
   coord_fixed(ratio = 1)
 ```
 
-</div>
+:::
+::::::
 
 
 ## Geodemographic classifications

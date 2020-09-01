@@ -59,7 +59,9 @@ flights_nov_20 <- nycflights13::flights %>%
 
 *Z-scores* transform the values as relative to the distribution mean and standard deviation
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 flights_nov_20 %>%
@@ -79,7 +81,9 @@ flights_nov_20 %>%
   geom_histogram()
 ```
 
-<br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
 flights_nov_20 %>%
@@ -98,7 +102,8 @@ flights_nov_20 %>%
   geom_histogram()
 ```
 
-</div>
+:::
+::::::
 
 
 
@@ -106,7 +111,9 @@ flights_nov_20 %>%
 
 *Logarithmic* transformations (e.g., `log` and `log10`) are useful to *"un-skew"* variables, but only possible on values `> 0`
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 flights_nov_20 %>%
@@ -127,7 +134,9 @@ flights_nov_20 %>%
   geom_histogram()
 ```
 
-<br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
 flights_nov_20 %>%
@@ -148,7 +157,8 @@ flights_nov_20 %>%
   geom_histogram()
 ```
 
-</div>
+:::
+::::::
 
 
 
@@ -157,7 +167,9 @@ flights_nov_20 %>%
 
 *Inverse hyperbolic sine* (`asinh`) transformations are useful to *"un-skew"* variables, similar to logarithmic transformations, work on all values
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 flights_nov_20 %>%
@@ -176,7 +188,9 @@ flights_nov_20 %>%
   geom_histogram()
 ```
 
-<br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
 flights_nov_20 %>%
@@ -195,7 +209,8 @@ flights_nov_20 %>%
   geom_histogram()
 ```
 
-</div>
+:::
+::::::
 
 
 

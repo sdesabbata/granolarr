@@ -97,7 +97,11 @@ flights_nov_20 %>%
 
 ## Pearson’s r
 
-<div class="columns-2 small_r_output">
+<div class="small_r_output">
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 If  two variables are **normally distributed**, use **Pearson's r**
 
@@ -113,7 +117,9 @@ The square of the correlation value indicates the percentage of shared variance
 - `r flights_nov_20_cor$estimate %>% round(digits = 3)` ^ 2 = `r flights_nov_20_cor$estimate ^ 2 %>% round(digits = 3)`
 - departure and arrival delay *would* share `r ((flights_nov_20_cor$estimate ^ 2) * 100) %>% round(digits = 1)`% of variance
 
-<br/><br/>
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 # note the use of %$%
@@ -122,13 +128,20 @@ flights_nov_20 %$%
   cor.test(dep_delay, arr_delay)
 ```
 
+:::
+::::::
+
 </div>
 
 
 
 ## Spearman’s rho
 
-<div class="columns-2 small_r_output">
+<div class="small_r_output">
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 flights_nov_20_cor_spearman <- flights_nov_20 %$%
@@ -147,6 +160,9 @@ The square of the correlation value indicates the percentage of shared variance
 - `r flights_nov_20_cor_spearman$estimate %>% round(digits = 3)` ^ 2 = `r flights_nov_20_cor_spearman$estimate ^ 2 %>% round(digits = 3)`
 - departure and arrival delay *would* share `r ((flights_nov_20_cor_spearman$estimate ^ 2) * 100) %>% round(digits = 1)`% of variance
 
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=TRUE, message=FALSE}
 flights_nov_20 %$%
@@ -155,13 +171,20 @@ flights_nov_20 %$%
     method = "spearman")
 ```
 
+:::
+::::::
+
 </div>
 
 
 
 ## Kendall’s tau
 
-<div class="columns-2 small_r_output">
+<div class="small_r_output">
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 flights_nov_20_cor_kendall <- flights_nov_20 %$%
@@ -180,6 +203,9 @@ The square of the correlation value indicates the percentage of shared variance
 - `r flights_nov_20_cor_kendall$estimate %>% round(digits = 3)` ^ 2 = `r flights_nov_20_cor_kendall$estimate ^ 2 %>% round(digits = 3)`
 - **`r ((flights_nov_20_cor_kendall$estimate ^ 2) * 100) %>% round(digits = 1)`% of variance**
 
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=TRUE, message=FALSE}
 flights_nov_20 %$%
@@ -187,6 +213,9 @@ flights_nov_20 %$%
     dep_delay, arr_delay, 
     method = "kendall")
 ```
+
+:::
+::::::
 
 </div>
 
@@ -196,7 +225,9 @@ flights_nov_20 %$%
 
 Combines in one visualisation: histograms, scatter plots, and correlation values for a set of variables
 
-<div class="columns-2">
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 library(psych)
@@ -212,6 +243,10 @@ flights_nov_20 %>%
   )
 ```
 
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
 <center>
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 4}
 library(psych)
@@ -221,6 +256,9 @@ flights_nov_20 %>%
   pairs.panels(method = "kendall")
 ```
 </center>
+
+:::
+::::::
 
 </div>
 
