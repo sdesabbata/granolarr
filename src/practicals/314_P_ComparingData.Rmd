@@ -1,0 +1,10 @@
+---
+title: "Practical 314"
+author: "Stefano De Sabbata"
+date: "`r Sys.Date()`"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r child = 'contents/314_P_ComparingData.Rmd'}
+```

@@ -1,0 +1,10 @@
+---
+title: "Practical 114"
+author: "Stefano De Sabbata"
+date: "`r Sys.Date()`"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r child = 'contents/114_P_RProgramming.Rmd'}
+```

@@ -1,0 +1,10 @@
+---
+title: "Practical 224"
+author: "Stefano De Sabbata"
+date: "`r Sys.Date()`"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r child = 'contents/224_P_Reproducibility.Rmd'}
+```

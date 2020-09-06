@@ -1,0 +1,10 @@
+---
+title: "Practical 304"
+author: "Stefano De Sabbata"
+date: "`r Sys.Date()`"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r child = 'contents/304_P_Exploratory.Rmd'}
+```

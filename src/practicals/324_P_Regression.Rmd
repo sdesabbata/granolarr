@@ -1,0 +1,10 @@
+---
+title: "Practical 324"
+author: "Stefano De Sabbata"
+date: "`r Sys.Date()`"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r child = 'contents/324_P_Regression.Rmd'}
+```

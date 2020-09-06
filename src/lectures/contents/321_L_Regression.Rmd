@@ -1,0 +1,188 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+<style type="text/css">
+.small_r_all pre{
+  font-size: 16px;
+  line-height: 18px;
+}
+.small_r_output pre:not(.prettyprint){
+  font-size: 16px;
+  line-height: 18px;
+}
+.verysmall_r_output pre:not(.prettyprint){
+  font-size: 12px;
+  line-height: 14px;
+}
+</style>
+
+
+
+# Simple Regression
+
+
+## Recap
+
+**Prev**: Comparing data
+
+- 311 Lecture Comparing groups
+- 312 Lecture Correlation
+- 313 Lecture Data transformations
+- 314 Practical session
+
+**Now**: Simple Regression
+
+- Regression
+- Ordinary Least Squares
+- Fit
+
+
+
+## Regression analysis
+
+**Regression analysis** is a supervised machine learning approach
+
+Predict the value of one outcome variable as
+
+$$outcome_i = (model) + error_i $$
+
+- one predictor variable (**simple / univariate** regression)
+
+$$Y_i = (b_0 + b_1 * X_{i1}) + \epsilon_i $$
+    
+- more predictor variables (**multiple / multivariate** regression)
+
+$$Y_i = (b_0 + b_1 * X_{i1} + b_2 * X_{i2} + \dots + b_M * X_{iM}) + \epsilon_i $$
+
+
+
+## Least squares
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+**Least squares** is the most commonly used approach to generate a regression model
+
+The model fits a line
+    
+- to minimise the squared values of the **residuals** (errors)
+- that is squared difference between
+    - **observed values**
+    - **model**
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+<center>
+![](images/489px-Linear_least_squares_example2.svg.png){width=70%}
+
+<br/>
+<font size="4">	
+by 	Krishnavedala<br/>
+via Wikimedia Commons,<br/>CC-BY-SA-3.0
+</font>
+</center>
+
+:::
+::::::
+
+$$deviation = \sum(observed - model)^2$$
+
+## Libraries and data
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)  
+library(nycflights13)
+
+flights_nov_20 <- nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+```
+
+
+## Example
+
+<font size="4">	
+$$arr\_delay_i = (b_0 + b_1 * dep\_delay_{i1}) + \epsilon_i $$
+</font>
+
+<div class="small_r_output">
+
+```{r, echo=TRUE}
+delay_model <- flights_nov_20 %$% # Note %$%
+  lm(arr_delay ~ dep_delay)
+
+delay_model %>%  summary()
+```
+
+</div>
+
+
+
+## Overall fit
+
+```{r, echo=FALSE}
+delay_model_summary <- delay_model %>%
+  summary()
+```
+
+The output indicates
+
+- **p-value: < 2.2e-16**: $p<.001$ the model is significant
+    - derived by comparing the calulated **F-statistic** value to F distribution `r delay_model_summary$fstatistic[1] %>% round(digits = 2)` having specified degrees of freedom (`r delay_model_summary$fstatistic[2]`, `r delay_model_summary$fstatistic[3]`)
+    - Report as: F(`r delay_model_summary$fstatistic[2]`, `r delay_model_summary$fstatistic[3]`) = `r delay_model_summary$fstatistic[1] %>% round(digits = 2)`
+- **Adjusted R-squared: `r delay_model_summary$adj.r.squared %>% round(digits = 4)`**: the departure delay can account for `r (delay_model_summary$adj.r.squared * 100) %>% round(digits = 2)`% of the arrival delay
+- **Coefficients**
+    - Intercept estimate `r delay_model_summary$coefficients[1,1] %>% round(digits = 4)` is significant
+    - `dep_delay` (slope) estimate `r delay_model_summary$coefficients[2,1] %>% round(digits = 4)` is significant
+
+
+
+## Parameters
+
+<font size="4">	
+$$arr\_delay_i = (Intercept + Coefficient_{dep\_delay} * dep\_delay_{i1}) + \epsilon_i $$
+</font>
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
+flights_nov_20 %>%
+  ggplot(aes(x = dep_delay, y = arr_delay)) +
+  geom_point() + coord_fixed(ratio = 1) +
+  geom_abline(intercept = 4.0943, slope = 1.04229, color="red")
+```
+
+<center>
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
+flights_nov_20 %>%
+  ggplot(aes(x = dep_delay, y = arr_delay)) +
+  geom_point() + coord_fixed(ratio = 1) +
+  geom_abline(intercept = 4.0943, slope = 1.04229, color="red")
+```
+</center>
+
+
+<!--
+## Outliers and residuals
+## Influential cases
+-->
+
+
+
+## Summary
+
+Simple Regression
+
+- Regression
+- Ordinary Least Squares
+- Fit
+
+**Next**: Assessing regression assumptions
+
+- Normality
+- Homoscedasticity
+- Independence

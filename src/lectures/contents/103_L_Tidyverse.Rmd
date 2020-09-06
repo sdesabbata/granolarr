@@ -1,0 +1,82 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+rm(list = ls())
+```
+
+
+
+# Tidyverse
+
+
+
+## Recap
+
+**Prev**: Core concepts
+
+- Variables
+- Functions
+- Libraries
+
+**Now**: Tidyverse
+
+- Tidyverse libraries
+- *pipe* operator
+
+
+
+## The pipe operator
+
+The [Tidyverse](https://www.tidyverse.org/) also provide a clean and effective way of combining multiple manipulation steps
+
+The pipe operator `%>%`
+
+- takes the result from one function
+- and passes it to the next function
+- as the **first argument**
+- that doesn't need to be included in the code anymore
+
+
+
+## Pipe example
+<center>
+![](images/PipeOperator.png){width=100%}
+</center>
+
+
+## Pipe example
+
+The two codes below are equivalent
+
+- the first simply invokes the functions
+- the second uses the pipe operator `%>%`
+
+```{r, echo=TRUE}
+round(sqrt(2), digits = 2)
+```
+
+```{r, echo=TRUE}
+library(tidyverse)
+
+sqrt(2) %>%
+ round(digits = 2)
+```
+
+
+
+
+## Summary
+
+Tidyverse
+
+- Tidyverse libraries
+- *pipe* operator
+
+**Next**: Practical session
+
+- The R programming language
+- Interpreting values
+- Variables
+- Basic types
+- Tidyverse
+- Coding style
