@@ -55,10 +55,10 @@ The [Indexes of Multiple Deprivation 2015](https://www.gov.uk/government/statist
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 # Load 2011 Output Area Classification data
-leicester_2011OAC <- read_csv("~/Repos/GY7702/Data/2011_OAC_Raw_uVariables_Leicester.csv")
+leicester_2011OAC <- read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
 
 # Load Indexes of Multiple deprivation data
-leicester_IMD2015 <- read_csv("~/Repos/GY7702/Data/IndexesMultipleDeprivation2015_Leicester.csv")
+leicester_IMD2015 <- read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "IndexesMultipleDeprivation2015_Leicester.csv"))
 ```
 
 

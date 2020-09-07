@@ -13,7 +13,7 @@ library(tidyverse)
 #leicester_2011OAC <- read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
 
 # The line below will work if you are working from the main repository
-leicester_2011OAC <- read_csv("Data/2011_OAC_Raw_uVariables_Leicester.csv")
+leicester_2011OAC <- read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
 
 
 # Load Indexes of Multiple deprivation data -------------------------------
@@ -22,7 +22,7 @@ leicester_2011OAC <- read_csv("Data/2011_OAC_Raw_uVariables_Leicester.csv")
 #leicester_IMD2015 <- read_csv("IndexesMultipleDeprivation2015_Leicester.csv")
 
 # The line below will work if you are working from the main repository
-leicester_IMD2015 <- read_csv("Data/IndexesMultipleDeprivation2015_Leicester.csv")
+leicester_IMD2015 <- read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "IndexesMultipleDeprivation2015_Leicester.csv"))
 
 # Change name of indexes and transform data to wide format
 leicester_IMD2015_decile_wide <- leicester_IMD2015 %>%

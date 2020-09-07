@@ -50,7 +50,7 @@ leicester_lsoa <- read_csv("tmp/OA11_LSOA11_MSOA11_LAD11_EW_LU/OA11_LSOA11_MSOA1
 # Join data and write
 imd2015_leicester <-  imd2015_england %>%
   filter(FeatureCode %in% leicester_lsoa$LSOA11CD) %>%
-  write_csv("Data/IndexesMultipleDeprivation2015_Leicester.csv")
+  write_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "IndexesMultipleDeprivation2015_Leicester.csv"))
 
 # Clean
 unlink("tmp/OA11_LSOA11_MSOA11_LAD11_EW_LU", recursive = TRUE)

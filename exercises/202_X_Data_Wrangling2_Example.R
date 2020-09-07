@@ -18,7 +18,7 @@ library(tidyverse)
 #leicester_2011OAC <- read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
 
 # The line below will work if you are working from the main repository
-leicester_2011OAC <- read_csv("Data/2011_OAC_Raw_uVariables_Leicester.csv")
+leicester_2011OAC <- read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
 
 # Print data info
 leicester_2011OAC
@@ -30,19 +30,19 @@ leicester_2011OAC
 #leicester_IMD2015 <- read_csv("IndexesMultipleDeprivation2015_Leicester.csv")
 
 # The line below will work if you are working from the main repository
-leicester_IMD2015 <- read_csv("Data/IndexesMultipleDeprivation2015_Leicester.csv")
+leicester_IMD2015 <- read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "IndexesMultipleDeprivation2015_Leicester.csv"))
 
 
 # Write_csv example -------------------------------------------------------
 
 # The code below will work for Practical 3, if the data is in your Project_03 folder
-read_csv("2011_OAC_Raw_uVariables_Leicester.csv") %>%
-  select(OA11CD, supgrpcode, supgrpname) %>%
-  filter(supgrpcode == 6) %>%
-  write_csv("~/Leicester_Suburbanites.csv")
+#read_csv("2011_OAC_Raw_uVariables_Leicester.csv") %>%
+#  select(OA11CD, supgrpcode, supgrpname) %>%
+#  filter(supgrpcode == 6) %>%
+#  write_csv("~/Leicester_Suburbanites.csv")
 
 # The code below will work if you are working from the main repository
-read_csv("Data/2011_OAC_Raw_uVariables_Leicester.csv") %>%
+read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv")) %>%
   select(OA11CD, supgrpcode, supgrpname) %>%
   filter(supgrpcode == 6) %>%
   write_csv("~/Leicester_Suburbanites.csv")

@@ -226,7 +226,7 @@ read_csv("2011_OAC_Raw_uVariables_Leicester.csv") %>%
 ```
 
 ```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
-read_csv("~/Repos/granolarr/Data/2011_OAC_Raw_uVariables_Leicester.csv") %>%
+read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv")) %>%
   select(OA11CD, supgrpcode, supgrpname) %>%
   filter(supgrpcode == 6) %>%
   write_csv("~/Leicester_Suburbanites.csv")

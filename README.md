@@ -6,7 +6,7 @@ by *[Stefano De Sabbata](https://stefanodesabbata.com)*
 
 This is a **revised version** of granolarr, currently under development to meet the University of Leicester ["Ingite"](https://le.ac.uk/ignite) approach to blended learning for the academic year 2020/2021. The first version of granolarr is still available at [granolarr_v1](https://sdesabbata.github.io/granolarr_v1/).
 
-[This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html) except where specified. Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence), see [`Data / README.md`](https://github.com/sdesabbata/granolarr/blob/master/Data/README.md). See [`Lectures / Images / README.md`](https://github.com/sdesabbata/granolarr/blob/master/Lectures/Images/README.md), [`Practicals / Images / README.md`](https://github.com/sdesabbata/granolarr/blob/master/Practicals/Images/README.md) and [`Utils / IOSlides / README.md`](https://github.com/sdesabbata/granolarr/blob/master/Utils/IOSlides/README.md) for information regarding the images used in the materials.
+[This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html) except where specified. Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence), see [`Data / README.md`](https://github.com/sdesabbata/granolarr/blob/master/data/README.md). See [`Lectures / Images / README.md`](https://github.com/sdesabbata/granolarr/blob/master/src/lectures/images/README.md), [`Practicals / Images / README.md`](https://github.com/sdesabbata/granolarr/blob/master/src/practicals/images/README.md) and [`Utils / IOSlides / README.md`](https://github.com/sdesabbata/granolarr/blob/master/src/utils/IOSlides/README.md) for information regarding the images used in the materials.
 
 This repository contains reproducible materials to teach geographic information and data science in R. Part of the materials are derived from the lectures and practical sessions for the module [GY7702 Practical Programming in R](https://sdesabbata.github.io/GY7702/) of the [MSc in Geographic Information Science](https://le.ac.uk/courses/geographical-information-science-msc/2019) at the [School of Geography, Geology, and the Environment](https://le.ac.uk/gge) of the [University of Leicester](https://le.ac.uk/), by [Dr Stefano De Sabbata](https://stefanodesabbata.com/).
 
@@ -21,17 +21,17 @@ This content was created using [R](https://www.r-project.org/), [RStudio](https:
 
 ## Materials
 
-All the materials are available through the **[lectures bookdown](Lectures/bookdown)** and **[practical sessions bookdown](Practicals/bookdown)** pages. Links to the lecture slides and bookdown chapters for each week are listed below.
+All the materials are available through the **[lectures bookdown](lectures/bookdown)** and **[practical sessions bookdown](practicals/bookdown)** pages. Links to the lecture slides and bookdown chapters for each week are listed below.
 
 1. **R coding**
     - **100 Introduction**
-        - 101 Lecture ([slides](Lectures/html/101_L_Introduction.html), [bookdown](Lectures/bookdown/introduction-to-r.html))
+        - 101 Lecture ([slides](lectures/html/101_L_Introduction.html), [bookdown](lectures/bookdown/introduction-to-r.html))
             - Introduction to R (basic types and operators)
-        - 102 Lecture ([slides](Lectures/html/102_L_CoreConcepts.html), [bookdown](Lectures/bookdown/core-concepts.html))
+        - 102 Lecture ([slides](lectures/html/102_L_CoreConcepts.html), [bookdown](lectures/bookdown/core-concepts.html))
             - Core concepts (variables, functions, libraries)
-        - 103 Lecture ([slides](Lectures/html/103_L_Tidyverse.html), [bookdown](Lectures/bookdown/tidyverse.html))
+        - 103 Lecture ([slides](lectures/html/103_L_Tidyverse.html), [bookdown](lectures/bookdown/tidyverse.html))
             - Tidyverse (incl. pipe operator)
-        - 104 Practical session ([bookdown](Practicals/bookdown/introduction-to-r.html))
+        - 104 Practical session ([bookdown](practicals/bookdown/introduction-to-r.html))
             - The R programming language
             - Interpreting values
             - Variables
@@ -39,13 +39,13 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Tidyverse
             - Coding style
     - **110 R programming**
-        - 111 Lecture ([slides](Lectures/html/111_L_DataTypes.html), [bookdown](Lectures/bookdown/data-types.html))
+        - 111 Lecture ([slides](lectures/html/111_L_DataTypes.html), [bookdown](lectures/bookdown/data-types.html))
             - Data types (vectors, factors, matrices, arrays, lists)
-        - 112 Lecture ([slides](Lectures/html/112_L_ControlStructures.html), [bookdown](Lectures/bookdown/control-structures.html))
+        - 112 Lecture ([slides](lectures/html/112_L_ControlStructures.html), [bookdown](lectures/bookdown/control-structures.html))
             - Control structures (conditional statements, loops)
-        - 113 Lecutre ([slides](Lectures/html/113_L_Functions.html), [bookdown](Lectures/bookdown/functions.html))
+        - 113 Lecutre ([slides](lectures/html/113_L_Functions.html), [bookdown](lectures/bookdown/functions.html))
             - Functions
-        - 114 Practical session ([bookdown](Practicals/bookdown/data-types.html))
+        - 114 Practical session ([bookdown](practicals/bookdown/data-types.html))
             - Vectorss
             - Lists
             - Conditional statements
@@ -54,88 +54,88 @@ All the materials are available through the **[lectures bookdown](Lectures/bookd
             - Scope of a variable
 2. **Data wrangling**
     - **200 Selection and manipulation**
-        - 201 Lecture ([slides](Lectures/html/201_L_DataFrames.html), [bookdown](Lectures/bookdown/data-frames.html))
+        - 201 Lecture ([slides](lectures/html/201_L_DataFrames.html), [bookdown](lectures/bookdown/data-frames.html))
             - Data Frames
-        - 202 Lecture ([slides](Lectures/html/202_L_SelectionFiltering.html), [bookdown](Lectures/bookdown/selection-and-filtering.html))
+        - 202 Lecture ([slides](lectures/html/202_L_SelectionFiltering.html), [bookdown](lectures/bookdown/selection-and-filtering.html))
             - Data selection and filtering
-        - 203 Lecture ([slides](Lectures/html/203_L_DataManipulation.html), [bookdown](Lectures/bookdown/data-manipulation.html))
+        - 203 Lecture ([slides](lectures/html/203_L_DataManipulation.html), [bookdown](lectures/bookdown/data-manipulation.html))
             - Data manipulation
-        - 204 Practical session ([bookdown](Practicals/bookdown/data-wrangling-pt-1.html))
+        - 204 Practical session ([bookdown](practicals/bookdown/data-wrangling-pt-1.html))
             - Creating R projects
             - Creating R scripts
             - Data wrangling script
     - **210 Table operations**
-        - 211 Lecture ([slides](Lectures/html/211_L_DataJoin.html), [bookdown](Lectures/bookdown/join-operations.html))
+        - 211 Lecture ([slides](lectures/html/211_L_DataJoin.html), [bookdown](lectures/bookdown/join-operations.html))
             - Join operations
-        - 212 Lecture ([slides](Lectures/html/212_L_DataPivot.html), [bookdown](Lectures/bookdown/data-pivot.html))
+        - 212 Lecture ([slides](lectures/html/212_L_DataPivot.html), [bookdown](lectures/bookdown/data-pivot.html))
             - Table pivot
-        - 213 Lecture ([slides](Lectures/html/213_L_ReadWrite.html), [bookdown](Lectures/bookdown/read-and-write-data.html))
+        - 213 Lecture ([slides](lectures/html/213_L_ReadWrite.html), [bookdown](lectures/bookdown/read-and-write-data.html))
             - Read and write data
-        - 214 Practical session ([bookdown](Practicals/bookdown/data-wrangling-pt-2.html))
+        - 214 Practical session ([bookdown](practicals/bookdown/data-wrangling-pt-2.html))
             - Join operations
             - Data pivot
             - Read and write data
     - **220 Reproducibility**
-        - 221 Lecture ([slides](Lectures/html/221_L_Reproducibility.html), [bookdown](Lectures/bookdown/reproducibility.html))
+        - 221 Lecture ([slides](lectures/html/221_L_Reproducibility.html), [bookdown](lectures/bookdown/reproducibility.html))
             - Reproducibility
-        - 222 Lecture ([slides](Lectures/html/222_L_RMarkdown.html), [bookdown](Lectures/bookdown/rmarkdown.html))
+        - 222 Lecture ([slides](lectures/html/222_L_RMarkdown.html), [bookdown](lectures/bookdown/rmarkdown.html))
             - R and Markdown
-        - 223 Lecture ([slides](Lectures/html/223_L_Git.html), [bookdown](Lectures/bookdown/git.html))
+        - 223 Lecture ([slides](lectures/html/223_L_Git.html), [bookdown](lectures/bookdown/git.html))
             - Git
-        - 224 Practical session ([bookdown](Practicals/bookdown/reproducibility.html))
+        - 224 Practical session ([bookdown](practicals/bookdown/reproducibility.html))
             - Reproducibile data analysis
             - RMarkdown
             - Git
 3. **Data analysis**
     - **300 Exploratory data analysis**
-        - 301 Lecture ([slides](Lectures/html/301_L_DataVisualisation.html), [bookdown](Lectures/bookdown/data-visualisation.html))
+        - 301 Lecture ([slides](lectures/html/301_L_DataVisualisation.html), [bookdown](lectures/bookdown/data-visualisation.html))
             - Data visualisation
-        - 302 Lecture ([slides](Lectures/html/302_L_DescriptiveStats.html), [bookdown](Lectures/bookdown/descriptive-statistics.html))
+        - 302 Lecture ([slides](lectures/html/302_L_DescriptiveStats.html), [bookdown](lectures/bookdown/descriptive-statistics.html))
             - Descriptive statistics
-        - 303 Lecture ([slides](Lectures/html/303_L_ExploringAssumptions.html), [bookdown](Lectures/bookdown/exploring-assumptions.html))
+        - 303 Lecture ([slides](lectures/html/303_L_ExploringAssumptions.html), [bookdown](lectures/bookdown/exploring-assumptions.html))
             - Exploring assumptions
-        - 304 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
+        - 304 Practical session ([bookdown](practicals/bookdown/exploratory-analysis.html))
             - Data visualisation
             - Descriptive statistics
             - Exploring assumptions
     - **310 Comparing data** 
-        - 311 Lecture ([slides](Lectures/html/311_L_ComparingMeans.html), [bookdown](Lectures/bookdown/comparing-groups.html))
+        - 311 Lecture ([slides](lectures/html/311_L_ComparingMeans.html), [bookdown](lectures/bookdown/comparing-groups.html))
             - Comparing groups
-        - 312 Lecture ([slides](Lectures/html/312_L_Correlation.html), [bookdown](Lectures/bookdown/correlation.html))
+        - 312 Lecture ([slides](lectures/html/312_L_Correlation.html), [bookdown](lectures/bookdown/correlation.html))
             - Correlation
-        - 313 Lecture ([slides](Lectures/html/313_L_DataTransformations.html), [bookdown](Lectures/bookdown/data-transformations.html))
+        - 313 Lecture ([slides](lectures/html/313_L_DataTransformations.html), [bookdown](lectures/bookdown/data-transformations.html))
             - Data transformations
         - *314 Practical session (to do)*
             - Comparing means
             - Correlation
             - Chi-square
     - **320 Regression models**
-        - 321 Lecture ([slides](Lectures/html/321_L_Regression.html), [bookdown](Lectures/bookdown/simple-regression.html))
+        - 321 Lecture ([slides](lectures/html/321_L_Regression.html), [bookdown](lectures/bookdown/simple-regression.html))
             - Simple regression
-        - 322 Lecture ([slides](Lectures/html/322_L_RegressionAssessing.html), [bookdown](Lectures/bookdown/assessing-regression-assumptions.html))
+        - 322 Lecture ([slides](lectures/html/322_L_RegressionAssessing.html), [bookdown](lectures/bookdown/assessing-regression-assumptions.html))
             - Assessing regression assumptions
-        - *323 Lecture (to do)* <!-- ([slides](Lectures/html/323_L_RegressionMultiple.html), [bookdown](Lectures/bookdown/multiple-regression.html)) -->
+        - *323 Lecture (to do)* <!-- ([slides](lectures/html/323_L_RegressionMultiple.html), [bookdown](lectures/bookdown/multiple-regression.html)) -->
             - Multiple regression
-        - 324 Practical session ([bookdown](Practicals/bookdown/exploratory-analysis.html))
+        - 324 Practical session ([bookdown](practicals/bookdown/exploratory-analysis.html))
             - Simple regression
             - Testing assumptions
             - Multiple regression
 4. **Machine learning**
     - **400 Unsupervised**
-        - 401 Lecture ([slides](Lectures/html/401_L_MachineLearningIntro.html), [bookdown](Lectures/bookdown/machine-learning.html))
+        - 401 Lecture ([slides](lectures/html/401_L_MachineLearningIntro.html), [bookdown](lectures/bookdown/machine-learning.html))
             - Introduction to Machine Learning
-        - 402 Lecture ([slides](Lectures/html/402_L_ClusteringCentroid.html), [bookdown](Lectures/bookdown/centroid-based-clustering.html))
+        - 402 Lecture ([slides](lectures/html/402_L_ClusteringCentroid.html), [bookdown](lectures/bookdown/centroid-based-clustering.html))
             - Clustering
-        - 403 Lecture ([slides](Lectures/html/403_L_ClusteringHierarchicalDensity.html), [bookdown](Lectures/bookdown/hierarchical-and-density-based-clustering.html))
+        - 403 Lecture ([slides](lectures/html/403_L_ClusteringHierarchicalDensity.html), [bookdown](lectures/bookdown/hierarchical-and-density-based-clustering.html))
             - Geodemographics
         - *404 Practical session (to do)*
             - Geodemographic classification
     - **410 Supervised**
-        - *411 Lecture (to do)* ([slides](Lectures/html/411_L_KNN.html), [bookdown](Lectures/bookdown/knn.html))
+        - *411 Lecture (to do)* ([slides](lectures/html/411_L_KNN.html), [bookdown](lectures/bookdown/knn.html))
             - K-nearest neighbors
-        - *412 Lecture (to do)* ([slides](Lectures/html/412_L_SupportVectorMachines.html), [bookdown](Lectures/bookdown/support-vector-machines.html))
+        - *412 Lecture (to do)* ([slides](lectures/html/412_L_SupportVectorMachines.html), [bookdown](lectures/bookdown/support-vector-machines.html))
             - Support vector machines
-        - *413 Lecture (to do)* ([slides](Lectures/html/413_L_DeepLearning.html), [bookdown](Lectures/bookdown/deep-learning.html))
+        - *413 Lecture (to do)* ([slides](lectures/html/413_L_DeepLearning.html), [bookdown](lectures/bookdown/deep-learning.html))
             - Deep learning
         - *414 Practical session (to do)*
             - Support vector machines

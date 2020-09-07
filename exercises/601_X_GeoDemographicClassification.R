@@ -13,7 +13,7 @@ library(tidyverse)
 #leicester_2011OAC <- read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
 
 # The line below will work if you are working from the main repository
-leicester_2011OAC <- read_csv("Data/2011_OAC_Raw_uVariables_Leicester.csv")
+leicester_2011OAC <- read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
 
 
 # Example 1 ---------------------------------------------------------------

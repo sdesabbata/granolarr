@@ -23,7 +23,7 @@ output:
   bookdown::pdf_book:
     latex_engine: xelatex
     includes:
-      in_header: ../../Utils/RMarkdown/rmarkdown_classes.tex
+      in_header: ../../utils/RMarkdown/rmarkdown_classes.tex
 ---
 
 # Preface {-}

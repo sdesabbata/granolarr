@@ -34,7 +34,7 @@ if (!dir.exists(file.path("./tmp", "OA11_LSOA11_MSOA11_LAD11_EW_LU"))) {
   unzip("Storage/OA11_LSOA11_MSOA11_LAD11_EW_LU.zip", exdir = "tmp/OA11_LSOA11_MSOA11_LAD11_EW_LU")
 }
 if (!dir.exists(file.path("./tmp", "E06000016"))) {
-  unzip("Data/e06000016.zip", exdir = "tmp")
+  unzip(paste0(rprojroot::find_rstudio_root_file(), "/data/", "e06000016.zip"), exdir = "tmp")
 }
 
 
@@ -63,10 +63,10 @@ leic_2011OAC_data <- leic_2011OAC@data
 leic_vars_2011OAC <-  areas_lookup %>%
   right_join(leic_2011OAC_data, by = c("OA11CD" = "oa_code")) %>%
   left_join(vars_2011OAC, by = c("OA11CD" = "OA")) %>%
-  write_csv("Data/2011_OAC_Raw_uVariables_Leicester.csv")
+  write_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
 
 # Copy variable names look-up file
-file.copy("tmp/2011 OAC 167 Variables/2011_OAC_Raw_uVariables_Lookup.csv", "Data")
+file.copy("tmp/2011 OAC 167 Variables/2011_OAC_Raw_uVariables_Lookup.csv", paste0(rprojroot::find_rstudio_root_file(), "/data"))
 
 # Clean
 unlink("tmp/2011 OAC 167 Variables", recursive = TRUE)

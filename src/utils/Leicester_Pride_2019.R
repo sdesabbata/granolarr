@@ -21,10 +21,10 @@ rm(list=ls())
 ifelse(!dir.exists(file.path(".", "tmp")), dir.create(file.path(".", "tmp")), FALSE)
 
 if (!dir.exists(file.path("./tmp", "E06000016"))) {
-  unzip("Data/e06000016.zip", exdir = "tmp")
+  unzip(paste0(rprojroot::find_rstudio_root_file(), "/data/", "e06000016.zip"), exdir = "tmp")
 }
 if (!dir.exists(file.path("./tmp", "England_ct_2011_Leicestershire"))) {
-  unzip("Data/England_ct_2011_Leicestershire.zip", exdir = "tmp")
+  unzip(paste0(rprojroot::find_rstudio_root_file(), "/data/", "England_ct_2011_Leicestershire.zip"), exdir = "tmp")
 }
 
 
