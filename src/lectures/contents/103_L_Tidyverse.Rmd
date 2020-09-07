@@ -87,7 +87,7 @@ The meta-library [Tidyverse](https://www.tidyverse.org/) contains the following 
 
 ## The pipe operator
 
-The [Tidyverse](https://www.tidyverse.org/) also provide a clean and effective way of combining multiple manipulation steps
+The [Tidyverse](https://www.tidyverse.org/) (via [`magrittr`](https://magrittr.tidyverse.org/)) also provide a clean and effective way of combining multiple manipulation steps
 
 The pipe operator `%>%`
 
@@ -100,7 +100,7 @@ The pipe operator `%>%`
 
 ## Pipe example
 <center>
-![](images/PipeOperator.png){width=100%}
+![Pipe operator example and diagram](images/PipeOperator.png){width=100%}
 </center>
 
 

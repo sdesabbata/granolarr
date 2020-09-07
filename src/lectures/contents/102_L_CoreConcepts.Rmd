@@ -108,6 +108,16 @@ When creating an identifier for a variable or function
 
 ## Libraries
 
+Once a number of related, reusable functions are created
+
+- they can be collected and stored in **libraries** (a.k.a. *packages*)
+  - `install.packages` is a function that can be used to install libraries (i.e., downloads it on your computer)
+  - `library` is a function that *loads* a library (i.e., makes it available to a script)
+
+Libraries can be of any size and complexity, e.g.:
+
+- `base`: base R functions, including the `sqrt` function above
+- `rgdal`: implementation of the [GDAL (Geospatial Data Abstraction Library)](https://gdal.org/) functionalities
 
 
 ## stringr

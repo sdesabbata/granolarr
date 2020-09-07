@@ -174,13 +174,7 @@ $$arr\_delay_i = (Intercept + Coefficient_{dep\_delay} * dep\_delay_{i1}) + \eps
 ```r
 # Load the library
 library(nycflights13)
-```
 
-```
-## Warning: package 'nycflights13' was built under R version 4.0.2
-```
-
-```r
 # November 20th, 2013
 flights_nov_20 <- nycflights13::flights %>%
   filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
@@ -354,7 +348,7 @@ stargazer(delay_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Sep 07, 2020 - 09:51:34
+% Date and time: Mon, Sep 07, 2020 - 10:01:27 PM
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -458,7 +452,7 @@ stargazer(public_transp_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Sep 07, 2020 - 09:51:34
+% Date and time: Mon, Sep 07, 2020 - 10:01:27 PM
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 

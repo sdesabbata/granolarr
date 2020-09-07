@@ -139,27 +139,18 @@ When creating an identifier for a variable or function
 
 
 
-## Coding style
+## Libraries
 
-A *coding style* is a way of writing the code, including
+Once a number of related, reusable functions are created
 
-- how variable and functions are named
-    - lower case and `_`
-- how spaces are used in the code
-- which libraries are used
+- they can be collected and stored in **libraries** (a.k.a. *packages*)
+  - `install.packages` is a function that can be used to install libraries (i.e., downloads it on your computer)
+  - `library` is a function that *loads* a library (i.e., makes it available to a script)
 
+Libraries can be of any size and complexity, e.g.:
 
-```r
-# Bad
-X<-round(sqrt(2),2)
-
-#Good
-sqrt_of_two <- sqrt(2) %>%
- round(digits = 2)
-```
-
-Study the [Tidyverse Style Guid](http://style.tidyverse.org/) and use it consistently!
-
+- `base`: base R functions, including the `sqrt` function above
+- `rgdal`: implementation of the [GDAL (Geospatial Data Abstraction Library)](https://gdal.org/) functionalities
 
 
 ## stringr
@@ -168,27 +159,8 @@ R provides some basic functions to manipulate strings, but the `stringr` library
 
 
 ```r
-library(tidyverse)
-```
+library(stringr)
 
-```
-## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
-```
-
-```
-## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-## ✓ tibble  3.0.3     ✓ dplyr   1.0.0
-## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.5.0
-```
-
-```
-## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
-```
-
-```r
 str_length("Leicester")
 ```
 
