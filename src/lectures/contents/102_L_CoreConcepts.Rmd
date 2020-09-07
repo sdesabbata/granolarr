@@ -106,25 +106,7 @@ When creating an identifier for a variable or function
 
 
 
-## Coding style
-
-A *coding style* is a way of writing the code, including
-
-- how variable and functions are named
-    - lower case and `_`
-- how spaces are used in the code
-- which libraries are used
-
-```{r, echo=TRUE, eval=FALSE}
-# Bad
-X<-round(sqrt(2),2)
-
-#Good
-sqrt_of_two <- sqrt(2) %>%
- round(digits = 2)
-```
-
-Study the [Tidyverse Style Guid](http://style.tidyverse.org/) and use it consistently!
+## Libraries
 
 
 
@@ -133,7 +115,7 @@ Study the [Tidyverse Style Guid](http://style.tidyverse.org/) and use it consist
 R provides some basic functions to manipulate strings, but the `stringr` library provides a more consistent and well-defined set
 
 ```{r, echo=TRUE}
-library(tidyverse)
+library(stringr)
 
 str_length("Leicester")
 str_detect("Leicester", "e")

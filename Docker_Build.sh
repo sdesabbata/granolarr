@@ -1,0 +1,1 @@
+docker build --rm --force-rm -t sdesabbata/granolarr .

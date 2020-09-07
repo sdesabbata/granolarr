@@ -26,7 +26,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: "../../utils/IOSlides/uol_crest.png",
+                        favIcon: "../../src/utils/IOSlides/uol_crest.png",
               },
 
       // Author information
@@ -3221,9 +3221,9 @@ if (document.readyState !== "loading" &&
       position: absolute;
       top: 60px;
       right: 20px;
-      background: url(../utils/IOSlides/uol_logo.png) no-repeat 0 50%;
+      background: url(../../src/utils/IOSlides/uol_logo.png) no-repeat 0 50%;
       /* To use if you want just the uni crest */
-      /*background: url("../../utils/IOSlides/uol_favicon.png") no-repeat 0 50%;*/ 
+      /*background: url("../../src/utils/IOSlides/uol_favicon.png") no-repeat 0 50%;*/ 
       /* Changing size to 100px to get the uni logo visible */
       /*-webkit-background-size: 30px 30px;*/
       /*-moz-background-size: 30px 30px;*/
@@ -3283,6 +3283,62 @@ if (document.readyState !== "loading" &&
 <li><em>pipe</em> operator</li>
 </ul>
 
+</article></slide><slide class=""><hgroup><h2>Tidyverse</h2></hgroup><article  id="tidyverse-1">
+
+<p>The <a href='https://www.tidyverse.org/' title=''>Tidyverse</a> was introduced by statistician <a href='https://t.co/DWqWlxbOKK?amp=1' title=''>Hadley Wickham</a>, Chief Scientist at <a href='https://rstudio.com/' title=''>RStudio</a> (worth following him on <a href='https://twitter.com/hadleywickham' title=''>twitter</a>).</p>
+
+<p><em>&ldquo;The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.&rdquo;</em> (<a href='https://www.tidyverse.org/' title=''>Tidyverse homepage</a>).</p>
+
+<p><strong>Core libraries</strong></p>
+
+<div class="cols">
+<div class="col" style="width: 50%" data-latex="{0.5\textwidth}">
+<ul>
+<li><a href='https://tibble.tidyverse.org/' title=''><code>tibble</code></a></li>
+<li><a href='https://tidyr.tidyverse.org/' title=''><code>tidyr</code></a></li>
+<li><a href='https://stringr.tidyverse.org/' title=''><code>stringr</code></a></li>
+<li><a href='https://dplyr.tidyverse.org/' title=''><code>dplyr</code></a></li>
+</ul></div>
+
+<div class="col" style="width: 50%" data-latex="{0.5\textwidth}">
+<ul>
+<li><a href='https://readr.tidyverse.org/' title=''><code>readr</code></a></li>
+<li><a href='https://ggplot2.tidyverse.org/' title=''><code>ggplot2</code></a></li>
+<li><a href='https://purrr.tidyverse.org/' title=''><code>purrr</code></a></li>
+<li><a href='https://forcats.tidyverse.org/' title=''><code>forcats</code></a></li>
+</ul></div></div>
+
+<p>Also, imports <a href='https://magrittr.tidyverse.org/' title=''><code>magrittr</code></a>, which plays an important role.</p>
+
+</article></slide><slide class=""><hgroup><h2>Tidyverse core libraries</h2></hgroup><article  id="tidyverse-core-libraries">
+
+<p>The meta-library <a href='https://www.tidyverse.org/' title=''>Tidyverse</a> includes:</p>
+
+<ul>
+<li><strong><a href='https://tibble.tidyverse.org/' title=''><code>tibble</code></a></strong> is a modern re-imagining of the data frame, keeping what time has proven to be effective, and throwing out what it has not. Tibbles are data.frames that are lazy and surly: they do less and complain more forcing you to confront problems earlier, typically leading to cleaner, more expressive code.</li>
+<li><strong><a href='https://tidyr.tidyverse.org/' title=''><code>tidyr</code></a></strong> provides a set of functions that help you get to tidy data. Tidy data is data with a consistent form: in brief, every variable goes in a column, and every column is a variable.</li>
+<li><strong><a href='https://stringr.tidyverse.org/' title=''><code>stringr</code></a></strong> provides a cohesive set of functions designed to make working with strings as easy as possible. It is built on top of stringi, which uses the ICU C library to provide fast, correct implementations of common string manipulations.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Tidyverse core libraries</h2></hgroup><article  id="tidyverse-core-libraries-1">
+
+<p>The meta-library <a href='https://www.tidyverse.org/' title=''>Tidyverse</a> includes:</p>
+
+<ul>
+<li><strong><a href='https://dplyr.tidyverse.org/' title=''><code>dplyr</code></a></strong> provides a grammar of data manipulation, providing a consistent set of verbs that solve the most common data manipulation challenges.</li>
+<li><strong><a href='https://readr.tidyverse.org/' title=''><code>readr</code></a></strong> provides a fast and friendly way to read rectangular data (like csv, tsv, and fwf). It is designed to flexibly parse many types of data found in the wild, while still cleanly failing when data unexpectedly changes.</li>
+<li><strong><a href='https://ggplot2.tidyverse.org/' title=''><code>ggplot2</code></a></strong> is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Tidyverse core libraries</h2></hgroup><article  id="tidyverse-core-libraries-2">
+
+<p>The meta-library <a href='https://www.tidyverse.org/' title=''>Tidyverse</a> contains the following libraries:</p>
+
+<ul>
+<li><strong><a href='https://purrr.tidyverse.org/' title=''><code>purrr</code></a></strong> enhances R’s functional programming (FP) toolkit by providing a complete and consistent set of tools for working with functions and vectors. Once you master the basic concepts, purrr allows you to replace many for loops with code that is easier to write and more expressive.</li>
+<li><strong><a href='https://forcats.tidyverse.org/' title=''><code>forcats</code></a></strong> provides a suite of useful tools that solve common problems with factors. R uses factors to handle categorical variables, variables that have a fixed and known set of possible values.</li>
+</ul>
+
 </article></slide><slide class=""><hgroup><h2>The pipe operator</h2></hgroup><article  id="the-pipe-operator">
 
 <p>The <a href='https://www.tidyverse.org/' title=''>Tidyverse</a> also provide a clean and effective way of combining multiple manipulation steps</p>
@@ -3324,6 +3380,29 @@ sqrt(2) %&gt;%
 
 <pre >## [1] 1.41</pre>
 
+</article></slide><slide class=""><hgroup><h2>Coding style</h2></hgroup><article  id="coding-style">
+
+<p>A <em>coding style</em> is a way of writing the code, including</p>
+
+<ul>
+<li>how variable and functions are named
+
+<ul>
+<li>lower case and <code>_</code></li>
+</ul></li>
+<li>how spaces are used in the code</li>
+<li>which libraries are used</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'># Bad
+X&lt;-round(sqrt(2),2)
+
+#Good
+sqrt_of_two &lt;- sqrt(2) %&gt;%
+ round(digits = 2)</pre>
+
+<p>Study the <a href='http://style.tidyverse.org/' title=''>Tidyverse Style Guid</a> and use it consistently!</p>
+
 </article></slide><slide class=""><hgroup><h2>Summary</h2></hgroup><article  id="summary">
 
 <p>Tidyverse</p>
@@ -3331,6 +3410,7 @@ sqrt(2) %&gt;%
 <ul>
 <li>Tidyverse libraries</li>
 <li><em>pipe</em> operator</li>
+<li>Coding style</li>
 </ul>
 
 <p><strong>Next</strong>: Practical session</p>
