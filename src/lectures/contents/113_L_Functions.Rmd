@@ -214,3 +214,7 @@ Functions
 - Functions
     - Loading functions from scripts
 - Debugging
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

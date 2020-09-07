@@ -186,3 +186,7 @@ Simple Regression
 - Normality
 - Homoscedasticity
 - Independence
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

@@ -128,3 +128,7 @@ Table pivot
 - tidyr::pivot_wider
 
 **Next**: Read and write data
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

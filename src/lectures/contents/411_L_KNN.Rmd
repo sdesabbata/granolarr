@@ -56,3 +56,7 @@ Support vector machines
 - X
 - Y
 - Z
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

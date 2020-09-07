@@ -12,3 +12,7 @@ rm(list = ls())
 ## Introduction
 
 See `601_X_GeoDemographicClassification.R` script in the ` Exercises` folder.
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

@@ -157,3 +157,7 @@ Join operations
 - dplyr join functions
 
 **Next**: Table pivot
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

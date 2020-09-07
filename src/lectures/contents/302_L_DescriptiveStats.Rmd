@@ -162,3 +162,6 @@ Descriptive statistics
 - Skewness and kurtosis
 - Homogeneity of variance
 
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

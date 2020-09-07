@@ -340,3 +340,7 @@ Answer the question below, consulting the [`stringr` library reference (stringr.
 **Question 1.2.3:** Write a piece of code using the pipe operator and the `stringr` library that takes as input the string `"I like programming in R"`, and truncates it, leaving only 10 characters and using no ellipsis.
 
 **Question 1.2.4:** Write a piece of code using the pipe operator and the `stringr` library that takes as input the string `"I like programming in R"`, and manipulates to leave only the string `"I like R"`.
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

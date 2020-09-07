@@ -238,3 +238,7 @@ An introduction to R
 - Variables
 - Functions
 - Libraries
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

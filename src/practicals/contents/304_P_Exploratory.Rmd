@@ -381,3 +381,7 @@ leic_2011OAC_20to24_supgrp %>%
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 leveneTest(leic_2011OAC_20to24$perc_age_20_to_24, leic_2011OAC_20to24$supgrpname)
 ```
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

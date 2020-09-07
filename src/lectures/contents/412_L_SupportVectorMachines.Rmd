@@ -55,3 +55,7 @@ TBC
 - X
 - Y
 - Z
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

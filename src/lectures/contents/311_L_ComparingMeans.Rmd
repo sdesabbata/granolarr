@@ -202,4 +202,6 @@ Comparing groups
 - Kendall’s tau
 - Pairs plot
 
-- 
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

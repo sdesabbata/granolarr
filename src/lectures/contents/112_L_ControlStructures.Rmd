@@ -188,3 +188,7 @@ Control structures
 
 - Defining functions
 - Scope of a variable
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

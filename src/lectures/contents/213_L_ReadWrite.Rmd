@@ -109,3 +109,7 @@ Read and write data
 - Join operations
 - Table pivot
 - Read and write data
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

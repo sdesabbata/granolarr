@@ -249,3 +249,7 @@ Extend the code in the script `My_first_script.R` to include the code necessary 
 ## Solutions
 
 An R Script including the solutions to the 3 questions above is available in the Exercise folder of the repository (`201_X_Data_Wrangling1_Example.R`).
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

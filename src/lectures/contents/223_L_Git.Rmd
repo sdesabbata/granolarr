@@ -118,3 +118,7 @@ Git
 - Reproducibile data analysis
 - RMarkdown
 - Git
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

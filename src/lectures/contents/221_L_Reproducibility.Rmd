@@ -200,3 +200,7 @@ Reproduciblity
 
 - Markdown
 - RMarkdown
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

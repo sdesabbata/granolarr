@@ -122,3 +122,6 @@ RMarkdown
 - Git operations
 - Git and RStudio
 
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

@@ -155,3 +155,7 @@ Core concepts
 
 - Tidyverse libraries
 - *pipe* operator
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

@@ -386,3 +386,7 @@ Data types
 
 - Conditional statements
 - Loops
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

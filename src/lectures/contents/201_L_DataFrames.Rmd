@@ -113,3 +113,7 @@ Data Frames
 - dplyr
 - dplyr::select
 - dplyr::filter
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

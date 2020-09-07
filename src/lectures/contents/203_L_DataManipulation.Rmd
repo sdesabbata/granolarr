@@ -150,3 +150,7 @@ Data manipulation
 - Creating R projects
 - Creating R scripts
 - Data wrangling script
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

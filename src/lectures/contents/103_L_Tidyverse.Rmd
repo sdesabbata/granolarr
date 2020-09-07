@@ -80,3 +80,7 @@ Tidyverse
 - Basic types
 - Tidyverse
 - Coding style
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

@@ -55,3 +55,7 @@ Multiple Regression
 - Simple regression
 - Testing assumptions
 - Multiple regression
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

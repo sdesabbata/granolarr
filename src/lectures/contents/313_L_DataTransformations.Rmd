@@ -225,3 +225,7 @@ Data transformations
 
 - Comparing means
 - Correlation
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

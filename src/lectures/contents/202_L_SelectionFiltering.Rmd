@@ -145,3 +145,7 @@ Data selection and filtering
 - dplyr::filter
 
 **Next**:
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

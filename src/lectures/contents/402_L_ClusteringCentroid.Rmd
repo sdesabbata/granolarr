@@ -233,3 +233,7 @@ Centroid-based clustering
 - Hierarchical
 - Mixed 
 - Density-based
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

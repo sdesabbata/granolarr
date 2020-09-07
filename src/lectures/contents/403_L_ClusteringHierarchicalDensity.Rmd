@@ -224,3 +224,7 @@ Hierarchical and density-based clustering
 **Next**: Practical session
 
 - Geodemographic classification
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

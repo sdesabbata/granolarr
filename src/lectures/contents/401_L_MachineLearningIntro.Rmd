@@ -287,3 +287,7 @@ Machine Learning
 - K-means
 - Fuzzy c-means
 - Geodemographic classification
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

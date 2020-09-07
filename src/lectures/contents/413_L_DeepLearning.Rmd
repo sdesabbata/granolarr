@@ -53,3 +53,7 @@ TBC
 **Next**: Practical session
 
 - Support vector machines
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

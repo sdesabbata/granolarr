@@ -347,3 +347,7 @@ lm.beta(public_transp_model)
 **Question 9.1.2:** Is the number of people using public transportation to commute to work statistically, linearly related to mean age (`u020`)?
 
 **Question 9.1.3:** Is the number of people using public transportation to commute to work statistically, linearly related to (a subset of) the age structure categories (`u007` to `u019`)?
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

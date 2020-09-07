@@ -264,3 +264,7 @@ Exploring assumptions
 - Data visualisation
 - Descriptive statistics
 - Exploring assumptions
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

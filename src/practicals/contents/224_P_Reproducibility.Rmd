@@ -201,3 +201,7 @@ Create a new repository for an R project exploring the presence of the different
 - a justification of the analysis methods;
 - the code and related results;
 - and a discussion of the results within the same document.
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```
