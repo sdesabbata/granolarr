@@ -50,10 +50,6 @@ library(e1071)
 library(dbscan)
 ```
 
-```
-## Warning: package 'dbscan' was built under R version 4.0.2
-```
-
 
 ## Example
 
