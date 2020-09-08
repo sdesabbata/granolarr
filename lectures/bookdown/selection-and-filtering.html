@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-07" />
+<meta name="date" content="2020-09-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="data-frames.html"/>
 <link rel="next" href="data-manipulation.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,22 +51,20 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,10 +132,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="...">Lectures | granolarr</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i>Session info</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#about-this-module"><i class="fa fa-check"></i><b>1.1</b> About this module</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-programming-language"><i class="fa fa-check"></i><b>1.2</b> R programming language</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#schedule"><i class="fa fa-check"></i><b>1.3</b> Schedule</a></li>
@@ -148,7 +149,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.9" data-path="introduction-to-r.html"><a href="introduction-to-r.html#logical-operators"><i class="fa fa-check"></i><b>1.9</b> Logical operators</a></li>
 <li class="chapter" data-level="1.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>1.10</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="core-concepts.html"><a href="core-concepts.html"><i class="fa fa-check"></i><b>2</b> Core concepts</a><ul>
+<li class="chapter" data-level="2" data-path="core-concepts.html"><a href="core-concepts.html"><i class="fa fa-check"></i><b>2</b> Core concepts</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>2.1</b> Recap</a></li>
 <li class="chapter" data-level="2.2" data-path="core-concepts.html"><a href="core-concepts.html#variables"><i class="fa fa-check"></i><b>2.2</b> Variables</a></li>
 <li class="chapter" data-level="2.3" data-path="core-concepts.html"><a href="core-concepts.html#algorithms-and-functions"><i class="fa fa-check"></i><b>2.3</b> Algorithms and functions</a></li>
@@ -159,7 +161,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="core-concepts.html"><a href="core-concepts.html#stringr"><i class="fa fa-check"></i><b>2.8</b> stringr</a></li>
 <li class="chapter" data-level="2.9" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>2.9</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> Tidyverse</a><ul>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> Tidyverse</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>3.1</b> Recap</a></li>
 <li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#tidyverse-1"><i class="fa fa-check"></i><b>3.2</b> Tidyverse</a></li>
 <li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#tidyverse-core-libraries"><i class="fa fa-check"></i><b>3.3</b> Tidyverse core libraries</a></li>
@@ -171,7 +174,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.9" data-path="tidyverse.html"><a href="tidyverse.html#coding-style"><i class="fa fa-check"></i><b>3.9</b> Coding style</a></li>
 <li class="chapter" data-level="3.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>3.10</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> Data types</a><ul>
+<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> Data types</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>4.1</b> Recap</a></li>
 <li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#vectors"><i class="fa fa-check"></i><b>4.2</b> Vectors</a></li>
 <li class="chapter" data-level="4.3" data-path="data-types.html"><a href="data-types.html#defining-vectors"><i class="fa fa-check"></i><b>4.3</b> Defining vectors</a></li>
@@ -194,7 +198,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
 <li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
+<li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
 <li class="chapter" data-level="5.2" data-path="control-structures.html"><a href="control-structures.html#if"><i class="fa fa-check"></i><b>5.2</b> If</a></li>
 <li class="chapter" data-level="5.3" data-path="control-structures.html"><a href="control-structures.html#else"><i class="fa fa-check"></i><b>5.3</b> Else</a></li>
@@ -206,7 +211,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.9" data-path="control-structures.html"><a href="control-structures.html#loops-with-conditional-statements"><i class="fa fa-check"></i><b>5.9</b> Loops with conditional statements</a></li>
 <li class="chapter" data-level="5.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>5.10</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="core-concepts.html"><a href="core-concepts.html#functions"><i class="fa fa-check"></i><b>6</b> Functions</a><ul>
+<li class="chapter" data-level="6" data-path="core-concepts.html"><a href="core-concepts.html#functions"><i class="fa fa-check"></i><b>6</b> Functions</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>6.1</b> Summary</a></li>
 <li class="chapter" data-level="6.2" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>6.2</b> Defining functions</a></li>
 <li class="chapter" data-level="6.3" data-path="functions.html"><a href="functions.html#defining-functions-1"><i class="fa fa-check"></i><b>6.3</b> Defining functions</a></li>
@@ -217,8 +223,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.8" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>6.8</b> Example</a></li>
 <li class="chapter" data-level="6.9" data-path="functions.html"><a href="functions.html#summary-1"><i class="fa fa-check"></i><b>6.9</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>7</b> Data Frames</a><ul>
-<li class="chapter" data-level="7.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>7.1</b> Recap</a><ul>
+<li class="chapter" data-level="7" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>7</b> Data Frames</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>7.1</b> Recap</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="data-frames.html"><a href="data-frames.html#data-frames-1"><i class="fa fa-check"></i><b>7.1.1</b> Data Frames</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="data-types.html"><a href="data-types.html#selection"><i class="fa fa-check"></i><b>7.2</b> Selection</a></li>
@@ -228,7 +236,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.6" data-path="data-frames.html"><a href="data-frames.html#tibble"><i class="fa fa-check"></i><b>7.6</b> tibble</a></li>
 <li class="chapter" data-level="7.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>7.7</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="selection-and-filtering.html"><a href="selection-and-filtering.html"><i class="fa fa-check"></i><b>8</b> Selection and filtering</a><ul>
+<li class="chapter" data-level="8" data-path="selection-and-filtering.html"><a href="selection-and-filtering.html"><i class="fa fa-check"></i><b>8</b> Selection and filtering</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>8.1</b> Recap</a></li>
 <li class="chapter" data-level="8.2" data-path="selection-and-filtering.html"><a href="selection-and-filtering.html#dplyr"><i class="fa fa-check"></i><b>8.2</b> dplyr</a></li>
 <li class="chapter" data-level="8.3" data-path="selection-and-filtering.html"><a href="selection-and-filtering.html#example-dataset"><i class="fa fa-check"></i><b>8.3</b> Example dataset</a></li>
@@ -240,7 +249,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.9" data-path="selection-and-filtering.html"><a href="selection-and-filtering.html#dplyrfilter"><i class="fa fa-check"></i><b>8.9</b> dplyr::filter</a></li>
 <li class="chapter" data-level="8.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>8.10</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>9</b> Data manipulation</a><ul>
+<li class="chapter" data-level="9" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>9</b> Data manipulation</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>9.1</b> Recap</a></li>
 <li class="chapter" data-level="9.2" data-path="selection-and-filtering.html"><a href="selection-and-filtering.html#dplyr"><i class="fa fa-check"></i><b>9.2</b> dplyr</a></li>
 <li class="chapter" data-level="9.3" data-path="core-concepts.html"><a href="core-concepts.html#libraries"><i class="fa fa-check"></i><b>9.3</b> Libraries</a></li>
@@ -251,7 +261,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.8" data-path="data-manipulation.html"><a href="data-manipulation.html#full-pipe-example"><i class="fa fa-check"></i><b>9.8</b> Full pipe example</a></li>
 <li class="chapter" data-level="9.9" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>9.9</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="join-operations.html"><a href="join-operations.html"><i class="fa fa-check"></i><b>10</b> Join operations</a><ul>
+<li class="chapter" data-level="10" data-path="join-operations.html"><a href="join-operations.html"><i class="fa fa-check"></i><b>10</b> Join operations</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>10.1</b> Recap</a></li>
 <li class="chapter" data-level="10.2" data-path="join-operations.html"><a href="join-operations.html#joining-data"><i class="fa fa-check"></i><b>10.2</b> Joining data</a></li>
 <li class="chapter" data-level="10.3" data-path="join-operations.html"><a href="join-operations.html#join-types"><i class="fa fa-check"></i><b>10.3</b> Join types</a></li>
@@ -263,7 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.9" data-path="join-operations.html"><a href="join-operations.html#dplyrinner_join"><i class="fa fa-check"></i><b>10.9</b> dplyr::inner_join</a></li>
 <li class="chapter" data-level="10.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>10.10</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="data-pivot.html"><a href="data-pivot.html"><i class="fa fa-check"></i><b>11</b> Data pivot</a><ul>
+<li class="chapter" data-level="11" data-path="data-pivot.html"><a href="data-pivot.html"><i class="fa fa-check"></i><b>11</b> Data pivot</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>11.1</b> Recap</a></li>
 <li class="chapter" data-level="11.2" data-path="data-pivot.html"><a href="data-pivot.html#wide-data"><i class="fa fa-check"></i><b>11.2</b> Wide data</a></li>
 <li class="chapter" data-level="11.3" data-path="data-pivot.html"><a href="data-pivot.html#long-data"><i class="fa fa-check"></i><b>11.3</b> Long data</a></li>
@@ -273,7 +285,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.7" data-path="data-pivot.html"><a href="data-pivot.html#tidyrspread"><i class="fa fa-check"></i><b>11.7</b> tidyr::spread</a></li>
 <li class="chapter" data-level="11.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>11.8</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="read-and-write-data.html"><a href="read-and-write-data.html"><i class="fa fa-check"></i><b>12</b> Read and write data</a><ul>
+<li class="chapter" data-level="12" data-path="read-and-write-data.html"><a href="read-and-write-data.html"><i class="fa fa-check"></i><b>12</b> Read and write data</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>12.1</b> Summary</a></li>
 <li class="chapter" data-level="12.2" data-path="read-and-write-data.html"><a href="read-and-write-data.html#comma-separated-values"><i class="fa fa-check"></i><b>12.2</b> Comma Separated Values</a></li>
 <li class="chapter" data-level="12.3" data-path="core-concepts.html"><a href="core-concepts.html#libraries"><i class="fa fa-check"></i><b>12.3</b> Libraries</a></li>
@@ -281,7 +294,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.5" data-path="read-and-write-data.html"><a href="read-and-write-data.html#write"><i class="fa fa-check"></i><b>12.5</b> Write</a></li>
 <li class="chapter" data-level="12.6" data-path="functions.html"><a href="functions.html#summary-1"><i class="fa fa-check"></i><b>12.6</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>13</b> Reproducibility</a><ul>
+<li class="chapter" data-level="13" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>13</b> Reproducibility</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>13.1</b> Recap</a></li>
 <li class="chapter" data-level="13.2" data-path="reproducibility.html"><a href="reproducibility.html#reproduciblity"><i class="fa fa-check"></i><b>13.2</b> Reproduciblity</a></li>
 <li class="chapter" data-level="13.3" data-path="reproducibility.html"><a href="reproducibility.html#why"><i class="fa fa-check"></i><b>13.3</b> Why?</a></li>
@@ -296,18 +310,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.12" data-path="reproducibility.html"><a href="reproducibility.html#this-repository"><i class="fa fa-check"></i><b>13.12</b> This repository</a></li>
 <li class="chapter" data-level="13.13" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>13.13</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>14</b> RMarkdown</a><ul>
+<li class="chapter" data-level="14" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>14</b> RMarkdown</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>14.1</b> Recap</a></li>
 <li class="chapter" data-level="14.2" data-path="rmarkdown.html"><a href="rmarkdown.html#markdown"><i class="fa fa-check"></i><b>14.2</b> Markdown</a></li>
 <li class="chapter" data-level="14.3" data-path="rmarkdown.html"><a href="rmarkdown.html#markdown-example-code"><i class="fa fa-check"></i><b>14.3</b> Markdown example code</a></li>
-<li class="chapter" data-level="14.4" data-path="rmarkdown.html"><a href="rmarkdown.html#markdown-example-output"><i class="fa fa-check"></i><b>14.4</b> Markdown example output</a><ul>
+<li class="chapter" data-level="14.4" data-path="rmarkdown.html"><a href="rmarkdown.html#markdown-example-output"><i class="fa fa-check"></i><b>14.4</b> Markdown example output</a>
+<ul>
 <li class="chapter" data-level="14.4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#this-is-a-third-level-heading"><i class="fa fa-check"></i><b>14.4.1</b> This is a third level heading</a></li>
 </ul></li>
 <li class="chapter" data-level="14.5" data-path="rmarkdown.html"><a href="rmarkdown.html#rmarkdown-example-code"><i class="fa fa-check"></i><b>14.5</b> RMarkdown example code</a></li>
 <li class="chapter" data-level="14.6" data-path="rmarkdown.html"><a href="rmarkdown.html#writing-rmarkdown-docs"><i class="fa fa-check"></i><b>14.6</b> Writing RMarkdown docs</a></li>
 <li class="chapter" data-level="14.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>14.7</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>15</b> Git</a><ul>
+<li class="chapter" data-level="15" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>15</b> Git</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>15.1</b> Recap</a></li>
 <li class="chapter" data-level="15.2" data-path="git.html"><a href="git.html#whats-git"><i class="fa fa-check"></i><b>15.2</b> What’s git?</a></li>
 <li class="chapter" data-level="15.3" data-path="git.html"><a href="git.html#how-git-works"><i class="fa fa-check"></i><b>15.3</b> How git works</a></li>
@@ -316,7 +333,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.6" data-path="git.html"><a href="git.html#git-and-rstudio"><i class="fa fa-check"></i><b>15.6</b> Git and RStudio</a></li>
 <li class="chapter" data-level="15.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>15.7</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>16</b> Data visualisation</a><ul>
+<li class="chapter" data-level="16" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>16</b> Data visualisation</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>16.1</b> Recap</a></li>
 <li class="chapter" data-level="16.2" data-path="data-visualisation.html"><a href="data-visualisation.html#visual-variables"><i class="fa fa-check"></i><b>16.2</b> Visual variables</a></li>
 <li class="chapter" data-level="16.3" data-path="data-visualisation.html"><a href="data-visualisation.html#grammar-of-graphics"><i class="fa fa-check"></i><b>16.3</b> Grammar of graphics</a></li>
@@ -339,7 +357,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.20" data-path="data-visualisation.html"><a href="data-visualisation.html#bin-counts-1"><i class="fa fa-check"></i><b>16.20</b> Bin counts</a></li>
 <li class="chapter" data-level="16.21" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>16.21</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>17</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="17" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>17</b> Descriptive statistics</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>17.1</b> Summary</a></li>
 <li class="chapter" data-level="17.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>17.2</b> Libraries and data</a></li>
 <li class="chapter" data-level="17.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#descriptive-statistics-1"><i class="fa fa-check"></i><b>17.3</b> Descriptive statistics</a></li>
@@ -351,7 +370,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.9" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#dplyracross"><i class="fa fa-check"></i><b>17.9</b> dplyr::across</a></li>
 <li class="chapter" data-level="17.10" data-path="functions.html"><a href="functions.html#summary-1"><i class="fa fa-check"></i><b>17.10</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html"><i class="fa fa-check"></i><b>18</b> Exploring assumptions</a><ul>
+<li class="chapter" data-level="18" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html"><i class="fa fa-check"></i><b>18</b> Exploring assumptions</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>18.1</b> Recap</a></li>
 <li class="chapter" data-level="18.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>18.2</b> Libraries and data</a></li>
 <li class="chapter" data-level="18.3" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#normal-distribution"><i class="fa fa-check"></i><b>18.3</b> Normal distribution</a></li>
@@ -364,7 +384,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.10" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>18.10</b> Homogeneity of variance</a></li>
 <li class="chapter" data-level="18.11" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>18.11</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="comparing-groups.html"><a href="comparing-groups.html"><i class="fa fa-check"></i><b>19</b> Comparing groups</a><ul>
+<li class="chapter" data-level="19" data-path="comparing-groups.html"><a href="comparing-groups.html"><i class="fa fa-check"></i><b>19</b> Comparing groups</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>19.1</b> Recap</a></li>
 <li class="chapter" data-level="19.2" data-path="core-concepts.html"><a href="core-concepts.html#libraries"><i class="fa fa-check"></i><b>19.2</b> Libraries</a></li>
 <li class="chapter" data-level="19.3" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>19.3</b> Example</a></li>
@@ -374,7 +395,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.7" data-path="comparing-groups.html"><a href="comparing-groups.html#example-2"><i class="fa fa-check"></i><b>19.7</b> Example</a></li>
 <li class="chapter" data-level="19.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>19.8</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>20</b> Correlation</a><ul>
+<li class="chapter" data-level="20" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>20</b> Correlation</a>
+<ul>
 <li class="chapter" data-level="20.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>20.1</b> Recap</a></li>
 <li class="chapter" data-level="20.2" data-path="correlation.html"><a href="correlation.html#correlation-1"><i class="fa fa-check"></i><b>20.2</b> Correlation</a></li>
 <li class="chapter" data-level="20.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>20.3</b> Libraries and data</a></li>
@@ -386,7 +408,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.9" data-path="correlation.html"><a href="correlation.html#pairs-plot"><i class="fa fa-check"></i><b>20.9</b> Pairs plot</a></li>
 <li class="chapter" data-level="20.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>20.10</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>21</b> Data transformations</a><ul>
+<li class="chapter" data-level="21" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>21</b> Data transformations</a>
+<ul>
 <li class="chapter" data-level="21.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>21.1</b> Recap</a></li>
 <li class="chapter" data-level="21.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>21.2</b> Libraries and data</a></li>
 <li class="chapter" data-level="21.3" data-path="data-transformations.html"><a href="data-transformations.html#z-scores"><i class="fa fa-check"></i><b>21.3</b> Z-scores</a></li>
@@ -394,7 +417,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.5" data-path="data-transformations.html"><a href="data-transformations.html#inverse-hyperbolic-sine"><i class="fa fa-check"></i><b>21.5</b> Inverse hyperbolic sine</a></li>
 <li class="chapter" data-level="21.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>21.6</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="simple-regression.html"><a href="simple-regression.html"><i class="fa fa-check"></i><b>22</b> Simple Regression</a><ul>
+<li class="chapter" data-level="22" data-path="simple-regression.html"><a href="simple-regression.html"><i class="fa fa-check"></i><b>22</b> Simple Regression</a>
+<ul>
 <li class="chapter" data-level="22.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>22.1</b> Recap</a></li>
 <li class="chapter" data-level="22.2" data-path="simple-regression.html"><a href="simple-regression.html#regression-analysis"><i class="fa fa-check"></i><b>22.2</b> Regression analysis</a></li>
 <li class="chapter" data-level="22.3" data-path="simple-regression.html"><a href="simple-regression.html#least-squares"><i class="fa fa-check"></i><b>22.3</b> Least squares</a></li>
@@ -404,7 +428,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.7" data-path="simple-regression.html"><a href="simple-regression.html#parameters"><i class="fa fa-check"></i><b>22.7</b> Parameters</a></li>
 <li class="chapter" data-level="22.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>22.8</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html"><i class="fa fa-check"></i><b>23</b> Assessing regression assumptions</a><ul>
+<li class="chapter" data-level="23" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html"><i class="fa fa-check"></i><b>23</b> Assessing regression assumptions</a>
+<ul>
 <li class="chapter" data-level="23.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>23.1</b> Recap</a></li>
 <li class="chapter" data-level="23.2" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html#checking-assumptions"><i class="fa fa-check"></i><b>23.2</b> Checking assumptions</a></li>
 <li class="chapter" data-level="23.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>23.3</b> Libraries and data</a></li>
@@ -414,12 +439,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="23.7" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html#independence"><i class="fa fa-check"></i><b>23.7</b> Independence</a></li>
 <li class="chapter" data-level="23.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>23.8</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>24</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="24" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>24</b> Multiple Regression</a>
+<ul>
 <li class="chapter" data-level="24.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>24.1</b> Recap</a></li>
 <li class="chapter" data-level="24.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>24.2</b> TO-DO</a></li>
 <li class="chapter" data-level="24.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>24.3</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>25</b> Machine Learning</a><ul>
+<li class="chapter" data-level="25" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>25</b> Machine Learning</a>
+<ul>
 <li class="chapter" data-level="25.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>25.1</b> Recap</a></li>
 <li class="chapter" data-level="25.2" data-path="machine-learning.html"><a href="machine-learning.html#definition"><i class="fa fa-check"></i><b>25.2</b> Definition</a></li>
 <li class="chapter" data-level="25.3" data-path="machine-learning.html"><a href="machine-learning.html#origines"><i class="fa fa-check"></i><b>25.3</b> Origines</a></li>
@@ -433,7 +460,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="25.11" data-path="machine-learning.html"><a href="machine-learning.html#limits"><i class="fa fa-check"></i><b>25.11</b> Limits</a></li>
 <li class="chapter" data-level="25.12" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>25.12</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html"><i class="fa fa-check"></i><b>26</b> Centroid-based clustering</a><ul>
+<li class="chapter" data-level="26" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html"><i class="fa fa-check"></i><b>26</b> Centroid-based clustering</a>
+<ul>
 <li class="chapter" data-level="26.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>26.1</b> Recap</a></li>
 <li class="chapter" data-level="26.2" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#clustering-task"><i class="fa fa-check"></i><b>26.2</b> Clustering task</a></li>
 <li class="chapter" data-level="26.3" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>26.3</b> Example</a></li>
@@ -445,7 +473,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="26.9" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#geodemographic-classifications"><i class="fa fa-check"></i><b>26.9</b> Geodemographic classifications</a></li>
 <li class="chapter" data-level="26.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>26.10</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html"><i class="fa fa-check"></i><b>27</b> Hierarchical and density-based clustering</a><ul>
+<li class="chapter" data-level="27" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html"><i class="fa fa-check"></i><b>27</b> Hierarchical and density-based clustering</a>
+<ul>
 <li class="chapter" data-level="27.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>27.1</b> Recap</a></li>
 <li class="chapter" data-level="27.2" data-path="core-concepts.html"><a href="core-concepts.html#libraries"><i class="fa fa-check"></i><b>27.2</b> Libraries</a></li>
 <li class="chapter" data-level="27.3" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>27.3</b> Example</a></li>
@@ -458,17 +487,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="27.10" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#dbscan-result"><i class="fa fa-check"></i><b>27.10</b> DBSCAN result</a></li>
 <li class="chapter" data-level="27.11" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>27.11</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="knn.html"><a href="knn.html"><i class="fa fa-check"></i><b>28</b> kNN</a><ul>
+<li class="chapter" data-level="28" data-path="knn.html"><a href="knn.html"><i class="fa fa-check"></i><b>28</b> kNN</a>
+<ul>
 <li class="chapter" data-level="28.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>28.1</b> Recap</a></li>
 <li class="chapter" data-level="28.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>28.2</b> TO-DO</a></li>
 <li class="chapter" data-level="28.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>28.3</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>29</b> Support vector machines</a><ul>
+<li class="chapter" data-level="29" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>29</b> Support vector machines</a>
+<ul>
 <li class="chapter" data-level="29.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>29.1</b> Recap</a></li>
 <li class="chapter" data-level="29.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>29.2</b> TO-DO</a></li>
 <li class="chapter" data-level="29.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>29.3</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="deep-learning.html"><a href="deep-learning.html"><i class="fa fa-check"></i><b>30</b> Deep learning</a><ul>
+<li class="chapter" data-level="30" data-path="deep-learning.html"><a href="deep-learning.html"><i class="fa fa-check"></i><b>30</b> Deep learning</a>
+<ul>
 <li class="chapter" data-level="30.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>30.1</b> Recap</a></li>
 <li class="chapter" data-level="30.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>30.2</b> TO-DO</a></li>
 <li class="chapter" data-level="30.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>30.3</b> Summary</a></li>
@@ -493,9 +525,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="selection-and-filtering" class="section level1">
+<div id="selection-and-filtering" class="section level1" number="8">
 <h1><span class="header-section-number">8</span> Selection and filtering</h1>
-<div id="recap" class="section level2">
+<div id="recap" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Recap</h2>
 <p><strong>Prev</strong>: Data Frames</p>
 <ul>
@@ -509,7 +541,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>dplyr::filter</li>
 </ul>
 </div>
-<div id="dplyr" class="section level2">
+<div id="dplyr" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> dplyr</h2>
 <p>The <code>dplyr</code> (pronounced <em>dee-ply-er</em>) library is part of <code>tidyverse</code> and it offers a grammar for data manipulation</p>
 <ul>
@@ -521,35 +553,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>mutate</code>: add columns</li>
 <li><code>join</code>: merge data frames</li>
 </ul>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="selection-and-filtering.html#cb150-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="selection-and-filtering.html#cb146-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 </div>
-<div id="example-dataset" class="section level2">
+<div id="example-dataset" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Example dataset</h2>
 <p>The library <code>nycflights13</code> contains a dataset storing data about all the flights departed from New York City in 2013</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="selection-and-filtering.html#cb151-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;nycflights13&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="selection-and-filtering.html#cb152-1"></a><span class="kw">library</span>(nycflights13)</span>
-<span id="cb152-2"><a href="selection-and-filtering.html#cb152-2"></a></span>
-<span id="cb152-3"><a href="selection-and-filtering.html#cb152-3"></a>flights_from_nyc &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights</span>
-<span id="cb152-4"><a href="selection-and-filtering.html#cb152-4"></a></span>
-<span id="cb152-5"><a href="selection-and-filtering.html#cb152-5"></a><span class="kw">colnames</span>(flights_from_nyc)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="selection-and-filtering.html#cb147-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&quot;nycflights13&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="selection-and-filtering.html#cb148-1" aria-hidden="true"></a><span class="kw">library</span>(nycflights13)</span></code></pre></div>
+<pre><code>## Warning: package &#39;nycflights13&#39; was built under R version 4.0.2</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="selection-and-filtering.html#cb150-1" aria-hidden="true"></a>flights_from_nyc &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights</span>
+<span id="cb150-2"><a href="selection-and-filtering.html#cb150-2" aria-hidden="true"></a></span>
+<span id="cb150-3"><a href="selection-and-filtering.html#cb150-3" aria-hidden="true"></a><span class="kw">colnames</span>(flights_from_nyc)</span></code></pre></div>
 <pre><code>##  [1] &quot;year&quot;           &quot;month&quot;          &quot;day&quot;            &quot;dep_time&quot;      
 ##  [5] &quot;sched_dep_time&quot; &quot;dep_delay&quot;      &quot;arr_time&quot;       &quot;sched_arr_time&quot;
 ##  [9] &quot;arr_delay&quot;      &quot;carrier&quot;        &quot;flight&quot;         &quot;tailnum&quot;       
 ## [13] &quot;origin&quot;         &quot;dest&quot;           &quot;air_time&quot;       &quot;distance&quot;      
 ## [17] &quot;hour&quot;           &quot;minute&quot;         &quot;time_hour&quot;</code></pre>
 </div>
-<div id="dplyrselect" class="section level2">
+<div id="dplyrselect" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> dplyr::select</h2>
 <p><code>select</code> can be used to specify which columns to retain</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="selection-and-filtering.html#cb154-1"></a>delays &lt;-<span class="st"> </span><span class="kw">select</span>(flights_from_nyc, </span>
-<span id="cb154-2"><a href="selection-and-filtering.html#cb154-2"></a>  origin, dest, dep_delay, arr_delay,</span>
-<span id="cb154-3"><a href="selection-and-filtering.html#cb154-3"></a>  year<span class="op">:</span>day</span>
-<span id="cb154-4"><a href="selection-and-filtering.html#cb154-4"></a>  )</span>
-<span id="cb154-5"><a href="selection-and-filtering.html#cb154-5"></a></span>
-<span id="cb154-6"><a href="selection-and-filtering.html#cb154-6"></a><span class="co"># Drop column arr_delay using - in front of the column name</span></span>
-<span id="cb154-7"><a href="selection-and-filtering.html#cb154-7"></a>dep_delays &lt;-<span class="st"> </span><span class="kw">select</span>(delays, <span class="op">-</span>arr_delay)</span>
-<span id="cb154-8"><a href="selection-and-filtering.html#cb154-8"></a></span>
-<span id="cb154-9"><a href="selection-and-filtering.html#cb154-9"></a>delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="selection-and-filtering.html#cb152-1" aria-hidden="true"></a>delays &lt;-<span class="st"> </span><span class="kw">select</span>(flights_from_nyc, </span>
+<span id="cb152-2"><a href="selection-and-filtering.html#cb152-2" aria-hidden="true"></a>  origin, dest, dep_delay, arr_delay,</span>
+<span id="cb152-3"><a href="selection-and-filtering.html#cb152-3" aria-hidden="true"></a>  year<span class="op">:</span>day</span>
+<span id="cb152-4"><a href="selection-and-filtering.html#cb152-4" aria-hidden="true"></a>  )</span>
+<span id="cb152-5"><a href="selection-and-filtering.html#cb152-5" aria-hidden="true"></a></span>
+<span id="cb152-6"><a href="selection-and-filtering.html#cb152-6" aria-hidden="true"></a><span class="co"># Drop column arr_delay using - in front of the column name</span></span>
+<span id="cb152-7"><a href="selection-and-filtering.html#cb152-7" aria-hidden="true"></a>dep_delays &lt;-<span class="st"> </span><span class="kw">select</span>(delays, <span class="op">-</span>arr_delay)</span>
+<span id="cb152-8"><a href="selection-and-filtering.html#cb152-8" aria-hidden="true"></a></span>
+<span id="cb152-9"><a href="selection-and-filtering.html#cb152-9" aria-hidden="true"></a>delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 7
 ##   origin dest  dep_delay arr_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -557,14 +589,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 LGA    IAH           4        20  2013     1     1
 ## 3 JFK    MIA           2        33  2013     1     1</code></pre>
 </div>
-<div id="dplyrselect-1" class="section level2">
+<div id="dplyrselect-1" class="section level2" number="8.5">
 <h2><span class="header-section-number">8.5</span> dplyr::select</h2>
 <p>… using the pipe operator</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="selection-and-filtering.html#cb156-1"></a>dep_delays &lt;-<span class="st"> </span>flights_from_nyc <span class="op">%&gt;%</span></span>
-<span id="cb156-2"><a href="selection-and-filtering.html#cb156-2"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, dep_delay, arr_delay, year<span class="op">:</span>day) <span class="op">%&gt;%</span></span>
-<span id="cb156-3"><a href="selection-and-filtering.html#cb156-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>arr_delay)</span>
-<span id="cb156-4"><a href="selection-and-filtering.html#cb156-4"></a></span>
-<span id="cb156-5"><a href="selection-and-filtering.html#cb156-5"></a>delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="selection-and-filtering.html#cb154-1" aria-hidden="true"></a>dep_delays &lt;-<span class="st"> </span>flights_from_nyc <span class="op">%&gt;%</span></span>
+<span id="cb154-2"><a href="selection-and-filtering.html#cb154-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, dep_delay, arr_delay, year<span class="op">:</span>day) <span class="op">%&gt;%</span></span>
+<span id="cb154-3"><a href="selection-and-filtering.html#cb154-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>arr_delay)</span>
+<span id="cb154-4"><a href="selection-and-filtering.html#cb154-4" aria-hidden="true"></a></span>
+<span id="cb154-5"><a href="selection-and-filtering.html#cb154-5" aria-hidden="true"></a>delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 7
 ##   origin dest  dep_delay arr_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -572,29 +604,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 LGA    IAH           4        20  2013     1     1
 ## 3 JFK    MIA           2        33  2013     1     1</code></pre>
 </div>
-<div id="logical-filtering" class="section level2">
+<div id="logical-filtering" class="section level2" number="8.6">
 <h2><span class="header-section-number">8.6</span> Logical filtering</h2>
 <p>Conditional statements can be used to filter a vector, i.e. to retain only certain values</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="selection-and-filtering.html#cb158-1"></a>a_numeric_vector &lt;-<span class="st"> </span><span class="dv">-3</span><span class="op">:</span><span class="dv">3</span></span>
-<span id="cb158-2"><a href="selection-and-filtering.html#cb158-2"></a>a_numeric_vector</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="selection-and-filtering.html#cb156-1" aria-hidden="true"></a>a_numeric_vector &lt;-<span class="st"> </span><span class="dv">-3</span><span class="op">:</span><span class="dv">3</span></span>
+<span id="cb156-2"><a href="selection-and-filtering.html#cb156-2" aria-hidden="true"></a>a_numeric_vector</span></code></pre></div>
 <pre><code>## [1] -3 -2 -1  0  1  2  3</code></pre>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="selection-and-filtering.html#cb160-1"></a>a_numeric_vector[<span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="selection-and-filtering.html#cb158-1" aria-hidden="true"></a>a_numeric_vector[<span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>)]</span></code></pre></div>
 <pre><code>## [1] 0 1 2 3</code></pre>
 </div>
-<div id="conditional-filtering" class="section level2">
+<div id="conditional-filtering" class="section level2" number="8.7">
 <h2><span class="header-section-number">8.7</span> Conditional filtering</h2>
 <p>As a condition expression results in a logic vector, that condition can be used for filtering</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="selection-and-filtering.html#cb162-1"></a>a_numeric_vector <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="selection-and-filtering.html#cb160-1" aria-hidden="true"></a>a_numeric_vector <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="selection-and-filtering.html#cb164-1"></a>a_numeric_vector[a_numeric_vector <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="selection-and-filtering.html#cb162-1" aria-hidden="true"></a>a_numeric_vector[a_numeric_vector <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 </div>
-<div id="filtering-data-frames" class="section level2">
+<div id="filtering-data-frames" class="section level2" number="8.8">
 <h2><span class="header-section-number">8.8</span> Filtering data frames</h2>
 <p>The same can be applied to data frames</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="selection-and-filtering.html#cb166-1"></a>nov_dep_delays &lt;-<span class="st"> </span>dep_delays[dep_delays<span class="op">$</span>month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, ]</span>
-<span id="cb166-2"><a href="selection-and-filtering.html#cb166-2"></a></span>
-<span id="cb166-3"><a href="selection-and-filtering.html#cb166-3"></a>nov_dep_delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="selection-and-filtering.html#cb164-1" aria-hidden="true"></a>nov_dep_delays &lt;-<span class="st"> </span>dep_delays[dep_delays<span class="op">$</span>month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, ]</span>
+<span id="cb164-2"><a href="selection-and-filtering.html#cb164-2" aria-hidden="true"></a></span>
+<span id="cb164-3"><a href="selection-and-filtering.html#cb164-3" aria-hidden="true"></a>nov_dep_delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 6
 ##   origin dest  dep_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -602,12 +634,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 JFK    SYR         105  2013    11     1
 ## 3 EWR    CLT          -5  2013    11     1</code></pre>
 </div>
-<div id="dplyrfilter" class="section level2">
+<div id="dplyrfilter" class="section level2" number="8.9">
 <h2><span class="header-section-number">8.9</span> dplyr::filter</h2>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="selection-and-filtering.html#cb168-1"></a>nov_dep_delays &lt;-<span class="st"> </span>dep_delays <span class="op">%&gt;%</span></span>
-<span id="cb168-2"><a href="selection-and-filtering.html#cb168-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="co"># Flights in November</span></span>
-<span id="cb168-3"><a href="selection-and-filtering.html#cb168-3"></a></span>
-<span id="cb168-4"><a href="selection-and-filtering.html#cb168-4"></a>nov_dep_delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="selection-and-filtering.html#cb166-1" aria-hidden="true"></a>nov_dep_delays &lt;-<span class="st"> </span>dep_delays <span class="op">%&gt;%</span></span>
+<span id="cb166-2"><a href="selection-and-filtering.html#cb166-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="co"># Flights in November</span></span>
+<span id="cb166-3"><a href="selection-and-filtering.html#cb166-3" aria-hidden="true"></a></span>
+<span id="cb166-4"><a href="selection-and-filtering.html#cb166-4" aria-hidden="true"></a>nov_dep_delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 6
 ##   origin dest  dep_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -615,7 +647,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 JFK    SYR         105  2013    11     1
 ## 3 EWR    CLT          -5  2013    11     1</code></pre>
 </div>
-<div id="summary" class="section level2">
+<div id="summary" class="section level2" number="8.10">
 <h2><span class="header-section-number">8.10</span> Summary</h2>
 <p>Data selection and filtering</p>
 <ul>

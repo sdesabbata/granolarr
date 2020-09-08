@@ -64,6 +64,10 @@ As usual, use the function `library` to load the newly installed library.
 library(nycflights13)
 ```
 
+```
+## Warning: package 'nycflights13' was built under R version 4.0.2
+```
+
 The library `nycflights13` contains a dataset storing data about all the flights departed from New York City in 2013. The code below, loads the data frame `flights` from the library `nycflights13` into the variable `flights_from_nyc`, using the `::` operator to indicate that the data frame `flights` is situated within the library `nycflights13`.
 
 

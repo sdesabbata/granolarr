@@ -51,7 +51,13 @@ install.packages("nycflights13")
 
 ```r
 library(nycflights13)
+```
 
+```
+## Warning: package 'nycflights13' was built under R version 4.0.2
+```
+
+```r
 flights_from_nyc <- nycflights13::flights
 
 colnames(flights_from_nyc)

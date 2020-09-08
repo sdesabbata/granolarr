@@ -1,7 +1,7 @@
 ---
 title: "Lecture materials | granolarr"
 author: "Stefano De Sabbata"
-date: "2020-09-07"
+date: "2020-09-08"
 description: "Geographic data science reproducible teaching resource in R, Lecture materials"
 url: 'https://sdesabbata.github.io/granolarr/'
 github-repo: "sdesabbata/granolarr"
@@ -45,27 +45,23 @@ sessionInfo()
 ```
 
 ```
-## R version 4.0.2 (2020-06-22)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04 LTS
+## R version 4.0.1 (2020-06-06)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Mojave 10.14.6
 ## 
 ## Matrix products: default
-## BLAS/LAPACK: /usr/lib/x86_64-linux-gnu/openblas-openmp/libopenblasp-r0.3.8.so
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=C             
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_4.0.2  magrittr_1.5    bookdown_0.20   htmltools_0.5.0
-##  [5] tools_4.0.2     yaml_2.2.1      stringi_1.4.6   rmarkdown_2.3  
-##  [9] knitr_1.29      stringr_1.4.0   digest_0.6.25   xfun_0.16      
+##  [1] compiler_4.0.1  magrittr_1.5    bookdown_0.20   htmltools_0.5.0
+##  [5] tools_4.0.1     yaml_2.2.1      stringi_1.4.6   rmarkdown_2.3  
+##  [9] knitr_1.29      stringr_1.4.0   digest_0.6.25   xfun_0.15      
 ## [13] rlang_0.4.7     evaluate_0.14
 ```

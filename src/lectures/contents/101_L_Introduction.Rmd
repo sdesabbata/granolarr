@@ -1,6 +1,6 @@
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_knit$set(root.dir = Sys.getenv("GRANOLARR_HOME"))
 rm(list = ls())
 ```
 
@@ -46,10 +46,10 @@ One of the most widely used programming languages and an effective tool for *(ge
 ::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide', fig.height = 4, fig.width = 4}
-ifelse(!dir.exists(file.path(".", "tmp")), dir.create(file.path(".", "tmp")), FALSE)
+ifelse(!dir.exists(file.path(Sys.getenv("GRANOLARR_HOME"), "tmp")), dir.create(file.path(Sys.getenv("GRANOLARR_HOME"), "tmp")), FALSE)
 
 if (!dir.exists(file.path("./tmp", "E06000016"))) {
-  unzip(paste0(rprojroot::find_rstudio_root_file(), "/data/", "e06000016.zip"), exdir = "tmp")
+  unzip(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "e06000016.zip"), exdir = "tmp")
 }
 
 library(sp)

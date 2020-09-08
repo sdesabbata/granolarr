@@ -1,5 +1,5 @@
 ```{r setup, include=FALSE}
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_knit$set(root.dir = Sys.getenv("GRANOLARR_HOME"))
 rm(list = ls())
 ```
 
@@ -191,7 +191,7 @@ leicester_2011OAC %>%
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-leicester_2011OAC <- read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
+leicester_2011OAC <- read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
 
 leicester_2011OAC %>% 
   select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) %>%
@@ -208,7 +208,7 @@ leicester_IMD2015 <- read_csv("IndexesMultipleDeprivation2015_Leicester.csv")
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Load Indexes of Multiple deprivation data
-leicester_IMD2015 <- read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "IndexesMultipleDeprivation2015_Leicester.csv"))
+leicester_IMD2015 <- read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "IndexesMultipleDeprivation2015_Leicester.csv"))
 ```
 
 The function `write_csv` can be used to save a dataset as a `csv` file. For instance, the code below uses `tidyverse` functions and the pipe operator `%>%` to:
@@ -226,7 +226,7 @@ read_csv("2011_OAC_Raw_uVariables_Leicester.csv") %>%
 ```
 
 ```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
-read_csv(paste0(rprojroot::find_rstudio_root_file(), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv")) %>%
+read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv")) %>%
   select(OA11CD, supgrpcode, supgrpname) %>%
   filter(supgrpcode == 6) %>%
   write_csv("~/Leicester_Suburbanites.csv")

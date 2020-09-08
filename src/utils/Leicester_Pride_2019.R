@@ -18,20 +18,20 @@ library(ggplot2)
 rm(list=ls())
 
 # Create tmp dir if necessary
-ifelse(!dir.exists(file.path(".", "tmp")), dir.create(file.path(".", "tmp")), FALSE)
+ifelse(!dir.exists(file.path(Sys.getenv("GRANOLARR_HOME"), "/tmp")), dir.create(file.path(Sys.getenv("GRANOLARR_HOME"), "/tmp")), FALSE)
 
-if (!dir.exists(file.path("./tmp", "E06000016"))) {
-  unzip(paste0(rprojroot::find_rstudio_root_file(), "/data/", "e06000016.zip"), exdir = "tmp")
+if (!dir.exists(file.path(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), "E06000016"))) {
+  unzip(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "e06000016.zip"), exdir = "tmp")
 }
-if (!dir.exists(file.path("./tmp", "England_ct_2011_Leicestershire"))) {
-  unzip(paste0(rprojroot::find_rstudio_root_file(), "/data/", "England_ct_2011_Leicestershire.zip"), exdir = "tmp")
+if (!dir.exists(file.path(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), "England_ct_2011_Leicestershire"))) {
+  unzip(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "England_ct_2011_Leicestershire.zip"), exdir = "tmp")
 }
 
 
 # Load data
-leic_2011OAC <- readOGR("tmp/E06000016/E06000016_Leicester.shp")
+leic_2011OAC <- readOGR(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/E06000016/E06000016_Leicester.shp"))
 leic_2011OAC <- spTransform(leic_2011OAC, CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"))
-england_ct_2011 <- readOGR("tmp/England_ct_2011_Leicestershire/england_ct_2011_Leicestershire.shp")
+england_ct_2011 <- readOGR(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/England_ct_2011_Leicestershire/england_ct_2011_Leicestershire.shp"))
 england_ct_2011 <- spTransform(england_ct_2011, CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"))
 
 # Calculate centroids
@@ -132,9 +132,9 @@ ggmap(
   )
 
 # Clean
-unlink("tmp/England_ct_2011_Leicestershire", recursive = TRUE)
-unlink("tmp/E06000016", recursive = TRUE)
-if(length(list.files(path = "./tmp", include.dirs = TRUE)) == 0){
-  unlink("tmp", recursive = TRUE)
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/England_ct_2011_Leicestershire"), recursive = TRUE)
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/E06000016"), recursive = TRUE)
+if(length(list.files(path = paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), include.dirs = TRUE)) == 0){
+  unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), recursive = TRUE)
 }
 rm(list=ls())

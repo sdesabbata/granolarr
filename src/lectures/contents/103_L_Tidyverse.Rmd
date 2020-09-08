@@ -1,6 +1,6 @@
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_knit$set(root.dir = Sys.getenv("GRANOLARR_HOME"))
 rm(list = ls())
 ```
 
@@ -115,7 +115,7 @@ The two codes below are equivalent
 round(sqrt(2), digits = 2)
 ```
 
-```{r, echo=TRUE}
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 
 sqrt(2) %>%

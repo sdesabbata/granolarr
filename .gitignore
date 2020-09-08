@@ -16,6 +16,7 @@
 
 # RStudio files
 .Rproj.user/
+.here
 
 # produced documents
 #/README.html
