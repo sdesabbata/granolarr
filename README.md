@@ -158,24 +158,18 @@ Further reading
 
 ## Reproducibility
 
-To reproduce these materials:
+You can now reproduce granolarr using [Docker](https://www.docker.com/). Once Docker is installed on your system, you can build the sdesabbata/granolarr image running the `Docker_Build.sh` or [download the latest sdesabbata/granolarr image from the Docker Hub](https://hub.docker.com/repository/docker/sdesabbata/granolarr). You can then [clone this repository from GitHub](https://github.com/sdesabbata/granolarr) to your system and run the script `Docker_Make.sh` from the repository folder. The script will instantiate a Docker container for the sdesabbata/granolarr image, bind mount the repository folder to the container and execute `Make.R` on the container, clearing and re-making all the materials.
 
-- install [R](https://www.r-project.org/), [RStudio](https://rstudio.com/products/rstudio/download/) and [Git](https://git-scm.com/downloads)
-- install the following R libraries
-    - `tidyverse`, `magrittr`
-    - `knitr`, `stargazer`
-    - `nycflights13`
-    - `pastecs`, `car`, `psych`, `lmtest`, `lm.beta`
-    - `e1071`, `dbscan`
-    - `sp`, `rgdal`, `tmap`
-- install [tinytex](https://yihui.org/tinytex/r/)
-- clone this repository as an RStudio project
-    - open RStudio
-    - make sure Git is correctly set up in `Tools > Global Options... > Git/SVN`
-    - make sure that the selected option for `Typeset LaTeX into PDF using` is `XeLaTeX` in `Tools > Global Options... > Sweave` (practicals are also compiled locally as PDF files)
-    - select `File > New Project...`, then`Version Control` and finally `Git`
-    - copy `https://github.com/sdesabbata/granolarr.git` in the `Repository URL` field, select a folder for the field `Create project as subdirectory of` and click on `Create Project`
-- execute `Make.R`
+For instance, in a unix-based system like Linux or Mac OS, you can reproduce granolarr using the following four commands:
+
+```
+docker pull sdesabbata/granolarr:latest
+git clone https://github.com/sdesabbata/granolarr.git
+cd granolarr
+./Docker_Make.sh
+```
+
+This approach should allow you to not simply use the materials as they are, but to easily edit and create your own version in the same computational environment.
 
 
 ## Credits and acknowledgements
