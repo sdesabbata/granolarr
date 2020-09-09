@@ -162,7 +162,7 @@ You can now reproduce granolarr using [Docker](https://www.docker.com/). Once Do
 
 For instance, in a unix-based system like Linux or Mac OS, you can reproduce granolarr using the following four commands:
 
-```
+```{bash}
 docker pull sdesabbata/granolarr:latest
 git clone https://github.com/sdesabbata/granolarr.git
 cd granolarr
