@@ -3,7 +3,7 @@ permalink: /lectures_100/
 title: "Introduction"
 author_profile: false
 sidebar:
-  nav: "resources"
+  nav: "lectures"
 ---
 
 

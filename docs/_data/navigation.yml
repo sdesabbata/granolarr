@@ -6,26 +6,32 @@ main:
   - title: "About"
     url: /about/
 
-resources:
-  - title: "Lectures"
+lectures:
+  - title: "R coding"
     children:
-      - title: "100 Introduction"
+      - title: "Introduction"
         url: /lectures_100/
-      - title: "110 R programming"
+      - title: "R programming"
         url: /lectures_110/
-      - title: "200 Selection and manipulation"
+  - title: "Data wrangling"
+    children:
+      - title: "Selection and manipulation"
         url: /lectures_200/
-      - title: "210 Table operations"
+      - title: "Table operations"
         url: /lectures_210/
-      - title: "220 Reproducibility"
+      - title: "Reproducibility"
         url: /lectures_220/
-      - title: "300 Exploratory data analysis"
+  - title: "Data analysis"
+    children:
+      - title: "Exploratory data analysis"
         url: /lectures_300/
-      - title: "310 Comparing data"
+      - title: "Comparing data"
         url: /lectures_310/
-      - title: "320 Regression models"
+      - title: "Regression models"
         url: /lectures_320/
-      - title: "400 Unsupervised learning"
+  - title: "Machine learning"
+    children:
+      - title: "Unsupervised"
         url: /lectures_400/
-      - title: "410 Supervised learning"
+      - title: "Supervised"
         url: /lectures_410/
