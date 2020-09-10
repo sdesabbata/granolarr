@@ -1,25 +1,15 @@
 main:
   - title: "Lectures"
-    url: /lectures_page/
+    url: /lectures_100/
   - title: "Practicals"
     url: /practicals/bookdown
   - title: "About"
     url: /about/
 
 resources:
-  - title: "Resources"
+  - title: "Lectures"
     children:
-      - title: "Introduction"
-        url: /resources/
-      - title: "GIScience pedagogy"
-        url: /pedagogy/
-      - title: "Full syllabi"
-        url: /syllabi/
-      - title: "Courses | modules"
-        url: /courses/
-      - title: "Reading list"
-        url: /readinglist/
-      - title: "R libraries"
-        url: /rlibraries/
-      - title: "Tools"
-        url: /tools/
+      - title: "100 Introduction"
+        url: /lectures_100/
+      - title: "110 R programming"
+        url: /lectures_110/
