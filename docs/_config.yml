@@ -37,7 +37,7 @@ footer:
       url: "https://https://twitter.com/maps4thought"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/granolarr"
+      url: "https://github.com/sdesabbata/granolarr"
 
 defaults:
   # _posts
