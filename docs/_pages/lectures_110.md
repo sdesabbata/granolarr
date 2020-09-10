@@ -1,6 +1,6 @@
 ---
 permalink: /lectures_110/
-title: "Introduction"
+title: "R programming"
 author_profile: false
 sidebar:
   nav: "lectures"
@@ -36,3 +36,7 @@ sidebar:
 <small>
 [Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/113_L_Functions.html).
 </small>
+
+## 114 Practical session
+
+See practical session [bookdown](practicals/bookdown/data-types.html).

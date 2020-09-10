@@ -1,38 +1,42 @@
 ---
 permalink: /lectures_410/
-title: "Introduction"
+title: "Supervised machine learning"
 author_profile: false
 sidebar:
   nav: "lectures"
 ---
 
 
-## 101 Introduction to R
+## 411 K-nearest neighbors
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/101_L_Introduction.html" title="101_L_Introduction" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/411_L_KNN.html" title="411_L_KNN" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/101_L_Introduction.html).
+[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/411_L_KNN.html).
 </small>
 
-## 102 Core concepts
+## 412 Support vector machines
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/102_L_CoreConcepts.html" title="102_L_CoreConcepts" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/412_L_SupportVectorMachines.html" title="412_L_SupportVectorMachines" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/102_L_CoreConcepts.html).
+[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/412_L_SupportVectorMachines.html).
 </small>
 
-## 103 Tidyverse
+## 413 Deep learning
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/103_L_Tidyverse.html" title="103_L_Tidyverse" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/413_L_DeepLearning.html" title="413_L_DeepLearning" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/103_L_Tidyverse.html).
+[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/413_L_DeepLearning.html).
 </small>
+
+## 414 Practical session
+
+See practical session [bookdown](practicals/bookdown/support-vector-machines.html).

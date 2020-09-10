@@ -36,3 +36,7 @@ sidebar:
 <small>
 [Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/103_L_Tidyverse.html).
 </small>
+
+## 104 Practical session
+
+See practical session [bookdown](practicals/bookdown/introduction-to-r.html).

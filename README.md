@@ -24,11 +24,11 @@ All the materials are available through the **[lectures bookdown](lectures/bookd
 1. **R coding**
     - **100 Introduction**
         - 101 Lecture ([slides](lectures/html/101_L_Introduction.html), [bookdown](lectures/bookdown/introduction-to-r.html))
-            - Introduction to R (basic types and operators)
+            - Introduction to R
         - 102 Lecture ([slides](lectures/html/102_L_CoreConcepts.html), [bookdown](lectures/bookdown/core-concepts.html))
-            - Core concepts (variables, functions, libraries)
+            - Core concepts
         - 103 Lecture ([slides](lectures/html/103_L_Tidyverse.html), [bookdown](lectures/bookdown/tidyverse.html))
-            - Tidyverse (incl. pipe operator)
+            - Tidyverse
         - 104 Practical session ([bookdown](practicals/bookdown/introduction-to-r.html))
             - The R programming language
             - Interpreting values
@@ -112,9 +112,9 @@ All the materials are available through the **[lectures bookdown](lectures/bookd
             - Simple regression
         - 322 Lecture ([slides](lectures/html/322_L_RegressionAssessing.html), [bookdown](lectures/bookdown/assessing-regression-assumptions.html))
             - Assessing regression assumptions
-        - *323 Lecture (to do)* <!-- ([slides](lectures/html/323_L_RegressionMultiple.html), [bookdown](lectures/bookdown/multiple-regression.html)) -->
+        - *323 Lecture (to do)* ([slides](lectures/html/323_L_RegressionMultiple.html), [bookdown](lectures/bookdown/multiple-regression.html))
             - Multiple regression
-        - 324 Practical session ([bookdown](practicals/bookdown/exploratory-analysis.html))
+        - 324 Practical session ([bookdown](practicals/bookdown/regression-analysis.html))
             - Simple regression
             - Testing assumptions
             - Multiple regression
@@ -123,10 +123,10 @@ All the materials are available through the **[lectures bookdown](lectures/bookd
         - 401 Lecture ([slides](lectures/html/401_L_MachineLearningIntro.html), [bookdown](lectures/bookdown/machine-learning.html))
             - Introduction to Machine Learning
         - 402 Lecture ([slides](lectures/html/402_L_ClusteringCentroid.html), [bookdown](lectures/bookdown/centroid-based-clustering.html))
-            - Clustering
+            - Centroid-based clustering
         - 403 Lecture ([slides](lectures/html/403_L_ClusteringHierarchicalDensity.html), [bookdown](lectures/bookdown/hierarchical-and-density-based-clustering.html))
-            - Geodemographics
-        - *404 Practical session (to do)*
+            - Hierarchical and density-based clustering
+        - *404 Practical session (to do)* ([bookdown](practicals/bookdown/geodemographic-classification.html))
             - Geodemographic classification
     - **410 Supervised**
         - *411 Lecture (to do)* ([slides](lectures/html/411_L_KNN.html), [bookdown](lectures/bookdown/knn.html))
@@ -135,8 +135,9 @@ All the materials are available through the **[lectures bookdown](lectures/bookd
             - Support vector machines
         - *413 Lecture (to do)* ([slides](lectures/html/413_L_DeepLearning.html), [bookdown](lectures/bookdown/deep-learning.html))
             - Deep learning
-        - *414 Practical session (to do)*
+        - *414 Practical session (to do)* ([bookdown](practicals/bookdown/support-vector-machines.html))
             - Support vector machines
+
 
 
 

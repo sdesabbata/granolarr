@@ -1,38 +1,42 @@
 ---
 permalink: /lectures_400/
-title: "Introduction"
+title: "Unsupervised machine learning"
 author_profile: false
 sidebar:
   nav: "lectures"
 ---
 
 
-## 101 Introduction to R
+## 401 Introduction to Machine Learning
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/101_L_Introduction.html" title="101_L_Introduction" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/401_L_MachineLearningIntro.html" title="401_L_MachineLearningIntro" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/101_L_Introduction.html).
+[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/401_L_MachineLearningIntro.html).
 </small>
 
-## 102 Core concepts
+## 402 Centroid-based clustering
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/102_L_CoreConcepts.html" title="102_L_CoreConcepts" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/402_L_ClusteringCentroid.html" title="402_L_ClusteringCentroid" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/102_L_CoreConcepts.html).
+[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/402_L_ClusteringCentroid.html).
 </small>
 
-## 103 Tidyverse
+## 403 Hierarchical and density-based clustering
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/103_L_Tidyverse.html" title="103_L_Tidyverse" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/403_L_ClusteringHierarchicalDensity.html" title="403_L_ClusteringHierarchicalDensity" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/103_L_Tidyverse.html).
+[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/403_L_ClusteringHierarchicalDensity.html).
 </small>
+
+## 404 Practical session
+
+See practical session [bookdown](practicals/bookdown/geodemographic-classification.html).
