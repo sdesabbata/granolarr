@@ -1,14 +1,8 @@
 main:
   - title: "Lectures"
-    children:
-      - title: "Slides"
-        url: /lectures_100/
-      - title: "Bookdown"
-        url: /practicals/bookdown
+    url: /lectures_100/
   - title: "Practicals"
-    children:
-      - title: "Bookdown"
-        url: /practicals/bookdown
+    url: /practicals/bookdown
   - title: "About"
     url: /about/
 
