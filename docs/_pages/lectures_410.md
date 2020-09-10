@@ -1,5 +1,5 @@
 ---
-permalink: /lectures_100/
+permalink: /lectures_410/
 title: "Introduction"
 author_profile: false
 sidebar:

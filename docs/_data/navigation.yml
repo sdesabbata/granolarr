@@ -13,3 +13,19 @@ resources:
         url: /lectures_100/
       - title: "110 R programming"
         url: /lectures_110/
+      - title: "200 Selection and manipulation"
+        url: /lectures_200/
+      - title: "210 Table operations"
+        url: /lectures_210/
+      - title: "220 Reproducibility"
+        url: /lectures_220/
+      - title: "300 Exploratory data analysis"
+        url: /lectures_300/
+      - title: "310 Comparing data"
+        url: /lectures_310/
+      - title: "320 Regression models"
+        url: /lectures_320/
+      - title: "400 Unsupervised learning"
+        url: /lectures_400/
+      - title: "410 Supervised learning"
+        url: /lectures_410/
