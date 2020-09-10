@@ -3,8 +3,6 @@ main:
     url: /lectures_100/
   - title: "Practicals"
     url: /practicals/bookdown
-  - title: "About"
-    url: /about/
 
 lectures:
   - title: "R coding"
