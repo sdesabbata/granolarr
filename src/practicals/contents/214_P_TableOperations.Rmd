@@ -349,7 +349,7 @@ Extend the code in the script `Data_Wrangling_Example.R` to include the code nec
 
 ## Solutions
 
-A full R Script including the code for the analysis presented in this practical session and the solutions to the 5 questions above is available in the Exercise folder of the repository (`202_X_Data_Wrangling2_Example.R`). Upload the prepared script to your *Practical_202* project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.
+A full R Script including the code for the analysis presented in this practical session and the solutions to the 5 questions above is available in the Exercises folder (`docs/exercises`) of the repository (`202_X_Data_Wrangling2_Example.R`). Upload the prepared script to your *Practical_202* project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.
 
 ```{r cleanup, include=FALSE}
 rm(list = ls())

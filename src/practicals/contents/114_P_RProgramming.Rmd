@@ -389,7 +389,7 @@ function_question_1_3(c(3, -1, 0), c("Derby", "Leicester", "Lincoln", "Nottingha
 
 ### Exercise 6.2
 
-A full R Script is available in the Exercise folder of the repository (`111_X_Data_Wrangling_with_Functions.R`). Upload the prepared script to your *Practical_111* project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.
+A full R Script is available in the Exercises folder (`docs/exercises`) of the repository (`111_X_Data_Wrangling_with_Functions.R`). Upload the prepared script to your *Practical_111* project folder, click on the uploaded file to open it in a new editor tab and compare it to your script.
 -->
 
 ```{r cleanup, include=FALSE}
