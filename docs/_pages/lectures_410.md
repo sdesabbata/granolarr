@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/411_L_KNN.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/411_L_KNN" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 412 Support vector machines
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/412_L_SupportVectorMachines.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/412_L_SupportVectorMachines" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 413 Deep learning
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/413_L_DeepLearning.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/413_L_DeepLearning" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 414 Practical session
 
-See practical session [bookdown](practicals/bookdown/support-vector-machines.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/support-vector-machines" target="_blank">practical session bookdown.</a>

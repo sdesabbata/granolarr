@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/201_L_DataFrames.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/201_L_DataFrames" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 202 Data selection and filtering
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/202_L_SelectionFiltering.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/202_L_SelectionFiltering" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 203 Data manipulation
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/203_L_DataManipulation.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/203_L_DataManipulation" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 204 Practical session
 
-See practical session [bookdown](practicals/bookdown/data-wrangling-pt-1.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/data-wrangling-pt-1" target="_blank">practical session bookdown.</a>

@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/101_L_Introduction.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/101_L_Introduction" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 102 Core concepts
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/102_L_CoreConcepts.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/102_L_CoreConcepts" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 103 Tidyverse
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/103_L_Tidyverse.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/103_L_Tidyverse" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 104 Practical session
 
-See practical session [bookdown](practicals/bookdown/introduction-to-r.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/introduction-to-r" target="_blank">practical session bookdown.</a>

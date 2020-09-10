@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/321_L_Regression.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/321_L_Regression" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 322 Assessing regression assumptions
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/322_L_RegressionAssessing.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/322_L_RegressionAssessing" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 323 Multiple regression
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionMultiple.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionMultiple" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 324 Practical session
 
-See practical session [bookdown](practicals/bookdown/regression-analysis.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/regression-analysis" target="_blank">practical session bookdown.</a>

@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/211_L_DataJoin.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/211_L_DataJoin" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 212 Table pivot
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/212_L_DataPivot.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/212_L_DataPivot" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 213 Read and write data
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/213_L_ReadWrite.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/213_L_ReadWrite" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 214 Practical session
 
-See practical session [bookdown](practicals/bookdown/data-wrangling-pt-2.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/data-wrangling-pt-2" target="_blank">practical session bookdown.</a>

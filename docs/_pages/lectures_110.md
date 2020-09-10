@@ -1,4 +1,4 @@
----
+<a href="---
 permalink: /lectures_110/
 title: "R programming"
 author_profile: false
@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/111_L_DataTypes.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/111_L_DataTypes" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 112 Control structures
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/112_L_ControlStructures.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/112_L_ControlStructures" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 113 Functions
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/113_L_Functions.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/113_L_Functions" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 114 Practical session
 
-See practical session [bookdown](practicals/bookdown/data-types.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/data-types" target="_blank">practical session bookdown.</a>

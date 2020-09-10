@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/221_L_Reproducibility.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/221_L_Reproducibility" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 222 R and Markdown
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/222_L_RMarkdown.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/222_L_RMarkdown" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 223 Git
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/223_L_Git.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/223_L_Git" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 224 Practical session
 
-See practical session [bookdown](practicals/bookdown/reproducibility.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/reproducibility" target="_blank">practical session bookdown.</a>

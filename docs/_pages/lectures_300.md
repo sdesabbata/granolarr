@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/301_L_DataVisualisation.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/301_L_DataVisualisation" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 302 Descriptive statistics
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/302_L_DescriptiveStats.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/302_L_DescriptiveStats" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 303 Exploring assumptions
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/303_L_ExploringAssumptions.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/303_L_ExploringAssumptions" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 304 Practical session
 
-See practical session [bookdown](practicals/bookdown/exploratory-analysis.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/exploratory-analysis" target="_blank">practical session bookdown.</a>

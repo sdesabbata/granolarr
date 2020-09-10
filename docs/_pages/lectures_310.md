@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/311_L_ComparingMeans.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/311_L_ComparingMeans" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 312 Correlation
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/312_L_Correlation.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/312_L_Correlation" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 313 Data transformations
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/313_L_DataTransformations.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/313_L_DataTransformations" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 314 Practical session
 
-See practical session [bookdown](practicals/bookdown/comparing-data.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/comparing-data" target="_blank">practical session bookdown.</a>

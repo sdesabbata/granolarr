@@ -14,7 +14,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/401_L_MachineLearningIntro.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/401_L_MachineLearningIntro" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 402 Centroid-based clustering
@@ -24,7 +24,7 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/402_L_ClusteringCentroid.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/402_L_ClusteringCentroid" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 403 Hierarchical and density-based clustering
@@ -34,9 +34,9 @@ sidebar:
 </div>
 
 <small>
-[Open the lecture slides in a sepate page](https://sdesabbata.github.io/granolarr/lectures/html/403_L_ClusteringHierarchicalDensity.html).
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/403_L_ClusteringHierarchicalDensity" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 404 Practical session
 
-See practical session [bookdown](practicals/bookdown/geodemographic-classification.html).
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/geodemographic-classification" target="_blank">practical session bookdown.</a>
