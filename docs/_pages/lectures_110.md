@@ -9,4 +9,4 @@ sidebar:
 
 This section of the website aims to collect lectures materials
 
-<iframe src="lectures/html/101_L_Introduction.html" title="101_L_Introduction"></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/101_L_Introduction.html" title="101_L_Introduction"></iframe>
