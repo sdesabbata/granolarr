@@ -1,4 +1,4 @@
-----
+---
 permalink: /lectures_310/
 title: "Comparing data"
 author_profile: false
