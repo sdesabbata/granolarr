@@ -33,11 +33,11 @@ All the materials are available through the **[lectures bookdown](lectures/bookd
 1. **R coding**
     - **100 Introduction**
         - 101 Lecture ([slides](lectures/html/101_L_Introduction.html), [bookdown](lectures/bookdown/introduction-to-r.html))
-            - Introduction to R (basic types and operators)
+            - Introduction to R
         - 102 Lecture ([slides](lectures/html/102_L_CoreConcepts.html), [bookdown](lectures/bookdown/core-concepts.html))
-            - Core concepts (variables, functions, libraries)
+            - Core concepts
         - 103 Lecture ([slides](lectures/html/103_L_Tidyverse.html), [bookdown](lectures/bookdown/tidyverse.html))
-            - Tidyverse (incl. pipe operator)
+            - Tidyverse
         - 104 Practical session ([bookdown](practicals/bookdown/introduction-to-r.html))
             - The R programming language
             - Interpreting values
