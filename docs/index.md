@@ -9,6 +9,7 @@ header:
   #  - label: ""
   #    url: ""
 author: Stefano De Sabbata
+author_profile: true
 title: "granolarr"
 excerpt: >
   A geoggraphic data science<br/>reproducible teaching resource in R
