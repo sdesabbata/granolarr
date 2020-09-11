@@ -4,6 +4,9 @@ title: "Table operations"
 author_profile: false
 sidebar:
   nav: "lectures"
+toc: true
+toc_label: "Sessions"
+toc_icon: "fas fa-chalkboard-teacher"
 ---
 
 

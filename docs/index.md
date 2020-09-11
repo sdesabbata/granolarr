@@ -10,7 +10,10 @@ header:
   #    url: ""
 title: "granolarr"
 excerpt: >
-  A geoggraphic data science, reproducible<br/>teaching resource in R
+  A geoggraphic data science<br/>reproducible teaching resource in R
+toc: true
+toc_label: "Table of Contents"
+toc_icon: "fas fa-book-open"
 ---
 
 **ANNOUNCMENT**: This is a **revised version** of granolarr, **currently under development** to meet the University of Leicester ["Ingite"](https://le.ac.uk/ignite) approach to blended learning for the academic year 2020/2021. The first version of granolarr is still available at [granolarr_v1](https://sdesabbata.github.io/granolarr_v1/).
@@ -19,12 +22,7 @@ The materials included in **granolarr** have been designed for a module focusing
 
 The materials aim to cover the necessary skills in basic programming, data wrangling and reproducible research to tackle sophisticated but non-spatial data analyses. The first part of the module will focus on core programming techniques, data wrangling and practices for reproducible research. The second part of the module will focus on non-spatial data analysis approaches, including statistical analysis and machine learning.
 
-## Table of contents
 
-- [Materials by topic](#materials)
-- [Reference books](#reference-books)
-- [Reproducibility](#reproducibility)
-- [Credits and acknowledgements](#credits-and-acknowledgements)
 
 ## Materials
 
@@ -78,6 +76,7 @@ cd granolarr
 ```
 
 This approach should allow you to not simply use the materials as they are, but to easily edit and create your own version in the same computational environment.
+
 
 
 ## Credits and acknowledgements
