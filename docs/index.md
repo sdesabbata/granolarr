@@ -69,7 +69,9 @@ Further reading
 
 ## Reproducibility
 
-You can now reproduce granolarr using [Docker](https://www.docker.com/). Once Docker is installed on your system, you can build the sdesabbata/granolarr image running the `Docker_Build.sh` or [download the latest sdesabbata/granolarr image from the Docker Hub](https://hub.docker.com/repository/docker/sdesabbata/granolarr). You can then [clone this repository from GitHub](https://github.com/sdesabbata/granolarr) to your system and run the script `Docker_Make.sh` from the repository folder. The script will instantiate a Docker container for the sdesabbata/granolarr image, bind mount the repository folder to the container and execute `Make.R` on the container, clearing and re-making all the materials.
+You can now reproduce granolarr using [Docker](https://www.docker.com/). First [install Docker](https://docs.docker.com/get-docker/) on your system, [install Git](https://git-scm.com/downloads) if not already installed, and [clone this repository from GitHub](https://github.com/sdesabbata/granolarr). You can then either build the sdesabbata/granolarr image running the `Docker_Build.sh` script in the root directory of the repository or simply [pull the latest sdesabbata/granolarr image from the Docker Hub](https://hub.docker.com/repository/docker/sdesabbata/granolarr).
+
+You should now have all the code and the computational environment to reproduce these materials, which can be done by running the script `Docker_Make.sh` from the repository folder. The script will instantiate a Docker container for the sdesabbata/granolarr image, bind mount the repository folder to the container and execute `Make.R` on the container, clearing and re-making all the materials.
 
 For instance, in a unix-based system like Linux or Mac OS, you can reproduce granolarr using the following four commands:
 
@@ -80,7 +82,42 @@ cd granolarr
 ./Docker_Make.sh
 ```
 
-This approach should allow you to not simply use the materials as they are, but to easily edit and create your own version in the same computational environment.
+This approach should allow not simply to use the materials as they are, but to easily edit and create your own version in the same computational environment. To develop your own materials, simply modify the code in the repository and run the `Docker_Make.sh` from the repository folder again to obtain the updated materials. 
+
+The [RMarkdown](https://rmarkdown.rstudio.com/) code used to create the materials for the lectures and practical sessions can be found in the `src/lectures` and `src/practicals` folders, respectively. Both folders contain one RMarkdown file per session which contains the headings necessary to create the respective html slides  (compiled to `docs/lectures/html`) and pdf documents (compiled to `docs/practicals/pdf`), whereas the main corpus of the materials can be found in the files included in the respective `contents` folders. The latter files are also used directly to generate the [Bookdown](https://bookdown.org/) version of the materials (which are compiled to `docs/lectures/bookdown` and `docs/practicals/bookdown`). The `docs` folder also contains the files used to generate the [GitHub Pages](https://pages.github.com/) website using the [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) Jekyll theme. The data used in the materials are stored in the `data` folder, and can be re-created from the original open data using the scripts in `src/utils`. The `utils` folder also contains the IOSlides templates and some style classes used in the RMarkdown code.
+
+```{bash}
+.
+├── DockerConfig
+├── data
+├── docs
+│   ├── _data
+│   ├── _pages
+│   ├── _posts
+│   ├── assets
+│   │   └── images
+│   ├── exercises
+│   ├── lectures
+│   │   ├── bookdown
+│   │   └── html
+│   └── practicals
+│       ├── bookdown
+│       └── pdf
+└── src
+    ├── lectures
+    │   ├── contents
+    │   │   └── images -> ../images
+    │   └── images
+    ├── practicals
+    │   ├── contents
+    │   │   └── images -> ../images
+    │   ├── images
+    │   └── materials
+    └── utils
+        ├── IOSlides
+        └── RMarkdown
+
+```
 
 
 
