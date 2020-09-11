@@ -12,7 +12,7 @@ author: Stefano De Sabbata
 author_profile: true
 title: "granolarr"
 excerpt: >
-  A geoggraphic data science<br/>reproducible teaching resource in R
+  A geographic data science<br/>reproducible teaching resource in R
 toc: true
 toc_label: "Table of Contents"
 toc_icon: "fas fa-book-open"
