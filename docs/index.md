@@ -116,7 +116,6 @@ The [RMarkdown](https://rmarkdown.rstudio.com/) code used to create the material
     └── utils
         ├── IOSlides
         └── RMarkdown
-
 ```
 
 
