@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 permalink: /
 header:
   overlay_image: /assets/images/eugenio-mazzone-6ywyo2qtaZ8-unsplash--top.png
@@ -8,6 +8,7 @@ header:
   #actions:
   #  - label: ""
   #    url: ""
+author: Stefano De Sabbata
 title: "granolarr"
 excerpt: >
   A geoggraphic data science<br/>reproducible teaching resource in R
