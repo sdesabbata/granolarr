@@ -173,7 +173,7 @@ cd granolarr
 This approach should allow you to not simply use the materials as they are, but to easily edit and create your own version in the same computational environment.
 
 
-## Credits and acknowledgements
+## License and acknowledgements
 
 *[Stefano De Sabbata](https://stefanodesabbata.com)*
 

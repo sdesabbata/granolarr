@@ -7,6 +7,7 @@ sidebar:
 toc: true
 toc_label: "Sessions"
 toc_icon: "fas fa-chalkboard-teacher"
+toc_sticky: true
 ---
 
 
