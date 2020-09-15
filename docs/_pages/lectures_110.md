@@ -43,4 +43,4 @@ toc_sticky: true
 
 ## 114 Practical session
 
-See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/data-types" target="_blank">practical session bookdown.</a>
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/r-programming" target="_blank">practical session bookdown.</a>
