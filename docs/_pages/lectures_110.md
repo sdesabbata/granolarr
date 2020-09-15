@@ -1,4 +1,4 @@
-<a href="---
+---
 permalink: /lectures_110/
 title: "R programming"
 author_profile: false
