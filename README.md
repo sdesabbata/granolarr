@@ -10,6 +10,8 @@ The materials included in **granolarr** have been designed for a module focusing
 
 The materials aim to cover the necessary skills in basic programming, data wrangling and reproducible research to tackle sophisticated but non-spatial data analyses. The first part of the module will focus on core programming techniques, data wrangling and practices for reproducible research. The second part of the module will focus on non-spatial data analysis approaches, including statistical analysis and machine learning.
 
+The lecture slides use `#EAE2DF` as background colour to aviod the use of a pure white background, which can make reading more difficult and slower for people with dyslexia. For the same reason, all foreground colours have also been checked for readability using [Colour Contrast Analyser](https://developer.paciellogroup.com/resources/contrastanalyser/). The [practical sessions materials](/practicals/bookdown) can be accessed online in their [bookdwon version](/practicals/bookdown), where `Seppia` and `Night` themes are available and they can be downloaded in pdf or epub format from the top menu. The practical sessions materials can also be [downloaded separately in pdf format](https://github.com/sdesabbata/granolarr/tree/master/docs/practicals/pdf) for printing.
+
 ## Table of contents
 
 - [Materials by topic](#materials)
