@@ -69,9 +69,11 @@ Further reading
 
 ## Reproducibility
 
+### Instructor
+
 You can now reproduce granolarr using [Docker](https://www.docker.com/). First [install Docker](https://docs.docker.com/get-docker/) on your system, [install Git](https://git-scm.com/downloads) if not already installed, and [clone this repository from GitHub](https://github.com/sdesabbata/granolarr). You can then either build the sdesabbata/granolarr image running the `Docker_Build.sh` script in the root directory of the repository or simply [pull the latest sdesabbata/granolarr image from the Docker Hub](https://hub.docker.com/repository/docker/sdesabbata/granolarr).
 
-You should now have all the code and the computational environment to reproduce these materials, which can be done by running the script `Docker_Make.sh` from the repository folder. The script will instantiate a Docker container for the sdesabbata/granolarr image, bind mount the repository folder to the container and execute `Make.R` on the container, clearing and re-making all the materials.
+You should now have all the code and the computational environment to reproduce these materials, which can be done by running the script `Docker_Make.sh` (`Docker_Make_WinPowerShell.sh` on Windows using PowerShell) from the repository folder. The script will instantiate a Docker container for the sdesabbata/granolarr image, bind mount the repository folder to the container and execute `Make.R` on the container, clearing and re-making all the materials.
 
 For instance, in a unix-based system like Linux or Mac OS, you can reproduce granolarr using the following four commands:
 
@@ -106,17 +108,30 @@ The [RMarkdown](https://rmarkdown.rstudio.com/) code used to create the material
 └── src
     ├── lectures
     │   ├── contents
-    │   │   └── images -> ../images
     │   └── images
     ├── practicals
     │   ├── contents
-    │   │   └── images -> ../images
     │   ├── images
     │   └── materials
     └── utils
         ├── IOSlides
         └── RMarkdown
 ```
+
+You can edit the materials in the `granolarr` repository folder using RStudio or another editor on your computer and then compile the new materials using Docker. Alternatively, you can follow the *student* instructions below to start RStudio Server using Docker, and develop your materials in the same environment in which they will be compiled. The first option might be quicker for minor edits, whereas the latter option might be preferable for substantial modifications, and especially when you might need to test your code.
+
+
+### Student
+
+As a student, you can use [Docker](https://www.docker.com/) to follow the practical sessions instructions and complete the exercises. First [install Docker](https://docs.docker.com/get-docker/) on your system, [install Git](https://git-scm.com/downloads) if not already installed, and [clone this repository from GitHub](https://github.com/sdesabbata/granolarr). You can then either build the sdesabbata/granolarr image running the `Docker_Build.sh` script in the root directory of the repository or simply [pull the latest sdesabbata/granolarr image from the Docker Hub](https://hub.docker.com/repository/docker/sdesabbata/granolarr).
+
+You should now have all the code and the computational environment to reproduce these materials, which can be done by running the script `Docker_RStudio_Start.sh` (`Docker_RStudio_Start_WinPowerShell.sh` on Windows using PowerShell) from the repository folder. The script will first create a `my_granolarr` folder in the parent directory of the root directory of the repository (if it doesn't exitst). The script will then instantiate a Docker container for the sdesabbata/granolarr image, bind mount the `my_granolarr` folder and the `granolarr` repository folder to the container and start an RStudio Server.
+
+Using your browser, you can access the RStudio Server running from the Docker container by typing `127.0.0.1:28787` in your address bar, and using `rstudio` as username and `rstudio` as password. As the `my_granolarr` folder is binded, everything that you will save in the the `my_granolarr` folder in your home directory on RStudio Server will be saved on your computer. Everything else will be lost when the Docker container is stopped.
+
+To stop the Docker container, running the script `Docker_RStudio_Stop.sh` (same on Windows using PowerShell) from the repository folder.
+
+
 
 
 
