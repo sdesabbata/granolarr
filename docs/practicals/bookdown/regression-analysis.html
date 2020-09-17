@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-10" />
+<meta name="date" content="2020-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -342,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="page-break-after: always;"></div>
 <p>The image below highlights the important values in the output: the significance value <code>Pr(&gt;F)</code>; the F-statistic value <code>F value</code>; and the two degrees of freedom values for the F-statistic in the <code>Df</code> column.</p>
 <center>
-<img src="/home/rstudio/granolarr/src/practicals/images/ANOVA_output_annotated.png" style="width:70.0%" />
+<img src="images/ANOVA_output_annotated.png" style="width:70.0%" />
 </center>
 </div>
 </div>
@@ -404,7 +404,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## F-statistic:  3397 on 1 and 972 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>The image below highlights the important values in the output: the adjusted <span class="math inline">\(R^2\)</span> value; the model significance value <code>p-value</code> and the related F-statistic information <code>F-statistic</code>; the intercept and <code>dep_delay</code> coefficient estimates in the <code>Estimate</code> column and the related significance values of in the column <code>Pr(&gt;|t|)</code>.</p>
 <center>
-<img src="/home/rstudio/granolarr/src/practicals/images/Regression_output_annotated.png" style="width:70.0%" />
+<img src="images/Regression_output_annotated.png" style="width:70.0%" />
 </center>
 <p>The output indicates:</p>
 <ul>
@@ -492,7 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb246-6"><a href="regression-analysis.html#cb246-6"></a><span class="co"># Not rendered in bookdown</span></span>
 <span id="cb246-7"><a href="regression-analysis.html#cb246-7"></a><span class="kw">stargazer</span>(delay_model)</span></code></pre></div>
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Thu, Sep 10, 2020 - 06:19:35 PM
+% Date and time: Thu, Sep 17, 2020 - 07:45:48 AM
 
 </div>
 </div>
@@ -547,7 +547,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="regression-analysis.html#cb250-1"></a><span class="co"># Not rendered in bookdown</span></span>
 <span id="cb250-2"><a href="regression-analysis.html#cb250-2"></a><span class="kw">stargazer</span>(public_transp_model)</span></code></pre></div>
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Thu, Sep 10, 2020 - 06:19:36 PM
+% Date and time: Thu, Sep 17, 2020 - 07:45:49 AM
 
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="regression-analysis.html#cb251-1"></a>public_transp_model <span class="op">%&gt;%</span></span>
 <span id="cb251-2"><a href="regression-analysis.html#cb251-2"></a><span class="st">  </span><span class="kw">rstandard</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>

@@ -117,6 +117,9 @@ rmarkdown::render(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/413_L_Deep
 
 cat("\n\n>>> Rendering Lectures bookdown... <<<\n\n")
 
+# Copy images directory to contents folder for local compile of bookdown
+file.copy(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/images"), paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/"), recursive=TRUE)
+
 # Change working directory to the Practicals folder
 setwd(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents"))
 # Render the book
@@ -124,6 +127,10 @@ bookdown::render_book( "index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book",
 # Change back working directory
 setwd(Sys.getenv("GRANOLARR_HOME"))
 
+# Delete temporary images directory
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/images"), recursive=TRUE)
+
+# Rename pdf and epub files
 file.rename(
   paste0(Sys.getenv("GRANOLARR_HOME"), "/docs/lectures/bookdown/_main.pdf"), 
   paste0(Sys.getenv("GRANOLARR_HOME"), "/docs/lectures/bookdown/granolarr_lecture_materials.pdf")
@@ -161,6 +168,9 @@ rmarkdown::render(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/practicals/414_P_Su
 
 cat("\n\n>>> Rendering Practical sessions bookdown... <<<\n\n")
 
+# Copy images directory to contents folder for local compile of bookdown
+file.copy(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/practicals/images"), paste0(Sys.getenv("GRANOLARR_HOME"), "/src/practicals/contents/"), recursive=TRUE)
+
 # Change working directory to the Practicals folder
 setwd(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/practicals/contents"))
 # Render the book
@@ -168,6 +178,10 @@ bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", 
 # Change back working directory
 setwd(Sys.getenv("GRANOLARR_HOME"))
 
+# Delete temporary images directory
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/practicals/contents/images"), recursive=TRUE)
+
+# Rename pdf and epub files
 file.rename(
   paste0(Sys.getenv("GRANOLARR_HOME"), "/docs/practicals/bookdown/_main.pdf"), 
   paste0(Sys.getenv("GRANOLARR_HOME"), "/docs/practicals/bookdown/granolarr_practical_session_materials.pdf")
