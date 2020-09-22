@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  17 SEP 2020 07:43
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  22 SEP 2020 22:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1513,10 +1513,7 @@ File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-9-1.pdf Graphic
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[132]
-Underfull \vbox (badness 3568) has occurred while \output is active []
-
-[133] [134]
+[132] [133] [134]
 Chapter 27.
 
 Overfull \hbox (90.75pt too wide) in paragraph at lines 7378--7378
