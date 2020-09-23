@@ -81,7 +81,7 @@ delays <- select(flights_from_nyc,
 # Drop column arr_delay using - in front of the column name
 dep_delays <- select(delays, -arr_delay)
 
-delays[1:3, ]
+delays %>% head(3)
 ```
 
 ```
@@ -104,7 +104,7 @@ dep_delays <- flights_from_nyc %>%
   select(origin, dest, dep_delay, arr_delay, year:day) %>%
   select(-arr_delay)
 
-delays[1:3, ]
+delays %>% head(3)
 ```
 
 ```
@@ -172,7 +172,7 @@ The same can be applied to data frames
 ```r
 nov_dep_delays <- dep_delays[dep_delays$month == 11, ]
 
-nov_dep_delays[1:3, ]
+nov_dep_delays %>% head(3)
 ```
 
 ```
@@ -193,7 +193,7 @@ nov_dep_delays[1:3, ]
 nov_dep_delays <- dep_delays %>%
   filter(month == 11) # Flights in November
 
-nov_dep_delays[1:3, ]
+nov_dep_delays %>% head(3)
 ```
 
 ```

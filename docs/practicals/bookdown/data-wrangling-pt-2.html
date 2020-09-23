@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-22" />
+<meta name="date" content="2020-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -266,8 +266,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em><a href="https://stefanodesabbata.com">Stefano De Sabbata</a></em></p>
 <p><a href="https://github.com/sdesabbata/granolarr">This work</a> is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0</a>. Contains public sector information licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence">Open Government Licence v3.0</a>.</p>
 <p>This section illustrates the re-shape and join functionalities of the Tidyverse libraries using simple examples. The following sections instead present a more complex example, loading and wrangling with data related to the <a href="https://github.com/geogale/2011OAC">2011 Output Area Classification</a> and the <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2015">Indexes of Multiple Deprivation 2015</a>.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="data-wrangling-pt-2.html#cb162-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb162-2"><a href="data-wrangling-pt-2.html#cb162-2"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="data-wrangling-pt-2.html#cb161-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb161-2"><a href="data-wrangling-pt-2.html#cb161-2"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
 <div id="table-manipulation" class="section level2">
 <h2><span class="header-section-number">4.1</span> Table manipulation</h2>
 <div id="long-and-wide-formats" class="section level3">
@@ -345,14 +345,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>The <code>tidyr</code> library provides two functions that allow transforming wide-formatted data to a long format, and vice-versa. Please take your time to understand the example below and check out the <a href="https://tidyr.tidyverse.org/"><code>tidyr</code> help pages</a> before continuing.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="data-wrangling-pt-2.html#cb163-1"></a>city_info_wide &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb163-2"><a href="data-wrangling-pt-2.html#cb163-2"></a>  <span class="dt">City =</span> <span class="kw">c</span>(<span class="st">&quot;Leicester&quot;</span>, <span class="st">&quot;Nottingham&quot;</span>),</span>
-<span id="cb163-3"><a href="data-wrangling-pt-2.html#cb163-3"></a>  <span class="dt">Population =</span> <span class="kw">c</span>(<span class="dv">329839</span>, <span class="dv">321500</span>),</span>
-<span id="cb163-4"><a href="data-wrangling-pt-2.html#cb163-4"></a>  <span class="dt">Area =</span> <span class="kw">c</span>(<span class="fl">73.3</span>, <span class="fl">74.6</span>),</span>
-<span id="cb163-5"><a href="data-wrangling-pt-2.html#cb163-5"></a>  <span class="dt">Density =</span> <span class="kw">c</span>(<span class="dv">4500</span>, <span class="dv">4412</span>)</span>
-<span id="cb163-6"><a href="data-wrangling-pt-2.html#cb163-6"></a>)</span>
-<span id="cb163-7"><a href="data-wrangling-pt-2.html#cb163-7"></a></span>
-<span id="cb163-8"><a href="data-wrangling-pt-2.html#cb163-8"></a><span class="kw">kable</span>(city_info_wide)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="data-wrangling-pt-2.html#cb162-1"></a>city_info_wide &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb162-2"><a href="data-wrangling-pt-2.html#cb162-2"></a>  <span class="dt">City =</span> <span class="kw">c</span>(<span class="st">&quot;Leicester&quot;</span>, <span class="st">&quot;Nottingham&quot;</span>),</span>
+<span id="cb162-3"><a href="data-wrangling-pt-2.html#cb162-3"></a>  <span class="dt">Population =</span> <span class="kw">c</span>(<span class="dv">329839</span>, <span class="dv">321500</span>),</span>
+<span id="cb162-4"><a href="data-wrangling-pt-2.html#cb162-4"></a>  <span class="dt">Area =</span> <span class="kw">c</span>(<span class="fl">73.3</span>, <span class="fl">74.6</span>),</span>
+<span id="cb162-5"><a href="data-wrangling-pt-2.html#cb162-5"></a>  <span class="dt">Density =</span> <span class="kw">c</span>(<span class="dv">4500</span>, <span class="dv">4412</span>)</span>
+<span id="cb162-6"><a href="data-wrangling-pt-2.html#cb162-6"></a>)</span>
+<span id="cb162-7"><a href="data-wrangling-pt-2.html#cb162-7"></a></span>
+<span id="cb162-8"><a href="data-wrangling-pt-2.html#cb162-8"></a><span class="kw">kable</span>(city_info_wide)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -377,17 +377,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="data-wrangling-pt-2.html#cb164-1"></a>city_info_long &lt;-<span class="st"> </span>city_info_wide <span class="op">%&gt;%</span></span>
-<span id="cb164-2"><a href="data-wrangling-pt-2.html#cb164-2"></a><span class="st">  </span><span class="kw">gather</span>(</span>
-<span id="cb164-3"><a href="data-wrangling-pt-2.html#cb164-3"></a>    <span class="co"># exclude IDs (city names) from gathering</span></span>
-<span id="cb164-4"><a href="data-wrangling-pt-2.html#cb164-4"></a>    <span class="op">-</span>City,</span>
-<span id="cb164-5"><a href="data-wrangling-pt-2.html#cb164-5"></a>    <span class="co"># name for the new key column</span></span>
-<span id="cb164-6"><a href="data-wrangling-pt-2.html#cb164-6"></a>    <span class="dt">key =</span> <span class="st">&quot;Attribute&quot;</span>,</span>
-<span id="cb164-7"><a href="data-wrangling-pt-2.html#cb164-7"></a>    <span class="co"># name for the new value column</span></span>
-<span id="cb164-8"><a href="data-wrangling-pt-2.html#cb164-8"></a>    <span class="dt">value =</span> <span class="st">&quot;Value&quot;</span></span>
-<span id="cb164-9"><a href="data-wrangling-pt-2.html#cb164-9"></a>  )</span>
-<span id="cb164-10"><a href="data-wrangling-pt-2.html#cb164-10"></a></span>
-<span id="cb164-11"><a href="data-wrangling-pt-2.html#cb164-11"></a><span class="kw">kable</span>(city_info_long)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="data-wrangling-pt-2.html#cb163-1"></a>city_info_long &lt;-<span class="st"> </span>city_info_wide <span class="op">%&gt;%</span></span>
+<span id="cb163-2"><a href="data-wrangling-pt-2.html#cb163-2"></a><span class="st">  </span><span class="kw">gather</span>(</span>
+<span id="cb163-3"><a href="data-wrangling-pt-2.html#cb163-3"></a>    <span class="co"># exclude IDs (city names) from gathering</span></span>
+<span id="cb163-4"><a href="data-wrangling-pt-2.html#cb163-4"></a>    <span class="op">-</span>City,</span>
+<span id="cb163-5"><a href="data-wrangling-pt-2.html#cb163-5"></a>    <span class="co"># name for the new key column</span></span>
+<span id="cb163-6"><a href="data-wrangling-pt-2.html#cb163-6"></a>    <span class="dt">key =</span> <span class="st">&quot;Attribute&quot;</span>,</span>
+<span id="cb163-7"><a href="data-wrangling-pt-2.html#cb163-7"></a>    <span class="co"># name for the new value column</span></span>
+<span id="cb163-8"><a href="data-wrangling-pt-2.html#cb163-8"></a>    <span class="dt">value =</span> <span class="st">&quot;Value&quot;</span></span>
+<span id="cb163-9"><a href="data-wrangling-pt-2.html#cb163-9"></a>  )</span>
+<span id="cb163-10"><a href="data-wrangling-pt-2.html#cb163-10"></a></span>
+<span id="cb163-11"><a href="data-wrangling-pt-2.html#cb163-11"></a><span class="kw">kable</span>(city_info_long)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -429,15 +429,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="data-wrangling-pt-2.html#cb165-1"></a>city_info_back_to_wide &lt;-<span class="st"> </span>city_info_long <span class="op">%&gt;%</span></span>
-<span id="cb165-2"><a href="data-wrangling-pt-2.html#cb165-2"></a><span class="st">  </span><span class="kw">spread</span>(</span>
-<span id="cb165-3"><a href="data-wrangling-pt-2.html#cb165-3"></a>    <span class="co"># specify key column</span></span>
-<span id="cb165-4"><a href="data-wrangling-pt-2.html#cb165-4"></a>    <span class="dt">key =</span> <span class="st">&quot;Attribute&quot;</span>,</span>
-<span id="cb165-5"><a href="data-wrangling-pt-2.html#cb165-5"></a>    <span class="co"># specify value column</span></span>
-<span id="cb165-6"><a href="data-wrangling-pt-2.html#cb165-6"></a>    <span class="dt">value =</span> <span class="st">&quot;Value&quot;</span></span>
-<span id="cb165-7"><a href="data-wrangling-pt-2.html#cb165-7"></a>  )</span>
-<span id="cb165-8"><a href="data-wrangling-pt-2.html#cb165-8"></a></span>
-<span id="cb165-9"><a href="data-wrangling-pt-2.html#cb165-9"></a><span class="kw">kable</span>(city_info_back_to_wide)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="data-wrangling-pt-2.html#cb164-1"></a>city_info_back_to_wide &lt;-<span class="st"> </span>city_info_long <span class="op">%&gt;%</span></span>
+<span id="cb164-2"><a href="data-wrangling-pt-2.html#cb164-2"></a><span class="st">  </span><span class="kw">spread</span>(</span>
+<span id="cb164-3"><a href="data-wrangling-pt-2.html#cb164-3"></a>    <span class="co"># specify key column</span></span>
+<span id="cb164-4"><a href="data-wrangling-pt-2.html#cb164-4"></a>    <span class="dt">key =</span> <span class="st">&quot;Attribute&quot;</span>,</span>
+<span id="cb164-5"><a href="data-wrangling-pt-2.html#cb164-5"></a>    <span class="co"># specify value column</span></span>
+<span id="cb164-6"><a href="data-wrangling-pt-2.html#cb164-6"></a>    <span class="dt">value =</span> <span class="st">&quot;Value&quot;</span></span>
+<span id="cb164-7"><a href="data-wrangling-pt-2.html#cb164-7"></a>  )</span>
+<span id="cb164-8"><a href="data-wrangling-pt-2.html#cb164-8"></a></span>
+<span id="cb164-9"><a href="data-wrangling-pt-2.html#cb164-9"></a><span class="kw">kable</span>(city_info_back_to_wide)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -529,12 +529,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </font>
 -->
 <p>Please take your time to understand the example below and check out the <a href="https://dplyr.tidyverse.org/reference/join.html">related <code>dplyr</code> help pages</a> before continuing. Note how the result of the join operations is <em>not</em> saved to a variable. The function <code>kable</code> is added after each join operation through a pipe <code>%&gt;%</code> to display the resulting table in a nice format.</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="data-wrangling-pt-2.html#cb166-1"></a>city_telephone_prexix &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb166-2"><a href="data-wrangling-pt-2.html#cb166-2"></a>  <span class="dt">City =</span> <span class="kw">c</span>(<span class="st">&quot;Leicester&quot;</span>, <span class="st">&quot;Birmingham&quot;</span>),</span>
-<span id="cb166-3"><a href="data-wrangling-pt-2.html#cb166-3"></a>  <span class="dt">TelephonPrefix =</span> <span class="kw">c</span>(<span class="st">&quot;0116&quot;</span>, <span class="st">&quot;0121&quot;</span>)</span>
-<span id="cb166-4"><a href="data-wrangling-pt-2.html#cb166-4"></a>)</span>
-<span id="cb166-5"><a href="data-wrangling-pt-2.html#cb166-5"></a></span>
-<span id="cb166-6"><a href="data-wrangling-pt-2.html#cb166-6"></a><span class="kw">kable</span>(city_telephone_prexix)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="data-wrangling-pt-2.html#cb165-1"></a>city_telephone_prexix &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb165-2"><a href="data-wrangling-pt-2.html#cb165-2"></a>  <span class="dt">City =</span> <span class="kw">c</span>(<span class="st">&quot;Leicester&quot;</span>, <span class="st">&quot;Birmingham&quot;</span>),</span>
+<span id="cb165-3"><a href="data-wrangling-pt-2.html#cb165-3"></a>  <span class="dt">TelephonPrefix =</span> <span class="kw">c</span>(<span class="st">&quot;0116&quot;</span>, <span class="st">&quot;0121&quot;</span>)</span>
+<span id="cb165-4"><a href="data-wrangling-pt-2.html#cb165-4"></a>)</span>
+<span id="cb165-5"><a href="data-wrangling-pt-2.html#cb165-5"></a></span>
+<span id="cb165-6"><a href="data-wrangling-pt-2.html#cb165-6"></a><span class="kw">kable</span>(city_telephone_prexix)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -554,7 +554,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="data-wrangling-pt-2.html#cb167-1"></a><span class="kw">full_join</span>(</span>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="data-wrangling-pt-2.html#cb166-1"></a><span class="kw">full_join</span>(</span>
+<span id="cb166-2"><a href="data-wrangling-pt-2.html#cb166-2"></a>    city_info_wide, city_telephone_prexix,</span>
+<span id="cb166-3"><a href="data-wrangling-pt-2.html#cb166-3"></a>    <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;City&quot;</span> =<span class="st"> &quot;City&quot;</span>)</span>
+<span id="cb166-4"><a href="data-wrangling-pt-2.html#cb166-4"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb166-5"><a href="data-wrangling-pt-2.html#cb166-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">City</th>
+<th align="right">Population</th>
+<th align="right">Area</th>
+<th align="right">Density</th>
+<th align="left">TelephonPrefix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Leicester</td>
+<td align="right">329839</td>
+<td align="right">73.3</td>
+<td align="right">4500</td>
+<td align="left">0116</td>
+</tr>
+<tr class="even">
+<td align="left">Nottingham</td>
+<td align="right">321500</td>
+<td align="right">74.6</td>
+<td align="right">4412</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Birmingham</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">0121</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="data-wrangling-pt-2.html#cb167-1"></a><span class="kw">left_join</span>(</span>
 <span id="cb167-2"><a href="data-wrangling-pt-2.html#cb167-2"></a>    city_info_wide, city_telephone_prexix,</span>
 <span id="cb167-3"><a href="data-wrangling-pt-2.html#cb167-3"></a>    <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;City&quot;</span> =<span class="st"> &quot;City&quot;</span>)</span>
 <span id="cb167-4"><a href="data-wrangling-pt-2.html#cb167-4"></a>  ) <span class="op">%&gt;%</span></span>
@@ -584,16 +623,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="right">4412</td>
 <td align="left">NA</td>
 </tr>
-<tr class="odd">
-<td align="left">Birmingham</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">0121</td>
-</tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="data-wrangling-pt-2.html#cb168-1"></a><span class="kw">left_join</span>(</span>
+<div style="page-break-after: always;"></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="data-wrangling-pt-2.html#cb168-1"></a><span class="kw">right_join</span>(</span>
 <span id="cb168-2"><a href="data-wrangling-pt-2.html#cb168-2"></a>    city_info_wide, city_telephone_prexix,</span>
 <span id="cb168-3"><a href="data-wrangling-pt-2.html#cb168-3"></a>    <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;City&quot;</span> =<span class="st"> &quot;City&quot;</span>)</span>
 <span id="cb168-4"><a href="data-wrangling-pt-2.html#cb168-4"></a>  ) <span class="op">%&gt;%</span></span>
@@ -617,39 +650,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">0116</td>
 </tr>
 <tr class="even">
-<td align="left">Nottingham</td>
-<td align="right">321500</td>
-<td align="right">74.6</td>
-<td align="right">4412</td>
-<td align="left">NA</td>
-</tr>
-</tbody>
-</table>
-<div style="page-break-after: always;"></div>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="data-wrangling-pt-2.html#cb169-1"></a><span class="kw">right_join</span>(</span>
-<span id="cb169-2"><a href="data-wrangling-pt-2.html#cb169-2"></a>    city_info_wide, city_telephone_prexix,</span>
-<span id="cb169-3"><a href="data-wrangling-pt-2.html#cb169-3"></a>    <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;City&quot;</span> =<span class="st"> &quot;City&quot;</span>)</span>
-<span id="cb169-4"><a href="data-wrangling-pt-2.html#cb169-4"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb169-5"><a href="data-wrangling-pt-2.html#cb169-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th align="left">City</th>
-<th align="right">Population</th>
-<th align="right">Area</th>
-<th align="right">Density</th>
-<th align="left">TelephonPrefix</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Leicester</td>
-<td align="right">329839</td>
-<td align="right">73.3</td>
-<td align="right">4500</td>
-<td align="left">0116</td>
-</tr>
-<tr class="even">
 <td align="left">Birmingham</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
@@ -658,11 +658,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="data-wrangling-pt-2.html#cb170-1"></a><span class="kw">inner_join</span>(</span>
-<span id="cb170-2"><a href="data-wrangling-pt-2.html#cb170-2"></a>    city_info_wide, city_telephone_prexix,</span>
-<span id="cb170-3"><a href="data-wrangling-pt-2.html#cb170-3"></a>    <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;City&quot;</span> =<span class="st"> &quot;City&quot;</span>)</span>
-<span id="cb170-4"><a href="data-wrangling-pt-2.html#cb170-4"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb170-5"><a href="data-wrangling-pt-2.html#cb170-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="data-wrangling-pt-2.html#cb169-1"></a><span class="kw">inner_join</span>(</span>
+<span id="cb169-2"><a href="data-wrangling-pt-2.html#cb169-2"></a>    city_info_wide, city_telephone_prexix,</span>
+<span id="cb169-3"><a href="data-wrangling-pt-2.html#cb169-3"></a>    <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;City&quot;</span> =<span class="st"> &quot;City&quot;</span>)</span>
+<span id="cb169-4"><a href="data-wrangling-pt-2.html#cb169-4"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb169-5"><a href="data-wrangling-pt-2.html#cb169-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -701,12 +701,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Note that the `~` in the path below indicates the home folder -- a different path might be necessary if you execute this on a windows machine, please see also [file.path](https://stat.ethz.ch/R-manual/R-devel/library/base/html/file.path.html).
 -->
 <p>The <code>read_csv</code> function reads a <em>Comma Separated Values (CSV)</em> file from the path provided as the first argument. The code below loads the 2011 OAC dataset. The <code>read_csv</code> instruction throws a warning that shows the assumptions about the data types used when loading the data. As illustrated by the output of the last line of code, the data are loaded as a tibble 969 x 190, that is 969 rows – one for each OA – and 190 columns, 167 of which represent the input variables used to create the 2011 OAC.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="data-wrangling-pt-2.html#cb171-1"></a>leicester_2011OAC &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>)</span>
-<span id="cb171-2"><a href="data-wrangling-pt-2.html#cb171-2"></a></span>
-<span id="cb171-3"><a href="data-wrangling-pt-2.html#cb171-3"></a>leicester_2011OAC <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb171-4"><a href="data-wrangling-pt-2.html#cb171-4"></a><span class="st">  </span><span class="kw">select</span>(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) <span class="op">%&gt;%</span></span>
-<span id="cb171-5"><a href="data-wrangling-pt-2.html#cb171-5"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">3</span>) <span class="op">%&gt;%</span></span>
-<span id="cb171-6"><a href="data-wrangling-pt-2.html#cb171-6"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="data-wrangling-pt-2.html#cb170-1"></a>leicester_2011OAC &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>)</span>
+<span id="cb170-2"><a href="data-wrangling-pt-2.html#cb170-2"></a></span>
+<span id="cb170-3"><a href="data-wrangling-pt-2.html#cb170-3"></a>leicester_2011OAC <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb170-4"><a href="data-wrangling-pt-2.html#cb170-4"></a><span class="st">  </span><span class="kw">select</span>(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) <span class="op">%&gt;%</span></span>
+<span id="cb170-5"><a href="data-wrangling-pt-2.html#cb170-5"></a><span class="st">  </span><span class="kw">slice_head</span>(<span class="dt">n =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span></span>
+<span id="cb170-6"><a href="data-wrangling-pt-2.html#cb170-6"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -719,31 +719,31 @@ Note that the `~` in the path below indicates the home folder -- a different pat
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">E00169553</td>
-<td align="left">E01013648</td>
-<td align="right">2</td>
-<td align="left">Cosmopolitans</td>
-<td align="right">714</td>
+<td align="left">E00069517</td>
+<td align="left">E01013785</td>
+<td align="right">6</td>
+<td align="left">Suburbanites</td>
+<td align="right">313</td>
 </tr>
 <tr class="even">
-<td align="left">E00069303</td>
-<td align="left">E01013739</td>
-<td align="right">4</td>
-<td align="left">Multicultural Metropolitans</td>
-<td align="right">623</td>
-</tr>
-<tr class="odd">
-<td align="left">E00168096</td>
-<td align="left">E01013689</td>
+<td align="left">E00069514</td>
+<td align="left">E01013784</td>
 <td align="right">2</td>
 <td align="left">Cosmopolitans</td>
-<td align="right">708</td>
+<td align="right">323</td>
+</tr>
+<tr class="odd">
+<td align="left">E00169516</td>
+<td align="left">E01013713</td>
+<td align="right">4</td>
+<td align="left">Multicultural Metropolitans</td>
+<td align="right">341</td>
 </tr>
 </tbody>
 </table>
 <p>The code below loads the IMD 2015 dataset.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="data-wrangling-pt-2.html#cb172-1"></a><span class="co"># Load Indexes of Multiple deprivation data</span></span>
-<span id="cb172-2"><a href="data-wrangling-pt-2.html#cb172-2"></a>leicester_IMD2015 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;IndexesMultipleDeprivation2015_Leicester.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="data-wrangling-pt-2.html#cb171-1"></a><span class="co"># Load Indexes of Multiple deprivation data</span></span>
+<span id="cb171-2"><a href="data-wrangling-pt-2.html#cb171-2"></a>leicester_IMD2015 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;IndexesMultipleDeprivation2015_Leicester.csv&quot;</span>)</span></code></pre></div>
 <p>The function <code>write_csv</code> can be used to save a dataset as a <code>csv</code> file. For instance, the code below uses <code>tidyverse</code> functions and the pipe operator <code>%&gt;%</code> to:</p>
 <ol style="list-style-type: decimal">
 <li><strong>read</strong> the 2011 OAC dataset again directly from the file, but without storing it into a variable;</li>
@@ -751,19 +751,19 @@ Note that the `~` in the path below indicates the home folder -- a different pat
 <li><strong>filter</strong> only those OA in the supergroup <em>Suburbanites</em> (code <code>6</code>);</li>
 <li><strong>write</strong> the results to a file named <em>Leicester_Suburbanites.csv</em> in your home folder.</li>
 </ol>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data-wrangling-pt-2.html#cb173-1"></a><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb173-2"><a href="data-wrangling-pt-2.html#cb173-2"></a><span class="st">  </span><span class="kw">select</span>(OA11CD, supgrpcode, supgrpname) <span class="op">%&gt;%</span></span>
-<span id="cb173-3"><a href="data-wrangling-pt-2.html#cb173-3"></a><span class="st">  </span><span class="kw">filter</span>(supgrpcode <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">%&gt;%</span></span>
-<span id="cb173-4"><a href="data-wrangling-pt-2.html#cb173-4"></a><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&quot;~/Leicester_Suburbanites.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="data-wrangling-pt-2.html#cb172-1"></a><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb172-2"><a href="data-wrangling-pt-2.html#cb172-2"></a><span class="st">  </span><span class="kw">select</span>(OA11CD, supgrpcode, supgrpname) <span class="op">%&gt;%</span></span>
+<span id="cb172-3"><a href="data-wrangling-pt-2.html#cb172-3"></a><span class="st">  </span><span class="kw">filter</span>(supgrpcode <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">%&gt;%</span></span>
+<span id="cb172-4"><a href="data-wrangling-pt-2.html#cb172-4"></a><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&quot;~/Leicester_Suburbanites.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="data-wrangling-example" class="section level2">
 <h2><span class="header-section-number">4.3</span> data wrangling example</h2>
 <div id="re-shaping" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Re-shaping</h3>
 <p>The IMD 2015 data are in a <em>long</em> format, which means that every area is represented by more than one row: the column <code>Value</code> presents the value; the column <code>IndicesOfDeprivation</code> indicates which index the value refers to; the column <code>Measurement</code> indicates whether the value is a score, rank, or decile. The code below illustrates the data format for the LSOA including the University of Leicester (feature code <code>E01013649</code>).</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="data-wrangling-pt-2.html#cb174-1"></a>leicester_IMD2015 <span class="op">%&gt;%</span></span>
-<span id="cb174-2"><a href="data-wrangling-pt-2.html#cb174-2"></a><span class="st">  </span><span class="kw">filter</span>(FeatureCode <span class="op">==</span><span class="st"> &quot;E01013649&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb174-3"><a href="data-wrangling-pt-2.html#cb174-3"></a><span class="st">  </span><span class="kw">select</span>(FeatureCode, IndicesOfDeprivation, Measurement, Value)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data-wrangling-pt-2.html#cb173-1"></a>leicester_IMD2015 <span class="op">%&gt;%</span></span>
+<span id="cb173-2"><a href="data-wrangling-pt-2.html#cb173-2"></a><span class="st">  </span><span class="kw">filter</span>(FeatureCode <span class="op">==</span><span class="st"> &quot;E01013649&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb173-3"><a href="data-wrangling-pt-2.html#cb173-3"></a><span class="st">  </span><span class="kw">select</span>(FeatureCode, IndicesOfDeprivation, Measurement, Value)</span></code></pre></div>
 <pre><code>## # A tibble: 30 x 4
 ##    FeatureCode IndicesOfDeprivation                           Measurement  Value
 ##    &lt;chr&gt;       &lt;chr&gt;                                          &lt;chr&gt;        &lt;dbl&gt;
@@ -780,26 +780,26 @@ Note that the `~` in the path below indicates the home folder -- a different pat
 ## # … with 20 more rows</code></pre>
 <p>In the following section, the analysis aims to explore how certain census variables vary in areas with different deprivation levels. Thus, we need to extract the <code>Decile</code> rows from the IMD 2015 dataset and transform the data in a <em>wide</em> format, where each index is represented as a separate column.</p>
 <p>To that purpose, we also need to change the name of the indexes slightly, to exclude spaces and punctuation, so that the new column names are simpler than the original text, and can be used as column names. That part of the manipulation is performed using <code>mutate</code> and functions from the <a href="https://stringr.tidyverse.org/"><code>stringr</code> library</a>.</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="data-wrangling-pt-2.html#cb176-1"></a>leicester_IMD2015_decile_wide &lt;-<span class="st"> </span>leicester_IMD2015 <span class="op">%&gt;%</span></span>
-<span id="cb176-2"><a href="data-wrangling-pt-2.html#cb176-2"></a><span class="st">  </span><span class="co"># Select only Socres</span></span>
-<span id="cb176-3"><a href="data-wrangling-pt-2.html#cb176-3"></a><span class="st">  </span><span class="kw">filter</span>(Measurement <span class="op">==</span><span class="st"> &quot;Decile&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb176-4"><a href="data-wrangling-pt-2.html#cb176-4"></a><span class="st">  </span><span class="co"># Trim names of IndicesOfDeprivation</span></span>
-<span id="cb176-5"><a href="data-wrangling-pt-2.html#cb176-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IndicesOfDeprivation =</span> <span class="kw">str_replace_all</span>(IndicesOfDeprivation, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">s&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb176-6"><a href="data-wrangling-pt-2.html#cb176-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IndicesOfDeprivation =</span> <span class="kw">str_replace_all</span>(IndicesOfDeprivation, <span class="st">&quot;[:punct:]&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb176-7"><a href="data-wrangling-pt-2.html#cb176-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IndicesOfDeprivation =</span> <span class="kw">str_replace_all</span>(IndicesOfDeprivation, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">(&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb176-8"><a href="data-wrangling-pt-2.html#cb176-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IndicesOfDeprivation =</span> <span class="kw">str_replace_all</span>(IndicesOfDeprivation, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb176-9"><a href="data-wrangling-pt-2.html#cb176-9"></a><span class="st">  </span><span class="co"># Spread</span></span>
-<span id="cb176-10"><a href="data-wrangling-pt-2.html#cb176-10"></a><span class="st">  </span><span class="kw">spread</span>(</span>
-<span id="cb176-11"><a href="data-wrangling-pt-2.html#cb176-11"></a>    <span class="dt">key =</span> IndicesOfDeprivation,</span>
-<span id="cb176-12"><a href="data-wrangling-pt-2.html#cb176-12"></a>    <span class="dt">value =</span> Value</span>
-<span id="cb176-13"><a href="data-wrangling-pt-2.html#cb176-13"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb176-14"><a href="data-wrangling-pt-2.html#cb176-14"></a><span class="st">  </span><span class="co"># Drop columns</span></span>
-<span id="cb176-15"><a href="data-wrangling-pt-2.html#cb176-15"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>DateCode, <span class="op">-</span>Measurement, <span class="op">-</span>Units)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="data-wrangling-pt-2.html#cb175-1"></a>leicester_IMD2015_decile_wide &lt;-<span class="st"> </span>leicester_IMD2015 <span class="op">%&gt;%</span></span>
+<span id="cb175-2"><a href="data-wrangling-pt-2.html#cb175-2"></a><span class="st">  </span><span class="co"># Select only Socres</span></span>
+<span id="cb175-3"><a href="data-wrangling-pt-2.html#cb175-3"></a><span class="st">  </span><span class="kw">filter</span>(Measurement <span class="op">==</span><span class="st"> &quot;Decile&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb175-4"><a href="data-wrangling-pt-2.html#cb175-4"></a><span class="st">  </span><span class="co"># Trim names of IndicesOfDeprivation</span></span>
+<span id="cb175-5"><a href="data-wrangling-pt-2.html#cb175-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IndicesOfDeprivation =</span> <span class="kw">str_replace_all</span>(IndicesOfDeprivation, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">s&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb175-6"><a href="data-wrangling-pt-2.html#cb175-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IndicesOfDeprivation =</span> <span class="kw">str_replace_all</span>(IndicesOfDeprivation, <span class="st">&quot;[:punct:]&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb175-7"><a href="data-wrangling-pt-2.html#cb175-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IndicesOfDeprivation =</span> <span class="kw">str_replace_all</span>(IndicesOfDeprivation, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">(&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb175-8"><a href="data-wrangling-pt-2.html#cb175-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IndicesOfDeprivation =</span> <span class="kw">str_replace_all</span>(IndicesOfDeprivation, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb175-9"><a href="data-wrangling-pt-2.html#cb175-9"></a><span class="st">  </span><span class="co"># Spread</span></span>
+<span id="cb175-10"><a href="data-wrangling-pt-2.html#cb175-10"></a><span class="st">  </span><span class="kw">spread</span>(</span>
+<span id="cb175-11"><a href="data-wrangling-pt-2.html#cb175-11"></a>    <span class="dt">key =</span> IndicesOfDeprivation,</span>
+<span id="cb175-12"><a href="data-wrangling-pt-2.html#cb175-12"></a>    <span class="dt">value =</span> Value</span>
+<span id="cb175-13"><a href="data-wrangling-pt-2.html#cb175-13"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb175-14"><a href="data-wrangling-pt-2.html#cb175-14"></a><span class="st">  </span><span class="co"># Drop columns</span></span>
+<span id="cb175-15"><a href="data-wrangling-pt-2.html#cb175-15"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>DateCode, <span class="op">-</span>Measurement, <span class="op">-</span>Units)</span></code></pre></div>
 <p>Let’s compare the columns of the original <em>long</em> IMD 2015 dataset with the <em>wide</em> dataset created above.</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="data-wrangling-pt-2.html#cb177-1"></a><span class="kw">colnames</span>(leicester_IMD2015)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="data-wrangling-pt-2.html#cb176-1"></a><span class="kw">colnames</span>(leicester_IMD2015)</span></code></pre></div>
 <pre><code>## [1] &quot;FeatureCode&quot;          &quot;DateCode&quot;             &quot;Measurement&quot;         
 ## [4] &quot;Units&quot;                &quot;Value&quot;                &quot;IndicesOfDeprivation&quot;</code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="data-wrangling-pt-2.html#cb179-1"></a><span class="kw">colnames</span>(leicester_IMD2015_decile_wide)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="data-wrangling-pt-2.html#cb178-1"></a><span class="kw">colnames</span>(leicester_IMD2015_decile_wide)</span></code></pre></div>
 <pre><code>##  [1] &quot;FeatureCode&quot;                                     
 ##  [2] &quot;BarrierstoHousingandServicesDomain&quot;              
 ##  [3] &quot;CrimeDomain&quot;                                     
@@ -812,22 +812,22 @@ Note that the `~` in the path below indicates the home folder -- a different pat
 ## [10] &quot;IndexofMultipleDeprivationIMD&quot;                   
 ## [11] &quot;LivingEnvironmentDeprivationDomain&quot;</code></pre>
 <p>Thus, we now have only one row representing the LSOA including the University of Leicester (feature code <code>E01013649</code>) and the main Index of Multiple Deprivations is now represented by the column <code>IndexofMultipleDeprivationIMD</code>. The value reported is the same – that is 5, which means that the selected LSOA is estimated to be in the range 40-50% most deprived areas in England – but we changed the data format.</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="data-wrangling-pt-2.html#cb181-1"></a><span class="co"># Original long IMD 2015 dataset</span></span>
-<span id="cb181-2"><a href="data-wrangling-pt-2.html#cb181-2"></a>leicester_IMD2015 <span class="op">%&gt;%</span></span>
-<span id="cb181-3"><a href="data-wrangling-pt-2.html#cb181-3"></a><span class="st">  </span><span class="kw">filter</span>(</span>
-<span id="cb181-4"><a href="data-wrangling-pt-2.html#cb181-4"></a>    FeatureCode <span class="op">==</span><span class="st"> &quot;E01013649&quot;</span>,</span>
-<span id="cb181-5"><a href="data-wrangling-pt-2.html#cb181-5"></a>    IndicesOfDeprivation <span class="op">==</span><span class="st"> &quot;Index of Multiple Deprivation (IMD)&quot;</span>,</span>
-<span id="cb181-6"><a href="data-wrangling-pt-2.html#cb181-6"></a>    Measurement <span class="op">==</span><span class="st"> &quot;Decile&quot;</span></span>
-<span id="cb181-7"><a href="data-wrangling-pt-2.html#cb181-7"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb181-8"><a href="data-wrangling-pt-2.html#cb181-8"></a><span class="st">  </span><span class="kw">select</span>(FeatureCode, IndicesOfDeprivation, Measurement, Value)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="data-wrangling-pt-2.html#cb180-1"></a><span class="co"># Original long IMD 2015 dataset</span></span>
+<span id="cb180-2"><a href="data-wrangling-pt-2.html#cb180-2"></a>leicester_IMD2015 <span class="op">%&gt;%</span></span>
+<span id="cb180-3"><a href="data-wrangling-pt-2.html#cb180-3"></a><span class="st">  </span><span class="kw">filter</span>(</span>
+<span id="cb180-4"><a href="data-wrangling-pt-2.html#cb180-4"></a>    FeatureCode <span class="op">==</span><span class="st"> &quot;E01013649&quot;</span>,</span>
+<span id="cb180-5"><a href="data-wrangling-pt-2.html#cb180-5"></a>    IndicesOfDeprivation <span class="op">==</span><span class="st"> &quot;Index of Multiple Deprivation (IMD)&quot;</span>,</span>
+<span id="cb180-6"><a href="data-wrangling-pt-2.html#cb180-6"></a>    Measurement <span class="op">==</span><span class="st"> &quot;Decile&quot;</span></span>
+<span id="cb180-7"><a href="data-wrangling-pt-2.html#cb180-7"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb180-8"><a href="data-wrangling-pt-2.html#cb180-8"></a><span class="st">  </span><span class="kw">select</span>(FeatureCode, IndicesOfDeprivation, Measurement, Value)</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 4
 ##   FeatureCode IndicesOfDeprivation                Measurement Value
 ##   &lt;chr&gt;       &lt;chr&gt;                               &lt;chr&gt;       &lt;dbl&gt;
 ## 1 E01013649   Index of Multiple Deprivation (IMD) Decile          5</code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="data-wrangling-pt-2.html#cb183-1"></a><span class="co"># New wide IMD 2015 dataset</span></span>
-<span id="cb183-2"><a href="data-wrangling-pt-2.html#cb183-2"></a>leicester_IMD2015_decile_wide <span class="op">%&gt;%</span></span>
-<span id="cb183-3"><a href="data-wrangling-pt-2.html#cb183-3"></a><span class="st">  </span><span class="kw">filter</span>(FeatureCode <span class="op">==</span><span class="st"> &quot;E01013649&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb183-4"><a href="data-wrangling-pt-2.html#cb183-4"></a><span class="st">  </span><span class="kw">select</span>(FeatureCode, IndexofMultipleDeprivationIMD)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="data-wrangling-pt-2.html#cb182-1"></a><span class="co"># New wide IMD 2015 dataset</span></span>
+<span id="cb182-2"><a href="data-wrangling-pt-2.html#cb182-2"></a>leicester_IMD2015_decile_wide <span class="op">%&gt;%</span></span>
+<span id="cb182-3"><a href="data-wrangling-pt-2.html#cb182-3"></a><span class="st">  </span><span class="kw">filter</span>(FeatureCode <span class="op">==</span><span class="st"> &quot;E01013649&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb182-4"><a href="data-wrangling-pt-2.html#cb182-4"></a><span class="st">  </span><span class="kw">select</span>(FeatureCode, IndexofMultipleDeprivationIMD)</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 2
 ##   FeatureCode IndexofMultipleDeprivationIMD
 ##   &lt;chr&gt;                               &lt;dbl&gt;
@@ -837,11 +837,11 @@ Note that the `~` in the path below indicates the home folder -- a different pat
 <h3><span class="header-section-number">4.3.2</span> Join</h3>
 <p>As discussed above, two tables can be joined using a common column of identifiers. We can thus join the 2011 OAC and the IMD 2015 datasets into a single table. The LSOA code included in the 2011 OAC table is used to match that information with the corresponding row in the IMD 2015. The resulting table provides all the information from the 2011 OAC for each OA, plus the Index of Multiple Deprivations decile for the LSOA containing each OA.</p>
 <p>That operation can be carried out using the function <code>merge</code>, and specifying the common column (or columns, if more than one is to be used as identifier) as argument of <code>by</code>.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="data-wrangling-pt-2.html#cb185-1"></a>leicester_2011OAC_IMD2015 &lt;-<span class="st"> </span>leicester_2011OAC <span class="op">%&gt;%</span></span>
-<span id="cb185-2"><a href="data-wrangling-pt-2.html#cb185-2"></a><span class="st">  </span><span class="kw">left_join</span>(leicester_IMD2015_decile_wide, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;LSOA11CD&quot;</span> =<span class="st"> &quot;FeatureCode&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="data-wrangling-pt-2.html#cb184-1"></a>leicester_2011OAC_IMD2015 &lt;-<span class="st"> </span>leicester_2011OAC <span class="op">%&gt;%</span></span>
+<span id="cb184-2"><a href="data-wrangling-pt-2.html#cb184-2"></a><span class="st">  </span><span class="kw">left_join</span>(leicester_IMD2015_decile_wide, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;LSOA11CD&quot;</span> =<span class="st"> &quot;FeatureCode&quot;</span>))</span></code></pre></div>
 <p>Once the result is stored into the variable <code>leicester_2011OAC_IMD2015</code>, further analysis can be carried out. For instance, <code>count</code> can be used to count how many OAs fall into each 2011 OAC supergroup and decile of the Index of Multiple Deprivations.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="data-wrangling-pt-2.html#cb186-1"></a>leicester_2011OAC_IMD2015 <span class="op">%&gt;%</span></span>
-<span id="cb186-2"><a href="data-wrangling-pt-2.html#cb186-2"></a><span class="st">  </span><span class="kw">count</span>(supgrpname, IndexofMultipleDeprivationIMD)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="data-wrangling-pt-2.html#cb185-1"></a>leicester_2011OAC_IMD2015 <span class="op">%&gt;%</span></span>
+<span id="cb185-2"><a href="data-wrangling-pt-2.html#cb185-2"></a><span class="st">  </span><span class="kw">count</span>(supgrpname, IndexofMultipleDeprivationIMD)</span></code></pre></div>
 <pre><code>## # A tibble: 46 x 3
 ##    supgrpname                IndexofMultipleDeprivationIMD     n
 ##    &lt;chr&gt;                                             &lt;dbl&gt; &lt;int&gt;
@@ -858,12 +858,12 @@ Note that the `~` in the path below indicates the home folder -- a different pat
 ## # … with 36 more rows</code></pre>
 <p>As another example, the code below can be used to group OAs based on the decile and then calculate the percentage of adults not in employment using the
 <code>u074</code> (<em>No adults in employment in household: With dependent children</em>) and <code>u075</code> (<em>No adults in employment in household: No dependent children</em>) variables from the 2011 OAC dataset.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="data-wrangling-pt-2.html#cb188-1"></a>leicester_2011OAC_IMD2015 <span class="op">%&gt;%</span></span>
-<span id="cb188-2"><a href="data-wrangling-pt-2.html#cb188-2"></a><span class="st">  </span><span class="kw">group_by</span>(IndexofMultipleDeprivationIMD) <span class="op">%&gt;%</span></span>
-<span id="cb188-3"><a href="data-wrangling-pt-2.html#cb188-3"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
-<span id="cb188-4"><a href="data-wrangling-pt-2.html#cb188-4"></a>    <span class="dt">adults_not_empl_perc =</span> (<span class="kw">sum</span>(u074 <span class="op">+</span><span class="st"> </span>u075) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(Total_Population)) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></span>
-<span id="cb188-5"><a href="data-wrangling-pt-2.html#cb188-5"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb188-6"><a href="data-wrangling-pt-2.html#cb188-6"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="data-wrangling-pt-2.html#cb187-1"></a>leicester_2011OAC_IMD2015 <span class="op">%&gt;%</span></span>
+<span id="cb187-2"><a href="data-wrangling-pt-2.html#cb187-2"></a><span class="st">  </span><span class="kw">group_by</span>(IndexofMultipleDeprivationIMD) <span class="op">%&gt;%</span></span>
+<span id="cb187-3"><a href="data-wrangling-pt-2.html#cb187-3"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
+<span id="cb187-4"><a href="data-wrangling-pt-2.html#cb187-4"></a>    <span class="dt">adults_not_empl_perc =</span> (<span class="kw">sum</span>(u074 <span class="op">+</span><span class="st"> </span>u075) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(Total_Population)) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></span>
+<span id="cb187-5"><a href="data-wrangling-pt-2.html#cb187-5"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb187-6"><a href="data-wrangling-pt-2.html#cb187-6"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <table>
 <thead>

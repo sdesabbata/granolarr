@@ -150,13 +150,13 @@ flights_from_nyc %>%
 
 ### Select and filter
 
-The function `select` can be used to select some **columns** to output. For instance in the code below, the function `select` is used to select the columns `origin`, `dest`, and `dep_delay`, in combination with the function `top_n`, which can be used to include only the first *n* rows (`5` in the example below) to output.
+The function `select` can be used to select some **columns** to output. For instance in the code below, the function `select` is used to select the columns `origin`, `dest`, and `dep_delay`, in combination with the function `head`, which can be used to include only the first *n* rows (`5` in the example below) to output.
 
 
 ```r
 flights_from_nyc %>%
   select(origin, dest, dep_delay) %>%
-  top_n(5) %>%
+  head(5) %>%
   kable()
 ```
 
@@ -164,11 +164,11 @@ flights_from_nyc %>%
 
 |origin |dest | dep_delay|
 |:------|:----|---------:|
-|JFK    |HNL  |      1301|
-|EWR    |ORD  |      1126|
-|JFK    |CMH  |      1137|
-|JFK    |CVG  |      1005|
-|JFK    |SFO  |      1014|
+|EWR    |IAH  |         2|
+|LGA    |IAH  |         4|
+|JFK    |MIA  |         2|
+|JFK    |BQN  |        -1|
+|LGA    |ATL  |        -6|
 
 The function `filter` can instead be used to filter **rows** based on a specified condition. In the example below, the output of the `filter` step only includes the rows where the value of `month` is `11` (i.e., the eleventh month, November). 
 
@@ -177,7 +177,7 @@ The function `filter` can instead be used to filter **rows** based on a specifie
 flights_from_nyc %>%
   select(origin, dest, year, month, day, dep_delay) %>%
   filter(month == 11) %>%
-  top_n(5) %>%
+  head(5) %>%
   kable()
 ```
 
@@ -185,11 +185,11 @@ flights_from_nyc %>%
 
 |origin |dest | year| month| day| dep_delay|
 |:------|:----|----:|-----:|---:|---------:|
-|EWR    |ATL  | 2013|    11|   3|       798|
-|LGA    |DFW  | 2013|    11|   4|       413|
-|EWR    |RDU  | 2013|    11|  20|       398|
-|JFK    |MIA  | 2013|    11|  24|       636|
-|JFK    |BUF  | 2013|    11|  27|       408|
+|JFK    |PSE  | 2013|    11|   1|         6|
+|JFK    |SYR  | 2013|    11|   1|       105|
+|EWR    |CLT  | 2013|    11|   1|        -5|
+|LGA    |IAH  | 2013|    11|   1|        -6|
+|JFK    |MIA  | 2013|    11|   1|        -3|
 
 Notice how `filter` is used in combination with `select`. All functions in the `dplyr` library can be combined, in any other order that makes logical sense. However, if the `select` step didn't include `month`, that same column couldn't have been used in the `filter` step.
 
@@ -204,7 +204,7 @@ flights_from_nyc %>%
   mutate(
     air_time_hours = air_time / 60
   ) %>%
-  top_n(5) %>%
+  head(5) %>%
   kable()
 ```
 
@@ -212,11 +212,11 @@ flights_from_nyc %>%
 
 | flight|origin |dest | air_time| air_time_hours|
 |------:|:------|:----|--------:|--------------:|
-|     51|JFK    |HNL  |      691|       11.51667|
-|     51|JFK    |HNL  |      686|       11.43333|
-|     51|JFK    |HNL  |      683|       11.38333|
-|     51|JFK    |HNL  |      686|       11.43333|
-|     15|EWR    |HNL  |      695|       11.58333|
+|   1545|EWR    |IAH  |      227|       3.783333|
+|   1714|LGA    |IAH  |      227|       3.783333|
+|   1141|JFK    |MIA  |      160|       2.666667|
+|    725|JFK    |BQN  |      183|       3.050000|
+|    461|LGA    |ATL  |      116|       1.933333|
 
 ### Arrange
 
@@ -230,16 +230,15 @@ flights_from_nyc %>%
   kable()
 ```
 
-Note that in the examples above, we have used `top_n` to present only the first `n` (in the examples `5`) rows in a table. Note however, that `top_n` already incorporates an ordering functionality (see [`top_n` reference page](https://dplyr.tidyverse.org/reference/top_n.html)), which by default orders the rows according to the values in the last column of the table, and selects the `n` highest values but presenting them in the order in which they are found.
+In the examples above, we have used `head` to present only the first `n` (in the examples `5`) rows in a table, based on the existing order. The `dplyr` library also provides the function `slice_head` which performs the same operation, as well as `slice_max` and `slice_min` which incorporate the sorting functionality (see [`slice` reference page](https://dplyr.tidyverse.org/reference/slice.html)).
 
-As such, the following code produces a table showing the 5 rows when ordered by descending (highest on *top*) order of air time.
+As such, the following code uses `slice_max` to produce a table showing the 5 rows when ordered by descending (*highest values* on top) order of air time.
 
 
 ```r
 flights_from_nyc %>%
   select(flight, origin, dest, air_time) %>%
-  arrange(-air_time) %>%
-  top_n(5) %>%
+  slice_max(air_time, n = 5) %>%
   kable()
 ```
 
@@ -253,35 +252,13 @@ flights_from_nyc %>%
 |     51|JFK    |HNL  |      686|
 |     51|JFK    |HNL  |      683|
 
-However, reversing the order of airtime and using `top_n` would still select the `5` highest values, but presented by ascending value.
+The following code, instead, uses `slice_min`, thus producing a table showing the 5 rows when ordered by ascending (*lowest values* on top) order of air time.
 
 
 ```r
 flights_from_nyc %>%
   select(flight, origin, dest, air_time) %>%
-  arrange(air_time) %>%
-  top_n(5) %>%
-  kable()
-```
-
-
-
-| flight|origin |dest | air_time|
-|------:|:------|:----|--------:|
-|     51|JFK    |HNL  |      683|
-|     51|JFK    |HNL  |      686|
-|     51|JFK    |HNL  |      686|
-|     51|JFK    |HNL  |      691|
-|     15|EWR    |HNL  |      695|
-
-To obtain a table with the five lowest values ordered by ascending value, a minus should be added before the value specifying the number of rows (i.e., `-5` instead of `5`). If the table contains ties, all rows are presented, as it is the case with the rows containing the value `21` below.
-
-
-```r
-flights_from_nyc %>%
-  select(flight, origin, dest, air_time) %>%
-  arrange(air_time) %>%
-  top_n(-5) %>%
+  slice_min(air_time, n = 5) %>%
   kable()
 ```
 
@@ -305,6 +282,9 @@ flights_from_nyc %>%
 |   4577|EWR    |BDL  |       21|
 |   6062|EWR    |BDL  |       21|
 |   3847|EWR    |BDL  |       21|
+
+In both cases, if the table contains ties, all rows containing a value that is present among the maximum or minimum selected values are presented, as it is the case with the rows containing the value `21` in the example above.
+
 
 ## Data manipulation example
 
@@ -336,7 +316,7 @@ flights_from_nyc %>%
     avg_dep_delay_hours = avg_dep_delay / 60
   ) %>%
   arrange(-avg_dep_delay_hours) %>%
-  top_n(5) %>%
+  head(5) %>%
   kable()
 ```
 

@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-22" />
+<meta name="date" content="2020-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -543,7 +543,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb167-4"><a href="data-manipulation.html#cb167-4"></a>    <span class="op">-</span>dep_delay <span class="co"># Descending delay</span></span>
 <span id="cb167-5"><a href="data-manipulation.html#cb167-5"></a>  )</span>
 <span id="cb167-6"><a href="data-manipulation.html#cb167-6"></a></span>
-<span id="cb167-7"><a href="data-manipulation.html#cb167-7"></a>nov_dep_delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<span id="cb167-7"><a href="data-manipulation.html#cb167-7"></a>nov_dep_delays <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 6
 ##   origin dest  dep_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -581,7 +581,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb171-8"><a href="data-manipulation.html#cb171-8"></a>    <span class="dt">tot_dep_delay =</span> <span class="kw">sum</span>(dep_delay)</span>
 <span id="cb171-9"><a href="data-manipulation.html#cb171-9"></a>  )</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data-manipulation.html#cb173-1"></a>dest_dep_delays_nov[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data-manipulation.html#cb173-1"></a>dest_dep_delays_nov <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   dest  tot_dep_delay
 ##   &lt;chr&gt;         &lt;dbl&gt;
@@ -596,7 +596,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb175-3"><a href="data-manipulation.html#cb175-3"></a>    <span class="dt">tot_dep_delay_days =</span> ((tot_dep_delay <span class="op">/</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="dv">24</span>)</span>
 <span id="cb175-4"><a href="data-manipulation.html#cb175-4"></a>  )</span>
 <span id="cb175-5"><a href="data-manipulation.html#cb175-5"></a></span>
-<span id="cb175-6"><a href="data-manipulation.html#cb175-6"></a>dest_dep_delays_nov[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<span id="cb175-6"><a href="data-manipulation.html#cb175-6"></a>dest_dep_delays_nov <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   dest  tot_dep_delay tot_dep_delay_days
 ##   &lt;chr&gt;         &lt;dbl&gt;              &lt;dbl&gt;
@@ -616,7 +616,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb177-8"><a href="data-manipulation.html#cb177-8"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">tot_dep_delay =</span> <span class="kw">sum</span>(dep_delay)) <span class="op">%&gt;%</span></span>
 <span id="cb177-9"><a href="data-manipulation.html#cb177-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tot_dep_delay_days =</span> ((tot_dep_delay <span class="op">/</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="dv">24</span>))</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="data-manipulation.html#cb179-1"></a>dest_dep_delays_nov[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="data-manipulation.html#cb179-1"></a>dest_dep_delays_nov <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   dest  tot_dep_delay tot_dep_delay_days
 ##   &lt;chr&gt;         &lt;dbl&gt;              &lt;dbl&gt;

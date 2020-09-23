@@ -225,7 +225,7 @@ leic_2011OAC_20to24 <- leicester_2011OAC %>%
   select(OA11CD, supgrpname, perc_age_20_to_24)
 
 leic_2011OAC_20to24 %>%
-  top_n(5) %>%
+  slice_head(n = 5) %>%
   kable()
 ```
 
@@ -233,11 +233,11 @@ leic_2011OAC_20to24 %>%
 
 |OA11CD    |supgrpname | perc_age_20_to_24|
 |:---------|:----------|-----------------:|
-|E00169455 |CP         |          57.65125|
-|E00169481 |CP         |          60.70111|
-|E00169446 |CP         |          60.75085|
-|E00168096 |CP         |          58.19209|
-|E00169043 |CP         |          56.83761|
+|E00069517 |SU         |          4.153355|
+|E00069514 |CP         |         30.650155|
+|E00169516 |MM         |         12.316716|
+|E00169048 |MM         |          6.956522|
+|E00169044 |MM         |          6.211180|
 
 ### Descriptive statistics
 
@@ -416,7 +416,7 @@ That manipulation creates one column per supergroup, containing the `perc_age_20
 
 ```r
 leic_2011OAC_20to24 %>%
-  top_n(10, OA11CD) %>%
+  slice_min(OA11CD, n = 10) %>%
   kable(digits = 3)
 ```
 
@@ -424,37 +424,37 @@ leic_2011OAC_20to24 %>%
 
 |OA11CD    |supgrpname | perc_age_20_to_24|
 |:---------|:----------|-----------------:|
-|E00169565 |CD         |             8.571|
-|E00169569 |MM         |             6.533|
-|E00169562 |MM         |             6.630|
-|E00169561 |MM         |             7.500|
-|E00169567 |CP         |            49.738|
-|E00169564 |CP         |            30.457|
-|E00169573 |MM         |             6.477|
-|E00169570 |MM         |             4.337|
-|E00169575 |CP         |            42.714|
-|E00169572 |CP         |            40.249|
+|E00068657 |HP         |             6.053|
+|E00068658 |MM         |             6.964|
+|E00068659 |MM         |             8.383|
+|E00068660 |MM         |             4.643|
+|E00068661 |MM         |            10.625|
+|E00068662 |MM         |             8.284|
+|E00068663 |MM         |             8.357|
+|E00068664 |MM         |             3.597|
+|E00068665 |MM         |             7.068|
+|E00068666 |MM         |             5.864|
 
 ```r
 leic_2011OAC_20to24_supgrp %>%
-  top_n(10, OA11CD) %>%
+  slice_min(OA11CD, n = 10) %>%
   kable(digits = 3)
 ```
 
 
 
-|OA11CD    |    CD|     CP| EC| HP|    MM| SU| UR|
-|:---------|-----:|------:|--:|--:|-----:|--:|--:|
-|E00169561 |    NA|     NA| NA| NA| 7.500| NA| NA|
-|E00169562 |    NA|     NA| NA| NA| 6.630| NA| NA|
-|E00169564 |    NA| 30.457| NA| NA|    NA| NA| NA|
-|E00169565 | 8.571|     NA| NA| NA|    NA| NA| NA|
-|E00169567 |    NA| 49.738| NA| NA|    NA| NA| NA|
-|E00169569 |    NA|     NA| NA| NA| 6.533| NA| NA|
-|E00169570 |    NA|     NA| NA| NA| 4.337| NA| NA|
-|E00169572 |    NA| 40.249| NA| NA|    NA| NA| NA|
-|E00169573 |    NA|     NA| NA| NA| 6.477| NA| NA|
-|E00169575 |    NA| 42.714| NA| NA|    NA| NA| NA|
+|OA11CD    | CD| CP| EC|    HP|     MM| SU| UR|
+|:---------|--:|--:|--:|-----:|------:|--:|--:|
+|E00068657 | NA| NA| NA| 6.053|     NA| NA| NA|
+|E00068658 | NA| NA| NA|    NA|  6.964| NA| NA|
+|E00068659 | NA| NA| NA|    NA|  8.383| NA| NA|
+|E00068660 | NA| NA| NA|    NA|  4.643| NA| NA|
+|E00068661 | NA| NA| NA|    NA| 10.625| NA| NA|
+|E00068662 | NA| NA| NA|    NA|  8.284| NA| NA|
+|E00068663 | NA| NA| NA|    NA|  8.357| NA| NA|
+|E00068664 | NA| NA| NA|    NA|  3.597| NA| NA|
+|E00068665 | NA| NA| NA|    NA|  7.068| NA| NA|
+|E00068666 | NA| NA| NA|    NA|  5.864| NA| NA|
 
 
 **Question 7.2.1:** The code below uses the newly created `leic_2011OAC_20to24_supgrp` table to calculate the descriptive statistics calculated for the variable `leic_2011OAC_20to24` for each supergroup. Is `leic_2011OAC_20to24` normally distributed in any of the subgroups? If yes, which supergroups and based on which values do you justify that claim? (Write up to 200 words)

@@ -62,7 +62,7 @@ nov_dep_delays <- nov_dep_delays %>%
     -dep_delay # Descending delay
   )
 
-nov_dep_delays[1:3, ]
+nov_dep_delays %>% head(3)
 ```
 
 ```
@@ -123,7 +123,7 @@ dest_dep_delays_nov <- nov_dep_delays %>%
 ```
 
 ```r
-dest_dep_delays_nov[1:3, ]
+dest_dep_delays_nov %>% head(3)
 ```
 
 ```
@@ -146,7 +146,7 @@ dest_dep_delays_nov <- dest_dep_delays_nov %>%
     tot_dep_delay_days = ((tot_dep_delay / 60) /24)
   )
 
-dest_dep_delays_nov[1:3, ]
+dest_dep_delays_nov %>% head(3)
 ```
 
 ```
@@ -179,7 +179,7 @@ dest_dep_delays_nov <- nycflights13::flights %>%
 ```
 
 ```r
-dest_dep_delays_nov[1:3, ]
+dest_dep_delays_nov %>% head(3)
 ```
 
 ```

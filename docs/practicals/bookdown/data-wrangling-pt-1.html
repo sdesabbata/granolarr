@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-22" />
+<meta name="date" content="2020-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -384,10 +384,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="select-and-filter" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Select and filter</h3>
-<p>The function <code>select</code> can be used to select some <strong>columns</strong> to output. For instance in the code below, the function <code>select</code> is used to select the columns <code>origin</code>, <code>dest</code>, and <code>dep_delay</code>, in combination with the function <code>top_n</code>, which can be used to include only the first <em>n</em> rows (<code>5</code> in the example below) to output.</p>
+<p>The function <code>select</code> can be used to select some <strong>columns</strong> to output. For instance in the code below, the function <code>select</code> is used to select the columns <code>origin</code>, <code>dest</code>, and <code>dep_delay</code>, in combination with the function <code>head</code>, which can be used to include only the first <em>n</em> rows (<code>5</code> in the example below) to output.</p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="data-wrangling-pt-1.html#cb154-1"></a>flights_from_nyc <span class="op">%&gt;%</span></span>
 <span id="cb154-2"><a href="data-wrangling-pt-1.html#cb154-2"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, dep_delay) <span class="op">%&gt;%</span></span>
-<span id="cb154-3"><a href="data-wrangling-pt-1.html#cb154-3"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
+<span id="cb154-3"><a href="data-wrangling-pt-1.html#cb154-3"></a><span class="st">  </span><span class="kw">head</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
 <span id="cb154-4"><a href="data-wrangling-pt-1.html#cb154-4"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
@@ -399,29 +399,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">JFK</td>
-<td align="left">HNL</td>
-<td align="right">1301</td>
-</tr>
-<tr class="even">
 <td align="left">EWR</td>
-<td align="left">ORD</td>
-<td align="right">1126</td>
+<td align="left">IAH</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">LGA</td>
+<td align="left">IAH</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="left">JFK</td>
-<td align="left">CMH</td>
-<td align="right">1137</td>
+<td align="left">MIA</td>
+<td align="right">2</td>
 </tr>
 <tr class="even">
 <td align="left">JFK</td>
-<td align="left">CVG</td>
-<td align="right">1005</td>
+<td align="left">BQN</td>
+<td align="right">-1</td>
 </tr>
 <tr class="odd">
-<td align="left">JFK</td>
-<td align="left">SFO</td>
-<td align="right">1014</td>
+<td align="left">LGA</td>
+<td align="left">ATL</td>
+<td align="right">-6</td>
 </tr>
 </tbody>
 </table>
@@ -429,7 +429,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data-wrangling-pt-1.html#cb155-1"></a>flights_from_nyc <span class="op">%&gt;%</span></span>
 <span id="cb155-2"><a href="data-wrangling-pt-1.html#cb155-2"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, year, month, day, dep_delay) <span class="op">%&gt;%</span></span>
 <span id="cb155-3"><a href="data-wrangling-pt-1.html#cb155-3"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
-<span id="cb155-4"><a href="data-wrangling-pt-1.html#cb155-4"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
+<span id="cb155-4"><a href="data-wrangling-pt-1.html#cb155-4"></a><span class="st">  </span><span class="kw">head</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
 <span id="cb155-5"><a href="data-wrangling-pt-1.html#cb155-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
@@ -444,44 +444,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">EWR</td>
-<td align="left">ATL</td>
+<td align="left">JFK</td>
+<td align="left">PSE</td>
 <td align="right">2013</td>
 <td align="right">11</td>
-<td align="right">3</td>
-<td align="right">798</td>
+<td align="right">1</td>
+<td align="right">6</td>
 </tr>
 <tr class="even">
-<td align="left">LGA</td>
-<td align="left">DFW</td>
+<td align="left">JFK</td>
+<td align="left">SYR</td>
 <td align="right">2013</td>
 <td align="right">11</td>
-<td align="right">4</td>
-<td align="right">413</td>
+<td align="right">1</td>
+<td align="right">105</td>
 </tr>
 <tr class="odd">
 <td align="left">EWR</td>
-<td align="left">RDU</td>
+<td align="left">CLT</td>
 <td align="right">2013</td>
 <td align="right">11</td>
-<td align="right">20</td>
-<td align="right">398</td>
+<td align="right">1</td>
+<td align="right">-5</td>
 </tr>
 <tr class="even">
+<td align="left">LGA</td>
+<td align="left">IAH</td>
+<td align="right">2013</td>
+<td align="right">11</td>
+<td align="right">1</td>
+<td align="right">-6</td>
+</tr>
+<tr class="odd">
 <td align="left">JFK</td>
 <td align="left">MIA</td>
 <td align="right">2013</td>
 <td align="right">11</td>
-<td align="right">24</td>
-<td align="right">636</td>
-</tr>
-<tr class="odd">
-<td align="left">JFK</td>
-<td align="left">BUF</td>
-<td align="right">2013</td>
-<td align="right">11</td>
-<td align="right">27</td>
-<td align="right">408</td>
+<td align="right">1</td>
+<td align="right">-3</td>
 </tr>
 </tbody>
 </table>
@@ -495,7 +495,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb156-3"><a href="data-wrangling-pt-1.html#cb156-3"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
 <span id="cb156-4"><a href="data-wrangling-pt-1.html#cb156-4"></a>    <span class="dt">air_time_hours =</span> air_time <span class="op">/</span><span class="st"> </span><span class="dv">60</span></span>
 <span id="cb156-5"><a href="data-wrangling-pt-1.html#cb156-5"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb156-6"><a href="data-wrangling-pt-1.html#cb156-6"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
+<span id="cb156-6"><a href="data-wrangling-pt-1.html#cb156-6"></a><span class="st">  </span><span class="kw">head</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
 <span id="cb156-7"><a href="data-wrangling-pt-1.html#cb156-7"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
@@ -509,39 +509,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">51</td>
-<td align="left">JFK</td>
-<td align="left">HNL</td>
-<td align="right">691</td>
-<td align="right">11.51667</td>
-</tr>
-<tr class="even">
-<td align="right">51</td>
-<td align="left">JFK</td>
-<td align="left">HNL</td>
-<td align="right">686</td>
-<td align="right">11.43333</td>
-</tr>
-<tr class="odd">
-<td align="right">51</td>
-<td align="left">JFK</td>
-<td align="left">HNL</td>
-<td align="right">683</td>
-<td align="right">11.38333</td>
-</tr>
-<tr class="even">
-<td align="right">51</td>
-<td align="left">JFK</td>
-<td align="left">HNL</td>
-<td align="right">686</td>
-<td align="right">11.43333</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
+<td align="right">1545</td>
 <td align="left">EWR</td>
-<td align="left">HNL</td>
-<td align="right">695</td>
-<td align="right">11.58333</td>
+<td align="left">IAH</td>
+<td align="right">227</td>
+<td align="right">3.783333</td>
+</tr>
+<tr class="even">
+<td align="right">1714</td>
+<td align="left">LGA</td>
+<td align="left">IAH</td>
+<td align="right">227</td>
+<td align="right">3.783333</td>
+</tr>
+<tr class="odd">
+<td align="right">1141</td>
+<td align="left">JFK</td>
+<td align="left">MIA</td>
+<td align="right">160</td>
+<td align="right">2.666667</td>
+</tr>
+<tr class="even">
+<td align="right">725</td>
+<td align="left">JFK</td>
+<td align="left">BQN</td>
+<td align="right">183</td>
+<td align="right">3.050000</td>
+</tr>
+<tr class="odd">
+<td align="right">461</td>
+<td align="left">LGA</td>
+<td align="left">ATL</td>
+<td align="right">116</td>
+<td align="right">1.933333</td>
 </tr>
 </tbody>
 </table>
@@ -553,13 +553,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb157-2"><a href="data-wrangling-pt-1.html#cb157-2"></a><span class="st">  </span><span class="kw">select</span>(flight, origin, dest, air_time) <span class="op">%&gt;%</span></span>
 <span id="cb157-3"><a href="data-wrangling-pt-1.html#cb157-3"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>air_time) <span class="op">%&gt;%</span></span>
 <span id="cb157-4"><a href="data-wrangling-pt-1.html#cb157-4"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
-<p>Note that in the examples above, we have used <code>top_n</code> to present only the first <code>n</code> (in the examples <code>5</code>) rows in a table. Note however, that <code>top_n</code> already incorporates an ordering functionality (see <a href="https://dplyr.tidyverse.org/reference/top_n.html"><code>top_n</code> reference page</a>), which by default orders the rows according to the values in the last column of the table, and selects the <code>n</code> highest values but presenting them in the order in which they are found.</p>
-<p>As such, the following code produces a table showing the 5 rows when ordered by descending (highest on <em>top</em>) order of air time.</p>
+<p>In the examples above, we have used <code>head</code> to present only the first <code>n</code> (in the examples <code>5</code>) rows in a table, based on the existing order. The <code>dplyr</code> library also provides the function <code>slice_head</code> which performs the same operation, as well as <code>slice_max</code> and <code>slice_min</code> which incorporate the sorting functionality (see <a href="https://dplyr.tidyverse.org/reference/slice.html"><code>slice</code> reference page</a>).</p>
+<p>As such, the following code uses <code>slice_max</code> to produce a table showing the 5 rows when ordered by descending (<em>highest values</em> on top) order of air time.</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="data-wrangling-pt-1.html#cb158-1"></a>flights_from_nyc <span class="op">%&gt;%</span></span>
 <span id="cb158-2"><a href="data-wrangling-pt-1.html#cb158-2"></a><span class="st">  </span><span class="kw">select</span>(flight, origin, dest, air_time) <span class="op">%&gt;%</span></span>
-<span id="cb158-3"><a href="data-wrangling-pt-1.html#cb158-3"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>air_time) <span class="op">%&gt;%</span></span>
-<span id="cb158-4"><a href="data-wrangling-pt-1.html#cb158-4"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
-<span id="cb158-5"><a href="data-wrangling-pt-1.html#cb158-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<span id="cb158-3"><a href="data-wrangling-pt-1.html#cb158-3"></a><span class="st">  </span><span class="kw">slice_max</span>(air_time, <span class="dt">n =</span> <span class="dv">5</span>) <span class="op">%&gt;%</span></span>
+<span id="cb158-4"><a href="data-wrangling-pt-1.html#cb158-4"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -602,60 +601,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>However, reversing the order of airtime and using <code>top_n</code> would still select the <code>5</code> highest values, but presented by ascending value.</p>
+<p>The following code, instead, uses <code>slice_min</code>, thus producing a table showing the 5 rows when ordered by ascending (<em>lowest values</em> on top) order of air time.</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="data-wrangling-pt-1.html#cb159-1"></a>flights_from_nyc <span class="op">%&gt;%</span></span>
 <span id="cb159-2"><a href="data-wrangling-pt-1.html#cb159-2"></a><span class="st">  </span><span class="kw">select</span>(flight, origin, dest, air_time) <span class="op">%&gt;%</span></span>
-<span id="cb159-3"><a href="data-wrangling-pt-1.html#cb159-3"></a><span class="st">  </span><span class="kw">arrange</span>(air_time) <span class="op">%&gt;%</span></span>
-<span id="cb159-4"><a href="data-wrangling-pt-1.html#cb159-4"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
-<span id="cb159-5"><a href="data-wrangling-pt-1.html#cb159-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th align="right">flight</th>
-<th align="left">origin</th>
-<th align="left">dest</th>
-<th align="right">air_time</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">51</td>
-<td align="left">JFK</td>
-<td align="left">HNL</td>
-<td align="right">683</td>
-</tr>
-<tr class="even">
-<td align="right">51</td>
-<td align="left">JFK</td>
-<td align="left">HNL</td>
-<td align="right">686</td>
-</tr>
-<tr class="odd">
-<td align="right">51</td>
-<td align="left">JFK</td>
-<td align="left">HNL</td>
-<td align="right">686</td>
-</tr>
-<tr class="even">
-<td align="right">51</td>
-<td align="left">JFK</td>
-<td align="left">HNL</td>
-<td align="right">691</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
-<td align="left">EWR</td>
-<td align="left">HNL</td>
-<td align="right">695</td>
-</tr>
-</tbody>
-</table>
-<p>To obtain a table with the five lowest values ordered by ascending value, a minus should be added before the value specifying the number of rows (i.e., <code>-5</code> instead of <code>5</code>). If the table contains ties, all rows are presented, as it is the case with the rows containing the value <code>21</code> below.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="data-wrangling-pt-1.html#cb160-1"></a>flights_from_nyc <span class="op">%&gt;%</span></span>
-<span id="cb160-2"><a href="data-wrangling-pt-1.html#cb160-2"></a><span class="st">  </span><span class="kw">select</span>(flight, origin, dest, air_time) <span class="op">%&gt;%</span></span>
-<span id="cb160-3"><a href="data-wrangling-pt-1.html#cb160-3"></a><span class="st">  </span><span class="kw">arrange</span>(air_time) <span class="op">%&gt;%</span></span>
-<span id="cb160-4"><a href="data-wrangling-pt-1.html#cb160-4"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="op">-</span><span class="dv">5</span>) <span class="op">%&gt;%</span></span>
-<span id="cb160-5"><a href="data-wrangling-pt-1.html#cb160-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<span id="cb159-3"><a href="data-wrangling-pt-1.html#cb159-3"></a><span class="st">  </span><span class="kw">slice_min</span>(air_time, <span class="dt">n =</span> <span class="dv">5</span>) <span class="op">%&gt;%</span></span>
+<span id="cb159-4"><a href="data-wrangling-pt-1.html#cb159-4"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -764,6 +714,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
+<p>In both cases, if the table contains ties, all rows containing a value that is present among the maximum or minimum selected values are presented, as it is the case with the rows containing the value <code>21</code> in the example above.</p>
 </div>
 </div>
 <div id="data-manipulation-example" class="section level2">
@@ -786,20 +737,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Only show the first 5 rows.</li>
 <li>Create a well-formatted table.</li>
 </ol>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="data-wrangling-pt-1.html#cb161-1"></a>flights_from_nyc <span class="op">%&gt;%</span></span>
-<span id="cb161-2"><a href="data-wrangling-pt-1.html#cb161-2"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, year, month, day, dep_delay) <span class="op">%&gt;%</span></span>
-<span id="cb161-3"><a href="data-wrangling-pt-1.html#cb161-3"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
-<span id="cb161-4"><a href="data-wrangling-pt-1.html#cb161-4"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
-<span id="cb161-5"><a href="data-wrangling-pt-1.html#cb161-5"></a><span class="st">  </span><span class="kw">group_by</span>(dest) <span class="op">%&gt;%</span></span>
-<span id="cb161-6"><a href="data-wrangling-pt-1.html#cb161-6"></a><span class="st">  </span><span class="kw">summarize</span>(</span>
-<span id="cb161-7"><a href="data-wrangling-pt-1.html#cb161-7"></a>    <span class="dt">avg_dep_delay =</span> <span class="kw">mean</span>(dep_delay)</span>
-<span id="cb161-8"><a href="data-wrangling-pt-1.html#cb161-8"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb161-9"><a href="data-wrangling-pt-1.html#cb161-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
-<span id="cb161-10"><a href="data-wrangling-pt-1.html#cb161-10"></a>    <span class="dt">avg_dep_delay_hours =</span> avg_dep_delay <span class="op">/</span><span class="st"> </span><span class="dv">60</span></span>
-<span id="cb161-11"><a href="data-wrangling-pt-1.html#cb161-11"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb161-12"><a href="data-wrangling-pt-1.html#cb161-12"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>avg_dep_delay_hours) <span class="op">%&gt;%</span></span>
-<span id="cb161-13"><a href="data-wrangling-pt-1.html#cb161-13"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
-<span id="cb161-14"><a href="data-wrangling-pt-1.html#cb161-14"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="data-wrangling-pt-1.html#cb160-1"></a>flights_from_nyc <span class="op">%&gt;%</span></span>
+<span id="cb160-2"><a href="data-wrangling-pt-1.html#cb160-2"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, year, month, day, dep_delay) <span class="op">%&gt;%</span></span>
+<span id="cb160-3"><a href="data-wrangling-pt-1.html#cb160-3"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
+<span id="cb160-4"><a href="data-wrangling-pt-1.html#cb160-4"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
+<span id="cb160-5"><a href="data-wrangling-pt-1.html#cb160-5"></a><span class="st">  </span><span class="kw">group_by</span>(dest) <span class="op">%&gt;%</span></span>
+<span id="cb160-6"><a href="data-wrangling-pt-1.html#cb160-6"></a><span class="st">  </span><span class="kw">summarize</span>(</span>
+<span id="cb160-7"><a href="data-wrangling-pt-1.html#cb160-7"></a>    <span class="dt">avg_dep_delay =</span> <span class="kw">mean</span>(dep_delay)</span>
+<span id="cb160-8"><a href="data-wrangling-pt-1.html#cb160-8"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb160-9"><a href="data-wrangling-pt-1.html#cb160-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb160-10"><a href="data-wrangling-pt-1.html#cb160-10"></a>    <span class="dt">avg_dep_delay_hours =</span> avg_dep_delay <span class="op">/</span><span class="st"> </span><span class="dv">60</span></span>
+<span id="cb160-11"><a href="data-wrangling-pt-1.html#cb160-11"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb160-12"><a href="data-wrangling-pt-1.html#cb160-12"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>avg_dep_delay_hours) <span class="op">%&gt;%</span></span>
+<span id="cb160-13"><a href="data-wrangling-pt-1.html#cb160-13"></a><span class="st">  </span><span class="kw">head</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></span>
+<span id="cb160-14"><a href="data-wrangling-pt-1.html#cb160-14"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">

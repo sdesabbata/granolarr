@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-22" />
+<meta name="date" content="2020-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -544,7 +544,7 @@ E00169048,E01032862, ... 4,Multicultural Metropolitans,345, ...</code></pre>
 <span id="cb200-2"><a href="read-and-write-data.html#cb200-2"></a></span>
 <span id="cb200-3"><a href="read-and-write-data.html#cb200-3"></a>leicester_2011OAC <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb200-4"><a href="read-and-write-data.html#cb200-4"></a><span class="st">  </span><span class="kw">select</span>(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) <span class="op">%&gt;%</span></span>
-<span id="cb200-5"><a href="read-and-write-data.html#cb200-5"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">3</span>) <span class="op">%&gt;%</span></span>
+<span id="cb200-5"><a href="read-and-write-data.html#cb200-5"></a><span class="st">  </span><span class="kw">slice_head</span>(<span class="dt">n =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span></span>
 <span id="cb200-6"><a href="read-and-write-data.html#cb200-6"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
@@ -558,25 +558,25 @@ E00169048,E01032862, ... 4,Multicultural Metropolitans,345, ...</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">E00169553</td>
-<td align="left">E01013648</td>
-<td align="right">2</td>
-<td align="left">Cosmopolitans</td>
-<td align="right">714</td>
+<td align="left">E00069517</td>
+<td align="left">E01013785</td>
+<td align="right">6</td>
+<td align="left">Suburbanites</td>
+<td align="right">313</td>
 </tr>
 <tr class="even">
-<td align="left">E00069303</td>
-<td align="left">E01013739</td>
-<td align="right">4</td>
-<td align="left">Multicultural Metropolitans</td>
-<td align="right">623</td>
-</tr>
-<tr class="odd">
-<td align="left">E00168096</td>
-<td align="left">E01013689</td>
+<td align="left">E00069514</td>
+<td align="left">E01013784</td>
 <td align="right">2</td>
 <td align="left">Cosmopolitans</td>
-<td align="right">708</td>
+<td align="right">323</td>
+</tr>
+<tr class="odd">
+<td align="left">E00169516</td>
+<td align="left">E01013713</td>
+<td align="right">4</td>
+<td align="left">Multicultural Metropolitans</td>
+<td align="right">341</td>
 </tr>
 </tbody>
 </table>

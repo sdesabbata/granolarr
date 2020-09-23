@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-09-22" />
+  <meta name="date" content="2020-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3246,7 +3246,7 @@ if (document.readyState !== "loading" &&
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-09-22</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-09-23</p>
           </hgroup>
   </slide>
 
@@ -3304,7 +3304,7 @@ nov_dep_delays &lt;-
     -dep_delay # Descending delay
   )
 
-nov_dep_delays[1:3, ]</pre>
+nov_dep_delays %&gt;% head(3)</pre>
 
 <pre >## # A tibble: 3 x 6
 ##   origin dest  dep_delay  year month   day
@@ -3347,7 +3347,7 @@ aggr_dep_delays_nov</pre>
 
 <pre >## `summarise()` ungrouping output (override with `.groups` argument)</pre>
 
-<pre class = 'prettyprint lang-r'>dest_dep_delays_nov[1:3, ]</pre>
+<pre class = 'prettyprint lang-r'>dest_dep_delays_nov %&gt;% head(3)</pre>
 
 <pre >## # A tibble: 3 x 2
 ##   dest  tot_dep_delay
@@ -3363,7 +3363,7 @@ aggr_dep_delays_nov</pre>
     tot_dep_delay_days = ((tot_dep_delay / 60) /24)
   )
 
-dest_dep_delays_nov[1:3, ]</pre>
+dest_dep_delays_nov %&gt;% head(3)</pre>
 
 <pre >## # A tibble: 3 x 3
 ##   dest  tot_dep_delay tot_dep_delay_days
@@ -3386,7 +3386,7 @@ dest_dep_delays_nov[1:3, ]</pre>
 
 <pre >## `summarise()` ungrouping output (override with `.groups` argument)</pre>
 
-<pre class = 'prettyprint lang-r'>dest_dep_delays_nov[1:3, ]</pre>
+<pre class = 'prettyprint lang-r'>dest_dep_delays_nov %&gt;% head(3)</pre>
 
 <pre >## # A tibble: 3 x 3
 ##   dest  tot_dep_delay tot_dep_delay_days

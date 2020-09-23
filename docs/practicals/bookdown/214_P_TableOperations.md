@@ -252,16 +252,16 @@ leicester_2011OAC <- read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
 
 leicester_2011OAC %>% 
   select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) %>%
-  top_n(3) %>%
+  slice_head(n = 3) %>%
   kable()
 ```
 
 
 |OA11CD    |LSOA11CD  | supgrpcode|supgrpname                  | Total_Population|
 |:---------|:---------|----------:|:---------------------------|----------------:|
-|E00169553 |E01013648 |          2|Cosmopolitans               |              714|
-|E00069303 |E01013739 |          4|Multicultural Metropolitans |              623|
-|E00168096 |E01013689 |          2|Cosmopolitans               |              708|
+|E00069517 |E01013785 |          6|Suburbanites                |              313|
+|E00069514 |E01013784 |          2|Cosmopolitans               |              323|
+|E00169516 |E01013713 |          4|Multicultural Metropolitans |              341|
 
 The code below loads the IMD 2015 dataset.
 

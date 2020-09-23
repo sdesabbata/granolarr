@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-22" />
+<meta name="date" content="2020-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -549,7 +549,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb150-6"><a href="selection-and-filtering.html#cb150-6"></a><span class="co"># Drop column arr_delay using - in front of the column name</span></span>
 <span id="cb150-7"><a href="selection-and-filtering.html#cb150-7"></a>dep_delays &lt;-<span class="st"> </span><span class="kw">select</span>(delays, <span class="op">-</span>arr_delay)</span>
 <span id="cb150-8"><a href="selection-and-filtering.html#cb150-8"></a></span>
-<span id="cb150-9"><a href="selection-and-filtering.html#cb150-9"></a>delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<span id="cb150-9"><a href="selection-and-filtering.html#cb150-9"></a>delays <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 7
 ##   origin dest  dep_delay arr_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -564,7 +564,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb152-2"><a href="selection-and-filtering.html#cb152-2"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, dep_delay, arr_delay, year<span class="op">:</span>day) <span class="op">%&gt;%</span></span>
 <span id="cb152-3"><a href="selection-and-filtering.html#cb152-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>arr_delay)</span>
 <span id="cb152-4"><a href="selection-and-filtering.html#cb152-4"></a></span>
-<span id="cb152-5"><a href="selection-and-filtering.html#cb152-5"></a>delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<span id="cb152-5"><a href="selection-and-filtering.html#cb152-5"></a>delays <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 7
 ##   origin dest  dep_delay arr_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -594,7 +594,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The same can be applied to data frames</p>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="selection-and-filtering.html#cb162-1"></a>nov_dep_delays &lt;-<span class="st"> </span>dep_delays[dep_delays<span class="op">$</span>month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, ]</span>
 <span id="cb162-2"><a href="selection-and-filtering.html#cb162-2"></a></span>
-<span id="cb162-3"><a href="selection-and-filtering.html#cb162-3"></a>nov_dep_delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<span id="cb162-3"><a href="selection-and-filtering.html#cb162-3"></a>nov_dep_delays <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 6
 ##   origin dest  dep_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -607,7 +607,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="selection-and-filtering.html#cb164-1"></a>nov_dep_delays &lt;-<span class="st"> </span>dep_delays <span class="op">%&gt;%</span></span>
 <span id="cb164-2"><a href="selection-and-filtering.html#cb164-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="co"># Flights in November</span></span>
 <span id="cb164-3"><a href="selection-and-filtering.html#cb164-3"></a></span>
-<span id="cb164-4"><a href="selection-and-filtering.html#cb164-4"></a>nov_dep_delays[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</span></code></pre></div>
+<span id="cb164-4"><a href="selection-and-filtering.html#cb164-4"></a>nov_dep_delays <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 6
 ##   origin dest  dep_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;

@@ -218,7 +218,7 @@ leic_2011OAC_20to24 <- leicester_2011OAC %>%
   select(OA11CD, supgrpname, perc_age_20_to_24)
 
 leic_2011OAC_20to24 %>%
-  top_n(5) %>%
+  slice_head(n = 5) %>%
   kable()
 ```
 
@@ -356,11 +356,11 @@ That manipulation creates one column per supergroup, containing the `perc_age_20
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 leic_2011OAC_20to24 %>%
-  top_n(10, OA11CD) %>%
+  slice_min(OA11CD, n = 10) %>%
   kable(digits = 3)
 
 leic_2011OAC_20to24_supgrp %>%
-  top_n(10, OA11CD) %>%
+  slice_min(OA11CD, n = 10) %>%
   kable(digits = 3)
 ```
 

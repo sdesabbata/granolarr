@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-09-22" />
+  <meta name="date" content="2020-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3246,7 +3246,7 @@ if (document.readyState !== "loading" &&
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-09-22</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-09-23</p>
           </hgroup>
   </slide>
 
@@ -3296,7 +3296,7 @@ library(knitr)</pre>
 
 leicester_2011OAC %&gt;% 
   select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) %&gt;%
-  top_n(3) %&gt;%
+  slice_head(n = 3) %&gt;%
   kable()</pre>
 
 <table class = 'rmdtable'>
@@ -3308,25 +3308,25 @@ leicester_2011OAC %&gt;%
 <th align="right">Total_Population</th>
 </tr>
 <tr class="odd">
-<td align="left">E00169553</td>
-<td align="left">E01013648</td>
-<td align="right">2</td>
-<td align="left">Cosmopolitans</td>
-<td align="right">714</td>
+<td align="left">E00069517</td>
+<td align="left">E01013785</td>
+<td align="right">6</td>
+<td align="left">Suburbanites</td>
+<td align="right">313</td>
 </tr>
 <tr class="even">
-<td align="left">E00069303</td>
-<td align="left">E01013739</td>
-<td align="right">4</td>
-<td align="left">Multicultural Metropolitans</td>
-<td align="right">623</td>
-</tr>
-<tr class="odd">
-<td align="left">E00168096</td>
-<td align="left">E01013689</td>
+<td align="left">E00069514</td>
+<td align="left">E01013784</td>
 <td align="right">2</td>
 <td align="left">Cosmopolitans</td>
-<td align="right">708</td>
+<td align="right">323</td>
+</tr>
+<tr class="odd">
+<td align="left">E00169516</td>
+<td align="left">E01013713</td>
+<td align="right">4</td>
+<td align="left">Multicultural Metropolitans</td>
+<td align="right">341</td>
 </tr>
 </table>
 

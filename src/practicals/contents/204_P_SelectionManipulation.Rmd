@@ -124,12 +124,12 @@ flights_from_nyc %>%
 
 ### Select and filter
 
-The function `select` can be used to select some **columns** to output. For instance in the code below, the function `select` is used to select the columns `origin`, `dest`, and `dep_delay`, in combination with the function `top_n`, which can be used to include only the first *n* rows (`5` in the example below) to output.
+The function `select` can be used to select some **columns** to output. For instance in the code below, the function `select` is used to select the columns `origin`, `dest`, and `dep_delay`, in combination with the function `head`, which can be used to include only the first *n* rows (`5` in the example below) to output.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
   select(origin, dest, dep_delay) %>%
-  top_n(5) %>%
+  head(5) %>%
   kable()
 ```
 
@@ -139,7 +139,7 @@ The function `filter` can instead be used to filter **rows** based on a specifie
 flights_from_nyc %>%
   select(origin, dest, year, month, day, dep_delay) %>%
   filter(month == 11) %>%
-  top_n(5) %>%
+  head(5) %>%
   kable()
 ```
 
@@ -155,7 +155,7 @@ flights_from_nyc %>%
   mutate(
     air_time_hours = air_time / 60
   ) %>%
-  top_n(5) %>%
+  head(5) %>%
   kable()
 ```
 
@@ -170,37 +170,28 @@ flights_from_nyc %>%
   kable()
 ```
 
-Note that in the examples above, we have used `top_n` to present only the first `n` (in the examples `5`) rows in a table. Note however, that `top_n` already incorporates an ordering functionality (see [`top_n` reference page](https://dplyr.tidyverse.org/reference/top_n.html)), which by default orders the rows according to the values in the last column of the table, and selects the `n` highest values but presenting them in the order in which they are found.
+In the examples above, we have used `head` to present only the first `n` (in the examples `5`) rows in a table, based on the existing order. The `dplyr` library also provides the function `slice_head` which performs the same operation, as well as `slice_max` and `slice_min` which incorporate the sorting functionality (see [`slice` reference page](https://dplyr.tidyverse.org/reference/slice.html)).
 
-As such, the following code produces a table showing the 5 rows when ordered by descending (highest on *top*) order of air time.
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-flights_from_nyc %>%
-  select(flight, origin, dest, air_time) %>%
-  arrange(-air_time) %>%
-  top_n(5) %>%
-  kable()
-```
-
-However, reversing the order of airtime and using `top_n` would still select the `5` highest values, but presented by ascending value.
+As such, the following code uses `slice_max` to produce a table showing the 5 rows when ordered by descending (*highest values* on top) order of air time.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
   select(flight, origin, dest, air_time) %>%
-  arrange(air_time) %>%
-  top_n(5) %>%
+  slice_max(air_time, n = 5) %>%
   kable()
 ```
 
-To obtain a table with the five lowest values ordered by ascending value, a minus should be added before the value specifying the number of rows (i.e., `-5` instead of `5`). If the table contains ties, all rows are presented, as it is the case with the rows containing the value `21` below.
+The following code, instead, uses `slice_min`, thus producing a table showing the 5 rows when ordered by ascending (*lowest values* on top) order of air time.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
   select(flight, origin, dest, air_time) %>%
-  arrange(air_time) %>%
-  top_n(-5) %>%
+  slice_min(air_time, n = 5) %>%
   kable()
 ```
+
+In both cases, if the table contains ties, all rows containing a value that is present among the maximum or minimum selected values are presented, as it is the case with the rows containing the value `21` in the example above.
+
 
 ## Data manipulation example
 
@@ -231,7 +222,7 @@ flights_from_nyc %>%
     avg_dep_delay_hours = avg_dep_delay / 60
   ) %>%
   arrange(-avg_dep_delay_hours) %>%
-  top_n(5) %>%
+  head(5) %>%
   kable()
 ```
 
