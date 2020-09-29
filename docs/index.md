@@ -2,7 +2,7 @@
 layout: single
 permalink: /
 header:
-  overlay_image: /assets/images/granolarr_banner_001.png
+  overlay_image: /assets/images/granolarr_banner_001_1920.png
   overlay_filter: 0.5
   caption: "Photo by Stefano De Sabbata"
   #actions:
