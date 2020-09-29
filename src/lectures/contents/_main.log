@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  23 SEP 2020 11:45
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  29 SEP 2020 11:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1493,9 +1493,6 @@ Chapter 26.
 File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-2-1.pdf Graphic
  file (type pdf)
 <use 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-2-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 [130]
 File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-4-1.pdf Graphic
  file (type pdf)
@@ -1510,10 +1507,9 @@ File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-8-1.pdf Graphic
 File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-9-1.pdf Graphic
  file (type pdf)
 <use 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-9-1.pdf>
+[132] [133] [134
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[132] [133] [134]
+]
 Chapter 27.
 
 Overfull \hbox (90.75pt too wide) in paragraph at lines 7378--7378
@@ -1527,9 +1523,7 @@ Overfull \hbox (90.75pt too wide) in paragraph at lines 7391--7391
 dyverse_conflicts() --[] 
  []
 
-[135
-
-]
+[135]
 File: 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-4-1.
 pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-4-1.p
@@ -1565,6 +1559,9 @@ pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-9-1.p
 df>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (0.80673pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 138 \TU/lmr/m/sl/10 CHAPTER 27.  HIERARCHICAL AND DENSITY-BASED 
 CLUSTERING
@@ -1579,17 +1576,20 @@ File: 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-12-1
 .pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-12-1.
 pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [139]
 Overfull \hbox (0.80673pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 140 \TU/lmr/m/sl/10 CHAPTER 27.  HIERARCHICAL AND DENSITY-BASED 
 CLUSTERING
  []
 
-[140
-
-]
+[140]
 Chapter 28.
-[141] [142
+[141
+
+] [142
 
 ]
 Chapter 29.
