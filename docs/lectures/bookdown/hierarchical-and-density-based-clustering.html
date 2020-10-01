@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,13 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="data-types.html"><a href="data-types.html#ordered-factors"><i class="fa fa-check"></i><b>4.12</b> Ordered Factors</a></li>
 <li class="chapter" data-level="4.13" data-path="data-types.html"><a href="data-types.html#matrices"><i class="fa fa-check"></i><b>4.13</b> Matrices</a></li>
 <li class="chapter" data-level="4.14" data-path="data-types.html"><a href="data-types.html#arrays"><i class="fa fa-check"></i><b>4.14</b> Arrays</a></li>
-<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#arrays-1"><i class="fa fa-check"></i><b>4.15</b> Arrays</a></li>
-<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.16</b> Selection</a></li>
-<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#apply"><i class="fa fa-check"></i><b>4.17</b> apply</a></li>
-<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.18</b> Lists</a></li>
-<li class="chapter" data-level="4.19" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.19</b> Named Lists</a></li>
-<li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
-<li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
+<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.15</b> Selection</a></li>
+<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.16</b> Lists</a></li>
+<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.17</b> Named Lists</a></li>
+<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.18</b> Recap</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
@@ -512,7 +509,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="libraries" class="section level2">
 <h2><span class="header-section-number">27.2</span> Libraries</h2>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="hierarchical-and-density-based-clustering.html#cb271-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="hierarchical-and-density-based-clustering.html#cb264-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.3.2     ✔ purrr   0.3.4
 ## ✔ tibble  3.0.3     ✔ dplyr   1.0.0
@@ -521,15 +518,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="hierarchical-and-density-based-clustering.html#cb275-1"></a><span class="kw">library</span>(e1071)</span>
-<span id="cb275-2"><a href="hierarchical-and-density-based-clustering.html#cb275-2"></a><span class="kw">library</span>(dbscan)</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="hierarchical-and-density-based-clustering.html#cb268-1"></a><span class="kw">library</span>(e1071)</span>
+<span id="cb268-2"><a href="hierarchical-and-density-based-clustering.html#cb268-2"></a><span class="kw">library</span>(dbscan)</span></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2><span class="header-section-number">27.3</span> Example</h2>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="hierarchical-and-density-based-clustering.html#cb276-1"></a>data_to_cluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb276-2"><a href="hierarchical-and-density-based-clustering.html#cb276-2"></a>  <span class="dt">x_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">10</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">3</span>)),</span>
-<span id="cb276-3"><a href="hierarchical-and-density-based-clustering.html#cb276-3"></a>  <span class="dt">y_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">5</span>, <span class="dv">3</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">1</span>)),</span>
-<span id="cb276-4"><a href="hierarchical-and-density-based-clustering.html#cb276-4"></a>  <span class="dt">original_group =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">40</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">60</span>), <span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">20</span>)) )</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="hierarchical-and-density-based-clustering.html#cb269-1"></a>data_to_cluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb269-2"><a href="hierarchical-and-density-based-clustering.html#cb269-2"></a>  <span class="dt">x_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">10</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">3</span>)),</span>
+<span id="cb269-3"><a href="hierarchical-and-density-based-clustering.html#cb269-3"></a>  <span class="dt">y_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">5</span>, <span class="dv">3</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">1</span>)),</span>
+<span id="cb269-4"><a href="hierarchical-and-density-based-clustering.html#cb269-4"></a>  <span class="dt">original_group =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">40</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">60</span>), <span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">20</span>)) )</span></code></pre></div>
 </div>
 <div id="hierarchical-clustering" class="section level2">
 <h2><span class="header-section-number">27.4</span> Hierarchical clustering</h2>
@@ -541,18 +538,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>until only one single cluster is achieved
 </font></p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="hierarchical-and-density-based-clustering.html#cb277-1"></a>hclust_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb277-2"><a href="hierarchical-and-density-based-clustering.html#cb277-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
-<span id="cb277-3"><a href="hierarchical-and-density-based-clustering.html#cb277-3"></a><span class="st">  </span><span class="kw">dist</span>(<span class="dt">method=</span><span class="st">&quot;euclidean&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb277-4"><a href="hierarchical-and-density-based-clustering.html#cb277-4"></a><span class="st">  </span><span class="kw">hclust</span>(<span class="dt">method=</span><span class="st">&quot;ward.D2&quot;</span>)</span>
-<span id="cb277-5"><a href="hierarchical-and-density-based-clustering.html#cb277-5"></a></span>
-<span id="cb277-6"><a href="hierarchical-and-density-based-clustering.html#cb277-6"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb277-7"><a href="hierarchical-and-density-based-clustering.html#cb277-7"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">hclust_cluster =</span> <span class="kw">cutree</span>(hclust_result, <span class="dt">k=</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="hierarchical-and-density-based-clustering.html#cb270-1"></a>hclust_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb270-2"><a href="hierarchical-and-density-based-clustering.html#cb270-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
+<span id="cb270-3"><a href="hierarchical-and-density-based-clustering.html#cb270-3"></a><span class="st">  </span><span class="kw">dist</span>(<span class="dt">method=</span><span class="st">&quot;euclidean&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb270-4"><a href="hierarchical-and-density-based-clustering.html#cb270-4"></a><span class="st">  </span><span class="kw">hclust</span>(<span class="dt">method=</span><span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb270-5"><a href="hierarchical-and-density-based-clustering.html#cb270-5"></a></span>
+<span id="cb270-6"><a href="hierarchical-and-density-based-clustering.html#cb270-6"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb270-7"><a href="hierarchical-and-density-based-clustering.html#cb270-7"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">hclust_cluster =</span> <span class="kw">cutree</span>(hclust_result, <span class="dt">k=</span><span class="dv">3</span>))</span></code></pre></div>
 </div>
 <div id="clustering-tree" class="section level2">
 <h2><span class="header-section-number">27.5</span> Clustering tree</h2>
 <p>This approach generates a clustering tree (dendrogram), which can then be <em>“cut”</em> at the desired height</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="hierarchical-and-density-based-clustering.html#cb278-1"></a><span class="kw">plot</span>(hclust_result) <span class="op">+</span><span class="st"> </span><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">30</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="hierarchical-and-density-based-clustering.html#cb271-1"></a><span class="kw">plot</span>(hclust_result) <span class="op">+</span><span class="st"> </span><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">30</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="403_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre><code>## integer(0)</code></pre>
 </div>
@@ -574,12 +571,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>first k-means on samples</li>
 <li>then a hierarchical clustering of the centroids generated through the samples</li>
 </ul>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="hierarchical-and-density-based-clustering.html#cb280-1"></a>bclust_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb280-2"><a href="hierarchical-and-density-based-clustering.html#cb280-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
-<span id="cb280-3"><a href="hierarchical-and-density-based-clustering.html#cb280-3"></a><span class="st">  </span><span class="kw">bclust</span>(<span class="dt">hclust.method=</span><span class="st">&quot;ward.D2&quot;</span>, <span class="dt">resample =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb280-4"><a href="hierarchical-and-density-based-clustering.html#cb280-4"></a></span>
-<span id="cb280-5"><a href="hierarchical-and-density-based-clustering.html#cb280-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb280-6"><a href="hierarchical-and-density-based-clustering.html#cb280-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">bclust_cluster =</span> <span class="kw">clusters.bclust</span>(bclust_result, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="hierarchical-and-density-based-clustering.html#cb273-1"></a>bclust_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb273-2"><a href="hierarchical-and-density-based-clustering.html#cb273-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
+<span id="cb273-3"><a href="hierarchical-and-density-based-clustering.html#cb273-3"></a><span class="st">  </span><span class="kw">bclust</span>(<span class="dt">hclust.method=</span><span class="st">&quot;ward.D2&quot;</span>, <span class="dt">resample =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb273-4"><a href="hierarchical-and-density-based-clustering.html#cb273-4"></a></span>
+<span id="cb273-5"><a href="hierarchical-and-density-based-clustering.html#cb273-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb273-6"><a href="hierarchical-and-density-based-clustering.html#cb273-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">bclust_cluster =</span> <span class="kw">clusters.bclust</span>(bclust_result, <span class="dv">3</span>))</span></code></pre></div>
 </div>
 <div id="bagged-clustering-result" class="section level2">
 <h2><span class="header-section-number">27.8</span> Bagged clustering result</h2>
@@ -595,12 +592,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="density-based-clustering" class="section level2">
 <h2><span class="header-section-number">27.9</span> Density based clustering</h2>
 <p>DBSCAN (<em>“density-based spatial clustering of applications with noise”</em>) starts from an unclustered point and proceeds by aggregating its neighbours to the same cluster, as long as they are within a certain distance. (Ester <em>et al</em>, 1996)</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="hierarchical-and-density-based-clustering.html#cb281-1"></a>dbscan_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb281-2"><a href="hierarchical-and-density-based-clustering.html#cb281-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
-<span id="cb281-3"><a href="hierarchical-and-density-based-clustering.html#cb281-3"></a><span class="st">   </span><span class="kw">dbscan</span>(<span class="dt">eps =</span> <span class="dv">1</span>, <span class="dt">minPts =</span> <span class="dv">5</span>)</span>
-<span id="cb281-4"><a href="hierarchical-and-density-based-clustering.html#cb281-4"></a></span>
-<span id="cb281-5"><a href="hierarchical-and-density-based-clustering.html#cb281-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb281-6"><a href="hierarchical-and-density-based-clustering.html#cb281-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">dbscan_cluster =</span> dbscan_result<span class="op">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="hierarchical-and-density-based-clustering.html#cb274-1"></a>dbscan_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb274-2"><a href="hierarchical-and-density-based-clustering.html#cb274-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
+<span id="cb274-3"><a href="hierarchical-and-density-based-clustering.html#cb274-3"></a><span class="st">   </span><span class="kw">dbscan</span>(<span class="dt">eps =</span> <span class="dv">1</span>, <span class="dt">minPts =</span> <span class="dv">5</span>)</span>
+<span id="cb274-4"><a href="hierarchical-and-density-based-clustering.html#cb274-4"></a></span>
+<span id="cb274-5"><a href="hierarchical-and-density-based-clustering.html#cb274-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb274-6"><a href="hierarchical-and-density-based-clustering.html#cb274-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">dbscan_cluster =</span> dbscan_result<span class="op">$</span>cluster)</span></code></pre></div>
 </div>
 <div id="dbscan-result" class="section level2">
 <h2><span class="header-section-number">27.10</span> DBSCAN result</h2>

@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,13 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="data-types.html"><a href="data-types.html#ordered-factors"><i class="fa fa-check"></i><b>4.12</b> Ordered Factors</a></li>
 <li class="chapter" data-level="4.13" data-path="data-types.html"><a href="data-types.html#matrices"><i class="fa fa-check"></i><b>4.13</b> Matrices</a></li>
 <li class="chapter" data-level="4.14" data-path="data-types.html"><a href="data-types.html#arrays"><i class="fa fa-check"></i><b>4.14</b> Arrays</a></li>
-<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#arrays-1"><i class="fa fa-check"></i><b>4.15</b> Arrays</a></li>
-<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.16</b> Selection</a></li>
-<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#apply"><i class="fa fa-check"></i><b>4.17</b> apply</a></li>
-<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.18</b> Lists</a></li>
-<li class="chapter" data-level="4.19" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.19</b> Named Lists</a></li>
-<li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
-<li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
+<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.15</b> Selection</a></li>
+<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.16</b> Lists</a></li>
+<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.17</b> Named Lists</a></li>
+<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.18</b> Recap</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
@@ -526,24 +523,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="libraries" class="section level2">
 <h2><span class="header-section-number">9.3</span> Libraries</h2>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="data-manipulation.html#cb166-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb166-2"><a href="data-manipulation.html#cb166-2"></a><span class="kw">library</span>(nycflights13)</span>
-<span id="cb166-3"><a href="data-manipulation.html#cb166-3"></a></span>
-<span id="cb166-4"><a href="data-manipulation.html#cb166-4"></a>nov_dep_delays &lt;-<span class="st"> </span></span>
-<span id="cb166-5"><a href="data-manipulation.html#cb166-5"></a><span class="st">  </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb166-6"><a href="data-manipulation.html#cb166-6"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, dep_delay, arr_delay, year<span class="op">:</span>day) <span class="op">%&gt;%</span></span>
-<span id="cb166-7"><a href="data-manipulation.html#cb166-7"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>arr_delay) <span class="op">%&gt;%</span></span>
-<span id="cb166-8"><a href="data-manipulation.html#cb166-8"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="data-manipulation.html#cb159-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb159-2"><a href="data-manipulation.html#cb159-2"></a><span class="kw">library</span>(nycflights13)</span>
+<span id="cb159-3"><a href="data-manipulation.html#cb159-3"></a></span>
+<span id="cb159-4"><a href="data-manipulation.html#cb159-4"></a>nov_dep_delays &lt;-<span class="st"> </span></span>
+<span id="cb159-5"><a href="data-manipulation.html#cb159-5"></a><span class="st">  </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb159-6"><a href="data-manipulation.html#cb159-6"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, dep_delay, arr_delay, year<span class="op">:</span>day) <span class="op">%&gt;%</span></span>
+<span id="cb159-7"><a href="data-manipulation.html#cb159-7"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>arr_delay) <span class="op">%&gt;%</span></span>
+<span id="cb159-8"><a href="data-manipulation.html#cb159-8"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>)</span></code></pre></div>
 </div>
 <div id="dplyrarrange" class="section level2">
 <h2><span class="header-section-number">9.4</span> dplyr::arrange</h2>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="data-manipulation.html#cb167-1"></a>nov_dep_delays &lt;-<span class="st"> </span>nov_dep_delays <span class="op">%&gt;%</span></span>
-<span id="cb167-2"><a href="data-manipulation.html#cb167-2"></a><span class="st">  </span><span class="kw">arrange</span>( </span>
-<span id="cb167-3"><a href="data-manipulation.html#cb167-3"></a>    dest, <span class="co"># Ascending destination name</span></span>
-<span id="cb167-4"><a href="data-manipulation.html#cb167-4"></a>    <span class="op">-</span>dep_delay <span class="co"># Descending delay</span></span>
-<span id="cb167-5"><a href="data-manipulation.html#cb167-5"></a>  )</span>
-<span id="cb167-6"><a href="data-manipulation.html#cb167-6"></a></span>
-<span id="cb167-7"><a href="data-manipulation.html#cb167-7"></a>nov_dep_delays <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="data-manipulation.html#cb160-1"></a>nov_dep_delays &lt;-<span class="st"> </span>nov_dep_delays <span class="op">%&gt;%</span></span>
+<span id="cb160-2"><a href="data-manipulation.html#cb160-2"></a><span class="st">  </span><span class="kw">arrange</span>( </span>
+<span id="cb160-3"><a href="data-manipulation.html#cb160-3"></a>    dest, <span class="co"># Ascending destination name</span></span>
+<span id="cb160-4"><a href="data-manipulation.html#cb160-4"></a>    <span class="op">-</span>dep_delay <span class="co"># Descending delay</span></span>
+<span id="cb160-5"><a href="data-manipulation.html#cb160-5"></a>  )</span>
+<span id="cb160-6"><a href="data-manipulation.html#cb160-6"></a></span>
+<span id="cb160-7"><a href="data-manipulation.html#cb160-7"></a>nov_dep_delays <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 6
 ##   origin dest  dep_delay  year month   day
 ##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -554,16 +551,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dplyrsummarise" class="section level2">
 <h2><span class="header-section-number">9.5</span> dplyr::summarise</h2>
 <p><code>summarise</code>: calculate aggregated values (e.g., mean, max, etc)</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="data-manipulation.html#cb169-1"></a>aggr_dep_delays_nov &lt;-<span class="st"> </span>nov_dep_delays <span class="op">%&gt;%</span></span>
-<span id="cb169-2"><a href="data-manipulation.html#cb169-2"></a><span class="st">  </span><span class="co"># Need to filter out rows where delay is NA</span></span>
-<span id="cb169-3"><a href="data-manipulation.html#cb169-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
-<span id="cb169-4"><a href="data-manipulation.html#cb169-4"></a><span class="st">  </span><span class="co"># Create two aggregated columns</span></span>
-<span id="cb169-5"><a href="data-manipulation.html#cb169-5"></a><span class="st">  </span><span class="kw">summarize</span>(</span>
-<span id="cb169-6"><a href="data-manipulation.html#cb169-6"></a>    <span class="dt">avg_dep_delay =</span> <span class="kw">mean</span>(dep_delay), </span>
-<span id="cb169-7"><a href="data-manipulation.html#cb169-7"></a>    <span class="dt">tot_dep_delay =</span> <span class="kw">sum</span>(dep_delay)</span>
-<span id="cb169-8"><a href="data-manipulation.html#cb169-8"></a>  )</span>
-<span id="cb169-9"><a href="data-manipulation.html#cb169-9"></a></span>
-<span id="cb169-10"><a href="data-manipulation.html#cb169-10"></a>aggr_dep_delays_nov</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="data-manipulation.html#cb162-1"></a>aggr_dep_delays_nov &lt;-<span class="st"> </span>nov_dep_delays <span class="op">%&gt;%</span></span>
+<span id="cb162-2"><a href="data-manipulation.html#cb162-2"></a><span class="st">  </span><span class="co"># Need to filter out rows where delay is NA</span></span>
+<span id="cb162-3"><a href="data-manipulation.html#cb162-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
+<span id="cb162-4"><a href="data-manipulation.html#cb162-4"></a><span class="st">  </span><span class="co"># Create two aggregated columns</span></span>
+<span id="cb162-5"><a href="data-manipulation.html#cb162-5"></a><span class="st">  </span><span class="kw">summarize</span>(</span>
+<span id="cb162-6"><a href="data-manipulation.html#cb162-6"></a>    <span class="dt">avg_dep_delay =</span> <span class="kw">mean</span>(dep_delay), </span>
+<span id="cb162-7"><a href="data-manipulation.html#cb162-7"></a>    <span class="dt">tot_dep_delay =</span> <span class="kw">sum</span>(dep_delay)</span>
+<span id="cb162-8"><a href="data-manipulation.html#cb162-8"></a>  )</span>
+<span id="cb162-9"><a href="data-manipulation.html#cb162-9"></a></span>
+<span id="cb162-10"><a href="data-manipulation.html#cb162-10"></a>aggr_dep_delays_nov</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 2
 ##   avg_dep_delay tot_dep_delay
 ##           &lt;dbl&gt;         &lt;dbl&gt;
@@ -571,17 +568,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="dplyrgroup_by" class="section level2">
 <h2><span class="header-section-number">9.6</span> dplyr::group_by</h2>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="data-manipulation.html#cb171-1"></a>dest_dep_delays_nov &lt;-<span class="st"> </span>nov_dep_delays <span class="op">%&gt;%</span></span>
-<span id="cb171-2"><a href="data-manipulation.html#cb171-2"></a><span class="st">  </span><span class="co"># Need to filter out rows where delay is NA</span></span>
-<span id="cb171-3"><a href="data-manipulation.html#cb171-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
-<span id="cb171-4"><a href="data-manipulation.html#cb171-4"></a><span class="st">  </span><span class="co"># Frist group by same destination</span></span>
-<span id="cb171-5"><a href="data-manipulation.html#cb171-5"></a><span class="st">  </span><span class="kw">group_by</span>(dest) <span class="op">%&gt;%</span></span>
-<span id="cb171-6"><a href="data-manipulation.html#cb171-6"></a><span class="st">  </span><span class="co"># Then caluculate aggregated value</span></span>
-<span id="cb171-7"><a href="data-manipulation.html#cb171-7"></a><span class="st">  </span><span class="kw">summarize</span>(</span>
-<span id="cb171-8"><a href="data-manipulation.html#cb171-8"></a>    <span class="dt">tot_dep_delay =</span> <span class="kw">sum</span>(dep_delay)</span>
-<span id="cb171-9"><a href="data-manipulation.html#cb171-9"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="data-manipulation.html#cb164-1"></a>dest_dep_delays_nov &lt;-<span class="st"> </span>nov_dep_delays <span class="op">%&gt;%</span></span>
+<span id="cb164-2"><a href="data-manipulation.html#cb164-2"></a><span class="st">  </span><span class="co"># Need to filter out rows where delay is NA</span></span>
+<span id="cb164-3"><a href="data-manipulation.html#cb164-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
+<span id="cb164-4"><a href="data-manipulation.html#cb164-4"></a><span class="st">  </span><span class="co"># Frist group by same destination</span></span>
+<span id="cb164-5"><a href="data-manipulation.html#cb164-5"></a><span class="st">  </span><span class="kw">group_by</span>(dest) <span class="op">%&gt;%</span></span>
+<span id="cb164-6"><a href="data-manipulation.html#cb164-6"></a><span class="st">  </span><span class="co"># Then caluculate aggregated value</span></span>
+<span id="cb164-7"><a href="data-manipulation.html#cb164-7"></a><span class="st">  </span><span class="kw">summarize</span>(</span>
+<span id="cb164-8"><a href="data-manipulation.html#cb164-8"></a>    <span class="dt">tot_dep_delay =</span> <span class="kw">sum</span>(dep_delay)</span>
+<span id="cb164-9"><a href="data-manipulation.html#cb164-9"></a>  )</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data-manipulation.html#cb173-1"></a>dest_dep_delays_nov <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="data-manipulation.html#cb166-1"></a>dest_dep_delays_nov <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   dest  tot_dep_delay
 ##   &lt;chr&gt;         &lt;dbl&gt;
@@ -591,12 +588,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="dplyrmutate" class="section level2">
 <h2><span class="header-section-number">9.7</span> dplyr::mutate</h2>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="data-manipulation.html#cb175-1"></a>dest_dep_delays_nov &lt;-<span class="st"> </span>dest_dep_delays_nov <span class="op">%&gt;%</span></span>
-<span id="cb175-2"><a href="data-manipulation.html#cb175-2"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
-<span id="cb175-3"><a href="data-manipulation.html#cb175-3"></a>    <span class="dt">tot_dep_delay_days =</span> ((tot_dep_delay <span class="op">/</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="dv">24</span>)</span>
-<span id="cb175-4"><a href="data-manipulation.html#cb175-4"></a>  )</span>
-<span id="cb175-5"><a href="data-manipulation.html#cb175-5"></a></span>
-<span id="cb175-6"><a href="data-manipulation.html#cb175-6"></a>dest_dep_delays_nov <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="data-manipulation.html#cb168-1"></a>dest_dep_delays_nov &lt;-<span class="st"> </span>dest_dep_delays_nov <span class="op">%&gt;%</span></span>
+<span id="cb168-2"><a href="data-manipulation.html#cb168-2"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb168-3"><a href="data-manipulation.html#cb168-3"></a>    <span class="dt">tot_dep_delay_days =</span> ((tot_dep_delay <span class="op">/</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="dv">24</span>)</span>
+<span id="cb168-4"><a href="data-manipulation.html#cb168-4"></a>  )</span>
+<span id="cb168-5"><a href="data-manipulation.html#cb168-5"></a></span>
+<span id="cb168-6"><a href="data-manipulation.html#cb168-6"></a>dest_dep_delays_nov <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   dest  tot_dep_delay tot_dep_delay_days
 ##   &lt;chr&gt;         &lt;dbl&gt;              &lt;dbl&gt;
@@ -606,17 +603,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="full-pipe-example" class="section level2">
 <h2><span class="header-section-number">9.8</span> Full pipe example</h2>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="data-manipulation.html#cb177-1"></a>dest_dep_delays_nov &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb177-2"><a href="data-manipulation.html#cb177-2"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, dep_delay, arr_delay, year<span class="op">:</span>day) <span class="op">%&gt;%</span></span>
-<span id="cb177-3"><a href="data-manipulation.html#cb177-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>arr_delay) <span class="op">%&gt;%</span></span>
-<span id="cb177-4"><a href="data-manipulation.html#cb177-4"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
-<span id="cb177-5"><a href="data-manipulation.html#cb177-5"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
-<span id="cb177-6"><a href="data-manipulation.html#cb177-6"></a><span class="st">  </span><span class="kw">arrange</span>(dest, <span class="op">-</span>dep_delay) <span class="op">%&gt;%</span></span>
-<span id="cb177-7"><a href="data-manipulation.html#cb177-7"></a><span class="st">  </span><span class="kw">group_by</span>(dest) <span class="op">%&gt;%</span></span>
-<span id="cb177-8"><a href="data-manipulation.html#cb177-8"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">tot_dep_delay =</span> <span class="kw">sum</span>(dep_delay)) <span class="op">%&gt;%</span></span>
-<span id="cb177-9"><a href="data-manipulation.html#cb177-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tot_dep_delay_days =</span> ((tot_dep_delay <span class="op">/</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="dv">24</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="data-manipulation.html#cb170-1"></a>dest_dep_delays_nov &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb170-2"><a href="data-manipulation.html#cb170-2"></a><span class="st">  </span><span class="kw">select</span>(origin, dest, dep_delay, arr_delay, year<span class="op">:</span>day) <span class="op">%&gt;%</span></span>
+<span id="cb170-3"><a href="data-manipulation.html#cb170-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>arr_delay) <span class="op">%&gt;%</span></span>
+<span id="cb170-4"><a href="data-manipulation.html#cb170-4"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
+<span id="cb170-5"><a href="data-manipulation.html#cb170-5"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
+<span id="cb170-6"><a href="data-manipulation.html#cb170-6"></a><span class="st">  </span><span class="kw">arrange</span>(dest, <span class="op">-</span>dep_delay) <span class="op">%&gt;%</span></span>
+<span id="cb170-7"><a href="data-manipulation.html#cb170-7"></a><span class="st">  </span><span class="kw">group_by</span>(dest) <span class="op">%&gt;%</span></span>
+<span id="cb170-8"><a href="data-manipulation.html#cb170-8"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">tot_dep_delay =</span> <span class="kw">sum</span>(dep_delay)) <span class="op">%&gt;%</span></span>
+<span id="cb170-9"><a href="data-manipulation.html#cb170-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tot_dep_delay_days =</span> ((tot_dep_delay <span class="op">/</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="dv">24</span>))</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="data-manipulation.html#cb179-1"></a>dest_dep_delays_nov <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="data-manipulation.html#cb172-1"></a>dest_dep_delays_nov <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   dest  tot_dep_delay tot_dep_delay_days
 ##   &lt;chr&gt;         &lt;dbl&gt;              &lt;dbl&gt;

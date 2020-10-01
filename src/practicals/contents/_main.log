@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  29 SEP 2020 11:42
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  1 OCT 2020 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -809,12 +809,8 @@ Overfull \hbox (90.75pt too wide) in paragraph at lines 212--212
 [8] [9] [10] [11] [12] [13] [14]
 File: images/PipeOperator.png Graphic file (type bmp)
 <images/PipeOperator.png>
-
-Overfull \vbox (0.57436pt too high) detected at line 769
- []
-
 [15]
-Underfull \hbox (badness 3482) in paragraph at lines 800--801
+Underfull \hbox (badness 3482) in paragraph at lines 806--807
 \TU/lmr/m/n/10 Answer the question below, consulting the []\TU/lmtt/m/n/10 stri
 ngr \TU/lmr/m/n/10 library reference
  []
@@ -824,13 +820,13 @@ ngr \TU/lmr/m/n/10 library reference
 ]
 Chapter 2.
 [19]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 924--924
+Overfull \hbox (85.5pt too wide) in paragraph at lines 930--930
 []\TU/lmtt/m/n/10 ##  [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.
 0  6.5  7.0  7.5  8.0[] 
  []
 
 [20]
-Overfull \hbox (69.75pt too wide) in paragraph at lines 1024--1024
+Overfull \hbox (69.75pt too wide) in paragraph at lines 1030--1030
 []\TU/lmtt/m/n/10 ##  [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490
  2.645751 2.828427[] 
  []
@@ -843,7 +839,7 @@ Chapter 3.
 Underfull \vbox (badness 1082) has occurred while \output is active []
 
 [32] [33] [34]
-Overfull \hbox (53.62pt too wide) in paragraph at lines 1754--1755
+Overfull \hbox (53.62pt too wide) in paragraph at lines 1760--1761
 \TU/lmr/m/n/10 Exercises folder (\TU/lmtt/m/n/10 docs/exercises\TU/lmr/m/n/10 )
  of the repository (\TU/lmtt/m/n/10 201_X_Data_Wrangling1_Example.R\TU/lmr/m/n/
 10 ). 
@@ -863,192 +859,192 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images/joins.png Graphic file (type bmp)
 <images/joins.png>
 [40] [41] [42]
-Overfull \hbox (63.89009pt too wide) in paragraph at lines 2076--2087
+Overfull \hbox (63.89009pt too wide) in paragraph at lines 2082--2093
 [][] 
  []
 
 [43]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##    FeatureCode IndicesOfDeprivation                       
     Measurement  Value[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##    <chr>       <chr>                                      
     <chr>        <dbl>[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##  1 E01013649   Income Deprivation Domain                  
     Score        0.07[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##  2 E01013649   Employment Deprivation Domain              
     Score        0.075[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##  3 E01013649   Income Deprivation Affecting Children Index
  (~ Score        0.087[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##  4 E01013649   Income Deprivation Affecting Older People I
 nd~ Score        0.153[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##  5 E01013649   Health Deprivation and Disability Domain   
     Score        0.272[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##  6 E01013649   Index of Multiple Deprivation (IMD)        
     Score       19.7[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##  7 E01013649   Education, Skills and Training Domain      
     Score        2.19[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##  8 E01013649   Barriers to Housing and Services Domain    
     Score       14.3[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ##  9 E01013649   Living Environment Deprivation Domain      
     Score       57.2[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2152--2152
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2158--2158
 []\TU/lmtt/m/n/10 ## 10 E01013649   Crime Domain                               
     Score        1.16[] 
  []
 
 [44]
-Overfull \hbox (1.5pt too wide) in paragraph at lines 2189--2189
+Overfull \hbox (1.5pt too wide) in paragraph at lines 2195--2195
 []\TU/lmtt/m/n/10 ## [1] "FeatureCode"          "DateCode"             "Measure
 ment"[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2189--2189
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2195--2195
 []\TU/lmtt/m/n/10 ## [4] "Units"                "Value"                "Indices
 OfDeprivation"[] 
  []
 
 [45]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2231--2231
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2237--2237
 []\TU/lmtt/m/n/10 ##   FeatureCode IndicesOfDeprivation                Measurem
 ent Value[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2231--2231
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2237--2237
 []\TU/lmtt/m/n/10 ##   <chr>       <chr>                               <chr>   
     <dbl>[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2231--2231
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2237--2237
 []\TU/lmtt/m/n/10 ## 1 E01013649   Index of Multiple Deprivation (IMD) Decile  
         5[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##    supgrpname                IndexofMultipleDeprivationIMD
      n[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##    <chr>                                             <dbl>
  <int>[] 
  []
 
 [46]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##  1 Constrained City Dwellers                             1
     30[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##  2 Constrained City Dwellers                             2
      3[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##  3 Constrained City Dwellers                             3
      2[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##  4 Constrained City Dwellers                             6
      1[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##  5 Cosmopolitans                                         2
     25[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##  6 Cosmopolitans                                         3
     15[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##  7 Cosmopolitans                                         4
     15[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##  8 Cosmopolitans                                         5
      8[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ##  9 Cosmopolitans                                         6
     10[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2287--2287
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2293--2293
 []\TU/lmtt/m/n/10 ## 10 Cosmopolitans                                         8
     10[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2305--2305
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2311--2311
 []\TU/lmtt/m/n/10 ## `summarise()` ungrouping output (override with `.groups` a
 rgument)[] 
  []
 
 [47]
-Overfull \hbox (6.01pt too wide) in paragraph at lines 2347--2348
+Overfull \hbox (6.01pt too wide) in paragraph at lines 2353--2354
 \TU/lmr/m/n/10 and \TU/lmtt/m/n/10 tidyr \TU/lmr/m/n/10 libraries to generate a
  long format of the \TU/lmtt/m/n/10 leicester_2011OAC_IMD2015
  []
@@ -1056,7 +1052,7 @@ Overfull \hbox (6.01pt too wide) in paragraph at lines 2347--2348
 [48]
 Chapter 5.
 
-Overfull \hbox (122.25pt too wide) in paragraph at lines 2372--2372
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2378--2378
 []\TU/lmtt/m/n/10 [This is a link to the University of Leicester](http://le.ac.
 uk) and **this is in bold**.[] 
  []
@@ -1064,7 +1060,7 @@ uk) and **this is in bold**.[]
 [49
 
 ] [50]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2476--2476
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2482--2482
 []\TU/lmtt/m/n/10 This is my first [RMarkdown](https://rmarkdown.rstudio.com/) 
 document.[] 
  []
@@ -1076,7 +1072,7 @@ File: images/git_three_stages.png Graphic file (type bmp)
 File: images/git_clone_my-granolarr.png Graphic file (type bmp)
 <images/git_clone_my-granolarr.png>
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 2551--2553
+Underfull \hbox (badness 10000) in paragraph at lines 2557--2559
 []\TU/lmr/m/n/10 Copy \TU/lmtt/m/n/10 https://github.com/sdesabbata/granolarr.g
 it \TU/lmr/m/n/10 in the
  []
@@ -1100,7 +1096,7 @@ type pdf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [59]
-Overfull \vbox (1.4627pt too high) detected at line 2718
+Overfull \vbox (1.4627pt too high) detected at line 2724
  []
 
 [60]
@@ -1124,43 +1120,43 @@ Underfull \vbox (badness 2698) has occurred while \output is active []
 Underfull \vbox (badness 1509) has occurred while \output is active []
 
 [66]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2997--2997
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3003--3003
 []\TU/lmtt/m/n/10 The table above tells us that all `r leic_2011OAC_20to24_stat
 _desc["nbr.val",[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 2997--2997
+Overfull \hbox (33.0pt too wide) in paragraph at lines 3003--3003
 []\TU/lmtt/m/n/10 "perc_age_20_to_24"] %>% round(digits = 0)` OA in Leicester h
 ave a valid[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 2997--2997
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3003--3003
 []\TU/lmtt/m/n/10 value for the variable `perc_age_20_to_24`, as no `NULL` nor 
 `NA` value have[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 2997--2997
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3003--3003
 []\TU/lmtt/m/n/10 been found.The values vary from about `r leic_2011OAC_20to24_
 stat_desc["min",[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 2997--2997
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3003--3003
 []\TU/lmtt/m/n/10 leic_2011OAC_20to24_stat_desc["max", "perc_age_20_to_24"] %>%
  round(digits =[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 2997--2997
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3003--3003
 []\TU/lmtt/m/n/10 0)`%, with an average value of `r leic_2011OAC_20to24_stat_de
 sc["mean",[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 2997--2997
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3003--3003
 []\TU/lmtt/m/n/10 "perc_age_20_to_24"] %>% round(digits = 0)`% of the populatio
 n in an OA aged[] 
  []
@@ -1177,25 +1173,25 @@ File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file
 (type pdf)
 <use 304_P_Exploratory_files/figure-latex/unnamed-chunk-13-1.pdf>
 [69]
-Underfull \hbox (badness 1990) in paragraph at lines 3088--3089
+Underfull \hbox (badness 1990) in paragraph at lines 3094--3095
 []\TU/lmr/m/n/10 That manipulation creates one column per supergroup, containin
 g the
  []
 
 
-Overfull \hbox (35.61838pt too wide) in paragraph at lines 3158--3159
+Overfull \hbox (35.61838pt too wide) in paragraph at lines 3164--3165
 []\TU/lmr/bx/n/10 Question 7.2.1: \TU/lmr/m/n/10 The code below uses the newly 
 created \TU/lmtt/m/n/10 leic_2011OAC_20to24_supgrp
  []
 
 
-Underfull \hbox (badness 2368) in paragraph at lines 3158--3159
+Underfull \hbox (badness 2368) in paragraph at lines 3164--3165
 \TU/lmr/m/n/10 table to calculate the descriptive statistics calculated for the
  variable
  []
 
 [70]
-Overfull \hbox (47.96011pt too wide) in paragraph at lines 3169--3214
+Overfull \hbox (47.96011pt too wide) in paragraph at lines 3175--3220
 [][] 
  []
 
@@ -1248,12 +1244,12 @@ File: 324_P_Regression_files/figure-latex/unnamed-chunk-15-4.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-15-4.pdf>
 
-Overfull \hbox (39.65648pt too wide) in paragraph at lines 3627--3628
+Overfull \hbox (39.65648pt too wide) in paragraph at lines 3633--3634
 [][] []
  []
 
 
-Overfull \hbox (51.7017pt too wide) in paragraph at lines 3627--3628
+Overfull \hbox (51.7017pt too wide) in paragraph at lines 3633--3634
 [] [] 
  []
 
@@ -1261,13 +1257,13 @@ Overfull \hbox (51.7017pt too wide) in paragraph at lines 3627--3628
 Underfull \vbox (badness 1067) has occurred while \output is active []
 
 [87] [88] [89]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3883--3883
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3889--3889
 []\TU/lmtt/m/n/10 ## (Intercept)        u160        u162        u164        u16
 5        u167[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3883--3883
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3889--3889
 []\TU/lmtt/m/n/10 ##   0.0000000   0.1400270   0.1507236   0.2083107   0.193103
 5   0.4293988[] 
  []
@@ -1280,12 +1276,12 @@ Chapter 9.
 
 ]
 Chapter 10.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3913.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3919.
 [93]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3913.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3919.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3913.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3913.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3919.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3919.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: D17947FD9C052FBEC7D4D6DB9F999790;6971.

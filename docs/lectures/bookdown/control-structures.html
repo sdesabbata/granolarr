@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,13 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="data-types.html"><a href="data-types.html#ordered-factors"><i class="fa fa-check"></i><b>4.12</b> Ordered Factors</a></li>
 <li class="chapter" data-level="4.13" data-path="data-types.html"><a href="data-types.html#matrices"><i class="fa fa-check"></i><b>4.13</b> Matrices</a></li>
 <li class="chapter" data-level="4.14" data-path="data-types.html"><a href="data-types.html#arrays"><i class="fa fa-check"></i><b>4.14</b> Arrays</a></li>
-<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#arrays-1"><i class="fa fa-check"></i><b>4.15</b> Arrays</a></li>
-<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.16</b> Selection</a></li>
-<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#apply"><i class="fa fa-check"></i><b>4.17</b> apply</a></li>
-<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.18</b> Lists</a></li>
-<li class="chapter" data-level="4.19" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.19</b> Named Lists</a></li>
-<li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
-<li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
+<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.15</b> Selection</a></li>
+<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.16</b> Lists</a></li>
+<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.17</b> Named Lists</a></li>
+<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.18</b> Recap</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
@@ -518,11 +515,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>statement</em>: any valid R statement</li>
 <li><em>statement</em> only executed if <em>condition</em> is <code>TRUE</code></li>
 </ul>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="control-structures.html#cb102-1"></a>a_value &lt;-<span class="st"> </span><span class="dv">-7</span></span>
-<span id="cb102-2"><a href="control-structures.html#cb102-2"></a><span class="cf">if</span> (a_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">cat</span>(<span class="st">&quot;Negative&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="control-structures.html#cb95-1"></a>a_value &lt;-<span class="st"> </span><span class="dv">-7</span></span>
+<span id="cb95-2"><a href="control-structures.html#cb95-2"></a><span class="cf">if</span> (a_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">cat</span>(<span class="st">&quot;Negative&quot;</span>)</span></code></pre></div>
 <pre><code>## Negative</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="control-structures.html#cb104-1"></a>a_value &lt;-<span class="st"> </span><span class="dv">8</span></span>
-<span id="cb104-2"><a href="control-structures.html#cb104-2"></a><span class="cf">if</span> (a_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">cat</span>(<span class="st">&quot;Negative&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="control-structures.html#cb97-1"></a>a_value &lt;-<span class="st"> </span><span class="dv">8</span></span>
+<span id="cb97-2"><a href="control-structures.html#cb97-2"></a><span class="cf">if</span> (a_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">cat</span>(<span class="st">&quot;Negative&quot;</span>)</span></code></pre></div>
 </div>
 <div id="else" class="section level2">
 <h2><span class="header-section-number">5.3</span> Else</h2>
@@ -533,11 +530,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>statement1</em> executed if <em>condition</em> is <code>TRUE</code></li>
 <li><em>statement2</em> executed if <em>condition</em> is <code>FALSE</code></li>
 </ul>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="control-structures.html#cb105-1"></a>a_value &lt;-<span class="st"> </span><span class="dv">-7</span></span>
-<span id="cb105-2"><a href="control-structures.html#cb105-2"></a><span class="cf">if</span> (a_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">cat</span>(<span class="st">&quot;Negative&quot;</span>) <span class="cf">else</span> <span class="kw">cat</span>(<span class="st">&quot;Positive&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="control-structures.html#cb98-1"></a>a_value &lt;-<span class="st"> </span><span class="dv">-7</span></span>
+<span id="cb98-2"><a href="control-structures.html#cb98-2"></a><span class="cf">if</span> (a_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">cat</span>(<span class="st">&quot;Negative&quot;</span>) <span class="cf">else</span> <span class="kw">cat</span>(<span class="st">&quot;Positive&quot;</span>)</span></code></pre></div>
 <pre><code>## Negative</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="control-structures.html#cb107-1"></a>a_value &lt;-<span class="st"> </span><span class="dv">8</span></span>
-<span id="cb107-2"><a href="control-structures.html#cb107-2"></a><span class="cf">if</span> (a_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">cat</span>(<span class="st">&quot;Negative&quot;</span>) <span class="cf">else</span> <span class="kw">cat</span>(<span class="st">&quot;Positive&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="control-structures.html#cb100-1"></a>a_value &lt;-<span class="st"> </span><span class="dv">8</span></span>
+<span id="cb100-2"><a href="control-structures.html#cb100-2"></a><span class="cf">if</span> (a_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">cat</span>(<span class="st">&quot;Negative&quot;</span>) <span class="cf">else</span> <span class="kw">cat</span>(<span class="st">&quot;Positive&quot;</span>)</span></code></pre></div>
 <pre><code>## Positive</code></pre>
 <!--
 ## Example
@@ -560,13 +557,13 @@ if (is.numeric(x) & (!(x < 0) & (x != 0)) ) cat("greater than zero")
 <li>Such a group of statements are called <strong>code blocks</strong></li>
 <li><code>{</code> and <code>}</code> contain code blocks</li>
 </ul>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="control-structures.html#cb109-1"></a>first_value &lt;-<span class="st"> </span><span class="dv">8</span></span>
-<span id="cb109-2"><a href="control-structures.html#cb109-2"></a>second_value &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb109-3"><a href="control-structures.html#cb109-3"></a><span class="cf">if</span> (first_value <span class="op">&gt;</span><span class="st"> </span>second_value) {</span>
-<span id="cb109-4"><a href="control-structures.html#cb109-4"></a>  <span class="kw">cat</span>(<span class="st">&quot;First is greater than second</span><span class="ch">\n</span><span class="st">&quot;</span>) </span>
-<span id="cb109-5"><a href="control-structures.html#cb109-5"></a>  difference &lt;-<span class="st"> </span>first_value <span class="op">-</span><span class="st"> </span>second_value</span>
-<span id="cb109-6"><a href="control-structures.html#cb109-6"></a>  <span class="kw">cat</span>(<span class="st">&quot;Their difference is &quot;</span>, difference)</span>
-<span id="cb109-7"><a href="control-structures.html#cb109-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="control-structures.html#cb102-1"></a>first_value &lt;-<span class="st"> </span><span class="dv">8</span></span>
+<span id="cb102-2"><a href="control-structures.html#cb102-2"></a>second_value &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb102-3"><a href="control-structures.html#cb102-3"></a><span class="cf">if</span> (first_value <span class="op">&gt;</span><span class="st"> </span>second_value) {</span>
+<span id="cb102-4"><a href="control-structures.html#cb102-4"></a>  <span class="kw">cat</span>(<span class="st">&quot;First is greater than second</span><span class="ch">\n</span><span class="st">&quot;</span>) </span>
+<span id="cb102-5"><a href="control-structures.html#cb102-5"></a>  difference &lt;-<span class="st"> </span>first_value <span class="op">-</span><span class="st"> </span>second_value</span>
+<span id="cb102-6"><a href="control-structures.html#cb102-6"></a>  <span class="kw">cat</span>(<span class="st">&quot;Their difference is &quot;</span>, difference)</span>
+<span id="cb102-7"><a href="control-structures.html#cb102-7"></a>}</span></code></pre></div>
 <pre><code>## First is greater than second
 ## Their difference is  3</code></pre>
 </div>
@@ -589,12 +586,12 @@ if (is.numeric(x) & (!(x < 0) & (x != 0)) ) cat("greater than zero")
 <div id="while" class="section level2">
 <h2><span class="header-section-number">5.6</span> While</h2>
 <p>The <em>while</em> construct can be defined using the <code>while</code> reserved word, followed by the conditional statement between simple brackets, and a code block. The instructions in the code block are re-executed as long as the result of the evaluation of the conditional statement is <code>TRUE</code>.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="control-structures.html#cb111-1"></a>current_value &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb111-2"><a href="control-structures.html#cb111-2"></a></span>
-<span id="cb111-3"><a href="control-structures.html#cb111-3"></a><span class="cf">while</span> (current_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) {</span>
-<span id="cb111-4"><a href="control-structures.html#cb111-4"></a>  <span class="kw">cat</span>(<span class="st">&quot;Current value is&quot;</span>, current_value, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb111-5"><a href="control-structures.html#cb111-5"></a>  current_value &lt;-<span class="st"> </span>current_value <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb111-6"><a href="control-structures.html#cb111-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="control-structures.html#cb104-1"></a>current_value &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb104-2"><a href="control-structures.html#cb104-2"></a></span>
+<span id="cb104-3"><a href="control-structures.html#cb104-3"></a><span class="cf">while</span> (current_value <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) {</span>
+<span id="cb104-4"><a href="control-structures.html#cb104-4"></a>  <span class="kw">cat</span>(<span class="st">&quot;Current value is&quot;</span>, current_value, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb104-5"><a href="control-structures.html#cb104-5"></a>  current_value &lt;-<span class="st"> </span>current_value <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb104-6"><a href="control-structures.html#cb104-6"></a>}</span></code></pre></div>
 <pre><code>## Current value is 0 
 ## Current value is 1 
 ## Current value is 2</code></pre>
@@ -631,10 +628,10 @@ The difference between `while` and `repeat` is mostly syntactical.
 <div id="for" class="section level2">
 <h2><span class="header-section-number">5.7</span> For</h2>
 <p>The <em>for</em> construct can be defined using the <code>for</code> reserved word, followed by the definition of an <strong>iterator</strong>. The iterator is a variable which is temporarily assigned with the current element of a vector, as the construct iterates through all elements of the list. This definition is followed by a code block, whose instructions are re-executed once for each element of the vector.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="control-structures.html#cb113-1"></a>cities &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Derby&quot;</span>, <span class="st">&quot;Leicester&quot;</span>, <span class="st">&quot;Lincoln&quot;</span>, <span class="st">&quot;Nottingham&quot;</span>)</span>
-<span id="cb113-2"><a href="control-structures.html#cb113-2"></a><span class="cf">for</span> (city <span class="cf">in</span> cities) {</span>
-<span id="cb113-3"><a href="control-structures.html#cb113-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;Do you live in&quot;</span>, city, <span class="st">&quot;?</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb113-4"><a href="control-structures.html#cb113-4"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="control-structures.html#cb106-1"></a>cities &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Derby&quot;</span>, <span class="st">&quot;Leicester&quot;</span>, <span class="st">&quot;Lincoln&quot;</span>, <span class="st">&quot;Nottingham&quot;</span>)</span>
+<span id="cb106-2"><a href="control-structures.html#cb106-2"></a><span class="cf">for</span> (city <span class="cf">in</span> cities) {</span>
+<span id="cb106-3"><a href="control-structures.html#cb106-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;Do you live in&quot;</span>, city, <span class="st">&quot;?</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb106-4"><a href="control-structures.html#cb106-4"></a>}</span></code></pre></div>
 <pre><code>## Do you live in Derby ?
 ## Do you live in Leicester ?
 ## Do you live in Lincoln ?
@@ -643,10 +640,10 @@ The difference between `while` and `repeat` is mostly syntactical.
 <div id="for-1" class="section level2">
 <h2><span class="header-section-number">5.8</span> For</h2>
 <p>It is common practice to create a vector of integers on the spot in order to execute a certain sequence of steps a pre-defined number of times.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="control-structures.html#cb115-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) {</span>
-<span id="cb115-2"><a href="control-structures.html#cb115-2"></a>  <span class="kw">cat</span>(<span class="st">&quot;This is exectuion number&quot;</span>, i, <span class="st">&quot;:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb115-3"><a href="control-structures.html#cb115-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;    See you later!</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb115-4"><a href="control-structures.html#cb115-4"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="control-structures.html#cb108-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) {</span>
+<span id="cb108-2"><a href="control-structures.html#cb108-2"></a>  <span class="kw">cat</span>(<span class="st">&quot;This is exectuion number&quot;</span>, i, <span class="st">&quot;:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb108-3"><a href="control-structures.html#cb108-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;    See you later!</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb108-4"><a href="control-structures.html#cb108-4"></a>}</span></code></pre></div>
 <pre><code>## This is exectuion number 1 :
 ##     See you later!
 ## This is exectuion number 2 :
@@ -656,16 +653,16 @@ The difference between `while` and `repeat` is mostly syntactical.
 </div>
 <div id="loops-with-conditional-statements" class="section level2">
 <h2><span class="header-section-number">5.9</span> Loops with conditional statements</h2>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="control-structures.html#cb117-1"></a><span class="dv">3</span><span class="op">:</span><span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="control-structures.html#cb110-1"></a><span class="dv">3</span><span class="op">:</span><span class="dv">0</span></span></code></pre></div>
 <pre><code>## [1] 3 2 1 0</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="control-structures.html#cb119-1"></a><span class="co">#Example: countdown!</span></span>
-<span id="cb119-2"><a href="control-structures.html#cb119-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="op">:</span><span class="dv">0</span>) {</span>
-<span id="cb119-3"><a href="control-structures.html#cb119-3"></a>  <span class="cf">if</span> (i <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</span>
-<span id="cb119-4"><a href="control-structures.html#cb119-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Go!</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb119-5"><a href="control-structures.html#cb119-5"></a>  } <span class="cf">else</span> {</span>
-<span id="cb119-6"><a href="control-structures.html#cb119-6"></a>    <span class="kw">cat</span>(i, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb119-7"><a href="control-structures.html#cb119-7"></a>  }</span>
-<span id="cb119-8"><a href="control-structures.html#cb119-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="control-structures.html#cb112-1"></a><span class="co">#Example: countdown!</span></span>
+<span id="cb112-2"><a href="control-structures.html#cb112-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="op">:</span><span class="dv">0</span>) {</span>
+<span id="cb112-3"><a href="control-structures.html#cb112-3"></a>  <span class="cf">if</span> (i <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb112-4"><a href="control-structures.html#cb112-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Go!</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb112-5"><a href="control-structures.html#cb112-5"></a>  } <span class="cf">else</span> {</span>
+<span id="cb112-6"><a href="control-structures.html#cb112-6"></a>    <span class="kw">cat</span>(i, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb112-7"><a href="control-structures.html#cb112-7"></a>  }</span>
+<span id="cb112-8"><a href="control-structures.html#cb112-8"></a>}</span></code></pre></div>
 <pre><code>## 3 
 ## 2 
 ## 1 

@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,13 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="data-types.html"><a href="data-types.html#ordered-factors"><i class="fa fa-check"></i><b>4.12</b> Ordered Factors</a></li>
 <li class="chapter" data-level="4.13" data-path="data-types.html"><a href="data-types.html#matrices"><i class="fa fa-check"></i><b>4.13</b> Matrices</a></li>
 <li class="chapter" data-level="4.14" data-path="data-types.html"><a href="data-types.html#arrays"><i class="fa fa-check"></i><b>4.14</b> Arrays</a></li>
-<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#arrays-1"><i class="fa fa-check"></i><b>4.15</b> Arrays</a></li>
-<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.16</b> Selection</a></li>
-<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#apply"><i class="fa fa-check"></i><b>4.17</b> apply</a></li>
-<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.18</b> Lists</a></li>
-<li class="chapter" data-level="4.19" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.19</b> Named Lists</a></li>
-<li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
-<li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
+<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.15</b> Selection</a></li>
+<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.16</b> Lists</a></li>
+<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.17</b> Named Lists</a></li>
+<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.18</b> Recap</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
@@ -552,9 +549,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>apply transformations</li>
 <li>guides</li>
 </ul>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="data-visualisation.html#cb204-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb204-2"><a href="data-visualisation.html#cb204-2"></a><span class="kw">library</span>(nycflights13)</span>
-<span id="cb204-3"><a href="data-visualisation.html#cb204-3"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data-visualisation.html#cb197-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb197-2"><a href="data-visualisation.html#cb197-2"></a><span class="kw">library</span>(nycflights13)</span>
+<span id="cb197-3"><a href="data-visualisation.html#cb197-3"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
 <!--
 ## Aesthetics
 
@@ -600,16 +597,16 @@ geom_point()
 <li><code>x</code> variable to plot</li>
 <li><code>geom_histogram</code></li>
 </ul>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="data-visualisation.html#cb205-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb205-2"><a href="data-visualisation.html#cb205-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
-<span id="cb205-3"><a href="data-visualisation.html#cb205-3"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
-<span id="cb205-4"><a href="data-visualisation.html#cb205-4"></a>    <span class="kw">aes</span>(</span>
-<span id="cb205-5"><a href="data-visualisation.html#cb205-5"></a>      <span class="dt">x =</span> dep_delay</span>
-<span id="cb205-6"><a href="data-visualisation.html#cb205-6"></a>    )</span>
-<span id="cb205-7"><a href="data-visualisation.html#cb205-7"></a>  ) <span class="op">+</span></span>
-<span id="cb205-8"><a href="data-visualisation.html#cb205-8"></a><span class="st">  </span><span class="kw">geom_histogram</span>(</span>
-<span id="cb205-9"><a href="data-visualisation.html#cb205-9"></a>    <span class="dt">binwidth =</span> <span class="dv">10</span></span>
-<span id="cb205-10"><a href="data-visualisation.html#cb205-10"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="data-visualisation.html#cb198-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb198-2"><a href="data-visualisation.html#cb198-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
+<span id="cb198-3"><a href="data-visualisation.html#cb198-3"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb198-4"><a href="data-visualisation.html#cb198-4"></a>    <span class="kw">aes</span>(</span>
+<span id="cb198-5"><a href="data-visualisation.html#cb198-5"></a>      <span class="dt">x =</span> dep_delay</span>
+<span id="cb198-6"><a href="data-visualisation.html#cb198-6"></a>    )</span>
+<span id="cb198-7"><a href="data-visualisation.html#cb198-7"></a>  ) <span class="op">+</span></span>
+<span id="cb198-8"><a href="data-visualisation.html#cb198-8"></a><span class="st">  </span><span class="kw">geom_histogram</span>(</span>
+<span id="cb198-9"><a href="data-visualisation.html#cb198-9"></a>    <span class="dt">binwidth =</span> <span class="dv">10</span></span>
+<span id="cb198-10"><a href="data-visualisation.html#cb198-10"></a>  )</span></code></pre></div>
 </div>
 <div id="histograms-1" class="section level2">
 <h2><span class="header-section-number">16.6</span> Histograms</h2>
@@ -653,15 +650,15 @@ nycflights13::flights %>%
 <li><code>y</code> variable to plot</li>
 <li><code>geom_boxplot</code></li>
 </ul>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="data-visualisation.html#cb206-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb206-2"><a href="data-visualisation.html#cb206-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
-<span id="cb206-3"><a href="data-visualisation.html#cb206-3"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
-<span id="cb206-4"><a href="data-visualisation.html#cb206-4"></a>    <span class="kw">aes</span>(</span>
-<span id="cb206-5"><a href="data-visualisation.html#cb206-5"></a>      <span class="dt">x =</span> carrier, </span>
-<span id="cb206-6"><a href="data-visualisation.html#cb206-6"></a>      <span class="dt">y =</span> arr_delay</span>
-<span id="cb206-7"><a href="data-visualisation.html#cb206-7"></a>    )</span>
-<span id="cb206-8"><a href="data-visualisation.html#cb206-8"></a>  ) <span class="op">+</span></span>
-<span id="cb206-9"><a href="data-visualisation.html#cb206-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="data-visualisation.html#cb199-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb199-2"><a href="data-visualisation.html#cb199-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
+<span id="cb199-3"><a href="data-visualisation.html#cb199-3"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb199-4"><a href="data-visualisation.html#cb199-4"></a>    <span class="kw">aes</span>(</span>
+<span id="cb199-5"><a href="data-visualisation.html#cb199-5"></a>      <span class="dt">x =</span> carrier, </span>
+<span id="cb199-6"><a href="data-visualisation.html#cb199-6"></a>      <span class="dt">y =</span> arr_delay</span>
+<span id="cb199-7"><a href="data-visualisation.html#cb199-7"></a>    )</span>
+<span id="cb199-8"><a href="data-visualisation.html#cb199-8"></a>  ) <span class="op">+</span></span>
+<span id="cb199-9"><a href="data-visualisation.html#cb199-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
 </div>
 <div id="boxplots-1" class="section level2">
 <h2><span class="header-section-number">16.8</span> Boxplots</h2>
@@ -674,15 +671,15 @@ nycflights13::flights %>%
 <li><code>y</code> variable to plot</li>
 <li><code>geom_jitter</code></li>
 </ul>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="data-visualisation.html#cb207-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb207-2"><a href="data-visualisation.html#cb207-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
-<span id="cb207-3"><a href="data-visualisation.html#cb207-3"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
-<span id="cb207-4"><a href="data-visualisation.html#cb207-4"></a>    <span class="kw">aes</span>(</span>
-<span id="cb207-5"><a href="data-visualisation.html#cb207-5"></a>      <span class="dt">x =</span> carrier, </span>
-<span id="cb207-6"><a href="data-visualisation.html#cb207-6"></a>      <span class="dt">y =</span> arr_delay</span>
-<span id="cb207-7"><a href="data-visualisation.html#cb207-7"></a>    )</span>
-<span id="cb207-8"><a href="data-visualisation.html#cb207-8"></a>  ) <span class="op">+</span></span>
-<span id="cb207-9"><a href="data-visualisation.html#cb207-9"></a><span class="st">  </span><span class="kw">geom_jitter</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="data-visualisation.html#cb200-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb200-2"><a href="data-visualisation.html#cb200-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
+<span id="cb200-3"><a href="data-visualisation.html#cb200-3"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb200-4"><a href="data-visualisation.html#cb200-4"></a>    <span class="kw">aes</span>(</span>
+<span id="cb200-5"><a href="data-visualisation.html#cb200-5"></a>      <span class="dt">x =</span> carrier, </span>
+<span id="cb200-6"><a href="data-visualisation.html#cb200-6"></a>      <span class="dt">y =</span> arr_delay</span>
+<span id="cb200-7"><a href="data-visualisation.html#cb200-7"></a>    )</span>
+<span id="cb200-8"><a href="data-visualisation.html#cb200-8"></a>  ) <span class="op">+</span></span>
+<span id="cb200-9"><a href="data-visualisation.html#cb200-9"></a><span class="st">  </span><span class="kw">geom_jitter</span>()</span></code></pre></div>
 </div>
 <div id="jittered-points-1" class="section level2">
 <h2><span class="header-section-number">16.10</span> Jittered points</h2>
@@ -695,15 +692,15 @@ nycflights13::flights %>%
 <li><code>y</code> variable to plot</li>
 <li><code>geom_violin</code></li>
 </ul>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="data-visualisation.html#cb208-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb208-2"><a href="data-visualisation.html#cb208-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
-<span id="cb208-3"><a href="data-visualisation.html#cb208-3"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
-<span id="cb208-4"><a href="data-visualisation.html#cb208-4"></a>    <span class="kw">aes</span>(</span>
-<span id="cb208-5"><a href="data-visualisation.html#cb208-5"></a>      <span class="dt">x =</span> carrier, </span>
-<span id="cb208-6"><a href="data-visualisation.html#cb208-6"></a>      <span class="dt">y =</span> arr_delay</span>
-<span id="cb208-7"><a href="data-visualisation.html#cb208-7"></a>    )</span>
-<span id="cb208-8"><a href="data-visualisation.html#cb208-8"></a>  ) <span class="op">+</span></span>
-<span id="cb208-9"><a href="data-visualisation.html#cb208-9"></a><span class="st">  </span><span class="kw">geom_violin</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data-visualisation.html#cb201-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb201-2"><a href="data-visualisation.html#cb201-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
+<span id="cb201-3"><a href="data-visualisation.html#cb201-3"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb201-4"><a href="data-visualisation.html#cb201-4"></a>    <span class="kw">aes</span>(</span>
+<span id="cb201-5"><a href="data-visualisation.html#cb201-5"></a>      <span class="dt">x =</span> carrier, </span>
+<span id="cb201-6"><a href="data-visualisation.html#cb201-6"></a>      <span class="dt">y =</span> arr_delay</span>
+<span id="cb201-7"><a href="data-visualisation.html#cb201-7"></a>    )</span>
+<span id="cb201-8"><a href="data-visualisation.html#cb201-8"></a>  ) <span class="op">+</span></span>
+<span id="cb201-9"><a href="data-visualisation.html#cb201-9"></a><span class="st">  </span><span class="kw">geom_violin</span>()</span></code></pre></div>
 </div>
 <div id="violin-plot-1" class="section level2">
 <h2><span class="header-section-number">16.12</span> Violin plot</h2>
@@ -716,16 +713,16 @@ nycflights13::flights %>%
 <li><code>y</code> variable to plot</li>
 <li><code>geom_line</code></li>
 </ul>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="data-visualisation.html#cb209-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb209-2"><a href="data-visualisation.html#cb209-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
-<span id="cb209-3"><a href="data-visualisation.html#cb209-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">flight_date =</span> <span class="kw">ISOdate</span>(year, month, day)) <span class="op">%&gt;%</span></span>
-<span id="cb209-4"><a href="data-visualisation.html#cb209-4"></a><span class="st">  </span><span class="kw">group_by</span>(flight_date) <span class="op">%&gt;%</span></span>
-<span id="cb209-5"><a href="data-visualisation.html#cb209-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">avg_dep_delay =</span> <span class="kw">mean</span>(dep_delay)) <span class="op">%&gt;%</span></span>
-<span id="cb209-6"><a href="data-visualisation.html#cb209-6"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(</span>
-<span id="cb209-7"><a href="data-visualisation.html#cb209-7"></a>    <span class="dt">x =</span> flight_date,</span>
-<span id="cb209-8"><a href="data-visualisation.html#cb209-8"></a>    <span class="dt">y =</span> avg_dep_delay</span>
-<span id="cb209-9"><a href="data-visualisation.html#cb209-9"></a>  )) <span class="op">+</span></span>
-<span id="cb209-10"><a href="data-visualisation.html#cb209-10"></a><span class="st">  </span><span class="kw">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="data-visualisation.html#cb202-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb202-2"><a href="data-visualisation.html#cb202-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay)) <span class="op">%&gt;%</span></span>
+<span id="cb202-3"><a href="data-visualisation.html#cb202-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">flight_date =</span> <span class="kw">ISOdate</span>(year, month, day)) <span class="op">%&gt;%</span></span>
+<span id="cb202-4"><a href="data-visualisation.html#cb202-4"></a><span class="st">  </span><span class="kw">group_by</span>(flight_date) <span class="op">%&gt;%</span></span>
+<span id="cb202-5"><a href="data-visualisation.html#cb202-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">avg_dep_delay =</span> <span class="kw">mean</span>(dep_delay)) <span class="op">%&gt;%</span></span>
+<span id="cb202-6"><a href="data-visualisation.html#cb202-6"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(</span>
+<span id="cb202-7"><a href="data-visualisation.html#cb202-7"></a>    <span class="dt">x =</span> flight_date,</span>
+<span id="cb202-8"><a href="data-visualisation.html#cb202-8"></a>    <span class="dt">y =</span> avg_dep_delay</span>
+<span id="cb202-9"><a href="data-visualisation.html#cb202-9"></a>  )) <span class="op">+</span></span>
+<span id="cb202-10"><a href="data-visualisation.html#cb202-10"></a><span class="st">  </span><span class="kw">geom_line</span>()</span></code></pre></div>
 </div>
 <div id="lines-1" class="section level2">
 <h2><span class="header-section-number">16.14</span> Lines</h2>
@@ -737,18 +734,18 @@ nycflights13::flights %>%
 <li><code>x</code> and <code>y</code> variable to plot</li>
 <li><code>geom_point</code></li>
 </ul>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="data-visualisation.html#cb210-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb210-2"><a href="data-visualisation.html#cb210-2"></a><span class="st">  </span><span class="kw">filter</span>(</span>
-<span id="cb210-3"><a href="data-visualisation.html#cb210-3"></a>    month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, </span>
-<span id="cb210-4"><a href="data-visualisation.html#cb210-4"></a>    carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>,</span>
-<span id="cb210-5"><a href="data-visualisation.html#cb210-5"></a>    <span class="op">!</span><span class="kw">is.na</span>(dep_delay),</span>
-<span id="cb210-6"><a href="data-visualisation.html#cb210-6"></a>    <span class="op">!</span><span class="kw">is.na</span>(arr_delay)</span>
-<span id="cb210-7"><a href="data-visualisation.html#cb210-7"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb210-8"><a href="data-visualisation.html#cb210-8"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(</span>
-<span id="cb210-9"><a href="data-visualisation.html#cb210-9"></a>    <span class="dt">x =</span> dep_delay,</span>
-<span id="cb210-10"><a href="data-visualisation.html#cb210-10"></a>    <span class="dt">y =</span> arr_delay</span>
-<span id="cb210-11"><a href="data-visualisation.html#cb210-11"></a>  )) <span class="op">+</span></span>
-<span id="cb210-12"><a href="data-visualisation.html#cb210-12"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data-visualisation.html#cb203-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb203-2"><a href="data-visualisation.html#cb203-2"></a><span class="st">  </span><span class="kw">filter</span>(</span>
+<span id="cb203-3"><a href="data-visualisation.html#cb203-3"></a>    month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, </span>
+<span id="cb203-4"><a href="data-visualisation.html#cb203-4"></a>    carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>,</span>
+<span id="cb203-5"><a href="data-visualisation.html#cb203-5"></a>    <span class="op">!</span><span class="kw">is.na</span>(dep_delay),</span>
+<span id="cb203-6"><a href="data-visualisation.html#cb203-6"></a>    <span class="op">!</span><span class="kw">is.na</span>(arr_delay)</span>
+<span id="cb203-7"><a href="data-visualisation.html#cb203-7"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb203-8"><a href="data-visualisation.html#cb203-8"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(</span>
+<span id="cb203-9"><a href="data-visualisation.html#cb203-9"></a>    <span class="dt">x =</span> dep_delay,</span>
+<span id="cb203-10"><a href="data-visualisation.html#cb203-10"></a>    <span class="dt">y =</span> arr_delay</span>
+<span id="cb203-11"><a href="data-visualisation.html#cb203-11"></a>  )) <span class="op">+</span></span>
+<span id="cb203-12"><a href="data-visualisation.html#cb203-12"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 </div>
 <div id="scatterplots-1" class="section level2">
 <h2><span class="header-section-number">16.16</span> Scatterplots</h2>
@@ -760,16 +757,16 @@ nycflights13::flights %>%
 <li><code>x</code> and <code>y</code> variable to plot</li>
 <li><code>geom_count</code> counts overlapping points and maps the count to size</li>
 </ul>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="data-visualisation.html#cb211-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb211-2"><a href="data-visualisation.html#cb211-2"></a><span class="st">  </span><span class="kw">filter</span>(</span>
-<span id="cb211-3"><a href="data-visualisation.html#cb211-3"></a>    month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>,</span>
-<span id="cb211-4"><a href="data-visualisation.html#cb211-4"></a>    <span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay)</span>
-<span id="cb211-5"><a href="data-visualisation.html#cb211-5"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb211-6"><a href="data-visualisation.html#cb211-6"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(</span>
-<span id="cb211-7"><a href="data-visualisation.html#cb211-7"></a>    <span class="dt">x =</span> dep_delay,</span>
-<span id="cb211-8"><a href="data-visualisation.html#cb211-8"></a>    <span class="dt">y =</span> arr_delay</span>
-<span id="cb211-9"><a href="data-visualisation.html#cb211-9"></a>  )) <span class="op">+</span></span>
-<span id="cb211-10"><a href="data-visualisation.html#cb211-10"></a><span class="st">  </span><span class="kw">geom_count</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="data-visualisation.html#cb204-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb204-2"><a href="data-visualisation.html#cb204-2"></a><span class="st">  </span><span class="kw">filter</span>(</span>
+<span id="cb204-3"><a href="data-visualisation.html#cb204-3"></a>    month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>,</span>
+<span id="cb204-4"><a href="data-visualisation.html#cb204-4"></a>    <span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay)</span>
+<span id="cb204-5"><a href="data-visualisation.html#cb204-5"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb204-6"><a href="data-visualisation.html#cb204-6"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(</span>
+<span id="cb204-7"><a href="data-visualisation.html#cb204-7"></a>    <span class="dt">x =</span> dep_delay,</span>
+<span id="cb204-8"><a href="data-visualisation.html#cb204-8"></a>    <span class="dt">y =</span> arr_delay</span>
+<span id="cb204-9"><a href="data-visualisation.html#cb204-9"></a>  )) <span class="op">+</span></span>
+<span id="cb204-10"><a href="data-visualisation.html#cb204-10"></a><span class="st">  </span><span class="kw">geom_count</span>()</span></code></pre></div>
 </div>
 <div id="overlapping-points-1" class="section level2">
 <h2><span class="header-section-number">16.18</span> Overlapping points</h2>
@@ -781,18 +778,18 @@ nycflights13::flights %>%
 <li><code>x</code> and <code>y</code> variable to plot</li>
 <li><code>geom_bin2d</code></li>
 </ul>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="data-visualisation.html#cb212-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb212-2"><a href="data-visualisation.html#cb212-2"></a><span class="st">  </span><span class="kw">filter</span>(</span>
-<span id="cb212-3"><a href="data-visualisation.html#cb212-3"></a>    month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, </span>
-<span id="cb212-4"><a href="data-visualisation.html#cb212-4"></a>    carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>,</span>
-<span id="cb212-5"><a href="data-visualisation.html#cb212-5"></a>    <span class="op">!</span><span class="kw">is.na</span>(dep_delay),</span>
-<span id="cb212-6"><a href="data-visualisation.html#cb212-6"></a>    <span class="op">!</span><span class="kw">is.na</span>(arr_delay)</span>
-<span id="cb212-7"><a href="data-visualisation.html#cb212-7"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb212-8"><a href="data-visualisation.html#cb212-8"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(</span>
-<span id="cb212-9"><a href="data-visualisation.html#cb212-9"></a>    <span class="dt">x =</span> dep_delay,</span>
-<span id="cb212-10"><a href="data-visualisation.html#cb212-10"></a>    <span class="dt">y =</span> arr_delay</span>
-<span id="cb212-11"><a href="data-visualisation.html#cb212-11"></a>  )) <span class="op">+</span></span>
-<span id="cb212-12"><a href="data-visualisation.html#cb212-12"></a><span class="st">  </span><span class="kw">geom_bin2d</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="data-visualisation.html#cb205-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb205-2"><a href="data-visualisation.html#cb205-2"></a><span class="st">  </span><span class="kw">filter</span>(</span>
+<span id="cb205-3"><a href="data-visualisation.html#cb205-3"></a>    month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, </span>
+<span id="cb205-4"><a href="data-visualisation.html#cb205-4"></a>    carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>,</span>
+<span id="cb205-5"><a href="data-visualisation.html#cb205-5"></a>    <span class="op">!</span><span class="kw">is.na</span>(dep_delay),</span>
+<span id="cb205-6"><a href="data-visualisation.html#cb205-6"></a>    <span class="op">!</span><span class="kw">is.na</span>(arr_delay)</span>
+<span id="cb205-7"><a href="data-visualisation.html#cb205-7"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb205-8"><a href="data-visualisation.html#cb205-8"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(</span>
+<span id="cb205-9"><a href="data-visualisation.html#cb205-9"></a>    <span class="dt">x =</span> dep_delay,</span>
+<span id="cb205-10"><a href="data-visualisation.html#cb205-10"></a>    <span class="dt">y =</span> arr_delay</span>
+<span id="cb205-11"><a href="data-visualisation.html#cb205-11"></a>  )) <span class="op">+</span></span>
+<span id="cb205-12"><a href="data-visualisation.html#cb205-12"></a><span class="st">  </span><span class="kw">geom_bin2d</span>()</span></code></pre></div>
 </div>
 <div id="bin-counts-1" class="section level2">
 <h2><span class="header-section-number">16.20</span> Bin counts</h2>

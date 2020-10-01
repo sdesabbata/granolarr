@@ -43,7 +43,7 @@ A vector variable can be defined using
 - on the left of an **assignment operator** `<-`
 - followed by the object to be linked to the identifier
 - in this case, the result returned by the function `c`
-- which creates a vector containing the element provided as input
+- which creates a vector containing the provided elements
 
 
 ```r
@@ -289,6 +289,12 @@ income_nominal <- factor(
   c("High", "High", "Low", "Low", "Low",
       "Medium", "Low", "Medium"),
   levels = c("Low", "Medium", "High"))
+```
+
+The *greater than* operator is not meaningful on the `income_nominal` factor defined above
+
+
+```r
 income_nominal > "Low"
 ```
 
@@ -302,8 +308,7 @@ income_nominal > "Low"
 
 ## Ordered Factors
 
-In statistics terminology, ordered factors are **ordinal** variables.
-Levels are ordered.
+In statistics terminology, ordered factors are **ordinal** variables. Levels are ordered.
 
 
 ```r
@@ -311,6 +316,7 @@ income_ordered <- ordered(
   c("High", "High", "Low", "Low", "Low",
       "Medium", "Low", "Medium"),
   levels = c("Low", "Medium", "High"))
+
 income_ordered > "Low"
 ```
 
@@ -416,22 +422,28 @@ solve(A, b)
 
 ## Arrays
 
-Variables of the type **array** are higher-dimensional matrices.
+:::::: {.cols data-latex=""}
 
-- the first argument is a vector containing the values
-- the second argument is a vector specifying the depth of each dimension
+::: {.col data-latex="{0.5\textwidth}"}
+
+Variables of the type **array**<br/>are higher-dimensional<br/>matrices.
+
+- the first argument is a<br/>vector containing the<br/>values
+- the second argument is<br/>avector specifying the<br/>depth of each dimension
 
 
 ```r
 a3dim_array <- array(1:24, dim=c(4, 3, 2))
 ```
 
-## Arrays
-
 
 ```r
 a3dim_array
 ```
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
 
 ```
 ## , , 1
@@ -450,6 +462,11 @@ a3dim_array
 ## [3,]   15   19   23
 ## [4,]   16   20   24
 ```
+
+:::
+::::::
+
+
 
 <!--
 ## Matrices and arrays: selection
@@ -490,6 +507,8 @@ a3dim_array[c(1, 2), 2, 2]
 ```
 
 
+
+<!--
 ## apply
 
 `apply` applies another function to each level of a set dimension of an array
@@ -518,6 +537,7 @@ apply(a3dim_array, 2, min) # apply on second dimension
 ```
 ## [1] 1 5 9
 ```
+-->
 
 
 
@@ -575,6 +595,7 @@ employee$name
 ```
 
 
+<!--
 ## lapply
 
 With `lapply` take care that the function makes sense for *any* element in the list
@@ -598,7 +619,6 @@ lapply(various, is.numeric)
 
 
 
-<!--
 ## Lists: append
 
 The function **append** can be used to append a new element at the end of a list.

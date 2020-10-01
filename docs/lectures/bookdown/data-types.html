@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,13 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="data-types.html"><a href="data-types.html#ordered-factors"><i class="fa fa-check"></i><b>4.12</b> Ordered Factors</a></li>
 <li class="chapter" data-level="4.13" data-path="data-types.html"><a href="data-types.html#matrices"><i class="fa fa-check"></i><b>4.13</b> Matrices</a></li>
 <li class="chapter" data-level="4.14" data-path="data-types.html"><a href="data-types.html#arrays"><i class="fa fa-check"></i><b>4.14</b> Arrays</a></li>
-<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#arrays-1"><i class="fa fa-check"></i><b>4.15</b> Arrays</a></li>
-<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.16</b> Selection</a></li>
-<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#apply"><i class="fa fa-check"></i><b>4.17</b> apply</a></li>
-<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.18</b> Lists</a></li>
-<li class="chapter" data-level="4.19" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.19</b> Named Lists</a></li>
-<li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
-<li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
+<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.15</b> Selection</a></li>
+<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.16</b> Lists</a></li>
+<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.17</b> Named Lists</a></li>
+<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.18</b> Recap</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
@@ -534,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>on the left of an <strong>assignment operator</strong> <code>&lt;-</code></li>
 <li>followed by the object to be linked to the identifier</li>
 <li>in this case, the result returned by the function <code>c</code></li>
-<li>which creates a vector containing the element provided as input</li>
+<li>which creates a vector containing the provided elements</li>
 </ul>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-types.html#cb36-1"></a>a_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Birmingham&quot;</span>, <span class="st">&quot;Derby&quot;</span>, <span class="st">&quot;Leicester&quot;</span>,</span>
 <span id="cb36-2"><a href="data-types.html#cb36-2"></a>  <span class="st">&quot;Lincoln&quot;</span>, <span class="st">&quot;Nottingham&quot;</span>, <span class="st">&quot;Wolverhampton&quot;</span>)</span>
@@ -657,22 +654,23 @@ selected_cities <- c(east_midlands_cities[1], east_midlands_cities[3:4])
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-types.html#cb70-1"></a>income_nominal &lt;-<span class="st"> </span><span class="kw">factor</span>(</span>
 <span id="cb70-2"><a href="data-types.html#cb70-2"></a>  <span class="kw">c</span>(<span class="st">&quot;High&quot;</span>, <span class="st">&quot;High&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Low&quot;</span>,</span>
 <span id="cb70-3"><a href="data-types.html#cb70-3"></a>      <span class="st">&quot;Medium&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Medium&quot;</span>),</span>
-<span id="cb70-4"><a href="data-types.html#cb70-4"></a>  <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Medium&quot;</span>, <span class="st">&quot;High&quot;</span>))</span>
-<span id="cb70-5"><a href="data-types.html#cb70-5"></a>income_nominal <span class="op">&gt;</span><span class="st"> &quot;Low&quot;</span></span></code></pre></div>
+<span id="cb70-4"><a href="data-types.html#cb70-4"></a>  <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Medium&quot;</span>, <span class="st">&quot;High&quot;</span>))</span></code></pre></div>
+<p>The <em>greater than</em> operator is not meaningful on the <code>income_nominal</code> factor defined above</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-types.html#cb71-1"></a>income_nominal <span class="op">&gt;</span><span class="st"> &quot;Low&quot;</span></span></code></pre></div>
 <pre><code>## Warning in Ops.factor(income_nominal, &quot;Low&quot;): &#39;&gt;&#39; not meaningful for factors</code></pre>
 <pre><code>## [1] NA NA NA NA NA NA NA NA</code></pre>
 </div>
 <div id="ordered-factors" class="section level2">
 <h2><span class="header-section-number">4.12</span> Ordered Factors</h2>
-<p>In statistics terminology, ordered factors are <strong>ordinal</strong> variables.
-Levels are ordered.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-types.html#cb73-1"></a>income_ordered &lt;-<span class="st"> </span><span class="kw">ordered</span>(</span>
-<span id="cb73-2"><a href="data-types.html#cb73-2"></a>  <span class="kw">c</span>(<span class="st">&quot;High&quot;</span>, <span class="st">&quot;High&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Low&quot;</span>,</span>
-<span id="cb73-3"><a href="data-types.html#cb73-3"></a>      <span class="st">&quot;Medium&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Medium&quot;</span>),</span>
-<span id="cb73-4"><a href="data-types.html#cb73-4"></a>  <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Medium&quot;</span>, <span class="st">&quot;High&quot;</span>))</span>
-<span id="cb73-5"><a href="data-types.html#cb73-5"></a>income_ordered <span class="op">&gt;</span><span class="st"> &quot;Low&quot;</span></span></code></pre></div>
+<p>In statistics terminology, ordered factors are <strong>ordinal</strong> variables. Levels are ordered.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-types.html#cb74-1"></a>income_ordered &lt;-<span class="st"> </span><span class="kw">ordered</span>(</span>
+<span id="cb74-2"><a href="data-types.html#cb74-2"></a>  <span class="kw">c</span>(<span class="st">&quot;High&quot;</span>, <span class="st">&quot;High&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Low&quot;</span>,</span>
+<span id="cb74-3"><a href="data-types.html#cb74-3"></a>      <span class="st">&quot;Medium&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Medium&quot;</span>),</span>
+<span id="cb74-4"><a href="data-types.html#cb74-4"></a>  <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Medium&quot;</span>, <span class="st">&quot;High&quot;</span>))</span>
+<span id="cb74-5"><a href="data-types.html#cb74-5"></a></span>
+<span id="cb74-6"><a href="data-types.html#cb74-6"></a>income_ordered <span class="op">&gt;</span><span class="st"> &quot;Low&quot;</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-types.html#cb75-1"></a><span class="kw">sort</span>(income_ordered)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-types.html#cb76-1"></a><span class="kw">sort</span>(income_ordered)</span></code></pre></div>
 <pre><code>## [1] Low    Low    Low    Low    Medium Medium High   High  
 ## Levels: Low &lt; Medium &lt; High</code></pre>
 </div>
@@ -684,8 +682,8 @@ Levels are ordered.</p>
 <li>the second specifies number of rows and columns</li>
 <li>R offers operators and functions for matrix algebra</li>
 </ul>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-types.html#cb77-1"></a>a_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb77-2"><a href="data-types.html#cb77-2"></a>a_matrix</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-types.html#cb78-1"></a>a_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb78-2"><a href="data-types.html#cb78-2"></a>a_matrix</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    3    4
 ## [2,]    5    3
@@ -756,16 +754,17 @@ solve(A, b)
 </div>
 <div id="arrays" class="section level2">
 <h2><span class="header-section-number">4.14</span> Arrays</h2>
-<p>Variables of the type <strong>array</strong> are higher-dimensional matrices.</p>
+<div class="cols">
+<div class="col">
+<p>Variables of the type <strong>array</strong><br/>are higher-dimensional<br/>matrices.</p>
 <ul>
-<li>the first argument is a vector containing the values</li>
-<li>the second argument is a vector specifying the depth of each dimension</li>
+<li>the first argument is a<br/>vector containing the<br/>values</li>
+<li>the second argument is<br/>avector specifying the<br/>depth of each dimension</li>
 </ul>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-types.html#cb79-1"></a>a3dim_array &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-types.html#cb80-1"></a>a3dim_array &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-types.html#cb81-1"></a>a3dim_array</span></code></pre></div>
 </div>
-<div id="arrays-1" class="section level2">
-<h2><span class="header-section-number">4.15</span> Arrays</h2>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-types.html#cb80-1"></a>a3dim_array</span></code></pre></div>
+<div class="col">
 <pre><code>## , , 1
 ## 
 ##      [,1] [,2] [,3]
@@ -781,6 +780,8 @@ solve(A, b)
 ## [2,]   14   18   22
 ## [3,]   15   19   23
 ## [4,]   16   20   24</code></pre>
+</div>
+</div>
 <!--
 ## Matrices and arrays: selection
 
@@ -798,63 +799,92 @@ x2[choose_x2]
 -->
 </div>
 <div id="selection-1" class="section level2">
-<h2><span class="header-section-number">4.16</span> Selection</h2>
+<h2><span class="header-section-number">4.15</span> Selection</h2>
 <p>Subsets of matrices (and arrays) can be selected as seen for vectors.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-types.html#cb82-1"></a>a_matrix[<span class="dv">2</span>, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-types.html#cb83-1"></a>a_matrix[<span class="dv">2</span>, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
 <pre><code>## [1] 5 3</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-types.html#cb84-1"></a>a3dim_array[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-types.html#cb85-1"></a>a3dim_array[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 17 18</code></pre>
-</div>
-<div id="apply" class="section level2">
-<h2><span class="header-section-number">4.17</span> apply</h2>
-<p><code>apply</code> applies another function to each level of a set dimension of an array</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-types.html#cb86-1"></a><span class="kw">apply</span>(a3dim_array, <span class="dv">3</span>, min) <span class="co"># apply on third dimension</span></span></code></pre></div>
-<pre><code>## [1]  1 13</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-types.html#cb88-1"></a><span class="kw">apply</span>(a3dim_array, <span class="dv">1</span>, min) <span class="co"># apply on first dimension</span></span></code></pre></div>
-<pre><code>## [1] 1 2 3 4</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-types.html#cb90-1"></a><span class="kw">apply</span>(a3dim_array, <span class="dv">2</span>, min) <span class="co"># apply on second dimension</span></span></code></pre></div>
-<pre><code>## [1] 1 5 9</code></pre>
+<!--
+## apply
+
+`apply` applies another function to each level of a set dimension of an array
+
+
+```r
+apply(a3dim_array, 3, min) # apply on third dimension
+```
+
+```
+## [1]  1 13
+```
+
+```r
+apply(a3dim_array, 1, min) # apply on first dimension
+```
+
+```
+## [1] 1 2 3 4
+```
+
+```r
+apply(a3dim_array, 2, min) # apply on second dimension
+```
+
+```
+## [1] 1 5 9
+```
+-->
 </div>
 <div id="lists" class="section level2">
-<h2><span class="header-section-number">4.18</span> Lists</h2>
+<h2><span class="header-section-number">4.16</span> Lists</h2>
 <p>Variables of the type <strong>list</strong> can contain elements of different types (including vectors and matrices), whereas elements of vectors are all of the same type.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-types.html#cb92-1"></a>employee &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;Stefano&quot;</span>, <span class="dv">2015</span>)</span>
-<span id="cb92-2"><a href="data-types.html#cb92-2"></a>employee</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-types.html#cb87-1"></a>employee &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;Stefano&quot;</span>, <span class="dv">2015</span>)</span>
+<span id="cb87-2"><a href="data-types.html#cb87-2"></a>employee</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;Stefano&quot;
 ## 
 ## [[2]]
 ## [1] 2015</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-types.html#cb94-1"></a>employee[[<span class="dv">1</span>]] <span class="co"># Note the double square brackets for selection</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-types.html#cb89-1"></a>employee[[<span class="dv">1</span>]] <span class="co"># Note the double square brackets for selection</span></span></code></pre></div>
 <pre><code>## [1] &quot;Stefano&quot;</code></pre>
 </div>
 <div id="named-lists" class="section level2">
-<h2><span class="header-section-number">4.19</span> Named Lists</h2>
+<h2><span class="header-section-number">4.17</span> Named Lists</h2>
 <p>In <strong>named lists</strong> each element has a name, and elements can be selected to using their name after the symbol <code>$</code>.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-types.html#cb96-1"></a>employee &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name =</span> <span class="st">&quot;Stefano&quot;</span>, <span class="dt">start_year =</span> <span class="dv">2015</span>)</span>
-<span id="cb96-2"><a href="data-types.html#cb96-2"></a>employee</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-types.html#cb91-1"></a>employee &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name =</span> <span class="st">&quot;Stefano&quot;</span>, <span class="dt">start_year =</span> <span class="dv">2015</span>)</span>
+<span id="cb91-2"><a href="data-types.html#cb91-2"></a>employee</span></code></pre></div>
 <pre><code>## $name
 ## [1] &quot;Stefano&quot;
 ## 
 ## $start_year
 ## [1] 2015</code></pre>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-types.html#cb98-1"></a>employee<span class="op">$</span>name</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-types.html#cb93-1"></a>employee<span class="op">$</span>name</span></code></pre></div>
 <pre><code>## [1] &quot;Stefano&quot;</code></pre>
-</div>
-<div id="lapply" class="section level2">
-<h2><span class="header-section-number">4.20</span> lapply</h2>
-<p>With <code>lapply</code> take care that the function makes sense for <em>any</em> element in the list</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-types.html#cb100-1"></a>various &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb100-2"><a href="data-types.html#cb100-2"></a>  <span class="st">&quot;Some text&quot;</span>,</span>
-<span id="cb100-3"><a href="data-types.html#cb100-3"></a>  <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb100-4"><a href="data-types.html#cb100-4"></a>)</span>
-<span id="cb100-5"><a href="data-types.html#cb100-5"></a><span class="kw">lapply</span>(various, is.numeric)</span></code></pre></div>
-<pre><code>## [[1]]
+<!--
+## lapply
+
+With `lapply` take care that the function makes sense for *any* element in the list
+
+
+```r
+various <- list(
+  "Some text",
+  matrix(c(6, 3, 1, 2), c(2, 2))
+)
+lapply(various, is.numeric)
+```
+
+```
+## [[1]]
 ## [1] FALSE
 ## 
 ## [[2]]
-## [1] TRUE</code></pre>
-<!--
+## [1] TRUE
+```
+
+
+
 ## Lists: append
 
 The function **append** can be used to append a new element at the end of a list.
@@ -869,7 +899,7 @@ various
 -->
 </div>
 <div id="recap-1" class="section level2">
-<h2><span class="header-section-number">4.21</span> Recap</h2>
+<h2><span class="header-section-number">4.18</span> Recap</h2>
 <p>Data types</p>
 <ul>
 <li>Vectors</li>

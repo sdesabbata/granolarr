@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  29 SEP 2020 11:40
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  1 OCT 2020 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1073,20 +1073,25 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 1358--1358
 Terrace[] 
  []
 
-
-Overfull \hbox (69.75pt too wide) in paragraph at lines 1412--1412
+[30]
+Overfull \hbox (69.75pt too wide) in paragraph at lines 1419--1419
 []\TU/lmtt/m/n/10 ## Warning in Ops.factor(income_nominal, "Low"): '>' not mean
 ingful for factors[] 
  []
 
-[30]
-Underfull \vbox (badness 3148) has occurred while \output is active []
 
-[31] [32] [33] [34]
+Underfull \hbox (badness 2772) in paragraph at lines 1499--1500
+[]\TU/lmr/m/n/10 the second argument isavector
+ []
+
+
+Underfull \vbox (badness 5091) has occurred while \output is active []
+
+[31] [32] [33] [34
+
+]
 Chapter 5.
-[35
-
-] [36] [37] [38]
+[35] [36] [37] [38]
 Chapter 6.
 [39
 
@@ -1102,25 +1107,25 @@ Chapter 8.
 Underfull \vbox (badness 1448) has occurred while \output is active []
 
 [47]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2503--2503
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2461--2461
 []\TU/lmtt/m/n/10 ##  [1] "year"           "month"          "day"            "d
 ep_time"[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2503--2503
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2461--2461
 []\TU/lmtt/m/n/10 ##  [5] "sched_dep_time" "dep_delay"      "arr_time"       "s
 ched_arr_time"[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 2503--2503
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2461--2461
 []\TU/lmtt/m/n/10 ##  [9] "arr_delay"      "carrier"        "flight"         "t
 ailnum"[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2503--2503
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2461--2461
 []\TU/lmtt/m/n/10 ## [13] "origin"         "dest"           "air_time"       "d
 istance"[] 
  []
@@ -1133,7 +1138,7 @@ Underfull \vbox (badness 1043) has occurred while \output is active []
 [51
 
 ] [52]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2809--2809
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2767--2767
 []\TU/lmtt/m/n/10 ## `summarise()` ungrouping output (override with `.groups` a
 rgument)[] 
  []
@@ -1142,7 +1147,7 @@ rgument)[]
 Underfull \vbox (badness 2846) has occurred while \output is active []
 
 [53]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2868--2868
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2826--2826
 []\TU/lmtt/m/n/10 ## `summarise()` ungrouping output (override with `.groups` a
 rgument)[] 
  []
@@ -1164,13 +1169,13 @@ Chapter 11.
 [59
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3297--3297
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3255--3255
 []\TU/lmtt/m/n/10 ## -- Attaching packages ------------------------------------
 --- tidyverse 1.3.0 --[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3310--3310
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3268--3268
 []\TU/lmtt/m/n/10 ## -- Conflicts ------------------------------------------ ti
 dyverse_conflicts() --[] 
  []
@@ -1180,25 +1185,25 @@ dyverse_conflicts() --[]
 ]
 Chapter 12.
 
-Overfull \hbox (41.93002pt too wide) in paragraph at lines 3469--3471
+Overfull \hbox (41.93002pt too wide) in paragraph at lines 3427--3429
 []\TU/lmr/m/n/10 The full variable names can be found in the file - \TU/lmtt/m/
 n/10 2011_OAC_Raw_uVariables_Lookup.csv\TU/lmr/m/n/10 . 
  []
 
 [63]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3483--3483
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3441--3441
 []\TU/lmtt/m/n/10 ## -- Attaching packages ------------------------------------
 --- tidyverse 1.3.0 --[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3496--3496
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3454--3454
 []\TU/lmtt/m/n/10 ## -- Conflicts ------------------------------------------ ti
 dyverse_conflicts() --[] 
  []
 
 
-Overfull \hbox (63.89009pt too wide) in paragraph at lines 3520--3531
+Overfull \hbox (63.89009pt too wide) in paragraph at lines 3478--3489
 [][] 
  []
 
@@ -1314,7 +1319,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [101]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 5310.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 5268.
 [102] [103] [104]
 Chapter 20.
 
@@ -1327,34 +1332,34 @@ File: 312_L_Correlation_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (
 type pdf)
 <use 312_L_Correlation_files/figure-latex/unnamed-chunk-2-1.pdf>
 [106]
-Overfull \hbox (5.91605pt too wide) in paragraph at lines 5672--5672
+Overfull \hbox (5.91605pt too wide) in paragraph at lines 5630--5630
 []\TU/lmtt/m/n/8 ## t = 58.282, df = 972, p-value < 2.2e-16[] 
  []
 
 
-Overfull \hbox (86.62802pt too wide) in paragraph at lines 5672--5672
+Overfull \hbox (86.62802pt too wide) in paragraph at lines 5630--5630
 []\TU/lmtt/m/n/8 ## alternative hypothesis: true correlation is not equal to 0[
 ] 
  []
 
 
-Underfull \hbox (badness 2096) in paragraph at lines 5689--5690
+Underfull \hbox (badness 2096) in paragraph at lines 5647--5648
 []\TU/lmr/m/n/8 If two variables are \TU/lmr/bx/n/8 not normally dis-
  []
 
 
-Overfull \hbox (171.58803pt too wide) in paragraph at lines 5727--5727
+Overfull \hbox (171.58803pt too wide) in paragraph at lines 5685--5685
 []\TU/lmtt/m/n/8 ## Warning in cor.test.default(dep_delay, arr_delay, method = 
 "spearman"): Cannot[] 
  []
 
 
-Overfull \hbox (52.64403pt too wide) in paragraph at lines 5739--5739
+Overfull \hbox (52.64403pt too wide) in paragraph at lines 5697--5697
 []\TU/lmtt/m/n/8 ## alternative hypothesis: true rho is not equal to 0[] 
  []
 
 
-Overfull \hbox (52.64403pt too wide) in paragraph at lines 5801--5801
+Overfull \hbox (52.64403pt too wide) in paragraph at lines 5759--5759
 []\TU/lmtt/m/n/8 ## alternative hypothesis: true tau is not equal to 0[] 
  []
 
@@ -1399,7 +1404,7 @@ File: images/489px-Linear_least_squares_example2.svg.png Graphic file (type bmp
 )
 <images/489px-Linear_least_squares_example2.svg.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 6157--6159
+Underfull \hbox (badness 10000) in paragraph at lines 6115--6117
 []\TU/lmr/m/n/10 by Krishnavedala via Wikimedia
  []
 
@@ -1412,7 +1417,7 @@ Chapter 23.
 [117
 
 ]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 6452--6452
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6410--6410
 []\TU/lmtt/m/n/10 ## W = 0.98231, p-value = 1.73e-09[] 
  []
 
@@ -1420,7 +1425,7 @@ File: 322_L_RegressionAssessing_files/figure-latex/unnamed-chunk-4-1.pdf Graphi
 c file (type pdf)
 <use 322_L_RegressionAssessing_files/figure-latex/unnamed-chunk-4-1.pdf>
 [118]
-Overfull \hbox (5.91605pt too wide) in paragraph at lines 6498--6498
+Overfull \hbox (5.91605pt too wide) in paragraph at lines 6456--6456
 []\TU/lmtt/m/n/8 ## BP = 0.017316, df = 1, p-value = 0.8953[] 
  []
 
@@ -1436,7 +1441,7 @@ Chapter 24.
 ]
 Chapter 25.
 [123]
-Underfull \hbox (badness 4416) in paragraph at lines 6785--6786
+Underfull \hbox (badness 4416) in paragraph at lines 6743--6744
 \TU/lmr/m/n/10 prediction and output in
  []
 
@@ -1448,14 +1453,14 @@ File: images/DBSCAN-Gaussian-data.png Graphic file (type bmp)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [124]
-Underfull \hbox (badness 3199) in paragraph at lines 6917--6919
+Underfull \hbox (badness 3199) in paragraph at lines 6875--6877
 []\TU/lmr/m/n/10 combines input values
  []
 
 File: images/ANN_description.png Graphic file (type bmp)
 <images/ANN_description.png>
 
-Underfull \hbox (badness 2134) in paragraph at lines 6932--6935
+Underfull \hbox (badness 2134) in paragraph at lines 6890--6893
 []\TU/lmr/m/n/10 by Egm4313.s12 and Glosser.ca via
  []
 
@@ -1469,19 +1474,19 @@ File: images/Colored_deep_neural_network-01.png Graphic file (type bmp)
 File: images/Typical_cnn.png Graphic file (type bmp)
 <images/Typical_cnn.png>
 
-Underfull \hbox (badness 1281) in paragraph at lines 7011--7012
+Underfull \hbox (badness 1281) in paragraph at lines 6969--6970
 []\TU/lmr/m/n/10 e.g., []Facial Recognition Is
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 7011--7012
+Underfull \hbox (badness 1337) in paragraph at lines 6969--6970
 \TU/lmr/m/n/10 Guy[] by Steve Lohr (New
  []
 
 File: images/Overfitting.svg.png Graphic file (type bmp)
 <images/Overfitting.svg.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 7029--7030
+Underfull \hbox (badness 10000) in paragraph at lines 6987--6988
 []\TU/lmr/m/n/10 by Chabacanoia Wikimedia
  []
 
@@ -1493,6 +1498,9 @@ Chapter 26.
 File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-2-1.pdf Graphic
  file (type pdf)
 <use 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-2-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [130]
 File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-4-1.pdf Graphic
  file (type pdf)
@@ -1500,6 +1508,9 @@ File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-4-1.pdf Graphic
 File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-5-1.pdf Graphic
  file (type pdf)
 <use 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-5-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [131]
 File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-8-1.pdf Graphic
  file (type pdf)
@@ -1507,23 +1518,26 @@ File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-8-1.pdf Graphic
 File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-9-1.pdf Graphic
  file (type pdf)
 <use 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-9-1.pdf>
-[132] [133] [134
 
-]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[132] [133] [134]
 Chapter 27.
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 7378--7378
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7336--7336
 []\TU/lmtt/m/n/10 ## -- Attaching packages ------------------------------------
 --- tidyverse 1.3.0 --[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 7391--7391
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7349--7349
 []\TU/lmtt/m/n/10 ## -- Conflicts ------------------------------------------ ti
 dyverse_conflicts() --[] 
  []
 
-[135]
+[135
+
+]
 File: 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-4-1.
 pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-4-1.p
@@ -1547,7 +1561,7 @@ pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-6-1.p
 df>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1642) has occurred while \output is active []
 
 [137]
 File: 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-8-1.
@@ -1559,7 +1573,8 @@ pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-9-1.p
 df>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \vbox (0.5319pt too high) detected at line 7490
+ []
 
 
 Overfull \hbox (0.80673pt too wide) has occurred while \output is active
@@ -1576,20 +1591,17 @@ File: 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-12-1
 .pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-12-1.
 pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 [139]
 Overfull \hbox (0.80673pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 140 \TU/lmr/m/sl/10 CHAPTER 27.  HIERARCHICAL AND DENSITY-BASED 
 CLUSTERING
  []
 
-[140]
-Chapter 28.
-[141
+[140
 
-] [142
+]
+Chapter 28.
+[141] [142
 
 ]
 Chapter 29.
@@ -1597,24 +1609,24 @@ Chapter 29.
 
 ]
 Chapter 30.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7754.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7712.
 [145]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7754.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7712.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7754.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7754.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7712.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7712.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 7E05E63D49769E930B8180D5A1DAE4AE;36334.
+(rerunfilecheck)             Checksum: BAA7F1835CC2CDF0AC7652FC4223B6E7;36078.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17674 strings out of 481704
- 321790 string characters out of 5933764
- 755699 words of memory out of 5000000
- 34475 multiletter control sequences out of 15000+600000
+ 17671 strings out of 481704
+ 321765 string characters out of 5933764
+ 755306 words of memory out of 5000000
+ 34472 multiletter control sequences out of 15000+600000
  541635 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  53i,6n,118p,804b,504s stack positions out of 5000i,500n,10000p,200000b,80000s

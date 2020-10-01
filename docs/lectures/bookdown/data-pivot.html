@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,13 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="data-types.html"><a href="data-types.html#ordered-factors"><i class="fa fa-check"></i><b>4.12</b> Ordered Factors</a></li>
 <li class="chapter" data-level="4.13" data-path="data-types.html"><a href="data-types.html#matrices"><i class="fa fa-check"></i><b>4.13</b> Matrices</a></li>
 <li class="chapter" data-level="4.14" data-path="data-types.html"><a href="data-types.html#arrays"><i class="fa fa-check"></i><b>4.14</b> Arrays</a></li>
-<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#arrays-1"><i class="fa fa-check"></i><b>4.15</b> Arrays</a></li>
-<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.16</b> Selection</a></li>
-<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#apply"><i class="fa fa-check"></i><b>4.17</b> apply</a></li>
-<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.18</b> Lists</a></li>
-<li class="chapter" data-level="4.19" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.19</b> Named Lists</a></li>
-<li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
-<li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
+<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.15</b> Selection</a></li>
+<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.16</b> Lists</a></li>
+<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.17</b> Named Lists</a></li>
+<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.18</b> Recap</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
@@ -597,7 +594,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="libraries" class="section level2">
 <h2><span class="header-section-number">11.4</span> Libraries</h2>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="data-pivot.html#cb186-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="data-pivot.html#cb179-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.3.2     ✔ purrr   0.3.4
 ## ✔ tibble  3.0.3     ✔ dplyr   1.0.0
@@ -606,19 +603,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="data-pivot.html#cb190-1"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="data-pivot.html#cb183-1"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
 </div>
 <div id="tidyr" class="section level2">
 <h2><span class="header-section-number">11.5</span> tidyr</h2>
 <p>The <code>tidyr</code> (pronounced <em>tidy-er</em>) library is part of <code>tidyverse</code> and it provides functions to re-shape your data</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="data-pivot.html#cb191-1"></a>city_info_wide &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb191-2"><a href="data-pivot.html#cb191-2"></a>  <span class="dt">City =</span> <span class="kw">c</span>(<span class="st">&quot;Leicester&quot;</span>, <span class="st">&quot;Nottingham&quot;</span>),</span>
-<span id="cb191-3"><a href="data-pivot.html#cb191-3"></a>  <span class="dt">Population =</span> <span class="kw">c</span>(<span class="dv">329839</span>, <span class="dv">321500</span>),</span>
-<span id="cb191-4"><a href="data-pivot.html#cb191-4"></a>  <span class="dt">Area =</span> <span class="kw">c</span>(<span class="fl">73.3</span>, <span class="fl">74.6</span>),</span>
-<span id="cb191-5"><a href="data-pivot.html#cb191-5"></a>  <span class="dt">Density =</span> <span class="kw">c</span>(<span class="dv">4500</span>, <span class="dv">4412</span>)</span>
-<span id="cb191-6"><a href="data-pivot.html#cb191-6"></a>)</span>
-<span id="cb191-7"><a href="data-pivot.html#cb191-7"></a></span>
-<span id="cb191-8"><a href="data-pivot.html#cb191-8"></a><span class="kw">kable</span>(city_info_wide)</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="data-pivot.html#cb184-1"></a>city_info_wide &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb184-2"><a href="data-pivot.html#cb184-2"></a>  <span class="dt">City =</span> <span class="kw">c</span>(<span class="st">&quot;Leicester&quot;</span>, <span class="st">&quot;Nottingham&quot;</span>),</span>
+<span id="cb184-3"><a href="data-pivot.html#cb184-3"></a>  <span class="dt">Population =</span> <span class="kw">c</span>(<span class="dv">329839</span>, <span class="dv">321500</span>),</span>
+<span id="cb184-4"><a href="data-pivot.html#cb184-4"></a>  <span class="dt">Area =</span> <span class="kw">c</span>(<span class="fl">73.3</span>, <span class="fl">74.6</span>),</span>
+<span id="cb184-5"><a href="data-pivot.html#cb184-5"></a>  <span class="dt">Density =</span> <span class="kw">c</span>(<span class="dv">4500</span>, <span class="dv">4412</span>)</span>
+<span id="cb184-6"><a href="data-pivot.html#cb184-6"></a>)</span>
+<span id="cb184-7"><a href="data-pivot.html#cb184-7"></a></span>
+<span id="cb184-8"><a href="data-pivot.html#cb184-8"></a><span class="kw">kable</span>(city_info_wide)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -647,12 +644,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tidyrgather" class="section level2">
 <h2><span class="header-section-number">11.6</span> tidyr::gather</h2>
 <p>Re-shape from <em>wide</em> to <em>long</em> format</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="data-pivot.html#cb192-1"></a>city_info_long &lt;-<span class="st"> </span>city_info_wide <span class="op">%&gt;%</span></span>
-<span id="cb192-2"><a href="data-pivot.html#cb192-2"></a><span class="st">  </span><span class="kw">gather</span>(</span>
-<span id="cb192-3"><a href="data-pivot.html#cb192-3"></a>    <span class="op">-</span>City, <span class="co"># exclude city names from gathering</span></span>
-<span id="cb192-4"><a href="data-pivot.html#cb192-4"></a>    <span class="dt">key =</span> <span class="st">&quot;Attribute&quot;</span>, <span class="co"># name for the new key column</span></span>
-<span id="cb192-5"><a href="data-pivot.html#cb192-5"></a>    <span class="dt">value =</span> <span class="st">&quot;Value&quot;</span> <span class="co"># name for the new value column</span></span>
-<span id="cb192-6"><a href="data-pivot.html#cb192-6"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="data-pivot.html#cb185-1"></a>city_info_long &lt;-<span class="st"> </span>city_info_wide <span class="op">%&gt;%</span></span>
+<span id="cb185-2"><a href="data-pivot.html#cb185-2"></a><span class="st">  </span><span class="kw">gather</span>(</span>
+<span id="cb185-3"><a href="data-pivot.html#cb185-3"></a>    <span class="op">-</span>City, <span class="co"># exclude city names from gathering</span></span>
+<span id="cb185-4"><a href="data-pivot.html#cb185-4"></a>    <span class="dt">key =</span> <span class="st">&quot;Attribute&quot;</span>, <span class="co"># name for the new key column</span></span>
+<span id="cb185-5"><a href="data-pivot.html#cb185-5"></a>    <span class="dt">value =</span> <span class="st">&quot;Value&quot;</span> <span class="co"># name for the new value column</span></span>
+<span id="cb185-6"><a href="data-pivot.html#cb185-6"></a>  )</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -698,11 +695,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tidyrspread" class="section level2">
 <h2><span class="header-section-number">11.7</span> tidyr::spread</h2>
 <p>Rre-shape from <em>long</em> to <em>wide</em> format</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="data-pivot.html#cb193-1"></a>city_info_back_to_wide &lt;-<span class="st"> </span>city_info_long <span class="op">%&gt;%</span></span>
-<span id="cb193-2"><a href="data-pivot.html#cb193-2"></a><span class="st">  </span><span class="kw">spread</span>(</span>
-<span id="cb193-3"><a href="data-pivot.html#cb193-3"></a>    <span class="dt">key =</span> <span class="st">&quot;Attribute&quot;</span>, <span class="co"># specify key column</span></span>
-<span id="cb193-4"><a href="data-pivot.html#cb193-4"></a>    <span class="dt">value =</span> <span class="st">&quot;Value&quot;</span> <span class="co"># specify value column</span></span>
-<span id="cb193-5"><a href="data-pivot.html#cb193-5"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="data-pivot.html#cb186-1"></a>city_info_back_to_wide &lt;-<span class="st"> </span>city_info_long <span class="op">%&gt;%</span></span>
+<span id="cb186-2"><a href="data-pivot.html#cb186-2"></a><span class="st">  </span><span class="kw">spread</span>(</span>
+<span id="cb186-3"><a href="data-pivot.html#cb186-3"></a>    <span class="dt">key =</span> <span class="st">&quot;Attribute&quot;</span>, <span class="co"># specify key column</span></span>
+<span id="cb186-4"><a href="data-pivot.html#cb186-4"></a>    <span class="dt">value =</span> <span class="st">&quot;Value&quot;</span> <span class="co"># specify value column</span></span>
+<span id="cb186-5"><a href="data-pivot.html#cb186-5"></a>  )</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">

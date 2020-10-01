@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,13 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="data-types.html"><a href="data-types.html#ordered-factors"><i class="fa fa-check"></i><b>4.12</b> Ordered Factors</a></li>
 <li class="chapter" data-level="4.13" data-path="data-types.html"><a href="data-types.html#matrices"><i class="fa fa-check"></i><b>4.13</b> Matrices</a></li>
 <li class="chapter" data-level="4.14" data-path="data-types.html"><a href="data-types.html#arrays"><i class="fa fa-check"></i><b>4.14</b> Arrays</a></li>
-<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#arrays-1"><i class="fa fa-check"></i><b>4.15</b> Arrays</a></li>
-<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.16</b> Selection</a></li>
-<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#apply"><i class="fa fa-check"></i><b>4.17</b> apply</a></li>
-<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.18</b> Lists</a></li>
-<li class="chapter" data-level="4.19" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.19</b> Named Lists</a></li>
-<li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
-<li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
+<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.15</b> Selection</a></li>
+<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.16</b> Lists</a></li>
+<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.17</b> Named Lists</a></li>
+<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.18</b> Recap</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
@@ -526,7 +523,7 @@ E00169048,E01032862, ... 4,Multicultural Metropolitans,345, ...</code></pre>
 </div>
 <div id="libraries" class="section level2">
 <h2><span class="header-section-number">12.3</span> Libraries</h2>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="read-and-write-data.html#cb195-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="read-and-write-data.html#cb188-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.3.2     ✔ purrr   0.3.4
 ## ✔ tibble  3.0.3     ✔ dplyr   1.0.0
@@ -535,17 +532,17 @@ E00169048,E01032862, ... 4,Multicultural Metropolitans,345, ...</code></pre>
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="read-and-write-data.html#cb199-1"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="read-and-write-data.html#cb192-1"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
 </div>
 <div id="read" class="section level2">
 <h2><span class="header-section-number">12.4</span> Read</h2>
 <p>The <code>read_csv</code> function of the <a href="https://readr.tidyverse.org/index.html"><code>readr</code></a> library reads a <em>csv</em> file from the path provided as the first argument</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="read-and-write-data.html#cb200-1"></a>leicester_2011OAC &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>)</span>
-<span id="cb200-2"><a href="read-and-write-data.html#cb200-2"></a></span>
-<span id="cb200-3"><a href="read-and-write-data.html#cb200-3"></a>leicester_2011OAC <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb200-4"><a href="read-and-write-data.html#cb200-4"></a><span class="st">  </span><span class="kw">select</span>(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) <span class="op">%&gt;%</span></span>
-<span id="cb200-5"><a href="read-and-write-data.html#cb200-5"></a><span class="st">  </span><span class="kw">slice_head</span>(<span class="dt">n =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span></span>
-<span id="cb200-6"><a href="read-and-write-data.html#cb200-6"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="read-and-write-data.html#cb193-1"></a>leicester_2011OAC &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>)</span>
+<span id="cb193-2"><a href="read-and-write-data.html#cb193-2"></a></span>
+<span id="cb193-3"><a href="read-and-write-data.html#cb193-3"></a>leicester_2011OAC <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb193-4"><a href="read-and-write-data.html#cb193-4"></a><span class="st">  </span><span class="kw">select</span>(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) <span class="op">%&gt;%</span></span>
+<span id="cb193-5"><a href="read-and-write-data.html#cb193-5"></a><span class="st">  </span><span class="kw">slice_head</span>(<span class="dt">n =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span></span>
+<span id="cb193-6"><a href="read-and-write-data.html#cb193-6"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -591,10 +588,10 @@ E00169048,E01032862, ... 4,Multicultural Metropolitans,345, ...</code></pre>
 <li><strong>filter</strong> only those OA in the supergroup <em>Suburbanites</em> (code <code>6</code>)</li>
 <li><strong>write</strong> the results to a file named <em>Leicester_Suburbanites.csv</em> in your home folder</li>
 </ol>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="read-and-write-data.html#cb201-1"></a><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb201-2"><a href="read-and-write-data.html#cb201-2"></a><span class="st">  </span><span class="kw">select</span>(OA11CD, supgrpcode, supgrpname) <span class="op">%&gt;%</span></span>
-<span id="cb201-3"><a href="read-and-write-data.html#cb201-3"></a><span class="st">  </span><span class="kw">filter</span>(supgrpcode <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">%&gt;%</span></span>
-<span id="cb201-4"><a href="read-and-write-data.html#cb201-4"></a><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&quot;~/Leicester_Suburbanites.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="read-and-write-data.html#cb194-1"></a><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb194-2"><a href="read-and-write-data.html#cb194-2"></a><span class="st">  </span><span class="kw">select</span>(OA11CD, supgrpcode, supgrpname) <span class="op">%&gt;%</span></span>
+<span id="cb194-3"><a href="read-and-write-data.html#cb194-3"></a><span class="st">  </span><span class="kw">filter</span>(supgrpcode <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">%&gt;%</span></span>
+<span id="cb194-4"><a href="read-and-write-data.html#cb194-4"></a><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&quot;~/Leicester_Suburbanites.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="summary-1" class="section level2">
 <h2><span class="header-section-number">12.6</span> Summary</h2>

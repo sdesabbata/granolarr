@@ -13,9 +13,9 @@ As mentioned in Lecture 1, **[R](https://www.r-project.org/)** was created in 19
 
 In simple terms, nowadays, programming in R mostly focuses on devising a series of instructions to execute a task -- most commonly, loading and analysing a dataset.
 
-As such, R can be used to program creating sequences of **instructions** involving **variables** -- which are named entities that can store values. That will be the main topic of the first and second weeks. Instructions can include control flow structures, such as decision points (*if/else*) and loops, which will be the topic of the third lecture and practical session. Instructions can also be grouped in **functions**, which we will see in the fourth lecture and practical session.
+As such, R can be used to program by creating sequences of **instructions** involving **variables** -- which are named entities that can store values. That will be the main topic of this practical session. Instructions can include control flow structures, such as decision points (*if/else*) and loops, which will be the topic of the next practical session. Instructions can also be grouped in **functions**, which we will also see in the next practical session.
 
-R is **interpreted**, not compiled. Which means that an R interpreter (if you are using R Studio, the R interpreter is simply hidden in the backend and R Studio is the frontend that allows you to interact with the interpreter) receives an instruction you write in R, interprets and executes them. Other programming languages require their code to be compiled in an executable in order to be executed on a computer.
+R is **interpreted**, not compiled. Which means that an R interpreter (if you are using R Studio, the R interpreter is simply hidden in the backend and R Studio is the frontend that allows you to interact with the interpreter) receives an instruction you write in R, interprets and executes them. Other programming languages require their code to be compiled in an executable to be executed on a computer.
 
 
 ### Using RStudio
@@ -29,7 +29,7 @@ For instance, if you type in the *Console*
 1 + 1
 ```
 
-the R interpreter understands that as an instruction to sum one to one, and produces the result (as the materials for this module are created in RMarkdown, the output of computation is always preceded by '##').
+the R interpreter understands that as an instruction to sum one to one, and produces the result (as the materials for this module are created in RMarkdown, the output of the computation is always preceded by '##').
 
 
 ```
@@ -428,6 +428,8 @@ library(tidyverse)
 
 ### stringr
 
+The code below presents the same examples used in the lecture session to demonstrate the use of `stringr` functions.
+
 
 ```r
 str_length("Leicester")
@@ -479,7 +481,7 @@ The code below shows a simple example. The number `2` is taken as input for the 
 The image below graphically illustrates how the pipe operator works, compared to the same procedure executed using two temporary variables that are used to store temporary values.
 
 <center>
-![](images/PipeOperator.png){width=80%}
+![Illustration of how the pipe operator works](images/PipeOperator.png){width=80%}
 
 </center>
 
@@ -489,7 +491,7 @@ sqrt(2) %>%
  round(digits = 2)
 ```
 
-The first step of a sequence of pipes can be a value, a variable, or a function including arguments. The code below shows a series of examples a verious different ways of achieving the same result. The examples use the function `round`, which also allows for a second argument `digits = 2`. Note that, when using the pipe operator, only the nominally second argument is provided to the function `round` -- that is `round(digits = 2)`
+The first step of a sequence of pipes can be a value, a variable, or a function including arguments. The code below shows a series of examples of different ways of achieving the same result. The examples use the function `round`, which also allows for a second argument `digits = 2`. Note that, when using the pipe operator, only the nominally second argument is provided to the function `round` -- that is `round(digits = 2)`
 
 
 ```r

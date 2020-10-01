@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,13 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="data-types.html"><a href="data-types.html#ordered-factors"><i class="fa fa-check"></i><b>4.12</b> Ordered Factors</a></li>
 <li class="chapter" data-level="4.13" data-path="data-types.html"><a href="data-types.html#matrices"><i class="fa fa-check"></i><b>4.13</b> Matrices</a></li>
 <li class="chapter" data-level="4.14" data-path="data-types.html"><a href="data-types.html#arrays"><i class="fa fa-check"></i><b>4.14</b> Arrays</a></li>
-<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#arrays-1"><i class="fa fa-check"></i><b>4.15</b> Arrays</a></li>
-<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.16</b> Selection</a></li>
-<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#apply"><i class="fa fa-check"></i><b>4.17</b> apply</a></li>
-<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.18</b> Lists</a></li>
-<li class="chapter" data-level="4.19" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.19</b> Named Lists</a></li>
-<li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
-<li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
+<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.15</b> Selection</a></li>
+<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.16</b> Lists</a></li>
+<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.17</b> Named Lists</a></li>
+<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.18</b> Recap</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
@@ -516,10 +513,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>on the left of an <strong>assignment operator</strong> <code>&lt;-</code></li>
 <li>followed by the corpus of the function</li>
 </ul>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="functions.html#cb121-1"></a>add_one &lt;-<span class="st"> </span><span class="cf">function</span> (input_value) {</span>
-<span id="cb121-2"><a href="functions.html#cb121-2"></a>  output_value &lt;-<span class="st"> </span>input_value <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb121-3"><a href="functions.html#cb121-3"></a>  output_value</span>
-<span id="cb121-4"><a href="functions.html#cb121-4"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="functions.html#cb114-1"></a>add_one &lt;-<span class="st"> </span><span class="cf">function</span> (input_value) {</span>
+<span id="cb114-2"><a href="functions.html#cb114-2"></a>  output_value &lt;-<span class="st"> </span>input_value <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb114-3"><a href="functions.html#cb114-3"></a>  output_value</span>
+<span id="cb114-4"><a href="functions.html#cb114-4"></a>  }</span></code></pre></div>
 </div>
 <div id="defining-functions-1" class="section level2">
 <h2><span class="header-section-number">6.3</span> Defining functions</h2>
@@ -530,15 +527,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>and the instruction(s) to be executed in a code block</li>
 <li>the value of the last statement is returned as output</li>
 </ul>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="functions.html#cb122-1"></a>add_one &lt;-<span class="st"> </span><span class="cf">function</span> (input_value) {</span>
-<span id="cb122-2"><a href="functions.html#cb122-2"></a>  output_value &lt;-<span class="st"> </span>input_value <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb122-3"><a href="functions.html#cb122-3"></a>  output_value</span>
-<span id="cb122-4"><a href="functions.html#cb122-4"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="functions.html#cb115-1"></a>add_one &lt;-<span class="st"> </span><span class="cf">function</span> (input_value) {</span>
+<span id="cb115-2"><a href="functions.html#cb115-2"></a>  output_value &lt;-<span class="st"> </span>input_value <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb115-3"><a href="functions.html#cb115-3"></a>  output_value</span>
+<span id="cb115-4"><a href="functions.html#cb115-4"></a>  }</span></code></pre></div>
 </div>
 <div id="defining-functions-2" class="section level2">
 <h2><span class="header-section-number">6.4</span> Defining functions</h2>
 <p>After being defined, a function can be invoked by specifying the <strong>identifier</strong></p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="functions.html#cb123-1"></a><span class="kw">add_one</span> (<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="functions.html#cb116-1"></a><span class="kw">add_one</span> (<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 </div>
 <div id="more-parameters" class="section level2">
@@ -550,26 +547,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>otherwise an error is generated</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="functions.html#cb125-1"></a>area_rectangle &lt;-<span class="st"> </span><span class="cf">function</span> (hight, width) {</span>
-<span id="cb125-2"><a href="functions.html#cb125-2"></a>  area &lt;-<span class="st"> </span>hight <span class="op">*</span><span class="st"> </span>width</span>
-<span id="cb125-3"><a href="functions.html#cb125-3"></a>  area</span>
-<span id="cb125-4"><a href="functions.html#cb125-4"></a>}</span>
-<span id="cb125-5"><a href="functions.html#cb125-5"></a></span>
-<span id="cb125-6"><a href="functions.html#cb125-6"></a><span class="kw">area_rectangle</span>(<span class="dv">3</span>, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="functions.html#cb118-1"></a>area_rectangle &lt;-<span class="st"> </span><span class="cf">function</span> (hight, width) {</span>
+<span id="cb118-2"><a href="functions.html#cb118-2"></a>  area &lt;-<span class="st"> </span>hight <span class="op">*</span><span class="st"> </span>width</span>
+<span id="cb118-3"><a href="functions.html#cb118-3"></a>  area</span>
+<span id="cb118-4"><a href="functions.html#cb118-4"></a>}</span>
+<span id="cb118-5"><a href="functions.html#cb118-5"></a></span>
+<span id="cb118-6"><a href="functions.html#cb118-6"></a><span class="kw">area_rectangle</span>(<span class="dv">3</span>, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 </div>
 <div id="functions-and-control-structures" class="section level2">
 <h2><span class="header-section-number">6.6</span> Functions and control structures</h2>
 <p>Functions can contain both loops and conditional statements in their corpus</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="functions.html#cb127-1"></a>factorial &lt;-<span class="st"> </span><span class="cf">function</span> (input_value) {</span>
-<span id="cb127-2"><a href="functions.html#cb127-2"></a>  result &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb127-3"><a href="functions.html#cb127-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>input_value) {</span>
-<span id="cb127-4"><a href="functions.html#cb127-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;current:&quot;</span>, result, <span class="st">&quot; | i:&quot;</span>, i, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb127-5"><a href="functions.html#cb127-5"></a>    result &lt;-<span class="st"> </span>result <span class="op">*</span><span class="st"> </span>i</span>
-<span id="cb127-6"><a href="functions.html#cb127-6"></a>  }</span>
-<span id="cb127-7"><a href="functions.html#cb127-7"></a>  result</span>
-<span id="cb127-8"><a href="functions.html#cb127-8"></a>}</span>
-<span id="cb127-9"><a href="functions.html#cb127-9"></a><span class="kw">factorial</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="functions.html#cb120-1"></a>factorial &lt;-<span class="st"> </span><span class="cf">function</span> (input_value) {</span>
+<span id="cb120-2"><a href="functions.html#cb120-2"></a>  result &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb120-3"><a href="functions.html#cb120-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>input_value) {</span>
+<span id="cb120-4"><a href="functions.html#cb120-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;current:&quot;</span>, result, <span class="st">&quot; | i:&quot;</span>, i, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb120-5"><a href="functions.html#cb120-5"></a>    result &lt;-<span class="st"> </span>result <span class="op">*</span><span class="st"> </span>i</span>
+<span id="cb120-6"><a href="functions.html#cb120-6"></a>  }</span>
+<span id="cb120-7"><a href="functions.html#cb120-7"></a>  result</span>
+<span id="cb120-8"><a href="functions.html#cb120-8"></a>}</span>
+<span id="cb120-9"><a href="functions.html#cb120-9"></a><span class="kw">factorial</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## current: 1  | i: 1 
 ## current: 1  | i: 2 
 ## current: 2  | i: 3</code></pre>
@@ -624,12 +621,12 @@ factorial(3)
 <li>referring to <code>new_value</code> or <code>input_value</code> from outside the definition of <code>times_x</code> would result in an error</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="functions.html#cb130-1"></a>x_value &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb130-2"><a href="functions.html#cb130-2"></a>times_x &lt;-<span class="st"> </span><span class="cf">function</span> (input_value) {</span>
-<span id="cb130-3"><a href="functions.html#cb130-3"></a>  new_value &lt;-<span class="st"> </span>input_value <span class="op">*</span><span class="st"> </span>x_value</span>
-<span id="cb130-4"><a href="functions.html#cb130-4"></a>  new_value</span>
-<span id="cb130-5"><a href="functions.html#cb130-5"></a>}</span>
-<span id="cb130-6"><a href="functions.html#cb130-6"></a><span class="kw">times_x</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="functions.html#cb123-1"></a>x_value &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb123-2"><a href="functions.html#cb123-2"></a>times_x &lt;-<span class="st"> </span><span class="cf">function</span> (input_value) {</span>
+<span id="cb123-3"><a href="functions.html#cb123-3"></a>  new_value &lt;-<span class="st"> </span>input_value <span class="op">*</span><span class="st"> </span>x_value</span>
+<span id="cb123-4"><a href="functions.html#cb123-4"></a>  new_value</span>
+<span id="cb123-5"><a href="functions.html#cb123-5"></a>}</span>
+<span id="cb123-6"><a href="functions.html#cb123-6"></a><span class="kw">times_x</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 <!--
 Hint: try *debug* the function above and observe how the *local* environment is created and then discarded

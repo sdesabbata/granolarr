@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -186,13 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="data-types.html"><a href="data-types.html#ordered-factors"><i class="fa fa-check"></i><b>4.12</b> Ordered Factors</a></li>
 <li class="chapter" data-level="4.13" data-path="data-types.html"><a href="data-types.html#matrices"><i class="fa fa-check"></i><b>4.13</b> Matrices</a></li>
 <li class="chapter" data-level="4.14" data-path="data-types.html"><a href="data-types.html#arrays"><i class="fa fa-check"></i><b>4.14</b> Arrays</a></li>
-<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#arrays-1"><i class="fa fa-check"></i><b>4.15</b> Arrays</a></li>
-<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.16</b> Selection</a></li>
-<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#apply"><i class="fa fa-check"></i><b>4.17</b> apply</a></li>
-<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.18</b> Lists</a></li>
-<li class="chapter" data-level="4.19" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.19</b> Named Lists</a></li>
-<li class="chapter" data-level="4.20" data-path="data-types.html"><a href="data-types.html#lapply"><i class="fa fa-check"></i><b>4.20</b> lapply</a></li>
-<li class="chapter" data-level="4.21" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.21</b> Recap</a></li>
+<li class="chapter" data-level="4.15" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>4.15</b> Selection</a></li>
+<li class="chapter" data-level="4.16" data-path="data-types.html"><a href="data-types.html#lists"><i class="fa fa-check"></i><b>4.16</b> Lists</a></li>
+<li class="chapter" data-level="4.17" data-path="data-types.html"><a href="data-types.html#named-lists"><i class="fa fa-check"></i><b>4.17</b> Named Lists</a></li>
+<li class="chapter" data-level="4.18" data-path="data-types.html"><a href="data-types.html#recap-1"><i class="fa fa-check"></i><b>4.18</b> Recap</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control-structures.html"><a href="control-structures.html"><i class="fa fa-check"></i><b>5</b> Control structures</a><ul>
 <li class="chapter" data-level="5.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
@@ -539,16 +536,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="example" class="section level2">
 <h2><span class="header-section-number">10.4</span> Example</h2>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="join-operations.html#cb181-1"></a>employees &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb181-2"><a href="join-operations.html#cb181-2"></a>  <span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Pete&quot;</span>, <span class="st">&quot;Sarah&quot;</span>, <span class="st">&quot;Jo&quot;</span>),</span>
-<span id="cb181-3"><a href="join-operations.html#cb181-3"></a>  <span class="dt">Age =</span> <span class="kw">c</span>(<span class="dv">47</span>, <span class="dv">34</span>, <span class="dv">32</span>, <span class="dv">25</span>),</span>
-<span id="cb181-4"><a href="join-operations.html#cb181-4"></a>  <span class="dt">Role =</span> <span class="kw">c</span>(<span class="st">&quot;Professor&quot;</span>, <span class="st">&quot;Researcher&quot;</span>, <span class="st">&quot;Researcher&quot;</span>, <span class="st">&quot;Postgrad&quot;</span>)</span>
-<span id="cb181-5"><a href="join-operations.html#cb181-5"></a>)</span>
-<span id="cb181-6"><a href="join-operations.html#cb181-6"></a></span>
-<span id="cb181-7"><a href="join-operations.html#cb181-7"></a>city_of_birth &lt;-<span class="kw">data.frame</span>(</span>
-<span id="cb181-8"><a href="join-operations.html#cb181-8"></a>  <span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Pete&quot;</span>, <span class="st">&quot;Sarah&quot;</span>, <span class="st">&quot;Mel&quot;</span>),</span>
-<span id="cb181-9"><a href="join-operations.html#cb181-9"></a>  <span class="dt">City =</span> <span class="kw">c</span>(<span class="st">&quot;Barcelona&quot;</span>, <span class="st">&quot;London&quot;</span>, <span class="st">&quot;Boston&quot;</span>, <span class="st">&quot;Los Angeles&quot;</span>)</span>
-<span id="cb181-10"><a href="join-operations.html#cb181-10"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="join-operations.html#cb174-1"></a>employees &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb174-2"><a href="join-operations.html#cb174-2"></a>  <span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Pete&quot;</span>, <span class="st">&quot;Sarah&quot;</span>, <span class="st">&quot;Jo&quot;</span>),</span>
+<span id="cb174-3"><a href="join-operations.html#cb174-3"></a>  <span class="dt">Age =</span> <span class="kw">c</span>(<span class="dv">47</span>, <span class="dv">34</span>, <span class="dv">32</span>, <span class="dv">25</span>),</span>
+<span id="cb174-4"><a href="join-operations.html#cb174-4"></a>  <span class="dt">Role =</span> <span class="kw">c</span>(<span class="st">&quot;Professor&quot;</span>, <span class="st">&quot;Researcher&quot;</span>, <span class="st">&quot;Researcher&quot;</span>, <span class="st">&quot;Postgrad&quot;</span>)</span>
+<span id="cb174-5"><a href="join-operations.html#cb174-5"></a>)</span>
+<span id="cb174-6"><a href="join-operations.html#cb174-6"></a></span>
+<span id="cb174-7"><a href="join-operations.html#cb174-7"></a>city_of_birth &lt;-<span class="kw">data.frame</span>(</span>
+<span id="cb174-8"><a href="join-operations.html#cb174-8"></a>  <span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Pete&quot;</span>, <span class="st">&quot;Sarah&quot;</span>, <span class="st">&quot;Mel&quot;</span>),</span>
+<span id="cb174-9"><a href="join-operations.html#cb174-9"></a>  <span class="dt">City =</span> <span class="kw">c</span>(<span class="st">&quot;Barcelona&quot;</span>, <span class="st">&quot;London&quot;</span>, <span class="st">&quot;Boston&quot;</span>, <span class="st">&quot;Los Angeles&quot;</span>)</span>
+<span id="cb174-10"><a href="join-operations.html#cb174-10"></a>)</span></code></pre></div>
 </div>
 <div id="example-1" class="section level2">
 <h2><span class="header-section-number">10.5</span> Example</h2>
@@ -617,11 +614,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>full_join</code> combines all the available data</li>
 </ul>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="join-operations.html#cb182-1"></a>employees <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">full_join</span>(</span>
-<span id="cb182-2"><a href="join-operations.html#cb182-2"></a>  city_of_birth,</span>
-<span id="cb182-3"><a href="join-operations.html#cb182-3"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Name&quot;</span> =<span class="st"> &quot;Name&quot;</span>) <span class="co"># join columns</span></span>
-<span id="cb182-4"><a href="join-operations.html#cb182-4"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb182-5"><a href="join-operations.html#cb182-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="join-operations.html#cb175-1"></a>employees <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">full_join</span>(</span>
+<span id="cb175-2"><a href="join-operations.html#cb175-2"></a>  city_of_birth,</span>
+<span id="cb175-3"><a href="join-operations.html#cb175-3"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Name&quot;</span> =<span class="st"> &quot;Name&quot;</span>) <span class="co"># join columns</span></span>
+<span id="cb175-4"><a href="join-operations.html#cb175-4"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb175-5"><a href="join-operations.html#cb175-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -674,11 +671,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>rows from the right table without a match are dropped</li>
 </ul>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="join-operations.html#cb183-1"></a>employees <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(</span>
-<span id="cb183-2"><a href="join-operations.html#cb183-2"></a>  city_of_birth,</span>
-<span id="cb183-3"><a href="join-operations.html#cb183-3"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Name&quot;</span> =<span class="st"> &quot;Name&quot;</span>) <span class="co"># join columns</span></span>
-<span id="cb183-4"><a href="join-operations.html#cb183-4"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb183-5"><a href="join-operations.html#cb183-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="join-operations.html#cb176-1"></a>employees <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(</span>
+<span id="cb176-2"><a href="join-operations.html#cb176-2"></a>  city_of_birth,</span>
+<span id="cb176-3"><a href="join-operations.html#cb176-3"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Name&quot;</span> =<span class="st"> &quot;Name&quot;</span>) <span class="co"># join columns</span></span>
+<span id="cb176-4"><a href="join-operations.html#cb176-4"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb176-5"><a href="join-operations.html#cb176-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -725,11 +722,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>rows from the left table without a match are dropped</li>
 </ul>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="join-operations.html#cb184-1"></a>employees <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">right_join</span>(</span>
-<span id="cb184-2"><a href="join-operations.html#cb184-2"></a>  city_of_birth,</span>
-<span id="cb184-3"><a href="join-operations.html#cb184-3"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Name&quot;</span> =<span class="st"> &quot;Name&quot;</span>) <span class="co"># join columns</span></span>
-<span id="cb184-4"><a href="join-operations.html#cb184-4"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb184-5"><a href="join-operations.html#cb184-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="join-operations.html#cb177-1"></a>employees <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">right_join</span>(</span>
+<span id="cb177-2"><a href="join-operations.html#cb177-2"></a>  city_of_birth,</span>
+<span id="cb177-3"><a href="join-operations.html#cb177-3"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Name&quot;</span> =<span class="st"> &quot;Name&quot;</span>) <span class="co"># join columns</span></span>
+<span id="cb177-4"><a href="join-operations.html#cb177-4"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb177-5"><a href="join-operations.html#cb177-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -773,11 +770,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>inner_join</code> keeps only rows that have a match in both tables</li>
 <li>rows without a match are dropped</li>
 </ul>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="join-operations.html#cb185-1"></a>employees <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">inner_join</span>(</span>
-<span id="cb185-2"><a href="join-operations.html#cb185-2"></a>  city_of_birth,</span>
-<span id="cb185-3"><a href="join-operations.html#cb185-3"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Name&quot;</span> =<span class="st"> &quot;Name&quot;</span>) <span class="co"># join columns</span></span>
-<span id="cb185-4"><a href="join-operations.html#cb185-4"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb185-5"><a href="join-operations.html#cb185-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="join-operations.html#cb178-1"></a>employees <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">inner_join</span>(</span>
+<span id="cb178-2"><a href="join-operations.html#cb178-2"></a>  city_of_birth,</span>
+<span id="cb178-3"><a href="join-operations.html#cb178-3"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Name&quot;</span> =<span class="st"> &quot;Name&quot;</span>) <span class="co"># join columns</span></span>
+<span id="cb178-4"><a href="join-operations.html#cb178-4"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb178-5"><a href="join-operations.html#cb178-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">

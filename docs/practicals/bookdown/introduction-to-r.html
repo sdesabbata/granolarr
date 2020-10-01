@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,14 +269,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.1</span> The R programming language</h2>
 <p>As mentioned in Lecture 1, <strong><a href="https://www.r-project.org/">R</a></strong> was created in 1992 by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand. R is a free, open-source implementation of the <strong>S</strong> statistical programming language initially created at the Bell Labs. At its core, R is a functional programming language (its main functionalities revolve around defining and executing functions). However it now supports, and it is commonly used as an imperative (focused on instructions on variables and programming control structures) and object-oriented (involving complex object structures) programming language.</p>
 <p>In simple terms, nowadays, programming in R mostly focuses on devising a series of instructions to execute a task – most commonly, loading and analysing a dataset.</p>
-<p>As such, R can be used to program creating sequences of <strong>instructions</strong> involving <strong>variables</strong> – which are named entities that can store values. That will be the main topic of the first and second weeks. Instructions can include control flow structures, such as decision points (<em>if/else</em>) and loops, which will be the topic of the third lecture and practical session. Instructions can also be grouped in <strong>functions</strong>, which we will see in the fourth lecture and practical session.</p>
-<p>R is <strong>interpreted</strong>, not compiled. Which means that an R interpreter (if you are using R Studio, the R interpreter is simply hidden in the backend and R Studio is the frontend that allows you to interact with the interpreter) receives an instruction you write in R, interprets and executes them. Other programming languages require their code to be compiled in an executable in order to be executed on a computer.</p>
+<p>As such, R can be used to program by creating sequences of <strong>instructions</strong> involving <strong>variables</strong> – which are named entities that can store values. That will be the main topic of this practical session. Instructions can include control flow structures, such as decision points (<em>if/else</em>) and loops, which will be the topic of the next practical session. Instructions can also be grouped in <strong>functions</strong>, which we will also see in the next practical session.</p>
+<p>R is <strong>interpreted</strong>, not compiled. Which means that an R interpreter (if you are using R Studio, the R interpreter is simply hidden in the backend and R Studio is the frontend that allows you to interact with the interpreter) receives an instruction you write in R, interprets and executes them. Other programming languages require their code to be compiled in an executable to be executed on a computer.</p>
 <div id="using-rstudio" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Using RStudio</h3>
 <p>As you open RStudio or RStudio Server, the interface is divided into two main sections. On the left side, you find the <em>Console</em> – as well as the R script editor, when a script is being edited. The <em>Console</em> in an input/output window into the R interpreter, where instructions can be typed, and the computed output is shown.</p>
 <p>For instance, if you type in the <em>Console</em></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction-to-r.html#cb3-1"></a><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
-<p>the R interpreter understands that as an instruction to sum one to one, and produces the result (as the materials for this module are created in RMarkdown, the output of computation is always preceded by ‘##’).</p>
+<p>the R interpreter understands that as an instruction to sum one to one, and produces the result (as the materials for this module are created in RMarkdown, the output of the computation is always preceded by ‘##’).</p>
 <pre><code>## [1] 2</code></pre>
 <p>Note how the output value <code>2</code> is preceded by <code>[1]</code>, which indicates that the output is constituted by only one element. If the output is constituted by more than one element, as the list of numbers below, each row of the output is preceded by the index of the first element of the output.</p>
 <pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100 121 144 169 196 225 256 289 324 361
@@ -535,6 +535,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="introduction-to-r.html#cb68-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <div id="stringr" class="section level3">
 <h3><span class="header-section-number">1.5.1</span> stringr</h3>
+<p>The code below presents the same examples used in the lecture session to demonstrate the use of <code>stringr</code> functions.</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="introduction-to-r.html#cb69-1"></a><span class="kw">str_length</span>(<span class="st">&quot;Leicester&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="introduction-to-r.html#cb71-1"></a><span class="kw">str_detect</span>(<span class="st">&quot;Leicester&quot;</span>, <span class="st">&quot;e&quot;</span>)</span></code></pre></div>
@@ -558,11 +559,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 1</code></pre>
 <p>The image below graphically illustrates how the pipe operator works, compared to the same procedure executed using two temporary variables that are used to store temporary values.</p>
 <center>
-<p><img src="images/PipeOperator.png" style="width:80.0%" /></p>
+<div class="figure">
+<img src="images/PipeOperator.png" style="width:80.0%" alt="" />
+<p class="caption">Illustration of how the pipe operator works</p>
+</div>
 </center>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="introduction-to-r.html#cb77-1"></a><span class="kw">sqrt</span>(<span class="dv">2</span>) <span class="op">%&gt;%</span></span>
 <span id="cb77-2"><a href="introduction-to-r.html#cb77-2"></a><span class="st"> </span><span class="kw">round</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p>The first step of a sequence of pipes can be a value, a variable, or a function including arguments. The code below shows a series of examples a verious different ways of achieving the same result. The examples use the function <code>round</code>, which also allows for a second argument <code>digits = 2</code>. Note that, when using the pipe operator, only the nominally second argument is provided to the function <code>round</code> – that is <code>round(digits = 2)</code></p>
+<p>The first step of a sequence of pipes can be a value, a variable, or a function including arguments. The code below shows a series of examples of different ways of achieving the same result. The examples use the function <code>round</code>, which also allows for a second argument <code>digits = 2</code>. Note that, when using the pipe operator, only the nominally second argument is provided to the function <code>round</code> – that is <code>round(digits = 2)</code></p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="introduction-to-r.html#cb78-1"></a><span class="co"># No pipe, using variables</span></span>
 <span id="cb78-2"><a href="introduction-to-r.html#cb78-2"></a>tmp_variable_A &lt;-<span class="st"> </span><span class="dv">2</span></span>
 <span id="cb78-3"><a href="introduction-to-r.html#cb78-3"></a>tmp_variable_B &lt;-<span class="st"> </span><span class="kw">sqrt</span>(tmp_variable_A)</span>

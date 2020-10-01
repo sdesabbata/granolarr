@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-09-29" />
+  <meta name="date" content="2020-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3262,7 +3262,7 @@ if (document.readyState !== "loading" &&
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-09-29</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-10-01</p>
           </hgroup>
   </slide>
 
@@ -3313,7 +3313,7 @@ if (document.readyState !== "loading" &&
 <li>on the left of an <strong>assignment operator</strong> <code>&lt;-</code></li>
 <li>followed by the object to be linked to the identifier</li>
 <li>in this case, the result returned by the function <code>c</code></li>
-<li>which creates a vector containing the element provided as input</li>
+<li>which creates a vector containing the provided elements</li>
 </ul>
 
 <pre class = 'prettyprint lang-r'>a_vector &lt;- c(&quot;Birmingham&quot;, &quot;Derby&quot;, &quot;Leicester&quot;,
@@ -3475,8 +3475,11 @@ table(houses_factor_spec)</pre>
 <pre class = 'prettyprint lang-r'>income_nominal &lt;- factor(
   c(&quot;High&quot;, &quot;High&quot;, &quot;Low&quot;, &quot;Low&quot;, &quot;Low&quot;,
       &quot;Medium&quot;, &quot;Low&quot;, &quot;Medium&quot;),
-  levels = c(&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;))
-income_nominal &gt; &quot;Low&quot;</pre>
+  levels = c(&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;))</pre>
+
+<p>The <em>greater than</em> operator is not meaningful on the <code>income_nominal</code> factor defined above</p>
+
+<pre class = 'prettyprint lang-r'>income_nominal &gt; &quot;Low&quot;</pre>
 
 <pre >## Warning in Ops.factor(income_nominal, &quot;Low&quot;): &#39;&gt;&#39; not meaningful for factors</pre>
 
@@ -3490,6 +3493,7 @@ income_nominal &gt; &quot;Low&quot;</pre>
   c(&quot;High&quot;, &quot;High&quot;, &quot;Low&quot;, &quot;Low&quot;, &quot;Low&quot;,
       &quot;Medium&quot;, &quot;Low&quot;, &quot;Medium&quot;),
   levels = c(&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;))
+
 income_ordered &gt; &quot;Low&quot;</pre>
 
 <pre >## [1]  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE</pre>
@@ -3583,19 +3587,20 @@ solve(A, b)
 
 </article></slide><slide class=""><hgroup><h2>Arrays</h2></hgroup><article  id="arrays">
 
-<p>Variables of the type <strong>array</strong> are higher-dimensional matrices.</p>
+<div class="cols">
+<div data-latex="{0.5\textwidth}" class="col">
+<p>Variables of the type <strong>array</strong><br/>are higher-dimensional<br/>matrices.</p>
 
 <ul>
-<li>the first argument is a vector containing the values</li>
-<li>the second argument is a vector specifying the depth of each dimension</li>
+<li>the first argument is a<br/>vector containing the<br/>values</li>
+<li>the second argument is<br/>avector specifying the<br/>depth of each dimension</li>
 </ul>
 
 <pre class = 'prettyprint lang-r'>a3dim_array &lt;- array(1:24, dim=c(4, 3, 2))</pre>
 
-</article></slide><slide class=""><hgroup><h2>Arrays</h2></hgroup><article  id="arrays-1">
+<pre class = 'prettyprint lang-r'>a3dim_array</pre></div>
 
-<pre class = 'prettyprint lang-r'>a3dim_array</pre>
-
+<div data-latex="{0.5\textwidth}" class="col">
 <pre >## , , 1
 ## 
 ##      [,1] [,2] [,3]
@@ -3610,7 +3615,7 @@ solve(A, b)
 ## [1,]   13   17   21
 ## [2,]   14   18   22
 ## [3,]   15   19   23
-## [4,]   16   20   24</pre>
+## [4,]   16   20   24</pre></div></div>
 
 <!--
 ## Matrices and arrays: selection
@@ -3640,21 +3645,36 @@ x2[choose_x2]
 
 <pre >## [1] 17 18</pre>
 
-</article></slide><slide class=""><hgroup><h2>apply</h2></hgroup><article  id="apply">
+<!--
+## apply
 
-<p><code>apply</code> applies another function to each level of a set dimension of an array</p>
+`apply` applies another function to each level of a set dimension of an array
 
-<pre class = 'prettyprint lang-r'>apply(a3dim_array, 3, min) # apply on third dimension</pre>
 
-<pre >## [1]  1 13</pre>
+```r
+apply(a3dim_array, 3, min) # apply on third dimension
+```
 
-<pre class = 'prettyprint lang-r'>apply(a3dim_array, 1, min) # apply on first dimension</pre>
+```
+## [1]  1 13
+```
 
-<pre >## [1] 1 2 3 4</pre>
+```r
+apply(a3dim_array, 1, min) # apply on first dimension
+```
 
-<pre class = 'prettyprint lang-r'>apply(a3dim_array, 2, min) # apply on second dimension</pre>
+```
+## [1] 1 2 3 4
+```
 
-<pre >## [1] 1 5 9</pre>
+```r
+apply(a3dim_array, 2, min) # apply on second dimension
+```
+
+```
+## [1] 1 5 9
+```
+-->
 
 </article></slide><slide class=""><hgroup><h2>Lists</h2></hgroup><article  id="lists">
 
@@ -3690,23 +3710,30 @@ employee</pre>
 
 <pre >## [1] &quot;Stefano&quot;</pre>
 
-</article></slide><slide class=""><hgroup><h2>lapply</h2></hgroup><article  id="lapply">
+<!--
+## lapply
 
-<p>With <code>lapply</code> take care that the function makes sense for <em>any</em> element in the list</p>
+With `lapply` take care that the function makes sense for *any* element in the list
 
-<pre class = 'prettyprint lang-r'>various &lt;- list(
-  &quot;Some text&quot;,
+
+```r
+various <- list(
+  "Some text",
   matrix(c(6, 3, 1, 2), c(2, 2))
 )
-lapply(various, is.numeric)</pre>
+lapply(various, is.numeric)
+```
 
-<pre >## [[1]]
+```
+## [[1]]
 ## [1] FALSE
 ## 
 ## [[2]]
-## [1] TRUE</pre>
+## [1] TRUE
+```
 
-<!--
+
+
 ## Lists: append
 
 The function **append** can be used to append a new element at the end of a list.
