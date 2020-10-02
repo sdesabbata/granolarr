@@ -547,13 +547,13 @@ Variables of the type **list** can contain elements of different types (includin
 
 
 ```r
-employee <- list("Stefano", 2015)
+employee <- list("Stef", 2015)
 employee
 ```
 
 ```
 ## [[1]]
-## [1] "Stefano"
+## [1] "Stef"
 ## 
 ## [[2]]
 ## [1] 2015
@@ -564,23 +564,23 @@ employee[[1]] # Note the double square brackets for selection
 ```
 
 ```
-## [1] "Stefano"
+## [1] "Stef"
 ```
 
 
 ## Named Lists
 
-In **named lists** each element has a name, and elements can be selected to using their name after the symbol `$`. 
+In **named lists** each element has a name, and elements can be selected using their name after the symbol `$`. 
 
 
 ```r
-employee <- list(name = "Stefano", start_year = 2015)
+employee <- list(name = "Stef", start_year = 2015)
 employee
 ```
 
 ```
 ## $name
-## [1] "Stefano"
+## [1] "Stef"
 ## 
 ## $start_year
 ## [1] 2015
@@ -591,7 +591,7 @@ employee$name
 ```
 
 ```
-## [1] "Stefano"
+## [1] "Stef"
 ```
 
 

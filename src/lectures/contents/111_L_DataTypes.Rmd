@@ -350,7 +350,7 @@ apply(a3dim_array, 2, min) # apply on second dimension
 Variables of the type **list** can contain elements of different types (including vectors and matrices), whereas elements of vectors are all of the same type. 
 
 ```{r, echo=TRUE}
-employee <- list("Stefano", 2015)
+employee <- list("Stef", 2015)
 employee
 employee[[1]] # Note the double square brackets for selection
 ```
@@ -358,10 +358,10 @@ employee[[1]] # Note the double square brackets for selection
 
 ## Named Lists
 
-In **named lists** each element has a name, and elements can be selected to using their name after the symbol `$`. 
+In **named lists** each element has a name, and elements can be selected using their name after the symbol `$`. 
 
 ```{r, echo=TRUE}
-employee <- list(name = "Stefano", start_year = 2015)
+employee <- list(name = "Stef", start_year = 2015)
 employee
 employee$name
 ```

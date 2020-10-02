@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-10-01" />
+<meta name="date" content="2020-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -839,28 +839,28 @@ apply(a3dim_array, 2, min) # apply on second dimension
 <div id="lists" class="section level2">
 <h2><span class="header-section-number">4.16</span> Lists</h2>
 <p>Variables of the type <strong>list</strong> can contain elements of different types (including vectors and matrices), whereas elements of vectors are all of the same type.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-types.html#cb87-1"></a>employee &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;Stefano&quot;</span>, <span class="dv">2015</span>)</span>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-types.html#cb87-1"></a>employee &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;Stef&quot;</span>, <span class="dv">2015</span>)</span>
 <span id="cb87-2"><a href="data-types.html#cb87-2"></a>employee</span></code></pre></div>
 <pre><code>## [[1]]
-## [1] &quot;Stefano&quot;
+## [1] &quot;Stef&quot;
 ## 
 ## [[2]]
 ## [1] 2015</code></pre>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-types.html#cb89-1"></a>employee[[<span class="dv">1</span>]] <span class="co"># Note the double square brackets for selection</span></span></code></pre></div>
-<pre><code>## [1] &quot;Stefano&quot;</code></pre>
+<pre><code>## [1] &quot;Stef&quot;</code></pre>
 </div>
 <div id="named-lists" class="section level2">
 <h2><span class="header-section-number">4.17</span> Named Lists</h2>
-<p>In <strong>named lists</strong> each element has a name, and elements can be selected to using their name after the symbol <code>$</code>.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-types.html#cb91-1"></a>employee &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name =</span> <span class="st">&quot;Stefano&quot;</span>, <span class="dt">start_year =</span> <span class="dv">2015</span>)</span>
+<p>In <strong>named lists</strong> each element has a name, and elements can be selected using their name after the symbol <code>$</code>.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-types.html#cb91-1"></a>employee &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name =</span> <span class="st">&quot;Stef&quot;</span>, <span class="dt">start_year =</span> <span class="dv">2015</span>)</span>
 <span id="cb91-2"><a href="data-types.html#cb91-2"></a>employee</span></code></pre></div>
 <pre><code>## $name
-## [1] &quot;Stefano&quot;
+## [1] &quot;Stef&quot;
 ## 
 ## $start_year
 ## [1] 2015</code></pre>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-types.html#cb93-1"></a>employee<span class="op">$</span>name</span></code></pre></div>
-<pre><code>## [1] &quot;Stefano&quot;</code></pre>
+<pre><code>## [1] &quot;Stef&quot;</code></pre>
 <!--
 ## lapply
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  1 OCT 2020 17:58
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  2 OCT 2020 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1509,7 +1509,7 @@ File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-5-1.pdf Graphic
  file (type pdf)
 <use 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-5-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3557) has occurred while \output is active []
 
 [131]
 File: 402_L_ClusteringCentroid_files/figure-latex/unnamed-chunk-8-1.pdf Graphic
@@ -1561,7 +1561,7 @@ pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-6-1.p
 df>
 
-Underfull \vbox (badness 1642) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [137]
 File: 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-8-1.
@@ -1573,8 +1573,7 @@ pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-9-1.p
 df>
 
-Overfull \vbox (0.5319pt too high) detected at line 7490
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (0.80673pt too wide) has occurred while \output is active
@@ -1591,17 +1590,20 @@ File: 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-12-1
 .pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-12-1.
 pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [139]
 Overfull \hbox (0.80673pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 140 \TU/lmr/m/sl/10 CHAPTER 27.  HIERARCHICAL AND DENSITY-BASED 
 CLUSTERING
  []
 
-[140
-
-]
+[140]
 Chapter 28.
-[141] [142
+[141
+
+] [142
 
 ]
 Chapter 29.
