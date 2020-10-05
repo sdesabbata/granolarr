@@ -12,7 +12,7 @@
 
 - Vectors
 - Factors
-- Arrays
+- Matrices and arrays
 - Lists
 
 **Now**: Control structures
@@ -92,10 +92,10 @@ if (is.numeric(x) & (!(x < 0) & (x != 0)) ) cat("greater than zero")
 
 ## Code blocks
 
-Suppose you want to execute **several** statements within a function, or if a condition is true
+**Code blocks** allow to encapsulate **several** statements in a single group
 
-- Such a group of statements are called **code blocks**
 - `{` and `}` contain code blocks
+- the statements are execute together
 
 
 ```r
@@ -180,7 +180,7 @@ The difference between `while` and `repeat` is mostly syntactical.
 
 ## For
 
-The *for* construct can be defined using the `for` reserved word, followed by the definition of an **iterator**. The iterator is a variable which is temporarily assigned with the current element of a vector, as the construct iterates through all elements of the list. This definition is followed by a code block, whose instructions are re-executed once for each element of the vector.
+The *for* construct can be defined using the `for` reserved word, followed by the definition of an **iterator**. The iterator is a variable which is temporarily assigned with the current element of a vector, as the construct iterates through all elements of the vector. This definition is followed by a code block, whose instructions are re-executed once for each element of the vector.
 
 
 ```r

@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-10-02" />
+  <meta name="date" content="2020-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3262,7 +3262,7 @@ if (document.readyState !== "loading" &&
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-10-02</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-10-05</p>
           </hgroup>
   </slide>
 
@@ -3275,7 +3275,7 @@ if (document.readyState !== "loading" &&
 <ul>
 <li>Vectors</li>
 <li>Factors</li>
-<li>Arrays</li>
+<li>Matrices and arrays</li>
 <li>Lists</li>
 </ul>
 
@@ -3341,11 +3341,11 @@ if (is.numeric(x) & (!(x < 0) & (x != 0)) ) cat("greater than zero")
 
 </article></slide><slide class=""><hgroup><h2>Code blocks</h2></hgroup><article  id="code-blocks">
 
-<p>Suppose you want to execute <strong>several</strong> statements within a function, or if a condition is true</p>
+<p><strong>Code blocks</strong> allow to encapsulate <strong>several</strong> statements in a single group</p>
 
 <ul>
-<li>Such a group of statements are called <strong>code blocks</strong></li>
 <li><code>{</code> and <code>}</code> contain code blocks</li>
+<li>the statements are execute together</li>
 </ul>
 
 <pre class = 'prettyprint lang-r'>first_value &lt;- 8
@@ -3426,7 +3426,7 @@ The difference between `while` and `repeat` is mostly syntactical.
 
 </article></slide><slide class=""><hgroup><h2>For</h2></hgroup><article  id="for">
 
-<p>The <em>for</em> construct can be defined using the <code>for</code> reserved word, followed by the definition of an <strong>iterator</strong>. The iterator is a variable which is temporarily assigned with the current element of a vector, as the construct iterates through all elements of the list. This definition is followed by a code block, whose instructions are re-executed once for each element of the vector.</p>
+<p>The <em>for</em> construct can be defined using the <code>for</code> reserved word, followed by the definition of an <strong>iterator</strong>. The iterator is a variable which is temporarily assigned with the current element of a vector, as the construct iterates through all elements of the vector. This definition is followed by a code block, whose instructions are re-executed once for each element of the vector.</p>
 
 <pre class = 'prettyprint lang-r'>cities &lt;- c(&quot;Derby&quot;, &quot;Leicester&quot;, &quot;Lincoln&quot;, &quot;Nottingham&quot;)
 for (city in cities) {

@@ -1,7 +1,7 @@
 ---
 title: "Practical session materials | granolarr"
 author: "Stefano De Sabbata"
-date: "2020-10-02"
+date: "2020-10-05"
 description: "Geographic data science reproducible teaching resource in R, Practical session materials"
 url: 'https://sdesabbata.github.io/granolarr/'
 github-repo: "sdesabbata/granolarr"
@@ -13,7 +13,7 @@ output:
     config:
       toc:
         before: |
-          <li><a href="...">Practicals | granolarr</a></li>
+          <li><a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/">Practicals | granolarr</a></li>
         after: |
           <li><a href="https://sdesabbata.github.io/granolarr/">granolarr</a></li>
       search: yes
