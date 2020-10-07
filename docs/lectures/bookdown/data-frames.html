@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-10-05" />
+<meta name="date" content="2020-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -509,11 +509,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-frames-1" class="section level3">
 <h3><span class="header-section-number">7.1.1</span> Data Frames</h3>
 <p>A <strong>data frame</strong> is equivalent to a <em>named list</em> where all elements are <em>vectors of the same length</em>.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-frames.html#cb125-1"></a>employees &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb125-2"><a href="data-frames.html#cb125-2"></a>  <span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Pete&quot;</span>, <span class="st">&quot;Sarah&quot;</span>),</span>
-<span id="cb125-3"><a href="data-frames.html#cb125-3"></a>  <span class="dt">Age =</span> <span class="kw">c</span>(<span class="dv">47</span>, <span class="dv">34</span>, <span class="dv">32</span>),</span>
-<span id="cb125-4"><a href="data-frames.html#cb125-4"></a>  <span class="dt">Role =</span> <span class="kw">c</span>(<span class="st">&quot;Professor&quot;</span>, <span class="st">&quot;Researcher&quot;</span>, <span class="st">&quot;Researcher&quot;</span>))</span>
-<span id="cb125-5"><a href="data-frames.html#cb125-5"></a>employees</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-frames.html#cb127-1"></a>employees &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb127-2"><a href="data-frames.html#cb127-2"></a>  <span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Pete&quot;</span>, <span class="st">&quot;Sarah&quot;</span>),</span>
+<span id="cb127-3"><a href="data-frames.html#cb127-3"></a>  <span class="dt">Age =</span> <span class="kw">c</span>(<span class="dv">47</span>, <span class="dv">34</span>, <span class="dv">32</span>),</span>
+<span id="cb127-4"><a href="data-frames.html#cb127-4"></a>  <span class="dt">Role =</span> <span class="kw">c</span>(<span class="st">&quot;Professor&quot;</span>, <span class="st">&quot;Researcher&quot;</span>, <span class="st">&quot;Researcher&quot;</span>))</span>
+<span id="cb127-5"><a href="data-frames.html#cb127-5"></a>employees</span></code></pre></div>
 <pre><code>##    Name Age       Role
 ## 1 Maria  47  Professor
 ## 2  Pete  34 Researcher
@@ -527,25 +527,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="selection" class="section level2">
 <h2><span class="header-section-number">7.2</span> Selection</h2>
 <p>Selection is similar to vectors and lists.</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-frames.html#cb127-1"></a>employees[<span class="dv">1</span>, ] <span class="co"># row selection</span></span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-frames.html#cb129-1"></a>employees[<span class="dv">1</span>, ] <span class="co"># row selection</span></span></code></pre></div>
 <pre><code>##    Name Age      Role
 ## 1 Maria  47 Professor</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-frames.html#cb129-1"></a>employees[, <span class="dv">1</span>] <span class="co"># column selection, as for matrices</span></span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="data-frames.html#cb131-1"></a>employees[, <span class="dv">1</span>] <span class="co"># column selection, as for matrices</span></span></code></pre></div>
 <pre><code>## [1] &quot;Maria&quot; &quot;Pete&quot;  &quot;Sarah&quot;</code></pre>
 </div>
 <div id="selection-1" class="section level2">
 <h2><span class="header-section-number">7.3</span> Selection</h2>
 <p>Selection is similar to vectors and lists.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="data-frames.html#cb131-1"></a>employees<span class="op">$</span>Name <span class="co"># column selection, as for named lists</span></span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="data-frames.html#cb133-1"></a>employees<span class="op">$</span>Name <span class="co"># column selection, as for named lists</span></span></code></pre></div>
 <pre><code>## [1] &quot;Maria&quot; &quot;Pete&quot;  &quot;Sarah&quot;</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="data-frames.html#cb133-1"></a>employees<span class="op">$</span>Name[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="data-frames.html#cb135-1"></a>employees<span class="op">$</span>Name[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Maria&quot;</code></pre>
 </div>
 <div id="value-assignment" class="section level2">
 <h2><span class="header-section-number">7.4</span> Value assignment</h2>
 <p>Values can be assigned to cells through filtering and <code>&lt;-</code></p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="data-frames.html#cb135-1"></a>employees<span class="op">$</span>Age[<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="dv">33</span> </span>
-<span id="cb135-2"><a href="data-frames.html#cb135-2"></a>employees</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-frames.html#cb137-1"></a>employees<span class="op">$</span>Age[<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="dv">33</span> </span>
+<span id="cb137-2"><a href="data-frames.html#cb137-2"></a>employees</span></code></pre></div>
 <pre><code>##    Name Age       Role
 ## 1 Maria  47  Professor
 ## 2  Pete  34 Researcher
@@ -554,9 +554,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="column-processing" class="section level2">
 <h2><span class="header-section-number">7.5</span> Column processing</h2>
 <p>Operations can be performed on columns, and new columns created.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-frames.html#cb137-1"></a>current_year &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">format</span>(<span class="kw">Sys.Date</span>(), <span class="st">&quot;%Y&quot;</span>))</span>
-<span id="cb137-2"><a href="data-frames.html#cb137-2"></a>employees<span class="op">$</span>Year_of_birth &lt;-<span class="st"> </span>current_year <span class="op">-</span><span class="st"> </span>employees<span class="op">$</span>Age</span>
-<span id="cb137-3"><a href="data-frames.html#cb137-3"></a>employees</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-frames.html#cb139-1"></a>current_year &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">format</span>(<span class="kw">Sys.Date</span>(), <span class="st">&quot;%Y&quot;</span>))</span>
+<span id="cb139-2"><a href="data-frames.html#cb139-2"></a>employees<span class="op">$</span>Year_of_birth &lt;-<span class="st"> </span>current_year <span class="op">-</span><span class="st"> </span>employees<span class="op">$</span>Age</span>
+<span id="cb139-3"><a href="data-frames.html#cb139-3"></a>employees</span></code></pre></div>
 <pre><code>##    Name Age       Role Year_of_birth
 ## 1 Maria  47  Professor          1973
 ## 2  Pete  34 Researcher          1986

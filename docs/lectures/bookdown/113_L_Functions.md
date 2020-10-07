@@ -55,23 +55,36 @@ add_one <- function (input_value) {
 
 ## Defining functions
 
-After being defined, a function can be invoked by specifying the **identifier**
+After being defined
+
+- a function can be invoked by specifying 
+  - the **identifier**
+  - the necessary **parameter(s)**
 
 
 ```r
-add_one (3)
+add_one(3)
 ```
 
 ```
 ## [1] 4
 ```
 
+```r
+add_one(1024)
+```
+
+```
+## [1] 1025
+```
+
 
 ## More parameters
 
-- a function can be defined as having two or more **parameters** by specifying  more than one parameter name (separated by **commas**) in the function definition
-- a function always take as input as many values as the number of parameters specified in the definition
-    - otherwise an error is generated
+- A function can be defined as having two or more **parameters** 
+  - by specifying  more than one parameter name (separated by **commas**) in the function definition
+- A function always take as input as many values as the number of parameters specified in the definition
+  - otherwise an error is generated
 
 
 ```r
@@ -90,7 +103,7 @@ area_rectangle(3, 2)
 
 ## Functions and control structures
 
-Functions can contain both loops and conditional statements in their corpus
+Functions can contain both loops and conditional statements
 
 
 ```r
@@ -154,7 +167,7 @@ The **scope of a variable** is the part of code in which the variable is ``visib
 
 In R, variables have a **hierarchical** scope:
 
-- a variable defined in a script can be used referred to from within a definition of a function in the same scrip
+- a variable defined in a script can be used referred to from within a definition of a function in the same script
 - a variable defined within a definition of a function will **not** be referable from outside the definition
 - scope does **not** apply to `if` or loop constructs
 

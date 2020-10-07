@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-10-05" />
+  <meta name="date" content="2020-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3262,7 +3262,7 @@ if (document.readyState !== "loading" &&
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-10-05</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-10-07</p>
           </hgroup>
   </slide>
 
@@ -3317,17 +3317,34 @@ if (document.readyState !== "loading" &&
 
 </article></slide><slide class=""><hgroup><h2>Defining functions</h2></hgroup><article  id="defining-functions-2">
 
-<p>After being defined, a function can be invoked by specifying the <strong>identifier</strong></p>
+<p>After being defined</p>
 
-<pre class = 'prettyprint lang-r'>add_one (3)</pre>
+<ul>
+<li>a function can be invoked by specifying
+
+<ul>
+<li>the <strong>identifier</strong></li>
+<li>the necessary <strong>parameter(s)</strong></li>
+</ul></li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>add_one(3)</pre>
 
 <pre >## [1] 4</pre>
+
+<pre class = 'prettyprint lang-r'>add_one(1024)</pre>
+
+<pre >## [1] 1025</pre>
 
 </article></slide><slide class=""><hgroup><h2>More parameters</h2></hgroup><article  id="more-parameters">
 
 <ul>
-<li>a function can be defined as having two or more <strong>parameters</strong> by specifying more than one parameter name (separated by <strong>commas</strong>) in the function definition</li>
-<li>a function always take as input as many values as the number of parameters specified in the definition
+<li>A function can be defined as having two or more <strong>parameters</strong>
+
+<ul>
+<li>by specifying more than one parameter name (separated by <strong>commas</strong>) in the function definition</li>
+</ul></li>
+<li>A function always take as input as many values as the number of parameters specified in the definition
 
 <ul>
 <li>otherwise an error is generated</li>
@@ -3345,7 +3362,7 @@ area_rectangle(3, 2)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Functions and control structures</h2></hgroup><article  id="functions-and-control-structures">
 
-<p>Functions can contain both loops and conditional statements in their corpus</p>
+<p>Functions can contain both loops and conditional statements</p>
 
 <pre class = 'prettyprint lang-r'>factorial &lt;- function (input_value) {
   result &lt;- 1
@@ -3400,7 +3417,7 @@ factorial(3)
 <p>In R, variables have a <strong>hierarchical</strong> scope:</p>
 
 <ul>
-<li>a variable defined in a script can be used referred to from within a definition of a function in the same scrip</li>
+<li>a variable defined in a script can be used referred to from within a definition of a function in the same script</li>
 <li>a variable defined within a definition of a function will <strong>not</strong> be referable from outside the definition</li>
 <li>scope does <strong>not</strong> apply to <code>if</code> or loop constructs</li>
 </ul>

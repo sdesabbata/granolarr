@@ -6,6 +6,42 @@
 
 [This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). 
 
+
+## R Scripts
+
+The RStudio Console is handy to interact with the R interpreter and obtain results of operations and commands. However, moving from simple instructions to an actual program or scripts to conduct data analysis, the Console is usually not sufficient anymore. In fact, the Console is not a very comfortable way of providing long and complex instructions to the interpreter and editing past instructions when you want to change something. A better option to create programs or data analysis script of any significant size is to use the RStudio integrated editor to create an *R script*.
+
+To create an R script, select from the top menu *File > New File > R Script*. That opens the embedded RStudio editor and a new empty R script folder. Copy the two lines below into the file. The first loads the `tidyverse` library, whereas the second simply calculates the square root of two.
+
+
+```r
+# Load the Tidyverse
+library(tidyverse)
+
+# Calculate the square root of two
+2 %>% sqrt()
+```
+
+```
+## [1] 1.414214
+```
+
+From the top menu, select *File > Save*, type in *My_first_script.R* (make sure to include the underscore and the *.R* extension) as *File name*, and click *Save*. That is your first R script, congratulations!
+
+New lines of code can be added to the file, and the whole script can then be executed. Edit the file by adding the line of code shown below, and save it. Then click the *Source* button on the top-right of the editor to execute the file. What happens the first time? What happens if you click *Source* again?
+
+
+```r
+# First variable in a script
+a_variable <- "This is my first script"
+```
+
+Alternatively, you can click on a specific line or select one or more lines, and click *Run* to execute only the selected line(s).
+
+Delete the two lines calculating the square root of two and defining the variable `a_variable` from the script, leaving only the line loading the Tidyverse library. In the following sections, add the code to the script to execute it, rather than using the Console.
+
+
+
 ## Vectors
 
 Vectors can be defined in R by using the function `c`, which takes as parameters the items to be stored in the vector -- stored in the order in which they are provided. 
@@ -24,7 +60,7 @@ Once the vector has been created and assigned to an identifier, elements within 
 
 
 ```r
-# Retrieve third city
+# Retrieve the third city
 east_midlands_cities[3]
 ```
 
@@ -156,9 +192,6 @@ all(my_sequence > 5)
 ```
 
 
-
-## Filtering
-
 All built-in numerical functions in R can be used on a vector variable directly. That is, if a vector is specified as input, the selected function is applied to each element of the vector.
 
 
@@ -188,7 +221,11 @@ sqrt(one_to_ten)
 ##  [9] 3.000000 3.162278
 ```
 
-As seen in the first practical session, a conditional statement entered in the console is evaluated for the provided input, and a logical value (`TRUE` or `FALSE`) is provided as output. Similarly, if the provided input is a vector, the conditional statement is evaluated for each element of the vector, and a vector of logical values is returned -- which contains the respective results of the conditional statements for each element.
+
+
+## Filtering
+
+As seen in the first practical session, a conditional statement entered in the Console is evaluated for the provided input, and a logical value (`TRUE` or `FALSE`) is provided as output. Similarly, if the provided input is a vector, the conditional statement is evaluated for each element of the vector, and a vector of logical values is returned -- which contains the respective results of the conditional statements for each element.
 
 
 ```r
@@ -259,9 +296,9 @@ minus_two_to_two[minus_two_to_two > 0]
 
 
 
-## Conditional structures
+## Conditional statements
 
-Conditional structures are fundamental in (procedural) programming, as they allow to execute or not execute part of a procedure depending on whether a certain condition is true. The condition is tested and the part of the procedure to execute in the case the condition is true is included in a *code block*.
+Conditional statements are fundamental in (procedural) programming, as they allow to execute or not execute part of a procedure depending on whether a certain condition is true. The condition is tested and the part of the procedure to execute in the case the condition is true is included in a *code block*.
 
 
 ```r
@@ -272,7 +309,7 @@ if (temperature > 25) {
 }
 ```
 
-A simple conditional structure can be created using `if` as in the example above. A more complex structure can be created using both `if` and `else`, to provide not only a procedure to execute in case the condition is true, but also an alternative procedure, to be executed when the condition is false.
+A simple conditional statement can be created using `if` as in the example above. A more complex structure can be created using both `if` and `else`, to provide not only a procedure to execute in case the condition is true, but also an alternative procedure, to be executed when the condition is false.
 
 
 ```r
@@ -289,7 +326,7 @@ if (temperature > 25) {
 ## Today is not warm
 ```
 
-Finally, conditional structures can be **nested**. That is, a conditional structure can be included as part of the code block to be executed after the condition is tested. For instance, in the example below, a second conditional structure is included in the code block to be executed in the case the condition is false.
+Finally, conditional statements can be **nested**. That is, a conditional statement can be included as part of the code block to be executed after the condition is tested. For instance, in the example below, a second conditional statement is included in the code block to be executed in the case the condition is false.
 
 
 ```r
@@ -310,7 +347,26 @@ if (temperature > 25) {
 ## This is really cold!
 ```
 
+Similarly, the first example seen in the lecture should be coded as follows.
 
+
+```r
+a_value <- -7
+
+if (a_value == 0) {
+  cat("Zero")
+} else {
+  if (a_value < 0) {
+    cat("Negative") 
+  } else {
+    cat("Positive")
+  }
+}
+```
+
+```
+## Negative
+```
 
 ## Loops
 
@@ -406,12 +462,22 @@ for (iterator in 1:3) {
 ```
 
 
+## Exercise 2.1
+
+**Question 2.1.1:** Use the modulo operator `%%` to create a conditional statement that prints `"Even"` if a number is even and `"Odd"` if a number is odd.
+
+**Question 2.1.2:** Encapsulate the conditional statement written for *Question 2.1.1* into a `for` loop that executes the conditional statement for all numbers from 1 to 10.
+
+**Question 2.1.3:** Encapsulate the conditional statement written for *Question 2.1.1* into a `for` loop that prints the name of cities in odd positions (i.e., first, third, fifth) in the vector `c("Birmingham", "Derby", "Leicester", "Lincoln", "Nottingham", "Wolverhampton")`.
+
+**Question 2.1.4:** Write the code necessary to print the name of the cities in the vector `c("Birmingham", "Derby", "Leicester", "Lincoln", "Nottingham", "Wolverhampton")` as many times as their position in the vector (i.e., once for the first city, two times for the second, and so on and so forth).
+
 
 ## Function definition
 
-Recall from the first lecture that *an* **algorithm** *or effective procedure is a mechanical rule, or automatic method, or programme for performing some mathematical operation* (Cutland, 1980). A **program** is a specific set of instructions that implement an abstract algorithm. The definition of an algorithm (and thus a program) can consist of one or more **function**s, which are sets of instructions that perform a task, possibly using an input, possibly returning an output value.
+Recall from the lecture that *an* **algorithm** *or effective procedure is a mechanical rule, or automatic method, or programme for performing some mathematical operation* (Cutland, 1980). A **program** is a specific set of instructions that implement an abstract algorithm. The definition of an algorithm (and thus a program) can consist of one or more **function**s, which are sets of instructions that perform a task, possibly using an input, possibly returning an output value.
 
-The code below is a simple function with one parameter. The function simply calculates the square root of a number.
+The code below is a simple function with one parameter. The function simply calculates the square root of a number. Add the code below to your script and run that portion of the script (or type the code into the Console). 
 
 
 ```r
@@ -421,11 +487,9 @@ cube_root <- function (input_value) {
 }
 ```
 
-Functions can be defined by typing the definition in the Console in RStudio. However,  entering functions from the command line is not always very convenient. If you make a typing error in an early line of the definition, it isn't possible to go back and correct it. You would have to type in the definition every time you used R A more sensible approach is to type the function definition into an R script.
+Once the definition of a function has been executed, the function becomes part of the environment, and it should be visible in the Environment panel, in a subsection titled *Functions*. Thereafter, the function can be called from the Console, from other portions of the script, as well as from other scripts.
 
-Create a new R project for this practical, named *Practical_111*. Create a new R script named `functions_Practical_111.R`. Copy the definition of `cube_root` in the R script, and save the file. If you execute the script, the R interpreter creates the new function from its definition, which should then be visible in the *Environment* tab in RStudio. 
-
-If you type the instruction below in the *Console*, the function is called using `27` as an argument, thus returning `3`.
+If you type the instruction below in the *Console*, or add it to the script and run it, the function is called using `27` as an argument, thus returning `3`.
 
 
 ```r
@@ -436,39 +500,10 @@ cube_root(27)
 ## [1] 3
 ```
 
-It is furthermore possible to load the function(s) defined in one script from another script -- in a fashion similar to when a library is loaded. Create a new R script as part of the *Practical_111* project, named `main_Practical_111.R` and copy the code below in that second R script and save the file.
 
+### Functions and control structures
 
-```r
-source("functions_Practical_111.R")
-
-cube_root(27)
-```
-
-Executing the `main_Practical_111.R` instructs the interpreter first to run the `functions_Practical_111.R` script, thus creating the `cube_root` function, and then invoke the function using `27` as an argument, thus returning again `3`. That is a simple example, but this can be an extremely powerful tool to create your own library of functions to be used by different scripts.
-
-
-
-
-## Exercise 6.1
-
-Extend the code in the script `functions_Practical_111.R` to include the code necessary to solve the questions below.
-
-**Question 6.1.1:** Write a function that calculates the areas of a circle, taking the radius as the first parameter.
-
-**Question 6.1.2:** Write a function that calculates the volume of a cylinder, taking the radius of the base as the first parameter and the height as the second parameter. The function should call the function defined above and multiply the returned value by the height to calculate the result.
-
-**Question 6.1.3:** Write a function with two parameters, a vector of numbers and a vector of characters (text). The function should check that the input has the correct data type. If all the numbers in the first vector are greater than zero, return the elements of the second vector from the first to the length of the first vector. 
-
-<!--
-**Question 6.1.4:** Write a function to compute and print out `gcd(x,60)`  for `x` in the range 1 to `n`.  When this is done,  write another function to compute and print out `gcd(x,y)` for `x` in the range 1 to `n1` and `y` in the range 1 to `n2`.  *Hint:* for this exercise you need to nest one deterministic loop inside another one.  As an additional exercise,  try to modify the `cube_root` function so that it computes the cube root of each element from 0.5 in steps of 0.5 to `n`.
--->
-
-
-<!--
-## Data Checking
-
-One issue when writing functions is making sure that the data that has been given to the data is the right kind.  For example,  what happens when you try to compute the cube root of a negative number?
+One issue when writing functions is making sure that the data that has been given to the data is the right kind. For example, what happens when you try to compute the cube root of a negative number?
 
 
 ```r
@@ -487,7 +522,7 @@ To work around this limitation, we can state a conditional rule:
 - Otherwise: work out the cube root of the positive number,  then change it to negative.
 
 
-Those kind of situations can be dealt with in an R function by using an `if` statement, as shown below. Note how the operator `-` (i.e., the symbol minus) is here used to obtain the inverse of a number, in the same way as `-1` is the inverse of the number `1`.
+Those kinds of situations can be dealt with in an R function by using an `if` statement, as shown below. Note how the operator `-` (i.e., the symbol minus) is here used to obtain the inverse of a number, in the same way as `-1` is the inverse of the number `1`.
  
 
 ```r
@@ -498,26 +533,10 @@ cube_root <- function (input_value) {
         result <- -( (-input_value)^(1/3) )
     }
     result
-} 
-```
+}
 
-Edit the code in `functions_Practical_111.R` accordingly and test the new function using the two commands listed below from the RStudio *Console*.
-
-
-```r
 cube_root(343)
-```
-
-```
-## [1] 7
-```
-
-```r
 cube_root(-343)
-```
-
-```
-## [1] NaN
 ```
 
 However, other things can go wrong. For example, `cube_root("Leicester")` would cause an error to occur, `Error in x^(1 / 3) : non-numeric argument to binary operator`. That shouldn't be surprising because cube roots only make sense for numbers,  not character variables.  Thus, it might be helpful if the cube root function could spot this and print a warning explaining the problem,  rather than just crashing with a fairly cryptic error message such as the one above,  as it does at the moment.
@@ -541,8 +560,22 @@ cube_root <- function (input_value) {
 }
 ```
 
-Finally, `cat` is a printing function, that instructs R to display the provided argument (in this case, the phrase within quotes) as output in the console. The `\n` in `cat` tells R to add a *newline* when printing out the warning.
+Finally, `cat` is a printing function, that instructs R to display the provided argument (in this case, the phrase within quotes) as output in the Console. The `\n` in `cat` tells R to add a *newline* when printing out the warning.
+
+
+
+## Exercise 2.2
+
+**Question 2.2.1:** Write a function that calculates the areas of a circle, taking the radius as the first parameter.
+
+**Question 2.2.2:** Write a function that calculates the volume of a cylinder, taking the radius of the base as the first parameter and the height as the second parameter. The function should call the function defined above and multiply the returned value by the height to calculate the result.
+
+**Question 2.2.3:** Write a function with two parameters, a vector of numbers and a vector of characters (text). The function should check that the input has the correct data type. If all the numbers in the first vector are greater than zero, return the elements of the second vector from the first to the length of the first vector. 
+
+<!--
+**Question 6.1.4:** Write a function to compute and print out `gcd(x,60)`  for `x` in the range 1 to `n`.  When this is done,  write another function to compute and print out `gcd(x,y)` for `x` in the range 1 to `n1` and `y` in the range 1 to `n2`.  *Hint:* for this exercise you need to nest one deterministic loop inside another one.  As an additional exercise,  try to modify the `cube_root` function so that it computes the cube root of each element from 0.5 in steps of 0.5 to `n`.
 -->
+
 
 <!--
 ## Debugging

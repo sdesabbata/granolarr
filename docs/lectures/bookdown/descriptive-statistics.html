@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-10-05" />
+<meta name="date" content="2020-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -507,16 +507,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="libraries-and-data" class="section level2">
 <h2><span class="header-section-number">17.2</span> Libraries and data</h2>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="descriptive-statistics.html#cb206-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb206-2"><a href="descriptive-statistics.html#cb206-2"></a><span class="kw">library</span>(magrittr)</span>
-<span id="cb206-3"><a href="descriptive-statistics.html#cb206-3"></a><span class="kw">library</span>(knitr)</span>
-<span id="cb206-4"><a href="descriptive-statistics.html#cb206-4"></a></span>
-<span id="cb206-5"><a href="descriptive-statistics.html#cb206-5"></a><span class="kw">library</span>(pastecs)</span>
-<span id="cb206-6"><a href="descriptive-statistics.html#cb206-6"></a></span>
-<span id="cb206-7"><a href="descriptive-statistics.html#cb206-7"></a><span class="kw">library</span>(nycflights13)</span>
-<span id="cb206-8"><a href="descriptive-statistics.html#cb206-8"></a></span>
-<span id="cb206-9"><a href="descriptive-statistics.html#cb206-9"></a>flights_nov_<span class="dv">20</span> &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb206-10"><a href="descriptive-statistics.html#cb206-10"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay), month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="dv">20</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="descriptive-statistics.html#cb208-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb208-2"><a href="descriptive-statistics.html#cb208-2"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb208-3"><a href="descriptive-statistics.html#cb208-3"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb208-4"><a href="descriptive-statistics.html#cb208-4"></a></span>
+<span id="cb208-5"><a href="descriptive-statistics.html#cb208-5"></a><span class="kw">library</span>(pastecs)</span>
+<span id="cb208-6"><a href="descriptive-statistics.html#cb208-6"></a></span>
+<span id="cb208-7"><a href="descriptive-statistics.html#cb208-7"></a><span class="kw">library</span>(nycflights13)</span>
+<span id="cb208-8"><a href="descriptive-statistics.html#cb208-8"></a></span>
+<span id="cb208-9"><a href="descriptive-statistics.html#cb208-9"></a>flights_nov_<span class="dv">20</span> &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb208-10"><a href="descriptive-statistics.html#cb208-10"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay), month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="dv">20</span>) </span></code></pre></div>
 </div>
 <div id="descriptive-statistics-1" class="section level2">
 <h2><span class="header-section-number">17.3</span> Descriptive statistics</h2>
@@ -529,11 +529,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>norm</code> (default is <code>FALSE</code>) includes distribution stats</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="descriptive-statistics.html#cb207-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb207-2"><a href="descriptive-statistics.html#cb207-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb207-3"><a href="descriptive-statistics.html#cb207-3"></a><span class="st">  </span><span class="kw">select</span>(dep_delay, arr_delay, distance) <span class="op">%&gt;%</span></span>
-<span id="cb207-4"><a href="descriptive-statistics.html#cb207-4"></a><span class="st">  </span><span class="kw">stat.desc</span>() <span class="op">%&gt;%</span></span>
-<span id="cb207-5"><a href="descriptive-statistics.html#cb207-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="descriptive-statistics.html#cb209-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb209-2"><a href="descriptive-statistics.html#cb209-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb209-3"><a href="descriptive-statistics.html#cb209-3"></a><span class="st">  </span><span class="kw">select</span>(dep_delay, arr_delay, distance) <span class="op">%&gt;%</span></span>
+<span id="cb209-4"><a href="descriptive-statistics.html#cb209-4"></a><span class="st">  </span><span class="kw">stat.desc</span>() <span class="op">%&gt;%</span></span>
+<span id="cb209-5"><a href="descriptive-statistics.html#cb209-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 </div>
 <div id="stat.desc-output" class="section level2">
 <h2><span class="header-section-number">17.4</span> stat.desc output</h2>

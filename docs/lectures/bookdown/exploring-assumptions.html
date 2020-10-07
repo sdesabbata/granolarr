@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-10-05" />
+<meta name="date" content="2020-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -508,16 +508,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="libraries-and-data" class="section level2">
 <h2><span class="header-section-number">18.2</span> Libraries and data</h2>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="exploring-assumptions.html#cb208-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb208-2"><a href="exploring-assumptions.html#cb208-2"></a><span class="kw">library</span>(magrittr)</span>
-<span id="cb208-3"><a href="exploring-assumptions.html#cb208-3"></a><span class="kw">library</span>(knitr)</span>
-<span id="cb208-4"><a href="exploring-assumptions.html#cb208-4"></a></span>
-<span id="cb208-5"><a href="exploring-assumptions.html#cb208-5"></a><span class="kw">library</span>(pastecs)</span>
-<span id="cb208-6"><a href="exploring-assumptions.html#cb208-6"></a></span>
-<span id="cb208-7"><a href="exploring-assumptions.html#cb208-7"></a><span class="kw">library</span>(nycflights13)</span>
-<span id="cb208-8"><a href="exploring-assumptions.html#cb208-8"></a></span>
-<span id="cb208-9"><a href="exploring-assumptions.html#cb208-9"></a>flights_nov_<span class="dv">20</span> &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb208-10"><a href="exploring-assumptions.html#cb208-10"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay), month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="dv">20</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="exploring-assumptions.html#cb210-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb210-2"><a href="exploring-assumptions.html#cb210-2"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb210-3"><a href="exploring-assumptions.html#cb210-3"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb210-4"><a href="exploring-assumptions.html#cb210-4"></a></span>
+<span id="cb210-5"><a href="exploring-assumptions.html#cb210-5"></a><span class="kw">library</span>(pastecs)</span>
+<span id="cb210-6"><a href="exploring-assumptions.html#cb210-6"></a></span>
+<span id="cb210-7"><a href="exploring-assumptions.html#cb210-7"></a><span class="kw">library</span>(nycflights13)</span>
+<span id="cb210-8"><a href="exploring-assumptions.html#cb210-8"></a></span>
+<span id="cb210-9"><a href="exploring-assumptions.html#cb210-9"></a>flights_nov_<span class="dv">20</span> &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb210-10"><a href="exploring-assumptions.html#cb210-10"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay), month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="dv">20</span>) </span></code></pre></div>
 </div>
 <div id="normal-distribution" class="section level2">
 <h2><span class="header-section-number">18.3</span> Normal distribution</h2>
@@ -542,24 +542,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="303_L_ExploringAssumptions_files/figure-html/unnamed-chunk-4-1.png" width="100%" /></p>
 </div>
 <div class="col">
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="exploring-assumptions.html#cb209-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb209-2"><a href="exploring-assumptions.html#cb209-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
-<span id="cb209-3"><a href="exploring-assumptions.html#cb209-3"></a>    <span class="kw">aes</span>(</span>
-<span id="cb209-4"><a href="exploring-assumptions.html#cb209-4"></a>      <span class="dt">x =</span> dep_delay</span>
-<span id="cb209-5"><a href="exploring-assumptions.html#cb209-5"></a>    )</span>
-<span id="cb209-6"><a href="exploring-assumptions.html#cb209-6"></a>  ) <span class="op">+</span></span>
-<span id="cb209-7"><a href="exploring-assumptions.html#cb209-7"></a><span class="st">  </span><span class="kw">geom_histogram</span>(</span>
-<span id="cb209-8"><a href="exploring-assumptions.html#cb209-8"></a>    <span class="kw">aes</span>(</span>
-<span id="cb209-9"><a href="exploring-assumptions.html#cb209-9"></a>      <span class="dt">y =</span>..density..</span>
-<span id="cb209-10"><a href="exploring-assumptions.html#cb209-10"></a>    ),</span>
-<span id="cb209-11"><a href="exploring-assumptions.html#cb209-11"></a>    <span class="dt">binwidth =</span> <span class="dv">10</span></span>
-<span id="cb209-12"><a href="exploring-assumptions.html#cb209-12"></a>  ) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb209-13"><a href="exploring-assumptions.html#cb209-13"></a><span class="st">  </span><span class="kw">stat_function</span>(</span>
-<span id="cb209-14"><a href="exploring-assumptions.html#cb209-14"></a>    <span class="dt">fun =</span> dnorm, </span>
-<span id="cb209-15"><a href="exploring-assumptions.html#cb209-15"></a>    <span class="dt">args =</span> <span class="kw">list</span>(</span>
-<span id="cb209-16"><a href="exploring-assumptions.html#cb209-16"></a>      <span class="dt">mean =</span> dep_delay_mean,</span>
-<span id="cb209-17"><a href="exploring-assumptions.html#cb209-17"></a>      <span class="dt">sd =</span> dep_delay_sd),</span>
-<span id="cb209-18"><a href="exploring-assumptions.html#cb209-18"></a>    <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="exploring-assumptions.html#cb211-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb211-2"><a href="exploring-assumptions.html#cb211-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb211-3"><a href="exploring-assumptions.html#cb211-3"></a>    <span class="kw">aes</span>(</span>
+<span id="cb211-4"><a href="exploring-assumptions.html#cb211-4"></a>      <span class="dt">x =</span> dep_delay</span>
+<span id="cb211-5"><a href="exploring-assumptions.html#cb211-5"></a>    )</span>
+<span id="cb211-6"><a href="exploring-assumptions.html#cb211-6"></a>  ) <span class="op">+</span></span>
+<span id="cb211-7"><a href="exploring-assumptions.html#cb211-7"></a><span class="st">  </span><span class="kw">geom_histogram</span>(</span>
+<span id="cb211-8"><a href="exploring-assumptions.html#cb211-8"></a>    <span class="kw">aes</span>(</span>
+<span id="cb211-9"><a href="exploring-assumptions.html#cb211-9"></a>      <span class="dt">y =</span>..density..</span>
+<span id="cb211-10"><a href="exploring-assumptions.html#cb211-10"></a>    ),</span>
+<span id="cb211-11"><a href="exploring-assumptions.html#cb211-11"></a>    <span class="dt">binwidth =</span> <span class="dv">10</span></span>
+<span id="cb211-12"><a href="exploring-assumptions.html#cb211-12"></a>  ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb211-13"><a href="exploring-assumptions.html#cb211-13"></a><span class="st">  </span><span class="kw">stat_function</span>(</span>
+<span id="cb211-14"><a href="exploring-assumptions.html#cb211-14"></a>    <span class="dt">fun =</span> dnorm, </span>
+<span id="cb211-15"><a href="exploring-assumptions.html#cb211-15"></a>    <span class="dt">args =</span> <span class="kw">list</span>(</span>
+<span id="cb211-16"><a href="exploring-assumptions.html#cb211-16"></a>      <span class="dt">mean =</span> dep_delay_mean,</span>
+<span id="cb211-17"><a href="exploring-assumptions.html#cb211-17"></a>      <span class="dt">sd =</span> dep_delay_sd),</span>
+<span id="cb211-18"><a href="exploring-assumptions.html#cb211-18"></a>    <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -571,28 +571,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="303_L_ExploringAssumptions_files/figure-html/unnamed-chunk-6-1.png" width="384" /></p>
 </div>
 <div class="col">
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="exploring-assumptions.html#cb210-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb210-2"><a href="exploring-assumptions.html#cb210-2"></a><span class="st">  </span><span class="kw">filter</span>(</span>
-<span id="cb210-3"><a href="exploring-assumptions.html#cb210-3"></a>    month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, </span>
-<span id="cb210-4"><a href="exploring-assumptions.html#cb210-4"></a>    carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span></span>
-<span id="cb210-5"><a href="exploring-assumptions.html#cb210-5"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb210-6"><a href="exploring-assumptions.html#cb210-6"></a><span class="st">  </span><span class="kw">qplot</span>(</span>
-<span id="cb210-7"><a href="exploring-assumptions.html#cb210-7"></a>    <span class="dt">sample =</span> dep_delay, </span>
-<span id="cb210-8"><a href="exploring-assumptions.html#cb210-8"></a>    <span class="dt">data =</span> .,</span>
-<span id="cb210-9"><a href="exploring-assumptions.html#cb210-9"></a>    <span class="dt">stat =</span> <span class="st">&quot;qq&quot;</span>, </span>
-<span id="cb210-10"><a href="exploring-assumptions.html#cb210-10"></a>    <span class="dt">xlab =</span> <span class="st">&quot;Theoretical&quot;</span>, </span>
-<span id="cb210-11"><a href="exploring-assumptions.html#cb210-11"></a>    <span class="dt">ylab =</span> <span class="st">&quot;Sample&quot;</span></span>
-<span id="cb210-12"><a href="exploring-assumptions.html#cb210-12"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="exploring-assumptions.html#cb212-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb212-2"><a href="exploring-assumptions.html#cb212-2"></a><span class="st">  </span><span class="kw">filter</span>(</span>
+<span id="cb212-3"><a href="exploring-assumptions.html#cb212-3"></a>    month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, </span>
+<span id="cb212-4"><a href="exploring-assumptions.html#cb212-4"></a>    carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span></span>
+<span id="cb212-5"><a href="exploring-assumptions.html#cb212-5"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb212-6"><a href="exploring-assumptions.html#cb212-6"></a><span class="st">  </span><span class="kw">qplot</span>(</span>
+<span id="cb212-7"><a href="exploring-assumptions.html#cb212-7"></a>    <span class="dt">sample =</span> dep_delay, </span>
+<span id="cb212-8"><a href="exploring-assumptions.html#cb212-8"></a>    <span class="dt">data =</span> .,</span>
+<span id="cb212-9"><a href="exploring-assumptions.html#cb212-9"></a>    <span class="dt">stat =</span> <span class="st">&quot;qq&quot;</span>, </span>
+<span id="cb212-10"><a href="exploring-assumptions.html#cb212-10"></a>    <span class="dt">xlab =</span> <span class="st">&quot;Theoretical&quot;</span>, </span>
+<span id="cb212-11"><a href="exploring-assumptions.html#cb212-11"></a>    <span class="dt">ylab =</span> <span class="st">&quot;Sample&quot;</span></span>
+<span id="cb212-12"><a href="exploring-assumptions.html#cb212-12"></a>  )</span></code></pre></div>
 </div>
 </div>
 </div>
 <div id="stat.desc-norm" class="section level2">
 <h2><span class="header-section-number">18.6</span> stat.desc: norm</h2>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="exploring-assumptions.html#cb211-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb211-2"><a href="exploring-assumptions.html#cb211-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb211-3"><a href="exploring-assumptions.html#cb211-3"></a><span class="st">  </span><span class="kw">select</span>(dep_delay, arr_delay, distance) <span class="op">%&gt;%</span></span>
-<span id="cb211-4"><a href="exploring-assumptions.html#cb211-4"></a><span class="st">  </span><span class="kw">stat.desc</span>(<span class="dt">basic =</span> <span class="ot">FALSE</span>, <span class="dt">desc =</span> <span class="ot">FALSE</span>, <span class="dt">norm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
-<span id="cb211-5"><a href="exploring-assumptions.html#cb211-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="exploring-assumptions.html#cb213-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb213-2"><a href="exploring-assumptions.html#cb213-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb213-3"><a href="exploring-assumptions.html#cb213-3"></a><span class="st">  </span><span class="kw">select</span>(dep_delay, arr_delay, distance) <span class="op">%&gt;%</span></span>
+<span id="cb213-4"><a href="exploring-assumptions.html#cb213-4"></a><span class="st">  </span><span class="kw">stat.desc</span>(<span class="dt">basic =</span> <span class="ot">FALSE</span>, <span class="dt">desc =</span> <span class="ot">FALSE</span>, <span class="dt">norm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb213-5"><a href="exploring-assumptions.html#cb213-5"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -650,10 +650,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>normtest.W</code> (test statistics) and <code>normtest.p</code> (significance)</li>
 <li>also, <code>shapiro.test</code> function is available</li>
 </ul>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="exploring-assumptions.html#cb212-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb212-2"><a href="exploring-assumptions.html#cb212-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb212-3"><a href="exploring-assumptions.html#cb212-3"></a><span class="st">  </span><span class="kw">pull</span>(dep_delay) <span class="op">%&gt;%</span></span>
-<span id="cb212-4"><a href="exploring-assumptions.html#cb212-4"></a><span class="st">  </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="exploring-assumptions.html#cb214-1"></a>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb214-2"><a href="exploring-assumptions.html#cb214-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, carrier <span class="op">==</span><span class="st"> &quot;US&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb214-3"><a href="exploring-assumptions.html#cb214-3"></a><span class="st">  </span><span class="kw">pull</span>(dep_delay) <span class="op">%&gt;%</span></span>
+<span id="cb214-4"><a href="exploring-assumptions.html#cb214-4"></a><span class="st">  </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
@@ -695,12 +695,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>If significant, the variance is different in different levels</li>
 </ul>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="exploring-assumptions.html#cb214-1"></a>dep_delay_carrier &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb214-2"><a href="exploring-assumptions.html#cb214-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
-<span id="cb214-3"><a href="exploring-assumptions.html#cb214-3"></a><span class="st">  </span><span class="kw">select</span>(dep_delay, carrier)</span>
-<span id="cb214-4"><a href="exploring-assumptions.html#cb214-4"></a></span>
-<span id="cb214-5"><a href="exploring-assumptions.html#cb214-5"></a><span class="kw">library</span>(car)</span>
-<span id="cb214-6"><a href="exploring-assumptions.html#cb214-6"></a><span class="kw">leveneTest</span>(dep_delay_carrier<span class="op">$</span>dep_delay, dep_delay_carrier<span class="op">$</span>carrier)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="exploring-assumptions.html#cb216-1"></a>dep_delay_carrier &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb216-2"><a href="exploring-assumptions.html#cb216-2"></a><span class="st">  </span><span class="kw">filter</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>) <span class="op">%&gt;%</span></span>
+<span id="cb216-3"><a href="exploring-assumptions.html#cb216-3"></a><span class="st">  </span><span class="kw">select</span>(dep_delay, carrier)</span>
+<span id="cb216-4"><a href="exploring-assumptions.html#cb216-4"></a></span>
+<span id="cb216-5"><a href="exploring-assumptions.html#cb216-5"></a><span class="kw">library</span>(car)</span>
+<span id="cb216-6"><a href="exploring-assumptions.html#cb216-6"></a><span class="kw">leveneTest</span>(dep_delay_carrier<span class="op">$</span>dep_delay, dep_delay_carrier<span class="op">$</span>carrier)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##          Df F value    Pr(&gt;F)    
 ## group    15  20.203 &lt; 2.2e-16 ***
