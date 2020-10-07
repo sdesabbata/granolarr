@@ -257,7 +257,7 @@ for (iterator in 1:3) {
 ```
 
 
-## Exercise 2.1
+## Exercise 114.1
 
 **Question 114.1.1:** Use the modulo operator `%%` to create a conditional statement that prints `"Even"` if a number is even and `"Odd"` if a number is odd.
 
@@ -346,7 +346,7 @@ Finally, `cat` is a printing function, that instructs R to display the provided 
 
 
 
-## Exercise 2.2
+## Exercise 114.2
 
 **Question 114.2.1:** Write a function that calculates the areas of a circle, taking the radius as the first parameter.
 

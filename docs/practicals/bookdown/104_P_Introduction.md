@@ -536,7 +536,7 @@ Study the [Tidyverse Style Guide (style.tidyverse.org)](http://style.tidyverse.o
 
 
 
-## Exercise 1.1
+## Exercise 104.1
 
 **Question 104.1.1:** Write a piece of code using the pipe operator that takes as input the number `1632`, calculates the logarithm to the base 10, takes the highest integer number lower than the calculated value (lower round), and verifies whether it is an integer.
 
@@ -548,7 +548,7 @@ Study the [Tidyverse Style Guide (style.tidyverse.org)](http://style.tidyverse.o
 
 
 
-## Exercise 1.2
+## Exercise 104.2
 
 Answer the question below, consulting the [`stringr` library reference (stringr.tidyverse.org/reference)](https://stringr.tidyverse.org/reference/index.html) as necessary
 
