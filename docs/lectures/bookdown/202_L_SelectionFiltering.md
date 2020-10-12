@@ -31,7 +31,7 @@ The `dplyr` (pronounced *dee-ply-er*) library is part of `tidyverse` and it offe
 - `summarise`: calculate aggregated values (e.g., mean, max, etc)
 - `group_by`: group data based on common column values
 - `mutate`: add columns
-- `join`: merge data frames
+- `join`: merge tables (`tibbles` or `data.frames`)
 
 
 ```r
@@ -43,26 +43,31 @@ library(tidyverse)
 ## Example dataset
 
 The library `nycflights13` contains a dataset storing data about all the flights departed from New York City in 2013
-
+<!--
 
 ```r
 install.packages("nycflights13")
 ```
+-->
 
 ```r
 library(nycflights13)
 
-flights_from_nyc <- nycflights13::flights
-
-colnames(flights_from_nyc)
+nycflights13::flights
 ```
 
 ```
-##  [1] "year"           "month"          "day"            "dep_time"      
-##  [5] "sched_dep_time" "dep_delay"      "arr_time"       "sched_arr_time"
-##  [9] "arr_delay"      "carrier"        "flight"         "tailnum"       
-## [13] "origin"         "dest"           "air_time"       "distance"      
-## [17] "hour"           "minute"         "time_hour"
+## # A tibble: 336,776 x 19
+##    year month   day dep_time sched_dep_time dep_delay arr_time
+##   <int> <int> <int>    <int>          <int>     <dbl>    <int>
+## 1  2013     1     1      517            515         2      830
+## 2  2013     1     1      533            529         4      850
+## 3  2013     1     1      542            540         2      923
+## # … with 336,773 more rows, and 12 more variables:
+## #   sched_arr_time <int>, arr_delay <dbl>, carrier <chr>,
+## #   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
+## #   air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+## #   time_hour <dttm>
 ```
 
 
@@ -73,47 +78,47 @@ colnames(flights_from_nyc)
 
 
 ```r
-delays <- select(flights_from_nyc, 
-  origin, dest, dep_delay, arr_delay,
-  year:day
+nycflights13::flights %>%
+  dplyr::select( 
+    origin, dest, dep_delay, arr_delay, year:day
   )
-
-# Drop column arr_delay using - in front of the column name
-dep_delays <- select(delays, -arr_delay)
-
-delays %>% head(3)
 ```
 
 ```
-## # A tibble: 3 x 7
+## # A tibble: 336,776 x 7
 ##   origin dest  dep_delay arr_delay  year month   day
 ##   <chr>  <chr>     <dbl>     <dbl> <int> <int> <int>
 ## 1 EWR    IAH           2        11  2013     1     1
 ## 2 LGA    IAH           4        20  2013     1     1
 ## 3 JFK    MIA           2        33  2013     1     1
+## 4 JFK    BQN          -1       -18  2013     1     1
+## 5 LGA    ATL          -6       -25  2013     1     1
+## # … with 336,771 more rows
 ```
 
 
 ## dplyr::select
 
-... using the pipe operator
+... or whichones to drop, using - in front of the column name
 
 
 ```r
-dep_delays <- flights_from_nyc %>%
-  select(origin, dest, dep_delay, arr_delay, year:day) %>%
-  select(-arr_delay)
+dep_delays <- 
+  nycflights13::flights %>%
+  dplyr::select(origin, dest, dep_delay, arr_delay, year:day) %>% 
+  dplyr::select(-arr_delay)
 
-delays %>% head(3)
+dep_delays
 ```
 
 ```
-## # A tibble: 3 x 7
-##   origin dest  dep_delay arr_delay  year month   day
-##   <chr>  <chr>     <dbl>     <dbl> <int> <int> <int>
-## 1 EWR    IAH           2        11  2013     1     1
-## 2 LGA    IAH           4        20  2013     1     1
-## 3 JFK    MIA           2        33  2013     1     1
+## # A tibble: 336,776 x 6
+##   origin dest  dep_delay  year month   day
+##   <chr>  <chr>     <dbl> <int> <int> <int>
+## 1 EWR    IAH           2  2013     1     1
+## 2 LGA    IAH           4  2013     1     1
+## 3 JFK    MIA           2  2013     1     1
+## # … with 336,773 more rows
 ```
 
 
@@ -170,18 +175,17 @@ The same can be applied to data frames
 
 
 ```r
-nov_dep_delays <- dep_delays[dep_delays$month == 11, ]
-
-nov_dep_delays %>% head(3)
+dep_delays[dep_delays$month == 11, ]
 ```
 
 ```
-## # A tibble: 3 x 6
+## # A tibble: 27,268 x 6
 ##   origin dest  dep_delay  year month   day
 ##   <chr>  <chr>     <dbl> <int> <int> <int>
 ## 1 JFK    PSE           6  2013    11     1
 ## 2 JFK    SYR         105  2013    11     1
 ## 3 EWR    CLT          -5  2013    11     1
+## # … with 27,265 more rows
 ```
 
 
@@ -190,19 +194,18 @@ nov_dep_delays %>% head(3)
 
 
 ```r
-nov_dep_delays <- dep_delays %>%
-  filter(month == 11) # Flights in November
-
-nov_dep_delays %>% head(3)
+dep_delays %>%
+  dplyr::filter(month == 11) # Flights in November
 ```
 
 ```
-## # A tibble: 3 x 6
+## # A tibble: 27,268 x 6
 ##   origin dest  dep_delay  year month   day
 ##   <chr>  <chr>     <dbl> <int> <int> <int>
 ## 1 JFK    PSE           6  2013    11     1
 ## 2 JFK    SYR         105  2013    11     1
 ## 3 EWR    CLT          -5  2013    11     1
+## # … with 27,265 more rows
 ```
 
 
@@ -215,6 +218,13 @@ Data selection and filtering
 - dplyr::select
 - dplyr::filter
 
-**Next**:
+**Next**: Data manipulation
+
+- dplyr::arrange
+- dplyr::summarise
+- dplyr::group_by
+- dplyr::mutate
+
+
 
 

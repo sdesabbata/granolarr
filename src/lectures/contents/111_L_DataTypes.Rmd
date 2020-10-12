@@ -361,9 +361,9 @@ employee[[1]] # Note the double square brackets for selection
 In **named lists** each element has a name, and elements can be selected using their name after the symbol `$`. 
 
 ```{r, echo=TRUE}
-employee <- list(name = "Stef", start_year = 2015)
+employee <- list(employee_name = "Stef", start_year = 2015)
 employee
-employee$name
+employee$employee_name
 ```
 
 

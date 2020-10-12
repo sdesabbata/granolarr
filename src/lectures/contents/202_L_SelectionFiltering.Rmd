@@ -35,7 +35,7 @@ The `dplyr` (pronounced *dee-ply-er*) library is part of `tidyverse` and it offe
 - `summarise`: calculate aggregated values (e.g., mean, max, etc)
 - `group_by`: group data based on common column values
 - `mutate`: add columns
-- `join`: merge data frames
+- `join`: merge tables (`tibbles` or `data.frames`)
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -46,16 +46,21 @@ library(tidyverse)
 ## Example dataset
 
 The library `nycflights13` contains a dataset storing data about all the flights departed from New York City in 2013
-
+<!--
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("nycflights13")
 ```
-```{r, echo=TRUE}
+-->
+```{r, echo=TRUE, eval=FALSE}
 library(nycflights13)
 
-flights_from_nyc <- nycflights13::flights
+nycflights13::flights
+```
+```{r, echo=FALSE}
+library(nycflights13)
 
-colnames(flights_from_nyc)
+nycflights13::flights %>% 
+  print(n= 3, width = 70)
 ```
 
 
@@ -64,29 +69,45 @@ colnames(flights_from_nyc)
 
 `select` can be used to specify which columns to retain
 
-```{r, echo=TRUE}
-delays <- select(flights_from_nyc, 
-  origin, dest, dep_delay, arr_delay,
-  year:day
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  dplyr::select( 
+    origin, dest, dep_delay, arr_delay, year:day
   )
-
-# Drop column arr_delay using - in front of the column name
-dep_delays <- select(delays, -arr_delay)
-
-delays %>% head(3)
+```
+```{r, echo=FALSE}
+nycflights13::flights %>%
+  dplyr::select( 
+    origin, dest, dep_delay, arr_delay, year:day
+  ) %>% 
+  print(n = 5)
 ```
 
 
 ## dplyr::select
 
-... using the pipe operator
+... or whichones to drop, using - in front of the column name
 
-```{r, echo=TRUE}
-dep_delays <- flights_from_nyc %>%
-  select(origin, dest, dep_delay, arr_delay, year:day) %>%
-  select(-arr_delay)
+```{r, echo=TRUE, eval=FALSE}
+dep_delays <- 
+  nycflights13::flights %>%
+  dplyr::select(origin, dest, dep_delay, arr_delay, year:day) %>% 
+  dplyr::select(-arr_delay)
 
-delays %>% head(3)
+dep_delays
+```
+```{r, echo=FALSE}
+dep_delays <- 
+  nycflights13::flights %>%
+  dplyr::select(
+    origin, dest, dep_delay, arr_delay, year:day
+  ) %>% 
+  dplyr::select(
+    -arr_delay
+  )
+
+dep_delays %>% 
+  print(n = 3)
 ```
 
 
@@ -117,21 +138,26 @@ a_numeric_vector[a_numeric_vector > 0]
 
 The same can be applied to data frames
 
-```{r, echo=TRUE}
-nov_dep_delays <- dep_delays[dep_delays$month == 11, ]
-
-nov_dep_delays %>% head(3)
+```{r, echo=TRUE, eval=FALSE}
+dep_delays[dep_delays$month == 11, ]
+```
+```{r, echo=FALSE}
+dep_delays[dep_delays$month == 11, ] %>% 
+  print(n = 3)
 ```
 
 
 
 ## dplyr::filter
 
-```{r, echo=TRUE}
-nov_dep_delays <- dep_delays %>%
-  filter(month == 11) # Flights in November
-
-nov_dep_delays %>% head(3)
+```{r, echo=TRUE, eval=FALSE}
+dep_delays %>%
+  dplyr::filter(month == 11) # Flights in November
+```
+```{r, echo=FALSE}
+dep_delays %>%
+  dplyr::filter(month == 11) %>%
+  print(n = 3)
 ```
 
 
@@ -144,7 +170,14 @@ Data selection and filtering
 - dplyr::select
 - dplyr::filter
 
-**Next**:
+**Next**: Data manipulation
+
+- dplyr::arrange
+- dplyr::summarise
+- dplyr::group_by
+- dplyr::mutate
+
+
 
 ```{r cleanup, include=FALSE}
 rm(list = ls())

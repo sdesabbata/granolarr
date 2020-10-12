@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-10-07" />
+<meta name="date" content="2020-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -215,15 +215,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.9" data-path="functions.html"><a href="functions.html#summary-1"><i class="fa fa-check"></i><b>6.9</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>7</b> Data Frames</a><ul>
-<li class="chapter" data-level="7.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>7.1</b> Recap</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="data-frames.html"><a href="data-frames.html#data-frames-1"><i class="fa fa-check"></i><b>7.1.1</b> Data Frames</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="data-types.html"><a href="data-types.html#selection"><i class="fa fa-check"></i><b>7.2</b> Selection</a></li>
-<li class="chapter" data-level="7.3" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>7.3</b> Selection</a></li>
-<li class="chapter" data-level="7.4" data-path="data-frames.html"><a href="data-frames.html#value-assignment"><i class="fa fa-check"></i><b>7.4</b> Value assignment</a></li>
-<li class="chapter" data-level="7.5" data-path="data-frames.html"><a href="data-frames.html#column-processing"><i class="fa fa-check"></i><b>7.5</b> Column processing</a></li>
-<li class="chapter" data-level="7.6" data-path="data-frames.html"><a href="data-frames.html#tibble"><i class="fa fa-check"></i><b>7.6</b> tibble</a></li>
-<li class="chapter" data-level="7.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>7.7</b> Summary</a></li>
+<li class="chapter" data-level="7.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>7.1</b> Recap</a></li>
+<li class="chapter" data-level="7.2" data-path="data-frames.html"><a href="data-frames.html#lists-and-named-lists"><i class="fa fa-check"></i><b>7.2</b> Lists and named lists</a></li>
+<li class="chapter" data-level="7.3" data-path="data-frames.html"><a href="data-frames.html#data-frames-1"><i class="fa fa-check"></i><b>7.3</b> Data Frames</a></li>
+<li class="chapter" data-level="7.4" data-path="data-types.html"><a href="data-types.html#selection"><i class="fa fa-check"></i><b>7.4</b> Selection</a></li>
+<li class="chapter" data-level="7.5" data-path="data-types.html"><a href="data-types.html#selection-1"><i class="fa fa-check"></i><b>7.5</b> Selection</a></li>
+<li class="chapter" data-level="7.6" data-path="data-frames.html"><a href="data-frames.html#table-manipulation"><i class="fa fa-check"></i><b>7.6</b> Table manipulation</a></li>
+<li class="chapter" data-level="7.7" data-path="data-frames.html"><a href="data-frames.html#column-processing"><i class="fa fa-check"></i><b>7.7</b> Column processing</a></li>
+<li class="chapter" data-level="7.8" data-path="data-frames.html"><a href="data-frames.html#tibble"><i class="fa fa-check"></i><b>7.8</b> tibble</a></li>
+<li class="chapter" data-level="7.9" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>7.9</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="selection-and-filtering.html"><a href="selection-and-filtering.html"><i class="fa fa-check"></i><b>8</b> Selection and filtering</a><ul>
 <li class="chapter" data-level="8.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>8.1</b> Recap</a></li>
@@ -523,12 +523,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="libraries-and-data" class="section level2">
 <h2><span class="header-section-number">20.3</span> Libraries and data</h2>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="correlation.html#cb229-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb229-2"><a href="correlation.html#cb229-2"></a><span class="kw">library</span>(magrittr)  </span>
-<span id="cb229-3"><a href="correlation.html#cb229-3"></a><span class="kw">library</span>(nycflights13)</span>
-<span id="cb229-4"><a href="correlation.html#cb229-4"></a></span>
-<span id="cb229-5"><a href="correlation.html#cb229-5"></a>flights_nov_<span class="dv">20</span> &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb229-6"><a href="correlation.html#cb229-6"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay), month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="dv">20</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="correlation.html#cb236-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb236-2"><a href="correlation.html#cb236-2"></a><span class="kw">library</span>(magrittr)  </span>
+<span id="cb236-3"><a href="correlation.html#cb236-3"></a><span class="kw">library</span>(nycflights13)</span>
+<span id="cb236-4"><a href="correlation.html#cb236-4"></a></span>
+<span id="cb236-5"><a href="correlation.html#cb236-5"></a>flights_nov_<span class="dv">20</span> &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
+<span id="cb236-6"><a href="correlation.html#cb236-6"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay), month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="dv">20</span>) </span></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2><span class="header-section-number">20.4</span> Example</h2>
@@ -539,15 +539,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="example-1" class="section level2">
 <h2><span class="header-section-number">20.5</span> Example</h2>
 <div class="small_r_output">
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="correlation.html#cb230-1"></a>flights_nov_<span class="dv">20</span> <span class="op">%&gt;%</span></span>
-<span id="cb230-2"><a href="correlation.html#cb230-2"></a><span class="st">  </span><span class="kw">pull</span>(dep_delay) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="correlation.html#cb237-1"></a>flights_nov_<span class="dv">20</span> <span class="op">%&gt;%</span></span>
+<span id="cb237-2"><a href="correlation.html#cb237-2"></a><span class="st">  </span><span class="kw">pull</span>(dep_delay) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
 ## data:  .
 ## W = 0.39881, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="correlation.html#cb232-1"></a>flights_nov_<span class="dv">20</span> <span class="op">%&gt;%</span></span>
-<span id="cb232-2"><a href="correlation.html#cb232-2"></a><span class="st">  </span><span class="kw">pull</span>(arr_delay) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="correlation.html#cb239-1"></a>flights_nov_<span class="dv">20</span> <span class="op">%&gt;%</span></span>
+<span id="cb239-2"><a href="correlation.html#cb239-2"></a><span class="st">  </span><span class="kw">pull</span>(arr_delay) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
@@ -569,10 +569,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div class="col">
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="correlation.html#cb234-1"></a><span class="co"># note the use of %$%</span></span>
-<span id="cb234-2"><a href="correlation.html#cb234-2"></a><span class="co">#instead of %&gt;%</span></span>
-<span id="cb234-3"><a href="correlation.html#cb234-3"></a>flights_nov_<span class="dv">20</span> <span class="op">%$%</span></span>
-<span id="cb234-4"><a href="correlation.html#cb234-4"></a><span class="st">  </span><span class="kw">cor.test</span>(dep_delay, arr_delay)</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="correlation.html#cb241-1"></a><span class="co"># note the use of %$%</span></span>
+<span id="cb241-2"><a href="correlation.html#cb241-2"></a><span class="co">#instead of %&gt;%</span></span>
+<span id="cb241-3"><a href="correlation.html#cb241-3"></a>flights_nov_<span class="dv">20</span> <span class="op">%$%</span></span>
+<span id="cb241-4"><a href="correlation.html#cb241-4"></a><span class="st">  </span><span class="kw">cor.test</span>(dep_delay, arr_delay)</span></code></pre></div>
 <pre><code>## 
 ## 	Pearson&#39;s product-moment correlation
 ## 
@@ -606,10 +606,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div class="col">
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="correlation.html#cb236-1"></a>flights_nov_<span class="dv">20</span> <span class="op">%$%</span></span>
-<span id="cb236-2"><a href="correlation.html#cb236-2"></a><span class="st">  </span><span class="kw">cor.test</span>(</span>
-<span id="cb236-3"><a href="correlation.html#cb236-3"></a>    dep_delay, arr_delay, </span>
-<span id="cb236-4"><a href="correlation.html#cb236-4"></a>    <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="correlation.html#cb243-1"></a>flights_nov_<span class="dv">20</span> <span class="op">%$%</span></span>
+<span id="cb243-2"><a href="correlation.html#cb243-2"></a><span class="st">  </span><span class="kw">cor.test</span>(</span>
+<span id="cb243-3"><a href="correlation.html#cb243-3"></a>    dep_delay, arr_delay, </span>
+<span id="cb243-4"><a href="correlation.html#cb243-4"></a>    <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning in cor.test.default(dep_delay, arr_delay, method = &quot;spearman&quot;): Cannot
 ## compute exact p-value with ties</code></pre>
 <pre><code>## 
@@ -643,10 +643,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div class="col">
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="correlation.html#cb239-1"></a>flights_nov_<span class="dv">20</span> <span class="op">%$%</span></span>
-<span id="cb239-2"><a href="correlation.html#cb239-2"></a><span class="st">  </span><span class="kw">cor.test</span>(</span>
-<span id="cb239-3"><a href="correlation.html#cb239-3"></a>    dep_delay, arr_delay, </span>
-<span id="cb239-4"><a href="correlation.html#cb239-4"></a>    <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="correlation.html#cb246-1"></a>flights_nov_<span class="dv">20</span> <span class="op">%$%</span></span>
+<span id="cb246-2"><a href="correlation.html#cb246-2"></a><span class="st">  </span><span class="kw">cor.test</span>(</span>
+<span id="cb246-3"><a href="correlation.html#cb246-3"></a>    dep_delay, arr_delay, </span>
+<span id="cb246-4"><a href="correlation.html#cb246-4"></a>    <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## 	Kendall&#39;s rank correlation tau
 ## 
@@ -665,17 +665,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Combines in one visualisation: histograms, scatter plots, and correlation values for a set of variables</p>
 <div class="cols">
 <div class="col">
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="correlation.html#cb241-1"></a><span class="kw">library</span>(psych)</span>
-<span id="cb241-2"><a href="correlation.html#cb241-2"></a></span>
-<span id="cb241-3"><a href="correlation.html#cb241-3"></a>flights_nov_<span class="dv">20</span> <span class="op">%&gt;%</span></span>
-<span id="cb241-4"><a href="correlation.html#cb241-4"></a><span class="st">  </span><span class="kw">select</span>(</span>
-<span id="cb241-5"><a href="correlation.html#cb241-5"></a>    dep_delay, </span>
-<span id="cb241-6"><a href="correlation.html#cb241-6"></a>    arr_delay, </span>
-<span id="cb241-7"><a href="correlation.html#cb241-7"></a>    air_time</span>
-<span id="cb241-8"><a href="correlation.html#cb241-8"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb241-9"><a href="correlation.html#cb241-9"></a><span class="st">  </span><span class="kw">pairs.panels</span>(</span>
-<span id="cb241-10"><a href="correlation.html#cb241-10"></a>    <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span></span>
-<span id="cb241-11"><a href="correlation.html#cb241-11"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="correlation.html#cb248-1"></a><span class="kw">library</span>(psych)</span>
+<span id="cb248-2"><a href="correlation.html#cb248-2"></a></span>
+<span id="cb248-3"><a href="correlation.html#cb248-3"></a>flights_nov_<span class="dv">20</span> <span class="op">%&gt;%</span></span>
+<span id="cb248-4"><a href="correlation.html#cb248-4"></a><span class="st">  </span><span class="kw">select</span>(</span>
+<span id="cb248-5"><a href="correlation.html#cb248-5"></a>    dep_delay, </span>
+<span id="cb248-6"><a href="correlation.html#cb248-6"></a>    arr_delay, </span>
+<span id="cb248-7"><a href="correlation.html#cb248-7"></a>    air_time</span>
+<span id="cb248-8"><a href="correlation.html#cb248-8"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb248-9"><a href="correlation.html#cb248-9"></a><span class="st">  </span><span class="kw">pairs.panels</span>(</span>
+<span id="cb248-10"><a href="correlation.html#cb248-10"></a>    <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span></span>
+<span id="cb248-11"><a href="correlation.html#cb248-11"></a>  )</span></code></pre></div>
 </div>
 <div class="col">
 <center>

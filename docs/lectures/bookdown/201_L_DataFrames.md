@@ -21,25 +21,53 @@
 - Tibbles
 
 
+## Lists and named lists
 
-### Data Frames
+**List**
+
+- can contain elements of different types
+  - whereas elements of vectors are all of the same type
+- in **named lists**, each element has a name
+  - elements can be selected using the operator `$`
+
+
+```r
+employee <- list(employee_name = "Stef", start_year = 2015)
+employee[[1]]
+```
+
+```
+## [1] "Stef"
+```
+
+```r
+employee$employee_name
+```
+
+```
+## [1] "Stef"
+```
+
+
+
+## Data Frames
 
 A **data frame** is equivalent to a *named list* where all elements are *vectors of the same length*.
 
 
 ```r
 employees <- data.frame(
-  Name = c("Maria", "Pete", "Sarah"),
+  EmployeeName = c("Maria", "Pete", "Sarah"),
   Age = c(47, 34, 32),
   Role = c("Professor", "Researcher", "Researcher"))
 employees
 ```
 
 ```
-##    Name Age       Role
-## 1 Maria  47  Professor
-## 2  Pete  34 Researcher
-## 3 Sarah  32 Researcher
+##   EmployeeName Age       Role
+## 1        Maria  47  Professor
+## 2         Pete  34 Researcher
+## 3        Sarah  32 Researcher
 ```
 
 Data frames are the most common way to represent tabular data in R. Matrices and lists can be converted to data frames.
@@ -54,16 +82,24 @@ Selection is similar to vectors and lists.
 
 
 ```r
+employees[1, 1] # value selection
+```
+
+```
+## [1] "Maria"
+```
+
+```r
 employees[1, ] # row selection
 ```
 
 ```
-##    Name Age      Role
-## 1 Maria  47 Professor
+##   EmployeeName Age      Role
+## 1        Maria  47 Professor
 ```
 
 ```r
-employees[, 1] # column selection, as for matrices
+employees[, 1] # column selection
 ```
 
 ```
@@ -77,7 +113,7 @@ Selection is similar to vectors and lists.
 
 
 ```r
-employees$Name # column selection, as for named lists
+employees$EmployeeName # column selection, as for named lists
 ```
 
 ```
@@ -85,7 +121,7 @@ employees$Name # column selection, as for named lists
 ```
 
 ```r
-employees$Name[1]
+employees$EmployeeName[1]
 ```
 
 ```
@@ -94,40 +130,58 @@ employees$Name[1]
 
 
 
-## Value assignment
+## Table manipulation
 
-Values can be assigned to cells through filtering and `<-`
+- Values can be assigned to cells
+  - using any selection method 
+  - and the assignment operator `<-`
+- New columns can be defined 
+  - assigning a vector to a new name
 
 
 ```r
 employees$Age[3] <- 33 
+employees$Place <- c("Leicester", "Leicester","Leicester") 
 employees
 ```
 
 ```
-##    Name Age       Role
-## 1 Maria  47  Professor
-## 2  Pete  34 Researcher
-## 3 Sarah  33 Researcher
+##   EmployeeName Age       Role     Place
+## 1        Maria  47  Professor Leicester
+## 2         Pete  34 Researcher Leicester
+## 3        Sarah  33 Researcher Leicester
 ```
+
 
 
 ## Column processing
 
-Operations can be performed on columns, and new columns created.
+Operations can be performed on columns as they where vectors
 
 
 ```r
+10 - c(1, 2, 3)
+```
+
+```
+## [1] 9 8 7
+```
+
+
+```r
+# Use Sys.Date to retrieve the current year
 current_year <- as.integer(format(Sys.Date(), "%Y"))
+
+# Calculate employee year of birth
 employees$Year_of_birth <- current_year - employees$Age
 employees
 ```
 
 ```
-##    Name Age       Role Year_of_birth
-## 1 Maria  47  Professor          1973
-## 2  Pete  34 Researcher          1986
-## 3 Sarah  33 Researcher          1987
+##   EmployeeName Age       Role     Place Year_of_birth
+## 1        Maria  47  Professor Leicester          1973
+## 2         Pete  34 Researcher Leicester          1986
+## 3        Sarah  33 Researcher Leicester          1987
 ```
 
 
@@ -137,12 +191,12 @@ employees
 A [tibble](https://tibble.tidyverse.org/) is a modern reimagining of the data.frame within `tidyverse`
 
 - they do less 
-    - don’t change variable names or types
+    - don’t change column names or types
     - don’t do partial matching
 - complain more
-    - e.g. when a variable does not exist
+    - e.g. when referring to a column that does not exist
     
-This forces you to confront problems earlier, typically leading to cleaner, more expressive code.
+That forces you to confront problems earlier, typically leading to cleaner, more expressive code.
 
 
 

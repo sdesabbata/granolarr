@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-10-07" />
+  <meta name="date" content="2020-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3262,7 +3262,7 @@ if (document.readyState !== "loading" &&
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-10-07</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-10-12</p>
           </hgroup>
   </slide>
 
@@ -3286,20 +3286,46 @@ if (document.readyState !== "loading" &&
 <li>Tibbles</li>
 </ul>
 
-<h3>Data Frames</h3>
+</article></slide><slide class=""><hgroup><h2>Lists and named lists</h2></hgroup><article  id="lists-and-named-lists">
+
+<p><strong>List</strong></p>
+
+<ul>
+<li>can contain elements of different types
+
+<ul>
+<li>whereas elements of vectors are all of the same type</li>
+</ul></li>
+<li>in <strong>named lists</strong>, each element has a name
+
+<ul>
+<li>elements can be selected using the operator <code>$</code></li>
+</ul></li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>employee &lt;- list(employee_name = &quot;Stef&quot;, start_year = 2015)
+employee[[1]]</pre>
+
+<pre >## [1] &quot;Stef&quot;</pre>
+
+<pre class = 'prettyprint lang-r'>employee$employee_name</pre>
+
+<pre >## [1] &quot;Stef&quot;</pre>
+
+</article></slide><slide class=""><hgroup><h2>Data Frames</h2></hgroup><article  id="data-frames-1">
 
 <p>A <strong>data frame</strong> is equivalent to a <em>named list</em> where all elements are <em>vectors of the same length</em>.</p>
 
 <pre class = 'prettyprint lang-r'>employees &lt;- data.frame(
-  Name = c(&quot;Maria&quot;, &quot;Pete&quot;, &quot;Sarah&quot;),
+  EmployeeName = c(&quot;Maria&quot;, &quot;Pete&quot;, &quot;Sarah&quot;),
   Age = c(47, 34, 32),
   Role = c(&quot;Professor&quot;, &quot;Researcher&quot;, &quot;Researcher&quot;))
 employees</pre>
 
-<pre >##    Name Age       Role
-## 1 Maria  47  Professor
-## 2  Pete  34 Researcher
-## 3 Sarah  32 Researcher</pre>
+<pre >##   EmployeeName Age       Role
+## 1        Maria  47  Professor
+## 2         Pete  34 Researcher
+## 3        Sarah  32 Researcher</pre>
 
 <p>Data frames are the most common way to represent tabular data in R. Matrices and lists can be converted to data frames.</p>
 
@@ -3311,12 +3337,16 @@ employees</pre>
 
 <p>Selection is similar to vectors and lists.</p>
 
+<pre class = 'prettyprint lang-r'>employees[1, 1] # value selection</pre>
+
+<pre >## [1] &quot;Maria&quot;</pre>
+
 <pre class = 'prettyprint lang-r'>employees[1, ] # row selection</pre>
 
-<pre >##    Name Age      Role
-## 1 Maria  47 Professor</pre>
+<pre >##   EmployeeName Age      Role
+## 1        Maria  47 Professor</pre>
 
-<pre class = 'prettyprint lang-r'>employees[, 1] # column selection, as for matrices</pre>
+<pre class = 'prettyprint lang-r'>employees[, 1] # column selection</pre>
 
 <pre >## [1] &quot;Maria&quot; &quot;Pete&quot;  &quot;Sarah&quot;</pre>
 
@@ -3324,38 +3354,58 @@ employees</pre>
 
 <p>Selection is similar to vectors and lists.</p>
 
-<pre class = 'prettyprint lang-r'>employees$Name # column selection, as for named lists</pre>
+<pre class = 'prettyprint lang-r'>employees$EmployeeName # column selection, as for named lists</pre>
 
 <pre >## [1] &quot;Maria&quot; &quot;Pete&quot;  &quot;Sarah&quot;</pre>
 
-<pre class = 'prettyprint lang-r'>employees$Name[1]</pre>
+<pre class = 'prettyprint lang-r'>employees$EmployeeName[1]</pre>
 
 <pre >## [1] &quot;Maria&quot;</pre>
 
-</article></slide><slide class=""><hgroup><h2>Value assignment</h2></hgroup><article  id="value-assignment">
+</article></slide><slide class=""><hgroup><h2>Table manipulation</h2></hgroup><article  id="table-manipulation">
 
-<p>Values can be assigned to cells through filtering and <code>&lt;-</code></p>
+<ul>
+<li>Values can be assigned to cells
+
+<ul>
+<li>using any selection method</li>
+<li>and the assignment operator <code>&lt;-</code></li>
+</ul></li>
+<li>New columns can be defined
+
+<ul>
+<li>assigning a vector to a new name</li>
+</ul></li>
+</ul>
 
 <pre class = 'prettyprint lang-r'>employees$Age[3] &lt;- 33 
+employees$Place &lt;- c(&quot;Leicester&quot;, &quot;Leicester&quot;,&quot;Leicester&quot;) 
 employees</pre>
 
-<pre >##    Name Age       Role
-## 1 Maria  47  Professor
-## 2  Pete  34 Researcher
-## 3 Sarah  33 Researcher</pre>
+<pre >##   EmployeeName Age       Role     Place
+## 1        Maria  47  Professor Leicester
+## 2         Pete  34 Researcher Leicester
+## 3        Sarah  33 Researcher Leicester</pre>
 
 </article></slide><slide class=""><hgroup><h2>Column processing</h2></hgroup><article  id="column-processing">
 
-<p>Operations can be performed on columns, and new columns created.</p>
+<p>Operations can be performed on columns as they where vectors</p>
 
-<pre class = 'prettyprint lang-r'>current_year &lt;- as.integer(format(Sys.Date(), &quot;%Y&quot;))
+<pre class = 'prettyprint lang-r'>10 - c(1, 2, 3)</pre>
+
+<pre >## [1] 9 8 7</pre>
+
+<pre class = 'prettyprint lang-r'># Use Sys.Date to retrieve the current year
+current_year &lt;- as.integer(format(Sys.Date(), &quot;%Y&quot;))
+
+# Calculate employee year of birth
 employees$Year_of_birth &lt;- current_year - employees$Age
 employees</pre>
 
-<pre >##    Name Age       Role Year_of_birth
-## 1 Maria  47  Professor          1973
-## 2  Pete  34 Researcher          1986
-## 3 Sarah  33 Researcher          1987</pre>
+<pre >##   EmployeeName Age       Role     Place Year_of_birth
+## 1        Maria  47  Professor Leicester          1973
+## 2         Pete  34 Researcher Leicester          1986
+## 3        Sarah  33 Researcher Leicester          1987</pre>
 
 </article></slide><slide class=""><hgroup><h2>tibble</h2></hgroup><article  id="tibble">
 
@@ -3365,17 +3415,17 @@ employees</pre>
 <li>they do less
 
 <ul>
-<li>don’t change variable names or types</li>
+<li>don’t change column names or types</li>
 <li>don’t do partial matching</li>
 </ul></li>
 <li>complain more
 
 <ul>
-<li>e.g. when a variable does not exist</li>
+<li>e.g. when referring to a column that does not exist</li>
 </ul></li>
 </ul>
 
-<p>This forces you to confront problems earlier, typically leading to cleaner, more expressive code.</p>
+<p>That forces you to confront problems earlier, typically leading to cleaner, more expressive code.</p>
 
 </article></slide><slide class=""><hgroup><h2>Summary</h2></hgroup><article  id="summary">
 

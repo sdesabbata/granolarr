@@ -574,12 +574,12 @@ In **named lists** each element has a name, and elements can be selected using t
 
 
 ```r
-employee <- list(name = "Stef", start_year = 2015)
+employee <- list(employee_name = "Stef", start_year = 2015)
 employee
 ```
 
 ```
-## $name
+## $employee_name
 ## [1] "Stef"
 ## 
 ## $start_year
@@ -587,7 +587,7 @@ employee
 ```
 
 ```r
-employee$name
+employee$employee_name
 ```
 
 ```
