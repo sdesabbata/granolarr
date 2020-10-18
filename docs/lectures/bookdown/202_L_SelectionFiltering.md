@@ -72,6 +72,36 @@ nycflights13::flights
 
 
 
+## Selecting table columns
+
+Columns of **data frames** and **tibbles** can be selected
+
+- specifying the column index
+
+
+```r
+nycflights13::flights[, c(13, 14)]
+```
+
+- specifying the column name
+
+
+```r
+nycflights13::flights[, c("origin", "dest")]
+```
+
+```
+## # A tibble: 336,776 x 2
+##   origin dest 
+##   <chr>  <chr>
+## 1 EWR    IAH  
+## 2 LGA    IAH  
+## 3 JFK    MIA  
+## # … with 336,773 more rows
+```
+
+
+
 ## dplyr::select
 
 `select` can be used to specify which columns to retain
@@ -103,12 +133,9 @@ nycflights13::flights %>%
 
 
 ```r
-dep_delays <- 
-  nycflights13::flights %>%
+nycflights13::flights %>%
   dplyr::select(origin, dest, dep_delay, arr_delay, year:day) %>% 
   dplyr::select(-arr_delay)
-
-dep_delays
 ```
 
 ```
@@ -124,7 +151,10 @@ dep_delays
 
 ## Logical filtering
 
-Conditional statements can be used to filter a vector, i.e. to retain only certain values
+Conditional statements can be used to filter a vector
+
+- i.e. to retain only certain values
+- where the specified value is `TRUE`
 
 
 ```r
@@ -148,7 +178,7 @@ a_numeric_vector[c(FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)]
 
 ## Conditional filtering
 
-As a condition expression results in a logic vector, that condition can be used for filtering
+As a conditional expression results in a logic vector...
 
 
 ```r
@@ -158,6 +188,10 @@ a_numeric_vector > 0
 ```
 ## [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
 ```
+
+<br/>
+... conditional expressions can be used for filtering
+
 
 ```r
 a_numeric_vector[a_numeric_vector > 0]
@@ -171,21 +205,43 @@ a_numeric_vector[a_numeric_vector > 0]
 
 ## Filtering data frames
 
-The same can be applied to data frames
+The same approach can be applied to **data frames** and **tibbles**
 
 
 ```r
-dep_delays[dep_delays$month == 11, ]
+nycflights13::flights$month
 ```
 
 ```
-## # A tibble: 27,268 x 6
-##   origin dest  dep_delay  year month   day
-##   <chr>  <chr>     <dbl> <int> <int> <int>
-## 1 JFK    PSE           6  2013    11     1
-## 2 JFK    SYR         105  2013    11     1
-## 3 EWR    CLT          -5  2013    11     1
-## # … with 27,265 more rows
+##     [1]  1  1  1  1  1  1  1  1  1  1  1  1  1  1...
+```
+
+
+```r
+nycflights13::flights$month == 11
+```
+
+```
+##     [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE...
+```
+
+
+```r
+nycflights13::flights[nycflights13::flights$month == 11, ]
+```
+
+```
+## # A tibble: 27,268 x 19
+##    year month   day dep_time sched_dep_time
+##   <int> <int> <int>    <int>          <int>
+## 1  2013    11     1        5           2359
+## # … with 27,267 more rows, and 14 more variables:
+## #   dep_delay <dbl>, arr_time <int>,
+## #   sched_arr_time <int>, arr_delay <dbl>,
+## #   carrier <chr>, flight <int>, tailnum <chr>,
+## #   origin <chr>, dest <chr>, air_time <dbl>,
+## #   distance <dbl>, hour <dbl>, minute <dbl>,
+## #   time_hour <dttm>
 ```
 
 
@@ -194,8 +250,41 @@ dep_delays[dep_delays$month == 11, ]
 
 
 ```r
-dep_delays %>%
-  dplyr::filter(month == 11) # Flights in November
+nycflights13::flights %>%
+  # Flights in November
+  dplyr::filter(month == 11)
+```
+
+```
+## # A tibble: 27,268 x 19
+##    year month   day dep_time sched_dep_time
+##   <int> <int> <int>    <int>          <int>
+## 1  2013    11     1        5           2359
+## 2  2013    11     1       35           2250
+## 3  2013    11     1      455            500
+## # … with 27,265 more rows, and 14 more variables:
+## #   dep_delay <dbl>, arr_time <int>,
+## #   sched_arr_time <int>, arr_delay <dbl>,
+## #   carrier <chr>, flight <int>, tailnum <chr>,
+## #   origin <chr>, dest <chr>, air_time <dbl>,
+## #   distance <dbl>, hour <dbl>, minute <dbl>,
+## #   time_hour <dttm>
+```
+
+
+
+
+## Select and filter
+
+
+```r
+nycflights13::flights %>%
+  # Select the columns you need
+  dplyr::select(origin, dest, dep_delay, arr_delay, year:day) %>% 
+  # Drop arr_delay... because you don't need it after all
+  dplyr::select(-arr_delay) %>%
+  # Filter in only November flights
+  dplyr::filter(month == 11)
 ```
 
 ```

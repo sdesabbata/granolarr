@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-10-12" />
+  <meta name="date" content="2020-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3262,7 +3262,7 @@ if (document.readyState !== "loading" &&
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-10-12</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-10-18</p>
           </hgroup>
   </slide>
 
@@ -3326,6 +3326,30 @@ nycflights13::flights</pre>
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
 ## #   time_hour &lt;dttm&gt;</pre>
 
+</article></slide><slide class=""><hgroup><h2>Selecting table columns</h2></hgroup><article  id="selecting-table-columns">
+
+<p>Columns of <strong>data frames</strong> and <strong>tibbles</strong> can be selected</p>
+
+<ul>
+<li>specifying the column index</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>nycflights13::flights[, c(13, 14)]</pre>
+
+<ul>
+<li>specifying the column name</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>nycflights13::flights[, c(&quot;origin&quot;, &quot;dest&quot;)]</pre>
+
+<pre >## # A tibble: 336,776 x 2
+##   origin dest 
+##   &lt;chr&gt;  &lt;chr&gt;
+## 1 EWR    IAH  
+## 2 LGA    IAH  
+## 3 JFK    MIA  
+## # … with 336,773 more rows</pre>
+
 </article></slide><slide class=""><hgroup><h2>dplyr::select</h2></hgroup><article  id="dplyrselect">
 
 <p><code>select</code> can be used to specify which columns to retain</p>
@@ -3349,12 +3373,9 @@ nycflights13::flights</pre>
 
 <p>… or whichones to drop, using - in front of the column name</p>
 
-<pre class = 'prettyprint lang-r'>dep_delays &lt;- 
-  nycflights13::flights %&gt;%
+<pre class = 'prettyprint lang-r'>nycflights13::flights %&gt;%
   dplyr::select(origin, dest, dep_delay, arr_delay, year:day) %&gt;% 
-  dplyr::select(-arr_delay)
-
-dep_delays</pre>
+  dplyr::select(-arr_delay)</pre>
 
 <pre >## # A tibble: 336,776 x 6
 ##   origin dest  dep_delay  year month   day
@@ -3366,7 +3387,12 @@ dep_delays</pre>
 
 </article></slide><slide class=""><hgroup><h2>Logical filtering</h2></hgroup><article  id="logical-filtering">
 
-<p>Conditional statements can be used to filter a vector, i.e. to retain only certain values</p>
+<p>Conditional statements can be used to filter a vector</p>
+
+<ul>
+<li>i.e. to retain only certain values</li>
+<li>where the specified value is <code>TRUE</code></li>
+</ul>
 
 <pre class = 'prettyprint lang-r'>a_numeric_vector &lt;- -3:3
 a_numeric_vector</pre>
@@ -3379,11 +3405,13 @@ a_numeric_vector</pre>
 
 </article></slide><slide class=""><hgroup><h2>Conditional filtering</h2></hgroup><article  id="conditional-filtering">
 
-<p>As a condition expression results in a logic vector, that condition can be used for filtering</p>
+<p>As a conditional expression results in a logic vector…</p>
 
 <pre class = 'prettyprint lang-r'>a_numeric_vector &gt; 0</pre>
 
 <pre >## [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</pre>
+
+<p><br/> … conditional expressions can be used for filtering</p>
 
 <pre class = 'prettyprint lang-r'>a_numeric_vector[a_numeric_vector &gt; 0]</pre>
 
@@ -3391,22 +3419,59 @@ a_numeric_vector</pre>
 
 </article></slide><slide class=""><hgroup><h2>Filtering data frames</h2></hgroup><article  id="filtering-data-frames">
 
-<p>The same can be applied to data frames</p>
+<p>The same approach can be applied to <strong>data frames</strong> and <strong>tibbles</strong></p>
 
-<pre class = 'prettyprint lang-r'>dep_delays[dep_delays$month == 11, ]</pre>
+<pre class = 'prettyprint lang-r'>nycflights13::flights$month</pre>
 
-<pre >## # A tibble: 27,268 x 6
-##   origin dest  dep_delay  year month   day
-##   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-## 1 JFK    PSE           6  2013    11     1
-## 2 JFK    SYR         105  2013    11     1
-## 3 EWR    CLT          -5  2013    11     1
-## # … with 27,265 more rows</pre>
+<pre >##     [1]  1  1  1  1  1  1  1  1  1  1  1  1  1  1...</pre>
+
+<pre class = 'prettyprint lang-r'>nycflights13::flights$month == 11</pre>
+
+<pre >##     [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE...</pre>
+
+<pre class = 'prettyprint lang-r'>nycflights13::flights[nycflights13::flights$month == 11, ]</pre>
+
+<pre >## # A tibble: 27,268 x 19
+##    year month   day dep_time sched_dep_time
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;
+## 1  2013    11     1        5           2359
+## # … with 27,267 more rows, and 14 more variables:
+## #   dep_delay &lt;dbl&gt;, arr_time &lt;int&gt;,
+## #   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
+## #   time_hour &lt;dttm&gt;</pre>
 
 </article></slide><slide class=""><hgroup><h2>dplyr::filter</h2></hgroup><article  id="dplyrfilter">
 
-<pre class = 'prettyprint lang-r'>dep_delays %&gt;%
-  dplyr::filter(month == 11) # Flights in November</pre>
+<pre class = 'prettyprint lang-r'>nycflights13::flights %&gt;%
+  # Flights in November
+  dplyr::filter(month == 11)</pre>
+
+<pre >## # A tibble: 27,268 x 19
+##    year month   day dep_time sched_dep_time
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;
+## 1  2013    11     1        5           2359
+## 2  2013    11     1       35           2250
+## 3  2013    11     1      455            500
+## # … with 27,265 more rows, and 14 more variables:
+## #   dep_delay &lt;dbl&gt;, arr_time &lt;int&gt;,
+## #   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
+## #   time_hour &lt;dttm&gt;</pre>
+
+</article></slide><slide class=""><hgroup><h2>Select and filter</h2></hgroup><article  id="select-and-filter">
+
+<pre class = 'prettyprint lang-r'>nycflights13::flights %&gt;%
+  # Select the columns you need
+  dplyr::select(origin, dest, dep_delay, arr_delay, year:day) %&gt;% 
+  # Drop arr_delay... because you don&#39;t need it after all
+  dplyr::select(-arr_delay) %&gt;%
+  # Filter in only November flights
+  dplyr::filter(month == 11)</pre>
 
 <pre >## # A tibble: 27,268 x 6
 ##   origin dest  dep_delay  year month   day

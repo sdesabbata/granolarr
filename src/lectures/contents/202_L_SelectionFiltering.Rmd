@@ -51,7 +51,7 @@ The library `nycflights13` contains a dataset storing data about all the flights
 install.packages("nycflights13")
 ```
 -->
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=FALSE, message=FALSE, warning=FALSE}
 library(nycflights13)
 
 nycflights13::flights
@@ -61,6 +61,28 @@ library(nycflights13)
 
 nycflights13::flights %>% 
   print(n= 3, width = 70)
+```
+
+
+
+## Selecting table columns
+
+Columns of **data frames** and **tibbles** can be selected
+
+- specifying the column index
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights[, c(13, 14)]
+```
+
+- specifying the column name
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights[, c("origin", "dest")]
+```
+```{r, echo=FALSE}
+nycflights13::flights[, c("origin", "dest")] %>% 
+  print(n = 3)
 ```
 
 
@@ -89,31 +111,28 @@ nycflights13::flights %>%
 ... or whichones to drop, using - in front of the column name
 
 ```{r, echo=TRUE, eval=FALSE}
-dep_delays <- 
-  nycflights13::flights %>%
+nycflights13::flights %>%
   dplyr::select(origin, dest, dep_delay, arr_delay, year:day) %>% 
   dplyr::select(-arr_delay)
-
-dep_delays
 ```
 ```{r, echo=FALSE}
-dep_delays <- 
-  nycflights13::flights %>%
+nycflights13::flights %>%
   dplyr::select(
     origin, dest, dep_delay, arr_delay, year:day
   ) %>% 
   dplyr::select(
     -arr_delay
-  )
-
-dep_delays %>% 
+  ) %>% 
   print(n = 3)
 ```
 
 
 ## Logical filtering
 
-Conditional statements can be used to filter a vector, i.e. to retain only certain values
+Conditional statements can be used to filter a vector
+
+- i.e. to retain only certain values
+- where the specified value is `TRUE`
 
 ```{r, echo=TRUE}
 a_numeric_vector <- -3:3
@@ -125,10 +144,16 @@ a_numeric_vector[c(FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)]
 
 ## Conditional filtering
 
-As a condition expression results in a logic vector, that condition can be used for filtering
+As a conditional expression results in a logic vector...
 
 ```{r, echo=TRUE}
 a_numeric_vector > 0
+```
+
+<br/>
+... conditional expressions can be used for filtering
+
+```{r, echo=TRUE}
 a_numeric_vector[a_numeric_vector > 0]
 ```
 
@@ -136,14 +161,28 @@ a_numeric_vector[a_numeric_vector > 0]
 
 ## Filtering data frames
 
-The same can be applied to data frames
+The same approach can be applied to **data frames** and **tibbles**
 
 ```{r, echo=TRUE, eval=FALSE}
-dep_delays[dep_delays$month == 11, ]
+nycflights13::flights$month
 ```
 ```{r, echo=FALSE}
-dep_delays[dep_delays$month == 11, ] %>% 
-  print(n = 3)
+capture.output(nycflights13::flights$month)[1] %>% str_trunc(52) %>% cat()
+```
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights$month == 11
+```
+```{r, echo=FALSE}
+capture.output(nycflights13::flights$month == 11)[1] %>% str_trunc(52) %>% cat()
+```
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights[nycflights13::flights$month == 11, ]
+```
+```{r, echo=FALSE}
+nycflights13::flights[nycflights13::flights$month == 11, ] %>% 
+  print(n = 1, width = 52)
 ```
 
 
@@ -151,13 +190,36 @@ dep_delays[dep_delays$month == 11, ] %>%
 ## dplyr::filter
 
 ```{r, echo=TRUE, eval=FALSE}
-dep_delays %>%
-  dplyr::filter(month == 11) # Flights in November
+nycflights13::flights %>%
+  # Flights in November
+  dplyr::filter(month == 11)
 ```
 ```{r, echo=FALSE}
-dep_delays %>%
+nycflights13::flights %>%
   dplyr::filter(month == 11) %>%
-  print(n = 3)
+  print(n = 3, width = 52)
+```
+
+
+
+
+## Select and filter
+
+```{r, echo=TRUE, eval=FALSE}
+nycflights13::flights %>%
+  # Select the columns you need
+  dplyr::select(origin, dest, dep_delay, arr_delay, year:day) %>% 
+  # Drop arr_delay... because you don't need it after all
+  dplyr::select(-arr_delay) %>%
+  # Filter in only November flights
+  dplyr::filter(month == 11)
+```
+```{r, echo=FALSE}
+nycflights13::flights %>%
+  dplyr::select(origin, dest, dep_delay, arr_delay, year:day) %>%
+  dplyr::select(-arr_delay) %>%
+  dplyr::filter(month == 11) %>%
+  print(n = 3, width = 52)
 ```
 
 
