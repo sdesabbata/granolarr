@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  20 OCT 2020 10:38
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  20 OCT 2020 11:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1537,7 +1537,7 @@ pdf Graphic file (type pdf)
 <use 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-6-1.p
 df>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6428) has occurred while \output is active []
 
 [141]
 File: 403_L_ClusteringHierarchicalDensity_files/figure-latex/unnamed-chunk-8-1.

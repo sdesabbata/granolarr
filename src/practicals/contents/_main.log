@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  20 OCT 2020 10:41
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  20 OCT 2020 11:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -386,9 +386,6 @@ y)
 Package grffile Info: This package is an empty stub for compatibility on input 
 line 40.
 ) (./_main.aux
-
-LaTeX Warning: Label `exercise-3.1' multiply defined.
-
 
 LaTeX Warning: Label `introduction' multiply defined.
 
@@ -1292,16 +1289,16 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4042.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4042.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 2CD28EB792BF7D9CD2586FE3FE14E2FF;7079.
+(rerunfilecheck)             Checksum: B0B9CC32A648B6C529C08DE11284AFCC;7089.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17319 strings out of 481704
- 308374 string characters out of 5933764
+ 17320 strings out of 481704
+ 308390 string characters out of 5933764
  733301 words of memory out of 5000000
- 34149 multiletter control sequences out of 15000+600000
+ 34150 multiletter control sequences out of 15000+600000
  541579 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  53i,10n,118p,1094b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
