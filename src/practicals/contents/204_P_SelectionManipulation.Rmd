@@ -17,13 +17,13 @@ RStudio provides an extremely useful functionality to organise all your code and
 
 In RStudio Server, in the *Files* tab of the bottom-left panel, click on *Home* to make sure you are in your home folder -- if you are working on your own computer, create a folder for these practicals wherever most convenient. Click on *New Folder* and enter *Practicals* in the prompt dialogue, to create a folder named *Practicals*. 
 
-Select *File > New Project ...* from the main menu, then from the prompt menu, *New Directory*, and then *New Project*. Insert *Practical_201* as the directory name, and select the *Practicals* folder for the field *Create project as subdirectory of*. Finally, click *Create Project*. 
+Select *File > New Project ...* from the main menu, then from the prompt menu, *New Directory*, and then *New Project*. Insert *Practical_204* as the directory name, and select the *Practicals* folder for the field *Create project as subdirectory of*. Finally, click *Create Project*. 
 
-RStudio has now created the project, and it should have activated it. If that is the case, the *Files* tab in the bottom-right panel should be in the *Practical_201* folder, which contains only the *Practical_201.Rproj* file. The *Practical_201.Rproj* stores all the *Environment* information for the current project and all the project files (e.g., R scripts, data, output files) should be stored within the *Practical_201* folder. Moreover, the *Practical_201* is now your working directory, which means that you can refer to a file in the folder by using only its name and if you save a file that is the default directory where to save it. 
+RStudio has now created the project, and it should have activated it. If that is the case, the *Files* tab in the bottom-right panel should be in the *Practical_204* folder, which contains only the *Practical_204.Rproj* file. The *Practical_204.Rproj* stores all the *Environment* information for the current project and all the project files (e.g., R scripts, data, output files) should be stored within the *Practical_204* folder. Moreover, the *Practical_204* is now your working directory, which means that you can refer to a file in the folder by using only its name and if you save a file that is the default directory where to save it. 
 
-On the top-right corner of RStudio, you should see a blue icon representing an R in a cube, next to the name of the project (*Practical_201*). That also indicates that you are within the *Practical_201* project. Click on *Practical_201* and select *Close Project* to close the project. Next to the R in a cube icon, you should now see *Project: (None)*. Click on *Project: (None)* and select *Practical_201* from the list to reactivate the *Practical_201* project.
+On the top-right corner of RStudio, you should see a blue icon representing an R in a cube, next to the name of the project (*Practical_204*). That also indicates that you are within the *Practical_204* project. Click on *Practical_204* and select *Close Project* to close the project. Next to the R in a cube icon, you should now see *Project: (None)*. Click on *Project: (None)* and select *Practical_204* from the list to reactivate the *Practical_204* project.
 
-With the *Practical_201* project activated, select from the top menu *File > New File > R Script*. That opens the embedded RStudio editor and a new empty R script folder. Copy the two lines below into the file. The first loads the `tidyverse` library, whereas the second loads another library that the code below uses to produce well-formatted tables.
+With the *Practical_204* project activated, select from the top menu *File > New File > R Script*. That opens the embedded RStudio editor and a new empty R script folder. Copy the two lines below into the file. The first loads the `tidyverse` library, whereas the second loads another library that the code below uses to produce well-formatted tables.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -68,15 +68,15 @@ cube_root <- function (input_value) {
 ```
 
 
-Create a new R script named `Practical_114_main.R` and copy the code below in that second R script and save the file.
+Create a new R script named `Practical_204_RS_main.R` and copy the code below in that second R script and save the file.
 
 ```{r, echo=TRUE, eval=FALSE}
-source("Practical_114_functions.R")
+source("Practical_204_RS_functions.R")
 
 cube_root(27)
 ```
 
-Executing the `Practical_114_main.R` instructs the interpreter first to run the `Practical_114_functions.R` script, thus creating the `cube_root` function, and then invoke the function using `27` as an argument, thus returning again `3`. That is a simple example, but this can be an extremely powerful tool to create your own library of functions to be used by different scripts.
+Executing the `Practical_204_RS_main.R` instructs the interpreter first to run the `Practical_204_RS_functions.R` script, thus creating the `cube_root` function, and then invoke the function using `27` as an argument, thus returning again `3`. That is a simple example, but this can be an extremely powerful tool to create your own library of functions to be used by different scripts.
 
 
 
@@ -94,8 +94,8 @@ In the `tibble` outputted by the `count` function below, the column `n` provides
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  count() %>%
-  kable()
+  dplyr::count() %>%
+  knitr::kable()
 ```
 
 The example above already shows how the **pipe operator** can be used effectively in a multi-step operation.
@@ -106,8 +106,8 @@ In the example below, the column name `origin` is provided as an argument to the
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  count(origin) %>%
-  kable()
+  dplyr::count(origin) %>%
+  knitr::kable()
 ```
 
 As you can see, the code above is formatted in a way similar to a code block, although it is not a code block. The code goes to a new line after every `%>%`, and space is added at the beginning of new lines. That is very common in R programming (especially when functions have many parameters) as it makes the code more readable.
@@ -122,49 +122,49 @@ In the example below, the function `sum` is applied to the column `distance` to 
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  group_by(origin) %>%
-  summarise(
+  dplyr::group_by(origin) %>%
+  dplyr::summarise(
     distance_traveled_from = sum(distance)
   ) %>%
-  kable()
+  knitr::kable()
 ```
 
 
 ### Select and filter
 
-The function `select` can be used to select some **columns** to output. For instance in the code below, the function `select` is used to select the columns `origin`, `dest`, and `dep_delay`, in combination with the function `head`, which can be used to include only the first *n* rows (`5` in the example below) to output.
+The function `select` can be used to select some **columns** to output. For instance in the code below, the function `select` is used to select the columns `origin`, `dest`, and `dep_delay`, in combination with the function `slice_head`, which can be used to include only the first `n` rows (`5` in the example below) to output.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  select(origin, dest, dep_delay) %>%
-  head(5) %>%
-  kable()
+  dplyr::select(origin, dest, dep_delay) %>%
+  dplyr::slice_head(n = 5) %>%
+  knitr::kable()
 ```
 
 The function `filter` can instead be used to filter **rows** based on a specified condition. In the example below, the output of the `filter` step only includes the rows where the value of `month` is `11` (i.e., the eleventh month, November). 
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  select(origin, dest, year, month, day, dep_delay) %>%
-  filter(month == 11) %>%
-  head(5) %>%
-  kable()
+  dplyr::select(origin, dest, year, month, day, dep_delay) %>%
+  dplyr::filter(month == 11) %>%
+  dplyr::slice_head(n = 5) %>%
+  knitr::kable()
 ```
 
 Notice how `filter` is used in combination with `select`. All functions in the `dplyr` library can be combined, in any other order that makes logical sense. However, if the `select` step didn't include `month`, that same column couldn't have been used in the `filter` step.
 
 ### Mutate
 
-The function `manipulate` can be used to add a new column to an output table. The `mutate` step in the code below adds a new column `air_time_hours` to the table obtained through the pipe, that is the flight air time in hours, dividing the flight air time in minutes by `60`.
+The function `mutate` can be used to add a new column to an output table. The `mutate` step in the code below adds a new column `air_time_hours` to the table obtained through the pipe, that is the flight air time in hours, dividing the flight air time in minutes by `60`.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  select(flight, origin, dest, air_time) %>%
-  mutate(
+  dplyr::select(flight, origin, dest, air_time) %>%
+  dplyr::mutate(
     air_time_hours = air_time / 60
   ) %>%
-  head(5) %>%
-  kable()
+  dplyr::slice_head(n = 5) %>%
+  knitr::kable()
 ```
 
 ### Arrange
@@ -173,29 +173,29 @@ The function `arrange` can be used to sort a tibble by ascending order of the va
 
 ```{r, echo=TRUE, eval=FALSE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  select(flight, origin, dest, air_time) %>%
-  arrange(-air_time) %>%
-  kable()
+  dplyr::select(flight, origin, dest, air_time) %>%
+  dplyr::arrange(-air_time) %>%
+  knitr::kable()
 ```
 
-In the examples above, we have used `head` to present only the first `n` (in the examples `5`) rows in a table, based on the existing order. The `dplyr` library also provides the function `slice_head` which performs the same operation, as well as `slice_max` and `slice_min` which incorporate the sorting functionality (see [`slice` reference page](https://dplyr.tidyverse.org/reference/slice.html)).
+In the examples above, we have used `slice_head` to present only the first `n` (in the examples `5`) rows in a table, based on the existing order. The `dplyr` library also provides the functions `slice_max` and `slice_min` which incorporate the sorting functionality (see [`slice` reference page](https://dplyr.tidyverse.org/reference/slice.html)).
 
-As such, the following code uses `slice_max` to produce a table showing the 5 rows when ordered by descending (*highest values* on top) order of air time.
+As such, the following code uses `slice_max` to produce a table including only the 5 rows with the *highest* air time.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  select(flight, origin, dest, air_time) %>%
-  slice_max(air_time, n = 5) %>%
-  kable()
+  dplyr::select(flight, origin, dest, air_time) %>%
+  dplyr::slice_max(air_time, n = 5) %>%
+  knitr::kable()
 ```
 
-The following code, instead, uses `slice_min`, thus producing a table showing the 5 rows when ordered by ascending (*lowest values* on top) order of air time.
+The following code, instead, uses `slice_min`, thus producing a table including only the 5 rows with the *lowest* air time.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  select(flight, origin, dest, air_time) %>%
-  slice_min(air_time, n = 5) %>%
-  kable()
+  dplyr::select(flight, origin, dest, air_time) %>%
+  dplyr::slice_min(air_time, n = 5) %>%
+  knitr::kable()
 ```
 
 In both cases, if the table contains ties, all rows containing a value that is present among the maximum or minimum selected values are presented, as it is the case with the rows containing the value `21` in the example above.
@@ -219,19 +219,19 @@ Finally, the code below illustrates a more complex, multi-step operation using a
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 flights_from_nyc %>%
-  select(origin, dest, year, month, day, dep_delay) %>%
-  filter(month == 11) %>%
-  filter(!is.na(dep_delay)) %>%
-  group_by(dest) %>%
-  summarize(
+  dplyr::select(origin, dest, year, month, day, dep_delay) %>%
+  dplyr::filter(month == 11) %>%
+  dplyr::filter(!is.na(dep_delay)) %>%
+  dplyr::group_by(dest) %>%
+  dplyr::summarize(
     avg_dep_delay = mean(dep_delay)
   ) %>%
-  mutate(
+  dplyr::mutate(
     avg_dep_delay_hours = avg_dep_delay / 60
   ) %>%
-  arrange(-avg_dep_delay_hours) %>%
-  head(5) %>%
-  kable()
+  dplyr::arrange(-avg_dep_delay_hours) %>%
+  dplyr::slice_head(n = 5) %>%
+  knitr::kable()
 ```
 
 
@@ -245,10 +245,3 @@ Extend the code in the script `My_script_Practical_204.R` to include the code ne
 
 **Question 3.1.3:** Write a piece of code using the pipe operator and the `dplyr` library to generate a table showing the average arrival delay compared to the overall air time calculated grouping flights by origin and destination, sorted by destination.
 
-## Solutions
-
-An R Script including the solutions to the 3 questions above is available in the Exercises folder (`docs/exercises`) of the repository (`201_X_Data_Wrangling1_Example.R`).
-
-```{r cleanup, include=FALSE}
-rm(list = ls())
-```
