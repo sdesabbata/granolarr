@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  22 OCT 2020 18:30
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  23 OCT 2020 14:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -844,7 +844,11 @@ urprising because
 
 ]
 Chapter 3.
-[31] [32] [33] [34]
+[31] [32]
+Overfull \vbox (0.81337pt too high) detected at line 1542
+ []
+
+[33] [34]
 Underfull \vbox (badness 1845) has occurred while \output is active []
 
 [35]

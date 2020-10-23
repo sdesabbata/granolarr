@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-10-22" />
+  <meta name="date" content="2020-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3265,7 +3265,7 @@ width: 90%;
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-10-22</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-10-23</p>
           </hgroup>
   </slide>
 
@@ -3273,12 +3273,12 @@ width: 90%;
 
 </article></slide><slide class=""><hgroup><h2>Summary</h2></hgroup><article  id="summary">
 
-<p>Table pivot</p>
+<p>Tidy-up your data</p>
 
 <ul>
 <li>Wide and long data</li>
-<li>tidyr::pivot_longer</li>
-<li>tidyr::pivot_wider</li>
+<li>Re-shape data</li>
+<li>Handle missing values</li>
 </ul>
 
 <p><strong>Next</strong>: Read and write data</p>
@@ -3291,7 +3291,7 @@ width: 90%;
 
 </article></slide><slide class=""><hgroup><h2>Comma Separated Values</h2></hgroup><article  id="comma-separated-values">
 
-<p>The file <code>2011_OAC_Raw_uVariables_Leicester.csv</code> - contains data used for the 2011 Output Area Classificagtion - 167 variables, as well as the resulting groups - for the city of Leicester</p>
+<p>The file <code>2011_OAC_Raw_uVariables_Leicester.csv</code> - contains data used for the 2011 Output Area Classification - 167 variables, as well as the resulting groups - for the city of Leicester</p>
 
 <p>Extract showing only some columns</p>
 
@@ -3302,21 +3302,32 @@ E00169048,E01032862, ... 4,Multicultural Metropolitans,345, ...</pre>
 
 <p>The full variable names can be found in the file - <code>2011_OAC_Raw_uVariables_Lookup.csv</code>.</p>
 
-</article></slide><slide class=""><hgroup><h2>Libraries</h2></hgroup><article  id="libraries">
+</article></slide><slide class=""><hgroup><h2>readr</h2></hgroup><article  id="readr">
 
-<pre class = 'prettyprint lang-r'>library(tidyverse)
-library(knitr)</pre>
+<p>Library part of the Tidyverse providing functions to read and write text files</p>
+
+<ul>
+<li><code>readr::read_csv</code>: comma-separated files <code>.csv</code></li>
+<li><code>readr::read_csv2</code>: semi-colon-separated files <code>.csv</code></li>
+<li><code>readr::read_tsv</code>: tab-separated files <code>.tsv</code></li>
+<li><code>readr::read_fwf</code>: fix-width files <code>.fwf</code></li>
+<li><code>readr::read_delim</code>: files using a custom delimiter</li>
+</ul>
+
+<p>and their <em>write</em> counterpart, such as</p>
+
+<ul>
+<li><code>readr::write_csv</code>: comma-separated files <code>.csv</code></li>
+</ul>
 
 </article></slide><slide class=""><hgroup><h2>Read</h2></hgroup><article  id="read">
 
-<p>The <code>read_csv</code> function of the <a href='https://readr.tidyverse.org/index.html' title=''><code>readr</code></a> library reads a <em>csv</em> file from the path provided as the first argument</p>
+<p>The <code>readr::read_csv</code> function of the <a href='https://readr.tidyverse.org/index.html' title=''><code>readr</code></a> library reads a <em>csv</em> file from the path provided as the first argument</p>
 
-<pre class = 'prettyprint lang-r'>leicester_2011OAC &lt;- read_csv(&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;)
+<pre class = 'prettyprint lang-r'>leicester_2011OAC &lt;- readr::read_csv(&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;)
 
 leicester_2011OAC %&gt;% 
-  select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) %&gt;%
-  slice_head(n = 3) %&gt;%
-  kable()</pre>
+  dplyr::select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population)</pre>
 
 <table class = 'rmdtable'>
 <tr class="header">
@@ -3349,6 +3360,96 @@ leicester_2011OAC %&gt;%
 </tr>
 </table>
 
+</article></slide><slide class=""><hgroup><h2>Read options</h2></hgroup><article  id="read-options">
+
+<p>Read functions provide options about how to interpret a file contents</p>
+
+<ul>
+<li>For instance, <code>readr::read_csv</code>
+
+<ul>
+<li><code>col_names</code>:
+
+<ul>
+<li><code>TRUE</code> or <code>FALSE</code> whether top row is column names</li>
+<li>or a vector of column names</li>
+</ul></li>
+<li><code>col_types</code>:
+
+<ul>
+<li>a <code>cols()</code> specification or a string</li>
+</ul></li>
+<li><code>skip</code>: lines to skip before reading data</li>
+<li><code>n_max</code>: max number of record to read</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Read options</h2></hgroup><article  id="read-options-1">
+
+<pre class = 'prettyprint lang-r'>readr::read_csv(&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;)</pre>
+
+<pre >## # A tibble: 969 x 190
+##   OA11CD LSOA11CD LSO11ANM MSOA11CD MSOA11NM LAD11CD LAD11NM supgrpcode
+##   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;
+## 1 E0006… E010137… Leicest… E020028… Leicest… E06000… Leices…          6
+## 2 E0006… E010137… Leicest… E020028… Leicest… E06000… Leices…          2
+## 3 E0016… E010137… Leicest… E020028… Leicest… E06000… Leices…          4
+## # … with 966 more rows, and 182 more variables: supgrpname &lt;chr&gt;,
+## #   grpcode &lt;chr&gt;, grpname &lt;chr&gt;, subgrpcode &lt;chr&gt;, subgrpname &lt;chr&gt;,
+## #   Total_Population &lt;dbl&gt;, Total_Households &lt;dbl&gt;, Total_Dwellings &lt;dbl&gt;,
+## #   Total_Household_Spaces &lt;dbl&gt;, Total_Population_16_and_over &lt;dbl&gt;,
+## #   Total_Population_16_to_74 &lt;dbl&gt;, Total_Pop_No_NI_Students_16_to_74 &lt;dbl&gt;,
+## #   Total_Employment_16_to_74 &lt;dbl&gt;,
+## #   Total_Pop_in_Housesholds_16_and_over &lt;dbl&gt;,
+## #   Total_Population_3_and_over &lt;dbl&gt;, u001 &lt;dbl&gt;, u002 &lt;dbl&gt;, u003 &lt;dbl&gt;,
+## #   u004 &lt;dbl&gt;, u005 &lt;dbl&gt;, u006 &lt;dbl&gt;, u007 &lt;dbl&gt;, u008 &lt;dbl&gt;, u009 &lt;dbl&gt;,
+## #   u010 &lt;dbl&gt;, u011 &lt;dbl&gt;, u012 &lt;dbl&gt;, u013 &lt;dbl&gt;, u014 &lt;dbl&gt;, u015 &lt;dbl&gt;,
+## #   u016 &lt;dbl&gt;, u017 &lt;dbl&gt;, u018 &lt;dbl&gt;, u019 &lt;dbl&gt;, u020 &lt;dbl&gt;, u021 &lt;dbl&gt;,
+## #   u022 &lt;dbl&gt;, u023 &lt;dbl&gt;, u024 &lt;dbl&gt;, u025 &lt;dbl&gt;, u026 &lt;dbl&gt;, u027 &lt;dbl&gt;,
+## #   u028 &lt;dbl&gt;, u029 &lt;dbl&gt;, u030 &lt;dbl&gt;, u031 &lt;dbl&gt;, u032 &lt;dbl&gt;, u033 &lt;dbl&gt;,
+## #   u034 &lt;dbl&gt;, u035 &lt;dbl&gt;, u036 &lt;dbl&gt;, u037 &lt;dbl&gt;, u038 &lt;dbl&gt;, u039 &lt;dbl&gt;,
+## #   u040 &lt;dbl&gt;, u041 &lt;dbl&gt;, u042 &lt;dbl&gt;, u043 &lt;dbl&gt;, u044 &lt;dbl&gt;, u045 &lt;dbl&gt;,
+## #   u046 &lt;dbl&gt;, u047 &lt;dbl&gt;, u048 &lt;dbl&gt;, u049 &lt;dbl&gt;, u050 &lt;dbl&gt;, u051 &lt;dbl&gt;,
+## #   u052 &lt;dbl&gt;, u053 &lt;dbl&gt;, u054 &lt;dbl&gt;, u055 &lt;dbl&gt;, u056 &lt;dbl&gt;, u057 &lt;dbl&gt;,
+## #   u058 &lt;dbl&gt;, u059 &lt;dbl&gt;, u060 &lt;dbl&gt;, u061 &lt;dbl&gt;, u062 &lt;dbl&gt;, u063 &lt;dbl&gt;,
+## #   u064 &lt;dbl&gt;, u065 &lt;dbl&gt;, u066 &lt;dbl&gt;, u067 &lt;dbl&gt;, u068 &lt;dbl&gt;, u069 &lt;dbl&gt;,
+## #   u070 &lt;dbl&gt;, u071 &lt;dbl&gt;, u072 &lt;dbl&gt;, u073 &lt;dbl&gt;, u074 &lt;dbl&gt;, u075 &lt;dbl&gt;,
+## #   u076 &lt;dbl&gt;, u077 &lt;dbl&gt;, u078 &lt;dbl&gt;, u079 &lt;dbl&gt;, u080 &lt;dbl&gt;, u081 &lt;dbl&gt;,
+## #   u082 &lt;dbl&gt;, u083 &lt;dbl&gt;, u084 &lt;dbl&gt;, u085 &lt;dbl&gt;, …</pre>
+
+<pre class = 'prettyprint lang-r'>readr::read_csv(
+  &quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;
+  )</pre>
+
+<pre >## # A tibble: 969 x 190
+##   OA11CD LSOA11CD LSO11ANM MSOA11CD MSOA11NM LAD11CD LAD11NM supgrpcode
+##   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;
+## 1 E0006… E010137… Leicest… E020028… Leicest… E06000… Leices…          6
+## 2 E0006… E010137… Leicest… E020028… Leicest… E06000… Leices…          2
+## 3 E0016… E010137… Leicest… E020028… Leicest… E06000… Leices…          4
+## # … with 966 more rows, and 182 more variables: supgrpname &lt;chr&gt;,
+## #   grpcode &lt;chr&gt;, grpname &lt;chr&gt;, subgrpcode &lt;chr&gt;, subgrpname &lt;chr&gt;,
+## #   Total_Population &lt;dbl&gt;, Total_Households &lt;dbl&gt;, Total_Dwellings &lt;dbl&gt;,
+## #   Total_Household_Spaces &lt;dbl&gt;, Total_Population_16_and_over &lt;dbl&gt;,
+## #   Total_Population_16_to_74 &lt;dbl&gt;, Total_Pop_No_NI_Students_16_to_74 &lt;dbl&gt;,
+## #   Total_Employment_16_to_74 &lt;dbl&gt;,
+## #   Total_Pop_in_Housesholds_16_and_over &lt;dbl&gt;,
+## #   Total_Population_3_and_over &lt;dbl&gt;, u001 &lt;dbl&gt;, u002 &lt;dbl&gt;, u003 &lt;dbl&gt;,
+## #   u004 &lt;dbl&gt;, u005 &lt;dbl&gt;, u006 &lt;dbl&gt;, u007 &lt;dbl&gt;, u008 &lt;dbl&gt;, u009 &lt;dbl&gt;,
+## #   u010 &lt;dbl&gt;, u011 &lt;dbl&gt;, u012 &lt;dbl&gt;, u013 &lt;dbl&gt;, u014 &lt;dbl&gt;, u015 &lt;dbl&gt;,
+## #   u016 &lt;dbl&gt;, u017 &lt;dbl&gt;, u018 &lt;dbl&gt;, u019 &lt;dbl&gt;, u020 &lt;dbl&gt;, u021 &lt;dbl&gt;,
+## #   u022 &lt;dbl&gt;, u023 &lt;dbl&gt;, u024 &lt;dbl&gt;, u025 &lt;dbl&gt;, u026 &lt;dbl&gt;, u027 &lt;dbl&gt;,
+## #   u028 &lt;dbl&gt;, u029 &lt;dbl&gt;, u030 &lt;dbl&gt;, u031 &lt;dbl&gt;, u032 &lt;dbl&gt;, u033 &lt;dbl&gt;,
+## #   u034 &lt;dbl&gt;, u035 &lt;dbl&gt;, u036 &lt;dbl&gt;, u037 &lt;dbl&gt;, u038 &lt;dbl&gt;, u039 &lt;dbl&gt;,
+## #   u040 &lt;dbl&gt;, u041 &lt;dbl&gt;, u042 &lt;dbl&gt;, u043 &lt;dbl&gt;, u044 &lt;dbl&gt;, u045 &lt;dbl&gt;,
+## #   u046 &lt;dbl&gt;, u047 &lt;dbl&gt;, u048 &lt;dbl&gt;, u049 &lt;dbl&gt;, u050 &lt;dbl&gt;, u051 &lt;dbl&gt;,
+## #   u052 &lt;dbl&gt;, u053 &lt;dbl&gt;, u054 &lt;dbl&gt;, u055 &lt;dbl&gt;, u056 &lt;dbl&gt;, u057 &lt;dbl&gt;,
+## #   u058 &lt;dbl&gt;, u059 &lt;dbl&gt;, u060 &lt;dbl&gt;, u061 &lt;dbl&gt;, u062 &lt;dbl&gt;, u063 &lt;dbl&gt;,
+## #   u064 &lt;dbl&gt;, u065 &lt;dbl&gt;, u066 &lt;dbl&gt;, u067 &lt;dbl&gt;, u068 &lt;dbl&gt;, u069 &lt;dbl&gt;,
+## #   u070 &lt;dbl&gt;, u071 &lt;dbl&gt;, u072 &lt;dbl&gt;, u073 &lt;dbl&gt;, u074 &lt;dbl&gt;, u075 &lt;dbl&gt;,
+## #   u076 &lt;dbl&gt;, u077 &lt;dbl&gt;, u078 &lt;dbl&gt;, u079 &lt;dbl&gt;, u080 &lt;dbl&gt;, u081 &lt;dbl&gt;,
+## #   u082 &lt;dbl&gt;, u083 &lt;dbl&gt;, u084 &lt;dbl&gt;, u085 &lt;dbl&gt;, …</pre>
+
 </article></slide><slide class=""><hgroup><h2>Write</h2></hgroup><article  id="write">
 
 <p>The function <code>write_csv</code> can be used to save a dataset to <code>csv</code></p>
@@ -3362,10 +3463,41 @@ leicester_2011OAC %&gt;%
 <li><strong>write</strong> the results to a file named <em>Leicester_Suburbanites.csv</em> in your home folder</li>
 </ol>
 
-<pre class = 'prettyprint lang-r'>read_csv(&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;) %&gt;%
-  select(OA11CD, supgrpcode, supgrpname) %&gt;%
-  filter(supgrpcode == 6) %&gt;%
-  write_csv(&quot;~/Leicester_Suburbanites.csv&quot;)</pre>
+<pre class = 'prettyprint lang-r'>readr::read_csv(&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;) %&gt;%
+  dplyr::select(OA11CD, supgrpcode, supgrpname) %&gt;%
+  dplyr::filter(supgrpcode == 6) %&gt;%
+  readr::write_csv(&quot;~/Leicester_Suburbanites.csv&quot;)</pre>
+
+</article></slide><slide class=""><hgroup><h2>Other data imports</h2></hgroup><article  id="other-data-imports">
+
+<p><a href='https://www.tidyverse.org/' title=''>Tidyverse</a> also imports <a href='https://www.tidyverse.org/packages/#import' title=''>other packages for reading data</a></p>
+
+<ul>
+<li>Tabular formats
+
+<ul>
+<li><a href='https://readxl.tidyverse.org/' title=''><code>readxl</code></a> for Excel (<code>.xls</code> and <code>.xlsx</code>)</li>
+<li><a href='https://haven.tidyverse.org/' title=''><code>haven</code></a> for SPSS, Stata, and SAS data.</li>
+</ul></li>
+<li>Databases
+
+<ul>
+<li><a href='https://cran.r-project.org/web/packages/DBI/' title=''><code>DBI</code></a> for relational databases</li>
+<li>Specific backends require different packages, e.g. <a href='https://cran.r-project.org/web/packages/RPostgreSQL/' title=''><code>RPostgreSQL</code></a></li>
+</ul></li>
+<li>NoSQL
+
+<ul>
+<li><a href='https://cran.r-project.org/web/packages/jsonlite/' title=''><code>jsonlite</code></a> for JSON</li>
+<li><a href='https://cran.r-project.org/web/packages/xml2/' title=''><code>xml2</code></a> for XML</li>
+</ul></li>
+<li>Web
+
+<ul>
+<li><a href='https://cran.r-project.org/web/packages/httr/' title=''><code>httr</code></a> for web APIs.</li>
+<li><a href='https://cran.r-project.org/web/packages/rvest/' title=''><code>rvest</code></a> for web scraping.</li>
+</ul></li>
+</ul>
 
 </article></slide><slide class=""><hgroup><h2>Summary</h2></hgroup><article  id="summary-1">
 
@@ -3380,9 +3512,9 @@ leicester_2011OAC %&gt;%
 <p><strong>Next</strong>: Practical session</p>
 
 <ul>
-<li>Join operations</li>
-<li>Table pivot</li>
 <li>Read and write data</li>
+<li>Tidy data</li>
+<li>Join operations</li>
 </ul></article></slide>
 
 

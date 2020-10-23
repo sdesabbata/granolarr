@@ -57,7 +57,7 @@ Add both lines above to your R script, as well as the code snippets provided as 
 
 ### Loading R scripts
 
-It is furthermore possible to load the function(s) defined in one script from another script -- in a fashion similar to when a library is loaded.
+It is furthermore possible to load the function(s) defined in one script from another script -- in a fashion similar to when a library is loaded. Create a new R script named `Practical_204_RS_functions.R`, copy the code below in that R script and save the file 
 
 
 
@@ -69,7 +69,7 @@ cube_root <- function (input_value) {
 ```
 
 
-Create a new R script named `Practical_204_RS_main.R` and copy the code below in that second R script and save the file.
+Create a second R script named `Practical_204_RS_main.R`, copy the code below in that second R script and save the file.
 
 
 ```r

@@ -197,6 +197,10 @@ Join operations
 - Joining data
 - dplyr join functions
 
-**Next**: Table pivot
+**Next**: Tidy-up your data
+
+- Wide and long data
+- Re-shape data
+- Handle missing values
 
 

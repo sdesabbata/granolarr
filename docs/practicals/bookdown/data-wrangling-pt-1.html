@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-10-22" />
+<meta name="date" content="2020-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -290,12 +290,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Add both lines above to your R script, as well as the code snippets provided as an example below.</p>
 <div id="loading-r-scripts" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Loading R scripts</h3>
-<p>It is furthermore possible to load the function(s) defined in one script from another script – in a fashion similar to when a library is loaded.</p>
+<p>It is furthermore possible to load the function(s) defined in one script from another script – in a fashion similar to when a library is loaded. Create a new R script named <code>Practical_204_RS_functions.R</code>, copy the code below in that R script and save the file</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="data-wrangling-pt-1.html#cb158-1"></a>cube_root &lt;-<span class="st"> </span><span class="cf">function</span> (input_value) {</span>
 <span id="cb158-2"><a href="data-wrangling-pt-1.html#cb158-2"></a>   result &lt;-<span class="st"> </span>input_value <span class="op">^</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span>)</span>
 <span id="cb158-3"><a href="data-wrangling-pt-1.html#cb158-3"></a>   result</span>
 <span id="cb158-4"><a href="data-wrangling-pt-1.html#cb158-4"></a>}</span></code></pre></div>
-<p>Create a new R script named <code>Practical_204_RS_main.R</code> and copy the code below in that second R script and save the file.</p>
+<p>Create a second R script named <code>Practical_204_RS_main.R</code>, copy the code below in that second R script and save the file.</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="data-wrangling-pt-1.html#cb159-1"></a><span class="kw">source</span>(<span class="st">&quot;Practical_204_RS_functions.R&quot;</span>)</span>
 <span id="cb159-2"><a href="data-wrangling-pt-1.html#cb159-2"></a></span>
 <span id="cb159-3"><a href="data-wrangling-pt-1.html#cb159-3"></a><span class="kw">cube_root</span>(<span class="dv">27</span>)</span></code></pre></div>

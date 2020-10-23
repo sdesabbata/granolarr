@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-10-22" />
+<meta name="date" content="2020-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -284,10 +284,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12" data-path="read-and-write-data.html"><a href="read-and-write-data.html"><i class="fa fa-check"></i><b>12</b> Read and write data</a><ul>
 <li class="chapter" data-level="12.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>12.1</b> Summary</a></li>
 <li class="chapter" data-level="12.2" data-path="read-and-write-data.html"><a href="read-and-write-data.html#comma-separated-values"><i class="fa fa-check"></i><b>12.2</b> Comma Separated Values</a></li>
-<li class="chapter" data-level="12.3" data-path="core-concepts.html"><a href="core-concepts.html#libraries"><i class="fa fa-check"></i><b>12.3</b> Libraries</a></li>
+<li class="chapter" data-level="12.3" data-path="read-and-write-data.html"><a href="read-and-write-data.html#readr"><i class="fa fa-check"></i><b>12.3</b> readr</a></li>
 <li class="chapter" data-level="12.4" data-path="read-and-write-data.html"><a href="read-and-write-data.html#read"><i class="fa fa-check"></i><b>12.4</b> Read</a></li>
-<li class="chapter" data-level="12.5" data-path="read-and-write-data.html"><a href="read-and-write-data.html#write"><i class="fa fa-check"></i><b>12.5</b> Write</a></li>
-<li class="chapter" data-level="12.6" data-path="functions.html"><a href="functions.html#summary-1"><i class="fa fa-check"></i><b>12.6</b> Summary</a></li>
+<li class="chapter" data-level="12.5" data-path="read-and-write-data.html"><a href="read-and-write-data.html#read-options"><i class="fa fa-check"></i><b>12.5</b> Read options</a></li>
+<li class="chapter" data-level="12.6" data-path="read-and-write-data.html"><a href="read-and-write-data.html#read-options-1"><i class="fa fa-check"></i><b>12.6</b> Read options</a></li>
+<li class="chapter" data-level="12.7" data-path="read-and-write-data.html"><a href="read-and-write-data.html#write"><i class="fa fa-check"></i><b>12.7</b> Write</a></li>
+<li class="chapter" data-level="12.8" data-path="read-and-write-data.html"><a href="read-and-write-data.html#other-data-imports"><i class="fa fa-check"></i><b>12.8</b> Other data imports</a></li>
+<li class="chapter" data-level="12.9" data-path="functions.html"><a href="functions.html#summary-1"><i class="fa fa-check"></i><b>12.9</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>13</b> Reproducibility</a><ul>
 <li class="chapter" data-level="13.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>13.1</b> Recap</a></li>
@@ -528,9 +531,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>mostly working with the usual <code>nycflights13</code></li>
 <li>exposition pipe <code>%$%</code> from the library <code>magrittr</code></li>
 </ul>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="comparing-groups.html#cb234-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb234-2"><a href="comparing-groups.html#cb234-2"></a><span class="kw">library</span>(magrittr)  </span>
-<span id="cb234-3"><a href="comparing-groups.html#cb234-3"></a><span class="kw">library</span>(nycflights13)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="comparing-groups.html#cb233-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb233-2"><a href="comparing-groups.html#cb233-2"></a><span class="kw">library</span>(magrittr)  </span>
+<span id="cb233-3"><a href="comparing-groups.html#cb233-3"></a><span class="kw">library</span>(nycflights13)</span></code></pre></div>
 </div>
 <div class="col">
 <p>But let’s start from a simple example from <code>datasets</code></p>
@@ -544,19 +547,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="example" class="section level2">
 <h2><span class="header-section-number">19.3</span> Example</h2>
 <div class="small_r_all">
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="comparing-groups.html#cb235-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Petal.Length) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="comparing-groups.html#cb234-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Petal.Length) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
 ## data:  .
 ## W = 0.95498, p-value = 0.05481</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="comparing-groups.html#cb237-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Petal.Length) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="comparing-groups.html#cb236-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;versicolor&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Petal.Length) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
 ## data:  .
 ## W = 0.966, p-value = 0.1585</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="comparing-groups.html#cb239-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Petal.Length) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="comparing-groups.html#cb238-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Petal.Length) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
@@ -586,9 +589,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">19.5</span> Example</h2>
 <p>Values are normally distributed, groups have same size, and they are independent (different flowers, check using <code>leveneTest</code>)</p>
 <div class="small_r_output">
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="comparing-groups.html#cb241-1"></a>iris <span class="op">%&gt;%</span></span>
-<span id="cb241-2"><a href="comparing-groups.html#cb241-2"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;versicolor&quot;</span>, <span class="st">&quot;virginica&quot;</span>)) <span class="op">%$%</span><span class="st"> </span><span class="co"># Note %$%</span></span>
-<span id="cb241-3"><a href="comparing-groups.html#cb241-3"></a><span class="st">  </span><span class="kw">t.test</span>(Petal.Length <span class="op">~</span><span class="st"> </span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="comparing-groups.html#cb240-1"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb240-2"><a href="comparing-groups.html#cb240-2"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;versicolor&quot;</span>, <span class="st">&quot;virginica&quot;</span>)) <span class="op">%$%</span><span class="st"> </span><span class="co"># Note %$%</span></span>
+<span id="cb240-3"><a href="comparing-groups.html#cb240-3"></a><span class="st">  </span><span class="kw">t.test</span>(Petal.Length <span class="op">~</span><span class="st"> </span>Species)</span></code></pre></div>
 <pre><code>## 
 ## 	Welch Two Sample t-test
 ## 
@@ -646,9 +649,9 @@ leveneTest(Petal.Length, Species)
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 -->
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="comparing-groups.html#cb243-1"></a>iris <span class="op">%$%</span></span>
-<span id="cb243-2"><a href="comparing-groups.html#cb243-2"></a><span class="st">  </span><span class="kw">aov</span>(Petal.Length <span class="op">~</span><span class="st"> </span>Species) <span class="op">%&gt;%</span></span>
-<span id="cb243-3"><a href="comparing-groups.html#cb243-3"></a><span class="st">  </span><span class="kw">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="comparing-groups.html#cb242-1"></a>iris <span class="op">%$%</span></span>
+<span id="cb242-2"><a href="comparing-groups.html#cb242-2"></a><span class="st">  </span><span class="kw">aov</span>(Petal.Length <span class="op">~</span><span class="st"> </span>Species) <span class="op">%&gt;%</span></span>
+<span id="cb242-3"><a href="comparing-groups.html#cb242-3"></a><span class="st">  </span><span class="kw">summary</span>()</span></code></pre></div>
 <pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
 ## Species       2  437.1  218.55    1180 &lt;2e-16 ***
 ## Residuals   147   27.2    0.19                   

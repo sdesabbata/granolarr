@@ -24,12 +24,16 @@ Tidy-up your data
 - read
 - write
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+```
 
 
 ## Comma Separated Values
 
 The file `2011_OAC_Raw_uVariables_Leicester.csv`
-- contains data used for the 2011 Output Area Classificagtion
+- contains data used for the 2011 Output Area Classification
 - 167 variables, as well as the resulting groups
 - for the city of Leicester
 
@@ -46,36 +50,78 @@ The full variable names can be found in the file
 - `2011_OAC_Raw_uVariables_Lookup.csv`.
 
 
-## Libraries
+## readr
 
-```{r, echo=TRUE}
-library(tidyverse)
-library(knitr)
-```
+Library part of the Tidyverse providing functions to read and write text files
+
+- `readr::read_csv`: comma-separated files `.csv`
+- `readr::read_csv2`: semi-colon-separated files `.csv`
+- `readr::read_tsv`: tab-separated files `.tsv`
+- `readr::read_fwf`: fix-width files `.fwf`
+- `readr::read_delim`: files using a custom delimiter
+
+and their *write* counterpart, such as
+
+- `readr::write_csv`: comma-separated files `.csv`
 
 
 ## Read
 
-The `read_csv` function of the [`readr`](https://readr.tidyverse.org/index.html) library reads a *csv* file from the path provided as the first argument
+The `readr::read_csv` function of the [`readr`](https://readr.tidyverse.org/index.html) library reads a *csv* file from the path provided as the first argument
 
 
 ```{r, echo=TRUE, eval=FALSE}
-leicester_2011OAC <- read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
+leicester_2011OAC <- readr::read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
 
 leicester_2011OAC %>% 
-  select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) %>%
-  slice_head(n = 3) %>%
-  kable()
+  dplyr::select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population)
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-leicester_2011OAC <- read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
+leicester_2011OAC <- readr::read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
 leicester_2011OAC %>% 
-  select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) %>%
-  slice_head(n = 3) %>%
-  kable()
+  dplyr::select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population) %>%
+  dplyr::slice_head(n = 3) %>%
+  knitr::kable()
 ```
 
+
+
+## Read options
+
+Read functions provide options about how to interpret a file contents
+
+- For instance, `readr::read_csv`
+  - `col_names`: 
+    - `TRUE` or `FALSE` whether top row is column names
+    - or a vector of column names
+  - `col_types`:
+    - a `cols()` specification or a string
+  - `skip`: lines to skip before reading data
+  - `n_max`: max number of record to read
+
+
+
+## Read options
+
+```{r, echo=TRUE, eval=FALSE}
+readr::read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
+```
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+readr::read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv")) %>%
+  print(n = 3)
+```
+
+
+```{r, echo=TRUE, eval=FALSE}
+readr::read_csv(
+  "2011_OAC_Raw_uVariables_Leicester.csv"
+  )
+```
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+readr::read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv")) %>%
+  print(n = 3)
+```
 
 ## Write
 
@@ -89,11 +135,35 @@ Example:
 4. **write** the results to a file named *Leicester_Suburbanites.csv* in your home folder
 
 ```{r, echo=TRUE, eval=FALSE}
-read_csv("2011_OAC_Raw_uVariables_Leicester.csv") %>%
-  select(OA11CD, supgrpcode, supgrpname) %>%
-  filter(supgrpcode == 6) %>%
-  write_csv("~/Leicester_Suburbanites.csv")
+readr::read_csv("2011_OAC_Raw_uVariables_Leicester.csv") %>%
+  dplyr::select(OA11CD, supgrpcode, supgrpname) %>%
+  dplyr::filter(supgrpcode == 6) %>%
+  readr::write_csv("~/Leicester_Suburbanites.csv")
 ```
+
+
+## Other data imports
+
+[Tidyverse](https://www.tidyverse.org/) also imports [other packages for reading data](https://www.tidyverse.org/packages/#import)
+
+- Tabular formats
+  - [`readxl`](https://readxl.tidyverse.org/) for Excel (`.xls` and `.xlsx`)
+  - [`haven`](https://haven.tidyverse.org/) for SPSS, Stata, and SAS data.
+- Databases
+  - [`DBI`](https://cran.r-project.org/web/packages/DBI/) for relational databases
+  - Specific backends require different packages, e.g. [`RPostgreSQL`](https://cran.r-project.org/web/packages/RPostgreSQL/)
+- NoSQL
+  - [`jsonlite`](https://cran.r-project.org/web/packages/jsonlite/) for JSON
+  - [`xml2`](https://cran.r-project.org/web/packages/xml2/) for XML
+- Web
+  - [`httr`](https://cran.r-project.org/web/packages/httr/) for web APIs.
+  - [`rvest`](https://cran.r-project.org/web/packages/rvest/) for web scraping.
+
+
+
+
+
+
 
 
 ## Summary
@@ -106,9 +176,9 @@ Read and write data
 
 **Next**: Practical session
 
-- Join operations
-- Table pivot
 - Read and write data
+- Tidy data
+- Join operations
 
 ```{r cleanup, include=FALSE}
 rm(list = ls())

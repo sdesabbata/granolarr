@@ -162,8 +162,6 @@ Join operations
 - Re-shape data
 - Handle missing values
 
-
-
 ```{r cleanup, include=FALSE}
 rm(list = ls())
 ```
