@@ -12,11 +12,11 @@ rm(list = ls())
 
 ## Summary
 
-Table pivot
+Tidy-up your data
 
 - Wide and long data
-- tidyr::pivot_longer
-- tidyr::pivot_wider
+- Re-shape data
+- Handle missing values
 
 **Next**: Read and write data
 

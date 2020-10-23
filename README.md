@@ -67,7 +67,7 @@ All the materials are available through the **[lectures bookdown](lectures/bookd
     - **210 Table operations**
         - 211 Lecture ([slides](lectures/html/211_L_DataJoin.html), [bookdown](lectures/bookdown/join-operations.html))
             - Join operations
-        - 212 Lecture ([slides](lectures/html/212_L_DataPivot.html), [bookdown](lectures/bookdown/data-pivot.html))
+        - 212 Lecture ([slides](lectures/html/212_L_TidyData.html), [bookdown](lectures/bookdown/data-pivot.html))
             - Table pivot
         - 213 Lecture ([slides](lectures/html/213_L_ReadWrite.html), [bookdown](lectures/bookdown/read-and-write-data.html))
             - Read and write data

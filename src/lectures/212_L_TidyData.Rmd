@@ -10,5 +10,5 @@ output:
     highlight: tango
 ---
 
-```{r child = 'contents/212_L_DataPivot.Rmd'}
+```{r child = 'contents/212_L_TidyData.Rmd'}
 ```

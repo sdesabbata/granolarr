@@ -24,11 +24,11 @@ toc_sticky: true
 ## 212 Table pivot
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/212_L_DataPivot.html" title="212_L_DataPivot" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/212_L_TidyData.html" title="212_L_TidyData" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-<a href="https://sdesabbata.github.io/granolarr/lectures/html/212_L_DataPivot" target="_blank">Open the lecture slides in a new tab.</a>
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/212_L_TidyData" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 213 Read and write data
