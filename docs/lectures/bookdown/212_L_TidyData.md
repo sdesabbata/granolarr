@@ -5,39 +5,21 @@
 
 # Tidy data
 
+<p style="color: white">**CONTENT WARNING:**<br/>Some of the data used in these slides discuss issues that some people might find distressing: **disease**.</p>
 
 
 ## Recap
 
-**Prev**: Selection and manipulation
+**Prev**: Join operations
 
-- Data Frames
-- Data selection and filtering
-- Data manipulation
+- Joining data
+- dplyr join functions
 
 **Now**: Tidy-up your data
 
 - Wide and long data
 - Re-shape data
 - Handle missing values
-
-
-
-## tidyr
-
-The [`tidyr`](https://tidyr.tidyverse.org/) (pronounced *tidy-er*) library is part of [`tidyverse`](https://www.tidyverse.org/)
-
-Provides a series of functions to *"tidy-up"* your data, including
-
-- re-shape your data
-  - [`tidyr::pivot_wider`](https://tidyr.tidyverse.org/reference/pivot_wider.html): pivot from wide to long
-  - [`tidyr::pivot_longer`](https://tidyr.tidyverse.org/reference/pivot_longer.html): pivot from long to wide
-- handle missing values
-  - [`tidyr::drop_na`](https://tidyr.tidyverse.org/reference/drop_na.html): remove rows with missing data
-  - [`tidyr::replace_na`](https://tidyr.tidyverse.org/reference/replace_na.html): replace missing data
-  - [`tidyr::fill`](https://tidyr.tidyverse.org/reference/replace_na.html): fill missing data
-  - [`tidyr::complete`](https://tidyr.tidyverse.org/reference/complete.html): add missing value combinations
-
 
 
 <!-- Data for xample, also echo-ed below-->
@@ -47,29 +29,29 @@ Provides a series of functions to *"tidy-up"* your data, including
 
 ## Long data 
 
-Not a very common approach, but still necessary in many cases
+Each real-world entity is represented by *multiple rows*
 
-- each real-world entity is represented by *multiple rows*
-    - each one reporting only one of its attributes
+- each one reporting only one of its attributes
 - one column indicates which attribute each row represent
 - another column is used to report the value
 
+Common approach for temporal series
 
-|week_ending |city       | cases|
-|:-----------|:----------|-----:|
-|2020-10-03  |Derby      |    NA|
-|2020-10-03  |Leicester  |   473|
-|2020-10-03  |Nottingham |  1701|
-|2020-10-10  |Derby      |   320|
-|2020-10-10  |Leicester  |   616|
-|2020-10-10  |Nottingham |    NA|
+
+|city       |week_ending | cases|
+|:----------|:-----------|-----:|
+|Derby      |2020-10-03  |    NA|
+|Leicester  |2020-10-03  |   473|
+|Nottingham |2020-10-03  |  1701|
+|Derby      |2020-10-10  |   320|
+|Leicester  |2020-10-10  |   616|
+|Nottingham |2020-10-10  |    NA|
 
 
 ## Wide data
 
-This is the most common approach 
+Each real-world entity is represented by *one single row*
 
-- each real-world entity is represented by *one single row*
   - its attributes are represented through different columns
 
 
@@ -93,23 +75,41 @@ This is the most common approach
 
 ```r
 city_info_long <- data.frame(
-    week_ending = c("2020-10-03", "2020-10-03", "2020-10-03", 
-                    "2020-10-10", "2020-10-10", "2020-10-10"),
     city = c("Derby", "Leicester" , "Nottingham", 
              "Derby", "Leicester", "Nottingham"),
+    week_ending = c("2020-10-03", "2020-10-03", "2020-10-03", 
+                    "2020-10-10", "2020-10-10", "2020-10-10"),
     cases = c(NA, 473, 1701, 320, 616, NA)
   ) %>% 
   tibble::as_tibble()
 ```
 
-|week_ending |city       | cases|
-|:-----------|:----------|-----:|
-|2020-10-03  |Derby      |    NA|
-|2020-10-03  |Leicester  |   473|
-|2020-10-03  |Nottingham |  1701|
-|2020-10-10  |Derby      |   320|
-|2020-10-10  |Leicester  |   616|
-|2020-10-10  |Nottingham |    NA|
+|city       |week_ending | cases|
+|:----------|:-----------|-----:|
+|Derby      |2020-10-03  |    NA|
+|Leicester  |2020-10-03  |   473|
+|Nottingham |2020-10-03  |  1701|
+|Derby      |2020-10-10  |   320|
+|Leicester  |2020-10-10  |   616|
+|Nottingham |2020-10-10  |    NA|
+
+
+
+
+## tidyr
+
+The [`tidyr`](https://tidyr.tidyverse.org/) (pronounced *tidy-er*) library is part of [`tidyverse`](https://www.tidyverse.org/)
+
+Provides a series of functions to *"tidy-up"* your data, including
+
+- re-shape your data
+  - [`tidyr::pivot_wider`](https://tidyr.tidyverse.org/reference/pivot_wider.html): pivot from long to wide
+  - [`tidyr::pivot_longer`](https://tidyr.tidyverse.org/reference/pivot_longer.html): pivot from wide to long
+- handle missing values
+  - [`tidyr::drop_na`](https://tidyr.tidyverse.org/reference/drop_na.html): remove rows with missing data
+  - [`tidyr::replace_na`](https://tidyr.tidyverse.org/reference/replace_na.html): replace missing data
+  - [`tidyr::fill`](https://tidyr.tidyverse.org/reference/replace_na.html): fill missing data
+  - [`tidyr::complete`](https://tidyr.tidyverse.org/reference/complete.html): add missing value combinations
 
 
 
@@ -225,6 +225,24 @@ city_info_back_to_long <- city_info_wide %>%
 |Nottingham |2020-10-10  |    NA|
 
 
+
+## tidyr
+
+The [`tidyr`](https://tidyr.tidyverse.org/) (pronounced *tidy-er*) library is part of [`tidyverse`](https://www.tidyverse.org/)
+
+Provides a series of functions to *"tidy-up"* your data, including
+
+- re-shape your data
+  - [`tidyr::pivot_wider`](https://tidyr.tidyverse.org/reference/pivot_wider.html): pivot from long to wide
+  - [`tidyr::pivot_longer`](https://tidyr.tidyverse.org/reference/pivot_longer.html): pivot from wide to long
+- handle missing values
+  - [`tidyr::drop_na`](https://tidyr.tidyverse.org/reference/drop_na.html): remove rows with missing data
+  - [`tidyr::replace_na`](https://tidyr.tidyverse.org/reference/replace_na.html): replace missing data
+  - [`tidyr::fill`](https://tidyr.tidyverse.org/reference/replace_na.html): fill missing data
+  - [`tidyr::complete`](https://tidyr.tidyverse.org/reference/complete.html): add missing value combinations
+
+
+
 ## tidyr::replace_na
 
 If the data allow for a baseline value, missing values can be **replaced**
@@ -238,14 +256,14 @@ city_info_long %>%
   )
 ```
 
-|week_ending |city       | cases|
-|:-----------|:----------|-----:|
-|2020-10-03  |Derby      |     0|
-|2020-10-03  |Leicester  |   473|
-|2020-10-03  |Nottingham |  1701|
-|2020-10-10  |Derby      |   320|
-|2020-10-10  |Leicester  |   616|
-|2020-10-10  |Nottingham |     0|
+|city       |week_ending | cases|
+|:----------|:-----------|-----:|
+|Derby      |2020-10-03  |     0|
+|Leicester  |2020-10-03  |   473|
+|Nottingham |2020-10-03  |  1701|
+|Derby      |2020-10-10  |   320|
+|Leicester  |2020-10-10  |   616|
+|Nottingham |2020-10-10  |     0|
 
 
 
@@ -262,14 +280,14 @@ city_info_long %>%
   tidyr::fill(cases)
 ```
 
-|week_ending |city       | cases|
-|:-----------|:----------|-----:|
-|2020-10-03  |Derby      |    NA|
-|2020-10-03  |Leicester  |   473|
-|2020-10-03  |Nottingham |  1701|
-|2020-10-10  |Derby      |   320|
-|2020-10-10  |Leicester  |   616|
-|2020-10-10  |Nottingham |  1701|
+|city       |week_ending | cases|
+|:----------|:-----------|-----:|
+|Derby      |2020-10-03  |    NA|
+|Leicester  |2020-10-03  |   473|
+|Nottingham |2020-10-03  |  1701|
+|Derby      |2020-10-10  |   320|
+|Leicester  |2020-10-10  |   616|
+|Nottingham |2020-10-10  |  1701|
 
 
 ## tidyr::drop_na 
@@ -284,18 +302,18 @@ city_info_long_noNAs <-
   tidyr::drop_na(cases)
 ```
 
-|week_ending |city       | cases|
-|:-----------|:----------|-----:|
-|2020-10-03  |Leicester  |   473|
-|2020-10-03  |Nottingham |  1701|
-|2020-10-10  |Derby      |   320|
-|2020-10-10  |Leicester  |   616|
+|city       |week_ending | cases|
+|:----------|:-----------|-----:|
+|Leicester  |2020-10-03  |   473|
+|Nottingham |2020-10-03  |  1701|
+|Derby      |2020-10-10  |   320|
+|Leicester  |2020-10-10  |   616|
 
 
 
 ## tidyr::complete
 
-Finally, some analysis or visualisation procedures night require a *complete* table
+Finally, some analysis or visualisation procedures might require a *complete* table
 
 :::::: {.cols data-latex=""}
 
@@ -328,14 +346,14 @@ city_info_long_noNAs %>%
   tidyr::complete(week_ending, city)
 ```
 
-|week_ending |city       | cases|
-|:-----------|:----------|-----:|
-|2020-10-03  |Derby      |    NA|
-|2020-10-03  |Leicester  |   473|
-|2020-10-03  |Nottingham |  1701|
-|2020-10-10  |Derby      |   320|
-|2020-10-10  |Leicester  |   616|
-|2020-10-10  |Nottingham |    NA|
+|city       |week_ending | cases|
+|:----------|:-----------|-----:|
+|Derby      |2020-10-03  |    NA|
+|Derby      |2020-10-10  |   320|
+|Leicester  |2020-10-03  |   473|
+|Leicester  |2020-10-10  |   616|
+|Nottingham |2020-10-03  |  1701|
+|Nottingham |2020-10-10  |    NA|
 
 
 ## Summary
@@ -347,5 +365,9 @@ Tidy-up your data
 - Handle missing values
 
 **Next**: Read and write data
+
+- file formats
+- read
+- write
 
 

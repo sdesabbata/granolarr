@@ -13,6 +13,11 @@ toc_sticky: true
 
 ## 211 Join operations
 
+{% include video id="e5hxiPXG7XI" provider="youtube" %}
+
+
+### Slides
+
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/211_L_DataJoin.html" title="211_L_DataJoin" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
@@ -21,7 +26,12 @@ toc_sticky: true
 <a href="https://sdesabbata.github.io/granolarr/lectures/html/211_L_DataJoin" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
-## 212 Table pivot
+## 212 Tidy data
+
+{% include video id="AtmqKqewel4" provider="youtube" %}
+
+
+### Slides
 
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/212_L_TidyData.html" title="212_L_TidyData" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
@@ -32,6 +42,11 @@ toc_sticky: true
 </small>
 
 ## 213 Read and write data
+
+{% include video id="dQjXrSS6lPk" provider="youtube" %}
+
+
+### Slides
 
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/213_L_ReadWrite.html" title="213_L_ReadWrite" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>

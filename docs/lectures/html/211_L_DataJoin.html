@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-10-23" />
+  <meta name="date" content="2020-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3265,7 +3265,7 @@ width: 90%;
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-10-23</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-10-26</p>
           </hgroup>
   </slide>
 
@@ -3276,7 +3276,7 @@ width: 90%;
 <p><strong>Prev</strong>: Selection and manipulation</p>
 
 <ul>
-<li>Data Frames</li>
+<li>Data frames and tibbles</li>
 <li>Data selection and filtering</li>
 <li>Data manipulation</li>
 </ul>
@@ -3288,13 +3288,81 @@ width: 90%;
 <li>dplyr join functions</li>
 </ul>
 
+</article></slide><slide class=""><hgroup><h2>Example</h2></hgroup><article  id="example">
+
+<pre class = 'prettyprint lang-r'>cities &lt;- data.frame(
+  city_name = c(&quot;Barcelona&quot;, &quot;London&quot;, &quot;Rome&quot;, &quot;Los Angeles&quot;),
+  country_name = c(&quot;Spain&quot;, &quot;UK&quot;, &quot;Italy&quot;, &quot;US&quot;),
+  city_pop_M = c(1.62, 8.98, 4.34, 3.99)
+)
+
+cities_area &lt;-data.frame(
+  city_name = c(&quot;Barcelona&quot;, &quot;London&quot;, &quot;Rome&quot;, &quot;Munich&quot;),
+  city_area_km2 = c(101, 1572, 496, 310)
+)</pre>
+
+</article></slide><slide class=""><hgroup><h2>Example</h2></hgroup><article  id="example-1">
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">city_name</th>
+<th align="left">country_name</th>
+<th align="right">city_pop_M</th>
+</tr>
+<tr class="odd">
+<td align="left">Barcelona</td>
+<td align="left">Spain</td>
+<td align="right">1.62</td>
+</tr>
+<tr class="even">
+<td align="left">London</td>
+<td align="left">UK</td>
+<td align="right">8.98</td>
+</tr>
+<tr class="odd">
+<td align="left">Rome</td>
+<td align="left">Italy</td>
+<td align="right">4.34</td>
+</tr>
+<tr class="even">
+<td align="left">Los Angeles</td>
+<td align="left">US</td>
+<td align="right">3.99</td>
+</tr>
+</table>
+
+<p><br/></p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">city_name</th>
+<th align="right">city_area_km2</th>
+</tr>
+<tr class="odd">
+<td align="left">Barcelona</td>
+<td align="right">101</td>
+</tr>
+<tr class="even">
+<td align="left">London</td>
+<td align="right">1572</td>
+</tr>
+<tr class="odd">
+<td align="left">Rome</td>
+<td align="right">496</td>
+</tr>
+<tr class="even">
+<td align="left">Munich</td>
+<td align="right">310</td>
+</tr>
+</table>
+
 </article></slide><slide class=""><hgroup><h2>Joining data</h2></hgroup><article  id="joining-data">
 
-<p>Data frames can be joined (or &lsquo;merged&rsquo;)</p>
+<p>Tables can be joined (or &lsquo;merged&rsquo;)</p>
 
 <ul>
-<li>information from two data frames can be combined</li>
-<li>specifying a <strong>column with common values</strong>
+<li>information from two tables can be combined</li>
+<li>specifying <strong>column(s) from two tables with common values</strong>
 
 <ul>
 <li>usually one with a unique identifier of an entity</li>
@@ -3303,8 +3371,8 @@ width: 90%;
 <li>depending on parameters
 
 <ul>
-<li>a row from one data frame can be merged with multiple rows from the other data frame</li>
-<li>rows with no matching values in the other data frame can be retained</li>
+<li>a row from one table can be merged with multiple rows from the other table</li>
+<li>rows with no matching values in the other table can be retained</li>
 </ul></li>
 <li><code>merge</code> base function or join functions in <code>dplyr</code></li>
 </ul>
@@ -3319,264 +3387,318 @@ width: 90%;
 
 <center>
 
-</article></slide><slide class=""><hgroup><h2>Example</h2></hgroup><article  id="example">
+</article></slide><slide class=""><hgroup><h2>dplyr joins</h2></hgroup><article  id="dplyr-joins">
 
-<pre class = 'prettyprint lang-r'>employees &lt;- data.frame(
-  Name = c(&quot;Maria&quot;, &quot;Pete&quot;, &quot;Sarah&quot;, &quot;Jo&quot;),
-  Age = c(47, 34, 32, 25),
-  Role = c(&quot;Professor&quot;, &quot;Researcher&quot;, &quot;Researcher&quot;, &quot;Postgrad&quot;)
-)
+<p><code>dplyr</code> provides <a href='https://dplyr.tidyverse.org/reference/join.html' title=''>a series of join verbs</a></p>
 
-city_of_birth &lt;-data.frame(
-  Name = c(&quot;Maria&quot;, &quot;Pete&quot;, &quot;Sarah&quot;, &quot;Mel&quot;),
-  City = c(&quot;Barcelona&quot;, &quot;London&quot;, &quot;Boston&quot;, &quot;Los Angeles&quot;)
-)</pre>
+<ul>
+<li><strong>Mutating joins</strong>
 
-</article></slide><slide class=""><hgroup><h2>Example</h2></hgroup><article  id="example-1">
+<ul>
+<li><code>inner_join</code>: inner join</li>
+<li><code>left_join</code>: left join</li>
+<li><code>right_join</code>: right join</li>
+<li><code>full_join</code>: full join</li>
+</ul></li>
+<li><strong>Nesting joins</strong>
 
-<table class = 'rmdtable'>
-<tr class="header">
-<th align="left">Name</th>
-<th align="right">Age</th>
-<th align="left">Role</th>
-</tr>
-<tr class="odd">
-<td align="left">Maria</td>
-<td align="right">47</td>
-<td align="left">Professor</td>
-</tr>
-<tr class="even">
-<td align="left">Pete</td>
-<td align="right">34</td>
-<td align="left">Researcher</td>
-</tr>
-<tr class="odd">
-<td align="left">Sarah</td>
-<td align="right">32</td>
-<td align="left">Researcher</td>
-</tr>
-<tr class="even">
-<td align="left">Jo</td>
-<td align="right">25</td>
-<td align="left">Postgrad</td>
-</tr>
-</table>
+<ul>
+<li><code>nest_join</code>: all rows columns from left table, plus a column of tibbles with matching from right</li>
+</ul></li>
+<li><strong>Filtering joins</strong> (keep only columns from left)
 
-<p><br/></p>
-
-<table class = 'rmdtable'>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">City</th>
-</tr>
-<tr class="odd">
-<td align="left">Maria</td>
-<td align="left">Barcelona</td>
-</tr>
-<tr class="even">
-<td align="left">Pete</td>
-<td align="left">London</td>
-</tr>
-<tr class="odd">
-<td align="left">Sarah</td>
-<td align="left">Boston</td>
-</tr>
-<tr class="even">
-<td align="left">Mel</td>
-<td align="left">Los Angeles</td>
-</tr>
-</table>
+<ul>
+<li><code>semi_join</code>: , rows from left where match with right</li>
+<li><code>anti_join</code>: rows from left where no match with right</li>
+</ul></li>
+</ul>
 
 </article></slide><slide class=""><hgroup><h2>dplyr::full_join</h2></hgroup><article  id="dplyrfull_join">
-
-<p><code>dplyr</code> provides <a href='https://dplyr.tidyverse.org/reference/join.html' title=''>a series of join functions</a></p>
 
 <ul>
 <li><code>full_join</code> combines all the available data</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>employees %&gt;% full_join(
-  city_of_birth,
-  by = c(&quot;Name&quot; = &quot;Name&quot;) # join columns
-  ) %&gt;%
-  kable()</pre>
+<pre class = 'prettyprint lang-r'>dplyr::full_join(
+  # first argument, left table
+  # second argument, right table
+  cities, cities_area, 
+  # specify which column to be matched
+  by = c(&quot;city_name&quot; = &quot;city_name&quot;)
+  )</pre>
 
 <table class = 'rmdtable'>
 <tr class="header">
-<th align="left">Name</th>
-<th align="right">Age</th>
-<th align="left">Role</th>
-<th align="left">City</th>
+<th align="left">city_name</th>
+<th align="left">country_name</th>
+<th align="right">city_pop_M</th>
+<th align="right">city_area_km2</th>
 </tr>
 <tr class="odd">
-<td align="left">Maria</td>
-<td align="right">47</td>
-<td align="left">Professor</td>
 <td align="left">Barcelona</td>
+<td align="left">Spain</td>
+<td align="right">1.62</td>
+<td align="right">101</td>
 </tr>
 <tr class="even">
-<td align="left">Pete</td>
-<td align="right">34</td>
-<td align="left">Researcher</td>
 <td align="left">London</td>
+<td align="left">UK</td>
+<td align="right">8.98</td>
+<td align="right">1572</td>
 </tr>
 <tr class="odd">
-<td align="left">Sarah</td>
-<td align="right">32</td>
-<td align="left">Researcher</td>
-<td align="left">Boston</td>
+<td align="left">Rome</td>
+<td align="left">Italy</td>
+<td align="right">4.34</td>
+<td align="right">496</td>
 </tr>
 <tr class="even">
-<td align="left">Jo</td>
-<td align="right">25</td>
-<td align="left">Postgrad</td>
-<td align="left">NA</td>
+<td align="left">Los Angeles</td>
+<td align="left">US</td>
+<td align="right">3.99</td>
+<td align="right">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">Mel</td>
-<td align="right">NA</td>
+<td align="left">Munich</td>
 <td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">310</td>
+</tr>
+</table>
+
+</article></slide><slide class=""><hgroup><h2>Pipes and shorthands</h2></hgroup><article  id="pipes-and-shorthands">
+
+<p>When using (all) join verbs in <code>dplyr</code></p>
+
+<pre class = 'prettyprint lang-r'># using pipe, left table is &quot;coming down the pipe&quot;
+cities %&gt;% 
+  dplyr::full_join(cities_area, by = c(&quot;city_name&quot; = &quot;city_name&quot;))
+
+# if no columns specified, columns with the same name are matched
+cities %&gt;% 
+  dplyr::full_join(cities_area)</pre>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">city_name</th>
+<th align="left">country_name</th>
+<th align="right">city_pop_M</th>
+<th align="right">city_area_km2</th>
+</tr>
+<tr class="odd">
+<td align="left">Barcelona</td>
+<td align="left">Spain</td>
+<td align="right">1.62</td>
+<td align="right">101</td>
+</tr>
+<tr class="even">
+<td align="left">London</td>
+<td align="left">UK</td>
+<td align="right">8.98</td>
+<td align="right">1572</td>
+</tr>
+<tr class="odd">
+<td align="left">Rome</td>
+<td align="left">Italy</td>
+<td align="right">4.34</td>
+<td align="right">496</td>
+</tr>
+<tr class="even">
 <td align="left">Los Angeles</td>
+<td align="left">US</td>
+<td align="right">3.99</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Munich</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">310</td>
 </tr>
 </table>
 
 </article></slide><slide class=""><hgroup><h2>dplyr::left_join</h2></hgroup><article  id="dplyrleft_join">
 
 <ul>
-<li><code>left_join</code> keeps all the data from the <strong>left</strong> table
+<li>keeps all the data from the <strong>left</strong> table
 
 <ul>
-<li>using <code>%&gt;%</code>, that’s the data <em>&ldquo;coming down the pipe&rdquo;</em></li>
+<li>first argument or <em>&ldquo;coming down the pipe&rdquo;</em></li>
 </ul></li>
-<li>rows from the right table without a match are dropped</li>
+<li>rows from the right table without a match are dropped
+
+<ul>
+<li>second argument (or first when using <em>pipes</em>)</li>
+</ul></li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>employees %&gt;% left_join(
-  city_of_birth,
-  by = c(&quot;Name&quot; = &quot;Name&quot;) # join columns
-  ) %&gt;%
-  kable()</pre>
+<pre class = 'prettyprint lang-r'>cities %&gt;% 
+  dplyr::left_join(cities_area)</pre>
 
 <table class = 'rmdtable'>
 <tr class="header">
-<th align="left">Name</th>
-<th align="right">Age</th>
-<th align="left">Role</th>
-<th align="left">City</th>
+<th align="left">city_name</th>
+<th align="left">country_name</th>
+<th align="right">city_pop_M</th>
+<th align="right">city_area_km2</th>
 </tr>
 <tr class="odd">
-<td align="left">Maria</td>
-<td align="right">47</td>
-<td align="left">Professor</td>
 <td align="left">Barcelona</td>
+<td align="left">Spain</td>
+<td align="right">1.62</td>
+<td align="right">101</td>
 </tr>
 <tr class="even">
-<td align="left">Pete</td>
-<td align="right">34</td>
-<td align="left">Researcher</td>
 <td align="left">London</td>
+<td align="left">UK</td>
+<td align="right">8.98</td>
+<td align="right">1572</td>
 </tr>
 <tr class="odd">
-<td align="left">Sarah</td>
-<td align="right">32</td>
-<td align="left">Researcher</td>
-<td align="left">Boston</td>
+<td align="left">Rome</td>
+<td align="left">Italy</td>
+<td align="right">4.34</td>
+<td align="right">496</td>
 </tr>
 <tr class="even">
-<td align="left">Jo</td>
-<td align="right">25</td>
-<td align="left">Postgrad</td>
-<td align="left">NA</td>
+<td align="left">Los Angeles</td>
+<td align="left">US</td>
+<td align="right">3.99</td>
+<td align="right">NA</td>
 </tr>
 </table>
 
 </article></slide><slide class=""><hgroup><h2>dplyr::right_join</h2></hgroup><article  id="dplyrright_join">
 
 <ul>
-<li><code>right_join</code> keeps all the data from the <strong>right</strong> table
+<li>keeps all the data from the <strong>right</strong> table
 
 <ul>
-<li>using <code>%&gt;%</code>, that’s the data provided as an argument</li>
+<li>second argument (or first when using <em>pipes</em>)</li>
 </ul></li>
-<li>rows from the left table without a match are dropped</li>
+<li>rows from the left table without a match are dropped
+
+<ul>
+<li>first argument or <em>&ldquo;coming down the pipe&rdquo;</em></li>
+</ul></li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>employees %&gt;% right_join(
-  city_of_birth,
-  by = c(&quot;Name&quot; = &quot;Name&quot;) # join columns
-  ) %&gt;%
-  kable()</pre>
+<pre class = 'prettyprint lang-r'>cities %&gt;% 
+  dplyr::right_join(cities_area)</pre>
 
 <table class = 'rmdtable'>
 <tr class="header">
-<th align="left">Name</th>
-<th align="right">Age</th>
-<th align="left">Role</th>
-<th align="left">City</th>
+<th align="left">city_name</th>
+<th align="left">country_name</th>
+<th align="right">city_pop_M</th>
+<th align="right">city_area_km2</th>
 </tr>
 <tr class="odd">
-<td align="left">Maria</td>
-<td align="right">47</td>
-<td align="left">Professor</td>
 <td align="left">Barcelona</td>
+<td align="left">Spain</td>
+<td align="right">1.62</td>
+<td align="right">101</td>
 </tr>
 <tr class="even">
-<td align="left">Pete</td>
-<td align="right">34</td>
-<td align="left">Researcher</td>
 <td align="left">London</td>
+<td align="left">UK</td>
+<td align="right">8.98</td>
+<td align="right">1572</td>
 </tr>
 <tr class="odd">
-<td align="left">Sarah</td>
-<td align="right">32</td>
-<td align="left">Researcher</td>
-<td align="left">Boston</td>
+<td align="left">Rome</td>
+<td align="left">Italy</td>
+<td align="right">4.34</td>
+<td align="right">496</td>
 </tr>
 <tr class="even">
-<td align="left">Mel</td>
-<td align="right">NA</td>
+<td align="left">Munich</td>
 <td align="left">NA</td>
-<td align="left">Los Angeles</td>
+<td align="right">NA</td>
+<td align="right">310</td>
 </tr>
 </table>
 
 </article></slide><slide class=""><hgroup><h2>dplyr::inner_join</h2></hgroup><article  id="dplyrinner_join">
 
 <ul>
-<li><code>inner_join</code> keeps only rows that have a match in both tables</li>
-<li>rows without a match are dropped</li>
+<li>keeps only rows that have a match in <strong>both</strong> tables</li>
+<li>rows without a match either way are dropped</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>employees %&gt;% inner_join(
-  city_of_birth,
-  by = c(&quot;Name&quot; = &quot;Name&quot;) # join columns
-  ) %&gt;%
-  kable()</pre>
+<pre class = 'prettyprint lang-r'>cities %&gt;% 
+  dplyr::inner_join(cities_area)</pre>
 
 <table class = 'rmdtable'>
 <tr class="header">
-<th align="left">Name</th>
-<th align="right">Age</th>
-<th align="left">Role</th>
-<th align="left">City</th>
+<th align="left">city_name</th>
+<th align="left">country_name</th>
+<th align="right">city_pop_M</th>
+<th align="right">city_area_km2</th>
 </tr>
 <tr class="odd">
-<td align="left">Maria</td>
-<td align="right">47</td>
-<td align="left">Professor</td>
 <td align="left">Barcelona</td>
+<td align="left">Spain</td>
+<td align="right">1.62</td>
+<td align="right">101</td>
 </tr>
 <tr class="even">
-<td align="left">Pete</td>
-<td align="right">34</td>
-<td align="left">Researcher</td>
 <td align="left">London</td>
+<td align="left">UK</td>
+<td align="right">8.98</td>
+<td align="right">1572</td>
 </tr>
 <tr class="odd">
-<td align="left">Sarah</td>
-<td align="right">32</td>
-<td align="left">Researcher</td>
-<td align="left">Boston</td>
+<td align="left">Rome</td>
+<td align="left">Italy</td>
+<td align="right">4.34</td>
+<td align="right">496</td>
+</tr>
+</table>
+
+</article></slide><slide class=""><hgroup><h2>dplyr::semi_join and anti_join</h2></hgroup><article  id="dplyrsemi_join-and-anti_join">
+
+<pre class = 'prettyprint lang-r'>cities %&gt;% 
+  dplyr::semi_join(cities_area)</pre>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">city_name</th>
+<th align="left">country_name</th>
+<th align="right">city_pop_M</th>
+</tr>
+<tr class="odd">
+<td align="left">Barcelona</td>
+<td align="left">Spain</td>
+<td align="right">1.62</td>
+</tr>
+<tr class="even">
+<td align="left">London</td>
+<td align="left">UK</td>
+<td align="right">8.98</td>
+</tr>
+<tr class="odd">
+<td align="left">Rome</td>
+<td align="left">Italy</td>
+<td align="right">4.34</td>
+</tr>
+</table>
+
+<p><br/></p>
+
+<pre class = 'prettyprint lang-r'>cities %&gt;% 
+  dplyr::anti_join(cities_area)</pre>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">city_name</th>
+<th align="left">country_name</th>
+<th align="right">city_pop_M</th>
+</tr>
+<tr class="odd">
+<td align="left">Los Angeles</td>
+<td align="left">US</td>
+<td align="right">3.99</td>
 </tr>
 </table>
 

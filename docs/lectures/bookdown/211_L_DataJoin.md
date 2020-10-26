@@ -10,7 +10,7 @@
 
 **Prev**: Selection and manipulation
 
-- Data Frames
+- Data frames and tibbles
 - Data selection and filtering
 - Data manipulation
 
@@ -20,18 +20,57 @@
 - dplyr join functions
 
 
+## Example
+
+
+```r
+cities <- data.frame(
+  city_name = c("Barcelona", "London", "Rome", "Los Angeles"),
+  country_name = c("Spain", "UK", "Italy", "US"),
+  city_pop_M = c(1.62, 8.98, 4.34, 3.99)
+)
+
+cities_area <-data.frame(
+  city_name = c("Barcelona", "London", "Rome", "Munich"),
+  city_area_km2 = c(101, 1572, 496, 310)
+)
+```
+
+## Example
+
+
+|city_name   |country_name | city_pop_M|
+|:-----------|:------------|----------:|
+|Barcelona   |Spain        |       1.62|
+|London      |UK           |       8.98|
+|Rome        |Italy        |       4.34|
+|Los Angeles |US           |       3.99|
+
+<br/>
+
+
+|city_name | city_area_km2|
+|:---------|-------------:|
+|Barcelona |           101|
+|London    |          1572|
+|Rome      |           496|
+|Munich    |           310|
+
+
+
+
 
 ## Joining data
 
-Data frames can be joined (or 'merged')
+Tables can be joined (or 'merged')
 
-- information from two data frames can be combined
-- specifying a **column with common values**
+- information from two tables can be combined
+- specifying **column(s) from two tables with common values**
     - usually one with a unique identifier of an entity
 - rows having the same value are joined
 - depending on parameters
-    - a row from one data frame can be merged with multiple rows from the other data frame
-    - rows with no matching values in the other data frame can be retained
+    - a row from one table can be merged with multiple rows from the other table
+    - rows with no matching values in the other table can be retained
 - `merge` base function or join functions in `dplyr`
 
 
@@ -48,145 +87,164 @@ Data frames can be joined (or 'merged')
 <center>
 
 
-## Example
+
+## dplyr joins
+
+`dplyr` provides [a series of join verbs](https://dplyr.tidyverse.org/reference/join.html)
+
+- **Mutating joins**
+  - `inner_join`: inner join
+  - `left_join`: left join
+  - `right_join`: right join
+  - `full_join`: full join
+- **Nesting joins**
+  - `nest_join`: all rows columns from left table, plus a column of tibbles with matching from right
+- **Filtering joins** (keep only columns from left)
+  - `semi_join`: , rows from left where match with right
+  - `anti_join`: rows from left where no match with right
 
 
-```r
-employees <- data.frame(
-  Name = c("Maria", "Pete", "Sarah", "Jo"),
-  Age = c(47, 34, 32, 25),
-  Role = c("Professor", "Researcher", "Researcher", "Postgrad")
-)
 
-city_of_birth <-data.frame(
-  Name = c("Maria", "Pete", "Sarah", "Mel"),
-  City = c("Barcelona", "London", "Boston", "Los Angeles")
-)
-```
-
-## Example
-
-
-|Name  | Age|Role       |
-|:-----|---:|:----------|
-|Maria |  47|Professor  |
-|Pete  |  34|Researcher |
-|Sarah |  32|Researcher |
-|Jo    |  25|Postgrad   |
-
-<br/>
-
-
-|Name  |City        |
-|:-----|:-----------|
-|Maria |Barcelona   |
-|Pete  |London      |
-|Sarah |Boston      |
-|Mel   |Los Angeles |
 
 
 ## dplyr::full_join
-
-`dplyr` provides [a series of join functions](https://dplyr.tidyverse.org/reference/join.html)
-
-
 
 - `full_join` combines all the available data
 
 
 ```r
-employees %>% full_join(
-  city_of_birth,
-  by = c("Name" = "Name") # join columns
-  ) %>%
-  kable()
+dplyr::full_join(
+  # first argument, left table
+  # second argument, right table
+  cities, cities_area, 
+  # specify which column to be matched
+  by = c("city_name" = "city_name")
+  )
 ```
 
+|city_name   |country_name | city_pop_M| city_area_km2|
+|:-----------|:------------|----------:|-------------:|
+|Barcelona   |Spain        |       1.62|           101|
+|London      |UK           |       8.98|          1572|
+|Rome        |Italy        |       4.34|           496|
+|Los Angeles |US           |       3.99|            NA|
+|Munich      |NA           |         NA|           310|
 
 
-|Name  | Age|Role       |City        |
-|:-----|---:|:----------|:-----------|
-|Maria |  47|Professor  |Barcelona   |
-|Pete  |  34|Researcher |London      |
-|Sarah |  32|Researcher |Boston      |
-|Jo    |  25|Postgrad   |NA          |
-|Mel   |  NA|NA         |Los Angeles |
+## Pipes and shorthands
+
+When using (all) join verbs in `dplyr`
+
+
+```r
+# using pipe, left table is "coming down the pipe"
+cities %>% 
+  dplyr::full_join(cities_area, by = c("city_name" = "city_name"))
+
+# if no columns specified, columns with the same name are matched
+cities %>% 
+  dplyr::full_join(cities_area)
+```
+
+|city_name   |country_name | city_pop_M| city_area_km2|
+|:-----------|:------------|----------:|-------------:|
+|Barcelona   |Spain        |       1.62|           101|
+|London      |UK           |       8.98|          1572|
+|Rome        |Italy        |       4.34|           496|
+|Los Angeles |US           |       3.99|            NA|
+|Munich      |NA           |         NA|           310|
 
 
 
 ## dplyr::left_join
 
-- `left_join` keeps all the data from the **left** table
-  - using `%>%`, that's the data *"coming down the pipe"*
+- keeps all the data from the **left** table
+  - first argument or *"coming down the pipe"*
 - rows from the right table without a match are dropped
+  - second argument (or first when using *pipes*)
 
 
 ```r
-employees %>% left_join(
-  city_of_birth,
-  by = c("Name" = "Name") # join columns
-  ) %>%
-  kable()
+cities %>% 
+  dplyr::left_join(cities_area)
 ```
 
-
-
-|Name  | Age|Role       |City      |
-|:-----|---:|:----------|:---------|
-|Maria |  47|Professor  |Barcelona |
-|Pete  |  34|Researcher |London    |
-|Sarah |  32|Researcher |Boston    |
-|Jo    |  25|Postgrad   |NA        |
+|city_name   |country_name | city_pop_M| city_area_km2|
+|:-----------|:------------|----------:|-------------:|
+|Barcelona   |Spain        |       1.62|           101|
+|London      |UK           |       8.98|          1572|
+|Rome        |Italy        |       4.34|           496|
+|Los Angeles |US           |       3.99|            NA|
 
 
 
 ## dplyr::right_join
 
-- `right_join` keeps all the data from the **right** table
-    - using `%>%`, that's the data provided as an argument
+- keeps all the data from the **right** table
+  - second argument (or first when using *pipes*)
 - rows from the left table without a match are dropped
+  - first argument or *"coming down the pipe"*
 
 
 ```r
-employees %>% right_join(
-  city_of_birth,
-  by = c("Name" = "Name") # join columns
-  ) %>%
-  kable()
+cities %>% 
+  dplyr::right_join(cities_area)
 ```
 
+|city_name |country_name | city_pop_M| city_area_km2|
+|:---------|:------------|----------:|-------------:|
+|Barcelona |Spain        |       1.62|           101|
+|London    |UK           |       8.98|          1572|
+|Rome      |Italy        |       4.34|           496|
+|Munich    |NA           |         NA|           310|
 
-
-|Name  | Age|Role       |City        |
-|:-----|---:|:----------|:-----------|
-|Maria |  47|Professor  |Barcelona   |
-|Pete  |  34|Researcher |London      |
-|Sarah |  32|Researcher |Boston      |
-|Mel   |  NA|NA         |Los Angeles |
 
 
 
 ## dplyr::inner_join
 
-- `inner_join` keeps only rows that have a match in both tables
-- rows without a match are dropped
+- keeps only rows that have a match in **both** tables
+- rows without a match either way are dropped
 
 
 ```r
-employees %>% inner_join(
-  city_of_birth,
-  by = c("Name" = "Name") # join columns
-  ) %>%
-  kable()
+cities %>% 
+  dplyr::inner_join(cities_area)
 ```
 
+|city_name |country_name | city_pop_M| city_area_km2|
+|:---------|:------------|----------:|-------------:|
+|Barcelona |Spain        |       1.62|           101|
+|London    |UK           |       8.98|          1572|
+|Rome      |Italy        |       4.34|           496|
 
 
-|Name  | Age|Role       |City      |
-|:-----|---:|:----------|:---------|
-|Maria |  47|Professor  |Barcelona |
-|Pete  |  34|Researcher |London    |
-|Sarah |  32|Researcher |Boston    |
+
+## dplyr::semi_join and anti_join
+
+
+```r
+cities %>% 
+  dplyr::semi_join(cities_area)
+```
+
+|city_name |country_name | city_pop_M|
+|:---------|:------------|----------:|
+|Barcelona |Spain        |       1.62|
+|London    |UK           |       8.98|
+|Rome      |Italy        |       4.34|
+
+<br/>
+
+
+```r
+cities %>% 
+  dplyr::anti_join(cities_area)
+```
+
+|city_name   |country_name | city_pop_M|
+|:-----------|:------------|----------:|
+|Los Angeles |US           |       3.99|
 
 
 

@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-10-23" />
+  <meta name="date" content="2020-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3265,7 +3265,7 @@ width: 90%;
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-10-23</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-10-26</p>
           </hgroup>
   </slide>
 
@@ -3289,22 +3289,44 @@ width: 90%;
 <li>write</li>
 </ul>
 
+</article></slide><slide class=""><hgroup><h2>Text file formats</h2></hgroup><article  id="text-file-formats">
+
+<p>A series of formats based on plain-text files</p>
+
+<p>For instance</p>
+
+<ul>
+<li>comma-separated values files <code>.csv</code></li>
+<li>semi-colon-separated values files <code>.csv</code></li>
+<li>tab-separated values files <code>.tsv</code></li>
+<li>other formats using custom delimiters</li>
+<li>fix-width files <code>.fwf</code></li>
+</ul>
+
 </article></slide><slide class=""><hgroup><h2>Comma Separated Values</h2></hgroup><article  id="comma-separated-values">
 
-<p>The file <code>2011_OAC_Raw_uVariables_Leicester.csv</code> - contains data used for the 2011 Output Area Classification - 167 variables, as well as the resulting groups - for the city of Leicester</p>
+<p>The file <code>2011_OAC_supgrp_Leicester.csv</code> contains</p>
 
-<p>Extract showing only some columns</p>
+<ul>
+<li>one row for each <a href='https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography' title=''>Output Area (OA)</a> in Leicester</li>
+<li><a href='https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography' title=''>Lower-Super Output Area (LSOA)</a> containing the OA</li>
+<li>code and name of the supergroup assigned to the OA by the <a href='http://geogale.github.io/2011OAC/' title=''>2011 Output Area Classification</a></li>
+<li>total population of the OA</li>
+</ul>
 
-<pre >OA11CD,LSOA11CD, ... supgrpcode,supgrpname,Total_Population, ...
-E00069517,E01013785, ... 6,Suburbanites,313, ...
-E00169516,E01013713, ... 4,Multicultural Metropolitans,341, ...
-E00169048,E01032862, ... 4,Multicultural Metropolitans,345, ...</pre>
+<p>Extract showing only the first few rows</p>
 
-<p>The full variable names can be found in the file - <code>2011_OAC_Raw_uVariables_Lookup.csv</code>.</p>
+<pre >OA11CD,LSOA11CD,supgrpcode,supgrpname,Total_Population
+E00069517,E01013785,6,Suburbanites,313
+E00069514,E01013784,2,Cosmopolitans,323
+E00169516,E01013713,4,Multicultural Metropolitans,341
+E00169048,E01032862,4,Multicultural Metropolitans,345</pre>
 
 </article></slide><slide class=""><hgroup><h2>readr</h2></hgroup><article  id="readr">
 
-<p>Library part of the Tidyverse providing functions to read and write text files</p>
+<p>The <a href='https://readr.tidyverse.org/' title=''><code>readr</code></a> (pronounced <em>read-er</em>) library is part of <a href='https://www.tidyverse.org/' title=''><code>tidyverse</code></a></p>
+
+<p>Provides functions to read and write text files</p>
 
 <ul>
 <li><code>readr::read_csv</code>: comma-separated files <code>.csv</code></li>
@@ -3320,45 +3342,22 @@ E00169048,E01032862, ... 4,Multicultural Metropolitans,345, ...</pre>
 <li><code>readr::write_csv</code>: comma-separated files <code>.csv</code></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Read</h2></hgroup><article  id="read">
+</article></slide><slide class=""><hgroup><h2>readr::read_csv</h2></hgroup><article  id="readrread_csv">
 
 <p>The <code>readr::read_csv</code> function of the <a href='https://readr.tidyverse.org/index.html' title=''><code>readr</code></a> library reads a <em>csv</em> file from the path provided as the first argument</p>
 
-<pre class = 'prettyprint lang-r'>leicester_2011OAC &lt;- readr::read_csv(&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;)
+<pre class = 'prettyprint lang-r'>leicester_2011OAC &lt;- 
+  readr::read_csv(&quot;2011_OAC_supgrp_Leicester.csv&quot;)
 
-leicester_2011OAC %&gt;% 
-  dplyr::select(OA11CD,LSOA11CD, supgrpcode,supgrpname,Total_Population)</pre>
+leicester_2011OAC</pre>
 
-<table class = 'rmdtable'>
-<tr class="header">
-<th align="left">OA11CD</th>
-<th align="left">LSOA11CD</th>
-<th align="right">supgrpcode</th>
-<th align="left">supgrpname</th>
-<th align="right">Total_Population</th>
-</tr>
-<tr class="odd">
-<td align="left">E00069517</td>
-<td align="left">E01013785</td>
-<td align="right">6</td>
-<td align="left">Suburbanites</td>
-<td align="right">313</td>
-</tr>
-<tr class="even">
-<td align="left">E00069514</td>
-<td align="left">E01013784</td>
-<td align="right">2</td>
-<td align="left">Cosmopolitans</td>
-<td align="right">323</td>
-</tr>
-<tr class="odd">
-<td align="left">E00169516</td>
-<td align="left">E01013713</td>
-<td align="right">4</td>
-<td align="left">Multicultural Metropolitans</td>
-<td align="right">341</td>
-</tr>
-</table>
+<pre >## # A tibble: 969 x 5
+##   OA11CD  LSOA11CD supgrpcode supgrpname    Total_Population
+##   &lt;chr&gt;   &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt;
+## 1 E00069… E010137…          6 Suburbanites               313
+## 2 E00069… E010137…          2 Cosmopolitans              323
+## 3 E00169… E010137…          4 Multicultura…              341
+## # … with 966 more rows</pre>
 
 </article></slide><slide class=""><hgroup><h2>Read options</h2></hgroup><article  id="read-options">
 
@@ -3384,73 +3383,81 @@ leicester_2011OAC %&gt;%
 </ul></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Read options</h2></hgroup><article  id="read-options-1">
+</article></slide><slide class=""><hgroup><h2>Column specifications</h2></hgroup><article  id="column-specifications">
 
-<pre class = 'prettyprint lang-r'>readr::read_csv(&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;)</pre>
+<ul>
+<li><code>col_logical()</code> or <code>l</code> as logic values</li>
+<li><code>col_integer()</code> or <code>i</code> as integer</li>
+<li><code>col_double()</code> or <code>d</code> as numeric (double)</li>
+<li><code>col_character()</code> or <code>c</code> as character</li>
+<li><code>col_factor(levels, ordered)</code> or <code>f</code> as factor</li>
+<li><code>col_date(format = &quot;&quot;)</code> or <code>D</code> as data type</li>
+<li><code>col_time(format = &quot;&quot;)</code> or <code>t</code> as time type</li>
+<li><code>col_datetime(format = &quot;&quot;)</code> or <code>T</code> as datetime</li>
+<li><code>col_number()</code> or <code>n</code> as numeric (dropping marks)</li>
+<li><code>col_skip()</code> or <code>_</code> or <code>-</code> don’t import</li>
+<li><code>col_guess()</code> or <code>?</code> use best type based on the input</li>
+</ul>
 
-<pre >## # A tibble: 969 x 190
-##   OA11CD LSOA11CD LSO11ANM MSOA11CD MSOA11NM LAD11CD LAD11NM supgrpcode
-##   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;
-## 1 E0006… E010137… Leicest… E020028… Leicest… E06000… Leices…          6
-## 2 E0006… E010137… Leicest… E020028… Leicest… E06000… Leices…          2
-## 3 E0016… E010137… Leicest… E020028… Leicest… E06000… Leices…          4
-## # … with 966 more rows, and 182 more variables: supgrpname &lt;chr&gt;,
-## #   grpcode &lt;chr&gt;, grpname &lt;chr&gt;, subgrpcode &lt;chr&gt;, subgrpname &lt;chr&gt;,
-## #   Total_Population &lt;dbl&gt;, Total_Households &lt;dbl&gt;, Total_Dwellings &lt;dbl&gt;,
-## #   Total_Household_Spaces &lt;dbl&gt;, Total_Population_16_and_over &lt;dbl&gt;,
-## #   Total_Population_16_to_74 &lt;dbl&gt;, Total_Pop_No_NI_Students_16_to_74 &lt;dbl&gt;,
-## #   Total_Employment_16_to_74 &lt;dbl&gt;,
-## #   Total_Pop_in_Housesholds_16_and_over &lt;dbl&gt;,
-## #   Total_Population_3_and_over &lt;dbl&gt;, u001 &lt;dbl&gt;, u002 &lt;dbl&gt;, u003 &lt;dbl&gt;,
-## #   u004 &lt;dbl&gt;, u005 &lt;dbl&gt;, u006 &lt;dbl&gt;, u007 &lt;dbl&gt;, u008 &lt;dbl&gt;, u009 &lt;dbl&gt;,
-## #   u010 &lt;dbl&gt;, u011 &lt;dbl&gt;, u012 &lt;dbl&gt;, u013 &lt;dbl&gt;, u014 &lt;dbl&gt;, u015 &lt;dbl&gt;,
-## #   u016 &lt;dbl&gt;, u017 &lt;dbl&gt;, u018 &lt;dbl&gt;, u019 &lt;dbl&gt;, u020 &lt;dbl&gt;, u021 &lt;dbl&gt;,
-## #   u022 &lt;dbl&gt;, u023 &lt;dbl&gt;, u024 &lt;dbl&gt;, u025 &lt;dbl&gt;, u026 &lt;dbl&gt;, u027 &lt;dbl&gt;,
-## #   u028 &lt;dbl&gt;, u029 &lt;dbl&gt;, u030 &lt;dbl&gt;, u031 &lt;dbl&gt;, u032 &lt;dbl&gt;, u033 &lt;dbl&gt;,
-## #   u034 &lt;dbl&gt;, u035 &lt;dbl&gt;, u036 &lt;dbl&gt;, u037 &lt;dbl&gt;, u038 &lt;dbl&gt;, u039 &lt;dbl&gt;,
-## #   u040 &lt;dbl&gt;, u041 &lt;dbl&gt;, u042 &lt;dbl&gt;, u043 &lt;dbl&gt;, u044 &lt;dbl&gt;, u045 &lt;dbl&gt;,
-## #   u046 &lt;dbl&gt;, u047 &lt;dbl&gt;, u048 &lt;dbl&gt;, u049 &lt;dbl&gt;, u050 &lt;dbl&gt;, u051 &lt;dbl&gt;,
-## #   u052 &lt;dbl&gt;, u053 &lt;dbl&gt;, u054 &lt;dbl&gt;, u055 &lt;dbl&gt;, u056 &lt;dbl&gt;, u057 &lt;dbl&gt;,
-## #   u058 &lt;dbl&gt;, u059 &lt;dbl&gt;, u060 &lt;dbl&gt;, u061 &lt;dbl&gt;, u062 &lt;dbl&gt;, u063 &lt;dbl&gt;,
-## #   u064 &lt;dbl&gt;, u065 &lt;dbl&gt;, u066 &lt;dbl&gt;, u067 &lt;dbl&gt;, u068 &lt;dbl&gt;, u069 &lt;dbl&gt;,
-## #   u070 &lt;dbl&gt;, u071 &lt;dbl&gt;, u072 &lt;dbl&gt;, u073 &lt;dbl&gt;, u074 &lt;dbl&gt;, u075 &lt;dbl&gt;,
-## #   u076 &lt;dbl&gt;, u077 &lt;dbl&gt;, u078 &lt;dbl&gt;, u079 &lt;dbl&gt;, u080 &lt;dbl&gt;, u081 &lt;dbl&gt;,
-## #   u082 &lt;dbl&gt;, u083 &lt;dbl&gt;, u084 &lt;dbl&gt;, u085 &lt;dbl&gt;, …</pre>
+</article></slide><slide class=""><hgroup><h2>readr::read_csv</h2></hgroup><article  id="readrread_csv-1">
 
-<pre class = 'prettyprint lang-r'>readr::read_csv(
-  &quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;
+<p>Using <code>readr::read_csv</code> as in the previous example with no further options will generate the following warning</p>
+
+<pre class = 'prettyprint lang-r'>leicester_2011OAC &lt;- 
+  readr::read_csv(&quot;2011_OAC_supgrp_Leicester.csv&quot;)
+
+leicester_2011OAC</pre>
+
+<pre >Parsed with column specification:
+cols(
+  OA11CD = col_character(),
+  LSOA11CD = col_character(),
+  supgrpcode = col_double(),
+  supgrpname = col_character(),
+  Total_Population = col_double()
+)</pre>
+
+</article></slide><slide class=""><hgroup><h2>readr::read_csv</h2></hgroup><article  id="readrread_csv-2">
+
+<pre class = 'prettyprint lang-r'>leicester_2011OAC &lt;- readr::read_csv(
+    &quot;2011_OAC_supgrp_Leicester.csv&quot;,
+    col_types = cols(
+      OA11CD  = col_character(),
+      LSOA11CD  = col_character(),
+      supgrpcode  = col_character(),
+      supgrpname  = col_character(),
+      Total_Population  = col_integer()
+    )
   )</pre>
 
-<pre >## # A tibble: 969 x 190
-##   OA11CD LSOA11CD LSO11ANM MSOA11CD MSOA11NM LAD11CD LAD11NM supgrpcode
-##   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;
-## 1 E0006… E010137… Leicest… E020028… Leicest… E06000… Leices…          6
-## 2 E0006… E010137… Leicest… E020028… Leicest… E06000… Leices…          2
-## 3 E0016… E010137… Leicest… E020028… Leicest… E06000… Leices…          4
-## # … with 966 more rows, and 182 more variables: supgrpname &lt;chr&gt;,
-## #   grpcode &lt;chr&gt;, grpname &lt;chr&gt;, subgrpcode &lt;chr&gt;, subgrpname &lt;chr&gt;,
-## #   Total_Population &lt;dbl&gt;, Total_Households &lt;dbl&gt;, Total_Dwellings &lt;dbl&gt;,
-## #   Total_Household_Spaces &lt;dbl&gt;, Total_Population_16_and_over &lt;dbl&gt;,
-## #   Total_Population_16_to_74 &lt;dbl&gt;, Total_Pop_No_NI_Students_16_to_74 &lt;dbl&gt;,
-## #   Total_Employment_16_to_74 &lt;dbl&gt;,
-## #   Total_Pop_in_Housesholds_16_and_over &lt;dbl&gt;,
-## #   Total_Population_3_and_over &lt;dbl&gt;, u001 &lt;dbl&gt;, u002 &lt;dbl&gt;, u003 &lt;dbl&gt;,
-## #   u004 &lt;dbl&gt;, u005 &lt;dbl&gt;, u006 &lt;dbl&gt;, u007 &lt;dbl&gt;, u008 &lt;dbl&gt;, u009 &lt;dbl&gt;,
-## #   u010 &lt;dbl&gt;, u011 &lt;dbl&gt;, u012 &lt;dbl&gt;, u013 &lt;dbl&gt;, u014 &lt;dbl&gt;, u015 &lt;dbl&gt;,
-## #   u016 &lt;dbl&gt;, u017 &lt;dbl&gt;, u018 &lt;dbl&gt;, u019 &lt;dbl&gt;, u020 &lt;dbl&gt;, u021 &lt;dbl&gt;,
-## #   u022 &lt;dbl&gt;, u023 &lt;dbl&gt;, u024 &lt;dbl&gt;, u025 &lt;dbl&gt;, u026 &lt;dbl&gt;, u027 &lt;dbl&gt;,
-## #   u028 &lt;dbl&gt;, u029 &lt;dbl&gt;, u030 &lt;dbl&gt;, u031 &lt;dbl&gt;, u032 &lt;dbl&gt;, u033 &lt;dbl&gt;,
-## #   u034 &lt;dbl&gt;, u035 &lt;dbl&gt;, u036 &lt;dbl&gt;, u037 &lt;dbl&gt;, u038 &lt;dbl&gt;, u039 &lt;dbl&gt;,
-## #   u040 &lt;dbl&gt;, u041 &lt;dbl&gt;, u042 &lt;dbl&gt;, u043 &lt;dbl&gt;, u044 &lt;dbl&gt;, u045 &lt;dbl&gt;,
-## #   u046 &lt;dbl&gt;, u047 &lt;dbl&gt;, u048 &lt;dbl&gt;, u049 &lt;dbl&gt;, u050 &lt;dbl&gt;, u051 &lt;dbl&gt;,
-## #   u052 &lt;dbl&gt;, u053 &lt;dbl&gt;, u054 &lt;dbl&gt;, u055 &lt;dbl&gt;, u056 &lt;dbl&gt;, u057 &lt;dbl&gt;,
-## #   u058 &lt;dbl&gt;, u059 &lt;dbl&gt;, u060 &lt;dbl&gt;, u061 &lt;dbl&gt;, u062 &lt;dbl&gt;, u063 &lt;dbl&gt;,
-## #   u064 &lt;dbl&gt;, u065 &lt;dbl&gt;, u066 &lt;dbl&gt;, u067 &lt;dbl&gt;, u068 &lt;dbl&gt;, u069 &lt;dbl&gt;,
-## #   u070 &lt;dbl&gt;, u071 &lt;dbl&gt;, u072 &lt;dbl&gt;, u073 &lt;dbl&gt;, u074 &lt;dbl&gt;, u075 &lt;dbl&gt;,
-## #   u076 &lt;dbl&gt;, u077 &lt;dbl&gt;, u078 &lt;dbl&gt;, u079 &lt;dbl&gt;, u080 &lt;dbl&gt;, u081 &lt;dbl&gt;,
-## #   u082 &lt;dbl&gt;, u083 &lt;dbl&gt;, u084 &lt;dbl&gt;, u085 &lt;dbl&gt;, …</pre>
+<pre >## # A tibble: 969 x 5
+##   OA11CD  LSOA11CD supgrpcode supgrpname    Total_Population
+##   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;                    &lt;int&gt;
+## 1 E00069… E010137… 6          Suburbanites               313
+## 2 E00069… E010137… 2          Cosmopolitans              323
+## 3 E00169… E010137… 4          Multicultura…              341
+## # … with 966 more rows</pre>
 
-</article></slide><slide class=""><hgroup><h2>Write</h2></hgroup><article  id="write">
+</article></slide><slide class=""><hgroup><h2>readr::read_csv</h2></hgroup><article  id="readrread_csv-3">
+
+<pre class = 'prettyprint lang-r'>leicester_2011OAC &lt;- readr::read_csv(
+    &quot;2011_OAC_supgrp_Leicester.csv&quot;,
+    col_types = &quot;cccci&quot;
+  )</pre>
+
+<pre >## # A tibble: 969 x 5
+##   OA11CD  LSOA11CD supgrpcode supgrpname    Total_Population
+##   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;                    &lt;int&gt;
+## 1 E00069… E010137… 6          Suburbanites               313
+## 2 E00069… E010137… 2          Cosmopolitans              323
+## 3 E00169… E010137… 4          Multicultura…              341
+## 4 E00169… E010328… 4          Multicultura…              345
+## 5 E00169… E010328… 4          Multicultura…              322
+## 6 E00069… E010136… 4          Multicultura…              334
+## 7 E00169… E010328… 4          Multicultura…              336
+## # … with 962 more rows</pre>
+
+</article></slide><slide class=""><hgroup><h2>readr::write_csv</h2></hgroup><article  id="readrwrite_csv">
 
 <p>The function <code>write_csv</code> can be used to save a dataset to <code>csv</code></p>
 
@@ -3460,13 +3467,33 @@ leicester_2011OAC %&gt;%
 <li><strong>read</strong> the 2011 OAC dataset</li>
 <li><strong>select</strong> a few columns</li>
 <li><strong>filter</strong> only those OA in the supergroup <em>Suburbanites</em> (code <code>6</code>)</li>
-<li><strong>write</strong> the results to a file named <em>Leicester_Suburbanites.csv</em> in your home folder</li>
+<li><strong>write</strong> the results to a file named <em>2011_OAC_supgrp_Leicester_supgrp6.csv</em></li>
 </ol>
 
-<pre class = 'prettyprint lang-r'>readr::read_csv(&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;) %&gt;%
-  dplyr::select(OA11CD, supgrpcode, supgrpname) %&gt;%
-  dplyr::filter(supgrpcode == 6) %&gt;%
-  readr::write_csv(&quot;~/Leicester_Suburbanites.csv&quot;)</pre>
+<pre class = 'prettyprint lang-r'>readr::read_csv(&quot;2011_OAC_supgrp_Leicester.csv&quot;) %&gt;%
+  dplyr::select(OA11CD, supgrpcode, Total_Population) %&gt;%
+  dplyr::filter(supgrpcode == &quot;6&quot;) %&gt;%
+  readr::write_csv(&quot;2011_OAC_supgrp_Leicester_supgrp6.csv&quot;)</pre>
+
+</article></slide><slide class=""><hgroup><h2>readr::write_tsv</h2></hgroup><article  id="readrwrite_tsv">
+
+<pre class = 'prettyprint lang-r'>readr::read_csv(&quot;2011_OAC_supgrp_Leicester.csv&quot;) %&gt;%
+  dplyr::select(OA11CD, supgrpcode, Total_Population) %&gt;%
+  dplyr::filter(supgrpcode == &quot;6&quot;) %&gt;%
+  readr::write_tsv(&quot;2011_OAC_supgrp_Leicester_supgrp6.tsv&quot;)</pre>
+
+<pre >OA11CD      supgrpcode  Total_Population
+E00069517   6           313
+E00069468   6           251
+E00069528   6           270
+E00069538   6           307
+E00069174   6           321
+E00069170   6           353
+E00069171   6           351
+E00068713   6           265
+E00069005   6           391
+E00069014   6           316
+E00068989   6           354</pre>
 
 </article></slide><slide class=""><hgroup><h2>Other data imports</h2></hgroup><article  id="other-data-imports">
 
@@ -3483,7 +3510,6 @@ leicester_2011OAC %&gt;%
 
 <ul>
 <li><a href='https://cran.r-project.org/web/packages/DBI/' title=''><code>DBI</code></a> for relational databases</li>
-<li>Specific backends require different packages, e.g. <a href='https://cran.r-project.org/web/packages/RPostgreSQL/' title=''><code>RPostgreSQL</code></a></li>
 </ul></li>
 <li>NoSQL
 
@@ -3494,10 +3520,14 @@ leicester_2011OAC %&gt;%
 <li>Web
 
 <ul>
-<li><a href='https://cran.r-project.org/web/packages/httr/' title=''><code>httr</code></a> for web APIs.</li>
-<li><a href='https://cran.r-project.org/web/packages/rvest/' title=''><code>rvest</code></a> for web scraping.</li>
+<li><a href='https://cran.r-project.org/web/packages/httr/' title=''><code>httr</code></a> for web APIs</li>
 </ul></li>
 </ul>
+
+<!--
+  - Specific backends require different packages, e.g. [`RPostgreSQL`](https://cran.r-project.org/web/packages/RPostgreSQL/)
+  - [`rvest`](https://cran.r-project.org/web/packages/rvest/) for web scraping.
+-->
 
 </article></slide><slide class=""><hgroup><h2>Summary</h2></hgroup><article  id="summary-1">
 
