@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  26 OCT 2020 00:11
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  27 OCT 2020 00:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -859,256 +859,110 @@ Underfull \vbox (badness 3302) has occurred while \output is active []
 ]
 Chapter 4.
 [41]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \vbox (0.46086pt too high) detected at line 1989
+ []
 
-[42]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[43]
+[42] [43]
 File: images/joins.png Graphic file (type bmp)
 <images/joins.png>
-[44] [45] [46]
-Overfull \hbox (63.89009pt too wide) in paragraph at lines 2205--2216
+[44] [45] [46] [47] [48] [49]
+Overfull \hbox (63.89009pt too wide) in paragraph at lines 2340--2351
 [][] 
  []
 
-[47]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##    FeatureCode IndicesOfDeprivation                       
-    Measurement  Value[] 
- []
-
-
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##    <chr>       <chr>                                      
-    <chr>        <dbl>[] 
- []
-
-
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##  1 E01013649   Income Deprivation Domain                  
-    Score        0.07[] 
- []
-
-
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##  2 E01013649   Employment Deprivation Domain              
-    Score        0.075[] 
- []
-
-
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##  3 E01013649   Income Deprivation Affecting Children Index
- (~ Score        0.087[] 
- []
-
-
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##  4 E01013649   Income Deprivation Affecting Older People I
-nd~ Score        0.153[] 
- []
-
-
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##  5 E01013649   Health Deprivation and Disability Domain   
-    Score        0.272[] 
- []
-
-
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##  6 E01013649   Index of Multiple Deprivation (IMD)        
-    Score       19.7[] 
- []
-
-
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##  7 E01013649   Education, Skills and Training Domain      
-    Score        2.19[] 
- []
-
-
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##  8 E01013649   Barriers to Housing and Services Domain    
-    Score       14.3[] 
- []
-
-
-Overfull \hbox (80.25pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ##  9 E01013649   Living Environment Deprivation Domain      
-    Score       57.2[] 
- []
-
-
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2281--2281
-[]\TU/lmtt/m/n/10 ## 10 E01013649   Crime Domain                               
-    Score        1.16[] 
- []
-
-[48]
-Overfull \hbox (1.5pt too wide) in paragraph at lines 2318--2318
-[]\TU/lmtt/m/n/10 ## [1] "FeatureCode"          "DateCode"             "Measure
-ment"[] 
- []
-
-
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2318--2318
-[]\TU/lmtt/m/n/10 ## [4] "Units"                "Value"                "Indices
-OfDeprivation"[] 
- []
-
-[49]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2360--2360
-[]\TU/lmtt/m/n/10 ##   FeatureCode IndicesOfDeprivation                Measurem
-ent Value[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2360--2360
-[]\TU/lmtt/m/n/10 ##   <chr>       <chr>                               <chr>   
-    <dbl>[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2360--2360
-[]\TU/lmtt/m/n/10 ## 1 E01013649   Index of Multiple Deprivation (IMD) Decile  
-        5[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##    supgrpname                IndexofMultipleDeprivationIMD
-     n[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##    <chr>                                             <dbl>
- <int>[] 
- []
-
 [50]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##  1 Constrained City Dwellers                             1
-    30[] 
+Overfull \hbox (123.58008pt too wide) in paragraph at lines 2403--2468
+[][] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##  2 Constrained City Dwellers                             2
-     3[] 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[51] [52] [53]
+Overfull \hbox (3.59007pt too wide) in paragraph at lines 2559--2566
+[][] 
+ []
+
+[54]
+Overfull \hbox (49.75092pt too wide) in paragraph at lines 2603--2604
+[]\TU/lmr/m/n/10 As each LSOA contains multiple OAs, each row from the \TU/lmtt
+/m/n/10 leicester_IMD2015_decile_wide
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##  3 Constrained City Dwellers                             3
-     2[] 
+Overfull \hbox (6.94005pt too wide) in paragraph at lines 2618--2633
+[][] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##  4 Constrained City Dwellers                             6
-     1[] 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[55]
+Overfull \vbox (28.1997pt too high) has occurred while \output is active []
+
+[56] [57]
+Underfull \hbox (badness 2717) in paragraph at lines 2795--2796
+[]\TU/lmr/bx/n/10 Question 214.2.1: \TU/lmr/m/n/10 Write a piece of code using 
+the pipe operator
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##  5 Cosmopolitans                                         2
-    25[] 
+Underfull \hbox (badness 1681) in paragraph at lines 2795--2796
+\TU/lmr/m/n/10 and the \TU/lmtt/m/n/10 dplyr \TU/lmr/m/n/10 and \TU/lmtt/m/n/10
+ tidyr \TU/lmr/m/n/10 libraries to generate a long format of the
  []
 
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##  6 Cosmopolitans                                         3
-    15[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##  7 Cosmopolitans                                         4
-    15[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##  8 Cosmopolitans                                         5
-     8[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ##  9 Cosmopolitans                                         6
-    10[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2416--2416
-[]\TU/lmtt/m/n/10 ## 10 Cosmopolitans                                         8
-    10[] 
- []
-
-
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2434--2434
-[]\TU/lmtt/m/n/10 ## `summarise()` ungrouping output (override with `.groups` a
-rgument)[] 
- []
-
-[51]
-Overfull \hbox (6.01pt too wide) in paragraph at lines 2476--2477
-\TU/lmr/m/n/10 and \TU/lmtt/m/n/10 tidyr \TU/lmr/m/n/10 libraries to generate a
- long format of the \TU/lmtt/m/n/10 leicester_2011OAC_IMD2015
- []
-
-[52]
+[58]
 Chapter 5.
 
-Overfull \hbox (122.25pt too wide) in paragraph at lines 2501--2501
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2815--2815
 []\TU/lmtt/m/n/10 [This is a link to the University of Leicester](http://le.ac.
 uk) and **this is in bold**.[] 
  []
 
-[53
+[59
 
-] [54]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2605--2605
+] [60]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2919--2919
 []\TU/lmtt/m/n/10 This is my first [RMarkdown](https://rmarkdown.rstudio.com/) 
 document.[] 
  []
 
-[55]
+[61]
 File: images/git_three_stages.png Graphic file (type bmp)
 <images/git_three_stages.png>
-[56]
+[62]
 File: images/git_clone_my-granolarr.png Graphic file (type bmp)
 <images/git_clone_my-granolarr.png>
-[57]
-Underfull \hbox (badness 10000) in paragraph at lines 2680--2682
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 2994--2996
 []\TU/lmr/m/n/10 Copy \TU/lmtt/m/n/10 https://github.com/sdesabbata/granolarr.g
 it \TU/lmr/m/n/10 in the
  []
 
-[58] [59] [60
+[64] [65] [66
 
 ]
 Chapter 6.
-[61]
+[67]
 File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (
 type pdf)
 <use 304_P_Exploratory_files/figure-latex/unnamed-chunk-3-1.pdf>
 
 Underfull \vbox (badness 4254) has occurred while \output is active []
 
-[62]
+[68]
 File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (
 type pdf)
 <use 304_P_Exploratory_files/figure-latex/unnamed-chunk-4-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[63]
-Overfull \vbox (1.4627pt too high) detected at line 2847
+[69]
+Overfull \vbox (1.4627pt too high) detected at line 3161
  []
 
-[64]
+[70]
 File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (
 type pdf)
 <use 304_P_Exploratory_files/figure-latex/unnamed-chunk-5-1.pdf>
@@ -1118,118 +972,118 @@ type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[65] [66]
+[71] [72]
 File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (
 type pdf)
 <use 304_P_Exploratory_files/figure-latex/unnamed-chunk-7-1.pdf>
-[67] [68]
+[73] [74]
 Underfull \vbox (badness 2698) has occurred while \output is active []
 
-[69]
+[75]
 Underfull \vbox (badness 1509) has occurred while \output is active []
 
-[70]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3126--3126
+[76]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3440--3440
 []\TU/lmtt/m/n/10 The table above tells us that all `r leic_2011OAC_20to24_stat
 _desc["nbr.val",[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 3126--3126
+Overfull \hbox (33.0pt too wide) in paragraph at lines 3440--3440
 []\TU/lmtt/m/n/10 "perc_age_20_to_24"] %>% round(digits = 0)` OA in Leicester h
 ave a valid[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3126--3126
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3440--3440
 []\TU/lmtt/m/n/10 value for the variable `perc_age_20_to_24`, as no `NULL` nor 
 `NA` value have[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3126--3126
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3440--3440
 []\TU/lmtt/m/n/10 been found.The values vary from about `r leic_2011OAC_20to24_
 stat_desc["min",[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3126--3126
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3440--3440
 []\TU/lmtt/m/n/10 leic_2011OAC_20to24_stat_desc["max", "perc_age_20_to_24"] %>%
  round(digits =[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3126--3126
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3440--3440
 []\TU/lmtt/m/n/10 0)`%, with an average value of `r leic_2011OAC_20to24_stat_de
 sc["mean",[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3126--3126
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3440--3440
 []\TU/lmtt/m/n/10 "perc_age_20_to_24"] %>% round(digits = 0)`% of the populatio
 n in an OA aged[] 
  []
 
-[71]
+[77]
 File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file 
 (type pdf)
 <use 304_P_Exploratory_files/figure-latex/unnamed-chunk-12-1.pdf>
 
 Underfull \vbox (badness 2359) has occurred while \output is active []
 
-[72]
+[78]
 File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file 
 (type pdf)
 <use 304_P_Exploratory_files/figure-latex/unnamed-chunk-13-1.pdf>
-[73]
-Underfull \hbox (badness 1990) in paragraph at lines 3217--3218
+[79]
+Underfull \hbox (badness 1990) in paragraph at lines 3531--3532
 []\TU/lmr/m/n/10 That manipulation creates one column per supergroup, containin
 g the
  []
 
 
-Overfull \hbox (35.61838pt too wide) in paragraph at lines 3287--3288
+Overfull \hbox (35.61838pt too wide) in paragraph at lines 3601--3602
 []\TU/lmr/bx/n/10 Question 7.2.1: \TU/lmr/m/n/10 The code below uses the newly 
 created \TU/lmtt/m/n/10 leic_2011OAC_20to24_supgrp
  []
 
 
-Underfull \hbox (badness 2368) in paragraph at lines 3287--3288
+Underfull \hbox (badness 2368) in paragraph at lines 3601--3602
 \TU/lmr/m/n/10 table to calculate the descriptive statistics calculated for the
  variable
  []
 
-[74]
-Overfull \hbox (47.96011pt too wide) in paragraph at lines 3298--3343
+[80]
+Overfull \hbox (47.96011pt too wide) in paragraph at lines 3612--3657
 [][] 
  []
 
-[75] [76
+[81] [82
 
 ]
 Chapter 7.
-[77] [78
+[83] [84
 
 ]
 Chapter 8.
-[79]
+[85]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (t
 ype pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-3-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[80] [81] [82]
+[86] [87] [88]
 File: images/ANOVA_output_annotated.png Graphic file (type bmp)
 <images/ANOVA_output_annotated.png>
-[83]
+[89]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (t
 ype pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-8-1.pdf>
-[84]
+[90]
 File: images/Regression_output_annotated.png Graphic file (type bmp)
 <images/Regression_output_annotated.png>
-[85]
+[91]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-10-1.pdf>
@@ -1239,7 +1093,7 @@ type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[86] [87]
+[92] [93]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-15-1.pdf>
@@ -1253,58 +1107,58 @@ File: 324_P_Regression_files/figure-latex/unnamed-chunk-15-4.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-15-4.pdf>
 
-Overfull \hbox (39.65648pt too wide) in paragraph at lines 3756--3757
+Overfull \hbox (39.65648pt too wide) in paragraph at lines 4070--4071
 [][] []
  []
 
 
-Overfull \hbox (51.7017pt too wide) in paragraph at lines 3756--3757
+Overfull \hbox (51.7017pt too wide) in paragraph at lines 4070--4071
 [] [] 
  []
 
-[88] [89] [90]
+[94] [95] [96]
 Underfull \vbox (badness 1067) has occurred while \output is active []
 
-[91] [92] [93]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4012--4012
+[97] [98] [99]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4326--4326
 []\TU/lmtt/m/n/10 ## (Intercept)        u160        u162        u164        u16
 5        u167[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4012--4012
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4326--4326
 []\TU/lmtt/m/n/10 ##   0.0000000   0.1400270   0.1507236   0.2083107   0.193103
 5   0.4293988[] 
  []
 
-[94]
+[100]
 Chapter 9.
-[95
+[101
 
-] [96
+] [102
 
 ]
 Chapter 10.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4042.
-[97]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4042.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4356.
+[103]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4356.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4042.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4042.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4356.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4356.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: B0B9CC32A648B6C529C08DE11284AFCC;7089.
+(rerunfilecheck)             Checksum: CCA564479B12E9AA8BCE975A0BA4FC99;7009.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17320 strings out of 481704
- 308390 string characters out of 5933764
- 733301 words of memory out of 5000000
- 34150 multiletter control sequences out of 15000+600000
+ 17319 strings out of 481704
+ 308383 string characters out of 5933764
+ 734301 words of memory out of 5000000
+ 34149 multiletter control sequences out of 15000+600000
  541579 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 53i,10n,118p,1094b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,10n,118p,1090b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (97 pages).
+Output written on _main.pdf (103 pages).
