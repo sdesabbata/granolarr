@@ -13,6 +13,11 @@ toc_sticky: true
 
 ## 221 Reproducibility
 
+{% include video id="oF09lsPt5JE" provider="youtube" %}
+
+
+### Slides
+
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/221_L_Reproducibility.html" title="221_L_Reproducibility" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
@@ -23,6 +28,11 @@ toc_sticky: true
 
 ## 222 R and Markdown
 
+{% include video id="_yA1m9JEKeY" provider="youtube" %}
+
+
+### Slides
+
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/222_L_RMarkdown.html" title="222_L_RMarkdown" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
@@ -32,6 +42,13 @@ toc_sticky: true
 </small>
 
 ## 223 Git
+
+*Video lecture coming soon...*
+<!--
+{% include video id="e5hxiPXG7XI" provider="youtube" %}
+-->
+
+### Slides
 
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/223_L_Git.html" title="223_L_Git" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>

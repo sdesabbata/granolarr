@@ -106,22 +106,22 @@ In order to be reproducible, every step of your project should be documented in 
 - data analysis
 - results presentation
 
-Well documented R scripts are and excellent way to document your project. 
+Well documented R scripts are an excellent way to document your project. 
 
 
 
 ## Document well
 
-Create code that can be **easily understandable** to someone outside your project, including yourself in six-month time!
+Create code that can be **easily understood** by someone outside your project, including yourself in six-month time!
 
 - use a style guide (e.g. [tidyverse](http://style.tidyverse.org/)) consistently
+- also add a **comment** before any line that could be ambiguous or particularly difficult or important
+- add a **comment** before each code block, describing what the code does
 - add a **comment** at the beginning of a file, including
     - date
     - contributors
     - other files the current file depends on
     - materials, sources and other references 
-- add a **comment** before each code block, describing what the code does
-- also add a **comment** before any line that could be ambiguous or particularly difficult or important
 
 
 
@@ -139,6 +139,26 @@ A common solution is using **make files**
     - *source* to execute R scripts
     - *system* to interact with the operative system
 
+
+
+## granolarr Mark.R
+
+Section of the [*granolarr*](https://sdesabbata.github.io/granolarr/) project make file [Make.R](https://github.com/sdesabbata/granolarr/blob/master/Make.R) that generates the current slides for the lecture session 221
+
+```{}
+cat("\n\n>>> Rendering 221_L_Reproducibility.Rmd <<<\n\n")
+rmarkdown::render(
+    paste0(
+        Sys.getenv("GRANOLARR_HOME"), 
+        "/src/lectures/221_L_Reproducibility.Rmd"
+    ), 
+    quiet = TRUE, 
+    output_dir = paste0(
+        Sys.getenv("GRANOLARR_HOME"), 
+        "/docs/lectures/html"
+    )
+)
+```
 
 
 ## Future-proof formats
@@ -177,7 +197,7 @@ Reproducible data analysis is particularly important when working in teams, to s
 
 <center>
 
-![](images/imgs002_github_repo_001.png){width=70%}
+![](images/imgs002_github_repo_001.png){width=90%}
 
 <p style="font-size:75%; width: 30%;">
 <br/>

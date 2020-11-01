@@ -1,7 +1,7 @@
 ---
 title: "Lecture materials | granolarr"
 author: "Stefano De Sabbata"
-date: "2020-10-27"
+date: "2020-11-01"
 description: "Geographic data science reproducible teaching resource in R, Lecture materials"
 url: 'https://sdesabbata.github.io/granolarr/'
 github-repo: "sdesabbata/granolarr"
@@ -22,6 +22,7 @@ output:
         - ["granolarr_lecture_materials.epub", "EPUB"]
   bookdown::pdf_book:
     latex_engine: xelatex
+    pandoc_args: ["--extract-media", "."]
     includes:
       in_header: ../../utils/RMarkdown/rmarkdown_classes.tex
 ---

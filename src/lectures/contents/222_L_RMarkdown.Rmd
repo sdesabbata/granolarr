@@ -82,33 +82,91 @@ Text can be specified as *italic* or **bold**
 
 
 
-## RMarkdown example code
+## RMarkdown
+
+The [rmarkdown](https://rmarkdown.rstudio.com/docs/) library and its [RStudio plug-in](https://rmarkdown.rstudio.com/)
+
+- provide functionalities to *compile* scripts containing
+  - **Markdown** text
+    - rendered to documents (e.g., *.pdf* and *.doc*)
+  - chunks of **R** code (other supported, e.g., Python, SQL)
+    - included in output document
+    - interpreted
+    - results included in output document
 
 ````
-Let's write an example of **R** code including 
-
-- a variable `a_variable`
-- an assignment operation (i.e., `<-`)
-- a mathematical operation (i.e., `+`)
-
 `r ''````{r, echo=TRUE}
-a_variable <- 0
-a_variable <- a_variable + 1
-a_variable <- a_variable + 1
-a_variable <- a_variable + 1
-a_variable
+# Example of R chunck
+sqrt(2)
 `r ''````
 ````
 
 
-## Writing RMarkdown docs
+## RMarkdown example
 
-**RMarkdown** documents contain both Markdown and R code. These files can be created in RStudio, and compiled to create an html page (like this document), a pdf, or a Microsoft Word document.
+Content of an RMarkdown file: `First_example.Rmd`
 
-<center>
-![](images/Lecture1_RMarkdown001.png){width=80% style="border: 1px solid black"}
-</center>
+````
+This is an **RMarkdown** document. The *code chunk* below:
 
+- loads the necessary libraries
+- loads the flights from New York City in 2013
+- presents a few columns from the first row
+
+`r ''````{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(nycflights13)
+
+nycflights13::flights %>% 
+  dplyr::select(year:day, origin, dest, flight) %>%
+  dplyr::slice_head(1) %>% 
+  knitr::kable()
+`r ''````
+````
+
+
+## RMarkdown example
+
+This is an **RMarkdown** document. The *code chunk* below:
+
+- loads the necessary libraries
+- loads the flights from New York City in 2013
+- presents a few columns from the first row
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(nycflights13)
+
+nycflights13::flights %>% 
+  dplyr::select(year:day, origin, dest, flight) %>%
+  dplyr::slice_head(1) %>% 
+  knitr::kable()
+```
+
+
+## The Definitive Guide
+
+:::::: {.cols data-latex=""}
+::: {.col style="width: 60%;" data-latex="{0.5\textwidth}"}
+
+Markdown is a rather simple for a markup language, but still fairly complex, especially when used in combination with R.
+
+For an complete guide to RMarkdown, please see:
+
+[R Markdown:<br/>The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) 
+
+by<br/>
+Yihui Xie,<br/>
+J. J. Allaire,<br/>
+Garrett Grolemund.
+
+:::
+::: {.col style="width: 50%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+![](https://bookdown.org/yihui/rmarkdown/images/cover.png)
+
+:::
+::::::
 
 ## Summary
 
@@ -117,10 +175,11 @@ RMarkdown
 - Markdown
 - RMarkdown
 
-**Next**: Git
+**Next**: Git and Docker
 
 - Git operations
 - Git and RStudio
+- Docker
 
 ```{r cleanup, include=FALSE}
 rm(list = ls())

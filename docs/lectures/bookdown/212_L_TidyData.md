@@ -334,6 +334,8 @@ Finally, some analysis or visualisation procedures might require a *complete* ta
 
 ::::::
 
+
+
 ## tidyr::complete
 
 Complete table by turning implicit missing values into explicit missing values

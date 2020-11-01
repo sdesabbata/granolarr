@@ -22,6 +22,7 @@ output:
         - ["granolarr_lecture_materials.epub", "EPUB"]
   bookdown::pdf_book:
     latex_engine: xelatex
+    pandoc_args: ["--extract-media", "."]
     includes:
       in_header: ../../utils/RMarkdown/rmarkdown_classes.tex
 ---

@@ -16,10 +16,11 @@ RMarkdown
 - Markdown
 - RMarkdown
 
-**Next**: Git
+**Next**: Git and Docker
 
 - Git operations
 - Git and RStudio
+- Docker
 
 
 
@@ -103,6 +104,129 @@ RStudio includes a git plug-in
 <center>
 ![](images/git_rstudio.png){width=70% style="border: 1px solid black"}
 </center>
+
+
+
+
+## What's Docker?
+
+
+
+Docker allows to encapsulate and share computational environments
+
+- Similar to virtual machines
+  - simulates a computer
+- Lightweight
+  - doesn't simulate an entire system
+  - only the *"user space"* is simulated
+
+
+:::::: {.cols data-latex=""}
+::: {.col data-latex="{0.5\textwidth}"}
+
+<br/><br/>
+Images from: [Get started with Docker](https://docs.docker.com/get-docker/)
+  
+:::
+::: {.col style="width: 50%;" data-latex="{0.5\textwidth}"}
+
+![](https://docs.docker.com/images/VM%402x.png)
+<br/><br/>
+![](https://docs.docker.com/images/Container%402x.png)
+
+:::
+::::::
+
+
+## Virtual machines
+
+:::::: {.cols data-latex=""}
+::: {.col style="width: 100%;" data-latex="{0.5\textwidth}"}
+
+Virtual machines software (e.g., VMWare) simulate a computer on top of your operative system
+
+- allows **virtual machine** to access physical resources (e.g., disk, keyboard) of a **host**
+- allows to run full operative systems
+- e.g., run a full Windows virtual machine on a Mac host
+- have been around since the 1970s
+- can be *heavy* to run
+
+:::
+::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
+![](https://docs.docker.com/images/VM%402x.png)
+
+Image from:<br/>[Get started with Docker](https://docs.docker.com/get-docker/)
+:::
+::::::
+
+
+
+## Docker containers
+
+:::::: {.cols data-latex=""}
+::: {.col style="width: 100%;" data-latex="{0.5\textwidth}"}
+
+Docker runs *containers*
+
+- developed for flexible deployment of (web) services
+  - compartimentalised
+  - lightweight
+  - (frequently) transient
+- **kernel** is not simulated
+  - kernels are the bulk of operative systems
+  - containers share host's kernel
+  - can also share binaries and libraries
+
+:::
+::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
+![](https://docs.docker.com/images/Container%402x.png)
+
+Image from:<br/>[Get started with Docker](https://docs.docker.com/get-docker/)
+:::
+
+::::::
+
+
+
+## Docker and reproducibility
+
+Why are dockers useful for reproducibility?
+
+One of the key issues of reproducing a study is replicating the computational environment used
+
+- e.g., all the libraries in their correct version 
+
+Creating a Docker image (from which a container is instantiated)
+
+- defined using a [*Dokerfile*](https://docs.docker.com/engine/reference/builder/)
+- requires to list a full system configuration
+  - version of programming language, libraries, etc
+- once created / defined
+  - other researchers or developers can run your script **in the exact same computational environment**
+
+
+## granolarr Dockerfile
+
+```{}
+# Base image https://hub.docker.com/r/rocker/ml
+FROM rocker/geospatial:4.0.2
+
+# create an R user
+ENV USER rstudio
+
+## Install additional required R libraries
+COPY ./DockerConfig/Requirements.R /tmp/Requirements.R
+RUN Rscript /tmp/Requirements.R
+
+## Install additional required TeX libraries
+RUN tlmgr install amsmath
+RUN tlmgr install latex-amsmath-dev
+RUN tlmgr install iftex
+RUN tlmgr install euenc
+RUN tlmgr install fontspec
+```
+
+[... continues]
 
 
 
