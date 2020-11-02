@@ -44,6 +44,7 @@ toc_sticky: true
 ## 223 Git
 
 *Video lecture coming soon...*
+
 <!--
 {% include video id="e5hxiPXG7XI" provider="youtube" %}
 -->
