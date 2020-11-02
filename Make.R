@@ -140,6 +140,18 @@ file.rename(
   paste0(Sys.getenv("GRANOLARR_HOME"), "/docs/lectures/bookdown/granolarr_lecture_materials.epub")
   )
 
+# Cleaning compile files from lectures/contents
+cat("\n\n>>> Cleaning Lectures folder tmp files... <<<\n\n")
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/_main.rds"))
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/_main.md"))
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/_main.html"))
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/_main.tex"))
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/_main.log"))
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/_main.pdf"))
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/*.pdf"))
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/*.png"))
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/contents/_bookdown_files"), recursive = TRUE)
+
 cat("\n\n>>> done. <<<\n\n")
 
 # Step 3-1: Compile the practical files to pdf

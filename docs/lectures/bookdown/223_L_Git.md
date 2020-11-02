@@ -107,6 +107,9 @@ RStudio includes a git plug-in
 ## What's Docker?
 
 
+:::::: {.cols data-latex=""}
+::: {.col data-latex="{0.5\textwidth}"}
+
 
 Docker allows to encapsulate and share computational environments
 
@@ -115,10 +118,6 @@ Docker allows to encapsulate and share computational environments
 - Lightweight
   - doesn't simulate an entire system
   - only the *"user space"* is simulated
-
-
-:::::: {.cols data-latex=""}
-::: {.col data-latex="{0.5\textwidth}"}
 
 <br/><br/>
 Images from: [Get started with Docker](https://docs.docker.com/get-docker/)
@@ -228,10 +227,11 @@ RUN tlmgr install fontspec
 
 ## Summary
 
-Git
+Git and Docker
 
 - Git operations
 - Git and RStudio
+- Docker
 
 **Next**: Practical
 
