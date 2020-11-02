@@ -45,10 +45,6 @@ toc_sticky: true
 
 *Video lecture coming soon...*
 
-<!--
-{% include video id="e5hxiPXG7XI" provider="youtube" %}
--->
-
 ### Slides
 
 <div style="position: relative; width: 500px; height: 400px;">
