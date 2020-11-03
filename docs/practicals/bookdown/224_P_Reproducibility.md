@@ -79,15 +79,15 @@ a_number
 ```
 
 
-## Exercise 5.1
+## Exercise 224.1
 
-Create a new R project named *Practical_301* as the directory name. Create an RMarkdown document in RStudio by selecting *File > New File > R Markdown ...* -- this might prompt RStudio to update some packages. On the RMarkdown document creation menu, specify "Practical 05" as title and your name as the author, and select *PDF* as default output format. 
+Create a new R project named *Practical_224* as the directory name. Create an RMarkdown document in RStudio by selecting *File > New File > R Markdown ...* -- this might prompt RStudio to update some packages. On the RMarkdown document creation menu, specify "Practical 05" as title and your name as the author, and select *PDF* as default output format. 
 
 The new document should contain the core document information, as in the example below, plus some additional content that simply explains how RMarkdown works.
 
 ```
 ---
-title: "Practical 05"
+title: "Practical 224"
 author: "A. Student"
 date: "7 October 2018"
 output: pdf_document
@@ -127,7 +127,7 @@ Click on the *Knit* button on the bar above the editor panel (top-left area) in 
 
 
 
-## Exercise 5.2
+## Exercise 224.2
 
 Create an analysis document based on RMarkdown for each one of the two analyses seen in the practical sessions 3 and 4. For each of the two analyses, within their respective R projects, first, create an RMarkdown document. Then, add the code from the related R script. Finally add additional content such as title, subtitles, and most importantly, some text describing the data used, how the analysis has been done, and the result obtained. Make sure you add appropriate links to the data sources, as available in the practical session materials.
 
@@ -175,7 +175,20 @@ Congratulations, you have completed your first commit! Check the repository page
 
 
 
-### Cloning granolarr
+## Exercise 224.3
+
+Create a new GitHub repository named `GY7702_224_Exercise3`. Clone the repository to RStudio Server as a new an R project from that repository. Create an RMarkdown document exploring the presence of the different living arrangements in Leicester among both the different categories of the 2011 Output Area Classification and deciles of Index of Multiple Deprivations, copying the required data into the project folder. 
+
+Your analysis should include:
+
+- an introduction to the data and the aims of the project;
+- a justification of the analysis methods;
+- the code and related results;
+- and a discussion of the results within the same document.
+
+
+
+## Cloning granolarr
 
 You can follow the steps listed below to clone the granolarr repository.
 
@@ -193,15 +206,5 @@ You can follow the steps listed below to clone the granolarr repository.
 
 As granolarr is a public repository, you can clone it, edit it as you wish and push it to your own copy of the repository. However, contributing your edits to the original repository would require a few further steps. Check out the [GitHub help pages](https://help.github.com/en/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork) if you are interested.
 
-
-
-## Exercise 5.3
-
-Create a new repository for an R project exploring the presence of the different living arrangements in Leicester among both the different categories of the 2011 Output Area Classification and deciles of Index of Multiple Deprivations. Create the repository, clone it to RStudio Server as a new R project, and copy the required data in the project folder. Create an RMarkdown document and write your analysis, including:
-
-- an introduction to the data and the aims of the project;
-- a justification of the analysis methods;
-- the code and related results;
-- and a discussion of the results within the same document.
 
 
