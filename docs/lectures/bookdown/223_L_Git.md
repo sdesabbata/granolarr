@@ -113,21 +113,20 @@ RStudio includes a git plug-in
 
 Docker allows to encapsulate and share computational environments
 
+- First released in 2013
 - Similar to virtual machines
-  - simulates a computer
+  - simulates a guest operative system
+  - within a host operative system
 - Lightweight
   - doesn't simulate an entire system
   - only the *"user space"* is simulated
-
-<br/><br/>
-Images from: [Get started with Docker](https://docs.docker.com/get-docker/)
   
 :::
-::: {.col style="width: 50%;" data-latex="{0.5\textwidth}"}
+::: {.col style="width: 40%;" data-latex="{0.5\textwidth}"}
 
-![](https://docs.docker.com/images/VM%402x.png)
+![](images/DockerDiagram_VM.png)
 <br/><br/>
-![](https://docs.docker.com/images/Container%402x.png)
+![](images/DockerDiagram_Docker.png)
 
 :::
 ::::::
@@ -148,9 +147,7 @@ Virtual machines software (e.g., VMWare) simulate a computer on top of your oper
 
 :::
 ::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
-![](https://docs.docker.com/images/VM%402x.png)
-
-Image from:<br/>[Get started with Docker](https://docs.docker.com/get-docker/)
+![](images/DockerDiagram_VM.png)
 :::
 ::::::
 
@@ -174,9 +171,7 @@ Docker runs *containers*
 
 :::
 ::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
-![](https://docs.docker.com/images/Container%402x.png)
-
-Image from:<br/>[Get started with Docker](https://docs.docker.com/get-docker/)
+![](images/DockerDiagram_Docker.png)
 :::
 
 ::::::
