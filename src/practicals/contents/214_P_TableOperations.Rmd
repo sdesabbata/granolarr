@@ -353,6 +353,40 @@ readr::read_csv(
 ```
 
 
+### File paths
+
+File paths can be specified in two different ways:
+
+- **Absolute file path**: the full file path, from the *root* folder of your computer to the file. 
+  - The absolute file path of a file can be obtained using the `file.choose()` instruction from the *R Console*, which will open an interactive window that will allow you to select a file from your computer. The absolute path to that file will be printed to console.
+  - Absolute file paths provide a direct link to a specific file and ensure that you are loading that exact file.
+  - However, absolute file paths can be problematic if the file is moved, or if the script is run on a different system, and the file path would then be invalid
+- **Relative file path**: a partial path, from the current working folder to the file. 
+  - The current *working directory* (current folder) is part of the environment of the `R` session and can be identified using the `getwd()` instruction from the *`*R Console*.
+    - When a new R session is started, the current *working directory* is usually the computer user's home folder.
+    - When working within an R project, the current *working directory* is the project directory.
+    - The current working can be manually set to a specific directory using the function `setwd`.
+  - Using a relative path while working within an R project is the option that provides the best overall **consistency**, assuming that all (data) files to be read by scripts of a project are also contained in the project folder (or subfolder).
+
+```{r, echo=TRUE, eval=FALSE}
+# Absolute file path
+# Note: the fist / indicates the root folder
+readr::read_csv("/home/username/GY7702/data/2011_OAC_Raw_uVariables_Leicester.csv")
+
+# Relative file path
+# assuming the working directory is the user home folder
+# /home/username
+# Note: no initial / for relative file paths
+readr::read_csv("GY7702/data/2011_OAC_Raw_uVariables_Leicester.csv")
+
+
+# Relative file path
+# assuming you are working within and R project created in the folder
+# /home/username/GY7702
+# Note: no initial / for relative file paths
+readr::read_csv("data/2011_OAC_Raw_uVariables_Leicester.csv")
+```
+
 
 ## Data wrangling example
 
@@ -473,11 +507,11 @@ As another example, the code below can be used to group OAs based on the decile 
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 leicester_2011OAC_IMD2015 %>%
-  group_by(IndexofMultipleDeprivationIMD) %>%
-  summarise(
+  dplyr::group_by(IndexofMultipleDeprivationIMD) %>%
+  dplyr::summarise(
     adults_not_empl_perc = (sum(u074 + u075) / sum(Total_Population)) * 100
   ) %>%
-  kable()
+  knitr::kable()
 ```
 
 
