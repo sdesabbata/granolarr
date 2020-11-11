@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.29)  3 NOV 2020 12:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.29)  11 NOV 2020 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -67,7 +67,7 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )) (/usr/local/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2020/01/20 v2.17e AMS math features
+Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip49
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -83,20 +83,20 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count176
-LaTeX Info: Redefining \frac on input line 227.
+LaTeX Info: Redefining \frac on input line 234.
 \uproot@=\count177
 \leftroot@=\count178
-LaTeX Info: Redefining \overline on input line 389.
+LaTeX Info: Redefining \overline on input line 399.
 \classnum@=\count179
 \DOTSCASE@=\count180
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
 \Mathstrutbox@=\box45
 \strutbox@=\box46
 \big@size=\dimen137
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count181
 \c@MaxMatrixCols=\count182
 \dotsspace@=\muskip16
@@ -117,8 +117,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \multlinegap=\skip50
 \multlinetaggap=\skip51
 \mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2859.
-LaTeX Info: Redefining \] on input line 2860.
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
 ) (/usr/local/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 (/usr/local/texlive/texmf-dist/tex/generic/iftex/iftex.sty
@@ -140,16 +140,16 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ) (/usr/local/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2020-06-15 v2.0f non-zero parskip adjustments
 (/usr/local/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 (/usr/local/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
 ) (/usr/local/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (/usr/local/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )) (/usr/local/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/08/24 v2.5j e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count188
 )) (/usr/local/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -598,10 +598,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11780 strings out of 482854
- 170117 string characters out of 5956822
- 441492 words of memory out of 5000000
- 26858 multiletter control sequences out of 15000+600000
+ 11793 strings out of 482854
+ 170253 string characters out of 5956822
+ 441602 words of memory out of 5000000
+ 26871 multiletter control sequences out of 15000+600000
  591930 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  43i,10n,37p,859b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -622,7 +622,7 @@ e/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/texmf-dist/fo
 nts/type1/public/lm/lmsy7.pfb></usr/local/texlive/texmf-dist/fonts/type1/public
 /lm/lmtk10.pfb></usr/local/texlive/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
 </usr/local/texlive/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on 324_P_Regression.pdf (13 pages, 647773 bytes).
+Output written on 324_P_Regression.pdf (13 pages, 647511 bytes).
 PDF statistics:
  293 PDF objects out of 1000 (max. 8388607)
  232 compressed objects within 3 object streams

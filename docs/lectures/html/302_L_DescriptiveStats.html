@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-11-03" />
+  <meta name="date" content="2020-11-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3267,7 +3267,7 @@ width: 90%;
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-11-03</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-11-11</p>
           </hgroup>
   </slide>
 
@@ -3285,22 +3285,28 @@ width: 90%;
 <p><strong>Next</strong>: Descriptive statistics</p>
 
 <ul>
-<li>stat.desc</li>
+<li>pastecs::stat.desc</li>
 <li>dplyr::across</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Libraries and data</h2></hgroup><article  id="libraries-and-data">
+</article></slide><slide class=""><hgroup><h2>Meet the Palmer penguins</h2></hgroup><article  id="meet-the-palmer-penguins">
 
-<pre class = 'prettyprint lang-r'>library(tidyverse)
-library(magrittr)
-library(knitr)
+<div class="cols">
+<div style="width: 70%;" data-latex="{0.5\textwidth}" class="col">
+<p>Original data collected and released by <a href='https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php' title=''>Dr. Kristen Gorman</a> and the <a href='Palmer%20Station,%20Antarctica%20LTER' title=''>Palmer Station, Antarctica LTER</a>, a member of the <a href='https://lternet.edu/' title=''>Long Term Ecological Research Network</a>.</p>
 
-library(pastecs)
+<p>Horst AM, Hill AP, Gorman KB (2020). <a href='https://allisonhorst.github.io/palmerpenguins/' title=''>palmerpenguins: Palmer Archipelago (Antarctica) penguin data</a>. R package version 0.1.0. <a href='doi:10.5281/zenodo.3960218' title=''>doi:10.5281/zenodo.3960218</a>.</p>
 
-library(nycflights13)
+<p><br></p>
 
-flights_nov_20 &lt;- nycflights13::flights %&gt;%
-  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) </pre>
+<pre class = 'prettyprint lang-r'>library(palmerpenguins)</pre></div>
+
+<div style="width: 60%; text-align: right;" data-latex="{0.5\textwidth}" class="col">
+<img src='https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png' title=''/>
+
+<img src='https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/culmen_depth.png' title=''/>
+
+<p><br/> <em>Artwork by <span class="cite">@allison_horst</span></em></p></div></div>
 
 </article></slide><slide class=""><hgroup><h2>Descriptive statistics</h2></hgroup><article  id="descriptive-statistics-1">
 
@@ -3316,104 +3322,90 @@ flights_nov_20 &lt;- nycflights13::flights %&gt;%
 </ul></li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>nycflights13::flights %&gt;%
-  filter(month == 11, carrier == &quot;US&quot;) %&gt;%
-  select(dep_delay, arr_delay, distance) %&gt;%
-  stat.desc() %&gt;%
-  kable()</pre>
+<pre class = 'prettyprint lang-r'>library(pastecs)
+
+palmerpenguins::penguins %&gt;%
+  dplyr::select(bill_length_mm, bill_depth_mm) %&gt;%
+  pastecs::stat.desc() %&gt;%
+  knitr::kable(digits = c(2, 2))</pre>
 
 </article></slide><slide class=""><hgroup><h2>stat.desc output</h2></hgroup><article  id="stat.desc-output">
 
 <table class = 'rmdtable'>
 <tr class="header">
 <th align="left"></th>
-<th align="right">dep_delay</th>
-<th align="right">arr_delay</th>
-<th align="right">distance</th>
+<th align="right">bill_length_mm</th>
+<th align="right">bill_depth_mm</th>
 </tr>
 <tr class="odd">
 <td align="left">nbr.val</td>
-<td align="right">1668.0000000</td>
-<td align="right">1667.000000</td>
-<td align="right">1.699000e+03</td>
+<td align="right">342.00</td>
+<td align="right">342.00</td>
 </tr>
 <tr class="even">
 <td align="left">nbr.null</td>
-<td align="right">58.0000000</td>
-<td align="right">35.000000</td>
-<td align="right">0.000000e+00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
 </tr>
 <tr class="odd">
 <td align="left">nbr.na</td>
-<td align="right">31.0000000</td>
-<td align="right">32.000000</td>
-<td align="right">0.000000e+00</td>
+<td align="right">2.00</td>
+<td align="right">2.00</td>
 </tr>
 <tr class="even">
 <td align="left">min</td>
-<td align="right">-17.0000000</td>
-<td align="right">-63.000000</td>
-<td align="right">9.600000e+01</td>
+<td align="right">32.10</td>
+<td align="right">13.10</td>
 </tr>
 <tr class="odd">
 <td align="left">max</td>
-<td align="right">193.0000000</td>
-<td align="right">191.000000</td>
-<td align="right">2.153000e+03</td>
+<td align="right">59.60</td>
+<td align="right">21.50</td>
 </tr>
 <tr class="even">
 <td align="left">range</td>
-<td align="right">210.0000000</td>
-<td align="right">254.000000</td>
-<td align="right">2.057000e+03</td>
+<td align="right">27.50</td>
+<td align="right">8.40</td>
 </tr>
 <tr class="odd">
 <td align="left">sum</td>
-<td align="right">961.0000000</td>
-<td align="right">-4450.000000</td>
-<td align="right">9.715580e+05</td>
+<td align="right">15021.30</td>
+<td align="right">5865.70</td>
 </tr>
 <tr class="even">
 <td align="left">median</td>
-<td align="right">-4.0000000</td>
-<td align="right">-7.000000</td>
-<td align="right">5.290000e+02</td>
+<td align="right">44.45</td>
+<td align="right">17.30</td>
 </tr>
 <tr class="odd">
 <td align="left">mean</td>
-<td align="right">0.5761391</td>
-<td align="right">-2.669466</td>
-<td align="right">5.718411e+02</td>
+<td align="right">43.92</td>
+<td align="right">17.15</td>
 </tr>
 <tr class="even">
 <td align="left">SE.mean</td>
-<td align="right">0.4084206</td>
-<td align="right">0.518816</td>
-<td align="right">1.464965e+01</td>
+<td align="right">0.30</td>
+<td align="right">0.11</td>
 </tr>
 <tr class="odd">
 <td align="left">CI.mean.0.95</td>
-<td align="right">0.8010713</td>
-<td align="right">1.017600</td>
-<td align="right">2.873327e+01</td>
+<td align="right">0.58</td>
+<td align="right">0.21</td>
 </tr>
 <tr class="even">
 <td align="left">var</td>
-<td align="right">278.2347513</td>
-<td align="right">448.706408</td>
-<td align="right">3.646264e+05</td>
+<td align="right">29.81</td>
+<td align="right">3.90</td>
 </tr>
 <tr class="odd">
 <td align="left">std.dev</td>
-<td align="right">16.6803702</td>
-<td align="right">21.182691</td>
-<td align="right">6.038430e+02</td>
+<td align="right">5.46</td>
+<td align="right">1.97</td>
 </tr>
 <tr class="even">
 <td align="left">coef.var</td>
-<td align="right">28.9519850</td>
-<td align="right">-7.935179</td>
-<td align="right">1.055963e+00</td>
+<td align="right">0.12</td>
+<td align="right">0.12</td>
 </tr>
 </table>
 
@@ -3488,7 +3480,7 @@ library(broom)
 nycflights13::flights %>%
   filter(month == 11, carrier == "US") %>%
   select(dep_delay, arr_delay, distance) %>%
-  stat.desc() %>%
+  pastecs::stat.desc() %>%
   tidy()
 ```
 
@@ -3505,14 +3497,142 @@ nycflights13::flights %>%
 
 </article></slide><slide class=""><hgroup><h2>dplyr::across</h2></hgroup><article  id="dplyracross">
 
-<p>TODO</p>
+<p>The <code>dplyr</code> verb <code>across</code> allows to apply <code>summarise</code> verbs on multiple columns. Instead of…</p>
+
+<pre class = 'prettyprint lang-r'>palmerpenguins::penguins %&gt;%
+  # filter out raws with missing data
+  dplyr::filter(!is.na(bill_length_mm)) %&gt;%
+  # summarise
+  dplyr::summarise(
+    avg_bill_len_mm = mean(bill_length_mm), 
+    avg_bill_dpt_mm = mean(bill_depth_mm),
+    avg_flip_len_mm = mean(flipper_length_mm),
+    avg_body_mass_g = mean(body_mass_g)
+  ) %&gt;%
+  knitr::kable(digits = c(2, 2, 2, 2))</pre>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="right">avg_bill_len_mm</th>
+<th align="right">avg_bill_dpt_mm</th>
+<th align="right">avg_flip_len_mm</th>
+<th align="right">avg_body_mass_g</th>
+</tr>
+<tr class="odd">
+<td align="right">43.92</td>
+<td align="right">17.15</td>
+<td align="right">200.92</td>
+<td align="right">4201.75</td>
+</tr>
+</table>
+
+</article></slide><slide class=""><hgroup><h2>dplyr::across</h2></hgroup><article  id="dplyracross-1">
+
+<p>The <code>dplyr</code> verb <code>across</code> allows to apply <code>summarise</code> verbs on multiple columns. You can use…</p>
+
+<pre class = 'prettyprint lang-r'>palmerpenguins::penguins %&gt;%
+  # filter out raws with missing data
+  dplyr::filter(!is.na(bill_length_mm)) %&gt;%
+  # summarise cross columns
+  dplyr::summarise(
+    dplyr::across(
+      bill_length_mm:body_mass_g, # any vector of column names
+      mean                        # function to apply
+    )
+  ) %&gt;%
+  knitr::kable(digits = c(2, 2, 2, 2))</pre>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="right">bill_length_mm</th>
+<th align="right">bill_depth_mm</th>
+<th align="right">flipper_length_mm</th>
+<th align="right">body_mass_g</th>
+</tr>
+<tr class="odd">
+<td align="right">43.92</td>
+<td align="right">17.15</td>
+<td align="right">200.92</td>
+<td align="right">4201.75</td>
+</tr>
+</table>
+
+</article></slide><slide class=""><hgroup><h2>dplyr::across</h2></hgroup><article  id="dplyracross-2">
+
+<p>The <code>dplyr</code> verb <code>across</code> allows to apply <code>summarise</code> and <code>mutate</code> verbs on multiple columns. You can use…</p>
+
+<pre class = 'prettyprint lang-r'>palmerpenguins::penguins %&gt;%
+  # filter out raws with missing data
+  dplyr::filter(!is.na(bill_length_mm)) %&gt;%
+  # summarise cross columns
+  dplyr::summarise(
+    dplyr::across(
+      bill_length_mm:body_mass_g, # any vector of column names
+      mean                        # function to apply
+    )
+  ) %&gt;%
+  knitr::kable(digits = c(2, 2, 2, 2))</pre>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="right">bill_length_mm</th>
+<th align="right">bill_depth_mm</th>
+<th align="right">flipper_length_mm</th>
+<th align="right">body_mass_g</th>
+</tr>
+<tr class="odd">
+<td align="right">43.92</td>
+<td align="right">17.15</td>
+<td align="right">200.92</td>
+<td align="right">4201.75</td>
+</tr>
+</table>
+
+</article></slide><slide class=""><hgroup><h2>dplyr::across</h2></hgroup><article  id="dplyracross-3">
+
+<p>The verb <code>across</code> can also be used with <code>mutate</code>, to apply the same function to a number of columns</p>
+
+<pre class = 'prettyprint lang-r'>palmerpenguins::penguins %&gt;%
+  # mutate cross columns
+  dplyr::mutate(
+    dplyr::across(
+      c(bill_length_mm, bill_depth_mm, flipper_length_mm),
+      # add 1 to all values in the columns above
+      function(x){ x / 25.4 }
+    )
+  ) %&gt;%
+  rename(
+    bill_length_in = bill_length_mm,
+    bill_depth_in = bill_depth_mm,
+    flipper_length_in = flipper_length_mm
+  )</pre>
+
+</article></slide><slide class=""><hgroup><h2>dplyr::across</h2></hgroup><article  id="dplyracross-4">
+
+<p>Old columns:</p>
+
+<pre >## # A tibble: 344 x 3
+##   bill_length_mm bill_depth_mm flipper_length_mm
+##            &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;
+## 1           39.1          18.7               181
+## 2           39.5          17.4               186
+## # … with 342 more rows</pre>
+
+<p>New columns:</p>
+
+<pre >## # A tibble: 344 x 3
+##   bill_length_in bill_depth_in flipper_length_in
+##            &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;
+## 1           1.54         0.736              7.13
+## 2           1.56         0.685              7.32
+## # … with 342 more rows</pre>
 
 </article></slide><slide class=""><hgroup><h2>Summary</h2></hgroup><article  id="summary-1">
 
 <p>Descriptive statistics</p>
 
 <ul>
-<li>stat.desc</li>
+<li>pastecs::stat.desc</li>
 <li>dplyr::across</li>
 </ul>
 

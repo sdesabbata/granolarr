@@ -19,28 +19,13 @@
 - Homogeneity of variance
 
 
-## Libraries and data
-
-
-```r
-library(tidyverse)
-library(magrittr)
-library(knitr)
-
-library(pastecs)
-
-library(nycflights13)
-
-flights_nov_20 <- nycflights13::flights %>%
-  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
-```
 
 
 ## Normal distribution
 
 :::::: {.cols data-latex=""}
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 50%;" data-latex="{0.5\textwidth}"}
 
 - characterized by the bell-shaped curve 
 - majority of values lie around the centre of the distribution
@@ -49,7 +34,7 @@ flights_nov_20 <- nycflights13::flights %>%
 
 :::
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 60%; text-align: right;" data-latex="{0.5\textwidth}"}
 
 <img src="303_L_ExploringAssumptions_files/figure-epub3/unnamed-chunk-2-1.png" width="100%" />
 
@@ -61,37 +46,37 @@ flights_nov_20 <- nycflights13::flights %>%
 
 :::::: {.cols data-latex=""}
 
-::: {.col data-latex="{0.5\textwidth}"}
-
-
-
-<img src="303_L_ExploringAssumptions_files/figure-epub3/unnamed-chunk-4-1.png" width="100%" />
-
-:::
-
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 50%" data-latex="{0.5\textwidth}"}
 
 
 ```r
-nycflights13::flights %>% 
-  ggplot(
-    aes(
-      x = dep_delay
-    )
+palmerpenguins::penguins %>% 
+  ggplot2::ggplot(
+    aes(x = flipper_length_mm)
   ) +
-  geom_histogram(
+  ggplot2::geom_histogram(
     aes(
       y =..density..
-    ),
-    binwidth = 10
+    )
   ) + 
-  stat_function(
+  ggplot2::stat_function(
     fun = dnorm, 
     args = list(
-      mean = dep_delay_mean,
-      sd = dep_delay_sd),
+      # mean and stddev
+      # calculations
+      # omitted here
+      mean = ...,
+      sd = ... ),
     colour = "black", size = 1)
 ```
+
+
+:::
+
+::: {.col style="width: 50%" data-latex="{0.5\textwidth}"}
+
+
+<img src="303_L_ExploringAssumptions_files/figure-epub3/unnamed-chunk-4-1.png" width="100%" />
 
 :::
 ::::::
@@ -99,60 +84,35 @@ nycflights13::flights %>%
 
 ## Q-Q plot
 
+Cumulative values against the cumulative probability of a particular distribution (in this case, *normal*)
+
 :::::: {.cols data-latex=""}
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 50%" data-latex="{0.5\textwidth}"}
 
-Cumulative values against the cumulative probability of a particular distribution
+
+
+```r
+palmerpenguins::penguins %>% 
+  ggplot2::ggplot(
+    aes(
+      sample = 
+        flipper_length_mm
+    )
+  ) +
+  ggplot2::stat_qq() +
+  ggplot2::stat_qq_line()
+```
+
+:::
+
+::: {.col style="width: 50%" data-latex="{0.5\textwidth}"}
 
 ![](303_L_ExploringAssumptions_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
 
-:::
-
-::: {.col data-latex="{0.5\textwidth}"}
-
-
-```r
-nycflights13::flights %>%
-  filter(
-    month == 11, 
-    carrier == "US"
-  ) %>%
-  qplot(
-    sample = dep_delay, 
-    data = .,
-    stat = "qq", 
-    xlab = "Theoretical", 
-    ylab = "Sample"
-  )
-```
 
 :::
 ::::::
-
-
-## stat.desc: norm
-
-
-```r
-nycflights13::flights %>%
-  filter(month == 11, carrier == "US") %>%
-  select(dep_delay, arr_delay, distance) %>%
-  stat.desc(basic = FALSE, desc = FALSE, norm = TRUE) %>%
-  kable()
-```
-
-
-
-|           |   dep_delay|  arr_delay|   distance|
-|:----------|-----------:|----------:|----------:|
-|skewness   |   4.4187763|  2.0716291|  2.0030249|
-|skew.2SE   |  36.8709612| 17.2808242| 16.8678747|
-|kurtosis   |  28.8513206|  9.5741004|  2.6000743|
-|kurt.2SE   | 120.4418092| 39.9557893| 10.9542887|
-|normtest.W |   0.5545326|  0.8657894|  0.6012442|
-|normtest.p |   0.0000000|  0.0000000|  0.0000000|
-
 
 
 ## Normality
@@ -160,15 +120,14 @@ nycflights13::flights %>%
 **Shapiro–Wilk test** compares the distribution of a variable with a normal distribution having same mean and standard deviation
 
 - If significant, the distribution is not normal
-- `normtest.W` (test statistics) and `normtest.p` (significance)
-- also, `shapiro.test` function is available
+- `shapiro.test` function in `stats`
+- or `normtest` values in `pastecs::stat.desc`
 
 
 ```r
-nycflights13::flights %>%
-  filter(month == 11, carrier == "US") %>%
-  pull(dep_delay) %>%
-  shapiro.test()
+palmerpenguins::penguins %>% 
+  dplyr::pull(flipper_length_mm) %>%
+  stats::shapiro.test()
 ```
 
 ```
@@ -176,7 +135,7 @@ nycflights13::flights %>%
 ## 	Shapiro-Wilk normality test
 ## 
 ## data:  .
-## W = 0.55453, p-value < 2.2e-16
+## W = 0.95155, p-value = 3.54e-09
 ```
 
 
@@ -192,21 +151,149 @@ Most statistical tests are based on the idea of hypothesis testing
 
 The threshold to accept or reject an hypotheis is arbitrary and based on conventions (e.g., *p < .01* or *p < .05*)
 
-**Example:** The null hypotheis of the Shapiro–Wilk test is that the sample is normally distributed and *p < .01* indicates that the probability of that being true is very low.
+**Example:** The null hypotheis of the Shapiro–Wilk test is that the sample is normally distributed and *p < .01* indicates that the probability of that being true is very low. So, the *flipper length* of  penguins in the Palmer Station dataset **is not** normally distributed.
+
+
+## Example
+
+The *flipper length* of **Adelie** penguins **is normally distributed**
+
+:::::: {.cols data-latex=""}
+
+::: {.col style="width: 50%" data-latex="{0.5\textwidth}"}
+
+
+```r
+palmerpenguins::penguins %>% 
+  filter(
+    species == "Adelie"
+  ) %>%
+  dplyr::pull(
+    flipper_length_mm
+  ) %>%
+  stats::shapiro.test()
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  .
+## W = 0.99339, p-value = 0.72
+```
+
+:::
+
+::: {.col style="width: 50%" data-latex="{0.5\textwidth}"}
+
+
+<img src="303_L_ExploringAssumptions_files/figure-epub3/unnamed-chunk-9-1.png" width="100%" />
+
+:::
+::::::
+
+## Example
+
+The *bill depth* of *Chinstrap* penguins is normally distributed
+
+:::::: {.cols data-latex=""}
+
+::: {.col style="width: 50%" data-latex="{0.5\textwidth}"}
+
+
+```r
+palmerpenguins::penguins %>% 
+  filter(
+    species == "Adelie"
+  ) %>%
+  dplyr::pull(
+    flipper_length_mm
+  ) %>%
+  stats::shapiro.test()
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  .
+## W = 0.99339, p-value = 0.72
+```
+
+:::
+
+::: {.col style="width: 50%" data-latex="{0.5\textwidth}"}
+
+
+<img src="303_L_ExploringAssumptions_files/figure-epub3/unnamed-chunk-11-1.png" width="100%" />
+
+:::
+::::::
 
 
 
 ## Skewness and kurtosis
 
-In a normal distribution, the values of *skewness* and *kurtosis* should be zero
+In a normal distribution, *skewness* and *kurtosis* should be **zero**
 
 - `skewness`: **skewness** value indicates
-    - positive: the distribution is skewed towards the left
-    - negative: the distribution is skewed towards the right
+  - positive: the distribution is skewed towards the left
+  - negative: the distribution is skewed towards the right
 - `kurtosis`: **kurtosis** value indicates
-    - positive: heavy-tailed distribution
-    - negative: flat distribution
-- `skew.2SE` and `kurt.2SE`: skewness and kurtosis divided by 2 standard errors. If greater than 1, the respective statistics is significant (*p < .05*).
+  - positive: heavy-tailed distribution
+  - negative: flat distribution
+- `skew.2SE` and `kurt.2SE`: skewness and kurtosis divided by 2 standard errors. Therefore
+  - if `> 1` (or `< -1`) then the stat significant *(p < .05)*
+  - if `> 1.29` (or `< -1.29`) then stat significant *(p < .01)*
+
+
+
+## Example
+
+*Flipper length* is not normally distributed
+
+- skewed left (skewness positive, `skew.2SE > 1.29`)
+- flat distribution (kurtosis negative, `kurt.2SE < -1.29`)
+
+
+```r
+palmerpenguins::penguins %>% 
+  dplyr::select(bill_length_mm, bill_depth_mm, flipper_length_mm) %>%
+  pastecs::stat.desc(basic = FALSE, desc = FALSE, norm = TRUE)
+```
+
+|           | bill_length_mm| bill_depth_mm| flipper_length_mm|
+|:----------|--------------:|-------------:|-----------------:|
+|skewness   |      0.0526530|    -0.1422086|         0.3426554|
+|skew.2SE   |      0.1996290|    -0.5391705|         1.2991456|
+|kurtosis   |     -0.8931397|    -0.9233523|        -0.9991866|
+|kurt.2SE   |     -1.6979696|    -1.7554076|        -1.8995781|
+|normtest.W |      0.9748548|     0.9725838|         0.9515451|
+|normtest.p |      0.0000112|     0.0000044|         0.0000000|
+
+
+## Example
+
+Values are instead not significant for **Adelie** penguins
+
+- both `skew.2SE` and `kurt.2SE` between `-1` and `1`
+
+
+```r
+palmerpenguins::penguins %>% 
+  filter(species == "Adelie") %>%
+  dplyr::select(bill_length_mm, bill_depth_mm, flipper_length_mm) %>%
+  pastecs::stat.desc(basic = FALSE, desc = FALSE, norm = TRUE)
+```
+
+|           | bill_length_mm| bill_depth_mm| flipper_length_mm|
+|:----------|--------------:|-------------:|-----------------:|
+|skewness   |      0.1584764|     0.3148847|         0.0856093|
+|skew.2SE   |      0.4014211|     0.7976035|         0.2168485|
+|kurtosis   |     -0.2285951|    -0.1361153|         0.2382734|
+|kurt.2SE   |     -0.2913388|    -0.1734755|         0.3036734|
+|normtest.W |      0.9933618|     0.9846683|         0.9933916|
+|normtest.p |      0.7166005|     0.0924897|         0.7200466|
 
 
 
@@ -216,21 +303,34 @@ In a normal distribution, the values of *skewness* and *kurtosis* should be zero
 
 - If significant, the variance is different in different levels
 
+:::::: {.cols data-latex=""}
+
+::: {.col style="width: 60%" data-latex="{0.5\textwidth}"}
+
 
 ```r
-dep_delay_carrier <- nycflights13::flights %>%
-  filter(month == 11) %>%
-  select(dep_delay, carrier)
-
 library(car)
-leveneTest(dep_delay_carrier$dep_delay, dep_delay_carrier$carrier)
+palmerpenguins::penguins %>% 
+  car::leveneTest(
+    body_mass_g ~ species, data = .
+  )
 ```
+
+:::
+
+::: {.col style="width: 50%" data-latex="{0.5\textwidth}"}
+
+![](303_L_ExploringAssumptions_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
+
+:::
+::::::
+
 
 ```
 ## Levene's Test for Homogeneity of Variance (center = median)
-##          Df F value    Pr(>F)    
-## group    15  20.203 < 2.2e-16 ***
-##       27019                      
+##        Df F value   Pr(>F)   
+## group   2  5.1203 0.006445 **
+##       339                    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```

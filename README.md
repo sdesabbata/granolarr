@@ -121,24 +121,24 @@ All the materials are available through the **[lectures bookdown](lectures/bookd
             - Testing assumptions
             - Multiple regression
 4. **Machine learning**
-    - **400 Unsupervised**
+    - **400 Supervised**
         - 401 Lecture ([slides](lectures/html/401_L_MachineLearningIntro.html), [bookdown](lectures/bookdown/machine-learning.html))
             - Introduction to Machine Learning
-        - 402 Lecture ([slides](lectures/html/402_L_ClusteringCentroid.html), [bookdown](lectures/bookdown/centroid-based-clustering.html))
+        - *412 Lecture (to do)* ([slides](lectures/html/402_L_NeuralNetworks.html), [bookdown](lectures/bookdown/artificial-neural-networks.html))
+            - Artificial Neural Networks
+        - *413 Lecture (to do)* ([slides](lectures/html/403_L_SupportVectorMachines.html), [bookdown](lectures/bookdown/support-vector-machines.html))
+            - Support vector machines
+        - *414 Practical session (to do)* ([bookdown](practicals/bookdown/supervised-machine-learning.html))
+            - Support vector machines
+    - **410 Unsupervised**
+        - *411 Lecture (to do)* ([slides](lectures/html/411_L_PrincipalComponents.html), [bookdown](lectures/bookdown/principal-component-analysis.html))
+            - Principal Component Analysis
+        - 402 Lecture ([slides](lectures/html/412_L_ClusteringCentroid.html), [bookdown](lectures/bookdown/centroid-based-clustering.html))
             - Centroid-based clustering
-        - 403 Lecture ([slides](lectures/html/403_L_ClusteringHierarchicalDensity.html), [bookdown](lectures/bookdown/hierarchical-and-density-based-clustering.html))
+        - 403 Lecture ([slides](lectures/html/413_L_ClusteringHierarchicalDensity.html), [bookdown](lectures/bookdown/hierarchical-and-density-based-clustering.html))
             - Hierarchical and density-based clustering
-        - *404 Practical session (to do)* ([bookdown](practicals/bookdown/geodemographic-classification.html))
+        - *404 Practical session (to do)* ([bookdown](practicals/bookdown/unsupervised-machine-learning.html))
             - Geodemographic classification
-    - **410 Supervised**
-        - *411 Lecture (to do)* ([slides](lectures/html/411_L_KNN.html), [bookdown](lectures/bookdown/knn.html))
-            - K-nearest neighbors
-        - *412 Lecture (to do)* ([slides](lectures/html/412_L_SupportVectorMachines.html), [bookdown](lectures/bookdown/support-vector-machines.html))
-            - Support vector machines
-        - *413 Lecture (to do)* ([slides](lectures/html/413_L_DeepLearning.html), [bookdown](lectures/bookdown/deep-learning.html))
-            - Deep learning
-        - *414 Practical session (to do)* ([bookdown](practicals/bookdown/support-vector-machines.html))
-            - Support vector machines
 
 
 

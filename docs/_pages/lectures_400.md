@@ -21,26 +21,26 @@ toc_sticky: true
 <a href="https://sdesabbata.github.io/granolarr/lectures/html/401_L_MachineLearningIntro" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
-## 402 Centroid-based clustering
+## 402 Artificial Neural Networks
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/402_L_ClusteringCentroid.html" title="402_L_ClusteringCentroid" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/402_L_NeuralNetworks.html" title="402_L_NeuralNetworks" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-<a href="https://sdesabbata.github.io/granolarr/lectures/html/402_L_ClusteringCentroid" target="_blank">Open the lecture slides in a new tab.</a>
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/402_L_NeuralNetworks" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
-## 403 Hierarchical and density-based clustering
+## 403 Support vector machines
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/403_L_ClusteringHierarchicalDensity.html" title="403_L_ClusteringHierarchicalDensity" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/403_L_SupportVectorMachines.html" title="403_L_SupportVectorMachines" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-<a href="https://sdesabbata.github.io/granolarr/lectures/html/403_L_ClusteringHierarchicalDensity" target="_blank">Open the lecture slides in a new tab.</a>
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/403_L_SupportVectorMachines" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 404 Practical session
 
-See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/geodemographic-classification" target="_blank">practical session bookdown.</a>
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/supervised-machine-learning" target="_blank">practical session bookdown.</a>

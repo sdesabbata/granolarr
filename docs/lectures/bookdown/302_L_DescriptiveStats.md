@@ -14,26 +14,41 @@ Data visualisation
 
 **Next**: Descriptive statistics
 
-- stat.desc
+- pastecs::stat.desc
 - dplyr::across
 
 
 
-## Libraries and data
 
+
+## Meet the Palmer penguins
+
+:::::: {.cols data-latex=""}
+::: {.col style="width: 70%;" data-latex="{0.5\textwidth}"}
+
+Original data collected and released by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](Palmer Station, Antarctica LTER), a member of the [Long Term Ecological Research Network](https://lternet.edu/).
+
+Horst AM, Hill AP, Gorman KB (2020). [palmerpenguins: Palmer Archipelago (Antarctica) penguin data](https://allisonhorst.github.io/palmerpenguins/). R package version 0.1.0. doi:10.5281/zenodo.3960218.
+
+<br>
 
 ```r
-library(tidyverse)
-library(magrittr)
-library(knitr)
-
-library(pastecs)
-
-library(nycflights13)
-
-flights_nov_20 <- nycflights13::flights %>%
-  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+library(palmerpenguins)
 ```
+
+
+:::
+::: {.col style="width: 60%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+![](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png)
+
+![](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/culmen_depth.png)
+
+<br/>
+*Artwork by @allison_horst*
+
+:::
+::::::
 
 
 
@@ -49,33 +64,34 @@ Quantitatively describe or summarize variables
 
 
 ```r
-nycflights13::flights %>%
-  filter(month == 11, carrier == "US") %>%
-  select(dep_delay, arr_delay, distance) %>%
-  stat.desc() %>%
-  kable()
+library(pastecs)
+
+palmerpenguins::penguins %>%
+  dplyr::select(bill_length_mm, bill_depth_mm) %>%
+  pastecs::stat.desc() %>%
+  knitr::kable(digits = c(2, 2))
 ```
 
 
 ## stat.desc output
 
 
-|             |    dep_delay|    arr_delay|     distance|
-|:------------|------------:|------------:|------------:|
-|nbr.val      | 1668.0000000|  1667.000000| 1.699000e+03|
-|nbr.null     |   58.0000000|    35.000000| 0.000000e+00|
-|nbr.na       |   31.0000000|    32.000000| 0.000000e+00|
-|min          |  -17.0000000|   -63.000000| 9.600000e+01|
-|max          |  193.0000000|   191.000000| 2.153000e+03|
-|range        |  210.0000000|   254.000000| 2.057000e+03|
-|sum          |  961.0000000| -4450.000000| 9.715580e+05|
-|median       |   -4.0000000|    -7.000000| 5.290000e+02|
-|mean         |    0.5761391|    -2.669466| 5.718411e+02|
-|SE.mean      |    0.4084206|     0.518816| 1.464965e+01|
-|CI.mean.0.95 |    0.8010713|     1.017600| 2.873327e+01|
-|var          |  278.2347513|   448.706408| 3.646264e+05|
-|std.dev      |   16.6803702|    21.182691| 6.038430e+02|
-|coef.var     |   28.9519850|    -7.935179| 1.055963e+00|
+|             | bill_length_mm| bill_depth_mm|
+|:------------|--------------:|-------------:|
+|nbr.val      |         342.00|        342.00|
+|nbr.null     |           0.00|          0.00|
+|nbr.na       |           2.00|          2.00|
+|min          |          32.10|         13.10|
+|max          |          59.60|         21.50|
+|range        |          27.50|          8.40|
+|sum          |       15021.30|       5865.70|
+|median       |          44.45|         17.30|
+|mean         |          43.92|         17.15|
+|SE.mean      |           0.30|          0.11|
+|CI.mean.0.95 |           0.58|          0.21|
+|var          |          29.81|          3.90|
+|std.dev      |           5.46|          1.97|
+|coef.var     |           0.12|          0.12|
 
 
 
@@ -145,7 +161,7 @@ library(broom)
 nycflights13::flights %>%
   filter(month == 11, carrier == "US") %>%
   select(dep_delay, arr_delay, distance) %>%
-  stat.desc() %>%
+  pastecs::stat.desc() %>%
   tidy()
 ```
 
@@ -164,7 +180,137 @@ nycflights13::flights %>%
 
 ## dplyr::across
 
-TODO
+The `dplyr` verb `across` allows to apply `summarise` verbs on multiple columns. Instead of...
+
+
+
+```r
+palmerpenguins::penguins %>%
+  # filter out raws with missing data
+  dplyr::filter(!is.na(bill_length_mm)) %>%
+  # summarise
+  dplyr::summarise(
+    avg_bill_len_mm = mean(bill_length_mm), 
+    avg_bill_dpt_mm = mean(bill_depth_mm),
+    avg_flip_len_mm = mean(flipper_length_mm),
+    avg_body_mass_g = mean(body_mass_g)
+  ) %>%
+  knitr::kable(digits = c(2, 2, 2, 2))
+```
+
+
+
+| avg_bill_len_mm| avg_bill_dpt_mm| avg_flip_len_mm| avg_body_mass_g|
+|---------------:|---------------:|---------------:|---------------:|
+|           43.92|           17.15|          200.92|         4201.75|
+
+
+
+## dplyr::across
+
+The `dplyr` verb `across` allows to apply `summarise` verbs on multiple columns. You can use...
+
+
+
+```r
+palmerpenguins::penguins %>%
+  # filter out raws with missing data
+  dplyr::filter(!is.na(bill_length_mm)) %>%
+  # summarise cross columns
+  dplyr::summarise(
+    dplyr::across(
+      bill_length_mm:body_mass_g, # any vector of column names
+      mean                        # function to apply
+    )
+  ) %>%
+  knitr::kable(digits = c(2, 2, 2, 2))
+```
+
+
+
+| bill_length_mm| bill_depth_mm| flipper_length_mm| body_mass_g|
+|--------------:|-------------:|-----------------:|-----------:|
+|          43.92|         17.15|            200.92|     4201.75|
+
+
+
+## dplyr::across
+
+The `dplyr` verb `across` allows to apply `summarise` and `mutate` verbs on multiple columns. You can use...
+
+
+
+```r
+palmerpenguins::penguins %>%
+  # filter out raws with missing data
+  dplyr::filter(!is.na(bill_length_mm)) %>%
+  # summarise cross columns
+  dplyr::summarise(
+    dplyr::across(
+      bill_length_mm:body_mass_g, # any vector of column names
+      mean                        # function to apply
+    )
+  ) %>%
+  knitr::kable(digits = c(2, 2, 2, 2))
+```
+
+
+
+| bill_length_mm| bill_depth_mm| flipper_length_mm| body_mass_g|
+|--------------:|-------------:|-----------------:|-----------:|
+|          43.92|         17.15|            200.92|     4201.75|
+
+
+
+## dplyr::across
+
+The verb `across` can also be used with `mutate`, to apply the same function to a number of columns
+
+
+```r
+palmerpenguins::penguins %>%
+  # mutate cross columns
+  dplyr::mutate(
+    dplyr::across(
+      c(bill_length_mm, bill_depth_mm, flipper_length_mm),
+      # add 1 to all values in the columns above
+      function(x){ x / 25.4 }
+    )
+  ) %>%
+  rename(
+    bill_length_in = bill_length_mm,
+    bill_depth_in = bill_depth_mm,
+    flipper_length_in = flipper_length_mm
+  )
+```
+
+
+## dplyr::across
+
+Old columns:
+
+
+```
+## # A tibble: 344 x 3
+##   bill_length_mm bill_depth_mm flipper_length_mm
+##            <dbl>         <dbl>             <int>
+## 1           39.1          18.7               181
+## 2           39.5          17.4               186
+## # … with 342 more rows
+```
+
+New columns:
+
+
+```
+## # A tibble: 344 x 3
+##   bill_length_in bill_depth_in flipper_length_in
+##            <dbl>         <dbl>             <dbl>
+## 1           1.54         0.736              7.13
+## 2           1.56         0.685              7.32
+## # … with 342 more rows
+```
+
 
 
 
@@ -172,7 +318,7 @@ TODO
 
 Descriptive statistics
 
-- stat.desc
+- pastecs::stat.desc
 - dplyr::across
 
 **Next**: Exploring assumptions

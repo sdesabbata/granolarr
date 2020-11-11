@@ -4,11 +4,14 @@ FROM rocker/geospatial:4.0.2
 # create an R user
 ENV USER rstudio
 
-## Install additional required R libraries
-COPY ./DockerConfig/Requirements.R /tmp/Requirements.R
+# Install additional required R libraries
+COPY ./src/docker_config/Requirements.R /tmp/Requirements.R
 RUN Rscript /tmp/Requirements.R
 
-## Install additional required TeX libraries
+# Update tlmgr
+RUN tlmgr update --self
+
+# Install additional required TeX libraries
 RUN tlmgr install amsmath
 RUN tlmgr install latex-amsmath-dev
 RUN tlmgr install iftex

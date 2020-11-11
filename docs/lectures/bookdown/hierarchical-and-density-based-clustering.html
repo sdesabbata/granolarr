@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>27 Hierarchical and density-based clustering | Lecture materials | granolarr</title>
+  <title>30 Hierarchical and density-based clustering | Lecture materials | granolarr</title>
   <meta name="description" content="Geographic data science reproducible teaching resource in R, Lecture materials" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="27 Hierarchical and density-based clustering | Lecture materials | granolarr" />
+  <meta property="og:title" content="30 Hierarchical and density-based clustering | Lecture materials | granolarr" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://sdesabbata.github.io/granolarr/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="sdesabbata/granolarr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="27 Hierarchical and density-based clustering | Lecture materials | granolarr" />
+  <meta name="twitter:title" content="30 Hierarchical and density-based clustering | Lecture materials | granolarr" />
   
   <meta name="twitter:description" content="Geographic data science reproducible teaching resource in R, Lecture materials" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-11-03" />
+<meta name="date" content="2020-11-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="centroid-based-clustering.html"/>
-<link rel="next" href="knn.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -346,30 +346,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>16</b> Data visualisation</a><ul>
 <li class="chapter" data-level="16.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>16.1</b> Recap</a></li>
-<li class="chapter" data-level="16.2" data-path="data-visualisation.html"><a href="data-visualisation.html#visual-variables"><i class="fa fa-check"></i><b>16.2</b> Visual variables</a></li>
-<li class="chapter" data-level="16.3" data-path="data-visualisation.html"><a href="data-visualisation.html#grammar-of-graphics"><i class="fa fa-check"></i><b>16.3</b> Grammar of graphics</a></li>
+<li class="chapter" data-level="16.2" data-path="data-visualisation.html"><a href="data-visualisation.html#grammar-of-graphics"><i class="fa fa-check"></i><b>16.2</b> Grammar of graphics</a></li>
+<li class="chapter" data-level="16.3" data-path="data-visualisation.html"><a href="data-visualisation.html#visual-variables"><i class="fa fa-check"></i><b>16.3</b> Visual variables</a></li>
 <li class="chapter" data-level="16.4" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot2"><i class="fa fa-check"></i><b>16.4</b> ggplot2</a></li>
-<li class="chapter" data-level="16.5" data-path="data-visualisation.html"><a href="data-visualisation.html#histograms"><i class="fa fa-check"></i><b>16.5</b> Histograms</a></li>
-<li class="chapter" data-level="16.6" data-path="data-visualisation.html"><a href="data-visualisation.html#histograms-1"><i class="fa fa-check"></i><b>16.6</b> Histograms</a></li>
-<li class="chapter" data-level="16.7" data-path="data-visualisation.html"><a href="data-visualisation.html#boxplots"><i class="fa fa-check"></i><b>16.7</b> Boxplots</a></li>
-<li class="chapter" data-level="16.8" data-path="data-visualisation.html"><a href="data-visualisation.html#boxplots-1"><i class="fa fa-check"></i><b>16.8</b> Boxplots</a></li>
-<li class="chapter" data-level="16.9" data-path="data-visualisation.html"><a href="data-visualisation.html#jittered-points"><i class="fa fa-check"></i><b>16.9</b> Jittered points</a></li>
-<li class="chapter" data-level="16.10" data-path="data-visualisation.html"><a href="data-visualisation.html#jittered-points-1"><i class="fa fa-check"></i><b>16.10</b> Jittered points</a></li>
-<li class="chapter" data-level="16.11" data-path="data-visualisation.html"><a href="data-visualisation.html#violin-plot"><i class="fa fa-check"></i><b>16.11</b> Violin plot</a></li>
-<li class="chapter" data-level="16.12" data-path="data-visualisation.html"><a href="data-visualisation.html#violin-plot-1"><i class="fa fa-check"></i><b>16.12</b> Violin plot</a></li>
-<li class="chapter" data-level="16.13" data-path="data-visualisation.html"><a href="data-visualisation.html#lines"><i class="fa fa-check"></i><b>16.13</b> Lines</a></li>
-<li class="chapter" data-level="16.14" data-path="data-visualisation.html"><a href="data-visualisation.html#lines-1"><i class="fa fa-check"></i><b>16.14</b> Lines</a></li>
-<li class="chapter" data-level="16.15" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplots"><i class="fa fa-check"></i><b>16.15</b> Scatterplots</a></li>
-<li class="chapter" data-level="16.16" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplots-1"><i class="fa fa-check"></i><b>16.16</b> Scatterplots</a></li>
-<li class="chapter" data-level="16.17" data-path="data-visualisation.html"><a href="data-visualisation.html#overlapping-points"><i class="fa fa-check"></i><b>16.17</b> Overlapping points</a></li>
-<li class="chapter" data-level="16.18" data-path="data-visualisation.html"><a href="data-visualisation.html#overlapping-points-1"><i class="fa fa-check"></i><b>16.18</b> Overlapping points</a></li>
-<li class="chapter" data-level="16.19" data-path="data-visualisation.html"><a href="data-visualisation.html#bin-counts"><i class="fa fa-check"></i><b>16.19</b> Bin counts</a></li>
-<li class="chapter" data-level="16.20" data-path="data-visualisation.html"><a href="data-visualisation.html#bin-counts-1"><i class="fa fa-check"></i><b>16.20</b> Bin counts</a></li>
-<li class="chapter" data-level="16.21" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>16.21</b> Summary</a></li>
+<li class="chapter" data-level="16.5" data-path="data-visualisation.html"><a href="data-visualisation.html#aesthetics"><i class="fa fa-check"></i><b>16.5</b> Aesthetics</a></li>
+<li class="chapter" data-level="16.6" data-path="data-visualisation.html"><a href="data-visualisation.html#graphical-primitives"><i class="fa fa-check"></i><b>16.6</b> Graphical primitives</a></li>
+<li class="chapter" data-level="16.7" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot2geom_line"><i class="fa fa-check"></i><b>16.7</b> ggplot2::geom_line</a></li>
+<li class="chapter" data-level="16.8" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot2geom_line-1"><i class="fa fa-check"></i><b>16.8</b> ggplot2::geom_line</a></li>
+<li class="chapter" data-level="16.9" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot2geom_col"><i class="fa fa-check"></i><b>16.9</b> ggplot2::geom_col</a></li>
+<li class="chapter" data-level="16.10" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot2geom_col-1"><i class="fa fa-check"></i><b>16.10</b> ggplot2::geom_col</a></li>
+<li class="chapter" data-level="16.11" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot2geom_col-2"><i class="fa fa-check"></i><b>16.11</b> ggplot2::geom_col</a></li>
+<li class="chapter" data-level="16.12" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot2geom_col-3"><i class="fa fa-check"></i><b>16.12</b> ggplot2::geom_col</a></li>
+<li class="chapter" data-level="16.13" data-path="data-visualisation.html"><a href="data-visualisation.html#histograms"><i class="fa fa-check"></i><b>16.13</b> Histograms</a></li>
+<li class="chapter" data-level="16.14" data-path="data-visualisation.html"><a href="data-visualisation.html#histograms-1"><i class="fa fa-check"></i><b>16.14</b> Histograms</a></li>
+<li class="chapter" data-level="16.15" data-path="data-visualisation.html"><a href="data-visualisation.html#boxplots"><i class="fa fa-check"></i><b>16.15</b> Boxplots</a></li>
+<li class="chapter" data-level="16.16" data-path="data-visualisation.html"><a href="data-visualisation.html#boxplots-1"><i class="fa fa-check"></i><b>16.16</b> Boxplots</a></li>
+<li class="chapter" data-level="16.17" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplots"><i class="fa fa-check"></i><b>16.17</b> Scatterplots</a></li>
+<li class="chapter" data-level="16.18" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplots-1"><i class="fa fa-check"></i><b>16.18</b> Scatterplots</a></li>
+<li class="chapter" data-level="16.19" data-path="data-visualisation.html"><a href="data-visualisation.html#overlapping-points"><i class="fa fa-check"></i><b>16.19</b> Overlapping points</a></li>
+<li class="chapter" data-level="16.20" data-path="data-visualisation.html"><a href="data-visualisation.html#overlapping-points-1"><i class="fa fa-check"></i><b>16.20</b> Overlapping points</a></li>
+<li class="chapter" data-level="16.21" data-path="data-visualisation.html"><a href="data-visualisation.html#bin-counts"><i class="fa fa-check"></i><b>16.21</b> Bin counts</a></li>
+<li class="chapter" data-level="16.22" data-path="data-visualisation.html"><a href="data-visualisation.html#bin-counts-1"><i class="fa fa-check"></i><b>16.22</b> Bin counts</a></li>
+<li class="chapter" data-level="16.23" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>16.23</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>17</b> Descriptive statistics</a><ul>
 <li class="chapter" data-level="17.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>17.1</b> Summary</a></li>
-<li class="chapter" data-level="17.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>17.2</b> Libraries and data</a></li>
+<li class="chapter" data-level="17.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#meet-the-palmer-penguins"><i class="fa fa-check"></i><b>17.2</b> Meet the Palmer penguins</a></li>
 <li class="chapter" data-level="17.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#descriptive-statistics-1"><i class="fa fa-check"></i><b>17.3</b> Descriptive statistics</a></li>
 <li class="chapter" data-level="17.4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#stat.desc-output"><i class="fa fa-check"></i><b>17.4</b> stat.desc output</a></li>
 <li class="chapter" data-level="17.5" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#stat.desc-basic"><i class="fa fa-check"></i><b>17.5</b> stat.desc: basic</a></li>
@@ -377,20 +379,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.7" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#sample-statistics"><i class="fa fa-check"></i><b>17.7</b> Sample statistics</a></li>
 <li class="chapter" data-level="17.8" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#estimating-variation"><i class="fa fa-check"></i><b>17.8</b> Estimating variation</a></li>
 <li class="chapter" data-level="17.9" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#dplyracross"><i class="fa fa-check"></i><b>17.9</b> dplyr::across</a></li>
-<li class="chapter" data-level="17.10" data-path="functions.html"><a href="functions.html#summary-1"><i class="fa fa-check"></i><b>17.10</b> Summary</a></li>
+<li class="chapter" data-level="17.10" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#dplyracross-1"><i class="fa fa-check"></i><b>17.10</b> dplyr::across</a></li>
+<li class="chapter" data-level="17.11" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#dplyracross-2"><i class="fa fa-check"></i><b>17.11</b> dplyr::across</a></li>
+<li class="chapter" data-level="17.12" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#dplyracross-3"><i class="fa fa-check"></i><b>17.12</b> dplyr::across</a></li>
+<li class="chapter" data-level="17.13" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#dplyracross-4"><i class="fa fa-check"></i><b>17.13</b> dplyr::across</a></li>
+<li class="chapter" data-level="17.14" data-path="functions.html"><a href="functions.html#summary-1"><i class="fa fa-check"></i><b>17.14</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html"><i class="fa fa-check"></i><b>18</b> Exploring assumptions</a><ul>
 <li class="chapter" data-level="18.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>18.1</b> Recap</a></li>
-<li class="chapter" data-level="18.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>18.2</b> Libraries and data</a></li>
-<li class="chapter" data-level="18.3" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#normal-distribution"><i class="fa fa-check"></i><b>18.3</b> Normal distribution</a></li>
-<li class="chapter" data-level="18.4" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#density-histogram"><i class="fa fa-check"></i><b>18.4</b> Density histogram</a></li>
-<li class="chapter" data-level="18.5" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#q-q-plot"><i class="fa fa-check"></i><b>18.5</b> Q-Q plot</a></li>
-<li class="chapter" data-level="18.6" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#stat.desc-norm"><i class="fa fa-check"></i><b>18.6</b> stat.desc: norm</a></li>
-<li class="chapter" data-level="18.7" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#normality"><i class="fa fa-check"></i><b>18.7</b> Normality</a></li>
-<li class="chapter" data-level="18.8" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#significance"><i class="fa fa-check"></i><b>18.8</b> Significance</a></li>
+<li class="chapter" data-level="18.2" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#normal-distribution"><i class="fa fa-check"></i><b>18.2</b> Normal distribution</a></li>
+<li class="chapter" data-level="18.3" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#density-histogram"><i class="fa fa-check"></i><b>18.3</b> Density histogram</a></li>
+<li class="chapter" data-level="18.4" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#q-q-plot"><i class="fa fa-check"></i><b>18.4</b> Q-Q plot</a></li>
+<li class="chapter" data-level="18.5" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#normality"><i class="fa fa-check"></i><b>18.5</b> Normality</a></li>
+<li class="chapter" data-level="18.6" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#significance"><i class="fa fa-check"></i><b>18.6</b> Significance</a></li>
+<li class="chapter" data-level="18.7" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>18.7</b> Example</a></li>
+<li class="chapter" data-level="18.8" data-path="join-operations.html"><a href="join-operations.html#example-1"><i class="fa fa-check"></i><b>18.8</b> Example</a></li>
 <li class="chapter" data-level="18.9" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#skewness-and-kurtosis"><i class="fa fa-check"></i><b>18.9</b> Skewness and kurtosis</a></li>
-<li class="chapter" data-level="18.10" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>18.10</b> Homogeneity of variance</a></li>
-<li class="chapter" data-level="18.11" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>18.11</b> Summary</a></li>
+<li class="chapter" data-level="18.10" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-2"><i class="fa fa-check"></i><b>18.10</b> Example</a></li>
+<li class="chapter" data-level="18.11" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-3"><i class="fa fa-check"></i><b>18.11</b> Example</a></li>
+<li class="chapter" data-level="18.12" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>18.12</b> Homogeneity of variance</a></li>
+<li class="chapter" data-level="18.13" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>18.13</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="comparing-groups.html"><a href="comparing-groups.html"><i class="fa fa-check"></i><b>19</b> Comparing groups</a><ul>
 <li class="chapter" data-level="19.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>19.1</b> Recap</a></li>
@@ -399,13 +407,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.4" data-path="comparing-groups.html"><a href="comparing-groups.html#t-test"><i class="fa fa-check"></i><b>19.4</b> T-test</a></li>
 <li class="chapter" data-level="19.5" data-path="join-operations.html"><a href="join-operations.html#example-1"><i class="fa fa-check"></i><b>19.5</b> Example</a></li>
 <li class="chapter" data-level="19.6" data-path="comparing-groups.html"><a href="comparing-groups.html#anova"><i class="fa fa-check"></i><b>19.6</b> ANOVA</a></li>
-<li class="chapter" data-level="19.7" data-path="comparing-groups.html"><a href="comparing-groups.html#example-2"><i class="fa fa-check"></i><b>19.7</b> Example</a></li>
+<li class="chapter" data-level="19.7" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-2"><i class="fa fa-check"></i><b>19.7</b> Example</a></li>
 <li class="chapter" data-level="19.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>19.8</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>20</b> Correlation</a><ul>
 <li class="chapter" data-level="20.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>20.1</b> Recap</a></li>
 <li class="chapter" data-level="20.2" data-path="correlation.html"><a href="correlation.html#correlation-1"><i class="fa fa-check"></i><b>20.2</b> Correlation</a></li>
-<li class="chapter" data-level="20.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>20.3</b> Libraries and data</a></li>
+<li class="chapter" data-level="20.3" data-path="correlation.html"><a href="correlation.html#libraries-and-data"><i class="fa fa-check"></i><b>20.3</b> Libraries and data</a></li>
 <li class="chapter" data-level="20.4" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>20.4</b> Example</a></li>
 <li class="chapter" data-level="20.5" data-path="join-operations.html"><a href="join-operations.html#example-1"><i class="fa fa-check"></i><b>20.5</b> Example</a></li>
 <li class="chapter" data-level="20.6" data-path="correlation.html"><a href="correlation.html#pearsons-r"><i class="fa fa-check"></i><b>20.6</b> Pearson’s r</a></li>
@@ -416,7 +424,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="21" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>21</b> Data transformations</a><ul>
 <li class="chapter" data-level="21.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>21.1</b> Recap</a></li>
-<li class="chapter" data-level="21.2" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>21.2</b> Libraries and data</a></li>
+<li class="chapter" data-level="21.2" data-path="correlation.html"><a href="correlation.html#libraries-and-data"><i class="fa fa-check"></i><b>21.2</b> Libraries and data</a></li>
 <li class="chapter" data-level="21.3" data-path="data-transformations.html"><a href="data-transformations.html#z-scores"><i class="fa fa-check"></i><b>21.3</b> Z-scores</a></li>
 <li class="chapter" data-level="21.4" data-path="data-transformations.html"><a href="data-transformations.html#log-transformation"><i class="fa fa-check"></i><b>21.4</b> Log transformation</a></li>
 <li class="chapter" data-level="21.5" data-path="data-transformations.html"><a href="data-transformations.html#inverse-hyperbolic-sine"><i class="fa fa-check"></i><b>21.5</b> Inverse hyperbolic sine</a></li>
@@ -426,7 +434,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>22.1</b> Recap</a></li>
 <li class="chapter" data-level="22.2" data-path="simple-regression.html"><a href="simple-regression.html#regression-analysis"><i class="fa fa-check"></i><b>22.2</b> Regression analysis</a></li>
 <li class="chapter" data-level="22.3" data-path="simple-regression.html"><a href="simple-regression.html#least-squares"><i class="fa fa-check"></i><b>22.3</b> Least squares</a></li>
-<li class="chapter" data-level="22.4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>22.4</b> Libraries and data</a></li>
+<li class="chapter" data-level="22.4" data-path="correlation.html"><a href="correlation.html#libraries-and-data"><i class="fa fa-check"></i><b>22.4</b> Libraries and data</a></li>
 <li class="chapter" data-level="22.5" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>22.5</b> Example</a></li>
 <li class="chapter" data-level="22.6" data-path="simple-regression.html"><a href="simple-regression.html#overall-fit"><i class="fa fa-check"></i><b>22.6</b> Overall fit</a></li>
 <li class="chapter" data-level="22.7" data-path="simple-regression.html"><a href="simple-regression.html#parameters"><i class="fa fa-check"></i><b>22.7</b> Parameters</a></li>
@@ -435,7 +443,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="23" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html"><i class="fa fa-check"></i><b>23</b> Assessing regression assumptions</a><ul>
 <li class="chapter" data-level="23.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>23.1</b> Recap</a></li>
 <li class="chapter" data-level="23.2" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html#checking-assumptions"><i class="fa fa-check"></i><b>23.2</b> Checking assumptions</a></li>
-<li class="chapter" data-level="23.3" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html#libraries-and-data"><i class="fa fa-check"></i><b>23.3</b> Libraries and data</a></li>
+<li class="chapter" data-level="23.3" data-path="correlation.html"><a href="correlation.html#libraries-and-data"><i class="fa fa-check"></i><b>23.3</b> Libraries and data</a></li>
 <li class="chapter" data-level="23.4" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>23.4</b> Example</a></li>
 <li class="chapter" data-level="23.5" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#normality"><i class="fa fa-check"></i><b>23.5</b> Normality</a></li>
 <li class="chapter" data-level="23.6" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html#homoscedasticity"><i class="fa fa-check"></i><b>23.6</b> Homoscedasticity</a></li>
@@ -461,45 +469,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="25.11" data-path="machine-learning.html"><a href="machine-learning.html#limits"><i class="fa fa-check"></i><b>25.11</b> Limits</a></li>
 <li class="chapter" data-level="25.12" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>25.12</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html"><i class="fa fa-check"></i><b>26</b> Centroid-based clustering</a><ul>
+<li class="chapter" data-level="26" data-path="deep-learning.html"><a href="deep-learning.html"><i class="fa fa-check"></i><b>26</b> Deep learning</a><ul>
 <li class="chapter" data-level="26.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>26.1</b> Recap</a></li>
-<li class="chapter" data-level="26.2" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#clustering-task"><i class="fa fa-check"></i><b>26.2</b> Clustering task</a></li>
-<li class="chapter" data-level="26.3" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>26.3</b> Example</a></li>
-<li class="chapter" data-level="26.4" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#k-means"><i class="fa fa-check"></i><b>26.4</b> k-means</a></li>
-<li class="chapter" data-level="26.5" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#k-means-result"><i class="fa fa-check"></i><b>26.5</b> K-means result</a></li>
-<li class="chapter" data-level="26.6" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#fuzzy-c-means"><i class="fa fa-check"></i><b>26.6</b> Fuzzy c-means</a></li>
-<li class="chapter" data-level="26.7" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#fuzzy-c-means-1"><i class="fa fa-check"></i><b>26.7</b> Fuzzy c-means</a></li>
-<li class="chapter" data-level="26.8" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#fuzzy-c-means-result"><i class="fa fa-check"></i><b>26.8</b> Fuzzy c-means result</a></li>
-<li class="chapter" data-level="26.9" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#geodemographic-classifications"><i class="fa fa-check"></i><b>26.9</b> Geodemographic classifications</a></li>
-<li class="chapter" data-level="26.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>26.10</b> Summary</a></li>
+<li class="chapter" data-level="26.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>26.2</b> TO-DO</a></li>
+<li class="chapter" data-level="26.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>26.3</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html"><i class="fa fa-check"></i><b>27</b> Hierarchical and density-based clustering</a><ul>
+<li class="chapter" data-level="27" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>27</b> Support vector machines</a><ul>
 <li class="chapter" data-level="27.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>27.1</b> Recap</a></li>
-<li class="chapter" data-level="27.2" data-path="core-concepts.html"><a href="core-concepts.html#libraries"><i class="fa fa-check"></i><b>27.2</b> Libraries</a></li>
-<li class="chapter" data-level="27.3" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>27.3</b> Example</a></li>
-<li class="chapter" data-level="27.4" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#hierarchical-clustering"><i class="fa fa-check"></i><b>27.4</b> Hierarchical clustering</a></li>
-<li class="chapter" data-level="27.5" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#clustering-tree"><i class="fa fa-check"></i><b>27.5</b> Clustering tree</a></li>
-<li class="chapter" data-level="27.6" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#hierarchical-clustering-result"><i class="fa fa-check"></i><b>27.6</b> Hierarchical clustering result</a></li>
-<li class="chapter" data-level="27.7" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#bagged-clustering"><i class="fa fa-check"></i><b>27.7</b> Bagged clustering</a></li>
-<li class="chapter" data-level="27.8" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#bagged-clustering-result"><i class="fa fa-check"></i><b>27.8</b> Bagged clustering result</a></li>
-<li class="chapter" data-level="27.9" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#density-based-clustering"><i class="fa fa-check"></i><b>27.9</b> Density based clustering</a></li>
-<li class="chapter" data-level="27.10" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#dbscan-result"><i class="fa fa-check"></i><b>27.10</b> DBSCAN result</a></li>
-<li class="chapter" data-level="27.11" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>27.11</b> Summary</a></li>
+<li class="chapter" data-level="27.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>27.2</b> TO-DO</a></li>
+<li class="chapter" data-level="27.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>27.3</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="knn.html"><a href="knn.html"><i class="fa fa-check"></i><b>28</b> kNN</a><ul>
+<li class="chapter" data-level="28" data-path="principal-component-analysis.html"><a href="principal-component-analysis.html"><i class="fa fa-check"></i><b>28</b> Principal Component Analysis</a><ul>
 <li class="chapter" data-level="28.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>28.1</b> Recap</a></li>
 <li class="chapter" data-level="28.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>28.2</b> TO-DO</a></li>
 <li class="chapter" data-level="28.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>28.3</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>29</b> Support vector machines</a><ul>
+<li class="chapter" data-level="29" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html"><i class="fa fa-check"></i><b>29</b> Centroid-based clustering</a><ul>
 <li class="chapter" data-level="29.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>29.1</b> Recap</a></li>
-<li class="chapter" data-level="29.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>29.2</b> TO-DO</a></li>
-<li class="chapter" data-level="29.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>29.3</b> Summary</a></li>
+<li class="chapter" data-level="29.2" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#clustering-task"><i class="fa fa-check"></i><b>29.2</b> Clustering task</a></li>
+<li class="chapter" data-level="29.3" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>29.3</b> Example</a></li>
+<li class="chapter" data-level="29.4" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#k-means"><i class="fa fa-check"></i><b>29.4</b> k-means</a></li>
+<li class="chapter" data-level="29.5" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#k-means-result"><i class="fa fa-check"></i><b>29.5</b> K-means result</a></li>
+<li class="chapter" data-level="29.6" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#fuzzy-c-means"><i class="fa fa-check"></i><b>29.6</b> Fuzzy c-means</a></li>
+<li class="chapter" data-level="29.7" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#fuzzy-c-means-1"><i class="fa fa-check"></i><b>29.7</b> Fuzzy c-means</a></li>
+<li class="chapter" data-level="29.8" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#fuzzy-c-means-result"><i class="fa fa-check"></i><b>29.8</b> Fuzzy c-means result</a></li>
+<li class="chapter" data-level="29.9" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html#geodemographic-classifications"><i class="fa fa-check"></i><b>29.9</b> Geodemographic classifications</a></li>
+<li class="chapter" data-level="29.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>29.10</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="deep-learning.html"><a href="deep-learning.html"><i class="fa fa-check"></i><b>30</b> Deep learning</a><ul>
+<li class="chapter" data-level="30" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html"><i class="fa fa-check"></i><b>30</b> Hierarchical and density-based clustering</a><ul>
 <li class="chapter" data-level="30.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>30.1</b> Recap</a></li>
-<li class="chapter" data-level="30.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>30.2</b> TO-DO</a></li>
-<li class="chapter" data-level="30.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>30.3</b> Summary</a></li>
+<li class="chapter" data-level="30.2" data-path="core-concepts.html"><a href="core-concepts.html#libraries"><i class="fa fa-check"></i><b>30.2</b> Libraries</a></li>
+<li class="chapter" data-level="30.3" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>30.3</b> Example</a></li>
+<li class="chapter" data-level="30.4" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#hierarchical-clustering"><i class="fa fa-check"></i><b>30.4</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="30.5" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#clustering-tree"><i class="fa fa-check"></i><b>30.5</b> Clustering tree</a></li>
+<li class="chapter" data-level="30.6" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#hierarchical-clustering-result"><i class="fa fa-check"></i><b>30.6</b> Hierarchical clustering result</a></li>
+<li class="chapter" data-level="30.7" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#bagged-clustering"><i class="fa fa-check"></i><b>30.7</b> Bagged clustering</a></li>
+<li class="chapter" data-level="30.8" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#bagged-clustering-result"><i class="fa fa-check"></i><b>30.8</b> Bagged clustering result</a></li>
+<li class="chapter" data-level="30.9" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#density-based-clustering"><i class="fa fa-check"></i><b>30.9</b> Density based clustering</a></li>
+<li class="chapter" data-level="30.10" data-path="hierarchical-and-density-based-clustering.html"><a href="hierarchical-and-density-based-clustering.html#dbscan-result"><i class="fa fa-check"></i><b>30.10</b> DBSCAN result</a></li>
+<li class="chapter" data-level="30.11" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>30.11</b> Summary</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://sdesabbata.github.io/granolarr/">granolarr</a></li>
@@ -522,9 +530,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="hierarchical-and-density-based-clustering" class="section level1">
-<h1><span class="header-section-number">27</span> Hierarchical and density-based clustering</h1>
+<h1><span class="header-section-number">30</span> Hierarchical and density-based clustering</h1>
 <div id="recap" class="section level2">
-<h2><span class="header-section-number">27.1</span> Recap</h2>
+<h2><span class="header-section-number">30.1</span> Recap</h2>
 <p><strong>Prev</strong>: Centroid-based clustering</p>
 <ul>
 <li>K-means</li>
@@ -539,8 +547,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="libraries" class="section level2">
-<h2><span class="header-section-number">27.2</span> Libraries</h2>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="hierarchical-and-density-based-clustering.html#cb293-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<h2><span class="header-section-number">30.2</span> Libraries</h2>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="hierarchical-and-density-based-clustering.html#cb304-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.3.2     ✔ purrr   0.3.4
 ## ✔ tibble  3.0.3     ✔ dplyr   1.0.0
@@ -549,18 +557,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="hierarchical-and-density-based-clustering.html#cb297-1"></a><span class="kw">library</span>(e1071)</span>
-<span id="cb297-2"><a href="hierarchical-and-density-based-clustering.html#cb297-2"></a><span class="kw">library</span>(dbscan)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="hierarchical-and-density-based-clustering.html#cb308-1"></a><span class="kw">library</span>(e1071)</span>
+<span id="cb308-2"><a href="hierarchical-and-density-based-clustering.html#cb308-2"></a><span class="kw">library</span>(dbscan)</span></code></pre></div>
 </div>
 <div id="example" class="section level2">
-<h2><span class="header-section-number">27.3</span> Example</h2>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="hierarchical-and-density-based-clustering.html#cb298-1"></a>data_to_cluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb298-2"><a href="hierarchical-and-density-based-clustering.html#cb298-2"></a>  <span class="dt">x_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">10</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">3</span>)),</span>
-<span id="cb298-3"><a href="hierarchical-and-density-based-clustering.html#cb298-3"></a>  <span class="dt">y_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">5</span>, <span class="dv">3</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">1</span>)),</span>
-<span id="cb298-4"><a href="hierarchical-and-density-based-clustering.html#cb298-4"></a>  <span class="dt">original_group =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">40</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">60</span>), <span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">20</span>)) )</span></code></pre></div>
+<h2><span class="header-section-number">30.3</span> Example</h2>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="hierarchical-and-density-based-clustering.html#cb309-1"></a>data_to_cluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb309-2"><a href="hierarchical-and-density-based-clustering.html#cb309-2"></a>  <span class="dt">x_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">10</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">3</span>)),</span>
+<span id="cb309-3"><a href="hierarchical-and-density-based-clustering.html#cb309-3"></a>  <span class="dt">y_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">5</span>, <span class="dv">3</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">1</span>)),</span>
+<span id="cb309-4"><a href="hierarchical-and-density-based-clustering.html#cb309-4"></a>  <span class="dt">original_group =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">40</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">60</span>), <span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">20</span>)) )</span></code></pre></div>
 </div>
 <div id="hierarchical-clustering" class="section level2">
-<h2><span class="header-section-number">27.4</span> Hierarchical clustering</h2>
+<h2><span class="header-section-number">30.4</span> Hierarchical clustering</h2>
 <p><font size="4">
 <strong>Algorithm</strong>: each object is initialised as, then repeat</p>
 <ul>
@@ -569,80 +577,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>until only one single cluster is achieved
 </font></p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="hierarchical-and-density-based-clustering.html#cb299-1"></a>hclust_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb299-2"><a href="hierarchical-and-density-based-clustering.html#cb299-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
-<span id="cb299-3"><a href="hierarchical-and-density-based-clustering.html#cb299-3"></a><span class="st">  </span><span class="kw">dist</span>(<span class="dt">method=</span><span class="st">&quot;euclidean&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb299-4"><a href="hierarchical-and-density-based-clustering.html#cb299-4"></a><span class="st">  </span><span class="kw">hclust</span>(<span class="dt">method=</span><span class="st">&quot;ward.D2&quot;</span>)</span>
-<span id="cb299-5"><a href="hierarchical-and-density-based-clustering.html#cb299-5"></a></span>
-<span id="cb299-6"><a href="hierarchical-and-density-based-clustering.html#cb299-6"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb299-7"><a href="hierarchical-and-density-based-clustering.html#cb299-7"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">hclust_cluster =</span> <span class="kw">cutree</span>(hclust_result, <span class="dt">k=</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="hierarchical-and-density-based-clustering.html#cb310-1"></a>hclust_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb310-2"><a href="hierarchical-and-density-based-clustering.html#cb310-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
+<span id="cb310-3"><a href="hierarchical-and-density-based-clustering.html#cb310-3"></a><span class="st">  </span><span class="kw">dist</span>(<span class="dt">method=</span><span class="st">&quot;euclidean&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb310-4"><a href="hierarchical-and-density-based-clustering.html#cb310-4"></a><span class="st">  </span><span class="kw">hclust</span>(<span class="dt">method=</span><span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb310-5"><a href="hierarchical-and-density-based-clustering.html#cb310-5"></a></span>
+<span id="cb310-6"><a href="hierarchical-and-density-based-clustering.html#cb310-6"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb310-7"><a href="hierarchical-and-density-based-clustering.html#cb310-7"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">hclust_cluster =</span> <span class="kw">cutree</span>(hclust_result, <span class="dt">k=</span><span class="dv">3</span>))</span></code></pre></div>
 </div>
 <div id="clustering-tree" class="section level2">
-<h2><span class="header-section-number">27.5</span> Clustering tree</h2>
+<h2><span class="header-section-number">30.5</span> Clustering tree</h2>
 <p>This approach generates a clustering tree (dendrogram), which can then be <em>“cut”</em> at the desired height</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="hierarchical-and-density-based-clustering.html#cb300-1"></a><span class="kw">plot</span>(hclust_result) <span class="op">+</span><span class="st"> </span><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">30</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="403_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="hierarchical-and-density-based-clustering.html#cb311-1"></a><span class="kw">plot</span>(hclust_result) <span class="op">+</span><span class="st"> </span><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">30</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="413_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre><code>## integer(0)</code></pre>
 </div>
 <div id="hierarchical-clustering-result" class="section level2">
-<h2><span class="header-section-number">27.6</span> Hierarchical clustering result</h2>
+<h2><span class="header-section-number">30.6</span> Hierarchical clustering result</h2>
 <div class="cols">
 <div class="col">
-<p><img src="403_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-5-1.png" width="384" /></p>
+<p><img src="413_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-5-1.png" width="384" /></p>
 </div>
 <div class="col">
-<p><img src="403_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-6-1.png" width="384" /></p>
+<p><img src="413_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-6-1.png" width="384" /></p>
 </div>
 </div>
 </div>
 <div id="bagged-clustering" class="section level2">
-<h2><span class="header-section-number">27.7</span> Bagged clustering</h2>
+<h2><span class="header-section-number">30.7</span> Bagged clustering</h2>
 <p>Bootstrap aggregating (<em>b-agg-ed</em>) clustering approach (Leisch, 1999)</p>
 <ul>
 <li>first k-means on samples</li>
 <li>then a hierarchical clustering of the centroids generated through the samples</li>
 </ul>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="hierarchical-and-density-based-clustering.html#cb302-1"></a>bclust_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb302-2"><a href="hierarchical-and-density-based-clustering.html#cb302-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
-<span id="cb302-3"><a href="hierarchical-and-density-based-clustering.html#cb302-3"></a><span class="st">  </span><span class="kw">bclust</span>(<span class="dt">hclust.method=</span><span class="st">&quot;ward.D2&quot;</span>, <span class="dt">resample =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb302-4"><a href="hierarchical-and-density-based-clustering.html#cb302-4"></a></span>
-<span id="cb302-5"><a href="hierarchical-and-density-based-clustering.html#cb302-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb302-6"><a href="hierarchical-and-density-based-clustering.html#cb302-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">bclust_cluster =</span> <span class="kw">clusters.bclust</span>(bclust_result, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="hierarchical-and-density-based-clustering.html#cb313-1"></a>bclust_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb313-2"><a href="hierarchical-and-density-based-clustering.html#cb313-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
+<span id="cb313-3"><a href="hierarchical-and-density-based-clustering.html#cb313-3"></a><span class="st">  </span><span class="kw">bclust</span>(<span class="dt">hclust.method=</span><span class="st">&quot;ward.D2&quot;</span>, <span class="dt">resample =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb313-4"><a href="hierarchical-and-density-based-clustering.html#cb313-4"></a></span>
+<span id="cb313-5"><a href="hierarchical-and-density-based-clustering.html#cb313-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb313-6"><a href="hierarchical-and-density-based-clustering.html#cb313-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">bclust_cluster =</span> <span class="kw">clusters.bclust</span>(bclust_result, <span class="dv">3</span>))</span></code></pre></div>
 </div>
 <div id="bagged-clustering-result" class="section level2">
-<h2><span class="header-section-number">27.8</span> Bagged clustering result</h2>
+<h2><span class="header-section-number">30.8</span> Bagged clustering result</h2>
 <div class="cols">
 <div class="col">
-<p><img src="403_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-8-1.png" width="384" /></p>
+<p><img src="413_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-8-1.png" width="384" /></p>
 </div>
 <div class="col">
-<p><img src="403_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-9-1.png" width="384" /></p>
+<p><img src="413_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-9-1.png" width="384" /></p>
 </div>
 </div>
 </div>
 <div id="density-based-clustering" class="section level2">
-<h2><span class="header-section-number">27.9</span> Density based clustering</h2>
+<h2><span class="header-section-number">30.9</span> Density based clustering</h2>
 <p>DBSCAN (<em>“density-based spatial clustering of applications with noise”</em>) starts from an unclustered point and proceeds by aggregating its neighbours to the same cluster, as long as they are within a certain distance. (Ester <em>et al</em>, 1996)</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="hierarchical-and-density-based-clustering.html#cb303-1"></a>dbscan_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb303-2"><a href="hierarchical-and-density-based-clustering.html#cb303-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
-<span id="cb303-3"><a href="hierarchical-and-density-based-clustering.html#cb303-3"></a><span class="st">   </span><span class="kw">dbscan</span>(<span class="dt">eps =</span> <span class="dv">1</span>, <span class="dt">minPts =</span> <span class="dv">5</span>)</span>
-<span id="cb303-4"><a href="hierarchical-and-density-based-clustering.html#cb303-4"></a></span>
-<span id="cb303-5"><a href="hierarchical-and-density-based-clustering.html#cb303-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb303-6"><a href="hierarchical-and-density-based-clustering.html#cb303-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">dbscan_cluster =</span> dbscan_result<span class="op">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="hierarchical-and-density-based-clustering.html#cb314-1"></a>dbscan_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb314-2"><a href="hierarchical-and-density-based-clustering.html#cb314-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
+<span id="cb314-3"><a href="hierarchical-and-density-based-clustering.html#cb314-3"></a><span class="st">   </span><span class="kw">dbscan</span>(<span class="dt">eps =</span> <span class="dv">1</span>, <span class="dt">minPts =</span> <span class="dv">5</span>)</span>
+<span id="cb314-4"><a href="hierarchical-and-density-based-clustering.html#cb314-4"></a></span>
+<span id="cb314-5"><a href="hierarchical-and-density-based-clustering.html#cb314-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb314-6"><a href="hierarchical-and-density-based-clustering.html#cb314-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">dbscan_cluster =</span> dbscan_result<span class="op">$</span>cluster)</span></code></pre></div>
 </div>
 <div id="dbscan-result" class="section level2">
-<h2><span class="header-section-number">27.10</span> DBSCAN result</h2>
+<h2><span class="header-section-number">30.10</span> DBSCAN result</h2>
 <div class="cols">
 <div class="col">
-<p><img src="403_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-11-1.png" width="384" /></p>
+<p><img src="413_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-11-1.png" width="384" /></p>
 </div>
 <div class="col">
-<p><img src="403_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-12-1.png" width="384" /></p>
+<p><img src="413_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-12-1.png" width="384" /></p>
 </div>
 </div>
 </div>
 <div id="summary" class="section level2">
-<h2><span class="header-section-number">27.11</span> Summary</h2>
+<h2><span class="header-section-number">30.11</span> Summary</h2>
 <p>Hierarchical and density-based clustering</p>
 <ul>
 <li>Hierarchical</li>
@@ -654,20 +662,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Geodemographic classification</li>
 </ul>
 
-<style type="text/css">
-.small_r_all pre{
-  font-size: 16px;
-  line-height: 18px;
-}
-.small_r_output pre:not(.prettyprint){
-  font-size: 16px;
-  line-height: 18px;
-}
-.verysmall_r_output pre:not(.prettyprint){
-  font-size: 12px;
-  line-height: 14px;
-}
-</style>
 </div>
 </div>
             </section>
@@ -675,8 +669,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="centroid-based-clustering.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="knn.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="centroid-based-clustering.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

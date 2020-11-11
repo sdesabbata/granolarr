@@ -24,6 +24,12 @@ rm(list = ls())
 - Grammar of graphics
 - ggplot2
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(nycflights13)
+library(knitr)
+```
+
 
 
 ## Grammar of graphics
@@ -72,11 +78,6 @@ To create a graph in `ggplot2`:
 - apply transformations
 - guides
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(nycflights13)
-library(knitr)
-```
 
 
 ## Aesthetics
