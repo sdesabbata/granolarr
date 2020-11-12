@@ -19,7 +19,7 @@ toc_icon: "fas fa-book-open"
 toc_sticky: true
 ---
 
-<img src="docs/assets/images/granolarr_hex.png" alt="The granolarr hex sticker" align="right" width="200" style="padding: 0 15px; float: right;"/>
+<img src="assets/images/granolarr_hex.png" alt="The granolarr hex sticker" align="right" width="200" style="padding: 0 15px; float: right;"/>
 
 The materials included in **granolarr** have been designed for a module focusing on the programming language R as an effective tool for data science. R is one of the most widely used programming languages, and it provides access to a vast repository of programming libraries, which cover all aspects of data science from data wrangling to statistical analysis, from machine learning to data visualisation. That includes a variety of libraries for processing spatial data, perform geographic information analysis, and create maps. As such, R is an extremely versatile, free and opensource tool in geographic information science, which combines the capabilities of traditional GIS software with the advantages of a scripting language, and an interface to a vast array of algorithms.
 
