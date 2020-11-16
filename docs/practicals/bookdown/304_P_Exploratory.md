@@ -45,13 +45,13 @@ We start the analysis with a simple histogram, to explore the distribution of th
 ````
 ```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.height = 4}
 leicester_2011OAC %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = u011
     )
   ) +
-  geom_histogram(binwidth = 5) +
-  theme_bw()
+  ggplot2::geom_histogram(binwidth = 5) +
+  ggplot2::theme_bw()
 ```
 ````
 
@@ -60,13 +60,13 @@ The snipped and barchart is included in output documents, as shown below.
 
 ```r
 leicester_2011OAC %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = u011
     )
   ) +
-  geom_histogram(binwidth = 5) +
-  theme_bw()
+  ggplot2::geom_histogram(binwidth = 5) +
+  ggplot2::theme_bw()
 ```
 
 ![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
@@ -78,23 +78,23 @@ For instance, the barchart above can be enhanced through the use of the visual v
 
 ```r
 leicester_2011OAC %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = u011,
       fill = fct_reorder(supgrpname, supgrpcode)
     )
   ) +
-  geom_histogram(binwidth = 5) +
-  ggtitle("Leicester's young adults") +
-  labs(
+  ggplot2::geom_histogram(binwidth = 5) +
+  ggplot2::ggtitle("Leicester's young adults") +
+  ggplot2::labs(
     fill = "2011 Output Area\nClassification\n(supergroups)"
   ) +
-  xlab("Residents aged 20 to 24") +
-  ylab("Count") +
-  scale_fill_manual(
+  ggplot2::xlab("Residents aged 20 to 24") +
+  ggplot2::ylab("Count") +
+  ggplot2::scale_fill_manual(
     values = c("#e41a1c", "#f781bf", "#ff7f00", "#a65628", "#984ea3", "#377eb8", "#ffff33")
   ) +
-  theme_bw()
+  ggplot2::theme_bw()
 ```
 
 ![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
@@ -104,25 +104,25 @@ However, the graphic above is not extremely clear. A boxplot and a violin plot c
 
 ```r
 leicester_2011OAC %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = fct_reorder(supgrpname, supgrpcode),
       y = u011,
       fill = fct_reorder(supgrpname, supgrpcode)
     )
   ) +
-  geom_boxplot() +
+  ggplot2::geom_boxplot() +
   ggtitle("Leicester's young adults") +
-  labs(
+  ggplot2::labs(
     fill = "2011 Output Area\nClassification\n(supergroups)"
   ) +
-  xlab("2011 Output Area Classification (supergroups)") +
-  ylab("Residents aged 20 to 24") +
-  scale_fill_manual(
+  ggplot2::xlab("2011 Output Area Classification (supergroups)") +
+  ggplot2::ylab("Residents aged 20 to 24") +
+  ggplot2::scale_fill_manual(
     values = c("#e41a1c", "#f781bf", "#ff7f00", "#a65628", "#984ea3", "#377eb8", "#ffff33")
   ) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  ggplot2::theme_bw() +
+  ggplot2::theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
 ![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
@@ -130,25 +130,25 @@ leicester_2011OAC %>%
 
 ```r
 leicester_2011OAC %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = fct_reorder(supgrpname, supgrpcode),
       y = u011,
       fill = fct_reorder(supgrpname, supgrpcode)
     )
   ) +
-  geom_violin() +
+  ggplot2::geom_violin() +
   ggtitle("Leicester's young adults") +
-  labs(
+  ggplot2::labs(
     fill = "2011 Output Area\nClassification\n(supergroups)"
   ) +
-  xlab("2011 Output Area Classification (supergroups)") +
-  ylab("Residents aged 20 to 24") +
-  scale_fill_manual(
+  ggplot2::xlab("2011 Output Area Classification (supergroups)") +
+  ggplot2::ylab("Residents aged 20 to 24") +
+  ggplot2::scale_fill_manual(
     values = c("#e41a1c", "#f781bf", "#ff7f00", "#a65628", "#984ea3", "#377eb8", "#ffff33")
   ) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  ggplot2::theme_bw() +
+  ggplot2::theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
 ![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
@@ -162,26 +162,26 @@ The first barchart above seems to illustrate that the distribution might be skew
 
 ```r
 leicester_2011OAC %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = Total_Population,
       y = u011,
       colour = fct_reorder(supgrpname, supgrpcode)
     )
   ) +
-  geom_point(size = 0.5) +
-  ggtitle("Leicester's young adults") +
-  labs(
+  ggplot2::geom_point(size = 0.5) +
+  ggplot2::ggtitle("Leicester's young adults") +
+  ggplot2::labs(
     colour = "2011 Output Area\nClassification\n(supergroups)"
   ) +
-  xlab("Total number of residents") +
-  ylab("Residents aged 20 to 24") +
-  scale_y_log10() +
-  scale_colour_brewer(palette = "Set1") +
-  scale_colour_manual(
+  ggplot2::xlab("Total number of residents") +
+  ggplot2::ylab("Residents aged 20 to 24") +
+  ggplot2::scale_y_log10() +
+  ggplot2::scale_colour_brewer(palette = "Set1") +
+  ggplot2::scale_colour_manual(
     values = c("#e41a1c", "#f781bf", "#ff7f00", "#a65628", "#984ea3", "#377eb8", "#ffff33")
   ) +
-  theme_bw()
+  ggplot2::theme_bw()
 ```
 
 ![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
@@ -210,7 +210,7 @@ Only the OA code, the recoded 2011OAC supergroup name, and the newly created `pe
 
 ```r
 leic_2011OAC_20to24 <- leicester_2011OAC %>%
-  mutate(
+  dplyr::mutate(
     perc_age_20_to_24 = (u011 / Total_Population) * 100,
     supgrpname = dplyr::recode(supgrpname, 
       `Suburbanites` = "SU",
@@ -222,11 +222,11 @@ leic_2011OAC_20to24 <- leicester_2011OAC %>%
       `Urbanites` = "UR"
     )
   ) %>%
-  select(OA11CD, supgrpname, perc_age_20_to_24)
+  dplyr::select(OA11CD, supgrpname, perc_age_20_to_24)
 
 leic_2011OAC_20to24 %>%
-  slice_head(n = 5) %>%
-  kable()
+  dplyr::slice_head(n = 5) %>%
+  knitr::kable()
 ```
 
 
@@ -277,11 +277,11 @@ The next step is thus to apply the `stat.desc` to the variable we are currently 
 
 ```r
 leic_2011OAC_20to24_stat_desc <- leic_2011OAC_20to24 %>%
-  select(perc_age_20_to_24) %>%
-  stat.desc(norm = TRUE)
+  dplyr::select(perc_age_20_to_24) %>%
+  pastecs::stat.desc(norm = TRUE)
   
 leic_2011OAC_20to24_stat_desc %>%
-  kable(digits = 3)
+  knitr::kable(digits = 3)
 ```
 
 
@@ -315,16 +315,17 @@ The short paragraph above is reporting on the values on the table, taking advant
 
 Having included all the code above into an RMarkdown document, copy the text below verbatim into the same RMarkdown document and make sure that you understand how the code in the in-line R snippets works.
 
-```
-The table above tells us that all `r leic_2011OAC_20to24_stat_desc["nbr.val",
-"perc_age_20_to_24"] %>% round(digits = 0)` OA in Leicester have a valid 
-value for the variable `perc_age_20_to_24`, as no `NULL` nor `NA` value have
-been found.The values vary from about `r leic_2011OAC_20to24_stat_desc["min",
-"perc_age_20_to_24"] %>% round(digits = 0)`% to almost `r
-leic_2011OAC_20to24_stat_desc["max", "perc_age_20_to_24"] %>% round(digits = 
-0)`%, with an average value of `r leic_2011OAC_20to24_stat_desc["mean",
-"perc_age_20_to_24"] %>% round(digits = 0)`% of the population in an OA aged 
-between 20 and 24. 
+
+```r
+The table above tells us that all `r "\u0060r leic_2011OAC_20to24_stat_desc[\"nbr.val\",
+\"perc_age_20_to_24\"] %>% round(digits = 0)\u0060"` OA in Leicester have a valid 
+value for the variable `perc_age_20_to_24`, as no `r "\u0060NULL\u0060"` nor `r 
+"\u0060NA\u0060"` value have been found.The values vary from about `r "\u0060r 
+leic_2011OAC_20to24_stat_desc[\"min\", \"perc_age_20_to_24\"] %>% round(digits = 
+0)\u0060"`% to almost `r "\u0060r leic_2011OAC_20to24_stat_desc[\"max\", 
+\"perc_age_20_to_24\"] %>% round(digits = 0)\u0060"`%, with an average value of 
+`r "\u0060r leic_2011OAC_20to24_stat_desc[\"mean\", \"perc_age_20_to_24\"] %>% 
+round(digits = 0)\u0060"`% of the population in an OA aged between 20 and 24. 
 ```
 
 If the data described by statistics presented in the table above was a random sample of a population, the 95% confidence interval `CI.mean.0.95` would indicate that we can be 95% confident that the actual mean of the distribution is somewhere between 10.566 `-` 0.596 `=` 9.97% and 10.566 `+` 0.596 `=` 11.162%. 
@@ -340,8 +341,8 @@ The code below present the output of the [`shapiro.test` function](https://www.r
 
 ```r
 leic_2011OAC_20to24 %>%
-  pull(perc_age_20_to_24) %>%
-  shapiro.test()
+  dplyr::pull(perc_age_20_to_24) %>%
+  stats::shapiro.test()
 ```
 
 ```
@@ -357,18 +358,18 @@ The two code snippets below can be used to visualise a density-based histogram i
 
 ```r
 leic_2011OAC_20to24 %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = perc_age_20_to_24
     )
   ) +
-  geom_histogram(
+  ggplot2::geom_histogram(
     aes(
       y =..density..
     ),
     binwidth = 5
   ) + 
-  stat_function(
+  ggplot2::stat_function(
     fun = dnorm, 
     args = list(
       mean = leic_2011OAC_20to24 %>% pull(perc_age_20_to_24) %>% mean(),
@@ -378,7 +379,7 @@ leic_2011OAC_20to24 %>%
   )
 ```
 
-![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
 
 A Q-Q plot in R can be created using a variety of functions. In the example below, the plot is created using the [`stat_qq` and `stat_qq_line` functions](https://ggplot2.tidyverse.org/reference/geom_qq.html) of the `ggplot2` library. Note that the `perc_age_20_to_24` variable is mapped to a particular option of `aes` that is `sample`. 
 
@@ -387,27 +388,27 @@ If `perc_age_20_to_24` had been normally distributed, the dots in the Q-Q plot w
 
 ```r
 leic_2011OAC_20to24 %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       sample = perc_age_20_to_24
     )
   ) +
-  stat_qq() +
-  stat_qq_line()
+  ggplot2::stat_qq() +
+  ggplot2::stat_qq_line()
 ```
 
-![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
 
 ## Exercise 7.2
 
-Create a new RMarkdown document, and add the code necessary to recreate the table `leic_2011OAC_20to24` used in the example above. Use the code below to re-shape the table `leic_2011OAC_20to24` by spreading the `perc_age_20_to_24` column to multiple columns using `supgrpname` as key. 
+Create a new RMarkdown document, and add the code necessary to recreate the table `leic_2011OAC_20to24` used in the example above. Use the code below to re-shape the table `leic_2011OAC_20to24` by pivoting the `perc_age_20_to_24` column wider into multiple columns using `supgrpname` as new column names. 
 
 
 ```r
 leic_2011OAC_20to24_supgrp <- leic_2011OAC_20to24 %>%
-  spread(
-    key = supgrpname,
-    value = perc_age_20_to_24
+  tidyr::pivot_wider(
+    names_from = supgrpname,
+    values_from = perc_age_20_to_24
   )
 ```
 
@@ -416,8 +417,8 @@ That manipulation creates one column per supergroup, containing the `perc_age_20
 
 ```r
 leic_2011OAC_20to24 %>%
-  slice_min(OA11CD, n = 10) %>%
-  kable(digits = 3)
+  dplyr::slice_min(OA11CD, n = 10) %>%
+  knitr::kable(digits = 3)
 ```
 
 
@@ -437,24 +438,24 @@ leic_2011OAC_20to24 %>%
 
 ```r
 leic_2011OAC_20to24_supgrp %>%
-  slice_min(OA11CD, n = 10) %>%
-  kable(digits = 3)
+  dplyr::slice_min(OA11CD, n = 10) %>%
+  knitr::kable(digits = 3)
 ```
 
 
 
-|OA11CD    | CD| CP| EC|    HP|     MM| SU| UR|
-|:---------|--:|--:|--:|-----:|------:|--:|--:|
-|E00068657 | NA| NA| NA| 6.053|     NA| NA| NA|
-|E00068658 | NA| NA| NA|    NA|  6.964| NA| NA|
-|E00068659 | NA| NA| NA|    NA|  8.383| NA| NA|
-|E00068660 | NA| NA| NA|    NA|  4.643| NA| NA|
-|E00068661 | NA| NA| NA|    NA| 10.625| NA| NA|
-|E00068662 | NA| NA| NA|    NA|  8.284| NA| NA|
-|E00068663 | NA| NA| NA|    NA|  8.357| NA| NA|
-|E00068664 | NA| NA| NA|    NA|  3.597| NA| NA|
-|E00068665 | NA| NA| NA|    NA|  7.068| NA| NA|
-|E00068666 | NA| NA| NA|    NA|  5.864| NA| NA|
+|OA11CD    | SU| CP|     MM| EC| CD|    HP| UR|
+|:---------|--:|--:|------:|--:|--:|-----:|--:|
+|E00068657 | NA| NA|     NA| NA| NA| 6.053| NA|
+|E00068658 | NA| NA|  6.964| NA| NA|    NA| NA|
+|E00068659 | NA| NA|  8.383| NA| NA|    NA| NA|
+|E00068660 | NA| NA|  4.643| NA| NA|    NA| NA|
+|E00068661 | NA| NA| 10.625| NA| NA|    NA| NA|
+|E00068662 | NA| NA|  8.284| NA| NA|    NA| NA|
+|E00068663 | NA| NA|  8.357| NA| NA|    NA| NA|
+|E00068664 | NA| NA|  3.597| NA| NA|    NA| NA|
+|E00068665 | NA| NA|  7.068| NA| NA|    NA| NA|
+|E00068666 | NA| NA|  5.864| NA| NA|    NA| NA|
 
 
 **Question 7.2.1:** The code below uses the newly created `leic_2011OAC_20to24_supgrp` table to calculate the descriptive statistics calculated for the variable `leic_2011OAC_20to24` for each supergroup. Is `leic_2011OAC_20to24` normally distributed in any of the subgroups? If yes, which supergroups and based on which values do you justify that claim? (Write up to 200 words)
@@ -462,35 +463,35 @@ leic_2011OAC_20to24_supgrp %>%
 
 ```r
 leic_2011OAC_20to24_supgrp %>%
-  select(-OA11CD) %>%
-  stat.desc(norm = TRUE) %>%
-  kable(digits = 3)
+  dplyr::select(-OA11CD) %>%
+  pastecs::stat.desc(norm = TRUE) %>%
+  knitr::kable(digits = 3)
 ```
 
 
 
-|             |      CD|       CP|      EC|      HP|       MM|      SU|      UR|
-|:------------|-------:|--------:|-------:|-------:|--------:|-------:|-------:|
-|nbr.val      |  36.000|   83.000|  57.000| 101.000|  573.000|  54.000|  65.000|
-|nbr.null     |   0.000|    0.000|   0.000|   0.000|    0.000|   0.000|   0.000|
-|nbr.na       | 933.000|  886.000| 912.000| 868.000|  396.000| 915.000| 904.000|
-|min          |   1.064|    3.141|   2.066|   1.515|    2.490|   1.462|   2.256|
-|max          |  12.963|   60.751|  36.299|  11.261|   52.507|   9.562|  13.505|
-|range        |  11.899|   57.609|  34.233|   9.746|   50.018|   8.100|  11.249|
-|sum          | 252.108| 2646.551| 838.415| 619.266| 5214.286| 295.867| 372.010|
-|median       |   6.854|   30.457|  10.881|   6.053|    7.880|   5.476|   5.380|
-|mean         |   7.003|   31.886|  14.709|   6.131|    9.100|   5.479|   5.723|
-|SE.mean      |   0.471|    1.574|   1.373|   0.172|    0.230|   0.233|   0.264|
-|CI.mean.0.95 |   0.956|    3.131|   2.751|   0.341|    0.452|   0.467|   0.528|
-|var          |   7.983|  205.556| 107.523|   2.980|   30.285|   2.929|   4.545|
-|std.dev      |   2.825|   14.337|  10.369|   1.726|    5.503|   1.712|   2.132|
-|coef.var     |   0.403|    0.450|   0.705|   0.282|    0.605|   0.312|   0.372|
-|skewness     |   0.322|    0.067|   0.633|   0.124|    3.320|   0.005|   1.042|
-|skew.2SE     |   0.410|    0.127|   1.001|   0.258|   16.266|   0.008|   1.753|
-|kurtosis     |  -0.142|   -0.825|  -1.009|   0.220|   15.143|  -0.391|   1.441|
-|kurt.2SE     |  -0.093|   -0.789|  -0.810|   0.231|   37.156|  -0.306|   1.229|
-|normtest.W   |   0.965|    0.980|   0.889|   0.993|    0.684|   0.991|   0.937|
-|normtest.p   |   0.310|    0.239|   0.000|   0.886|    0.000|   0.954|   0.002|
+|             |      SU|       CP|       MM|      EC|      CD|      HP|      UR|
+|:------------|-------:|--------:|--------:|-------:|-------:|-------:|-------:|
+|nbr.val      |  54.000|   83.000|  573.000|  57.000|  36.000| 101.000|  65.000|
+|nbr.null     |   0.000|    0.000|    0.000|   0.000|   0.000|   0.000|   0.000|
+|nbr.na       | 915.000|  886.000|  396.000| 912.000| 933.000| 868.000| 904.000|
+|min          |   1.462|    3.141|    2.490|   2.066|   1.064|   1.515|   2.256|
+|max          |   9.562|   60.751|   52.507|  36.299|  12.963|  11.261|  13.505|
+|range        |   8.100|   57.609|   50.018|  34.233|  11.899|   9.746|  11.249|
+|sum          | 295.867| 2646.551| 5214.286| 838.415| 252.108| 619.266| 372.010|
+|median       |   5.476|   30.457|    7.880|  10.881|   6.854|   6.053|   5.380|
+|mean         |   5.479|   31.886|    9.100|  14.709|   7.003|   6.131|   5.723|
+|SE.mean      |   0.233|    1.574|    0.230|   1.373|   0.471|   0.172|   0.264|
+|CI.mean.0.95 |   0.467|    3.131|    0.452|   2.751|   0.956|   0.341|   0.528|
+|var          |   2.929|  205.556|   30.285| 107.523|   7.983|   2.980|   4.545|
+|std.dev      |   1.712|   14.337|    5.503|  10.369|   2.825|   1.726|   2.132|
+|coef.var     |   0.312|    0.450|    0.605|   0.705|   0.403|   0.282|   0.372|
+|skewness     |   0.005|    0.067|    3.320|   0.633|   0.322|   0.124|   1.042|
+|skew.2SE     |   0.008|    0.127|   16.266|   1.001|   0.410|   0.258|   1.753|
+|kurtosis     |  -0.391|   -0.825|   15.143|  -1.009|  -0.142|   0.220|   1.441|
+|kurt.2SE     |  -0.306|   -0.789|   37.156|  -0.810|  -0.093|   0.231|   1.229|
+|normtest.W   |   0.991|    0.980|    0.684|   0.889|   0.965|   0.993|   0.937|
+|normtest.p   |   0.954|    0.239|    0.000|   0.000|   0.310|   0.886|   0.002|
 
 **Question 7.2.2:** Write the code necessary to test again the normality of `leic_2011OAC_20to24` for the supergroups where the analysis conducted for question 7.2.1 indicated they are normal, using the function `shapiro.test`, and draw the respective Q-Q plot.
 
@@ -498,7 +499,7 @@ leic_2011OAC_20to24_supgrp %>%
 
 
 ```r
-leveneTest(leic_2011OAC_20to24$perc_age_20_to_24, leic_2011OAC_20to24$supgrpname)
+car::leveneTest(leic_2011OAC_20to24$perc_age_20_to_24, leic_2011OAC_20to24$supgrpname)
 ```
 
 ```

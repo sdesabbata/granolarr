@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  16 NOV 2020 10:45
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  16 NOV 2020 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -980,7 +980,7 @@ File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (
 type pdf)
 <use 304_P_Exploratory_files/figure-latex/unnamed-chunk-3-1.pdf>
 
-Underfull \vbox (badness 4254) has occurred while \output is active []
+Underfull \vbox (badness 4036) has occurred while \output is active []
 
 [70]
 File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (
@@ -990,7 +990,7 @@ type pdf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [71]
-Overfull \vbox (1.4627pt too high) detected at line 3215
+Overfull \vbox (2.1627pt too high) detected at line 3215
  []
 
 [72]
@@ -1013,79 +1013,37 @@ Underfull \vbox (badness 2698) has occurred while \output is active []
 [77]
 Underfull \vbox (badness 1509) has occurred while \output is active []
 
-[78]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3494--3494
-[]\TU/lmtt/m/n/10 The table above tells us that all `r leic_2011OAC_20to24_stat
-_desc["nbr.val",[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 3494--3494
-[]\TU/lmtt/m/n/10 "perc_age_20_to_24"] %>% round(digits = 0)` OA in Leicester h
-ave a valid[] 
- []
-
-
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3494--3494
-[]\TU/lmtt/m/n/10 value for the variable `perc_age_20_to_24`, as no `NULL` nor 
-`NA` value have[] 
- []
-
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3494--3494
-[]\TU/lmtt/m/n/10 been found.The values vary from about `r leic_2011OAC_20to24_
-stat_desc["min",[] 
- []
-
-
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3494--3494
-[]\TU/lmtt/m/n/10 leic_2011OAC_20to24_stat_desc["max", "perc_age_20_to_24"] %>%
- round(digits =[] 
- []
-
-
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3494--3494
-[]\TU/lmtt/m/n/10 0)`%, with an average value of `r leic_2011OAC_20to24_stat_de
-sc["mean",[] 
- []
-
-
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3494--3494
-[]\TU/lmtt/m/n/10 "perc_age_20_to_24"] %>% round(digits = 0)`% of the populatio
-n in an OA aged[] 
- []
-
-[79]
-File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file 
+[78] [79]
+File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file 
 (type pdf)
-<use 304_P_Exploratory_files/figure-latex/unnamed-chunk-12-1.pdf>
+<use 304_P_Exploratory_files/figure-latex/unnamed-chunk-13-1.pdf>
 
 Underfull \vbox (badness 2359) has occurred while \output is active []
 
 [80]
-File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file 
+File: 304_P_Exploratory_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file 
 (type pdf)
-<use 304_P_Exploratory_files/figure-latex/unnamed-chunk-13-1.pdf>
+<use 304_P_Exploratory_files/figure-latex/unnamed-chunk-14-1.pdf>
 [81]
-Underfull \hbox (badness 1990) in paragraph at lines 3585--3586
+Underfull \hbox (badness 1990) in paragraph at lines 3587--3588
 []\TU/lmr/m/n/10 That manipulation creates one column per supergroup, containin
 g the
  []
 
 
-Overfull \hbox (35.61838pt too wide) in paragraph at lines 3655--3656
+Overfull \hbox (35.61838pt too wide) in paragraph at lines 3657--3658
 []\TU/lmr/bx/n/10 Question 7.2.1: \TU/lmr/m/n/10 The code below uses the newly 
 created \TU/lmtt/m/n/10 leic_2011OAC_20to24_supgrp
  []
 
 
-Underfull \hbox (badness 2368) in paragraph at lines 3655--3656
+Underfull \hbox (badness 2368) in paragraph at lines 3657--3658
 \TU/lmr/m/n/10 table to calculate the descriptive statistics calculated for the
  variable
  []
 
 [82]
-Overfull \hbox (47.96011pt too wide) in paragraph at lines 3666--3711
+Overfull \hbox (47.96011pt too wide) in paragraph at lines 3668--3713
 [][] 
  []
 
@@ -1138,12 +1096,12 @@ File: 324_P_Regression_files/figure-latex/unnamed-chunk-15-4.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-15-4.pdf>
 
-Overfull \hbox (39.65648pt too wide) in paragraph at lines 4124--4125
+Overfull \hbox (39.65648pt too wide) in paragraph at lines 4126--4127
 [][] []
  []
 
 
-Overfull \hbox (51.7017pt too wide) in paragraph at lines 4124--4125
+Overfull \hbox (51.7017pt too wide) in paragraph at lines 4126--4127
 [] [] 
  []
 
@@ -1151,13 +1109,13 @@ Overfull \hbox (51.7017pt too wide) in paragraph at lines 4124--4125
 Underfull \vbox (badness 1067) has occurred while \output is active []
 
 [99] [100] [101]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4380--4380
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4382--4382
 []\TU/lmtt/m/n/10 ## (Intercept)        u160        u162        u164        u16
 5        u167[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4380--4380
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4382--4382
 []\TU/lmtt/m/n/10 ##   0.0000000   0.1400270   0.1507236   0.2083107   0.193103
 5   0.4293988[] 
  []
@@ -1170,12 +1128,12 @@ Chapter 9.
 
 ]
 Chapter 10.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4410.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4412.
 [105]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4410.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4412.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4410.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4410.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4412.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4412.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: FA748DF03A3BAAEFEBDCC38F1BFA3193;7305.
@@ -1184,8 +1142,8 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17333 strings out of 481704
- 308561 string characters out of 5933764
+ 17334 strings out of 481704
+ 308579 string characters out of 5933764
  735513 words of memory out of 5000000
  34163 multiletter control sequences out of 15000+600000
  541579 words of font info for 87 fonts, out of 8000000 for 9000

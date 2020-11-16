@@ -298,113 +298,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We start the analysis with a simple histogram, to explore the distribution of the variable <code>u011</code>. RMarkdown allows specifying the height (as well as the width) of the figure as an option for the R snipped, as shown in the example typed out in plain text below.</p>
 <pre><code>```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.height = 4}
 leicester_2011OAC %&gt;%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = u011
     )
   ) +
-  geom_histogram(binwidth = 5) +
-  theme_bw()
+  ggplot2::geom_histogram(binwidth = 5) +
+  ggplot2::theme_bw()
 ```</code></pre>
 <p>The snipped and barchart is included in output documents, as shown below.</p>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="exploratory-data-analysis.html#cb209-1"></a>leicester_2011OAC <span class="op">%&gt;%</span></span>
-<span id="cb209-2"><a href="exploratory-data-analysis.html#cb209-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb209-2"><a href="exploratory-data-analysis.html#cb209-2"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(</span>
 <span id="cb209-3"><a href="exploratory-data-analysis.html#cb209-3"></a>    <span class="kw">aes</span>(</span>
 <span id="cb209-4"><a href="exploratory-data-analysis.html#cb209-4"></a>      <span class="dt">x =</span> u011</span>
 <span id="cb209-5"><a href="exploratory-data-analysis.html#cb209-5"></a>    )</span>
 <span id="cb209-6"><a href="exploratory-data-analysis.html#cb209-6"></a>  ) <span class="op">+</span></span>
-<span id="cb209-7"><a href="exploratory-data-analysis.html#cb209-7"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span></span>
-<span id="cb209-8"><a href="exploratory-data-analysis.html#cb209-8"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<span id="cb209-7"><a href="exploratory-data-analysis.html#cb209-7"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb209-8"><a href="exploratory-data-analysis.html#cb209-8"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_bw</span>()</span></code></pre></div>
 <p><img src="304_P_Exploratory_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>If we aim to explore how that portion of the population is distributed among the different supergroups of the 2011OAC, there are a number of charts that would allow us to visualise that relationship.</p>
 <p>For instance, the barchart above can be enhanced through the use of the visual variable colour and the <code>fill</code> option. The graphic below uses a few options seen in the practical session 401 to create a stacked barchart, where sections of each bar are filled with the colour associated with a 2011OAC supergroup.</p>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="exploratory-data-analysis.html#cb210-1"></a>leicester_2011OAC <span class="op">%&gt;%</span></span>
-<span id="cb210-2"><a href="exploratory-data-analysis.html#cb210-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb210-2"><a href="exploratory-data-analysis.html#cb210-2"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(</span>
 <span id="cb210-3"><a href="exploratory-data-analysis.html#cb210-3"></a>    <span class="kw">aes</span>(</span>
 <span id="cb210-4"><a href="exploratory-data-analysis.html#cb210-4"></a>      <span class="dt">x =</span> u011,</span>
 <span id="cb210-5"><a href="exploratory-data-analysis.html#cb210-5"></a>      <span class="dt">fill =</span> <span class="kw">fct_reorder</span>(supgrpname, supgrpcode)</span>
 <span id="cb210-6"><a href="exploratory-data-analysis.html#cb210-6"></a>    )</span>
 <span id="cb210-7"><a href="exploratory-data-analysis.html#cb210-7"></a>  ) <span class="op">+</span></span>
-<span id="cb210-8"><a href="exploratory-data-analysis.html#cb210-8"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span></span>
-<span id="cb210-9"><a href="exploratory-data-analysis.html#cb210-9"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Leicester&#39;s young adults&quot;</span>) <span class="op">+</span></span>
-<span id="cb210-10"><a href="exploratory-data-analysis.html#cb210-10"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb210-8"><a href="exploratory-data-analysis.html#cb210-8"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb210-9"><a href="exploratory-data-analysis.html#cb210-9"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggtitle</span>(<span class="st">&quot;Leicester&#39;s young adults&quot;</span>) <span class="op">+</span></span>
+<span id="cb210-10"><a href="exploratory-data-analysis.html#cb210-10"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">labs</span>(</span>
 <span id="cb210-11"><a href="exploratory-data-analysis.html#cb210-11"></a>    <span class="dt">fill =</span> <span class="st">&quot;2011 Output Area</span><span class="ch">\n</span><span class="st">Classification</span><span class="ch">\n</span><span class="st">(supergroups)&quot;</span></span>
 <span id="cb210-12"><a href="exploratory-data-analysis.html#cb210-12"></a>  ) <span class="op">+</span></span>
-<span id="cb210-13"><a href="exploratory-data-analysis.html#cb210-13"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Residents aged 20 to 24&quot;</span>) <span class="op">+</span></span>
-<span id="cb210-14"><a href="exploratory-data-analysis.html#cb210-14"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="op">+</span></span>
-<span id="cb210-15"><a href="exploratory-data-analysis.html#cb210-15"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(</span>
+<span id="cb210-13"><a href="exploratory-data-analysis.html#cb210-13"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">xlab</span>(<span class="st">&quot;Residents aged 20 to 24&quot;</span>) <span class="op">+</span></span>
+<span id="cb210-14"><a href="exploratory-data-analysis.html#cb210-14"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="op">+</span></span>
+<span id="cb210-15"><a href="exploratory-data-analysis.html#cb210-15"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">scale_fill_manual</span>(</span>
 <span id="cb210-16"><a href="exploratory-data-analysis.html#cb210-16"></a>    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#e41a1c&quot;</span>, <span class="st">&quot;#f781bf&quot;</span>, <span class="st">&quot;#ff7f00&quot;</span>, <span class="st">&quot;#a65628&quot;</span>, <span class="st">&quot;#984ea3&quot;</span>, <span class="st">&quot;#377eb8&quot;</span>, <span class="st">&quot;#ffff33&quot;</span>)</span>
 <span id="cb210-17"><a href="exploratory-data-analysis.html#cb210-17"></a>  ) <span class="op">+</span></span>
-<span id="cb210-18"><a href="exploratory-data-analysis.html#cb210-18"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<span id="cb210-18"><a href="exploratory-data-analysis.html#cb210-18"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_bw</span>()</span></code></pre></div>
 <p><img src="304_P_Exploratory_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>However, the graphic above is not extremely clear. A boxplot and a violin plot created from the same data are shown below. In both cases, the parameter <code>axis.text.x</code> of the function theme is set to <code>element_text(angle = 90, hjust = 1)</code> in order to orientate the labels on the x-axis vertically, as the supergroup names are rather long, and they would overlap one-another if set horizontally on the x-axis. In both cases, the option <code>fig.height</code> of the R snippet in RMarkdown should be set to a higher value (e.g., <code>5</code>) to allow for sufficient room for the supergroup names.</p>
 <div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="exploratory-data-analysis.html#cb211-1"></a>leicester_2011OAC <span class="op">%&gt;%</span></span>
-<span id="cb211-2"><a href="exploratory-data-analysis.html#cb211-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb211-2"><a href="exploratory-data-analysis.html#cb211-2"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(</span>
 <span id="cb211-3"><a href="exploratory-data-analysis.html#cb211-3"></a>    <span class="kw">aes</span>(</span>
 <span id="cb211-4"><a href="exploratory-data-analysis.html#cb211-4"></a>      <span class="dt">x =</span> <span class="kw">fct_reorder</span>(supgrpname, supgrpcode),</span>
 <span id="cb211-5"><a href="exploratory-data-analysis.html#cb211-5"></a>      <span class="dt">y =</span> u011,</span>
 <span id="cb211-6"><a href="exploratory-data-analysis.html#cb211-6"></a>      <span class="dt">fill =</span> <span class="kw">fct_reorder</span>(supgrpname, supgrpcode)</span>
 <span id="cb211-7"><a href="exploratory-data-analysis.html#cb211-7"></a>    )</span>
 <span id="cb211-8"><a href="exploratory-data-analysis.html#cb211-8"></a>  ) <span class="op">+</span></span>
-<span id="cb211-9"><a href="exploratory-data-analysis.html#cb211-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb211-9"><a href="exploratory-data-analysis.html#cb211-9"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
 <span id="cb211-10"><a href="exploratory-data-analysis.html#cb211-10"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Leicester&#39;s young adults&quot;</span>) <span class="op">+</span></span>
-<span id="cb211-11"><a href="exploratory-data-analysis.html#cb211-11"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb211-11"><a href="exploratory-data-analysis.html#cb211-11"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">labs</span>(</span>
 <span id="cb211-12"><a href="exploratory-data-analysis.html#cb211-12"></a>    <span class="dt">fill =</span> <span class="st">&quot;2011 Output Area</span><span class="ch">\n</span><span class="st">Classification</span><span class="ch">\n</span><span class="st">(supergroups)&quot;</span></span>
 <span id="cb211-13"><a href="exploratory-data-analysis.html#cb211-13"></a>  ) <span class="op">+</span></span>
-<span id="cb211-14"><a href="exploratory-data-analysis.html#cb211-14"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;2011 Output Area Classification (supergroups)&quot;</span>) <span class="op">+</span></span>
-<span id="cb211-15"><a href="exploratory-data-analysis.html#cb211-15"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Residents aged 20 to 24&quot;</span>) <span class="op">+</span></span>
-<span id="cb211-16"><a href="exploratory-data-analysis.html#cb211-16"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(</span>
+<span id="cb211-14"><a href="exploratory-data-analysis.html#cb211-14"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">xlab</span>(<span class="st">&quot;2011 Output Area Classification (supergroups)&quot;</span>) <span class="op">+</span></span>
+<span id="cb211-15"><a href="exploratory-data-analysis.html#cb211-15"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ylab</span>(<span class="st">&quot;Residents aged 20 to 24&quot;</span>) <span class="op">+</span></span>
+<span id="cb211-16"><a href="exploratory-data-analysis.html#cb211-16"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">scale_fill_manual</span>(</span>
 <span id="cb211-17"><a href="exploratory-data-analysis.html#cb211-17"></a>    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#e41a1c&quot;</span>, <span class="st">&quot;#f781bf&quot;</span>, <span class="st">&quot;#ff7f00&quot;</span>, <span class="st">&quot;#a65628&quot;</span>, <span class="st">&quot;#984ea3&quot;</span>, <span class="st">&quot;#377eb8&quot;</span>, <span class="st">&quot;#ffff33&quot;</span>)</span>
 <span id="cb211-18"><a href="exploratory-data-analysis.html#cb211-18"></a>  ) <span class="op">+</span></span>
-<span id="cb211-19"><a href="exploratory-data-analysis.html#cb211-19"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb211-20"><a href="exploratory-data-analysis.html#cb211-20"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<span id="cb211-19"><a href="exploratory-data-analysis.html#cb211-19"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb211-20"><a href="exploratory-data-analysis.html#cb211-20"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p><img src="304_P_Exploratory_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="exploratory-data-analysis.html#cb212-1"></a>leicester_2011OAC <span class="op">%&gt;%</span></span>
-<span id="cb212-2"><a href="exploratory-data-analysis.html#cb212-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb212-2"><a href="exploratory-data-analysis.html#cb212-2"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(</span>
 <span id="cb212-3"><a href="exploratory-data-analysis.html#cb212-3"></a>    <span class="kw">aes</span>(</span>
 <span id="cb212-4"><a href="exploratory-data-analysis.html#cb212-4"></a>      <span class="dt">x =</span> <span class="kw">fct_reorder</span>(supgrpname, supgrpcode),</span>
 <span id="cb212-5"><a href="exploratory-data-analysis.html#cb212-5"></a>      <span class="dt">y =</span> u011,</span>
 <span id="cb212-6"><a href="exploratory-data-analysis.html#cb212-6"></a>      <span class="dt">fill =</span> <span class="kw">fct_reorder</span>(supgrpname, supgrpcode)</span>
 <span id="cb212-7"><a href="exploratory-data-analysis.html#cb212-7"></a>    )</span>
 <span id="cb212-8"><a href="exploratory-data-analysis.html#cb212-8"></a>  ) <span class="op">+</span></span>
-<span id="cb212-9"><a href="exploratory-data-analysis.html#cb212-9"></a><span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span></span>
+<span id="cb212-9"><a href="exploratory-data-analysis.html#cb212-9"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_violin</span>() <span class="op">+</span></span>
 <span id="cb212-10"><a href="exploratory-data-analysis.html#cb212-10"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Leicester&#39;s young adults&quot;</span>) <span class="op">+</span></span>
-<span id="cb212-11"><a href="exploratory-data-analysis.html#cb212-11"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb212-11"><a href="exploratory-data-analysis.html#cb212-11"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">labs</span>(</span>
 <span id="cb212-12"><a href="exploratory-data-analysis.html#cb212-12"></a>    <span class="dt">fill =</span> <span class="st">&quot;2011 Output Area</span><span class="ch">\n</span><span class="st">Classification</span><span class="ch">\n</span><span class="st">(supergroups)&quot;</span></span>
 <span id="cb212-13"><a href="exploratory-data-analysis.html#cb212-13"></a>  ) <span class="op">+</span></span>
-<span id="cb212-14"><a href="exploratory-data-analysis.html#cb212-14"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;2011 Output Area Classification (supergroups)&quot;</span>) <span class="op">+</span></span>
-<span id="cb212-15"><a href="exploratory-data-analysis.html#cb212-15"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Residents aged 20 to 24&quot;</span>) <span class="op">+</span></span>
-<span id="cb212-16"><a href="exploratory-data-analysis.html#cb212-16"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(</span>
+<span id="cb212-14"><a href="exploratory-data-analysis.html#cb212-14"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">xlab</span>(<span class="st">&quot;2011 Output Area Classification (supergroups)&quot;</span>) <span class="op">+</span></span>
+<span id="cb212-15"><a href="exploratory-data-analysis.html#cb212-15"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ylab</span>(<span class="st">&quot;Residents aged 20 to 24&quot;</span>) <span class="op">+</span></span>
+<span id="cb212-16"><a href="exploratory-data-analysis.html#cb212-16"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">scale_fill_manual</span>(</span>
 <span id="cb212-17"><a href="exploratory-data-analysis.html#cb212-17"></a>    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#e41a1c&quot;</span>, <span class="st">&quot;#f781bf&quot;</span>, <span class="st">&quot;#ff7f00&quot;</span>, <span class="st">&quot;#a65628&quot;</span>, <span class="st">&quot;#984ea3&quot;</span>, <span class="st">&quot;#377eb8&quot;</span>, <span class="st">&quot;#ffff33&quot;</span>)</span>
 <span id="cb212-18"><a href="exploratory-data-analysis.html#cb212-18"></a>  ) <span class="op">+</span></span>
-<span id="cb212-19"><a href="exploratory-data-analysis.html#cb212-19"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb212-20"><a href="exploratory-data-analysis.html#cb212-20"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<span id="cb212-19"><a href="exploratory-data-analysis.html#cb212-19"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb212-20"><a href="exploratory-data-analysis.html#cb212-20"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p><img src="304_P_Exploratory_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="relationships" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Relationships</h3>
 <p>The first barchart above seems to illustrate that the distribution might be skewed towards the left, with most values seemingly below 50. However, that tells only part of the story about how people aged 20 to 24 are distributed in Leicester. In fact, each Output Area (OA) has a different total population. So, a higher number of people aged 20 to 24 living in an OA might be simply due to the OA been more populous than others. Thus, the next step is to compare <code>u011</code> to <code>Total_Population</code>, for instance, through a scatterplot such as the one seen in the practical session 401, reported below.</p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="exploratory-data-analysis.html#cb213-1"></a>leicester_2011OAC <span class="op">%&gt;%</span></span>
-<span id="cb213-2"><a href="exploratory-data-analysis.html#cb213-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb213-2"><a href="exploratory-data-analysis.html#cb213-2"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(</span>
 <span id="cb213-3"><a href="exploratory-data-analysis.html#cb213-3"></a>    <span class="kw">aes</span>(</span>
 <span id="cb213-4"><a href="exploratory-data-analysis.html#cb213-4"></a>      <span class="dt">x =</span> Total_Population,</span>
 <span id="cb213-5"><a href="exploratory-data-analysis.html#cb213-5"></a>      <span class="dt">y =</span> u011,</span>
 <span id="cb213-6"><a href="exploratory-data-analysis.html#cb213-6"></a>      <span class="dt">colour =</span> <span class="kw">fct_reorder</span>(supgrpname, supgrpcode)</span>
 <span id="cb213-7"><a href="exploratory-data-analysis.html#cb213-7"></a>    )</span>
 <span id="cb213-8"><a href="exploratory-data-analysis.html#cb213-8"></a>  ) <span class="op">+</span></span>
-<span id="cb213-9"><a href="exploratory-data-analysis.html#cb213-9"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
-<span id="cb213-10"><a href="exploratory-data-analysis.html#cb213-10"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Leicester&#39;s young adults&quot;</span>) <span class="op">+</span></span>
-<span id="cb213-11"><a href="exploratory-data-analysis.html#cb213-11"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb213-9"><a href="exploratory-data-analysis.html#cb213-9"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb213-10"><a href="exploratory-data-analysis.html#cb213-10"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggtitle</span>(<span class="st">&quot;Leicester&#39;s young adults&quot;</span>) <span class="op">+</span></span>
+<span id="cb213-11"><a href="exploratory-data-analysis.html#cb213-11"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">labs</span>(</span>
 <span id="cb213-12"><a href="exploratory-data-analysis.html#cb213-12"></a>    <span class="dt">colour =</span> <span class="st">&quot;2011 Output Area</span><span class="ch">\n</span><span class="st">Classification</span><span class="ch">\n</span><span class="st">(supergroups)&quot;</span></span>
 <span id="cb213-13"><a href="exploratory-data-analysis.html#cb213-13"></a>  ) <span class="op">+</span></span>
-<span id="cb213-14"><a href="exploratory-data-analysis.html#cb213-14"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Total number of residents&quot;</span>) <span class="op">+</span></span>
-<span id="cb213-15"><a href="exploratory-data-analysis.html#cb213-15"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Residents aged 20 to 24&quot;</span>) <span class="op">+</span></span>
-<span id="cb213-16"><a href="exploratory-data-analysis.html#cb213-16"></a><span class="st">  </span><span class="kw">scale_y_log10</span>() <span class="op">+</span></span>
-<span id="cb213-17"><a href="exploratory-data-analysis.html#cb213-17"></a><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></span>
-<span id="cb213-18"><a href="exploratory-data-analysis.html#cb213-18"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(</span>
+<span id="cb213-14"><a href="exploratory-data-analysis.html#cb213-14"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">xlab</span>(<span class="st">&quot;Total number of residents&quot;</span>) <span class="op">+</span></span>
+<span id="cb213-15"><a href="exploratory-data-analysis.html#cb213-15"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ylab</span>(<span class="st">&quot;Residents aged 20 to 24&quot;</span>) <span class="op">+</span></span>
+<span id="cb213-16"><a href="exploratory-data-analysis.html#cb213-16"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">scale_y_log10</span>() <span class="op">+</span></span>
+<span id="cb213-17"><a href="exploratory-data-analysis.html#cb213-17"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></span>
+<span id="cb213-18"><a href="exploratory-data-analysis.html#cb213-18"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">scale_colour_manual</span>(</span>
 <span id="cb213-19"><a href="exploratory-data-analysis.html#cb213-19"></a>    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#e41a1c&quot;</span>, <span class="st">&quot;#f781bf&quot;</span>, <span class="st">&quot;#ff7f00&quot;</span>, <span class="st">&quot;#a65628&quot;</span>, <span class="st">&quot;#984ea3&quot;</span>, <span class="st">&quot;#377eb8&quot;</span>, <span class="st">&quot;#ffff33&quot;</span>)</span>
 <span id="cb213-20"><a href="exploratory-data-analysis.html#cb213-20"></a>  ) <span class="op">+</span></span>
-<span id="cb213-21"><a href="exploratory-data-analysis.html#cb213-21"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<span id="cb213-21"><a href="exploratory-data-analysis.html#cb213-21"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_bw</span>()</span></code></pre></div>
 <p><img src="304_P_Exploratory_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 </div>
@@ -420,7 +420,7 @@ leicester_2011OAC %&gt;%
 <p>The code below calculates the percentage of people aged 20 to 24 (i.e., <code>u011</code>) over total population per OA, but it also recodes (see <a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a>) the names of the 2011OAC supergroups to a shorter 2-letter version, which is useful for the tables presented further below.</p>
 <p>Only the OA code, the recoded 2011OAC supergroup name, and the newly created <code>perc_age_20_to_24</code> are retained in the new table <code>leic_2011OAC_20to24</code>. Such a step is sometimes useful as stepping stone for further analysis and can make the code easier to read further down the line. Sometimes it is also a necessary step when interacting with certain libraries, which are not fully compatible with Tidyverse libraries, such as <code>leveneTest</code>.</p>
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="exploratory-data-analysis.html#cb214-1"></a>leic_2011OAC_20to24 &lt;-<span class="st"> </span>leicester_2011OAC <span class="op">%&gt;%</span></span>
-<span id="cb214-2"><a href="exploratory-data-analysis.html#cb214-2"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb214-2"><a href="exploratory-data-analysis.html#cb214-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
 <span id="cb214-3"><a href="exploratory-data-analysis.html#cb214-3"></a>    <span class="dt">perc_age_20_to_24 =</span> (u011 <span class="op">/</span><span class="st"> </span>Total_Population) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>,</span>
 <span id="cb214-4"><a href="exploratory-data-analysis.html#cb214-4"></a>    <span class="dt">supgrpname =</span> dplyr<span class="op">::</span><span class="kw">recode</span>(supgrpname, </span>
 <span id="cb214-5"><a href="exploratory-data-analysis.html#cb214-5"></a>      <span class="st">`</span><span class="dt">Suburbanites</span><span class="st">`</span> =<span class="st"> &quot;SU&quot;</span>,</span>
@@ -432,11 +432,11 @@ leicester_2011OAC %&gt;%
 <span id="cb214-11"><a href="exploratory-data-analysis.html#cb214-11"></a>      <span class="st">`</span><span class="dt">Urbanites</span><span class="st">`</span> =<span class="st"> &quot;UR&quot;</span></span>
 <span id="cb214-12"><a href="exploratory-data-analysis.html#cb214-12"></a>    )</span>
 <span id="cb214-13"><a href="exploratory-data-analysis.html#cb214-13"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb214-14"><a href="exploratory-data-analysis.html#cb214-14"></a><span class="st">  </span><span class="kw">select</span>(OA11CD, supgrpname, perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>)</span>
+<span id="cb214-14"><a href="exploratory-data-analysis.html#cb214-14"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(OA11CD, supgrpname, perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>)</span>
 <span id="cb214-15"><a href="exploratory-data-analysis.html#cb214-15"></a></span>
 <span id="cb214-16"><a href="exploratory-data-analysis.html#cb214-16"></a>leic_2011OAC_20to24 <span class="op">%&gt;%</span></span>
-<span id="cb214-17"><a href="exploratory-data-analysis.html#cb214-17"></a><span class="st">  </span><span class="kw">slice_head</span>(<span class="dt">n =</span> <span class="dv">5</span>) <span class="op">%&gt;%</span></span>
-<span id="cb214-18"><a href="exploratory-data-analysis.html#cb214-18"></a><span class="st">  </span><span class="kw">kable</span>()</span></code></pre></div>
+<span id="cb214-17"><a href="exploratory-data-analysis.html#cb214-17"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">slice_head</span>(<span class="dt">n =</span> <span class="dv">5</span>) <span class="op">%&gt;%</span></span>
+<span id="cb214-18"><a href="exploratory-data-analysis.html#cb214-18"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -517,11 +517,11 @@ leicester_2011OAC %&gt;%
 <p>The Shapiro–Wilk test compares the distribution of a variable with a normal distribution having the same mean and standard deviation. The null hypothesis of the Shapiro–Wilk test is that the sample is normally distributed, thus if <code>normtest.p</code> is lower than <code>0.01</code> (i.e., <em>p &lt; .01</em>), the test indicates that the distribution is most probably not normal. The threshold to accept or reject a hypothesis is arbitrary and based on conventions, where <em>p &lt; .01</em> is the most commonly accepted threshold, or <em>p &lt; .05</em> for relatively small data sample (e.g., 30 cases).</p>
 <p>The next step is thus to apply the <code>stat.desc</code> to the variable we are currently exploring (i.e., <code>perc_age_20_to_24</code>), including the <code>norm</code> section.</p>
 <div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="exploratory-data-analysis.html#cb215-1"></a>leic_2011OAC_20to24_stat_desc &lt;-<span class="st"> </span>leic_2011OAC_20to24 <span class="op">%&gt;%</span></span>
-<span id="cb215-2"><a href="exploratory-data-analysis.html#cb215-2"></a><span class="st">  </span><span class="kw">select</span>(perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>) <span class="op">%&gt;%</span></span>
-<span id="cb215-3"><a href="exploratory-data-analysis.html#cb215-3"></a><span class="st">  </span><span class="kw">stat.desc</span>(<span class="dt">norm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb215-2"><a href="exploratory-data-analysis.html#cb215-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>) <span class="op">%&gt;%</span></span>
+<span id="cb215-3"><a href="exploratory-data-analysis.html#cb215-3"></a><span class="st">  </span>pastecs<span class="op">::</span><span class="kw">stat.desc</span>(<span class="dt">norm =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb215-4"><a href="exploratory-data-analysis.html#cb215-4"></a>  </span>
 <span id="cb215-5"><a href="exploratory-data-analysis.html#cb215-5"></a>leic_2011OAC_20to24_stat_desc <span class="op">%&gt;%</span></span>
-<span id="cb215-6"><a href="exploratory-data-analysis.html#cb215-6"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<span id="cb215-6"><a href="exploratory-data-analysis.html#cb215-6"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -615,23 +615,23 @@ leicester_2011OAC %&gt;%
 <p>The table above tells us that all 969 OA in Leicester have a valid value for the variable <code>perc_age_20_to_24</code>, as no <code>NULL</code> nor <code>NA</code> value have been found. The values vary from about 1% to almost 61%, with an average value of 11% of the population in an OA aged between 20 and 24.</p>
 <p>The short paragraph above is reporting on the values on the table, taking advantage of two features of RMarkdown. First, the output of the <code>stat.desc</code> function in the snippet further above is stored in the variable <code>leic_2011OAC_20to24_stat_desc</code>, which is then a valid variable for the rest of the document. Second, RMarkdown allows for in-line R snippets, that can also refer to variables defined in any snippet above the text. As such, the source of the paragraph above reads as below, with the in-line R snipped opened by a single grave accent (i.e., <code>`</code>) followed by a lowercase <code>r</code> and closed by another single grave accent.</p>
 <p>Having included all the code above into an RMarkdown document, copy the text below verbatim into the same RMarkdown document and make sure that you understand how the code in the in-line R snippets works.</p>
-<pre><code>The table above tells us that all `r leic_2011OAC_20to24_stat_desc[&quot;nbr.val&quot;,
-&quot;perc_age_20_to_24&quot;] %&gt;% round(digits = 0)` OA in Leicester have a valid 
-value for the variable `perc_age_20_to_24`, as no `NULL` nor `NA` value have
-been found.The values vary from about `r leic_2011OAC_20to24_stat_desc[&quot;min&quot;,
-&quot;perc_age_20_to_24&quot;] %&gt;% round(digits = 0)`% to almost `r
-leic_2011OAC_20to24_stat_desc[&quot;max&quot;, &quot;perc_age_20_to_24&quot;] %&gt;% round(digits = 
-0)`%, with an average value of `r leic_2011OAC_20to24_stat_desc[&quot;mean&quot;,
-&quot;perc_age_20_to_24&quot;] %&gt;% round(digits = 0)`% of the population in an OA aged 
-between 20 and 24. </code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="exploratory-data-analysis.html#cb216-1"></a>The table above tells us that all <span class="st">`</span><span class="dt">r &quot;\u0060r leic_2011OAC_20to24_stat_desc[</span><span class="ch">\&quot;</span><span class="dt">nbr.val</span><span class="ch">\&quot;</span><span class="dt">,</span></span>
+<span id="cb216-2"><a href="exploratory-data-analysis.html#cb216-2"></a><span class="ch">\&quot;</span><span class="dt">perc_age_20_to_24</span><span class="ch">\&quot;</span><span class="dt">] %&gt;% round(digits = 0)\u0060&quot;</span><span class="st">`</span> OA <span class="cf">in</span> Leicester have a valid </span>
+<span id="cb216-3"><a href="exploratory-data-analysis.html#cb216-3"></a>value <span class="cf">for</span> the variable <span class="st">`</span><span class="dt">perc_age_20_to_24</span><span class="st">`</span>, as no <span class="st">`</span><span class="dt">r &quot;\u0060NULL\u0060&quot;</span><span class="st">`</span> nor <span class="st">`</span><span class="dt">r </span></span>
+<span id="cb216-4"><a href="exploratory-data-analysis.html#cb216-4"></a><span class="dt">&quot;\u0060NA\u0060&quot;</span><span class="st">`</span> value have been found.The values vary from about <span class="st">`</span><span class="dt">r &quot;\u0060r </span></span>
+<span id="cb216-5"><a href="exploratory-data-analysis.html#cb216-5"></a><span class="dt">leic_2011OAC_20to24_stat_desc[</span><span class="ch">\&quot;</span><span class="dt">min</span><span class="ch">\&quot;</span><span class="dt">, </span><span class="ch">\&quot;</span><span class="dt">perc_age_20_to_24</span><span class="ch">\&quot;</span><span class="dt">] %&gt;% round(digits = </span></span>
+<span id="cb216-6"><a href="exploratory-data-analysis.html#cb216-6"></a><span class="dt">0)\u0060&quot;</span><span class="st">`</span>% to almost <span class="st">`</span><span class="dt">r &quot;\u0060r leic_2011OAC_20to24_stat_desc[</span><span class="ch">\&quot;</span><span class="dt">max</span><span class="ch">\&quot;</span><span class="dt">, </span></span>
+<span id="cb216-7"><a href="exploratory-data-analysis.html#cb216-7"></a><span class="ch">\&quot;</span><span class="dt">perc_age_20_to_24</span><span class="ch">\&quot;</span><span class="dt">] %&gt;% round(digits = 0)\u0060&quot;</span><span class="st">`</span>%, with an average value of </span>
+<span id="cb216-8"><a href="exploratory-data-analysis.html#cb216-8"></a><span class="st">`</span><span class="dt">r &quot;\u0060r leic_2011OAC_20to24_stat_desc[</span><span class="ch">\&quot;</span><span class="dt">mean</span><span class="ch">\&quot;</span><span class="dt">, </span><span class="ch">\&quot;</span><span class="dt">perc_age_20_to_24</span><span class="ch">\&quot;</span><span class="dt">] %&gt;% </span></span>
+<span id="cb216-9"><a href="exploratory-data-analysis.html#cb216-9"></a><span class="dt">round(digits = 0)\u0060&quot;</span><span class="st">`</span>% of the population <span class="cf">in</span> an OA aged between <span class="dv">20</span> and <span class="fl">24.</span> </span></code></pre></div>
 <p>If the data described by statistics presented in the table above was a random sample of a population, the 95% confidence interval <code>CI.mean.0.95</code> would indicate that we can be 95% confident that the actual mean of the distribution is somewhere between 10.566 <code>-</code> 0.596 <code>=</code> 9.97% and 10.566 <code>+</code> 0.596 <code>=</code> 11.162%.</p>
 <p>However, this is not a sample. Thus the statistical interpretation is not valid, in the same way that the <code>sum</code> values doesn’t make sense, as it is the sum of a series of percentages.</p>
 <p>Both <code>skew.2SE</code> and <code>kurt.2SE</code> are greater than <code>1</code>, which indicate that the <code>skewness</code> and <code>kurtosis</code> values are significant (<em>p &lt; .05</em>). The <code>skewness</code> is positive, which indicates that the distribution is skewed towards the left (low values). The <code>kurtosis</code> is positive, which indicates that the distribution is heavy-tailed.</p>
 <p>As such, <code>perc_age_20_to_24</code> having a heavy-tailed distribution skewed towards low values, it is not surprising that the <code>normtest.p</code> value indicates that the Shapiro–Wilk test is significant, which indicates that the distribution is not normal.</p>
 <p>The code below present the output of the <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.1/topics/shapiro.test"><code>shapiro.test</code> function</a>, which only present the outcome of a Shapiro–Wilk test on the values provided as input. The output values are the same as the values reported by the <code>norm</code> section of <code>stat.desc</code>. Note that the <code>shapiro.test</code> function require the argument to be a numeric vector. Thus the <a href="https://dplyr.tidyverse.org/reference/pull.html"><code>pull</code> function</a> must be used to extract the <code>perc_age_20_to_24</code> column from <code>leic_2011OAC_20to24</code> as a vector, whereas using <code>select</code> with a single column name as the argument would produce as output a table with a single column.</p>
 <div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="exploratory-data-analysis.html#cb217-1"></a>leic_2011OAC_20to24 <span class="op">%&gt;%</span></span>
-<span id="cb217-2"><a href="exploratory-data-analysis.html#cb217-2"></a><span class="st">  </span><span class="kw">pull</span>(perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>) <span class="op">%&gt;%</span></span>
-<span id="cb217-3"><a href="exploratory-data-analysis.html#cb217-3"></a><span class="st">  </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<span id="cb217-2"><a href="exploratory-data-analysis.html#cb217-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">pull</span>(perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>) <span class="op">%&gt;%</span></span>
+<span id="cb217-3"><a href="exploratory-data-analysis.html#cb217-3"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
@@ -639,18 +639,18 @@ between 20 and 24. </code></pre>
 ## W = 0.64491, p-value &lt; 2.2e-16</code></pre>
 <p>The two code snippets below can be used to visualise a density-based histogram including the shape of a normal distribution having the same mean and standard deviation, and a Q-Q plot, to visually confirm the fact that <code>perc_age_20_to_24</code> is not normally distributed.</p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="exploratory-data-analysis.html#cb219-1"></a>leic_2011OAC_20to24 <span class="op">%&gt;%</span></span>
-<span id="cb219-2"><a href="exploratory-data-analysis.html#cb219-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb219-2"><a href="exploratory-data-analysis.html#cb219-2"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(</span>
 <span id="cb219-3"><a href="exploratory-data-analysis.html#cb219-3"></a>    <span class="kw">aes</span>(</span>
 <span id="cb219-4"><a href="exploratory-data-analysis.html#cb219-4"></a>      <span class="dt">x =</span> perc_age_<span class="dv">20</span>_to_<span class="dv">24</span></span>
 <span id="cb219-5"><a href="exploratory-data-analysis.html#cb219-5"></a>    )</span>
 <span id="cb219-6"><a href="exploratory-data-analysis.html#cb219-6"></a>  ) <span class="op">+</span></span>
-<span id="cb219-7"><a href="exploratory-data-analysis.html#cb219-7"></a><span class="st">  </span><span class="kw">geom_histogram</span>(</span>
+<span id="cb219-7"><a href="exploratory-data-analysis.html#cb219-7"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>(</span>
 <span id="cb219-8"><a href="exploratory-data-analysis.html#cb219-8"></a>    <span class="kw">aes</span>(</span>
 <span id="cb219-9"><a href="exploratory-data-analysis.html#cb219-9"></a>      <span class="dt">y =</span>..density..</span>
 <span id="cb219-10"><a href="exploratory-data-analysis.html#cb219-10"></a>    ),</span>
 <span id="cb219-11"><a href="exploratory-data-analysis.html#cb219-11"></a>    <span class="dt">binwidth =</span> <span class="dv">5</span></span>
 <span id="cb219-12"><a href="exploratory-data-analysis.html#cb219-12"></a>  ) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb219-13"><a href="exploratory-data-analysis.html#cb219-13"></a><span class="st">  </span><span class="kw">stat_function</span>(</span>
+<span id="cb219-13"><a href="exploratory-data-analysis.html#cb219-13"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">stat_function</span>(</span>
 <span id="cb219-14"><a href="exploratory-data-analysis.html#cb219-14"></a>    <span class="dt">fun =</span> dnorm, </span>
 <span id="cb219-15"><a href="exploratory-data-analysis.html#cb219-15"></a>    <span class="dt">args =</span> <span class="kw">list</span>(</span>
 <span id="cb219-16"><a href="exploratory-data-analysis.html#cb219-16"></a>      <span class="dt">mean =</span> leic_2011OAC_20to24 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>(),</span>
@@ -658,32 +658,32 @@ between 20 and 24. </code></pre>
 <span id="cb219-18"><a href="exploratory-data-analysis.html#cb219-18"></a>    ),</span>
 <span id="cb219-19"><a href="exploratory-data-analysis.html#cb219-19"></a>    <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span></span>
 <span id="cb219-20"><a href="exploratory-data-analysis.html#cb219-20"></a>  )</span></code></pre></div>
-<p><img src="304_P_Exploratory_files/figure-html/unnamed-chunk-12-1.png" width="288" /></p>
+<p><img src="304_P_Exploratory_files/figure-html/unnamed-chunk-13-1.png" width="288" /></p>
 <p>A Q-Q plot in R can be created using a variety of functions. In the example below, the plot is created using the <a href="https://ggplot2.tidyverse.org/reference/geom_qq.html"><code>stat_qq</code> and <code>stat_qq_line</code> functions</a> of the <code>ggplot2</code> library. Note that the <code>perc_age_20_to_24</code> variable is mapped to a particular option of <code>aes</code> that is <code>sample</code>.</p>
 <p>If <code>perc_age_20_to_24</code> had been normally distributed, the dots in the Q-Q plot would be distributed straight on the line included in the plot.</p>
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="exploratory-data-analysis.html#cb220-1"></a>leic_2011OAC_20to24 <span class="op">%&gt;%</span></span>
-<span id="cb220-2"><a href="exploratory-data-analysis.html#cb220-2"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb220-2"><a href="exploratory-data-analysis.html#cb220-2"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(</span>
 <span id="cb220-3"><a href="exploratory-data-analysis.html#cb220-3"></a>    <span class="kw">aes</span>(</span>
 <span id="cb220-4"><a href="exploratory-data-analysis.html#cb220-4"></a>      <span class="dt">sample =</span> perc_age_<span class="dv">20</span>_to_<span class="dv">24</span></span>
 <span id="cb220-5"><a href="exploratory-data-analysis.html#cb220-5"></a>    )</span>
 <span id="cb220-6"><a href="exploratory-data-analysis.html#cb220-6"></a>  ) <span class="op">+</span></span>
-<span id="cb220-7"><a href="exploratory-data-analysis.html#cb220-7"></a><span class="st">  </span><span class="kw">stat_qq</span>() <span class="op">+</span></span>
-<span id="cb220-8"><a href="exploratory-data-analysis.html#cb220-8"></a><span class="st">  </span><span class="kw">stat_qq_line</span>()</span></code></pre></div>
-<p><img src="304_P_Exploratory_files/figure-html/unnamed-chunk-13-1.png" width="288" /></p>
+<span id="cb220-7"><a href="exploratory-data-analysis.html#cb220-7"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">stat_qq</span>() <span class="op">+</span></span>
+<span id="cb220-8"><a href="exploratory-data-analysis.html#cb220-8"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">stat_qq_line</span>()</span></code></pre></div>
+<p><img src="304_P_Exploratory_files/figure-html/unnamed-chunk-14-1.png" width="288" /></p>
 </div>
 </div>
 <div id="exercise-7.2" class="section level2">
 <h2><span class="header-section-number">6.6</span> Exercise 7.2</h2>
-<p>Create a new RMarkdown document, and add the code necessary to recreate the table <code>leic_2011OAC_20to24</code> used in the example above. Use the code below to re-shape the table <code>leic_2011OAC_20to24</code> by spreading the <code>perc_age_20_to_24</code> column to multiple columns using <code>supgrpname</code> as key.</p>
+<p>Create a new RMarkdown document, and add the code necessary to recreate the table <code>leic_2011OAC_20to24</code> used in the example above. Use the code below to re-shape the table <code>leic_2011OAC_20to24</code> by pivoting the <code>perc_age_20_to_24</code> column wider into multiple columns using <code>supgrpname</code> as new column names.</p>
 <div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="exploratory-data-analysis.html#cb221-1"></a>leic_2011OAC_20to24_supgrp &lt;-<span class="st"> </span>leic_2011OAC_20to24 <span class="op">%&gt;%</span></span>
-<span id="cb221-2"><a href="exploratory-data-analysis.html#cb221-2"></a><span class="st">  </span><span class="kw">spread</span>(</span>
-<span id="cb221-3"><a href="exploratory-data-analysis.html#cb221-3"></a>    <span class="dt">key =</span> supgrpname,</span>
-<span id="cb221-4"><a href="exploratory-data-analysis.html#cb221-4"></a>    <span class="dt">value =</span> perc_age_<span class="dv">20</span>_to_<span class="dv">24</span></span>
+<span id="cb221-2"><a href="exploratory-data-analysis.html#cb221-2"></a><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">pivot_wider</span>(</span>
+<span id="cb221-3"><a href="exploratory-data-analysis.html#cb221-3"></a>    <span class="dt">names_from =</span> supgrpname,</span>
+<span id="cb221-4"><a href="exploratory-data-analysis.html#cb221-4"></a>    <span class="dt">values_from =</span> perc_age_<span class="dv">20</span>_to_<span class="dv">24</span></span>
 <span id="cb221-5"><a href="exploratory-data-analysis.html#cb221-5"></a>  )</span></code></pre></div>
 <p>That manipulation creates one column per supergroup, containing the <code>perc_age_20_to_24</code> if the OA is part of that supergroup, or an <code>NA</code> value if the OA is not part of the supergroup. The transformation is illustrated in the two tables below. The first shows an extract from the original <code>leic_2011OAC_20to24</code> dataset, followed by the wide version <code>leic_2011OAC_20to24_supgrp</code>.</p>
 <div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="exploratory-data-analysis.html#cb222-1"></a>leic_2011OAC_20to24 <span class="op">%&gt;%</span></span>
-<span id="cb222-2"><a href="exploratory-data-analysis.html#cb222-2"></a><span class="st">  </span><span class="kw">slice_min</span>(OA11CD, <span class="dt">n =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span></span>
-<span id="cb222-3"><a href="exploratory-data-analysis.html#cb222-3"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<span id="cb222-2"><a href="exploratory-data-analysis.html#cb222-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">slice_min</span>(OA11CD, <span class="dt">n =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span></span>
+<span id="cb222-3"><a href="exploratory-data-analysis.html#cb222-3"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -746,18 +746,18 @@ between 20 and 24. </code></pre>
 </tbody>
 </table>
 <div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="exploratory-data-analysis.html#cb223-1"></a>leic_2011OAC_20to24_supgrp <span class="op">%&gt;%</span></span>
-<span id="cb223-2"><a href="exploratory-data-analysis.html#cb223-2"></a><span class="st">  </span><span class="kw">slice_min</span>(OA11CD, <span class="dt">n =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span></span>
-<span id="cb223-3"><a href="exploratory-data-analysis.html#cb223-3"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<span id="cb223-2"><a href="exploratory-data-analysis.html#cb223-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">slice_min</span>(OA11CD, <span class="dt">n =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span></span>
+<span id="cb223-3"><a href="exploratory-data-analysis.html#cb223-3"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
 <th align="left">OA11CD</th>
-<th align="right">CD</th>
-<th align="right">CP</th>
-<th align="right">EC</th>
-<th align="right">HP</th>
-<th align="right">MM</th>
 <th align="right">SU</th>
+<th align="right">CP</th>
+<th align="right">MM</th>
+<th align="right">EC</th>
+<th align="right">CD</th>
+<th align="right">HP</th>
 <th align="right">UR</th>
 </tr>
 </thead>
@@ -767,18 +767,18 @@ between 20 and 24. </code></pre>
 <td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">6.053</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
 <tr class="even">
 <td align="left">E00068658</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">6.964</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
@@ -786,9 +786,9 @@ between 20 and 24. </code></pre>
 <td align="left">E00068659</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">8.383</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
@@ -796,9 +796,9 @@ between 20 and 24. </code></pre>
 <td align="left">E00068660</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">4.643</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
@@ -806,9 +806,9 @@ between 20 and 24. </code></pre>
 <td align="left">E00068661</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">10.625</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
@@ -816,9 +816,9 @@ between 20 and 24. </code></pre>
 <td align="left">E00068662</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">8.284</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
@@ -826,9 +826,9 @@ between 20 and 24. </code></pre>
 <td align="left">E00068663</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">8.357</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
@@ -836,9 +836,9 @@ between 20 and 24. </code></pre>
 <td align="left">E00068664</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">3.597</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
@@ -846,9 +846,9 @@ between 20 and 24. </code></pre>
 <td align="left">E00068665</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">7.068</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
@@ -856,9 +856,9 @@ between 20 and 24. </code></pre>
 <td align="left">E00068666</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 <td align="right">5.864</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
@@ -866,31 +866,31 @@ between 20 and 24. </code></pre>
 </table>
 <p><strong>Question 7.2.1:</strong> The code below uses the newly created <code>leic_2011OAC_20to24_supgrp</code> table to calculate the descriptive statistics calculated for the variable <code>leic_2011OAC_20to24</code> for each supergroup. Is <code>leic_2011OAC_20to24</code> normally distributed in any of the subgroups? If yes, which supergroups and based on which values do you justify that claim? (Write up to 200 words)</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="exploratory-data-analysis.html#cb224-1"></a>leic_2011OAC_20to24_supgrp <span class="op">%&gt;%</span></span>
-<span id="cb224-2"><a href="exploratory-data-analysis.html#cb224-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>OA11CD) <span class="op">%&gt;%</span></span>
-<span id="cb224-3"><a href="exploratory-data-analysis.html#cb224-3"></a><span class="st">  </span><span class="kw">stat.desc</span>(<span class="dt">norm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
-<span id="cb224-4"><a href="exploratory-data-analysis.html#cb224-4"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<span id="cb224-2"><a href="exploratory-data-analysis.html#cb224-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>OA11CD) <span class="op">%&gt;%</span></span>
+<span id="cb224-3"><a href="exploratory-data-analysis.html#cb224-3"></a><span class="st">  </span>pastecs<span class="op">::</span><span class="kw">stat.desc</span>(<span class="dt">norm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb224-4"><a href="exploratory-data-analysis.html#cb224-4"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
 <th align="left"></th>
-<th align="right">CD</th>
-<th align="right">CP</th>
-<th align="right">EC</th>
-<th align="right">HP</th>
-<th align="right">MM</th>
 <th align="right">SU</th>
+<th align="right">CP</th>
+<th align="right">MM</th>
+<th align="right">EC</th>
+<th align="right">CD</th>
+<th align="right">HP</th>
 <th align="right">UR</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">nbr.val</td>
-<td align="right">36.000</td>
-<td align="right">83.000</td>
-<td align="right">57.000</td>
-<td align="right">101.000</td>
-<td align="right">573.000</td>
 <td align="right">54.000</td>
+<td align="right">83.000</td>
+<td align="right">573.000</td>
+<td align="right">57.000</td>
+<td align="right">36.000</td>
+<td align="right">101.000</td>
 <td align="right">65.000</td>
 </tr>
 <tr class="even">
@@ -905,189 +905,189 @@ between 20 and 24. </code></pre>
 </tr>
 <tr class="odd">
 <td align="left">nbr.na</td>
-<td align="right">933.000</td>
-<td align="right">886.000</td>
-<td align="right">912.000</td>
-<td align="right">868.000</td>
-<td align="right">396.000</td>
 <td align="right">915.000</td>
+<td align="right">886.000</td>
+<td align="right">396.000</td>
+<td align="right">912.000</td>
+<td align="right">933.000</td>
+<td align="right">868.000</td>
 <td align="right">904.000</td>
 </tr>
 <tr class="even">
 <td align="left">min</td>
-<td align="right">1.064</td>
-<td align="right">3.141</td>
-<td align="right">2.066</td>
-<td align="right">1.515</td>
-<td align="right">2.490</td>
 <td align="right">1.462</td>
+<td align="right">3.141</td>
+<td align="right">2.490</td>
+<td align="right">2.066</td>
+<td align="right">1.064</td>
+<td align="right">1.515</td>
 <td align="right">2.256</td>
 </tr>
 <tr class="odd">
 <td align="left">max</td>
-<td align="right">12.963</td>
-<td align="right">60.751</td>
-<td align="right">36.299</td>
-<td align="right">11.261</td>
-<td align="right">52.507</td>
 <td align="right">9.562</td>
+<td align="right">60.751</td>
+<td align="right">52.507</td>
+<td align="right">36.299</td>
+<td align="right">12.963</td>
+<td align="right">11.261</td>
 <td align="right">13.505</td>
 </tr>
 <tr class="even">
 <td align="left">range</td>
-<td align="right">11.899</td>
-<td align="right">57.609</td>
-<td align="right">34.233</td>
-<td align="right">9.746</td>
-<td align="right">50.018</td>
 <td align="right">8.100</td>
+<td align="right">57.609</td>
+<td align="right">50.018</td>
+<td align="right">34.233</td>
+<td align="right">11.899</td>
+<td align="right">9.746</td>
 <td align="right">11.249</td>
 </tr>
 <tr class="odd">
 <td align="left">sum</td>
-<td align="right">252.108</td>
-<td align="right">2646.551</td>
-<td align="right">838.415</td>
-<td align="right">619.266</td>
-<td align="right">5214.286</td>
 <td align="right">295.867</td>
+<td align="right">2646.551</td>
+<td align="right">5214.286</td>
+<td align="right">838.415</td>
+<td align="right">252.108</td>
+<td align="right">619.266</td>
 <td align="right">372.010</td>
 </tr>
 <tr class="even">
 <td align="left">median</td>
-<td align="right">6.854</td>
-<td align="right">30.457</td>
-<td align="right">10.881</td>
-<td align="right">6.053</td>
-<td align="right">7.880</td>
 <td align="right">5.476</td>
+<td align="right">30.457</td>
+<td align="right">7.880</td>
+<td align="right">10.881</td>
+<td align="right">6.854</td>
+<td align="right">6.053</td>
 <td align="right">5.380</td>
 </tr>
 <tr class="odd">
 <td align="left">mean</td>
-<td align="right">7.003</td>
-<td align="right">31.886</td>
-<td align="right">14.709</td>
-<td align="right">6.131</td>
-<td align="right">9.100</td>
 <td align="right">5.479</td>
+<td align="right">31.886</td>
+<td align="right">9.100</td>
+<td align="right">14.709</td>
+<td align="right">7.003</td>
+<td align="right">6.131</td>
 <td align="right">5.723</td>
 </tr>
 <tr class="even">
 <td align="left">SE.mean</td>
-<td align="right">0.471</td>
-<td align="right">1.574</td>
-<td align="right">1.373</td>
-<td align="right">0.172</td>
-<td align="right">0.230</td>
 <td align="right">0.233</td>
+<td align="right">1.574</td>
+<td align="right">0.230</td>
+<td align="right">1.373</td>
+<td align="right">0.471</td>
+<td align="right">0.172</td>
 <td align="right">0.264</td>
 </tr>
 <tr class="odd">
 <td align="left">CI.mean.0.95</td>
-<td align="right">0.956</td>
-<td align="right">3.131</td>
-<td align="right">2.751</td>
-<td align="right">0.341</td>
-<td align="right">0.452</td>
 <td align="right">0.467</td>
+<td align="right">3.131</td>
+<td align="right">0.452</td>
+<td align="right">2.751</td>
+<td align="right">0.956</td>
+<td align="right">0.341</td>
 <td align="right">0.528</td>
 </tr>
 <tr class="even">
 <td align="left">var</td>
-<td align="right">7.983</td>
-<td align="right">205.556</td>
-<td align="right">107.523</td>
-<td align="right">2.980</td>
-<td align="right">30.285</td>
 <td align="right">2.929</td>
+<td align="right">205.556</td>
+<td align="right">30.285</td>
+<td align="right">107.523</td>
+<td align="right">7.983</td>
+<td align="right">2.980</td>
 <td align="right">4.545</td>
 </tr>
 <tr class="odd">
 <td align="left">std.dev</td>
-<td align="right">2.825</td>
-<td align="right">14.337</td>
-<td align="right">10.369</td>
-<td align="right">1.726</td>
-<td align="right">5.503</td>
 <td align="right">1.712</td>
+<td align="right">14.337</td>
+<td align="right">5.503</td>
+<td align="right">10.369</td>
+<td align="right">2.825</td>
+<td align="right">1.726</td>
 <td align="right">2.132</td>
 </tr>
 <tr class="even">
 <td align="left">coef.var</td>
-<td align="right">0.403</td>
-<td align="right">0.450</td>
-<td align="right">0.705</td>
-<td align="right">0.282</td>
-<td align="right">0.605</td>
 <td align="right">0.312</td>
+<td align="right">0.450</td>
+<td align="right">0.605</td>
+<td align="right">0.705</td>
+<td align="right">0.403</td>
+<td align="right">0.282</td>
 <td align="right">0.372</td>
 </tr>
 <tr class="odd">
 <td align="left">skewness</td>
-<td align="right">0.322</td>
-<td align="right">0.067</td>
-<td align="right">0.633</td>
-<td align="right">0.124</td>
-<td align="right">3.320</td>
 <td align="right">0.005</td>
+<td align="right">0.067</td>
+<td align="right">3.320</td>
+<td align="right">0.633</td>
+<td align="right">0.322</td>
+<td align="right">0.124</td>
 <td align="right">1.042</td>
 </tr>
 <tr class="even">
 <td align="left">skew.2SE</td>
-<td align="right">0.410</td>
-<td align="right">0.127</td>
-<td align="right">1.001</td>
-<td align="right">0.258</td>
-<td align="right">16.266</td>
 <td align="right">0.008</td>
+<td align="right">0.127</td>
+<td align="right">16.266</td>
+<td align="right">1.001</td>
+<td align="right">0.410</td>
+<td align="right">0.258</td>
 <td align="right">1.753</td>
 </tr>
 <tr class="odd">
 <td align="left">kurtosis</td>
-<td align="right">-0.142</td>
-<td align="right">-0.825</td>
-<td align="right">-1.009</td>
-<td align="right">0.220</td>
-<td align="right">15.143</td>
 <td align="right">-0.391</td>
+<td align="right">-0.825</td>
+<td align="right">15.143</td>
+<td align="right">-1.009</td>
+<td align="right">-0.142</td>
+<td align="right">0.220</td>
 <td align="right">1.441</td>
 </tr>
 <tr class="even">
 <td align="left">kurt.2SE</td>
-<td align="right">-0.093</td>
-<td align="right">-0.789</td>
-<td align="right">-0.810</td>
-<td align="right">0.231</td>
-<td align="right">37.156</td>
 <td align="right">-0.306</td>
+<td align="right">-0.789</td>
+<td align="right">37.156</td>
+<td align="right">-0.810</td>
+<td align="right">-0.093</td>
+<td align="right">0.231</td>
 <td align="right">1.229</td>
 </tr>
 <tr class="odd">
 <td align="left">normtest.W</td>
-<td align="right">0.965</td>
-<td align="right">0.980</td>
-<td align="right">0.889</td>
-<td align="right">0.993</td>
-<td align="right">0.684</td>
 <td align="right">0.991</td>
+<td align="right">0.980</td>
+<td align="right">0.684</td>
+<td align="right">0.889</td>
+<td align="right">0.965</td>
+<td align="right">0.993</td>
 <td align="right">0.937</td>
 </tr>
 <tr class="even">
 <td align="left">normtest.p</td>
-<td align="right">0.310</td>
+<td align="right">0.954</td>
 <td align="right">0.239</td>
 <td align="right">0.000</td>
-<td align="right">0.886</td>
 <td align="right">0.000</td>
-<td align="right">0.954</td>
+<td align="right">0.310</td>
+<td align="right">0.886</td>
 <td align="right">0.002</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Question 7.2.2:</strong> Write the code necessary to test again the normality of <code>leic_2011OAC_20to24</code> for the supergroups where the analysis conducted for question 7.2.1 indicated they are normal, using the function <code>shapiro.test</code>, and draw the respective Q-Q plot.</p>
 <p><strong>Question 7.2.3:</strong> Observe the output of the Levene’s test executed below. What does the result tell you about the variance of <code>perc_age_20_to_24</code> in supergroups?</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="exploratory-data-analysis.html#cb225-1"></a><span class="kw">leveneTest</span>(leic_2011OAC_20to24<span class="op">$</span>perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>, leic_2011OAC_20to24<span class="op">$</span>supgrpname)</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="exploratory-data-analysis.html#cb225-1"></a>car<span class="op">::</span><span class="kw">leveneTest</span>(leic_2011OAC_20to24<span class="op">$</span>perc_age_<span class="dv">20</span>_to_<span class="dv">24</span>, leic_2011OAC_20to24<span class="op">$</span>supgrpname)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value    Pr(&gt;F)    
 ## group   6  62.011 &lt; 2.2e-16 ***
