@@ -74,20 +74,21 @@ To create a graph in `ggplot2`:
 
 ## Aesthetics
 
-The `aes` element is the second parameter of the main `ggplot` function after the data
-
-It provides a *"mapping"* from the data *columns* (attributes) to the graphic's *visual variables*
+The `aes` element  provides a *"mapping"* from the data *columns* (attributes) to the graphic's *visual variables*, including:
 
 - `x` and `y`
-- `colour`
+- `fill` (fill colour) and `colour` (border colour)
 - `shape`
 - `size`
 
 
 ```r
-ggplot2::ggplot(
-  aes(
-    x = column_1, y = column_2
+data %>%
+  ggplot2::ggplot(
+    aes(
+      x = column_1,
+      y = column_2
+    )
   )
 ```
 
@@ -115,7 +116,7 @@ ggplot2::geom_line()
 
 - `x`: a column to *"map"* to the x-axis, e.g. days (category)
 - `y`: a column to *"map"* to the y-axis, e.g. delay (continuous)
-- `geom_line`: line mark (graphical primitive)
+- `ggplot2::geom_line`: line mark (graphical primitive)
 
 
 
@@ -143,8 +144,8 @@ nycflights13::flights %>%
 
 - `x`: a column to *"map"* to the x-axis, e.g. days (category)
 - `y`: a column to *"map"* to the y-axis, e.g. delay (continuous)
-- `geom_col`: bar mark (graphical primitive)
-  - `geom_bar` instead illustrates count per category
+- `ggplot2::geom_col`: bar mark (graphical primitive)
+  - `ggplot2::geom_bar` instead illustrates count per category
 
 
 
@@ -200,8 +201,8 @@ nycflights13::flights %>%
 ## Histograms
 
 - `x` a column to *"map"* to the x-axis, e.g. delay (continuous)
-- `geom_histogram` to illustrate count over intervals of continuous variable on x-axis
-  - `geom_bar` instead illustrates count per category
+- `ggplot2::geom_histogram` to illustrate count over intervals of continuous variable on x-axis
+  - `ggplot2::geom_bar` instead illustrates count per category
 
 
 ```r
@@ -253,7 +254,6 @@ nycflights13::flights %>%
 
 :::
 ::::::
--->
 
 ## Boxplots
 
@@ -279,8 +279,6 @@ nycflights13::flights %>%
 ![](301_L_DataVisualisation_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
 
 
-
-<!--
 ## Jittered points
 
 - `x` categorical variable
@@ -334,8 +332,8 @@ nycflights13::flights %>%
 
 ## Scatterplots
 
-- `x` and `y` variable to plot
-- `geom_point`
+- `x` and `y` variables to plot
+- `ggplot2::geom_point`
 
 
 ```r
@@ -361,8 +359,8 @@ nycflights13::flights %>%
 
 ## Overlapping points
 
-- `x` and `y` variable to plot
-- `geom_count` counts overlapping points and maps the count to size
+- `x` and `y` variables to plot
+- `ggplot2::geom_count` counts overlapping points and maps the count to size
 
 
 ```r
@@ -386,8 +384,8 @@ nycflights13::flights %>%
 
 ## Bin counts
 
-- `x` and `y` variable to plot
-- `geom_bin2d`
+- `x` and `y` variables to plot
+- `ggplot2::geom_bin2d` with 10 minutes binwidth
 
 
 ```r
@@ -402,12 +400,41 @@ nycflights13::flights %>%
     x = dep_delay,
     y = arr_delay
   )) +
-  ggplot2::geom_bin2d()
+  ggplot2::geom_bin2d(binwidth = 10)
 ```
 
 ## Bin counts
 
 ![](301_L_DataVisualisation_files/figure-epub3/unnamed-chunk-25-1.png)<!-- -->
+
+
+
+## Coordinates transformations
+
+- `ggplot2::coord_fixed` manipulates coordinates property
+- `ggplot2::theme_bw` classic dark-on-light theme
+
+
+```r
+nycflights13::flights %>%
+  dplyr::filter(
+    month == 11, 
+    carrier == "US",
+    !is.na(dep_delay),
+    !is.na(arr_delay)
+  ) %>%
+  ggplot2::ggplot(aes(
+    x = dep_delay,
+    y = arr_delay
+  )) +
+  ggplot2::geom_bin2d(binwidth = 10) +
+  ggplot2::coord_fixed(ratio = 1) +
+  theme_bw()
+```
+
+## Coordinates transformations
+
+![](301_L_DataVisualisation_files/figure-epub3/unnamed-chunk-27-1.png)<!-- -->
 
 
 
@@ -420,7 +447,7 @@ Data visualisation
 
 **Next**: Descriptive statistics
 
-- stat.desc
+- pastecs::stat.desc	
 - dplyr::across
 
 

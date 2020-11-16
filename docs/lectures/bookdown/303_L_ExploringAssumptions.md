@@ -84,7 +84,7 @@ palmerpenguins::penguins %>%
 
 ## Q-Q plot
 
-Cumulative values against the cumulative probability of a particular distribution (in this case, *normal*)
+Values against the cumulative probability of a particular distribution (in this case, *normal* distribution)
 
 :::::: {.cols data-latex=""}
 
@@ -194,7 +194,7 @@ palmerpenguins::penguins %>%
 
 ## Example
 
-The *bill depth* of *Chinstrap* penguins is normally distributed
+The *flipper length* of **Adelie** penguins **is normally distributed**
 
 :::::: {.cols data-latex=""}
 

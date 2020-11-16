@@ -102,16 +102,53 @@ palmerpenguins::penguins %>%
 - `nbr.na`: number of `NA`s -- missing value indicator
 
 
+|         | bill_length_mm| bill_depth_mm|
+|:--------|--------------:|-------------:|
+|nbr.val  |          342.0|         342.0|
+|nbr.null |            0.0|           0.0|
+|nbr.na   |            2.0|           2.0|
+|min      |           32.1|          13.1|
+|max      |           59.6|          21.5|
+|range    |           27.5|           8.4|
+|sum      |        15021.3|        5865.7|
+
+
+## stat.desc: basic
+
+- `min` (also `min()`): **minimum** value in the dataset
+- `max` (also `max()`): **maximum** value in the dataset
+- `range`: difference between `min` and `max` (different from `range()`)
+- `sum` (also `sum()`): sum of the values in the dataset
+
+
+|         | bill_length_mm| bill_depth_mm|
+|:--------|--------------:|-------------:|
+|nbr.val  |          342.0|         342.0|
+|nbr.null |            0.0|           0.0|
+|nbr.na   |            2.0|           2.0|
+|min      |           32.1|          13.1|
+|max      |           59.6|          21.5|
+|range    |           27.5|           8.4|
+|sum      |        15021.3|        5865.7|
+
+
 
 ## stat.desc: desc
 
-- `min` (also `min()`): **minimum** value in the dataset
-- `max` (also `max()`): **minimum** value in the dataset
-- `range`: difference between `min` and `max` (different from `range()`)
-- `sum` (also `sum()`): sum of the values in the dataset
 - `mean` (also `mean()`): **arithmetic mean**, that is `sum` over the number of values not `NA`
 - `median` (also `median()`): **median**, that is the value separating the higher half from the lower half the values
-- `mode()`functio is available: **mode**, the value that appears most often in the values
+- `mode()`function is available: **mode**, the value that appears most often in the values
+
+
+|             | bill_length_mm| bill_depth_mm|
+|:------------|--------------:|-------------:|
+|median       |          44.45|         17.30|
+|mean         |          43.92|         17.15|
+|SE.mean      |           0.30|          0.11|
+|CI.mean.0.95 |           0.58|          0.21|
+|var          |          29.81|          3.90|
+|std.dev      |           5.46|          1.97|
+|coef.var     |           0.12|          0.12|
 
 
 
@@ -134,7 +171,6 @@ Section 2.5.1
 
 “This is known as the central limit theorem and it is useful in this context because it means that if our sample is large we can use the above equation to approximate the standard error (because, remember, it is the standard deviation of the sampling distribution).7 When the sample is relatively small (fewer than 30) the sampling distribution has a different shape, known as a t-distribution, which we’ll come back to later.”
 -->
-
 
 
 ## Estimating variation
@@ -203,62 +239,6 @@ palmerpenguins::penguins %>%
 | avg_bill_len_mm| avg_bill_dpt_mm| avg_flip_len_mm| avg_body_mass_g|
 |---------------:|---------------:|---------------:|---------------:|
 |           43.92|           17.15|          200.92|         4201.75|
-
-
-
-## dplyr::across
-
-The `dplyr` verb `across` allows to apply `summarise` verbs on multiple columns. You can use...
-
-
-
-```r
-palmerpenguins::penguins %>%
-  # filter out raws with missing data
-  dplyr::filter(!is.na(bill_length_mm)) %>%
-  # summarise cross columns
-  dplyr::summarise(
-    dplyr::across(
-      bill_length_mm:body_mass_g, # any vector of column names
-      mean                        # function to apply
-    )
-  ) %>%
-  knitr::kable(digits = c(2, 2, 2, 2))
-```
-
-
-
-| bill_length_mm| bill_depth_mm| flipper_length_mm| body_mass_g|
-|--------------:|-------------:|-----------------:|-----------:|
-|          43.92|         17.15|            200.92|     4201.75|
-
-
-
-## dplyr::across
-
-The `dplyr` verb `across` allows to apply `summarise` and `mutate` verbs on multiple columns. You can use...
-
-
-
-```r
-palmerpenguins::penguins %>%
-  # filter out raws with missing data
-  dplyr::filter(!is.na(bill_length_mm)) %>%
-  # summarise cross columns
-  dplyr::summarise(
-    dplyr::across(
-      bill_length_mm:body_mass_g, # any vector of column names
-      mean                        # function to apply
-    )
-  ) %>%
-  knitr::kable(digits = c(2, 2, 2, 2))
-```
-
-
-
-| bill_length_mm| bill_depth_mm| flipper_length_mm| body_mass_g|
-|--------------:|-------------:|-----------------:|-----------:|
-|          43.92|         17.15|            200.92|     4201.75|
 
 
 

@@ -98,17 +98,48 @@ palmerpenguins::penguins %>%
 - `nbr.null`: number of `NULL` values -- NULL is often returned by expressions and functions whose values are undefined
 - `nbr.na`: number of `NA`s -- missing value indicator
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pastecs)
+
+palmerpenguins::penguins %>%
+  dplyr::select(bill_length_mm, bill_depth_mm) %>%
+  pastecs::stat.desc(basic = TRUE, desc = FALSE) %>%
+  knitr::kable(digits = c(2, 2))
+```
+
+
+## stat.desc: basic
+
+- `min` (also `min()`): **minimum** value in the dataset
+- `max` (also `max()`): **maximum** value in the dataset
+- `range`: difference between `min` and `max` (different from `range()`)
+- `sum` (also `sum()`): sum of the values in the dataset
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pastecs)
+
+palmerpenguins::penguins %>%
+  dplyr::select(bill_length_mm, bill_depth_mm) %>%
+  pastecs::stat.desc(basic = TRUE, desc = FALSE) %>%
+  knitr::kable(digits = c(2, 2))
+```
+
 
 
 ## stat.desc: desc
 
-- `min` (also `min()`): **minimum** value in the dataset
-- `max` (also `max()`): **minimum** value in the dataset
-- `range`: difference between `min` and `max` (different from `range()`)
-- `sum` (also `sum()`): sum of the values in the dataset
 - `mean` (also `mean()`): **arithmetic mean**, that is `sum` over the number of values not `NA`
 - `median` (also `median()`): **median**, that is the value separating the higher half from the lower half the values
-- `mode()`functio is available: **mode**, the value that appears most often in the values
+- `mode()`function is available: **mode**, the value that appears most often in the values
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pastecs)
+
+palmerpenguins::penguins %>%
+  dplyr::select(bill_length_mm, bill_depth_mm) %>%
+  pastecs::stat.desc(basic = FALSE, desc = TRUE) %>%
+  knitr::kable(digits = c(2, 2))
+```
 
 
 
@@ -131,7 +162,6 @@ Section 2.5.1
 
 “This is known as the central limit theorem and it is useful in this context because it means that if our sample is large we can use the above equation to approximate the standard error (because, remember, it is the standard deviation of the sampling distribution).7 When the sample is relatively small (fewer than 30) the sampling distribution has a different shape, known as a t-distribution, which we’ll come back to later.”
 -->
-
 
 
 ## Estimating variation
@@ -179,48 +209,6 @@ palmerpenguins::penguins %>%
     avg_bill_dpt_mm = mean(bill_depth_mm),
     avg_flip_len_mm = mean(flipper_length_mm),
     avg_body_mass_g = mean(body_mass_g)
-  ) %>%
-  knitr::kable(digits = c(2, 2, 2, 2))
-```
-
-
-
-## dplyr::across
-
-The `dplyr` verb `across` allows to apply `summarise` verbs on multiple columns. You can use...
-
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-palmerpenguins::penguins %>%
-  # filter out raws with missing data
-  dplyr::filter(!is.na(bill_length_mm)) %>%
-  # summarise cross columns
-  dplyr::summarise(
-    dplyr::across(
-      bill_length_mm:body_mass_g, # any vector of column names
-      mean                        # function to apply
-    )
-  ) %>%
-  knitr::kable(digits = c(2, 2, 2, 2))
-```
-
-
-
-## dplyr::across
-
-The `dplyr` verb `across` allows to apply `summarise` and `mutate` verbs on multiple columns. You can use...
-
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-palmerpenguins::penguins %>%
-  # filter out raws with missing data
-  dplyr::filter(!is.na(bill_length_mm)) %>%
-  # summarise cross columns
-  dplyr::summarise(
-    dplyr::across(
-      bill_length_mm:body_mass_g, # any vector of column names
-      mean                        # function to apply
-    )
   ) %>%
   knitr::kable(digits = c(2, 2, 2, 2))
 ```
