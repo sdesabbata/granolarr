@@ -188,13 +188,13 @@ leicester_2011OAC %>%
 
 
 
-## Exercise 7.1
+## Exercise 304.1
 
-**Question 7.1.1:** Which one of the boxplot or violin plot above do you think better illustrate the different distributions, and what do the two graphics say about the distribution of people aged 20 to 24 in Leicester? Write a short answer in your RMarkdown document (max 200 words).
+**Question 304.1.1:** Which one of the boxplot or violin plot above do you think better illustrate the different distributions, and what do the two graphics say about the distribution of people aged 20 to 24 in Leicester? Write a short answer in your RMarkdown document (max 200 words).
 
-**Question 7.1.2:** Create a jittered points plot (see [`geom_jitter`](https://ggplot2.tidyverse.org/reference/geom_jitter.html)) visualisation illustrating the same data shown in the boxplot and violin plot above.
+**Question 304.1.2:** Create a jittered points plot (see [`geom_jitter`](https://ggplot2.tidyverse.org/reference/geom_jitter.html)) visualisation illustrating the same data shown in the boxplot and violin plot above.
 
-**Question 7.1.3:** Create the code necessary to calculate a new column named `perc_age_20_to_24`, which is the percentage of people aged 20 to 24 (i.e., `u011`) over total population per OA `Total_Population`, and create a boxplot visualising the distribution of the variable per 2011OAC supergroup.
+**Question 304.1.3:** Create the code necessary to calculate a new column named `perc_age_20_to_24`, which is the percentage of people aged 20 to 24 (i.e., `u011`) over total population per OA `Total_Population`, and create a boxplot visualising the distribution of the variable per 2011OAC supergroup.
 
 
 ## Exploratory statistics
@@ -399,7 +399,7 @@ leic_2011OAC_20to24 %>%
 
 ![](304_P_Exploratory_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
 
-## Exercise 7.2
+## Exercise 304.2
 
 Create a new RMarkdown document, and add the code necessary to recreate the table `leic_2011OAC_20to24` used in the example above. Use the code below to re-shape the table `leic_2011OAC_20to24` by pivoting the `perc_age_20_to_24` column wider into multiple columns using `supgrpname` as new column names. 
 
@@ -458,7 +458,7 @@ leic_2011OAC_20to24_supgrp %>%
 |E00068666 | NA| NA|  5.864| NA| NA|    NA| NA|
 
 
-**Question 7.2.1:** The code below uses the newly created `leic_2011OAC_20to24_supgrp` table to calculate the descriptive statistics calculated for the variable `leic_2011OAC_20to24` for each supergroup. Is `leic_2011OAC_20to24` normally distributed in any of the subgroups? If yes, which supergroups and based on which values do you justify that claim? (Write up to 200 words)
+**Question 304.2.1:** The code below uses the newly created `leic_2011OAC_20to24_supgrp` table to calculate the descriptive statistics calculated for the variable `leic_2011OAC_20to24` for each supergroup. Is `leic_2011OAC_20to24` normally distributed in any of the subgroups? If yes, which supergroups and based on which values do you justify that claim? (Write up to 200 words)
 
 
 ```r
@@ -493,9 +493,9 @@ leic_2011OAC_20to24_supgrp %>%
 |normtest.W   |   0.991|    0.980|    0.684|   0.889|   0.965|   0.993|   0.937|
 |normtest.p   |   0.954|    0.239|    0.000|   0.000|   0.310|   0.886|   0.002|
 
-**Question 7.2.2:** Write the code necessary to test again the normality of `leic_2011OAC_20to24` for the supergroups where the analysis conducted for question 7.2.1 indicated they are normal, using the function `shapiro.test`, and draw the respective Q-Q plot.
+**Question 304.2.2:** Write the code necessary to test again the normality of `leic_2011OAC_20to24` for the supergroups where the analysis conducted for Question 304.2.1 indicated they are normal, using the function `shapiro.test`, and draw the respective Q-Q plot.
 
-**Question 7.2.3:** Observe the output of the Levene’s test executed below. What does the result tell you about the variance of `perc_age_20_to_24` in supergroups?
+**Question 304.2.3:** Observe the output of the Levene’s test executed below. What does the result tell you about the variance of `perc_age_20_to_24` in supergroups?
 
 
 ```r

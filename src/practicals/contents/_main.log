@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  16 NOV 2020 14:02
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  17 NOV 2020 13:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1031,9 +1031,9 @@ g the
  []
 
 
-Overfull \hbox (35.61838pt too wide) in paragraph at lines 3657--3658
-[]\TU/lmr/bx/n/10 Question 7.2.1: \TU/lmr/m/n/10 The code below uses the newly 
-created \TU/lmtt/m/n/10 leic_2011OAC_20to24_supgrp
+Overfull \hbox (47.11838pt too wide) in paragraph at lines 3657--3658
+[]\TU/lmr/bx/n/10 Question 304.2.1: \TU/lmr/m/n/10 The code below uses the newl
+y created \TU/lmtt/m/n/10 leic_2011OAC_20to24_supgrp
  []
 
 
@@ -1136,14 +1136,14 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4412.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4412.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: FA748DF03A3BAAEFEBDCC38F1BFA3193;7305.
+(rerunfilecheck)             Checksum: 4A5F045228188FF5B7526B73EA814BBA;7325.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  17334 strings out of 481704
- 308579 string characters out of 5933764
+ 308583 string characters out of 5933764
  735513 words of memory out of 5000000
  34163 multiletter control sequences out of 15000+600000
  541579 words of font info for 87 fonts, out of 8000000 for 9000
