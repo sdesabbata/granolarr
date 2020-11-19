@@ -64,4 +64,4 @@ toc_sticky: true
 
 ## 304 Practical session
 
-See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/exploratory-analysis" target="_blank">practical session bookdown.</a>
+See <a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/exploratory-data-analysis" target="_blank">practical session bookdown.</a>
