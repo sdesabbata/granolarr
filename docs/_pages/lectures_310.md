@@ -43,9 +43,8 @@ toc_sticky: true
 
 ## 313 Data transformations
 
-<!--
-{% include video id="RbyNbKJlb-E" provider="youtube" %}
--->
+{% include video id="tUboN6q4FbY" provider="youtube" %}
+
 
 ### Slides
 
