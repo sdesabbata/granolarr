@@ -1,6 +1,6 @@
 ---
 permalink: /lectures_410/
-title: "Supervised machine learning"
+title: "Unsupervised machine learning"
 author_profile: false
 sidebar:
   nav: "lectures"
