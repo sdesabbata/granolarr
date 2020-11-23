@@ -439,13 +439,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.2" data-path="data-transformations.html"><a href="data-transformations.html#z-scores"><i class="fa fa-check"></i><b>21.2</b> Z-scores</a></li>
 <li class="chapter" data-level="21.3" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>21.3</b> Example</a></li>
 <li class="chapter" data-level="21.4" data-path="data-transformations.html"><a href="data-transformations.html#basescale"><i class="fa fa-check"></i><b>21.4</b> base::scale</a></li>
-<li class="chapter" data-level="21.5" data-path="data-transformations.html"><a href="data-transformations.html#log-transformation"><i class="fa fa-check"></i><b>21.5</b> Log transformation</a></li>
-<li class="chapter" data-level="21.6" data-path="join-operations.html"><a href="join-operations.html#example-1"><i class="fa fa-check"></i><b>21.6</b> Example</a></li>
-<li class="chapter" data-level="21.7" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-2"><i class="fa fa-check"></i><b>21.7</b> Example</a></li>
-<li class="chapter" data-level="21.8" data-path="data-transformations.html"><a href="data-transformations.html#inverse-hyperbolic-sine"><i class="fa fa-check"></i><b>21.8</b> Inverse hyperbolic sine</a></li>
-<li class="chapter" data-level="21.9" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-3"><i class="fa fa-check"></i><b>21.9</b> Example</a></li>
-<li class="chapter" data-level="21.10" data-path="data-transformations.html"><a href="data-transformations.html#example-4"><i class="fa fa-check"></i><b>21.10</b> Example</a></li>
-<li class="chapter" data-level="21.11" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>21.11</b> Summary</a></li>
+<li class="chapter" data-level="21.5" data-path="data-transformations.html"><a href="data-transformations.html#basescale-1"><i class="fa fa-check"></i><b>21.5</b> base::scale</a></li>
+<li class="chapter" data-level="21.6" data-path="data-transformations.html"><a href="data-transformations.html#comparison"><i class="fa fa-check"></i><b>21.6</b> Comparison</a></li>
+<li class="chapter" data-level="21.7" data-path="data-transformations.html"><a href="data-transformations.html#log-transformation"><i class="fa fa-check"></i><b>21.7</b> Log transformation</a></li>
+<li class="chapter" data-level="21.8" data-path="join-operations.html"><a href="join-operations.html#example-1"><i class="fa fa-check"></i><b>21.8</b> Example</a></li>
+<li class="chapter" data-level="21.9" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-2"><i class="fa fa-check"></i><b>21.9</b> Example</a></li>
+<li class="chapter" data-level="21.10" data-path="data-transformations.html"><a href="data-transformations.html#inverse-hyperbolic-sine"><i class="fa fa-check"></i><b>21.10</b> Inverse hyperbolic sine</a></li>
+<li class="chapter" data-level="21.11" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-3"><i class="fa fa-check"></i><b>21.11</b> Example</a></li>
+<li class="chapter" data-level="21.12" data-path="data-transformations.html"><a href="data-transformations.html#example-4"><i class="fa fa-check"></i><b>21.12</b> Example</a></li>
+<li class="chapter" data-level="21.13" data-path="data-transformations.html"><a href="data-transformations.html#example-5"><i class="fa fa-check"></i><b>21.13</b> Example</a></li>
+<li class="chapter" data-level="21.14" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>21.14</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="simple-regression.html"><a href="simple-regression.html"><i class="fa fa-check"></i><b>22</b> Simple Regression</a><ul>
 <li class="chapter" data-level="22.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>22.1</b> Recap</a></li>
@@ -586,10 +589,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="example" class="section level2">
 <h2><span class="header-section-number">29.3</span> Example</h2>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="centroid-based-clustering.html#cb301-1"></a>data_to_cluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb301-2"><a href="centroid-based-clustering.html#cb301-2"></a>  <span class="dt">x_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">10</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">3</span>)),</span>
-<span id="cb301-3"><a href="centroid-based-clustering.html#cb301-3"></a>  <span class="dt">y_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">5</span>, <span class="dv">3</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">1</span>)),</span>
-<span id="cb301-4"><a href="centroid-based-clustering.html#cb301-4"></a>  <span class="dt">original_group =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">40</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">60</span>), <span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">20</span>)) )</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="centroid-based-clustering.html#cb303-1"></a>data_to_cluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb303-2"><a href="centroid-based-clustering.html#cb303-2"></a>  <span class="dt">x_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">10</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">3</span>)),</span>
+<span id="cb303-3"><a href="centroid-based-clustering.html#cb303-3"></a>  <span class="dt">y_values =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">5</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(<span class="dv">60</span>, <span class="dv">5</span>, <span class="dv">3</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">1</span>)),</span>
+<span id="cb303-4"><a href="centroid-based-clustering.html#cb303-4"></a>  <span class="dt">original_group =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">40</span>), <span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">60</span>), <span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">20</span>)) )</span></code></pre></div>
 <center>
 <img src="412_L_ClusteringCentroid_files/figure-html/unnamed-chunk-2-1.png" width="384" />
 </center>
@@ -605,12 +608,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>until centroids don’t change anymore, the algorithm has <strong>converged</strong>
 </font></p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="centroid-based-clustering.html#cb302-1"></a>kmeans_found_clusters &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb302-2"><a href="centroid-based-clustering.html#cb302-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
-<span id="cb302-3"><a href="centroid-based-clustering.html#cb302-3"></a><span class="st">  </span><span class="kw">kmeans</span>(<span class="dt">centers=</span><span class="dv">3</span>, <span class="dt">iter.max=</span><span class="dv">50</span>)</span>
-<span id="cb302-4"><a href="centroid-based-clustering.html#cb302-4"></a></span>
-<span id="cb302-5"><a href="centroid-based-clustering.html#cb302-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb302-6"><a href="centroid-based-clustering.html#cb302-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">kmeans_cluster =</span> kmeans_found_clusters<span class="op">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="centroid-based-clustering.html#cb304-1"></a>kmeans_found_clusters &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb304-2"><a href="centroid-based-clustering.html#cb304-2"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
+<span id="cb304-3"><a href="centroid-based-clustering.html#cb304-3"></a><span class="st">  </span><span class="kw">kmeans</span>(<span class="dt">centers=</span><span class="dv">3</span>, <span class="dt">iter.max=</span><span class="dv">50</span>)</span>
+<span id="cb304-4"><a href="centroid-based-clustering.html#cb304-4"></a></span>
+<span id="cb304-5"><a href="centroid-based-clustering.html#cb304-5"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb304-6"><a href="centroid-based-clustering.html#cb304-6"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">kmeans_cluster =</span> kmeans_found_clusters<span class="op">$</span>cluster)</span></code></pre></div>
 </div>
 <div id="k-means-result" class="section level2">
 <h2><span class="header-section-number">29.5</span> K-means result</h2>
@@ -632,14 +635,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>indicates how well the observation fits within the cluster</li>
 <li>i.e., based on the distance from the centroid</li>
 </ul>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="centroid-based-clustering.html#cb303-1"></a><span class="kw">library</span>(e1071)</span>
-<span id="cb303-2"><a href="centroid-based-clustering.html#cb303-2"></a></span>
-<span id="cb303-3"><a href="centroid-based-clustering.html#cb303-3"></a>cmeans_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb303-4"><a href="centroid-based-clustering.html#cb303-4"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
-<span id="cb303-5"><a href="centroid-based-clustering.html#cb303-5"></a><span class="st">  </span><span class="kw">cmeans</span>(<span class="dt">centers=</span><span class="dv">3</span>, <span class="dt">iter.max=</span><span class="dv">50</span>)</span>
-<span id="cb303-6"><a href="centroid-based-clustering.html#cb303-6"></a></span>
-<span id="cb303-7"><a href="centroid-based-clustering.html#cb303-7"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb303-8"><a href="centroid-based-clustering.html#cb303-8"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">c_means_assigned_cluster =</span> cmeans_result<span class="op">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="centroid-based-clustering.html#cb305-1"></a><span class="kw">library</span>(e1071)</span>
+<span id="cb305-2"><a href="centroid-based-clustering.html#cb305-2"></a></span>
+<span id="cb305-3"><a href="centroid-based-clustering.html#cb305-3"></a>cmeans_result &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb305-4"><a href="centroid-based-clustering.html#cb305-4"></a><span class="st">  </span><span class="kw">select</span>(x_values, y_values) <span class="op">%&gt;%</span></span>
+<span id="cb305-5"><a href="centroid-based-clustering.html#cb305-5"></a><span class="st">  </span><span class="kw">cmeans</span>(<span class="dt">centers=</span><span class="dv">3</span>, <span class="dt">iter.max=</span><span class="dv">50</span>)</span>
+<span id="cb305-6"><a href="centroid-based-clustering.html#cb305-6"></a></span>
+<span id="cb305-7"><a href="centroid-based-clustering.html#cb305-7"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb305-8"><a href="centroid-based-clustering.html#cb305-8"></a><span class="st">  </span><span class="kw">add_column</span>(<span class="dt">c_means_assigned_cluster =</span> cmeans_result<span class="op">$</span>cluster)</span></code></pre></div>
 </div>
 <div id="fuzzy-c-means-1" class="section level2">
 <h2><span class="header-section-number">29.7</span> Fuzzy c-means</h2>
@@ -648,17 +651,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>that also allows to set a membership threshold (e.g., <code>0.75</code>)</li>
 <li>leaving some observations without a cluster</li>
 </ul>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="centroid-based-clustering.html#cb304-1"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb304-2"><a href="centroid-based-clustering.html#cb304-2"></a><span class="st">  </span><span class="kw">add_column</span>(</span>
-<span id="cb304-3"><a href="centroid-based-clustering.html#cb304-3"></a>    <span class="dt">c_means_membership =</span> <span class="kw">apply</span>(cmeans_result<span class="op">$</span>membership, <span class="dv">1</span>, max)</span>
-<span id="cb304-4"><a href="centroid-based-clustering.html#cb304-4"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb304-5"><a href="centroid-based-clustering.html#cb304-5"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
-<span id="cb304-6"><a href="centroid-based-clustering.html#cb304-6"></a>    <span class="dt">c_means_cluster =</span> <span class="kw">ifelse</span>(</span>
-<span id="cb304-7"><a href="centroid-based-clustering.html#cb304-7"></a>      c_means_membership <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.75</span>, </span>
-<span id="cb304-8"><a href="centroid-based-clustering.html#cb304-8"></a>      c_means_assigned_cluster, </span>
-<span id="cb304-9"><a href="centroid-based-clustering.html#cb304-9"></a>      <span class="dv">0</span></span>
-<span id="cb304-10"><a href="centroid-based-clustering.html#cb304-10"></a>    )</span>
-<span id="cb304-11"><a href="centroid-based-clustering.html#cb304-11"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="centroid-based-clustering.html#cb306-1"></a>data_to_cluster &lt;-<span class="st"> </span>data_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb306-2"><a href="centroid-based-clustering.html#cb306-2"></a><span class="st">  </span><span class="kw">add_column</span>(</span>
+<span id="cb306-3"><a href="centroid-based-clustering.html#cb306-3"></a>    <span class="dt">c_means_membership =</span> <span class="kw">apply</span>(cmeans_result<span class="op">$</span>membership, <span class="dv">1</span>, max)</span>
+<span id="cb306-4"><a href="centroid-based-clustering.html#cb306-4"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb306-5"><a href="centroid-based-clustering.html#cb306-5"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb306-6"><a href="centroid-based-clustering.html#cb306-6"></a>    <span class="dt">c_means_cluster =</span> <span class="kw">ifelse</span>(</span>
+<span id="cb306-7"><a href="centroid-based-clustering.html#cb306-7"></a>      c_means_membership <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.75</span>, </span>
+<span id="cb306-8"><a href="centroid-based-clustering.html#cb306-8"></a>      c_means_assigned_cluster, </span>
+<span id="cb306-9"><a href="centroid-based-clustering.html#cb306-9"></a>      <span class="dv">0</span></span>
+<span id="cb306-10"><a href="centroid-based-clustering.html#cb306-10"></a>    )</span>
+<span id="cb306-11"><a href="centroid-based-clustering.html#cb306-11"></a>  )</span></code></pre></div>
 </div>
 <div id="fuzzy-c-means-result" class="section level2">
 <h2><span class="header-section-number">29.8</span> Fuzzy c-means result</h2>

@@ -93,6 +93,32 @@ palmerpenguins::penguins %>%
 
 
 
+## base::scale
+
+Distribution of **zscores** derived from body mass
+
+
+```r
+palmerpenguins::penguins %>%
+  mutate(body_mass_g_zscore = scale(body_mass_g)) %>%
+  ggplot(aes(x = body_mass_g_zscore)) +
+  geom_histogram() + theme_bw()
+```
+
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
+
+
+
+## Comparison
+
+But, are flipper length and body mass related in penguins (without considering species as separated groups)?
+
+<center>
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+</center>
+
+
+
 ## Log transformation
 
 **Logarithmic** transformations are useful to *"un-skew"* variables
@@ -105,7 +131,7 @@ Common approaches include:
 
 Only possible on values `> 0`
 
-<img src="313_L_DataTransformations_files/figure-epub3/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+<img src="313_L_DataTransformations_files/figure-epub3/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
 
 
 ## Example
@@ -114,13 +140,13 @@ Only possible on values `> 0`
 
 ::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
 
-The number of residents aged 20 to 24 (`u011`) in the areas of Leicester described as *"Cosmopolitans"* bt the [2011 Output Area Classification](https://www.gov.uk/government/statistics/2011-area-classification-for-super-output-areas) is skewed
+The number of residents aged 20 to 24 (`u011`) in the areas of Leicester described as *"Cosmopolitans"* by the [2011 Output Area Classification](https://www.gov.uk/government/statistics/2011-area-classification-for-super-output-areas) is skewed
 
 :::
 
 ::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
 
-![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
 
 :::
 
@@ -154,7 +180,7 @@ mutate(log10_u011 = log10(u011))
 
 ::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
 
-![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
 
 :::
 
@@ -180,7 +206,42 @@ mutate(log10_u011 = log10(u011))
 - defined on all values
 - in R: `asinh`
 
-<img src="313_L_DataTransformations_files/figure-epub3/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="313_L_DataTransformations_files/figure-epub3/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+
+
+## Example
+
+:::::: {.cols data-latex=""}
+
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
+
+The Inverse hyperbolic sine is also normally distributed
+
+
+```r
+mutate(ihs_u011 = asinh(u011))
+```
+
+:::
+
+::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
+
+:::
+
+::::::
+
+
+|           | log10_u011|
+|:----------|----------:|
+|skewness   |     -0.504|
+|skew.2SE   |     -0.953|
+|kurtosis   |      0.872|
+|kurt.2SE   |      0.834|
+|normtest.W |      0.976|
+|normtest.p |      0.118|
+
 
 
 ## Example
@@ -191,7 +252,7 @@ Logarithmic transformation can't be applied to arrival delays in the New York Ci
 - but there are values lower or equal to zero
 
 
-![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
 
 
 
@@ -201,7 +262,7 @@ Logarithmic transformation can't be applied to arrival delays in the New York Ci
 
 ::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
 
-*Inverse hyperbolic sine* can be applied to partially unskew the distribution
+*Inverse hyperbolic sine* can still be applied. Here it partially unskews the distribution
 
 
 ```r
@@ -215,7 +276,7 @@ mutate(
 
 ::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
 
-![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
 
 :::
 
