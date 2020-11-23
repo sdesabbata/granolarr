@@ -34,34 +34,31 @@
 
 - T-test
 - ANOVA
-- Chi-square
 
 
-## Libraries
+
+
+
+## Iris
 
 :::::: {.cols data-latex=""}
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
 
-Today's libraries
+A classic R dataset
 
-- mostly working with the usual `nycflights13`
-- exposition pipe `%$%` from the library `magrittr`
+- 3 species of iris
+- 50 flowers per species
+- 4 measurements
+  - sepal length and width
+  - petal length and width
 
-
-```r
-library(tidyverse)
-library(magrittr)  
-library(nycflights13)
-```
+<br/>
+Fisher, R.A., 1936. The use of multiple measurements in taxonomic problems. Annals of eugenics, 7(2), pp.179-188.
 
 :::
 
-::: {.col data-latex="{0.5\textwidth}"}
-
-But let's start from a simple example from `datasets`
-
-- 50 flowers from each of 3 species of iris
+::: {.col style="width: 70%; text-align: right;" data-latex="{0.5\textwidth}"}
 
 ![](311_L_ComparingMeans_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
 
@@ -70,25 +67,78 @@ But let's start from a simple example from `datasets`
 
 
 
-## Example
+## Independent T-test
+
+Are two group means  different?
+
+- null hypothesis
+  - there is **no difference** between the groups
+- if *p-value* (significance) below threshold (e.g., `0.05` or `0.01`)
+  - **group means are different**
+- assumptions
+    - normally distributed values in groups
+    - homogeneity of variance of values in groups
+      - if groups have different sizes
+    - independence of groups
+      - e.g. different conditions of an experiment
+
+
+
+## Independent T-test
+
+Independent T-test as a general linear model
+
+**General linear model**
+
+- observation $i$ can be predicted by a $model$ (predictors)
+- accounting for some amount of error
+
+$$outcome_i = (model) + error_i $$
+
+**Independent T-test**
+
+- groups is the predictor (categorical variable)
+- single observation value as group mean plus error
+
+$$outcome_i = (group\ mean) + error_i $$
+
+
+## Example: Petal lengths
+
+:::::: {.cols data-latex=""}
+
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
+
+Are the petal lengths of *versicolor* and *virginica* different?
+
+1. Check assumptions
+    1. Indipendent groups: ok
+    2. normal distribution: check using Shapiro-Wilk test
+    3. homogeneity of variance: not necessary
+2. Run T-test
+    1. `stats::t.test`
+
+:::
+
+::: {.col style="width: 70%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+![](311_L_ComparingMeans_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+
+:::
+::::::
+
+
+
+## Assumptions: normality
+
+Values are normally distributed for both groups
 
 <div class="small_r_all">
 
 
 ```r
-iris %>% filter(Species == "setosa") %>% pull(Petal.Length) %>% shapiro.test()
-```
-
-```
-## 
-## 	Shapiro-Wilk normality test
-## 
-## data:  .
-## W = 0.95498, p-value = 0.05481
-```
-
-```r
-iris %>% filter(Species == "versicolor") %>% pull(Petal.Length) %>% shapiro.test()
+iris %>% dplyr::filter(Species == "versicolor") %>% 
+  dplyr::pull(Petal.Length) %>% stats::shapiro.test()
 ```
 
 ```
@@ -100,7 +150,8 @@ iris %>% filter(Species == "versicolor") %>% pull(Petal.Length) %>% shapiro.test
 ```
 
 ```r
-iris %>% filter(Species == "virginica") %>% pull(Petal.Length) %>% shapiro.test()
+iris %>% dplyr::filter(Species == "virginica") %>% 
+  dplyr::pull(Petal.Length) %>% stats::shapiro.test()
 ```
 
 ```
@@ -115,33 +166,17 @@ iris %>% filter(Species == "virginica") %>% pull(Petal.Length) %>% shapiro.test(
 
 
 
-## T-test
+## stats::t.test
 
-Independent T-test tests whether two group means are different
-
-$$outcome_i = (group\ mean) + error_i $$
-
-- groups defined by a predictor, categorical variable
-- outcome is a continuous variable
-- assuming
-    - normally distributed values in groups
-    - homogeneity of variance of values in groups
-        - if groups have different sizes
-    - independence of groups
-
-
-
-## Example
-
-Values are normally distributed, groups have same size, and they are independent (different flowers, check using `leveneTest`)
+The test is significant, the group means are different
 
 <div class="small_r_output">
 
 
 ```r
 iris %>%
-  filter(Species %in% c("versicolor", "virginica")) %$% # Note %$%
-  t.test(Petal.Length ~ Species)
+  dplyr::filter(Species %in% c("versicolor", "virginica")) %$%
+  stats::t.test(Petal.Length ~ Species)
 ```
 
 ```
@@ -162,56 +197,115 @@ iris %>%
 
 
 
-The difference is significant t(95.57) = -12.6, *p* < .01
+How to report: 
+
+- *t*(95.57) = -12.6, *p* < .01
 
 
 
-## ANOVA
+## ANalysis Of VAriance
 
-ANOVA (analysis of variance) tests whether more than two group means are different
+ANOVA is similar to the T-tests, but more than two groups
 
-$$outcome_i = (group\ mean) + error_i $$
-
-- groups defined by a predictor, categorical variable
-- outcome is a continuous variable
-- assuming
+- null hypothesis
+  - there is **no difference** between the groups
+- if *p-value* (significance) below threshold (e.g., `0.05` or `0.01`)
+  - **group means are different**
+- assumptions
     - normally distributed values in groups
         - especially if groups have different sizes
     - homogeneity of variance of values in groups
-        - if groups have different sizes
+      - if groups have different sizes
     - independence of groups
+      - e.g. different conditions of an experiment
+      
+      
+
+## ANalysis Of VAriance
+
+ANOVA as a general linear model
+
+**General linear model**
+
+- observation $i$ can be predicted by a $model$ (predictors)
+- accounting for some amount of error
+
+$$outcome_i = (model) + error_i $$
+
+**ANOVA**
+
+- groups is the predictor (categorical variable)
+- single observation value as group mean plus error
+
+$$outcome_i = (group\ mean) + error_i $$
 
 
 
-## Example
+## Example: Petal lengths
 
-Values are normally distributed, groups have same size, they are independent (different flowers, check using `leveneTest`)
+:::::: {.cols data-latex=""}
+
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
+
+Are the petal lengths different between all three species?
+
+1. Check assumptions
+    1. Indipendent groups: ok
+    2. normal distribution: check using Shapiro-Wilk test
+    3. homogeneity of variance: not necessary
+2. Run ANOVA
+    1. `stats::aov`
+
+:::
+
+::: {.col style="width: 70%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+![](311_L_ComparingMeans_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
+
+:::
+::::::
+
+
+
+## Assumptions: normality
+
+We already checked normality for *versicolor* and *virginica*.
+
+Are values for *setosa* normally distributed?
+
+<div class="small_r_all">
+
+
+```r
+iris %>% dplyr::filter(Species == "setosa") %>% 
+  dplyr::pull(Petal.Length) %>% stats::shapiro.test()
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  .
+## W = 0.95498, p-value = 0.05481
+```
+
+</div>
+
+Values are normally distributed for all three groups
+
+- although significance for *setosa* is borderline
+
+
+## stats::aov
+
+The test is significant, the group means are different
 
 <div class="small_r_output">
 
-<!--
-
-```r
-library(car)
-
-iris %$%
-leveneTest(Petal.Length, Species)
-```
-
-```
-## Levene's Test for Homogeneity of Variance (center = median)
-##        Df F value    Pr(>F)    
-## group   2   19.48 3.129e-08 ***
-##       147                      
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
--->
-
 
 ```r
 iris %$%
-  aov(Petal.Length ~ Species) %>%
+  stats::aov(Petal.Length ~ Species) %>%
   summary()
 ```
 
@@ -227,7 +321,41 @@ iris %$%
 
 
 
-The difference is significant t(2, 147) = 1180.16, *p* < .01
+How to report:
+
+- *F*(2, 147) = 1180.16, *p* < .01
+
+<!--
+
+## Homogeneity of variance
+
+Just double-checking...
+
+<div class="small_r_all">
+
+
+```r
+library(car)
+
+iris %$%
+  leveneTest(Petal.Length, Species)
+```
+
+```
+## Levene's Test for Homogeneity of Variance (center = median)
+##        Df F value    Pr(>F)    
+## group   2   19.48 3.129e-08 ***
+##       147                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+</div>
+
+The test significant
+
+- the variance in petal length is different in different species
+-->
 
 
 ## Summary
@@ -236,13 +364,13 @@ Comparing groups
 
 - T-test
 - ANOVA
-- Chi-square
 
 **Next**: Correlation
 
 - Pearson’s r
 - Spearman’s rho
 - Kendall’s tau
-- Pairs plot
+- Pairs panel
+- Chi-square
 
 

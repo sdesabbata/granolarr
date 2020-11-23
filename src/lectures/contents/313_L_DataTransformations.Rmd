@@ -33,23 +33,24 @@ rm(list = ls())
 - Pearson’s r
 - Spearman’s rho
 - Kendall’s tau
-- Pairs plot
+- Pairs panel
+- Chi-square
 
 **Now**: Data transformations
 
 - Z-scores
 - Logarithmic transformations
+- Inverse hyperbolic sine transformations
 
 
-## Libraries and data
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE,}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,}
 library(tidyverse)
 library(magrittr)  
 library(nycflights13)
+library(palmerpenguins)
+library(pastecs)
 
-flights_nov_20 <- nycflights13::flights %>%
-  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+leicester_2011OAC <- read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
 ```
 
 
@@ -57,128 +58,201 @@ flights_nov_20 <- nycflights13::flights %>%
 
 ## Z-scores
 
-*Z-scores* transform the values as relative to the distribution mean and standard deviation
+Transform the values as relative to
 
-:::::: {.cols data-latex=""}
+- the distribution's mean 
+- and standard deviation
 
-::: {.col data-latex="{0.5\textwidth}"}
+- the z-score of a value i-th $x_i$ is calculated as below, where
+  - $\mu$ is the distribution's mean
+  - $\sigma$ is the distribution's standard deviation
 
-```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-flights_nov_20 %>%
-  ggplot(aes(x = dep_delay)) +
-  geom_histogram()
+$$
+z_i = \frac{x_i - \mu}{\sigma} 
+$$
+
+Commonly used to render two variables easier to compare
+
+
+
+## Example
+
+Distribution of flipper lengths in Palmer's penguins
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 3}
+palmerpenguins::penguins %>%
+  ggplot(aes(x = flipper_length_mm)) +
+  geom_histogram() + theme_bw()
 ```
 
-```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-flights_nov_20 %>%
-  mutate(
-    dep_delay_zscore = 
-      scale(dep_delay)
-  ) %>%
-  ggplot(
-    aes(x = dep_delay_zscore)
-  ) +
-  geom_histogram()
+
+## base::scale
+
+Distribution of **zscores** derived from flipper lengths
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 3}
+palmerpenguins::penguins %>%
+  mutate(flipper_length_zscore = scale(flipper_length_mm)) %>%
+  ggplot(aes(x = flipper_length_zscore)) +
+  geom_histogram() + theme_bw()
 ```
-
-:::
-
-::: {.col data-latex="{0.5\textwidth}"}
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
-flights_nov_20 %>%
-  ggplot(aes(x = dep_delay)) +
-  geom_histogram()
-```
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
-flights_nov_20 %>%
-  mutate(
-    dep_delay_zscore = scale(dep_delay)
-  ) %>%
-  ggplot(
-    aes(x = dep_delay_zscore)
-  ) +
-  geom_histogram()
-```
-
-:::
-::::::
 
 
 
 ## Log transformation
 
-*Logarithmic* transformations (e.g., `log` and `log10`) are useful to *"un-skew"* variables, but only possible on values `> 0`
+**Logarithmic** transformations are useful to *"un-skew"* variables
+
+Common approaches include:
+
+- natural logarithm (`log`)
+- binary logarithm (`log2`)
+- logarithm base 10 (`log10`)
+
+Only possible on values `> 0`
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2, fig.width = 6, fig.align = 'center'}
+ggplot2::ggplot() + 
+  ggplot2::stat_function(
+    fun = log10
+  ) +
+  xlim(1, 1000) +
+  xlab("Original values") +
+  ylab("Logarithm base 10") +
+  theme_bw()
+```
+
+
+## Example
 
 :::::: {.cols data-latex=""}
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
 
-```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-flights_nov_20 %>%
-  filter(dep_delay > 0) %>%
-  ggplot(aes(x = dep_delay)) +
-  geom_histogram()
-```
+The number of residents aged 20 to 24 (`u011`) in the areas of Leicester described as *"Cosmopolitans"* bt the [2011 Output Area Classification](https://www.gov.uk/government/statistics/2011-area-classification-for-super-output-areas) is skewed
 
-```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-flights_nov_20 %>%
-  filter(dep_delay > 0) %>%
-  mutate(
-    dep_delay_log = 
-      log(dep_delay)
-  ) %>%
-  ggplot(
-    aes(x = dep_delay_log)) + 
-  geom_histogram()
+:::
+
+::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 6}
+leicester_2011OAC %>% 
+  filter(supgrpname == "Cosmopolitans") %>%
+  ggplot(aes(x = u011)) +
+  geom_histogram() + theme_bw()
 ```
 
 :::
 
-::: {.col data-latex="{0.5\textwidth}"}
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
-flights_nov_20 %>%
-  filter(dep_delay > 0) %>%
-  ggplot(aes(x = dep_delay)) +
-  geom_histogram()
-```
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
-flights_nov_20 %>%
-  filter(dep_delay > 0) %>%
-  mutate(
-    dep_delay_log = 
-      log(dep_delay)
-  ) %>%
-  ggplot(
-    aes(x = dep_delay_log)) + 
-  geom_histogram()
-```
-
-:::
 ::::::
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+leicester_2011OAC %>% 
+  filter(supgrpname == "Cosmopolitans") %>% 
+  select(u011) %>% 
+  pastecs::stat.desc(basic = FALSE, desc = FALSE, norm = TRUE) %>%
+  knitr::kable(digits = 3)
+```
+
+
+## Example
+
+:::::: {.cols data-latex=""}
+
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
+
+However, it's logarithm base 10 is normally distributed, thus it can be used with tests requiring normally distributed values
+
+```{r, echo=TRUE, eval=FALSE}
+mutate(log10_u011 = log10(u011))
+```
+
+:::
+
+::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 6}
+leicester_2011OAC %>% 
+  filter(supgrpname == "Cosmopolitans") %>%
+  mutate(log10_u011 = log10(u011)) %>%
+  ggplot(aes(x = log10_u011)) +
+  geom_histogram() + theme_bw()
+```
+
+:::
+
+::::::
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+leicester_2011OAC %>% 
+  filter(supgrpname == "Cosmopolitans") %>%
+  mutate(log10_u011 = log10(u011)) %>% 
+  select(log10_u011) %>% 
+  pastecs::stat.desc(basic = FALSE, desc = FALSE, norm = TRUE) %>%
+  knitr::kable(digits = 3)
+```
 
 
 
 ## Inverse hyperbolic sine
 
+**Inverse hyperbolic sine** transformations are useful to *"un-skew"* variables
 
-*Inverse hyperbolic sine* (`asinh`) transformations are useful to *"un-skew"* variables, similar to logarithmic transformations, work on all values
+- similar to logarithmic transformations
+- defined on all values
+- in R: `asinh`
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 2, fig.width = 6, fig.align = 'center'}
+ggplot2::ggplot() + 
+  ggplot2::stat_function(
+    fun = asinh
+  ) +
+  xlim(-500, 500) +
+  xlab("Original values") +
+  ylab("Inverse hyperbolic sine") +
+  theme_bw()
+```
+
+
+## Example
+
+Logarithmic transformation can't be applied to arrival delays in the New York City 2013 flights dataset
+
+- skewed towards left
+- but there are values lower or equal to zero
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 3}
+nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) %>%
+  ggplot(aes(x = dep_delay)) +
+  geom_histogram()
+```
+
+
+
+## Example
 
 :::::: {.cols data-latex=""}
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
 
-```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-flights_nov_20 %>%
-  ggplot(aes(x = dep_delay)) +
-  geom_histogram()
+*Inverse hyperbolic sine* can be applied to partially unskew the distribution
+
+```{r, echo=TRUE, eval=FALSE}
+mutate(
+  dep_delay_ihs = 
+    asinh(dep_delay)
+)
 ```
 
-```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-flights_nov_20 %>%
+:::
+
+::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.width = 6}
+nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) %>%
   mutate(
     dep_delay_ihs = 
       asinh(dep_delay)
@@ -190,27 +264,20 @@ flights_nov_20 %>%
 
 :::
 
-::: {.col data-latex="{0.5\textwidth}"}
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
-flights_nov_20 %>%
-  ggplot(aes(x = dep_delay)) +
-  geom_histogram()
-```
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2}
-flights_nov_20 %>%
-  mutate(
-    dep_delay_ihs = 
-      asinh(dep_delay)
-  ) %>%
-  ggplot(
-    aes(x = dep_delay_ihs)) + 
-  geom_histogram()
-```
-
-:::
 ::::::
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+nycflights13::flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) %>%
+  mutate(
+    dep_delay_ihs = 
+      asinh(dep_delay)
+  ) %>%
+  select(dep_delay_ihs) %>%
+  pastecs::stat.desc(basic = FALSE, desc = FALSE, norm = TRUE) %>%
+  knitr::kable(digits = 3)
+```
+
 
 
 
@@ -220,6 +287,7 @@ Data transformations
 
 - Z-scores
 - Logarithmic transformations
+- Inverse hyperbolic sine transformations
 
 **Next**: Practical session
 

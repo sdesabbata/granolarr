@@ -348,7 +348,7 @@ stargazer(delay_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Tue, Nov 17, 2020 - 01:55:47 PM
+% Date and time: Mon, Nov 23, 2020 - 01:12:41 AM
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -452,7 +452,7 @@ stargazer(public_transp_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Tue, Nov 17, 2020 - 01:55:47 PM
+% Date and time: Mon, Nov 23, 2020 - 01:12:41 AM
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 

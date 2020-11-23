@@ -29,150 +29,208 @@
 - Pearson’s r
 - Spearman’s rho
 - Kendall’s tau
-- Pairs plot
+- Pairs panel
+- Chi-square
 
 **Now**: Data transformations
 
 - Z-scores
 - Logarithmic transformations
+- Inverse hyperbolic sine transformations
 
 
-## Libraries and data
 
-
-```r
-library(tidyverse)
-library(magrittr)  
-library(nycflights13)
-
-flights_nov_20 <- nycflights13::flights %>%
-  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
-```
 
 
 
 
 ## Z-scores
 
-*Z-scores* transform the values as relative to the distribution mean and standard deviation
+Transform the values as relative to
 
-:::::: {.cols data-latex=""}
+- the distribution's mean 
+- and standard deviation
 
-::: {.col data-latex="{0.5\textwidth}"}
+- the z-score of a value i-th $x_i$ is calculated as below, where
+  - $\mu$ is the distribution's mean
+  - $\sigma$ is the distribution's standard deviation
+
+$$
+z_i = \frac{x_i - \mu}{\sigma} 
+$$
+
+Commonly used to render two variables easier to compare
+
+
+
+## Example
+
+Distribution of flipper lengths in Palmer's penguins
 
 
 ```r
-flights_nov_20 %>%
-  ggplot(aes(x = dep_delay)) +
-  geom_histogram()
+palmerpenguins::penguins %>%
+  ggplot(aes(x = flipper_length_mm)) +
+  geom_histogram() + theme_bw()
 ```
+
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+
+
+## base::scale
+
+Distribution of **zscores** derived from flipper lengths
 
 
 ```r
-flights_nov_20 %>%
-  mutate(
-    dep_delay_zscore = 
-      scale(dep_delay)
-  ) %>%
-  ggplot(
-    aes(x = dep_delay_zscore)
-  ) +
-  geom_histogram()
+palmerpenguins::penguins %>%
+  mutate(flipper_length_zscore = scale(flipper_length_mm)) %>%
+  ggplot(aes(x = flipper_length_zscore)) +
+  geom_histogram() + theme_bw()
 ```
 
-:::
-
-::: {.col data-latex="{0.5\textwidth}"}
-
-![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
-
-![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
-
-:::
-::::::
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
 
 
 
 ## Log transformation
 
-*Logarithmic* transformations (e.g., `log` and `log10`) are useful to *"un-skew"* variables, but only possible on values `> 0`
+**Logarithmic** transformations are useful to *"un-skew"* variables
+
+Common approaches include:
+
+- natural logarithm (`log`)
+- binary logarithm (`log2`)
+- logarithm base 10 (`log10`)
+
+Only possible on values `> 0`
+
+<img src="313_L_DataTransformations_files/figure-epub3/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+
+
+## Example
 
 :::::: {.cols data-latex=""}
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
+
+The number of residents aged 20 to 24 (`u011`) in the areas of Leicester described as *"Cosmopolitans"* bt the [2011 Output Area Classification](https://www.gov.uk/government/statistics/2011-area-classification-for-super-output-areas) is skewed
+
+:::
+
+::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+
+:::
+
+::::::
+
+
+|           |  u011|
+|:----------|-----:|
+|skewness   | 1.521|
+|skew.2SE   | 2.879|
+|kurtosis   | 2.089|
+|kurt.2SE   | 1.999|
+|normtest.W | 0.847|
+|normtest.p | 0.000|
+
+
+## Example
+
+:::::: {.cols data-latex=""}
+
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
+
+However, it's logarithm base 10 is normally distributed, thus it can be used with tests requiring normally distributed values
 
 
 ```r
-flights_nov_20 %>%
-  filter(dep_delay > 0) %>%
-  ggplot(aes(x = dep_delay)) +
-  geom_histogram()
-```
-
-
-```r
-flights_nov_20 %>%
-  filter(dep_delay > 0) %>%
-  mutate(
-    dep_delay_log = 
-      log(dep_delay)
-  ) %>%
-  ggplot(
-    aes(x = dep_delay_log)) + 
-  geom_histogram()
+mutate(log10_u011 = log10(u011))
 ```
 
 :::
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
 
 ![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
 
-![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
-
 :::
+
 ::::::
+
+
+|           | log10_u011|
+|:----------|----------:|
+|skewness   |     -0.504|
+|skew.2SE   |     -0.953|
+|kurtosis   |      0.872|
+|kurt.2SE   |      0.834|
+|normtest.W |      0.976|
+|normtest.p |      0.118|
 
 
 
 ## Inverse hyperbolic sine
 
+**Inverse hyperbolic sine** transformations are useful to *"un-skew"* variables
 
-*Inverse hyperbolic sine* (`asinh`) transformations are useful to *"un-skew"* variables, similar to logarithmic transformations, work on all values
+- similar to logarithmic transformations
+- defined on all values
+- in R: `asinh`
+
+<img src="313_L_DataTransformations_files/figure-epub3/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+
+
+## Example
+
+Logarithmic transformation can't be applied to arrival delays in the New York City 2013 flights dataset
+
+- skewed towards left
+- but there are values lower or equal to zero
+
+
+![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+
+
+
+## Example
 
 :::::: {.cols data-latex=""}
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 80%;" data-latex="{0.5\textwidth}"}
+
+*Inverse hyperbolic sine* can be applied to partially unskew the distribution
 
 
 ```r
-flights_nov_20 %>%
-  ggplot(aes(x = dep_delay)) +
-  geom_histogram()
-```
-
-
-```r
-flights_nov_20 %>%
-  mutate(
-    dep_delay_ihs = 
-      asinh(dep_delay)
-  ) %>%
-  ggplot(
-    aes(x = dep_delay_ihs)) + 
-  geom_histogram()
+mutate(
+  dep_delay_ihs = 
+    asinh(dep_delay)
+)
 ```
 
 :::
 
-::: {.col data-latex="{0.5\textwidth}"}
-
-![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+::: {.col style="width: 80%; text-align: right;" data-latex="{0.5\textwidth}"}
 
 ![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
 
 :::
+
 ::::::
+
+
+|           | dep_delay_ihs|
+|:----------|-------------:|
+|skewness   |         1.273|
+|skew.2SE   |         8.122|
+|kurtosis   |         0.242|
+|kurt.2SE   |         0.773|
+|normtest.W |         0.778|
+|normtest.p |         0.000|
+
 
 
 
@@ -182,6 +240,7 @@ Data transformations
 
 - Z-scores
 - Logarithmic transformations
+- Inverse hyperbolic sine transformations
 
 **Next**: Practical session
 
