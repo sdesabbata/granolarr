@@ -10,7 +10,7 @@
 
 
 
-  <meta name="date" content="2020-11-23" />
+  <meta name="date" content="2020-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3267,7 +3267,7 @@ width: 90%;
         
         
       </p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-11-23</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-11-24</p>
           </hgroup>
   </slide>
 
@@ -3380,8 +3380,11 @@ width: 90%;
 <ul>
 <li>there is no relationship between the variables</li>
 </ul></li>
-<li>assumptions</li>
+<li>assumptions
+
+<ul>
 <li>variables are normally distributed</li>
+</ul></li>
 </ul>
 
 <p>The square of the correlation value indicates the percentage of shared variance</p>
@@ -3392,8 +3395,8 @@ width: 90%;
 
 <div class="small_r_all">
 <pre class = 'prettyprint lang-r'>palmerpenguins::penguins %&gt;%
-  filter(species == &quot;Chinstrap&quot;) %&gt;%
-  pull(flipper_length_mm) %&gt;% shapiro.test()</pre>
+  dplyr::filter(species == &quot;Chinstrap&quot;) %&gt;%
+  dplyr::pull(flipper_length_mm) %&gt;% stats::shapiro.test()</pre>
 
 <pre >## 
 ##  Shapiro-Wilk normality test
@@ -3402,8 +3405,8 @@ width: 90%;
 ## W = 0.98891, p-value = 0.8106</pre>
 
 <pre class = 'prettyprint lang-r'>palmerpenguins::penguins %&gt;%
-  filter(species == &quot;Chinstrap&quot;) %&gt;%
-  pull(body_mass_g) %&gt;% shapiro.test()</pre>
+  dplyr::filter(species == &quot;Chinstrap&quot;) %&gt;%
+  dplyr::pull(body_mass_g) %&gt;% stats::shapiro.test()</pre>
 
 <pre >## 
 ##  Shapiro-Wilk normality test
@@ -3428,8 +3431,8 @@ width: 90%;
 
 <div class="small_r_all">
 <pre class = 'prettyprint lang-r'>palmerpenguins::penguins %&gt;%
-  filter(species == &quot;Chinstrap&quot;) %$%
-  cor.test(flipper_length_mm, body_mass_g)</pre>
+  dplyr::filter(species == &quot;Chinstrap&quot;) %$%
+  stats::cor.test(flipper_length_mm, body_mass_g)</pre>
 
 <pre >## 
 ##  Pearson&#39;s product-moment correlation
@@ -3459,7 +3462,7 @@ width: 90%;
 
 <div class="small_r_all">
 <pre class = 'prettyprint lang-r'>palmerpenguins::penguins %&gt;%
-  pull(flipper_length_mm) %&gt;% shapiro.test()</pre>
+  dplyr::pull(flipper_length_mm) %&gt;% stats::shapiro.test()</pre>
 
 <pre >## 
 ##  Shapiro-Wilk normality test
@@ -3468,7 +3471,7 @@ width: 90%;
 ## W = 0.95155, p-value = 3.54e-09</pre>
 
 <pre class = 'prettyprint lang-r'>palmerpenguins::penguins %&gt;%
-  pull(body_mass_g) %&gt;% shapiro.test()</pre>
+  dplyr::pull(body_mass_g) %&gt;% stats::shapiro.test()</pre>
 
 <pre >## 
 ##  Shapiro-Wilk normality test
@@ -3493,8 +3496,11 @@ width: 90%;
 <li>rather than estimate key parameters of distributions from data</li>
 </ul></li>
 <li>based on rank difference</li>
-<li>assumptions</li>
+<li>assumptions
+
+<ul>
 <li>ties are uncommon</li>
+</ul></li>
 </ul>
 
 <p>The square of the correlation value indicates the percentage of shared variance</p>
@@ -3516,7 +3522,7 @@ width: 90%;
 
 <div class="small_r_all">
 <pre class = 'prettyprint lang-r'>palmerpenguins::penguins %$%
-  cor.test(flipper_length_mm, body_mass_g, method = &quot;spearman&quot;)</pre>
+  stats::cor.test(flipper_length_mm, body_mass_g, method = &quot;spearman&quot;)</pre>
 
 <pre >## 
 ##  Spearman&#39;s rank correlation rho
@@ -3538,7 +3544,7 @@ width: 90%;
 
 <div class="small_r_all">
 <pre class = 'prettyprint lang-r'>palmerpenguins::penguins %$%
-  cor.test(flipper_length_mm, body_mass_g, method = &quot;spearman&quot;)</pre>
+  stats::cor.test(flipper_length_mm, body_mass_g, method = &quot;spearman&quot;)</pre>
 
 <pre class = 'prettyprint lang-r'>## Warning in cor.test.default(flipper_length_mm, body_mass_g, method = &quot;spearman&quot;):
 ##  Cannot compute exact p-value with ties</pre>
@@ -3592,7 +3598,7 @@ width: 90%;
 
 <div class="small_r_all">
 <pre class = 'prettyprint lang-r'>palmerpenguins::penguins %$%
-  cor.test(flipper_length_mm, body_mass_g, method = &quot;kendall&quot;)</pre>
+  stats::cor.test(flipper_length_mm, body_mass_g, method = &quot;kendall&quot;)</pre>
 
 <pre >## 
 ##  Kendall&#39;s rank correlation tau
@@ -3620,13 +3626,13 @@ width: 90%;
 <pre class = 'prettyprint lang-r'>library(psych)
 
 palmerpenguins::penguins %&gt;%
-  select(
+  dplyr::select(
     bill_length_mm,
     bill_depth_mm,
     flipper_length_mm, 
     body_mass_g
   ) %&gt;%
-  pairs.panels(
+  psych::pairs.panels(
     method = &quot;kendall&quot;,
     stars = TRUE
   )

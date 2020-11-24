@@ -70,8 +70,8 @@ Distribution of flipper lengths in Palmer's penguins
 
 ```r
 palmerpenguins::penguins %>%
-  ggplot(aes(x = flipper_length_mm)) +
-  geom_histogram() + theme_bw()
+  ggplot2::ggplot(aes(x = flipper_length_mm)) +
+  ggplot2::geom_histogram() + ggplot2::theme_bw()
 ```
 
 ![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
@@ -84,9 +84,9 @@ Distribution of **zscores** derived from flipper lengths
 
 ```r
 palmerpenguins::penguins %>%
-  mutate(flipper_length_zscore = scale(flipper_length_mm)) %>%
-  ggplot(aes(x = flipper_length_zscore)) +
-  geom_histogram() + theme_bw()
+  dplyr::mutate(flipper_length_zscore = scale(flipper_length_mm)) %>%
+  ggplot2::ggplot(aes(x = flipper_length_zscore)) +
+  ggplot2::geom_histogram() + ggplot2::theme_bw()
 ```
 
 ![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
@@ -100,9 +100,9 @@ Distribution of **zscores** derived from body mass
 
 ```r
 palmerpenguins::penguins %>%
-  mutate(body_mass_g_zscore = scale(body_mass_g)) %>%
-  ggplot(aes(x = body_mass_g_zscore)) +
-  geom_histogram() + theme_bw()
+  dplyr::mutate(body_mass_g_zscore = scale(body_mass_g)) %>%
+  ggplot2::ggplot(aes(x = body_mass_g_zscore)) +
+  ggplot2::geom_histogram() + ggplot2::theme_bw()
 ```
 
 ![](313_L_DataTransformations_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->

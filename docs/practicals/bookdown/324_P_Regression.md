@@ -6,145 +6,7 @@
 
 [This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence).
 
-## Introduction
 
-The first part of this practical guides you through the ANOVA (analysis of variance) and regression analysis seen in the lecture, the last part showcases a multiple regression analysis. Create a new R project for this practical session and create a new RMarkdown document to replicate the analysis in this document and a separate RMarkdown document to work on the exercises.
-
-
-```r
-library(tidyverse)
-library(magrittr)
-library(knitr)
-```
-
-Many of the functions used in the analyses below are part of the oldest libraries developed for R, they have not been developed to be easily compatible with the Tidyverse and the `%>%` operator. Fortunately, the [`magrittr` library](https://magrittr.tidyverse.org/index.html) (loaded above) does not only define the `%>%` operator seen so far, but also the [exposition pipe operator `%$%`](https://magrittr.tidyverse.org/reference/exposition.html), which exposes the columns of the data.frame on the left of the operator to the expression on the right of the operator. That is, `%$%` allows to refer to the column of the data.frame directly in the subsequent expression. As such, the lines below expose the column `Petal.Length` of the data.frame `iris` and to pass it on to the `mean` function using different approaches, but they are all equivalent in their outcome.
-
-
-```r
-mean(iris$Petal.Length) # Classic R approach
-```
-
-```
-## [1] 3.758
-```
-
-```r
-iris$Petal.Length %>% mean() # Using %>% pipe 
-```
-
-```
-## [1] 3.758
-```
-
-```r
-iris %$% Petal.Length %>% mean() # Using %>% pipe and %$% exposition pipe
-```
-
-```
-## [1] 3.758
-```
-
-## ANOVA
-
-The ANOVA (analysis of variance) tests whether the values of a variable (e.g., length of the petal) are on average different for different groups (e.g., different species of iris). ANOVA has been developed as a generalised version of the t-test, which has the same objective but allows to test only two groups. 
-
-The ANOVA test has the following assumptions:
-
-- normally distributed values in groups
-    - especially if groups have different sizes
-- homogeneity of variance of values in groups
-    - if groups have different sizes
-- independence of groups
-
-### Example
-
-The example seen in the lecture illustrates how ANOVA can be used to verify that the three different species of iris in the [`iris` dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/iris.html) have different petal length.
-
-
-```r
-iris %>%
-  ggplot(
-    aes(
-      x = Species, 
-      y = Petal.Length
-    )
-  ) +
-  geom_boxplot()
-```
-
-![](324_P_Regression_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
-
-ANOVA is considered a robust test, thus, as the groups are of the same size, there is no need to test for the homogeneity of variance. Furthermore, the groups come from different species of flowers, so there is no need to test the independence of the values. The only assumption that needs testing is whether the values in the three groups are normally distributed. The three Shapiro–Wilk tests below are all not significant, which indicates that all three groups have normally distributed values.
-
-
-```r
-iris %>% filter(Species == "setosa") %>% pull(Petal.Length) %>% shapiro.test()
-```
-
-```
-## 
-## 	Shapiro-Wilk normality test
-## 
-## data:  .
-## W = 0.95498, p-value = 0.05481
-```
-
-```r
-iris %>% filter(Species == "versicolor") %>% pull(Petal.Length) %>% shapiro.test()
-```
-
-```
-## 
-## 	Shapiro-Wilk normality test
-## 
-## data:  .
-## W = 0.966, p-value = 0.1585
-```
-
-```r
-iris %>% filter(Species == "virginica") %>% pull(Petal.Length) %>% shapiro.test()
-```
-
-```
-## 
-## 	Shapiro-Wilk normality test
-## 
-## data:  .
-## W = 0.96219, p-value = 0.1098
-```
-
-We can thus conduct the ANOVA test using the function `aov`, and the function `summary` to obtain the summary of the results of the test.
-
-
-```r
-# Classic R coding approach (not using %$%)
-# iris_anova <- aov(Petal.Length ~ Species, data = iris)
-# summary(iris_anova)
-
-iris %$%
-  aov(Petal.Length ~ Species) %>%
-  summary()
-```
-
-```
-##              Df Sum Sq Mean Sq F value Pr(>F)    
-## Species       2  437.1  218.55    1180 <2e-16 ***
-## Residuals   147   27.2    0.19                   
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-
-
-The difference is significant F(2, 147) = 1180.16, *p* < .01. 
-
-\newpage
-
-The image below highlights the important values in the output: the significance value `Pr(>F)`; the F-statistic value `F value`; and the two degrees of freedom values for the F-statistic in the `Df` column.
-
-<center>
-![](images/ANOVA_output_annotated.png){width=70%}
-</center>
 
 
 ## Simple regression
@@ -182,7 +44,7 @@ flights_nov_20 <- nycflights13::flights %>%
 
 
 <center>
-![](324_P_Regression_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+![](324_P_Regression_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
 </center>
 
 The code below generates the model using the function `lm`, and the function `summary` to obtain the summary of the results of the test. The model and summary are saved in the variables `delay_model` and `delay_model_summary`, respectively, for further use below. The variable `delay_model_summary` can then be called directly to visualise the result of the test.
@@ -248,7 +110,7 @@ flights_nov_20 %>%
   geom_abline(intercept = 4.0943, slope = 1.04229, color="red")
 ```
 
-![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+![](324_P_Regression_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
 </center>
 
 ### Checking assumptions
@@ -273,7 +135,7 @@ delay_model %>%
 ```
 
 <center>
-![](324_P_Regression_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+![](324_P_Regression_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
 </center>
 
 #### Homoscedasticity
@@ -326,7 +188,7 @@ delay_model %>%
   plot()
 ```
 
-![](324_P_Regression_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->![](324_P_Regression_files/figure-epub3/unnamed-chunk-15-2.png)<!-- -->![](324_P_Regression_files/figure-epub3/unnamed-chunk-15-3.png)<!-- -->![](324_P_Regression_files/figure-epub3/unnamed-chunk-15-4.png)<!-- -->
+![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-2.png)<!-- -->![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-3.png)<!-- -->![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-4.png)<!-- -->
 </center>
 
 ### How to report
@@ -348,7 +210,7 @@ stargazer(delay_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Nov 23, 2020 - 12:24:57 PM
+% Date and time: Tue, Nov 24, 2020 - 12:08:31 AM
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -452,7 +314,7 @@ stargazer(public_transp_model)
 
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Nov 23, 2020 - 12:24:58 PM
+% Date and time: Tue, Nov 24, 2020 - 12:08:31 AM
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -577,8 +439,6 @@ lm.beta(public_transp_model)
 
 ## Exercise 9.1
 
-
-**Question 9.1.1:** Is mean age (`u020`) different in different 2011OAC supergroups in Leicester?
 
 **Question 9.1.2:** Is the number of people using public transportation to commute to work statistically, linearly related to mean age (`u020`)?
 

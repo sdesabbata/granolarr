@@ -92,7 +92,7 @@ If  two variables are **normally distributed**, use **Pearson's r**
 - null hypothesis
   - there is no relationship between the variables
 - assumptions
- - variables are normally distributed
+  - variables are normally distributed
 
 The square of the correlation value indicates the percentage of shared variance
 
@@ -106,8 +106,8 @@ Flipper length and body mass are normally distributed in Chinstrap penguins
 
 ```r
 palmerpenguins::penguins %>%
-  filter(species == "Chinstrap") %>%
-  pull(flipper_length_mm) %>% shapiro.test()
+  dplyr::filter(species == "Chinstrap") %>%
+  dplyr::pull(flipper_length_mm) %>% stats::shapiro.test()
 ```
 
 ```
@@ -120,8 +120,8 @@ palmerpenguins::penguins %>%
 
 ```r
 palmerpenguins::penguins %>%
-  filter(species == "Chinstrap") %>%
-  pull(body_mass_g) %>% shapiro.test()
+  dplyr::filter(species == "Chinstrap") %>%
+  dplyr::pull(body_mass_g) %>% stats::shapiro.test()
 ```
 
 ```
@@ -149,8 +149,8 @@ palmerpenguins::penguins %>%
 
 ```r
 palmerpenguins::penguins %>%
-  filter(species == "Chinstrap") %$%
-  cor.test(flipper_length_mm, body_mass_g)
+  dplyr::filter(species == "Chinstrap") %$%
+  stats::cor.test(flipper_length_mm, body_mass_g)
 ```
 
 ```
@@ -189,7 +189,7 @@ Flipper length and body mass are not normally distributed when all penguins are 
 
 ```r
 palmerpenguins::penguins %>%
-  pull(flipper_length_mm) %>% shapiro.test()
+  dplyr::pull(flipper_length_mm) %>% stats::shapiro.test()
 ```
 
 ```
@@ -202,7 +202,7 @@ palmerpenguins::penguins %>%
 
 ```r
 palmerpenguins::penguins %>%
-  pull(body_mass_g) %>% shapiro.test()
+  dplyr::pull(body_mass_g) %>% stats::shapiro.test()
 ```
 
 ```
@@ -227,7 +227,7 @@ If  two variables are **not normally distrib.**, use **Spearman’s rho**
   - rather than estimate key parameters of distributions from data
 - based on rank difference
 - assumptions
- - ties are uncommon
+  - ties are uncommon
 
 The square of the correlation value indicates the percentage of shared variance
 
@@ -246,7 +246,7 @@ The square of the correlation value indicates the percentage of shared variance
 
 ```r
 palmerpenguins::penguins %$%
-  cor.test(flipper_length_mm, body_mass_g, method = "spearman")
+  stats::cor.test(flipper_length_mm, body_mass_g, method = "spearman")
 ```
 
 ```
@@ -275,7 +275,7 @@ Spearman's rho
 
 ```r
 palmerpenguins::penguins %$%
-  cor.test(flipper_length_mm, body_mass_g, method = "spearman")
+  stats::cor.test(flipper_length_mm, body_mass_g, method = "spearman")
 ```
 
 
@@ -329,7 +329,7 @@ The square of the correlation value indicates the percentage of shared variance
 
 ```r
 palmerpenguins::penguins %$%
-  cor.test(flipper_length_mm, body_mass_g, method = "kendall")
+  stats::cor.test(flipper_length_mm, body_mass_g, method = "kendall")
 ```
 
 ```
@@ -367,13 +367,13 @@ Combining:
 library(psych)
 
 palmerpenguins::penguins %>%
-  select(
+  dplyr::select(
     bill_length_mm,
     bill_depth_mm,
     flipper_length_mm, 
     body_mass_g
   ) %>%
-  pairs.panels(
+  psych::pairs.panels(
     method = "kendall",
     stars = TRUE
   )

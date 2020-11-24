@@ -70,13 +70,13 @@ Fisher, R.A., 1936. The use of multiple measurements in taxonomic problems. Anna
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3.5, fig.height = 5}
 iris %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = Species, 
       y = Petal.Length
     )
   ) +
-  geom_boxplot()
+  ggplot2::geom_boxplot()
 ```
 
 :::
@@ -141,14 +141,14 @@ Are the petal lengths of *versicolor* and *virginica* different?
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3.5, fig.height = 5}
 iris %>%
-  filter(Species %in% c("versicolor", "virginica")) %>%
-  ggplot(
+  dplyr::filter(Species %in% c("versicolor", "virginica")) %>%
+  ggplot2::ggplot(
     aes(
       x = Species, 
       y = Petal.Length
     )
   ) +
-  geom_boxplot()
+  ggplot2::geom_boxplot()
 ```
 
 :::
@@ -259,13 +259,13 @@ Are the petal lengths different between all three species?
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 3.5, fig.height = 5}
 iris %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = Species, 
       y = Petal.Length
     )
   ) +
-  geom_boxplot()
+  ggplot2::geom_boxplot()
 ```
 
 :::
@@ -309,7 +309,7 @@ iris %$%
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 iris_anova_summary <- iris %$%
-  aov(Petal.Length ~ Species) %>%
+  stats::aov(Petal.Length ~ Species) %>%
   summary()
 ```
 

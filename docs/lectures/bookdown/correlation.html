@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-11-23" />
+<meta name="date" content="2020-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -622,8 +622,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>there is no relationship between the variables</li>
 </ul></li>
-<li>assumptions</li>
+<li>assumptions
+<ul>
 <li>variables are normally distributed</li>
+</ul></li>
 </ul>
 <p>The square of the correlation value indicates the percentage of shared variance</p>
 </div>
@@ -632,16 +634,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Flipper length and body mass are normally distributed in Chinstrap penguins</p>
 <div class="small_r_all">
 <div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="correlation.html#cb264-1"></a>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
-<span id="cb264-2"><a href="correlation.html#cb264-2"></a><span class="st">  </span><span class="kw">filter</span>(species <span class="op">==</span><span class="st"> &quot;Chinstrap&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb264-3"><a href="correlation.html#cb264-3"></a><span class="st">  </span><span class="kw">pull</span>(flipper_length_mm) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<span id="cb264-2"><a href="correlation.html#cb264-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(species <span class="op">==</span><span class="st"> &quot;Chinstrap&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb264-3"><a href="correlation.html#cb264-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">pull</span>(flipper_length_mm) <span class="op">%&gt;%</span><span class="st"> </span>stats<span class="op">::</span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
 ## data:  .
 ## W = 0.98891, p-value = 0.8106</code></pre>
 <div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="correlation.html#cb266-1"></a>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
-<span id="cb266-2"><a href="correlation.html#cb266-2"></a><span class="st">  </span><span class="kw">filter</span>(species <span class="op">==</span><span class="st"> &quot;Chinstrap&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb266-3"><a href="correlation.html#cb266-3"></a><span class="st">  </span><span class="kw">pull</span>(body_mass_g) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<span id="cb266-2"><a href="correlation.html#cb266-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(species <span class="op">==</span><span class="st"> &quot;Chinstrap&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb266-3"><a href="correlation.html#cb266-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">pull</span>(body_mass_g) <span class="op">%&gt;%</span><span class="st"> </span>stats<span class="op">::</span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
@@ -663,8 +665,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="small_r_all">
 <div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="correlation.html#cb268-1"></a>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
-<span id="cb268-2"><a href="correlation.html#cb268-2"></a><span class="st">  </span><span class="kw">filter</span>(species <span class="op">==</span><span class="st"> &quot;Chinstrap&quot;</span>) <span class="op">%$%</span></span>
-<span id="cb268-3"><a href="correlation.html#cb268-3"></a><span class="st">  </span><span class="kw">cor.test</span>(flipper_length_mm, body_mass_g)</span></code></pre></div>
+<span id="cb268-2"><a href="correlation.html#cb268-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(species <span class="op">==</span><span class="st"> &quot;Chinstrap&quot;</span>) <span class="op">%$%</span></span>
+<span id="cb268-3"><a href="correlation.html#cb268-3"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">cor.test</span>(flipper_length_mm, body_mass_g)</span></code></pre></div>
 <pre><code>## 
 ## 	Pearson&#39;s product-moment correlation
 ## 
@@ -690,14 +692,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Flipper length and body mass are not normally distributed when all penguins are taken into account as a single group</p>
 <div class="small_r_all">
 <div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="correlation.html#cb270-1"></a>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
-<span id="cb270-2"><a href="correlation.html#cb270-2"></a><span class="st">  </span><span class="kw">pull</span>(flipper_length_mm) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<span id="cb270-2"><a href="correlation.html#cb270-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">pull</span>(flipper_length_mm) <span class="op">%&gt;%</span><span class="st"> </span>stats<span class="op">::</span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
 ## data:  .
 ## W = 0.95155, p-value = 3.54e-09</code></pre>
 <div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="correlation.html#cb272-1"></a>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
-<span id="cb272-2"><a href="correlation.html#cb272-2"></a><span class="st">  </span><span class="kw">pull</span>(body_mass_g) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<span id="cb272-2"><a href="correlation.html#cb272-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">pull</span>(body_mass_g) <span class="op">%&gt;%</span><span class="st"> </span>stats<span class="op">::</span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
@@ -719,8 +721,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>rather than estimate key parameters of distributions from data</li>
 </ul></li>
 <li>based on rank difference</li>
-<li>assumptions</li>
+<li>assumptions
+<ul>
 <li>ties are uncommon</li>
+</ul></li>
 </ul>
 <p>The square of the correlation value indicates the percentage of shared variance</p>
 </div>
@@ -738,7 +742,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="small_r_all">
 <div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="correlation.html#cb274-1"></a>palmerpenguins<span class="op">::</span>penguins <span class="op">%$%</span></span>
-<span id="cb274-2"><a href="correlation.html#cb274-2"></a><span class="st">  </span><span class="kw">cor.test</span>(flipper_length_mm, body_mass_g, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<span id="cb274-2"><a href="correlation.html#cb274-2"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">cor.test</span>(flipper_length_mm, body_mass_g, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## 	Spearman&#39;s rank correlation rho
 ## 
@@ -758,7 +762,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="small_r_all">
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="correlation.html#cb276-1"></a>palmerpenguins<span class="op">::</span>penguins <span class="op">%$%</span></span>
-<span id="cb276-2"><a href="correlation.html#cb276-2"></a><span class="st">  </span><span class="kw">cor.test</span>(flipper_length_mm, body_mass_g, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<span id="cb276-2"><a href="correlation.html#cb276-2"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">cor.test</span>(flipper_length_mm, body_mass_g, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="correlation.html#cb277-1"></a><span class="co">## Warning in cor.test.default(flipper_length_mm, body_mass_g, method = &quot;spearman&quot;):</span></span>
 <span id="cb277-2"><a href="correlation.html#cb277-2"></a><span class="co">##  Cannot compute exact p-value with ties</span></span></code></pre></div>
 <pre><code>## 
@@ -804,7 +808,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="small_r_all">
 <div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="correlation.html#cb279-1"></a>palmerpenguins<span class="op">::</span>penguins <span class="op">%$%</span></span>
-<span id="cb279-2"><a href="correlation.html#cb279-2"></a><span class="st">  </span><span class="kw">cor.test</span>(flipper_length_mm, body_mass_g, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<span id="cb279-2"><a href="correlation.html#cb279-2"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">cor.test</span>(flipper_length_mm, body_mass_g, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## 	Kendall&#39;s rank correlation tau
 ## 
@@ -830,13 +834,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="correlation.html#cb281-1"></a><span class="kw">library</span>(psych)</span>
 <span id="cb281-2"><a href="correlation.html#cb281-2"></a></span>
 <span id="cb281-3"><a href="correlation.html#cb281-3"></a>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
-<span id="cb281-4"><a href="correlation.html#cb281-4"></a><span class="st">  </span><span class="kw">select</span>(</span>
+<span id="cb281-4"><a href="correlation.html#cb281-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(</span>
 <span id="cb281-5"><a href="correlation.html#cb281-5"></a>    bill_length_mm,</span>
 <span id="cb281-6"><a href="correlation.html#cb281-6"></a>    bill_depth_mm,</span>
 <span id="cb281-7"><a href="correlation.html#cb281-7"></a>    flipper_length_mm, </span>
 <span id="cb281-8"><a href="correlation.html#cb281-8"></a>    body_mass_g</span>
 <span id="cb281-9"><a href="correlation.html#cb281-9"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb281-10"><a href="correlation.html#cb281-10"></a><span class="st">  </span><span class="kw">pairs.panels</span>(</span>
+<span id="cb281-10"><a href="correlation.html#cb281-10"></a><span class="st">  </span>psych<span class="op">::</span><span class="kw">pairs.panels</span>(</span>
 <span id="cb281-11"><a href="correlation.html#cb281-11"></a>    <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>,</span>
 <span id="cb281-12"><a href="correlation.html#cb281-12"></a>    <span class="dt">stars =</span> <span class="ot">TRUE</span></span>
 <span id="cb281-13"><a href="correlation.html#cb281-13"></a>  )</span>

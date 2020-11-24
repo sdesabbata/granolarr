@@ -9,89 +9,12 @@ rm(list = ls())
 
 [This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence).
 
-## Introduction
 
-The first part of this practical guides you through the ANOVA (analysis of variance) and regression analysis seen in the lecture, the last part showcases a multiple regression analysis. Create a new R project for this practical session and create a new RMarkdown document to replicate the analysis in this document and a separate RMarkdown document to work on the exercises.
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(magrittr)
 library(knitr)
 ```
-
-Many of the functions used in the analyses below are part of the oldest libraries developed for R, they have not been developed to be easily compatible with the Tidyverse and the `%>%` operator. Fortunately, the [`magrittr` library](https://magrittr.tidyverse.org/index.html) (loaded above) does not only define the `%>%` operator seen so far, but also the [exposition pipe operator `%$%`](https://magrittr.tidyverse.org/reference/exposition.html), which exposes the columns of the data.frame on the left of the operator to the expression on the right of the operator. That is, `%$%` allows to refer to the column of the data.frame directly in the subsequent expression. As such, the lines below expose the column `Petal.Length` of the data.frame `iris` and to pass it on to the `mean` function using different approaches, but they are all equivalent in their outcome.
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-mean(iris$Petal.Length) # Classic R approach
-iris$Petal.Length %>% mean() # Using %>% pipe 
-iris %$% Petal.Length %>% mean() # Using %>% pipe and %$% exposition pipe
-```
-
-## ANOVA
-
-The ANOVA (analysis of variance) tests whether the values of a variable (e.g., length of the petal) are on average different for different groups (e.g., different species of iris). ANOVA has been developed as a generalised version of the t-test, which has the same objective but allows to test only two groups. 
-
-The ANOVA test has the following assumptions:
-
-- normally distributed values in groups
-    - especially if groups have different sizes
-- homogeneity of variance of values in groups
-    - if groups have different sizes
-- independence of groups
-
-### Example
-
-The example seen in the lecture illustrates how ANOVA can be used to verify that the three different species of iris in the [`iris` dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/iris.html) have different petal length.
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 4}
-iris %>%
-  ggplot(
-    aes(
-      x = Species, 
-      y = Petal.Length
-    )
-  ) +
-  geom_boxplot()
-```
-
-ANOVA is considered a robust test, thus, as the groups are of the same size, there is no need to test for the homogeneity of variance. Furthermore, the groups come from different species of flowers, so there is no need to test the independence of the values. The only assumption that needs testing is whether the values in the three groups are normally distributed. The three Shapiro–Wilk tests below are all not significant, which indicates that all three groups have normally distributed values.
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-iris %>% filter(Species == "setosa") %>% pull(Petal.Length) %>% shapiro.test()
-
-iris %>% filter(Species == "versicolor") %>% pull(Petal.Length) %>% shapiro.test()
-
-iris %>% filter(Species == "virginica") %>% pull(Petal.Length) %>% shapiro.test()
-```
-
-We can thus conduct the ANOVA test using the function `aov`, and the function `summary` to obtain the summary of the results of the test.
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-# Classic R coding approach (not using %$%)
-# iris_anova <- aov(Petal.Length ~ Species, data = iris)
-# summary(iris_anova)
-
-iris %$%
-  aov(Petal.Length ~ Species) %>%
-  summary()
-```
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-iris_anova_summary <- iris %$%
-  aov(Petal.Length ~ Species) %>%
-  summary()
-```
-
-The difference is significant F(`r iris_anova_summary[[1]] %$% Df[1] %>% round(digits = 2)`, `r iris_anova_summary[[1]] %$% Df[2] %>% round(digits = 2)`) = `r iris_anova_summary[[1]][1, 4] %>% round(digits = 2)`, *p* < .01. 
-
-\newpage
-
-The image below highlights the important values in the output: the significance value `Pr(>F)`; the F-statistic value `F value`; and the two degrees of freedom values for the F-statistic in the `Df` column.
-
-<center>
-![](images/ANOVA_output_annotated.png){width=70%}
-</center>
-
 
 ## Simple regression
 
@@ -341,8 +264,6 @@ lm.beta(public_transp_model)
 
 ## Exercise 9.1
 
-
-**Question 9.1.1:** Is mean age (`u020`) different in different 2011OAC supergroups in Leicester?
 
 **Question 9.1.2:** Is the number of people using public transportation to commute to work statistically, linearly related to mean age (`u020`)?
 

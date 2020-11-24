@@ -1,7 +1,7 @@
 ---
 title: "Practical session materials | granolarr"
 author: "Stefano De Sabbata"
-date: "2020-11-23"
+date: "2020-11-24"
 description: "Geographic data science reproducible teaching resource in R, Practical session materials"
 url: 'https://sdesabbata.github.io/granolarr/'
 github-repo: "sdesabbata/granolarr"
