@@ -22,9 +22,14 @@ library(knitr)
 As many of the functions used in the analyses below are part of the oldest libraries developed for R, they have not been developed to be easily compatible with the Tidyverse and the `%>%` operator. Fortunately, the [`magrittr` library](https://magrittr.tidyverse.org/index.html) (loaded above) does not only define the `%>%` operator seen so far, but also the [exposition pipe operator `%$%`](https://magrittr.tidyverse.org/reference/exposition.html), which exposes the columns of the data.frame on the left of the operator to the expression on the right of the operator. That is, `%$%` allows to refer to the column of the data.frame directly in the subsequent expression. As such, the lines below expose the column `Petal.Length` of the data.frame `iris` and to pass it on to the `mean` function using different approaches, but they are all equivalent in their outcome.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
-mean(iris$Petal.Length) # Classic R approach
-iris$Petal.Length %>% mean() # Using %>% pipe 
-iris %$% Petal.Length %>% mean() # Using %>% pipe and %$% exposition pipe
+# Classic R approach
+mean(iris$Petal.Length) 
+# Using %>% pipe
+iris$Petal.Length %>% 
+  mean()  
+# Using %>% pipe and %$% exposition pipe
+iris %$% Petal.Length %>% 
+  mean() 
 ```
 
 ## ANOVA
@@ -43,7 +48,7 @@ The ANOVA test has the following assumptions:
 
 The example seen in the lecture illustrates how ANOVA can be used to verify that the three different species of iris in the [`iris` dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/iris.html) have different petal length.
 
-```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 3, fig.height = 3}
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 4}
 iris %>%
   ggplot2::ggplot(
     aes(
@@ -85,8 +90,6 @@ iris_anova_summary <- iris %$%
 ```
 
 The difference is significant F(`r iris_anova_summary[[1]] %$% Df[1] %>% round(digits = 2)`, `r iris_anova_summary[[1]] %$% Df[2] %>% round(digits = 2)`) = `r iris_anova_summary[[1]][1, 4] %>% round(digits = 2)`, *p* < .01. 
-
-\newpage
 
 The image below highlights the important values in the output: the significance value `Pr(>F)`; the F-statistic value `F value`; and the two degrees of freedom values for the F-statistic in the `Df` column.
 
@@ -146,7 +149,7 @@ When studying how people live in cities, a number of questions might arise about
 
 That could be due to many reasons. As the suburbs in England are largely residential, whereas most working places are located in the city centre. As such people living in flats might be more likely to walk or cycle to work, or commute using public transportation within the city or to other cities. City centres usually afford less spaces for parking. Many flats are rented to students, who might be less likely to own a car. The list could continue, but these are still hypothesis based on a certain (probably biased) view of the city. Can we use data analysis to explore whether there is any ground to such an hypothesis?
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide', fig.height = 4, fig.width = 4}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide', fig.height = 3.5, fig.width = 3.5}
 ifelse(!dir.exists(file.path(Sys.getenv("GRANOLARR_HOME"), "tmp")), dir.create(file.path(Sys.getenv("GRANOLARR_HOME"), "tmp")), FALSE)
 
 if (!dir.exists(file.path("./tmp", "E06000016"))) {

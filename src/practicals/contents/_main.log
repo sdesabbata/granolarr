@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  24 NOV 2020 00:07
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  24 NOV 2020 00:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1062,62 +1062,56 @@ File: 314_P_ComparingData_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file
  (type pdf)
 <use 314_P_ComparingData_files/figure-latex/unnamed-chunk-3-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4608) has occurred while \output is active []
 
-[86] [87] [88]
+[86] [87]
 File: images/ANOVA_output_annotated.png Graphic file (type bmp)
 <images/ANOVA_output_annotated.png>
-[89]
+[88] [89]
 File: 314_P_ComparingData_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file
  (type pdf)
 <use 314_P_ComparingData_files/figure-latex/unnamed-chunk-8-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 [90]
-Underfull \vbox (badness 1014) has occurred while \output is active []
-
-[91]
 File: 314_P_ComparingData_files/figure-latex/unnamed-chunk-10-1.pdf Graphic fil
 e (type pdf)
 <use 314_P_ComparingData_files/figure-latex/unnamed-chunk-10-1.pdf>
-[92]
-Overfull \hbox (43.69008pt too wide) in paragraph at lines 4069--4086
+[91]
+Overfull \hbox (43.69008pt too wide) in paragraph at lines 4072--4089
 [][] 
  []
 
-[93]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 4148--4148
+[92]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 4151--4151
 []\TU/lmtt/m/n/10 (`tau =` -0.41). The two variables share 16.8% of variance. W
 e can thus conclude[] 
  []
 
-[94] [95] [96
+[93] [94]
+Chapter 8.
+[95
 
 ]
-Chapter 8.
-[97]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (t
 ype pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-3-1.pdf>
-[98]
+[96]
 File: images/Regression_output_annotated.png Graphic file (type bmp)
 <images/Regression_output_annotated.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[99]
+[97]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (t
 ype pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-5-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[100]
+[98]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (t
 ype pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-7-1.pdf>
-[101]
+[99]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-10-1.pdf>
@@ -1131,47 +1125,47 @@ File: 324_P_Regression_files/figure-latex/unnamed-chunk-10-4.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-10-4.pdf>
 
-Overfull \hbox (39.65648pt too wide) in paragraph at lines 4375--4376
+Overfull \hbox (39.65648pt too wide) in paragraph at lines 4378--4379
 [][] []
  []
 
 
-Overfull \hbox (51.7017pt too wide) in paragraph at lines 4375--4376
+Overfull \hbox (51.7017pt too wide) in paragraph at lines 4378--4379
 [] [] 
  []
 
 
 Underfull \vbox (badness 3019) has occurred while \output is active []
 
-[102] [103] [104]
+[100] [101] [102]
 Underfull \vbox (badness 1831) has occurred while \output is active []
 
-[105] [106] [107]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4631--4631
+[103] [104] [105]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4634--4634
 []\TU/lmtt/m/n/10 ## (Intercept)        u160        u162        u164        u16
 5        u167[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4631--4631
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4634--4634
 []\TU/lmtt/m/n/10 ##   0.0000000   0.1400270   0.1507236   0.2083107   0.193103
 5   0.4293988[] 
  []
 
-[108]
+[106]
 Chapter 9.
-[109
+[107
 
-] [110
+] [108
 
 ]
 Chapter 10.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4659.
-[111]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4659.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4662.
+[109]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4662.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4659.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4659.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4662.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4662.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: D75754B0C4D76AD7A459E7492A7F56B8;7691.
@@ -1188,4 +1182,4 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  53i,10n,118p,1090b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (111 pages).
+Output written on _main.pdf (109 pages).

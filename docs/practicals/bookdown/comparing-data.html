@@ -281,11 +281,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb227-2"><a href="comparing-data.html#cb227-2"></a><span class="kw">library</span>(magrittr)</span>
 <span id="cb227-3"><a href="comparing-data.html#cb227-3"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
 <p>As many of the functions used in the analyses below are part of the oldest libraries developed for R, they have not been developed to be easily compatible with the Tidyverse and the <code>%&gt;%</code> operator. Fortunately, the <a href="https://magrittr.tidyverse.org/index.html"><code>magrittr</code> library</a> (loaded above) does not only define the <code>%&gt;%</code> operator seen so far, but also the <a href="https://magrittr.tidyverse.org/reference/exposition.html">exposition pipe operator <code>%$%</code></a>, which exposes the columns of the data.frame on the left of the operator to the expression on the right of the operator. That is, <code>%$%</code> allows to refer to the column of the data.frame directly in the subsequent expression. As such, the lines below expose the column <code>Petal.Length</code> of the data.frame <code>iris</code> and to pass it on to the <code>mean</code> function using different approaches, but they are all equivalent in their outcome.</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="comparing-data.html#cb228-1"></a><span class="kw">mean</span>(iris<span class="op">$</span>Petal.Length) <span class="co"># Classic R approach</span></span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="comparing-data.html#cb228-1"></a><span class="co"># Classic R approach</span></span>
+<span id="cb228-2"><a href="comparing-data.html#cb228-2"></a><span class="kw">mean</span>(iris<span class="op">$</span>Petal.Length) </span></code></pre></div>
 <pre><code>## [1] 3.758</code></pre>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="comparing-data.html#cb230-1"></a>iris<span class="op">$</span>Petal.Length <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>() <span class="co"># Using %&gt;% pipe </span></span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="comparing-data.html#cb230-1"></a><span class="co"># Using %&gt;% pipe</span></span>
+<span id="cb230-2"><a href="comparing-data.html#cb230-2"></a>iris<span class="op">$</span>Petal.Length <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb230-3"><a href="comparing-data.html#cb230-3"></a><span class="st">  </span><span class="kw">mean</span>()  </span></code></pre></div>
 <pre><code>## [1] 3.758</code></pre>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="comparing-data.html#cb232-1"></a>iris <span class="op">%$%</span><span class="st"> </span>Petal.Length <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>() <span class="co"># Using %&gt;% pipe and %$% exposition pipe</span></span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="comparing-data.html#cb232-1"></a><span class="co"># Using %&gt;% pipe and %$% exposition pipe</span></span>
+<span id="cb232-2"><a href="comparing-data.html#cb232-2"></a>iris <span class="op">%$%</span><span class="st"> </span>Petal.Length <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb232-3"><a href="comparing-data.html#cb232-3"></a><span class="st">  </span><span class="kw">mean</span>() </span></code></pre></div>
 <pre><code>## [1] 3.758</code></pre>
 </div>
 <div id="anova" class="section level2">
@@ -314,7 +319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb234-6"><a href="comparing-data.html#cb234-6"></a>    )</span>
 <span id="cb234-7"><a href="comparing-data.html#cb234-7"></a>  ) <span class="op">+</span></span>
 <span id="cb234-8"><a href="comparing-data.html#cb234-8"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="314_P_ComparingData_files/figure-html/unnamed-chunk-3-1.png" width="288" /></p>
+<p><img src="314_P_ComparingData_files/figure-html/unnamed-chunk-3-1.png" width="384" /></p>
 <p>ANOVA is considered a robust test, thus, as the groups are of the same size, there is no need to test for the homogeneity of variance. Furthermore, the groups come from different species of flowers, so there is no need to test the independence of the values. The only assumption that needs testing is whether the values in the three groups are normally distributed. As there are 50 flowers per species, we can set the significance threshold to <code>0.05</code>.</p>
 <p>The three Shapiro–Wilk tests below are all not significant, which indicates that all three groups have normally distributed values.</p>
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="comparing-data.html#cb235-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">pull</span>(Petal.Length) <span class="op">%&gt;%</span><span class="st"> </span>stats<span class="op">::</span><span class="kw">shapiro.test</span>()</span></code></pre></div>
@@ -349,7 +354,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>The difference is significant F(2, 147) = 1180.16, <em>p</em> &lt; .01.</p>
-<div style="page-break-after: always;"></div>
 <p>The image below highlights the important values in the output: the significance value <code>Pr(&gt;F)</code>; the F-statistic value <code>F value</code>; and the two degrees of freedom values for the F-statistic in the <code>Df</code> column.</p>
 <center>
 <img src="images/ANOVA_output_annotated.png" style="width:70.0%" />
@@ -407,7 +411,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.4.1</span> Example</h3>
 <p>When studying how people live in cities, a number of questions might arise about where the live and how the move around the city. For instance, looking at a map of Leicester, it is clear that (has in many English cities) there seems to be a very high concentration of flats in the city centre. At the same time, there seems to be almost no flats at all in the suburbs. This might led us to ask: <em>“do households living in flats (and thus mostly in the city centre) own the same amount of cars as households living in the city center?”</em></p>
 <p>That could be due to many reasons. As the suburbs in England are largely residential, whereas most working places are located in the city centre. As such people living in flats might be more likely to walk or cycle to work, or commute using public transportation within the city or to other cities. City centres usually afford less spaces for parking. Many flats are rented to students, who might be less likely to own a car. The list could continue, but these are still hypothesis based on a certain (probably biased) view of the city. Can we use data analysis to explore whether there is any ground to such an hypothesis?</p>
-<p><img src="314_P_ComparingData_files/figure-html/unnamed-chunk-8-1.png" width="384" /></p>
+<p><img src="314_P_ComparingData_files/figure-html/unnamed-chunk-8-1.png" width="336" /></p>
 <p>The dataset used to create the 2011 Output Area Classification (2011OAC) contains two variables that might help explore this issue. These data are not very current anymore, and they are not they values we might collect if we were to conduct a fresh survey for this specific study. However, they can still provide some insight.</p>
 <ul>
 <li><code>u089</code>: count of flats per Output Area (OA). The statistical unit for this variable is <code>Household_Spaces</code>. As OAs vary in size and composition, we can use <code>Total_Household_Spaces</code> to calculate the percentage of flats per OA, which is a more stable measure.

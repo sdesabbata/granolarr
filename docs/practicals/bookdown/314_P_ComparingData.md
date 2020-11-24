@@ -21,7 +21,8 @@ As many of the functions used in the analyses below are part of the oldest libra
 
 
 ```r
-mean(iris$Petal.Length) # Classic R approach
+# Classic R approach
+mean(iris$Petal.Length) 
 ```
 
 ```
@@ -29,7 +30,9 @@ mean(iris$Petal.Length) # Classic R approach
 ```
 
 ```r
-iris$Petal.Length %>% mean() # Using %>% pipe 
+# Using %>% pipe
+iris$Petal.Length %>% 
+  mean()  
 ```
 
 ```
@@ -37,7 +40,9 @@ iris$Petal.Length %>% mean() # Using %>% pipe
 ```
 
 ```r
-iris %$% Petal.Length %>% mean() # Using %>% pipe and %$% exposition pipe
+# Using %>% pipe and %$% exposition pipe
+iris %$% Petal.Length %>% 
+  mean() 
 ```
 
 ```
@@ -139,8 +144,6 @@ iris %$%
 
 
 The difference is significant F(2, 147) = 1180.16, *p* < .01. 
-
-\newpage
 
 The image below highlights the important values in the output: the significance value `Pr(>F)`; the F-statistic value `F value`; and the two degrees of freedom values for the F-statistic in the `Df` column.
 

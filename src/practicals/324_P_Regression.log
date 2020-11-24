@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.29)  24 NOV 2020 00:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.29)  24 NOV 2020 00:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -606,7 +606,7 @@ e/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/texmf-dist/fo
 nts/type1/public/lm/lmsy7.pfb></usr/local/texlive/texmf-dist/fonts/type1/public
 /lm/lmtk10.pfb></usr/local/texlive/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
 </usr/local/texlive/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on 324_P_Regression.pdf (10 pages, 622669 bytes).
+Output written on 324_P_Regression.pdf (10 pages, 622657 bytes).
 PDF statistics:
  249 PDF objects out of 1000 (max. 8388607)
  197 compressed objects within 2 object streams
