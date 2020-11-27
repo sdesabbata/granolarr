@@ -2,8 +2,8 @@
 
 <style type="text/css">
 .small_r_all pre{
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 16px !important;
+  line-height: 18px !important;
 }
 .small_r_output pre:not(.prettyprint){
   font-size: 16px;
@@ -33,7 +33,11 @@
 
 - Regression
 - Ordinary Least Squares
-- Fit
+- Interpretation
+- Checking assumptions
+
+
+
 
 
 
@@ -41,17 +45,20 @@
 
 **Regression analysis** is a supervised machine learning approach
 
-Predict the value of one outcome variable as
+Special case of the general linear model
 
 $$outcome_i = (model) + error_i $$
 
-- one predictor variable (**simple / univariate** regression)
+Predict (estimate) value of one outcome (dependent) variable as
+
+- one predictor (independent) variable: **simple / univariate**
 
 $$Y_i = (b_0 + b_1 * X_{i1}) + \epsilon_i $$
     
-- more predictor variables (**multiple / multivariate** regression)
+- more predictor (independent) variables: **multiple / multivar.**
 
 $$Y_i = (b_0 + b_1 * X_{i1} + b_2 * X_{i2} + \dots + b_M * X_{iM}) + \epsilon_i $$
+
 
 
 
@@ -65,7 +72,7 @@ $$Y_i = (b_0 + b_1 * X_{i1} + b_2 * X_{i2} + \dots + b_M * X_{iM}) + \epsilon_i 
 
 The model fits a line
     
-- to minimise the squared values of the **residuals** (errors)
+- to **minimise** the squared values of the **residuals** (errors)
 - that is squared difference between
     - **observed values**
     - **model**
@@ -87,56 +94,78 @@ via Wikimedia Commons,<br/>CC-BY-SA-3.0
 :::
 ::::::
 
-$$deviation = \sum(observed - model)^2$$
+$$residual_i = observed_i - model_i$$
+$$deviation = \sum_i(observed_i - model_i)^2$$
 
-## Libraries and data
 
+## Assumptions
 
-```r
-library(tidyverse)
-library(magrittr)  
-library(nycflights13)
-
-flights_nov_20 <- nycflights13::flights %>%
-  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
-```
+- **Linearity**
+    - the relationship is actually linear
+- **Normality** of residuals
+    - standard residuals are normally distributed with mean `0`
+- **Homoscedasticity** of residuals
+    - at each level of the predictor variable(s) the variance of the standard residuals should be the same (*homo-scedasticity*) rather than different (*hetero-scedasticity*) 
+- **Independence** of residuals
+    - adjacent standard residuals are not correlated
 
 
 ## Example
 
-<font size="4">	
-$$arr\_delay_i = (b_0 + b_1 * dep\_delay_{i1}) + \epsilon_i $$
-</font>
+Can we predict a penguin's body mass from flipper length?
 
-<div class="small_r_output">
+$$body\ mass_i = (b_0 + b_1 * flipper\ length_{i}) + \epsilon_i $$
+
+<center>
+![](321_L_Regression_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+</center>
+
+
+## Example
+
+Can we predict a penguin's body mass from flipper length?
+
+$$body\ mass_i = (b_0 + b_1 * flipper\ length_{i}) + \epsilon_i $$
+
+<center>
+![](321_L_Regression_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+</center>
+
+
+## stats::lm
+
+<div class="small_r_all">
 
 
 ```r
-delay_model <- flights_nov_20 %$% # Note %$%
-  lm(arr_delay ~ dep_delay)
+palmerpenguins::penguins %>%
+  dplyr::filter(!is.na(body_mass_g) | !is.na(flipper_length_mm)) %$%
+  stats::lm(body_mass_g ~ flipper_length_mm) ->
+  fit_bm_fl
 
-delay_model %>%  summary()
+fit_bm_fl %>%  
+  summary()
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = arr_delay ~ dep_delay)
+## stats::lm(formula = body_mass_g ~ flipper_length_mm)
 ## 
 ## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -43.906  -9.022  -1.758   8.678  57.052 
+##      Min       1Q   Median       3Q      Max 
+## -1058.80  -259.27   -26.88   247.33  1288.69 
 ## 
 ## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -4.96717    0.43748  -11.35   <2e-16 ***
-## dep_delay    1.04229    0.01788   58.28   <2e-16 ***
+##                    Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)       -5780.831    305.815  -18.90   <2e-16 ***
+## flipper_length_mm    49.686      1.518   32.72   <2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 13.62 on 972 degrees of freedom
-## Multiple R-squared:  0.7775,	Adjusted R-squared:  0.7773 
-## F-statistic:  3397 on 1 and 972 DF,  p-value: < 2.2e-16
+## Residual standard error: 394.3 on 340 degrees of freedom
+## Multiple R-squared:  0.759,	Adjusted R-squared:  0.7583 
+## F-statistic:  1071 on 1 and 340 DF,  p-value: < 2.2e-16
 ```
 
 </div>
@@ -149,34 +178,208 @@ delay_model %>%  summary()
 
 The output indicates
 
-- **p-value: < 2.2e-16**: $p<.001$ the model is significant
-    - derived by comparing the calulated **F-statistic** value to F distribution 3396.74 having specified degrees of freedom (1, 972)
-    - Report as: F(1, 972) = 3396.74
-- **Adjusted R-squared: 0.7773**: the departure delay can account for 77.73% of the arrival delay
+- **p-value: < 2.2e-16**: $p<.01$ the model is significant
+  - derived by comparing **F-statistic** to F distribution 1070.74 having specified degrees of freedom (1, 340)
+  - Report as: F(1, 340) = 1070.74
+- **Adjusted R-squared: 0.7583**: 
+  - flipper length can account for 75.83% variation in body mass
 - **Coefficients**
-    - Intercept estimate -4.9672 is significant
-    - `dep_delay` (slope) estimate 1.0423 is significant
+  - Intercept estimate -5780.8314 is significant
+  - `flipper_length_mm` (slope) estimate 49.6856 is significant
 
 
 
-## Parameters
+## Outliers and influential cases
 
-<font size="4">	
-$$arr\_delay_i = (Intercept + Coefficient_{dep\_delay} * dep\_delay_{i1}) + \epsilon_i $$
-</font>
+<div class="small_r_all">
 
 
 ```r
-flights_nov_20 %>%
-  ggplot(aes(x = dep_delay, y = arr_delay)) +
-  geom_point() + coord_fixed(ratio = 1) +
-  geom_abline(intercept = 4.0943, slope = 1.04229, color="red")
+palmerpenguins::penguins %>%
+  dplyr::filter(!is.na(body_mass_g) | !is.na(flipper_length_mm)) %>%
+  mutate(
+    model_stdres = fit_bm_fl %>% stats::rstandard(),
+    model_cook_dist = fit_bm_fl %>% stats::cooks.distance()
+  ) ->
+  penguins_output
+
+penguins_output %>%
+  dplyr::select(body_mass_g, model_stdres, model_cook_dist) %>%
+  dplyr::filter(abs(model_stdres) > 2.58 | model_cook_dist > 1)
 ```
 
+```
+## # A tibble: 4 x 3
+##   body_mass_g model_stdres model_cook_dist
+##         <int>        <dbl>           <dbl>
+## 1        4650         3.28          0.0388
+## 2        5850         2.66          0.0182
+## 3        6300         2.80          0.0353
+## 4        2700        -2.69          0.0149
+```
+
+</div>
+
+No influential cases (Cook's distance `> 1`) but there are many outliers (7 abs std res `> 3.29`, 2% `> 2.58`)
+
+
+## Checking assumptions: normality
+
+Shapiro-Wilk test for normality of standard residuals, 
+
+- robust models: should be **not** significant 
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+
+```r
+penguins_output %$% 
+  stats::shapiro.test(
+    model_stdres
+  )
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  model_stdres
+## W = 0.99295, p-value = 0.1085
+```
+
+<font size="4">	
+**Standard residuals are normally distributed!**
+</font>
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
 <center>
-![](321_L_Regression_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+![](321_L_Regression_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
 </center>
 
+:::
+::::::
+
+</div>
+
+
+
+## Checking assumpt.: homoscedasticity
+
+Breusch-Pagan test for homoscedasticity of standard residuals
+
+- robust models: should be **not** significant
+
+<div class="small_r_output">
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+
+```r
+fit_bm_fl %>% 
+  lmtest::bptest()
+```
+
+```
+## 
+## 	studentized Breusch-Pagan test
+## 
+## data:  .
+## BP = 2.1579, df = 1, p-value = 0.1418
+```
+
+<font size="4">	
+**Standard residuals are homoscedastic!**
+</font>
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+![](321_L_Regression_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+
+:::
+::::::
+
+</div>
+
+
+
+## Checking assumptions: independence
+
+Durbin-Watson test for the independence of residuals
+
+- robust models: statistic should be close to 2 (advised between 1 and 3) and **not** significant
+
+<div class="small_r_output">
+
+
+```r
+fit_bm_fl %>%
+  lmtest::dwtest()
+```
+
+```
+## 
+## 	Durbin-Watson test
+## 
+## data:  .
+## DW = 2.1896, p-value = 0.9572
+## alternative hypothesis: true autocorrelation is greater than 0
+```
+
+</div>
+
+<font size="4">	
+**Standard residuals are independent!**
+
+Note: the result depends on the order of the data.
+</font>
+
+
+
+## Example
+
+Yes, we can predict a penguin's body mass from flipper length!
+
+$$body\ mass_i = (-5780.83 + 49.69 * flipper\ length_{i}) + \epsilon_i $$
+
+<center>
+![](321_L_Regression_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+</center>
+
+
+## Confidence intervals
+
+Yes, we can predict a penguin's body mass from flipper length!
+
+$$body\ mass_i = (-5780.83 + 49.69 * flipper\ length_{i}) + \epsilon_i $$
+
+
+```r
+fit_bm_fl %>%
+  stats::confint()
+```
+
+```
+##                         2.5 %      97.5 %
+## (Intercept)       -6382.35801 -5179.30471
+## flipper_length_mm    46.69892    52.67221
+```
+
+| flipper length | Intercept | flipper length coefficient | body mass |
+|----------------|-----------|----------------------------|-----------|
+| 200            | -5780.83  | 49.69                      | 4157.17   |
+| 200            | -6382.36  | 46.70                      | 2957.43   |
+| 200            | -6382.36  | 52.67                      | 4152.08   |
+| 200            | -5179.30  | 46.70                      | 4160.48   |
+| 200            | -5179.30  | 52.67                      | 5355.14   |
 
 <!--
 ## Outliers and residuals

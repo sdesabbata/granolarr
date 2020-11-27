@@ -1,8 +1,4 @@
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_knit$set(root.dir = Sys.getenv("GRANOLARR_HOME"))
-rm(list = ls())
-```
+
 
 <style type="text/css">
 .small_r_all pre{
@@ -21,7 +17,7 @@ rm(list = ls())
 
 
 
-# Multiple Regression
+# Logistic Regression
 
 ## Recap
 
@@ -56,6 +52,4 @@ Multiple Regression
 - Testing assumptions
 - Multiple regression
 
-```{r cleanup, include=FALSE}
-rm(list = ls())
-```
+

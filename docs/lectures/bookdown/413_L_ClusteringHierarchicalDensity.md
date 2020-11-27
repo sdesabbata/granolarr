@@ -77,7 +77,7 @@ until only one single cluster is achieved
 
 ```r
 hclust_result <- data_to_cluster %>%
-  select(x_values, y_values) %>%
+  dplyr::select(x_values, y_values) %>%
   dist(method="euclidean") %>%
   hclust(method="ward.D2")
 
@@ -128,7 +128,7 @@ Bootstrap aggregating (*b-agg-ed*) clustering approach (Leisch, 1999)
 
 ```r
 bclust_result <- data_to_cluster %>%
-  select(x_values, y_values) %>%
+  dplyr::select(x_values, y_values) %>%
   bclust(hclust.method="ward.D2", resample = TRUE)
 
 data_to_cluster <- data_to_cluster %>%
@@ -161,7 +161,7 @@ DBSCAN (*"density-based spatial clustering of applications with noise"*) starts 
 
 ```r
 dbscan_result <- data_to_cluster %>%
-  select(x_values, y_values) %>%
+  dplyr::select(x_values, y_values) %>%
    dbscan(eps = 1, minPts = 5)
 
 data_to_cluster <- data_to_cluster %>%

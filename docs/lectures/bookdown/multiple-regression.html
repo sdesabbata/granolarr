@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>24 Multiple Regression | Lecture materials | granolarr</title>
+  <title>23 Multiple Regression | Lecture materials | granolarr</title>
   <meta name="description" content="Geographic data science reproducible teaching resource in R, Lecture materials" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="24 Multiple Regression | Lecture materials | granolarr" />
+  <meta property="og:title" content="23 Multiple Regression | Lecture materials | granolarr" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://sdesabbata.github.io/granolarr/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="sdesabbata/granolarr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="24 Multiple Regression | Lecture materials | granolarr" />
+  <meta name="twitter:title" content="23 Multiple Regression | Lecture materials | granolarr" />
   
   <meta name="twitter:description" content="Geographic data science reproducible teaching resource in R, Lecture materials" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-11-24" />
+<meta name="date" content="2020-11-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="assessing-regression-assumptions.html"/>
-<link rel="next" href="machine-learning.html"/>
+<link rel="prev" href="simple-regression.html"/>
+<link rel="next" href="logistic-regression.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -454,25 +454,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>22.1</b> Recap</a></li>
 <li class="chapter" data-level="22.2" data-path="simple-regression.html"><a href="simple-regression.html#regression-analysis"><i class="fa fa-check"></i><b>22.2</b> Regression analysis</a></li>
 <li class="chapter" data-level="22.3" data-path="simple-regression.html"><a href="simple-regression.html#least-squares"><i class="fa fa-check"></i><b>22.3</b> Least squares</a></li>
-<li class="chapter" data-level="22.4" data-path="simple-regression.html"><a href="simple-regression.html#libraries-and-data"><i class="fa fa-check"></i><b>22.4</b> Libraries and data</a></li>
+<li class="chapter" data-level="22.4" data-path="simple-regression.html"><a href="simple-regression.html#assumptions"><i class="fa fa-check"></i><b>22.4</b> Assumptions</a></li>
 <li class="chapter" data-level="22.5" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>22.5</b> Example</a></li>
-<li class="chapter" data-level="22.6" data-path="simple-regression.html"><a href="simple-regression.html#overall-fit"><i class="fa fa-check"></i><b>22.6</b> Overall fit</a></li>
-<li class="chapter" data-level="22.7" data-path="simple-regression.html"><a href="simple-regression.html#parameters"><i class="fa fa-check"></i><b>22.7</b> Parameters</a></li>
-<li class="chapter" data-level="22.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>22.8</b> Summary</a></li>
+<li class="chapter" data-level="22.6" data-path="join-operations.html"><a href="join-operations.html#example-1"><i class="fa fa-check"></i><b>22.6</b> Example</a></li>
+<li class="chapter" data-level="22.7" data-path="simple-regression.html"><a href="simple-regression.html#statslm"><i class="fa fa-check"></i><b>22.7</b> stats::lm</a></li>
+<li class="chapter" data-level="22.8" data-path="simple-regression.html"><a href="simple-regression.html#overall-fit"><i class="fa fa-check"></i><b>22.8</b> Overall fit</a></li>
+<li class="chapter" data-level="22.9" data-path="simple-regression.html"><a href="simple-regression.html#outliers-and-influential-cases"><i class="fa fa-check"></i><b>22.9</b> Outliers and influential cases</a></li>
+<li class="chapter" data-level="22.10" data-path="simple-regression.html"><a href="simple-regression.html#checking-assumptions-normality"><i class="fa fa-check"></i><b>22.10</b> Checking assumptions: normality</a></li>
+<li class="chapter" data-level="22.11" data-path="simple-regression.html"><a href="simple-regression.html#checking-assumpt.-homoscedasticity"><i class="fa fa-check"></i><b>22.11</b> Checking assumpt.: homoscedasticity</a></li>
+<li class="chapter" data-level="22.12" data-path="simple-regression.html"><a href="simple-regression.html#checking-assumptions-independence"><i class="fa fa-check"></i><b>22.12</b> Checking assumptions: independence</a></li>
+<li class="chapter" data-level="22.13" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-2"><i class="fa fa-check"></i><b>22.13</b> Example</a></li>
+<li class="chapter" data-level="22.14" data-path="simple-regression.html"><a href="simple-regression.html#confidence-intervals"><i class="fa fa-check"></i><b>22.14</b> Confidence intervals</a></li>
+<li class="chapter" data-level="22.15" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>22.15</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html"><i class="fa fa-check"></i><b>23</b> Assessing regression assumptions</a><ul>
+<li class="chapter" data-level="23" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>23</b> Multiple Regression</a><ul>
 <li class="chapter" data-level="23.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>23.1</b> Recap</a></li>
-<li class="chapter" data-level="23.2" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html#checking-assumptions"><i class="fa fa-check"></i><b>23.2</b> Checking assumptions</a></li>
-<li class="chapter" data-level="23.3" data-path="simple-regression.html"><a href="simple-regression.html#libraries-and-data"><i class="fa fa-check"></i><b>23.3</b> Libraries and data</a></li>
-<li class="chapter" data-level="23.4" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>23.4</b> Example</a></li>
-<li class="chapter" data-level="23.5" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#normality"><i class="fa fa-check"></i><b>23.5</b> Normality</a></li>
-<li class="chapter" data-level="23.6" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html#homoscedasticity"><i class="fa fa-check"></i><b>23.6</b> Homoscedasticity</a></li>
-<li class="chapter" data-level="23.7" data-path="assessing-regression-assumptions.html"><a href="assessing-regression-assumptions.html#independence"><i class="fa fa-check"></i><b>23.7</b> Independence</a></li>
-<li class="chapter" data-level="23.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>23.8</b> Summary</a></li>
+<li class="chapter" data-level="23.2" data-path="multiple-regression.html"><a href="multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>23.2</b> Multiple regression</a></li>
+<li class="chapter" data-level="23.3" data-path="simple-regression.html"><a href="simple-regression.html#assumptions"><i class="fa fa-check"></i><b>23.3</b> Assumptions</a></li>
+<li class="chapter" data-level="23.4" data-path="multiple-regression.html"><a href="multiple-regression.html#boston-housing"><i class="fa fa-check"></i><b>23.4</b> Boston housing</a></li>
+<li class="chapter" data-level="23.5" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>23.5</b> Example</a></li>
+<li class="chapter" data-level="23.6" data-path="simple-regression.html"><a href="simple-regression.html#statslm"><i class="fa fa-check"></i><b>23.6</b> stats::lm</a></li>
+<li class="chapter" data-level="23.7" data-path="simple-regression.html"><a href="simple-regression.html#overall-fit"><i class="fa fa-check"></i><b>23.7</b> Overall fit</a></li>
+<li class="chapter" data-level="23.8" data-path="simple-regression.html"><a href="simple-regression.html#outliers-and-influential-cases"><i class="fa fa-check"></i><b>23.8</b> Outliers and influential cases</a></li>
+<li class="chapter" data-level="23.9" data-path="simple-regression.html"><a href="simple-regression.html#checking-assumptions-normality"><i class="fa fa-check"></i><b>23.9</b> Checking assumptions: normality</a></li>
+<li class="chapter" data-level="23.10" data-path="simple-regression.html"><a href="simple-regression.html#checking-assumpt.-homoscedasticity"><i class="fa fa-check"></i><b>23.10</b> Checking assumpt.: homoscedasticity</a></li>
+<li class="chapter" data-level="23.11" data-path="simple-regression.html"><a href="simple-regression.html#checking-assumptions-independence"><i class="fa fa-check"></i><b>23.11</b> Checking assumptions: independence</a></li>
+<li class="chapter" data-level="23.12" data-path="multiple-regression.html"><a href="multiple-regression.html#checking-assumpt.-multicollinearity"><i class="fa fa-check"></i><b>23.12</b> Checking assumpt.: multicollinearity</a></li>
+<li class="chapter" data-level="23.13" data-path="join-operations.html"><a href="join-operations.html#example-1"><i class="fa fa-check"></i><b>23.13</b> Example</a></li>
+<li class="chapter" data-level="23.14" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-2"><i class="fa fa-check"></i><b>23.14</b> Example</a></li>
+<li class="chapter" data-level="23.15" data-path="multiple-regression.html"><a href="multiple-regression.html#information-criteria"><i class="fa fa-check"></i><b>23.15</b> Information criteria</a></li>
+<li class="chapter" data-level="23.16" data-path="multiple-regression.html"><a href="multiple-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>23.16</b> Checking assumptions</a></li>
+<li class="chapter" data-level="23.17" data-path="multiple-regression.html"><a href="multiple-regression.html#systematic-choice"><i class="fa fa-check"></i><b>23.17</b> Systematic choice</a></li>
+<li class="chapter" data-level="23.18" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>23.18</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>24</b> Multiple Regression</a><ul>
+<li class="chapter" data-level="24" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>24</b> Logistic Regression</a><ul>
 <li class="chapter" data-level="24.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>24.1</b> Recap</a></li>
-<li class="chapter" data-level="24.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>24.2</b> TO-DO</a></li>
+<li class="chapter" data-level="24.2" data-path="logistic-regression.html"><a href="logistic-regression.html#to-do"><i class="fa fa-check"></i><b>24.2</b> TO-DO</a></li>
 <li class="chapter" data-level="24.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>24.3</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="25" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>25</b> Machine Learning</a><ul>
@@ -491,17 +508,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="26" data-path="deep-learning.html"><a href="deep-learning.html"><i class="fa fa-check"></i><b>26</b> Deep learning</a><ul>
 <li class="chapter" data-level="26.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>26.1</b> Recap</a></li>
-<li class="chapter" data-level="26.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>26.2</b> TO-DO</a></li>
+<li class="chapter" data-level="26.2" data-path="logistic-regression.html"><a href="logistic-regression.html#to-do"><i class="fa fa-check"></i><b>26.2</b> TO-DO</a></li>
 <li class="chapter" data-level="26.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>26.3</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>27</b> Support vector machines</a><ul>
 <li class="chapter" data-level="27.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>27.1</b> Recap</a></li>
-<li class="chapter" data-level="27.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>27.2</b> TO-DO</a></li>
+<li class="chapter" data-level="27.2" data-path="logistic-regression.html"><a href="logistic-regression.html#to-do"><i class="fa fa-check"></i><b>27.2</b> TO-DO</a></li>
 <li class="chapter" data-level="27.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>27.3</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="28" data-path="principal-component-analysis.html"><a href="principal-component-analysis.html"><i class="fa fa-check"></i><b>28</b> Principal Component Analysis</a><ul>
 <li class="chapter" data-level="28.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>28.1</b> Recap</a></li>
-<li class="chapter" data-level="28.2" data-path="multiple-regression.html"><a href="multiple-regression.html#to-do"><i class="fa fa-check"></i><b>28.2</b> TO-DO</a></li>
+<li class="chapter" data-level="28.2" data-path="logistic-regression.html"><a href="logistic-regression.html#to-do"><i class="fa fa-check"></i><b>28.2</b> TO-DO</a></li>
 <li class="chapter" data-level="28.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>28.3</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="29" data-path="centroid-based-clustering.html"><a href="centroid-based-clustering.html"><i class="fa fa-check"></i><b>29</b> Centroid-based clustering</a><ul>
@@ -550,40 +567,422 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="multiple-regression" class="section level1">
-<h1><span class="header-section-number">24</span> Multiple Regression</h1>
+<h1><span class="header-section-number">23</span> Multiple Regression</h1>
 <div id="recap" class="section level2">
-<h2><span class="header-section-number">24.1</span> Recap</h2>
-<p><strong>Prev</strong>: Assessing regression assumptions</p>
+<h2><span class="header-section-number">23.1</span> Recap</h2>
+<p><strong>Prev</strong>: Simple Regression</p>
+<ul>
+<li>Regression</li>
+<li>Ordinary Least Squares</li>
+<li>Interpretation</li>
+<li>Checking assumptions</li>
+</ul>
+<p><strong>Now</strong>: Multiple Regression</p>
+<ul>
+<li>Multiple regression</li>
+<li>Ordinary Least Squares</li>
+<li>Interpretation</li>
+<li>Checking assumptions</li>
+</ul>
+</div>
+<div id="multiple-regression-1" class="section level2">
+<h2><span class="header-section-number">23.2</span> Multiple regression</h2>
+<p><strong>Regression analysis</strong> is a supervised machine learning approach</p>
+<p>Special case of the general linear model</p>
+<p><span class="math display">\[outcome_i = (model) + error_i \]</span></p>
+<p>Predict (estimate) value of one outcome (dependent) variable as</p>
+<ul>
+<li>one predictor (independent) variable: <strong>simple / univariate</strong></li>
+</ul>
+<p><span class="math display">\[Y_i = (b_0 + b_1 * X_{i1}) + \epsilon_i \]</span></p>
+<ul>
+<li>more predictor (independent) variables: <strong>multiple / multivar.</strong></li>
+</ul>
+<p><span class="math display">\[Y_i = (b_0 + b_1 * X_{i1} + b_2 * X_{i2} + \dots + b_M * X_{iM}) + \epsilon_i \]</span></p>
+</div>
+<div id="assumptions" class="section level2">
+<h2><span class="header-section-number">23.3</span> Assumptions</h2>
+<ul>
+<li><strong>Linearity</strong>
+<ul>
+<li>the relationship is actually linear</li>
+</ul></li>
+<li><strong>Normality</strong> of residuals
+<ul>
+<li>standard residuals are normally distributed with mean <code>0</code></li>
+</ul></li>
+<li><strong>Homoscedasticity</strong> of residuals
+<ul>
+<li>at each level of the predictor variable(s) the variance of the standard residuals should be the same (<em>homo-scedasticity</em>) rather than different (<em>hetero-scedasticity</em>)</li>
+</ul></li>
+<li><strong>Independence</strong> of residuals
+<ul>
+<li>adjacent standard residuals are not correlated</li>
+</ul></li>
+<li>When more than one predictor: <strong>no multicollinearity</strong>
+<ul>
+<li>if two or more predictor variables are used in the model, each pair of variables not correlated</li>
+</ul></li>
+</ul>
+</div>
+<div id="boston-housing" class="section level2">
+<h2><span class="header-section-number">23.4</span> Boston housing</h2>
+<div class="cols">
+<div class="col" style="width: 80%;">
+<p>A classic R dataset</p>
+<ul>
+<li>price of (506) houses in Boston</li>
+<li>in relation to:
+<ul>
+<li>house characteristics</li>
+<li>neighborhood</li>
+<li>air quality</li>
+</ul></li>
+</ul>
+<p><br/>
+Harrison, D., and D. L. Rubinfeld. 1978. <a href="https://doi.org/10.1016/0095-0696(78)90006-2">Hedonic Housing Prices and the Demand for Clean Air</a>. Journal of Environmental Economics and Management 5 (1): 81–102.</p>
+</div>
+<div class="col" style="width: 70%; text-align: right;">
+<p><img src="322_L_RegressionMultiple_files/figure-html/unnamed-chunk-2-1.png" width="336" /></p>
+</div>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2><span class="header-section-number">23.5</span> Example</h2>
+<p>Can we predict price based on number of rooms and air quality?</p>
+<p><span class="math display">\[house\ value_i = (b_0 + b_1 * rooms_{i} + b_1 * NO\ conc_{i}) + \epsilon_i \]</span></p>
+<center>
+<img src="322_L_RegressionMultiple_files/figure-html/unnamed-chunk-3-1.png" width="576" />
+</center>
+</div>
+<div id="statslm" class="section level2">
+<h2><span class="header-section-number">23.6</span> stats::lm</h2>
+<div class="small_r_all">
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="multiple-regression.html#cb302-1"></a>MASS<span class="op">::</span>Boston <span class="op">%$%</span><span class="st"> </span></span>
+<span id="cb302-2"><a href="multiple-regression.html#cb302-2"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">lm</span>(medv <span class="op">~</span><span class="st"> </span>nox <span class="op">+</span><span class="st"> </span>rm) -&gt;</span>
+<span id="cb302-3"><a href="multiple-regression.html#cb302-3"></a><span class="st">  </span>fit_medv_model</span>
+<span id="cb302-4"><a href="multiple-regression.html#cb302-4"></a></span>
+<span id="cb302-5"><a href="multiple-regression.html#cb302-5"></a>fit_medv_model <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb302-6"><a href="multiple-regression.html#cb302-6"></a><span class="st">  </span><span class="kw">summary</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## stats::lm(formula = medv ~ nox + rm)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -17.889  -3.287  -0.636   2.518  39.638 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -18.2059     3.3393  -5.452 7.82e-08 ***
+## nox         -18.9706     2.5304  -7.497 2.97e-13 ***
+## rm            8.1567     0.4173  19.546  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.281 on 503 degrees of freedom
+## Multiple R-squared:  0.5354,	Adjusted R-squared:  0.5336 
+## F-statistic: 289.9 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div id="overall-fit" class="section level2">
+<h2><span class="header-section-number">23.7</span> Overall fit</h2>
+<p>The output indicates</p>
+<ul>
+<li><strong>p-value: &lt; 2.2e-16</strong>: <span class="math inline">\(p&lt;.01\)</span> the model is significant
+<ul>
+<li>derived by comparing <strong>F-statistic</strong> to F distribution 289.87 having specified degrees of freedom (2, 503)</li>
+<li>Report as: F(2, 503) = 289.87</li>
+</ul></li>
+<li><strong>Adjusted R-squared: 0.5336</strong>:
+<ul>
+<li>number of rooms and air quality can account for 53.36% variation in house prices</li>
+</ul></li>
+<li><strong>Coefficients</strong>
+<ul>
+<li>Intercept estimate -18.2059 is significant</li>
+<li><code>nox</code> (slope) estimate -18.9706 is significant</li>
+<li><code>rm</code> (slope) estimate 8.1567 is significant</li>
+</ul></li>
+</ul>
+</div>
+<div id="outliers-and-influential-cases" class="section level2">
+<h2><span class="header-section-number">23.8</span> Outliers and influential cases</h2>
+<div class="small_r_all">
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="multiple-regression.html#cb304-1"></a>MASS<span class="op">::</span>Boston <span class="op">%&gt;%</span></span>
+<span id="cb304-2"><a href="multiple-regression.html#cb304-2"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb304-3"><a href="multiple-regression.html#cb304-3"></a>    <span class="dt">model_stdres =</span> fit_medv_model <span class="op">%&gt;%</span><span class="st"> </span>stats<span class="op">::</span><span class="kw">rstandard</span>(),</span>
+<span id="cb304-4"><a href="multiple-regression.html#cb304-4"></a>    <span class="dt">model_cook_dist =</span> fit_medv_model <span class="op">%&gt;%</span><span class="st"> </span>stats<span class="op">::</span><span class="kw">cooks.distance</span>()</span>
+<span id="cb304-5"><a href="multiple-regression.html#cb304-5"></a>  ) -&gt;</span>
+<span id="cb304-6"><a href="multiple-regression.html#cb304-6"></a><span class="st">  </span>boston_output</span>
+<span id="cb304-7"><a href="multiple-regression.html#cb304-7"></a></span>
+<span id="cb304-8"><a href="multiple-regression.html#cb304-8"></a>boston_output <span class="op">%&gt;%</span></span>
+<span id="cb304-9"><a href="multiple-regression.html#cb304-9"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(medv, model_stdres, model_cook_dist) <span class="op">%&gt;%</span></span>
+<span id="cb304-10"><a href="multiple-regression.html#cb304-10"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="kw">abs</span>(model_stdres) <span class="op">&gt;</span><span class="st"> </span><span class="fl">2.58</span> <span class="op">|</span><span class="st"> </span>model_cook_dist <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##    medv model_stdres model_cook_dist
+## 1  50.0     2.975511      0.02911770
+## 2  21.9    -2.907328      0.11856922
+## 3  27.5     4.899644      0.26329818
+## 4  23.1     3.511137      0.10891047
+## 5  50.0     6.339016      0.12065579
+## 6  50.0     4.094574      0.02308311
+## 7  50.0     3.665060      0.02786674
+## 8  50.0     4.699311      0.02109333
+## 9  50.0     5.257825      0.03746931
+## 10  7.5    -2.672594      0.01576071</code></pre>
+</div>
+<p>No influential cases (Cook’s distance <code>&gt; 1</code>) but there are many outliers (7 abs std res <code>&gt; 3.29</code>, 2% <code>&gt; 2.58</code>)</p>
+</div>
+<div id="checking-assumptions-normality" class="section level2">
+<h2><span class="header-section-number">23.9</span> Checking assumptions: normality</h2>
+<p>Shapiro-Wilk test for normality of standard residuals,</p>
+<ul>
+<li>robust models: should be <strong>not</strong> significant</li>
+</ul>
+<div class="cols">
+<div class="col">
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="multiple-regression.html#cb306-1"></a>boston_output <span class="op">%$%</span><span class="st"> </span></span>
+<span id="cb306-2"><a href="multiple-regression.html#cb306-2"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">shapiro.test</span>(</span>
+<span id="cb306-3"><a href="multiple-regression.html#cb306-3"></a>    model_stdres</span>
+<span id="cb306-4"><a href="multiple-regression.html#cb306-4"></a>  )</span></code></pre></div>
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  model_stdres
+## W = 0.8979, p-value &lt; 2.2e-16</code></pre>
+<p><font size="4">
+<strong>Standard residuals are NOT normally distributed</strong>
+</font></p>
+</div>
+<div class="col">
+<center>
+<img src="322_L_RegressionMultiple_files/figure-html/unnamed-chunk-8-1.png" width="288" />
+</center>
+</div>
+</div>
+</div>
+</div>
+<div id="checking-assumpt.-homoscedasticity" class="section level2">
+<h2><span class="header-section-number">23.10</span> Checking assumpt.: homoscedasticity</h2>
+<p>Breusch-Pagan test for homoscedasticity of standard residuals</p>
+<ul>
+<li>robust models: should be <strong>not</strong> significant</li>
+</ul>
+<div class="small_r_output">
+<div class="cols">
+<div class="col">
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="multiple-regression.html#cb308-1"></a>fit_medv_model <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb308-2"><a href="multiple-regression.html#cb308-2"></a><span class="st">  </span>lmtest<span class="op">::</span><span class="kw">bptest</span>()</span></code></pre></div>
+<pre><code>## 
+## 	studentized Breusch-Pagan test
+## 
+## data:  .
+## BP = 22.342, df = 2, p-value = 1.407e-05</code></pre>
+<p><font size="4">
+<strong>Standard residuals are NOT homoscedastic</strong>
+</font></p>
+</div>
+<div class="col">
+<p><img src="322_L_RegressionMultiple_files/figure-html/unnamed-chunk-10-1.png" width="288" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="checking-assumptions-independence" class="section level2">
+<h2><span class="header-section-number">23.11</span> Checking assumptions: independence</h2>
+<p>Durbin-Watson test for the independence of residuals</p>
+<ul>
+<li>robust models: statistic should be close to 2 (advised between 1 and 3) and <strong>not</strong> significant</li>
+</ul>
+<div class="small_r_output">
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="multiple-regression.html#cb310-1"></a>fit_medv_model <span class="op">%&gt;%</span></span>
+<span id="cb310-2"><a href="multiple-regression.html#cb310-2"></a><span class="st">  </span>lmtest<span class="op">::</span><span class="kw">dwtest</span>()</span></code></pre></div>
+<pre><code>## 
+## 	Durbin-Watson test
+## 
+## data:  .
+## DW = 0.68451, p-value &lt; 2.2e-16
+## alternative hypothesis: true autocorrelation is greater than 0</code></pre>
+</div>
+<p><font size="4">
+<strong>Standard residuals are NOT independent</strong></p>
+<p>Note: the result depends on the order of the data.
+</font></p>
+</div>
+<div id="checking-assumpt.-multicollinearity" class="section level2">
+<h2><span class="header-section-number">23.12</span> Checking assumpt.: multicollinearity</h2>
+<p>Checking the variance inflation factor (VIF)</p>
+<ul>
+<li>robust models should have no multicollinearity:
+<ul>
+<li>largest VIF should be lower than 10 or the average VIF should not be greater than 1</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="multiple-regression.html#cb312-1"></a><span class="kw">library</span>(car)</span>
+<span id="cb312-2"><a href="multiple-regression.html#cb312-2"></a></span>
+<span id="cb312-3"><a href="multiple-regression.html#cb312-3"></a>fit_medv_model <span class="op">%&gt;%</span></span>
+<span id="cb312-4"><a href="multiple-regression.html#cb312-4"></a><span class="st">  </span>car<span class="op">::</span><span class="kw">vif</span>()</span></code></pre></div>
+<pre><code>##      nox       rm 
+## 1.100495 1.100495</code></pre>
+<p><font size="4">
+<strong>There is no multicollinearity</strong>
+</font></p>
+</div>
+<div id="example-1" class="section level2">
+<h2><span class="header-section-number">23.13</span> Example</h2>
+<p>No, we can’t predict house prices based only on number of rooms and air quality.</p>
+<ul>
+<li>predictors are statistically significant</li>
+<li>but model is not robust, as it doesn’t satisfy most assumptions
+<ul>
+<li>Standard residuals are NOT normally distributed</li>
+<li>Standard residuals are NOT homoscedastic</li>
+<li>Standard residuals are NOT independent</li>
+<li>(although there is no multicollinearity)</li>
+</ul></li>
+</ul>
+<p>We seem to be on the right path, but something is missing…</p>
+</div>
+<div id="example-2" class="section level2">
+<h2><span class="header-section-number">23.14</span> Example</h2>
+<div class="small_r_all">
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="multiple-regression.html#cb314-1"></a>MASS<span class="op">::</span>Boston <span class="op">%$%</span><span class="st"> </span></span>
+<span id="cb314-2"><a href="multiple-regression.html#cb314-2"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">lm</span>(medv <span class="op">~</span><span class="st"> </span>nox <span class="op">+</span><span class="st"> </span>rm <span class="op">+</span><span class="st"> </span>ptratio <span class="op">+</span><span class="st"> </span>crim) -&gt;</span>
+<span id="cb314-3"><a href="multiple-regression.html#cb314-3"></a><span class="st">  </span>fit_medv_model2</span>
+<span id="cb314-4"><a href="multiple-regression.html#cb314-4"></a></span>
+<span id="cb314-5"><a href="multiple-regression.html#cb314-5"></a>fit_medv_model2 <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb314-6"><a href="multiple-regression.html#cb314-6"></a><span class="st">  </span><span class="kw">summary</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## stats::lm(formula = medv ~ nox + rm + ptratio + crim)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -13.966  -3.207  -0.563   1.881  39.588 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   6.64051    4.36496   1.521    0.129    
+## nox         -13.15253    2.49470  -5.272 2.01e-07 ***
+## rm            6.90415    0.40150  17.196  &lt; 2e-16 ***
+## ptratio      -1.06741    0.12943  -8.247 1.44e-15 ***
+## crim         -0.13906    0.03362  -4.136 4.14e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.724 on 501 degrees of freedom
+## Multiple R-squared:  0.6157,	Adjusted R-squared:  0.6126 
+## F-statistic: 200.6 on 4 and 501 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div id="information-criteria" class="section level2">
+<h2><span class="header-section-number">23.15</span> Information criteria</h2>
+<!--
+$R^2$ values tend to increase with the number of variables included in the model
+
+- Adjusted $R^2$ 
+  - controls for number of cases and variables
+  - interpretable
+-->
+<ul>
+<li>Akaike Information Criterion (<strong>AIC</strong>)
+<ul>
+<li>measure of model fit
+<ul>
+<li>penalising model with more variables</li>
+</ul></li>
+<li>not interpretable per-se, used to compare models
+<ul>
+<li>lower value, better fit</li>
+</ul></li>
+</ul></li>
+<li>Bayesian Information Criterion (<strong>BIC</strong>)
+<ul>
+<li>similar to AIC</li>
+</ul></li>
+</ul>
+<div class="small_r_all">
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="multiple-regression.html#cb316-1"></a>stats<span class="op">::</span><span class="kw">AIC</span>(fit_medv_model)</span></code></pre></div>
+<pre><code>## [1] 3300.55</code></pre>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="multiple-regression.html#cb318-1"></a>stats<span class="op">::</span><span class="kw">AIC</span>(fit_medv_model2)</span></code></pre></div>
+<pre><code>## [1] 3208.623</code></pre>
+</div>
+</div>
+<div id="checking-assumptions" class="section level2">
+<h2><span class="header-section-number">23.16</span> Checking assumptions</h2>
+<div class="small_r_all">
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  .
+## W = 0.8428, p-value &lt; 2.2e-16</code></pre>
+<pre><code>## 
+## 	studentized Breusch-Pagan test
+## 
+## data:  .
+## BP = 8.7909, df = 4, p-value = 0.06654</code></pre>
+<pre><code>## 
+## 	Durbin-Watson test
+## 
+## data:  .
+## DW = 0.80585, p-value &lt; 2.2e-16
+## alternative hypothesis: true autocorrelation is greater than 0</code></pre>
+<pre><code>##      nox       rm  ptratio     crim 
+## 1.287836 1.226384 1.210074 1.288687</code></pre>
+</div>
+</div>
+<div id="systematic-choice" class="section level2">
+<h2><span class="header-section-number">23.17</span> Systematic choice</h2>
+<p><strong>Stepwise selection</strong> of predictor (independent) variables</p>
+<ul>
+<li>iteratively adding and/or removing predictors</li>
+<li>to obtain best performing model</li>
+</ul>
+<p>Three approaches</p>
+<ul>
+<li>forward selection: from no variable, iteratively add variables</li>
+<li>backward selection: from all variables, iteratively remove variables</li>
+<li>step-wise (both) selection:
+<ul>
+<li>from a given model</li>
+<li>one step forward, add most promising variable</li>
+<li>one step backward, remove any variable not improving</li>
+</ul></li>
+</ul>
+<!--
+## Outliers and residuals
+## Influential cases
+-->
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">23.18</span> Summary</h2>
+<p>Simple Regression</p>
+<ul>
+<li>Regression</li>
+<li>Ordinary Least Squares</li>
+<li>Fit</li>
+</ul>
+<p><strong>Next</strong>: Assessing regression assumptions</p>
 <ul>
 <li>Normality</li>
 <li>Homoscedasticity</li>
 <li>Independence</li>
 </ul>
-<p><strong>Now</strong>: Multiple Regression</p>
-<ul>
-<li>Fit</li>
-<li>Multicollinearity</li>
-<li>Comparing models</li>
-</ul>
-</div>
-<div id="to-do" class="section level2">
-<h2><span class="header-section-number">24.2</span> TO-DO</h2>
-</div>
-<div id="summary" class="section level2">
-<h2><span class="header-section-number">24.3</span> Summary</h2>
-<p>Multiple Regression</p>
-<ul>
-<li>Fit</li>
-<li>Multicollinearity</li>
-<li>Comparing models</li>
-</ul>
-<p><strong>Next</strong>: Practical session</p>
-<ul>
-<li>Simple regression</li>
-<li>Testing assumptions</li>
-<li>Multiple regression</li>
-</ul>
 
+<style type="text/css">
+.small_r_all pre{
+  font-size: 16px;
+  line-height: 18px;
+}
+.small_r_output pre:not(.prettyprint){
+  font-size: 16px;
+  line-height: 18px;
+}
+.verysmall_r_output pre:not(.prettyprint){
+  font-size: 12px;
+  line-height: 14px;
+}
+</style>
 </div>
 </div>
             </section>
@@ -591,8 +990,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="assessing-regression-assumptions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="simple-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistic-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

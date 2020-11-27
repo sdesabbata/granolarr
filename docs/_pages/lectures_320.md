@@ -21,24 +21,24 @@ toc_sticky: true
 <a href="https://sdesabbata.github.io/granolarr/lectures/html/321_L_Regression" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
-## 322 Assessing regression assumptions
+## 322 Multiple regression
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/322_L_RegressionAssessing.html" title="322_L_RegressionAssessing" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/322_L_RegressionMultiple.html" title="322_L_RegressionMultiple" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-<a href="https://sdesabbata.github.io/granolarr/lectures/html/322_L_RegressionAssessing" target="_blank">Open the lecture slides in a new tab.</a>
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/322_L_RegressionMultiple" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
-## 323 Multiple regression
+## 323 Logistic regression
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionMultiple.html" title="323_L_RegressionMultiple" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionLogistic.html" title="323_L_RegressionLogistic" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-<a href="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionMultiple" target="_blank">Open the lecture slides in a new tab.</a>
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionLogistic" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 324 Practical session

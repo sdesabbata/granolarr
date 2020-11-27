@@ -68,7 +68,7 @@ until centroids don't change anymore, the algorithm has **converged**
 
 ```r
 kmeans_found_clusters <- data_to_cluster %>%
-  select(x_values, y_values) %>%
+  dplyr::select(x_values, y_values) %>%
   kmeans(centers=3, iter.max=50)
 
 data_to_cluster <- data_to_cluster %>%
@@ -107,7 +107,7 @@ Each observation is assigned with a value per each cluster
 library(e1071)
 
 cmeans_result <- data_to_cluster %>%
-  select(x_values, y_values) %>%
+  dplyr::select(x_values, y_values) %>%
   cmeans(centers=3, iter.max=50)
 
 data_to_cluster <- data_to_cluster %>%
