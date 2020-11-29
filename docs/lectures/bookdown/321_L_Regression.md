@@ -59,6 +59,26 @@ $$Y_i = (b_0 + b_1 * X_{i1}) + \epsilon_i $$
 
 $$Y_i = (b_0 + b_1 * X_{i1} + b_2 * X_{i2} + \dots + b_M * X_{iM}) + \epsilon_i $$
 
+## Example
+
+Can we predict a penguin's body mass from flipper length?
+
+$$body\ mass_i = (b_0 + b_1 * flipper\ length_{i}) + \epsilon_i $$
+
+<center>
+![](321_L_Regression_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+</center>
+
+
+## Example
+
+Can we predict a penguin's body mass from flipper length?
+
+$$body\ mass_i = (b_0 + b_1 * flipper\ length_{i}) + \epsilon_i $$
+
+<center>
+![](321_L_Regression_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+</center>
 
 
 
@@ -110,40 +130,18 @@ $$deviation = \sum_i(observed_i - model_i)^2$$
     - adjacent standard residuals are not correlated
 
 
-## Example
-
-Can we predict a penguin's body mass from flipper length?
-
-$$body\ mass_i = (b_0 + b_1 * flipper\ length_{i}) + \epsilon_i $$
-
-<center>
-![](321_L_Regression_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
-</center>
-
-
-## Example
-
-Can we predict a penguin's body mass from flipper length?
-
-$$body\ mass_i = (b_0 + b_1 * flipper\ length_{i}) + \epsilon_i $$
-
-<center>
-![](321_L_Regression_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
-</center>
-
-
 ## stats::lm
 
 <div class="small_r_all">
 
 
 ```r
-palmerpenguins::penguins %>%
+bm_fl_model <-
+  palmerpenguins::penguins %>%
   dplyr::filter(!is.na(body_mass_g) | !is.na(flipper_length_mm)) %$%
-  stats::lm(body_mass_g ~ flipper_length_mm) ->
-  fit_bm_fl
+  stats::lm(body_mass_g ~ flipper_length_mm)
 
-fit_bm_fl %>%  
+bm_fl_model %>%  
   summary()
 ```
 
@@ -179,7 +177,7 @@ fit_bm_fl %>%
 The output indicates
 
 - **p-value: < 2.2e-16**: $p<.01$ the model is significant
-  - derived by comparing **F-statistic** to F distribution 1070.74 having specified degrees of freedom (1, 340)
+  - derived by comparing **F-statistic** (1070.74) to F distribution having specified degrees of freedom (1, 340)
   - Report as: F(1, 340) = 1070.74
 - **Adjusted R-squared: 0.7583**: 
   - flipper length can account for 75.83% variation in body mass
@@ -195,13 +193,13 @@ The output indicates
 
 
 ```r
-palmerpenguins::penguins %>%
+penguins_output <-
+  palmerpenguins::penguins %>%
   dplyr::filter(!is.na(body_mass_g) | !is.na(flipper_length_mm)) %>%
   mutate(
-    model_stdres = fit_bm_fl %>% stats::rstandard(),
-    model_cook_dist = fit_bm_fl %>% stats::cooks.distance()
-  ) ->
-  penguins_output
+    model_stdres = bm_fl_model %>% stats::rstandard(),
+    model_cook_dist = bm_fl_model %>% stats::cooks.distance()
+  )
 
 penguins_output %>%
   dplyr::select(body_mass_g, model_stdres, model_cook_dist) %>%
@@ -220,7 +218,7 @@ penguins_output %>%
 
 </div>
 
-No influential cases (Cook's distance `> 1`) but there are many outliers (7 abs std res `> 3.29`, 2% `> 2.58`)
+No influential cases (Cook's distance `> 1`) but there are a handful of outliers (4 abs std res `> 2.58`)
 
 
 ## Checking assumptions: normality
@@ -282,7 +280,7 @@ Breusch-Pagan test for homoscedasticity of standard residuals
 
 
 ```r
-fit_bm_fl %>% 
+bm_fl_model %>% 
   lmtest::bptest()
 ```
 
@@ -321,7 +319,7 @@ Durbin-Watson test for the independence of residuals
 
 
 ```r
-fit_bm_fl %>%
+bm_fl_model %>%
   lmtest::dwtest()
 ```
 
@@ -355,51 +353,19 @@ $$body\ mass_i = (-5780.83 + 49.69 * flipper\ length_{i}) + \epsilon_i $$
 </center>
 
 
-## Confidence intervals
-
-Yes, we can predict a penguin's body mass from flipper length!
-
-$$body\ mass_i = (-5780.83 + 49.69 * flipper\ length_{i}) + \epsilon_i $$
-
-
-```r
-fit_bm_fl %>%
-  stats::confint()
-```
-
-```
-##                         2.5 %      97.5 %
-## (Intercept)       -6382.35801 -5179.30471
-## flipper_length_mm    46.69892    52.67221
-```
-
-| flipper length | Intercept | flipper length coefficient | body mass |
-|----------------|-----------|----------------------------|-----------|
-| 200            | -5780.83  | 49.69                      | 4157.17   |
-| 200            | -6382.36  | 46.70                      | 2957.43   |
-| 200            | -6382.36  | 52.67                      | 4152.08   |
-| 200            | -5179.30  | 46.70                      | 4160.48   |
-| 200            | -5179.30  | 52.67                      | 5355.14   |
-
-<!--
-## Outliers and residuals
-## Influential cases
--->
-
-
-
 ## Summary
 
 Simple Regression
 
 - Regression
 - Ordinary Least Squares
-- Fit
+- Interpretation
+- Checking assumptions
 
-**Next**: Assessing regression assumptions
+**Next**: Multiple Regression
 
-- Normality
-- Homoscedasticity
-- Independence
+- Multiple regression
+- Interpretation
+- Checking assumptions
 
 

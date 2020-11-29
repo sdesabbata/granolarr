@@ -9,5 +9,5 @@ output:
     css: ../utils/RMarkdown/rmarkdown_classes.css
 ---
 
-```{r child = 'contents/323_L_RegressionLogistic.Rmd'}
+```{r child = 'contents/323_L_RegressionComparing.Rmd'}
 ```

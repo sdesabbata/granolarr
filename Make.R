@@ -99,7 +99,7 @@ rmarkdown::render(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/321_L_Regr
 cat("\n\n>>> Rendering 322_L_RegressionMultiple.Rmd <<<\n\n")
 rmarkdown::render(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/322_L_RegressionMultiple.Rmd"), quiet = TRUE, output_dir = paste0(Sys.getenv("GRANOLARR_HOME"), "/docs/lectures/html"))
 cat("\n\n>>> Rendering 323_L_RegressionLogistic.Rmd <<<\n\n")
-rmarkdown::render(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/323_L_RegressionLogistic.Rmd"), quiet = TRUE, output_dir = paste0(Sys.getenv("GRANOLARR_HOME"), "/docs/lectures/html"))
+rmarkdown::render(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/323_L_RegressionComparing.Rmd"), quiet = TRUE, output_dir = paste0(Sys.getenv("GRANOLARR_HOME"), "/docs/lectures/html"))
 cat("\n\n>>> Rendering 401_L_MachineLearningIntro.Rmd <<<\n\n")
 rmarkdown::render(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/lectures/401_L_MachineLearningIntro.Rmd"), quiet = TRUE, output_dir = paste0(Sys.getenv("GRANOLARR_HOME"), "/docs/lectures/html"))
 cat("\n\n>>> Rendering 402_L_NeuralNetworks.Rmd <<<\n\n")

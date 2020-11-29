@@ -1,0 +1,251 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir = Sys.getenv("GRANOLARR_HOME"))
+rm(list = ls())
+```
+
+<style type="text/css">
+.small_r_all pre{
+  font-size: 16px !important;
+  line-height: 18px !important;
+}
+.small_r_output pre:not(.prettyprint){
+  font-size: 16px;
+  line-height: 18px;
+}
+.verysmall_r_output pre:not(.prettyprint){
+  font-size: 12px;
+  line-height: 14px;
+}
+</style>
+
+
+
+# Comparing regression models
+
+
+## Recap
+
+**Prev**: Multiple Regression
+
+- Multiple regression
+- Interpretation
+- Checking assumptions
+
+**Now**: Comparing regression models
+
+- Information criteria
+- Model difference
+- Systematic variable choice
+
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)  
+library(palmerpenguins)
+library(MASS)
+library(lmtest)
+```
+
+
+## Multiple regression
+
+**Regression analysis** is a supervised machine learning approach
+
+Special case of the general linear model
+
+$$outcome_i = (model) + error_i $$
+
+Predict (estimate) value of one outcome (dependent) variable as
+
+- one predictor (independent) variable: **simple / univariate**
+
+$$Y_i = (b_0 + b_1 * X_{i1}) + \epsilon_i $$
+    
+- more predictor (independent) variables: **multiple / multivar.**
+
+$$Y_i = (b_0 + b_1 * X_{i1} + b_2 * X_{i2} + \dots + b_M * X_{iM}) + \epsilon_i $$
+
+
+## Example
+
+Can we predict price based on number of rooms and air quality?
+
+$$house\ value_i = (b_0 + b_1 * rooms_{i} + b_1 * NO\ conc_{i}) + \epsilon_i $$
+
+<center>
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 4}
+MASS::Boston %>%
+  dplyr::select(medv, nox, rm) %>%
+  psych::pairs.panels(
+    method = "kendall",
+    stars = TRUE
+  )
+```
+</center>
+
+
+## stats::lm
+
+<div class="small_r_all">
+
+```{r, echo=TRUE}
+MASS::Boston %$% 
+  stats::lm(medv ~ nox + rm) ->
+  medv_model
+
+medv_model %>%  
+  summary()
+```
+
+</div>
+
+
+## Example
+
+No, we can't predict house prices based only on number of rooms and air quality.
+
+- predictors are statistically significant
+- but model is not robust, as it doesn't satisfy most assumptions
+  - Standard residuals are NOT normally distributed
+  - Standard residuals are NOT homoscedastic
+  - Standard residuals are NOT independent
+  - (although there is no multicollinearity)
+
+We seem to be on the right path, but something is missing...
+
+
+## Example
+
+<div class="small_r_all">
+
+```{r, echo=TRUE}
+MASS::Boston %$% 
+  stats::lm(medv ~ nox + rm + ptratio + crim) ->
+  medv_model2
+
+medv_model2 %>%  
+  summary()
+```
+
+</div>
+
+
+
+
+## Information criteria
+
+<!--
+
+Gareth James • Daniela Witten • Trevor Hastie Robert Tibshirani
+An Introduction to Statistical Learning
+with Applications in R
+
+p213
+
+Therefore, in theory, the model with the largest adjusted R2 will have only correct variables and no noise variables. Unlike the R2 statistic, the adjusted R2 statistic pays a price for the inclusion of unnecessary variables in the model
+
+Cp, AIC, and BIC all have rigorous theoretical justifications that are
+beyond the scope of this book. These justifications rely on asymptotic ar- guments (scenarios where the sample size n is very large). Despite its pop- ularity, and even though it is quite intuitive, the adjusted R2 is not as well motivated in statistical theory as AIC, BIC, and Cp. All of these measures are simple to use and compute. Here we have presented the formulas for AIC, BIC, and Cp in the case of a linear model fit using least squares; however, these quantities can also be defined for more general types of models.
+
+-->
+
+
+- Akaike Information Criterion (**AIC**)
+  - measure of model fit 
+    - penalising model with more variables
+  - not interpretable per-se, used to compare similar models
+    - lower value, better fit
+- Bayesian Information Criterion (**BIC**)
+  - similar to AIC
+  
+<div class="small_r_all">
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+stats::AIC(medv_model)
+stats::AIC(medv_model2)
+```
+
+</div>
+
+
+## Model difference with ANOVA
+
+Can be used to test whether $R^2$ are significantly different
+
+- if models are hierarchical
+  - one uses all variables of the other
+  - plus some additional variables
+  
+<div class="small_r_all">
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+stats::anova(medv_model, medv_model2)
+```
+
+</div>
+
+
+## Checking assumptions
+
+<div class="small_r_all">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+medv_model2 %>% 
+  stats::rstandard() %>% 
+  stats::shapiro.test()
+
+medv_model2 %>% 
+  lmtest::bptest()
+
+medv_model2 %>%
+  lmtest::dwtest()
+
+medv_model2 %>%
+  car::vif()
+```
+
+</div>
+
+
+## Systematic choice
+
+**Stepwise selection** of predictor (independent) variables
+
+- iteratively adding and/or removing predictors 
+- to obtain best performing model
+
+Three approaches
+
+- forward selection: from no variable, iteratively add variables
+- backward selection: from all variables, iteratively remove variables
+- step-wise (both) selection: 
+  - from a given model
+  - one step forward, add most promising variable
+  - one step backward, remove any variable not improving
+
+
+<!--
+## Outliers and residuals
+## Influential cases
+-->
+
+
+
+## Summary
+
+Comparing regression models
+
+- Information criteria
+- Model difference
+- Systematic variable choice
+
+**Next**: Practical session
+
+- Simple regression
+- Multiple regression
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```

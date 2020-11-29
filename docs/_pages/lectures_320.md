@@ -13,6 +13,11 @@ toc_sticky: true
 
 ## 321 Simple regression
 
+{% include video id="UL7Kt0hXs4Y" provider="youtube" %}
+
+
+### Slides
+
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/321_L_Regression.html" title="321_L_Regression" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
@@ -23,6 +28,11 @@ toc_sticky: true
 
 ## 322 Multiple regression
 
+{% include video id="UtHHo2gPalQ" provider="youtube" %}
+
+
+### Slides
+
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/322_L_RegressionMultiple.html" title="322_L_RegressionMultiple" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
@@ -31,7 +41,7 @@ toc_sticky: true
 <a href="https://sdesabbata.github.io/granolarr/lectures/html/322_L_RegressionMultiple" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
-## 323 Logistic regression
+## 323 Comparing regression models
 
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionLogistic.html" title="323_L_RegressionLogistic" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>

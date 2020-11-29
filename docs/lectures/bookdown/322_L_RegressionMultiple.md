@@ -32,7 +32,6 @@
 **Now**: Multiple Regression
 
 - Multiple regression
-- Ordinary Least Squares
 - Interpretation
 - Checking assumptions
 
@@ -85,7 +84,7 @@ $$Y_i = (b_0 + b_1 * X_{i1} + b_2 * X_{i2} + \dots + b_M * X_{iM}) + \epsilon_i 
 
 A classic R dataset
 
-- price of (506) houses in Boston
+- price of houses in Boston
 - in relation to: 
   - house characteristics
   - neighborhood 
@@ -110,7 +109,7 @@ Harrison, D., and D. L. Rubinfeld. 1978. [Hedonic Housing Prices and the Demand 
 
 Can we predict price based on number of rooms and air quality?
 
-$$house\ value_i = (b_0 + b_1 * rooms_{i} + b_1 * NO\ conc_{i}) + \epsilon_i $$
+$$house\ value_i = (b_0 + b_1 * rooms_{i} + b_2 * NO\ conc_{i}) + \epsilon_i $$
 
 <center>
 ![](322_L_RegressionMultiple_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
@@ -124,17 +123,17 @@ $$house\ value_i = (b_0 + b_1 * rooms_{i} + b_1 * NO\ conc_{i}) + \epsilon_i $$
 
 ```r
 MASS::Boston %$% 
-  stats::lm(medv ~ nox + rm) ->
-  fit_medv_model
+  stats::lm(medv ~ rm + nox) ->
+  medv_model
 
-fit_medv_model %>%  
+medv_model %>%  
   summary()
 ```
 
 ```
 ## 
 ## Call:
-## stats::lm(formula = medv ~ nox + rm)
+## stats::lm(formula = medv ~ rm + nox)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
@@ -143,8 +142,8 @@ fit_medv_model %>%
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
 ## (Intercept) -18.2059     3.3393  -5.452 7.82e-08 ***
-## nox         -18.9706     2.5304  -7.497 2.97e-13 ***
 ## rm            8.1567     0.4173  19.546  < 2e-16 ***
+## nox         -18.9706     2.5304  -7.497 2.97e-13 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
@@ -170,8 +169,55 @@ The output indicates
   - number of rooms and air quality can account for 53.36% variation in house prices
 - **Coefficients**
   - Intercept estimate -18.2059 is significant
-  - `nox` (slope) estimate -18.9706 is significant
-  - `rm` (slope) estimate 8.1567 is significant
+  - `rm` (slope) estimate -18.9706 is significant
+  - `nox` (slope) estimate 8.1567 is significant
+
+
+
+## Standardised coefficients
+
+- Indicate amount of change
+  - in the outcome variable
+  - per one standard deviation change in the predictor variable
+- Can also be interpreted as importance of predictor
+
+
+```r
+medv_model %>%
+  lm.beta::lm.beta()
+```
+
+```
+## 
+## Call:
+## stats::lm(formula = medv ~ rm + nox)
+## 
+## Standardized Coefficients::
+## (Intercept)          rm         nox 
+##   0.0000000   0.6231316  -0.2390178
+```
+
+
+
+## Confindence intervals
+
+- Coefficients' 95% confidence intervals
+  - can be interpreted as interval containing true coefficient values
+  - good models should result in small intervals
+
+
+```r
+medv_model %>%
+  stats::confint()
+```
+
+```
+##                 2.5 %     97.5 %
+## (Intercept) -24.76666 -11.645106
+## rm            7.33676   8.976551
+## nox         -23.94200 -13.999233
+```
+
 
 
 
@@ -183,8 +229,8 @@ The output indicates
 ```r
 MASS::Boston %>%
   mutate(
-    model_stdres = fit_medv_model %>% stats::rstandard(),
-    model_cook_dist = fit_medv_model %>% stats::cooks.distance()
+    model_stdres = medv_model %>% stats::rstandard(),
+    model_cook_dist = medv_model %>% stats::cooks.distance()
   ) ->
   boston_output
 
@@ -248,7 +294,7 @@ boston_output %$%
 ::: {.col data-latex="{0.5\textwidth}"}
 
 <center>
-![](322_L_RegressionMultiple_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+![](322_L_RegressionMultiple_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
 </center>
 
 :::
@@ -272,7 +318,7 @@ Breusch-Pagan test for homoscedasticity of standard residuals
 
 
 ```r
-fit_medv_model %>% 
+medv_model %>% 
   lmtest::bptest()
 ```
 
@@ -292,7 +338,7 @@ fit_medv_model %>%
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-![](322_L_RegressionMultiple_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+![](322_L_RegressionMultiple_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
 
 :::
 ::::::
@@ -311,7 +357,7 @@ Durbin-Watson test for the independence of residuals
 
 
 ```r
-fit_medv_model %>%
+medv_model %>%
   lmtest::dwtest()
 ```
 
@@ -346,12 +392,12 @@ Checking the variance inflation factor (VIF)
 ```r
 library(car)
 
-fit_medv_model %>%
+medv_model %>%
   car::vif()
 ```
 
 ```
-##      nox       rm 
+##       rm      nox 
 ## 1.100495 1.100495
 ```
 
@@ -375,6 +421,8 @@ No, we can't predict house prices based only on number of rooms and air quality.
 We seem to be on the right path, but something is missing...
 
 
+<!--
+
 ## Example
 
 <div class="small_r_all">
@@ -383,9 +431,9 @@ We seem to be on the right path, but something is missing...
 ```r
 MASS::Boston %$% 
   stats::lm(medv ~ nox + rm + ptratio + crim) ->
-  fit_medv_model2
+  medv_model2
 
-fit_medv_model2 %>%  
+medv_model2 %>%  
   summary()
 ```
 
@@ -420,18 +468,10 @@ fit_medv_model2 %>%
 
 ## Information criteria
 
-<!--
-$R^2$ values tend to increase with the number of variables included in the model
-
-- Adjusted $R^2$ 
-  - controls for number of cases and variables
-  - interpretable
--->
-
 - Akaike Information Criterion (**AIC**)
   - measure of model fit 
     - penalising model with more variables
-  - not interpretable per-se, used to compare models
+  - not interpretable per-se, used to compare similar models
     - lower value, better fit
 - Bayesian Information Criterion (**BIC**)
   - similar to AIC
@@ -440,7 +480,7 @@ $R^2$ values tend to increase with the number of variables included in the model
 
 
 ```r
-stats::AIC(fit_medv_model)
+stats::AIC(medv_model)
 ```
 
 ```
@@ -448,11 +488,41 @@ stats::AIC(fit_medv_model)
 ```
 
 ```r
-stats::AIC(fit_medv_model2)
+stats::AIC(medv_model2)
 ```
 
 ```
 ## [1] 3208.623
+```
+
+</div>
+
+
+## Model difference with ANOVA
+
+Can be used to test whether $R^2$ are significantly different
+
+- if models are hierarchical
+  - one uses all variables of the other
+  - plus some additional variables
+  
+<div class="small_r_all">
+
+
+```r
+stats::anova(medv_model, medv_model2)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Model 1: medv ~ rm + nox
+## Model 2: medv ~ nox + rm + ptratio + crim
+##   Res.Df   RSS Df Sum of Sq     F    Pr(>F)    
+## 1    503 19844                                 
+## 2    501 16417  2      3427 52.29 < 2.2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 </div>
@@ -512,26 +582,22 @@ Three approaches
   - one step forward, add most promising variable
   - one step backward, remove any variable not improving
 
-
-<!--
-## Outliers and residuals
-## Influential cases
 -->
 
 
 
 ## Summary
 
-Simple Regression
+Multiple Regression
 
-- Regression
-- Ordinary Least Squares
-- Fit
+- Multiple regression
+- Interpretation
+- Checking assumptions
 
-**Next**: Assessing regression assumptions
+**Next**: Comparing regression models
 
-- Normality
-- Homoscedasticity
-- Independence
+- Information criteria
+- Model difference
+- Systematic variable choice
 
 
