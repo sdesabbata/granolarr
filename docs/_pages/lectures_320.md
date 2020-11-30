@@ -42,13 +42,19 @@ toc_sticky: true
 </small>
 
 ## 323 Comparing regression models
+https://youtu.be/
+
+{% include video id="T_ph4VAbCVU" provider="youtube" %}
+
+
+### Slides
 
 <div style="position: relative; width: 500px; height: 400px;">
-<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionLogistic.html" title="323_L_RegressionLogistic" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
+<iframe src="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionComparing.html" title="323_L_RegressionComparing" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
 
 <small>
-<a href="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionLogistic" target="_blank">Open the lecture slides in a new tab.</a>
+<a href="https://sdesabbata.github.io/granolarr/lectures/html/323_L_RegressionComparing" target="_blank">Open the lecture slides in a new tab.</a>
 </small>
 
 ## 324 Practical session
