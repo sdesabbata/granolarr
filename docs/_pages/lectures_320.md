@@ -42,7 +42,6 @@ toc_sticky: true
 </small>
 
 ## 323 Comparing regression models
-https://youtu.be/
 
 {% include video id="T_ph4VAbCVU" provider="youtube" %}
 
