@@ -2,6 +2,7 @@
 
 install.packages("here")
 install.packages("car")
+install.packages("caret")
 install.packages("pastecs")
 install.packages("psych")
 install.packages("lm.beta")

@@ -2,6 +2,9 @@
 knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_knit$set(root.dir = Sys.getenv("GRANOLARR_HOME"))
 rm(list = ls())
+
+# Set seed for reproducibility
+set.seed(123)
 ```
 
 <style type="text/css">
@@ -36,7 +39,8 @@ rm(list = ls())
 
 - Information criteria
 - Model difference
-- Systematic variable choice
+- Stepwise selection
+- Validation
 
 
 
@@ -76,8 +80,8 @@ $$house\ value_i = (b_0 + b_1 * rooms_{i} + b_1 * NO\ conc_{i}) + \epsilon_i $$
 
 <center>
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 4}
-MASS::Boston %>%
-  dplyr::select(medv, nox, rm) %>%
+MASS::Boston %>% filter(medv < 50) %>%
+  dplyr::select(medv, rm, nox) %>%
   psych::pairs.panels(
     method = "kendall",
     stars = TRUE
@@ -91,18 +95,40 @@ MASS::Boston %>%
 <div class="small_r_all">
 
 ```{r, echo=TRUE}
-MASS::Boston %$% 
-  stats::lm(medv ~ nox + rm) ->
-  medv_model
+MASS::Boston %>% filter(medv < 50) %$% 
+  stats::lm(medv ~ rm + nox) ->
+  medv_model1
 
-medv_model %>%  
+medv_model1 %>%  
   summary()
 ```
 
 </div>
 
 
-## Example
+## Checking assumptions
+
+<div class="small_r_all">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+medv_model1 %>% 
+  stats::rstandard() %>% 
+  stats::shapiro.test()
+
+medv_model1 %>% 
+  lmtest::bptest()
+
+medv_model1 %>%
+  lmtest::dwtest()
+
+medv_model1 %>%
+  car::vif()
+```
+
+</div>
+
+
+## Model 1
 
 No, we can't predict house prices based only on number of rooms and air quality.
 
@@ -116,13 +142,14 @@ No, we can't predict house prices based only on number of rooms and air quality.
 We seem to be on the right path, but something is missing...
 
 
-## Example
+
+## stats::lm
 
 <div class="small_r_all">
 
 ```{r, echo=TRUE}
-MASS::Boston %$% 
-  stats::lm(medv ~ nox + rm + ptratio + crim) ->
+MASS::Boston %>% filter(medv < 50) %$% 
+  stats::lm(medv ~ rm + nox + ptratio + log(crim)) ->
   medv_model2
 
 medv_model2 %>%  
@@ -131,60 +158,26 @@ medv_model2 %>%
 
 </div>
 
+## Logarithmic transformations
 
+- 10% change in criminality score leads to
+  - $log(110/100) * b_{crim}= 0.0953 * b_{crim}$ change
+  - `0.0953 * -0.5558 = 0.0529` 
 
-
-## Information criteria
-
-<!--
-
-Gareth James • Daniela Witten • Trevor Hastie Robert Tibshirani
-An Introduction to Statistical Learning
-with Applications in R
-
-p213
-
-Therefore, in theory, the model with the largest adjusted R2 will have only correct variables and no noise variables. Unlike the R2 statistic, the adjusted R2 statistic pays a price for the inclusion of unnecessary variables in the model
-
-Cp, AIC, and BIC all have rigorous theoretical justifications that are
-beyond the scope of this book. These justifications rely on asymptotic ar- guments (scenarios where the sample size n is very large). Despite its pop- ularity, and even though it is quite intuitive, the adjusted R2 is not as well motivated in statistical theory as AIC, BIC, and Cp. All of these measures are simple to use and compute. Here we have presented the formulas for AIC, BIC, and Cp in the case of a linear model fit using least squares; however, these quantities can also be defined for more general types of models.
-
--->
-
-
-- Akaike Information Criterion (**AIC**)
-  - measure of model fit 
-    - penalising model with more variables
-  - not interpretable per-se, used to compare similar models
-    - lower value, better fit
-- Bayesian Information Criterion (**BIC**)
-  - similar to AIC
-  
-<div class="small_r_all">
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-stats::AIC(medv_model)
-stats::AIC(medv_model2)
+<center>
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 4}
+MASS::Boston %>% filter(medv < 50) %>%
+  mutate(
+    log_crim = log(crim)
+  ) %>%
+  dplyr::select(medv, log_crim) %>%
+  psych::pairs.panels(
+    method = "kendall",
+    stars = TRUE
+  )
 ```
+</center>
 
-</div>
-
-
-## Model difference with ANOVA
-
-Can be used to test whether $R^2$ are significantly different
-
-- if models are hierarchical
-  - one uses all variables of the other
-  - plus some additional variables
-  
-<div class="small_r_all">
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-stats::anova(medv_model, medv_model2)
-```
-
-</div>
 
 
 ## Checking assumptions
@@ -209,7 +202,83 @@ medv_model2 %>%
 </div>
 
 
-## Systematic choice
+
+## Model 2
+
+No, we still can't robustly predict house prices based on number of rooms, air quality, student/teacher ratio and crime level.
+
+- predictors are statistically significant
+- but model is not robust
+  - Standard residuals are NOT normally distributed
+  - Standard residuals are NOT homoscedastic
+  - Standard residuals are NOT independent
+  - There is some sign of multicollinearity
+
+Still possibly on the right path, not quite there yet...
+
+Is there a difference between:
+
+- Model1's $R^2 =$ `r medv_model1 %>% summary() %$% adj.r.squared %>% round(digits = 4)` and Model2's $R^2 =$ `r medv_model2 %>% summary() %$% adj.r.squared %>% round(digits = 4)`?
+
+
+
+## Comparing R-squared
+
+- $R^2$
+  - measure of correlation between
+    - values predicted by the model (fitted values)
+    - observed values for outcome variable
+- Adjusted $R^2$
+  - adjusts the $R^2$ depending on
+    - number of cases
+    - number of predictor (independent) variables
+  - *"unnecessary"* variables lower the value
+
+The model with the highest adjusted $R^2$ has the best fit
+
+
+
+## Model difference with ANOVA
+
+Can be used to test whether adjusted $R^2$ are signif. different
+
+- if models are hierarchical
+  - one uses all variables of the other
+  - plus some additional variables
+  
+<div class="small_r_all">
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+stats::anova(medv_model1, medv_model2)
+```
+
+</div>
+
+Still, neither model is robust
+
+
+
+## Information criteria
+
+- Akaike Information Criterion (**AIC**)
+  - measure of model fit 
+    - penalising model with more variables
+  - not interpretable per-se, used to compare similar models
+    - lower value, better fit
+- Bayesian Information Criterion (**BIC**)
+  - similar to AIC
+  
+<div class="small_r_all">
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+stats::AIC(medv_model1)
+stats::AIC(medv_model2)
+```
+
+</div>
+
+
+## Stepwise selection
 
 **Stepwise selection** of predictor (independent) variables
 
@@ -218,19 +287,145 @@ medv_model2 %>%
 
 Three approaches
 
-- forward selection: from no variable, iteratively add variables
-- backward selection: from all variables, iteratively remove variables
-- step-wise (both) selection: 
-  - from a given model
+- forward: from no variable, iteratively add variables
+- backward: from all variables, iteratively remove variables
+- both (a.k.a. step-wise): 
+  - from no variable
   - one step forward, add most promising variable
   - one step backward, remove any variable not improving
 
 
-<!--
-## Outliers and residuals
-## Influential cases
--->
+## MASS::stepAIC
 
+```{r, echo=TRUE, eval=FALSE, message=FALSE, warning=FALSE}
+MASS::Boston %$% 
+  MASS::stepAIC(
+    object = 
+      lm(medv ~ 1),
+    scope = 
+      medv ~ 
+        crim + zn + indus + chas + rm + nox + age + 
+        dis + rad + tax + ptratio + black + lstat,
+    direction = "both",
+    trace = FALSE
+  ) ->
+  medv_model3
+
+medv_model3 %>%
+  summary()
+```
+
+
+## Model 3
+
+<div class="small_r_all">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+MASS::Boston %$% 
+  MASS::stepAIC(
+    object = lm(medv ~ 1),
+    scope = medv ~ crim + zn + indus + chas + rm + nox + age + dis + rad + tax + ptratio + black + lstat,
+    direction = "forward",
+    trace = FALSE
+  ) ->
+  medv_model3
+
+medv_model3 %>%
+  summary()
+```
+
+</div>
+
+
+
+## Checking assumptions
+
+<div class="small_r_all">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+medv_model3 %>% 
+  stats::rstandard() %>% 
+  stats::shapiro.test()
+
+medv_model3 %>% 
+  lmtest::bptest()
+
+medv_model3 %>%
+  lmtest::dwtest()
+
+medv_model3 %>%
+  car::vif() %>%
+  print(width = 70)
+```
+
+</div>
+
+
+
+## Validation
+
+Can the model be generalised?
+
+- split data into
+  - training set: used to train the model
+  - test set: used to test the model
+
+Approaches:
+
+- Validation
+  - simple split: e.g. 80% traning, 20% test
+- Cross-validation
+  - leave-p-out: repeated split, leaving out p cases for test
+     - leave-1-out
+  - k-fold: repeated split, k equal size samples
+  
+
+## caret::train
+
+Use caret::train to cross-validate Model 3
+
+```{r, echo=TRUE, eval=FALSE, message=FALSE, warning=FALSE}
+library(caret)
+
+train(
+  formula(medv_model3),
+  data = MASS::Boston,                        
+  trControl = trainControl(
+    method = "cv", # crossvalidate
+    number = 5 # folds
+  ),              
+  method = "lm", # regression model
+  na.action = na.pass
+) ->
+medv_model3_crossv
+```
+
+
+## Crossvalidate Model 3
+
+<div class="small_r_all">
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(caret)
+
+train(
+  formula(medv_model3),
+  data = MASS::Boston,                        
+  trControl = trainControl(
+    method = "cv", # crossvalidate
+    number = 5 # folds
+  ),
+  method = "lm" # regression model
+) ->
+medv_model3_crossv
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+medv_model3_crossv
+medv_model3_crossv$resample
+```
+
+</div>
 
 
 ## Summary
@@ -239,7 +434,8 @@ Comparing regression models
 
 - Information criteria
 - Model difference
-- Systematic variable choice
+- Stepwise selection
+- Validation
 
 **Next**: Practical session
 
