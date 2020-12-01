@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-11-30" />
+<meta name="date" content="2020-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -244,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2" data-path="regression-analysis.html"><a href="regression-analysis.html#multiple-regression"><i class="fa fa-check"></i><b>8.2</b> Multiple regression</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="comparing-data.html"><a href="comparing-data.html#example-1"><i class="fa fa-check"></i><b>8.2.1</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="regression-analysis.html"><a href="regression-analysis.html#exercise-9.1"><i class="fa fa-check"></i><b>8.3</b> Exercise 9.1</a></li>
+<li class="chapter" data-level="8.3" data-path="regression-analysis.html"><a href="regression-analysis.html#exercise-324.1"><i class="fa fa-check"></i><b>8.3</b> Exercise 324.1</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="supervised-machine-learning.html"><a href="supervised-machine-learning.html"><i class="fa fa-check"></i><b>9</b> Supervised machine learning</a></li>
 <li class="chapter" data-level="10" data-path="unsupervised-machine-learning.html"><a href="unsupervised-machine-learning.html"><i class="fa fa-check"></i><b>10</b> Unsupervised machine learning</a><ul>
@@ -296,9 +296,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb249-3"><a href="regression-analysis.html#cb249-3"></a></span>
 <span id="cb249-4"><a href="regression-analysis.html#cb249-4"></a><span class="co"># November 20th, 2013</span></span>
 <span id="cb249-5"><a href="regression-analysis.html#cb249-5"></a>flights_nov_<span class="dv">20</span> &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights <span class="op">%&gt;%</span></span>
-<span id="cb249-6"><a href="regression-analysis.html#cb249-6"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay), month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="dv">20</span>) </span></code></pre></div>
+<span id="cb249-6"><a href="regression-analysis.html#cb249-6"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay), month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="dv">20</span>) </span></code></pre></div>
 <center>
-<img src="324_P_Regression_files/figure-html/unnamed-chunk-3-1.png" width="288" />
+<img src="324_P_Regression_files/figure-html/unnamed-chunk-3-1.png" width="384" />
 </center>
 <p>The code below generates the model using the function <code>lm</code>, and the function <code>summary</code> to obtain the summary of the results of the test. The model and summary are saved in the variables <code>delay_model</code> and <code>delay_model_summary</code>, respectively, for further use below. The variable <code>delay_model_summary</code> can then be called directly to visualise the result of the test.</p>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="regression-analysis.html#cb250-1"></a><span class="co"># Classic R coding version</span></span>
@@ -350,10 +350,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <center>
 <div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="regression-analysis.html#cb252-1"></a>flights_nov_<span class="dv">20</span> <span class="op">%&gt;%</span></span>
-<span id="cb252-2"><a href="regression-analysis.html#cb252-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></span>
-<span id="cb252-3"><a href="regression-analysis.html#cb252-3"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">coord_fixed</span>(<span class="dt">ratio =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb252-4"><a href="regression-analysis.html#cb252-4"></a><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="fl">4.0943</span>, <span class="dt">slope =</span> <span class="fl">1.04229</span>, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<img src="324_P_Regression_files/figure-html/unnamed-chunk-5-1.png" width="192" />
+<span id="cb252-2"><a href="regression-analysis.html#cb252-2"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> dep_delay, <span class="dt">y =</span> arr_delay)) <span class="op">+</span></span>
+<span id="cb252-3"><a href="regression-analysis.html#cb252-3"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>ggplot2<span class="op">::</span><span class="kw">coord_fixed</span>(<span class="dt">ratio =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb252-4"><a href="regression-analysis.html#cb252-4"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="fl">4.0943</span>, <span class="dt">slope =</span> <span class="fl">1.04229</span>, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<img src="324_P_Regression_files/figure-html/unnamed-chunk-5-1.png" width="384" />
 </center>
 </div>
 <div id="checking-assumptions" class="section level3">
@@ -362,15 +362,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">8.1.2.1</span> Normality</h4>
 <p>The Shapiro-Wilk test can be used to check for the normality of standard residuals. The test should be not significant for robust models. In the example below, the standard residuals are <em>not</em> normally distributed. However, the plot further below does show that the distribution of the residuals is not far away from a normal distribution.</p>
 <div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="regression-analysis.html#cb253-1"></a>delay_model <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb253-2"><a href="regression-analysis.html#cb253-2"></a><span class="st">  </span><span class="kw">rstandard</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb253-3"><a href="regression-analysis.html#cb253-3"></a><span class="st">  </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<span id="cb253-2"><a href="regression-analysis.html#cb253-2"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">rstandard</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb253-3"><a href="regression-analysis.html#cb253-3"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
 ## data:  .
 ## W = 0.98231, p-value = 1.73e-09</code></pre>
 <center>
-<img src="324_P_Regression_files/figure-html/unnamed-chunk-7-1.png" width="384" />
+<img src="324_P_Regression_files/figure-html/unnamed-chunk-7-1.png" width="576" />
 </center>
 </div>
 <div id="homoscedasticity" class="section level4">
@@ -379,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="regression-analysis.html#cb255-1"></a><span class="kw">library</span>(lmtest)</span>
 <span id="cb255-2"><a href="regression-analysis.html#cb255-2"></a></span>
 <span id="cb255-3"><a href="regression-analysis.html#cb255-3"></a>delay_model <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb255-4"><a href="regression-analysis.html#cb255-4"></a><span class="st">  </span><span class="kw">bptest</span>()</span></code></pre></div>
+<span id="cb255-4"><a href="regression-analysis.html#cb255-4"></a><span class="st">  </span>lmtest<span class="op">::</span><span class="kw">bptest</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	studentized Breusch-Pagan test
 ## 
@@ -391,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The Durbin-Watson test can be used to check for the independence of residuals. The test should be statistic should be close to 2 (between 1 and 3) and not significant for robust models. In the example below, the standard residuals might not be completely independent. Note, however, that the result depends on the order of the data.</p>
 <div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="regression-analysis.html#cb257-1"></a><span class="co"># Also part of the library lmtest</span></span>
 <span id="cb257-2"><a href="regression-analysis.html#cb257-2"></a>delay_model <span class="op">%&gt;%</span></span>
-<span id="cb257-3"><a href="regression-analysis.html#cb257-3"></a><span class="st">  </span><span class="kw">dwtest</span>()</span></code></pre></div>
+<span id="cb257-3"><a href="regression-analysis.html#cb257-3"></a><span class="st">  </span>lmtest<span class="op">::</span><span class="kw">dwtest</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Durbin-Watson test
 ## 
@@ -403,8 +403,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">8.1.2.4</span> Plots</h4>
 <p>The <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.1/topics/plot.lm"><code>plot.lm</code> function</a> can be used to further explore the residuals visuallly. Usage is illustrated below. The <em>Residuals vs Fitted</em> and <em>Scale-Location</em> plot provide an insight into the homoscedasticity of the residuals, the <em>Normal Q-Q</em> plot provides an illustration of the normality of the residuals, and the <em>Residuals vs Leverage</em> can be useful to identify exceptional cases (e.g., Cook’s distance greater than 1).</p>
 <div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="regression-analysis.html#cb259-1"></a>delay_model <span class="op">%&gt;%</span></span>
-<span id="cb259-2"><a href="regression-analysis.html#cb259-2"></a><span class="st">  </span><span class="kw">plot</span>()</span></code></pre></div>
-<img src="324_P_Regression_files/figure-html/unnamed-chunk-10-1.png" width="288" /><img src="324_P_Regression_files/figure-html/unnamed-chunk-10-2.png" width="288" /><img src="324_P_Regression_files/figure-html/unnamed-chunk-10-3.png" width="288" /><img src="324_P_Regression_files/figure-html/unnamed-chunk-10-4.png" width="288" />
+<span id="cb259-2"><a href="regression-analysis.html#cb259-2"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="324_P_Regression_files/figure-html/unnamed-chunk-10-1.png" width="576" /></p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regression-analysis.html#cb260-1"></a>delay_model <span class="op">%&gt;%</span></span>
+<span id="cb260-2"><a href="regression-analysis.html#cb260-2"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="324_P_Regression_files/figure-html/unnamed-chunk-10-2.png" width="576" /></p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="regression-analysis.html#cb261-1"></a>delay_model <span class="op">%&gt;%</span></span>
+<span id="cb261-2"><a href="regression-analysis.html#cb261-2"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">3</span>))</span></code></pre></div>
+<p><img src="324_P_Regression_files/figure-html/unnamed-chunk-10-3.png" width="576" /></p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="regression-analysis.html#cb262-1"></a>delay_model <span class="op">%&gt;%</span></span>
+<span id="cb262-2"><a href="regression-analysis.html#cb262-2"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">5</span>))</span></code></pre></div>
+<img src="324_P_Regression_files/figure-html/unnamed-chunk-10-4.png" width="576" />
 </center>
 </div>
 </div>
@@ -412,15 +421,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">8.1.3</span> How to report</h3>
 <p>Overall, we can say that the delay model computed above is fit (<span class="math inline">\(F(1, 972) = 3396.74\)</span>, <span class="math inline">\(p &lt; .001\)</span>), indicating that the departure delay might account for 77.73% of the arrival delay. However the model is only partially robust. The residuals satisfy the homoscedasticity assumption (Breusch-Pagan test, <span class="math inline">\(BP = 0.02\)</span>, <span class="math inline">\(p =0.9\)</span>), and the independence assumption (Durbin-Watson test, <span class="math inline">\(DW = 1.87\)</span>, <span class="math inline">\(p =0.02\)</span>), but they are not normally distributed (Shapiro-Wilk test, <span class="math inline">\(W = 0.98\)</span>, <span class="math inline">\(p &lt; .001\)</span>).</p>
 <p>The <a href="https://www.rdocumentation.org/packages/stargazer/versions/5.2.2/topics/stargazer"><code>stargazer</code> function of the <code>stargazer</code> library</a> can be applied to the model <code>delay_model</code> to generate a nicer output in RMarkdown PDF documents by including <code>results = "asis"</code> in the R snippet option.</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regression-analysis.html#cb260-1"></a><span class="co"># Install stargazer if not yet installed</span></span>
-<span id="cb260-2"><a href="regression-analysis.html#cb260-2"></a><span class="co"># install.packages(&quot;stargazer&quot;)</span></span>
-<span id="cb260-3"><a href="regression-analysis.html#cb260-3"></a></span>
-<span id="cb260-4"><a href="regression-analysis.html#cb260-4"></a><span class="kw">library</span>(stargazer)</span>
-<span id="cb260-5"><a href="regression-analysis.html#cb260-5"></a></span>
-<span id="cb260-6"><a href="regression-analysis.html#cb260-6"></a><span class="co"># Not rendered in bookdown</span></span>
-<span id="cb260-7"><a href="regression-analysis.html#cb260-7"></a><span class="kw">stargazer</span>(delay_model)</span></code></pre></div>
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Nov 30, 2020 - 06:25:00 PM
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="regression-analysis.html#cb263-1"></a><span class="co"># Install stargazer if not yet installed</span></span>
+<span id="cb263-2"><a href="regression-analysis.html#cb263-2"></a><span class="co"># install.packages(&quot;stargazer&quot;)</span></span>
+<span id="cb263-3"><a href="regression-analysis.html#cb263-3"></a></span>
+<span id="cb263-4"><a href="regression-analysis.html#cb263-4"></a><span class="kw">library</span>(stargazer)</span>
+<span id="cb263-5"><a href="regression-analysis.html#cb263-5"></a></span>
+<span id="cb263-6"><a href="regression-analysis.html#cb263-6"></a><span class="co"># Not rendered in bookdown</span></span>
+<span id="cb263-7"><a href="regression-analysis.html#cb263-7"></a><span class="kw">stargazer</span>(delay_model, <span class="dt">header =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -431,102 +438,132 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The assumptions are the same as the simple regression, plus the assumption of <strong>no multicollinearity</strong>: if two or more predictor variables are used in the model, each pair of variables not correlated. This assumption can be tested by checking the variance inflation factor (VIF). If the largest VIF value is greater than 10 or the average VIF is substantially greater than 1, there might be an issue of multicollinearity.</p>
 <div id="example-1" class="section level3">
 <h3><span class="header-section-number">8.2.1</span> Example</h3>
-<p>The example below explores whether a regression model can be created to estimate the number of people in Leicester commuting to work using public transport (<code>u120</code>) in Leicester, using the number of people in different occupations as predictors.</p>
-<p>For instance, occupations such as skilled traders usually require to travel some distances with equipment, thus the related variable <code>u163</code> is not included in the model, whereas professional and administrative occupations might be more likely to use public transportation to commute to work.</p>
+<p>The example below explores whether a regression model can be created to estimate the number of people in Leicester commuting to work using private transport (<code>u121</code>) in Leicester, using the number of people in different industry sectors as predictors.</p>
+<p>For instance, occupations such as electricity, gas, steam and air conditioning supply (<code>u144</code>) require to travel some distances with equipment, thus the related variable <code>u144</code> is included in the model, whereas people working in information and communication might be more likely to work from home or commute by public transport.</p>
 <p>A multiple regression model can be specified in a similar way as a simple regression model, using the same <code>lm</code> function, but adding the additional predictor variables using a <code>+</code> operator.</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="regression-analysis.html#cb261-1"></a>leicester_2011OAC &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="regression-analysis.html#cb262-1"></a><span class="co"># u120: Method of Travel to Work, Public Transport</span></span>
-<span id="cb262-2"><a href="regression-analysis.html#cb262-2"></a><span class="co"># u159: Employment, Managers, directors and senior officials</span></span>
-<span id="cb262-3"><a href="regression-analysis.html#cb262-3"></a><span class="co"># u160: Employment, Professional occupations</span></span>
-<span id="cb262-4"><a href="regression-analysis.html#cb262-4"></a><span class="co"># u161: Employment, Associate professional and technical occupations</span></span>
-<span id="cb262-5"><a href="regression-analysis.html#cb262-5"></a><span class="co"># u162: Employment, Administrative and secretarial occupations</span></span>
-<span id="cb262-6"><a href="regression-analysis.html#cb262-6"></a><span class="co"># u163: Employment, Skilled trades occupations</span></span>
-<span id="cb262-7"><a href="regression-analysis.html#cb262-7"></a><span class="co"># u164: Employment, Caring, leisure and other service occupations</span></span>
-<span id="cb262-8"><a href="regression-analysis.html#cb262-8"></a><span class="co"># u165: Employment, Sales and customer service occupations</span></span>
-<span id="cb262-9"><a href="regression-analysis.html#cb262-9"></a><span class="co"># u166: Employment, Process, plant and machine operatives</span></span>
-<span id="cb262-10"><a href="regression-analysis.html#cb262-10"></a><span class="co"># u167: Employment, Elementary occupations</span></span>
-<span id="cb262-11"><a href="regression-analysis.html#cb262-11"></a>public_transp_model &lt;-<span class="st"> </span>leicester_2011OAC <span class="op">%$%</span></span>
-<span id="cb262-12"><a href="regression-analysis.html#cb262-12"></a><span class="st">  </span><span class="kw">lm</span>(u120 <span class="op">~</span><span class="st"> </span>u160 <span class="op">+</span><span class="st"> </span>u162 <span class="op">+</span><span class="st"> </span>u164 <span class="op">+</span><span class="st"> </span>u165 <span class="op">+</span><span class="st"> </span>u167) </span>
-<span id="cb262-13"><a href="regression-analysis.html#cb262-13"></a></span>
-<span id="cb262-14"><a href="regression-analysis.html#cb262-14"></a>public_transp_model <span class="op">%&gt;%</span></span>
-<span id="cb262-15"><a href="regression-analysis.html#cb262-15"></a><span class="st">  </span><span class="kw">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="regression-analysis.html#cb264-1"></a>leicester_2011OAC &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&quot;2011_OAC_Raw_uVariables_Leicester.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="regression-analysis.html#cb265-1"></a><span class="co"># Select and </span></span>
+<span id="cb265-2"><a href="regression-analysis.html#cb265-2"></a><span class="co"># normalise variables</span></span>
+<span id="cb265-3"><a href="regression-analysis.html#cb265-3"></a>leicester_2011OAC_transp &lt;-</span>
+<span id="cb265-4"><a href="regression-analysis.html#cb265-4"></a><span class="st">  </span>leicester_2011OAC <span class="op">%&gt;%</span></span>
+<span id="cb265-5"><a href="regression-analysis.html#cb265-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(</span>
+<span id="cb265-6"><a href="regression-analysis.html#cb265-6"></a>    OA11CD, </span>
+<span id="cb265-7"><a href="regression-analysis.html#cb265-7"></a>    Total_Pop_No_NI_Students_<span class="dv">16</span>_to_<span class="dv">74</span>, Total_Employment_<span class="dv">16</span>_to_<span class="dv">74</span>, </span>
+<span id="cb265-8"><a href="regression-analysis.html#cb265-8"></a>    u121, u141<span class="op">:</span>u158</span>
+<span id="cb265-9"><a href="regression-analysis.html#cb265-9"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb265-10"><a href="regression-analysis.html#cb265-10"></a><span class="st">  </span><span class="co"># percentage method of travel</span></span>
+<span id="cb265-11"><a href="regression-analysis.html#cb265-11"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
+<span id="cb265-12"><a href="regression-analysis.html#cb265-12"></a>    <span class="dt">u121 =</span> (u121 <span class="op">/</span><span class="st"> </span>Total_Pop_No_NI_Students_<span class="dv">16</span>_to_<span class="dv">74</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></span>
+<span id="cb265-13"><a href="regression-analysis.html#cb265-13"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb265-14"><a href="regression-analysis.html#cb265-14"></a><span class="st">  </span><span class="co"># percentage across industry sector columns</span></span>
+<span id="cb265-15"><a href="regression-analysis.html#cb265-15"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
+<span id="cb265-16"><a href="regression-analysis.html#cb265-16"></a>    dplyr<span class="op">::</span><span class="kw">across</span>( </span>
+<span id="cb265-17"><a href="regression-analysis.html#cb265-17"></a>      u141<span class="op">:</span>u158,</span>
+<span id="cb265-18"><a href="regression-analysis.html#cb265-18"></a>      <span class="cf">function</span>(x){ (x <span class="op">/</span><span class="st"> </span>Total_Employment_<span class="dv">16</span>_to_<span class="dv">74</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span> }</span>
+<span id="cb265-19"><a href="regression-analysis.html#cb265-19"></a>    )</span>
+<span id="cb265-20"><a href="regression-analysis.html#cb265-20"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb265-21"><a href="regression-analysis.html#cb265-21"></a><span class="st">  </span><span class="co"># rename columns</span></span>
+<span id="cb265-22"><a href="regression-analysis.html#cb265-22"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename_with</span>(</span>
+<span id="cb265-23"><a href="regression-analysis.html#cb265-23"></a>    <span class="cf">function</span>(x){ <span class="kw">paste0</span>(<span class="st">&quot;perc_&quot;</span>, x) },</span>
+<span id="cb265-24"><a href="regression-analysis.html#cb265-24"></a>    <span class="kw">c</span>(u121, u141<span class="op">:</span>u158)</span>
+<span id="cb265-25"><a href="regression-analysis.html#cb265-25"></a>  )</span>
+<span id="cb265-26"><a href="regression-analysis.html#cb265-26"></a></span>
+<span id="cb265-27"><a href="regression-analysis.html#cb265-27"></a><span class="co"># Selected variables</span></span>
+<span id="cb265-28"><a href="regression-analysis.html#cb265-28"></a></span>
+<span id="cb265-29"><a href="regression-analysis.html#cb265-29"></a><span class="co"># perc_u120: Method of Travel to Work, Private Transport</span></span>
+<span id="cb265-30"><a href="regression-analysis.html#cb265-30"></a><span class="co"># perc_u142: Industry Sector, Mining and quarrying</span></span>
+<span id="cb265-31"><a href="regression-analysis.html#cb265-31"></a><span class="co"># perc_u144: Industry Sector, Electricity, gas, steam and air conditioning ...</span></span>
+<span id="cb265-32"><a href="regression-analysis.html#cb265-32"></a><span class="co"># perc_u146: Industry Sector, Construction</span></span>
+<span id="cb265-33"><a href="regression-analysis.html#cb265-33"></a><span class="co"># perc_u149: Industry Sector, Accommodation and food service activities</span></span>
+<span id="cb265-34"><a href="regression-analysis.html#cb265-34"></a></span>
+<span id="cb265-35"><a href="regression-analysis.html#cb265-35"></a><span class="co"># Create model</span></span>
+<span id="cb265-36"><a href="regression-analysis.html#cb265-36"></a>commuting_model1 &lt;-<span class="st"> </span></span>
+<span id="cb265-37"><a href="regression-analysis.html#cb265-37"></a><span class="st">  </span>leicester_2011OAC_transp <span class="op">%$%</span></span>
+<span id="cb265-38"><a href="regression-analysis.html#cb265-38"></a><span class="st">  </span><span class="kw">lm</span>(</span>
+<span id="cb265-39"><a href="regression-analysis.html#cb265-39"></a>    perc_u121 <span class="op">~</span><span class="st"> </span></span>
+<span id="cb265-40"><a href="regression-analysis.html#cb265-40"></a><span class="st">      </span>perc_u142 <span class="op">+</span><span class="st"> </span>perc_u144 <span class="op">+</span><span class="st"> </span>perc_u146 <span class="op">+</span><span class="st"> </span>perc_u149</span>
+<span id="cb265-41"><a href="regression-analysis.html#cb265-41"></a>  )</span>
+<span id="cb265-42"><a href="regression-analysis.html#cb265-42"></a></span>
+<span id="cb265-43"><a href="regression-analysis.html#cb265-43"></a><span class="co"># Print summary</span></span>
+<span id="cb265-44"><a href="regression-analysis.html#cb265-44"></a>commuting_model1 <span class="op">%&gt;%</span></span>
+<span id="cb265-45"><a href="regression-analysis.html#cb265-45"></a><span class="st">  </span><span class="kw">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## lm(formula = u120 ~ u160 + u162 + u164 + u165 + u167)
+## lm(formula = perc_u121 ~ perc_u142 + perc_u144 + perc_u146 + 
+##     perc_u149)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -16.8606  -4.0247  -0.1084   3.7912  24.6359 
+##     Min      1Q  Median      3Q     Max 
+## -35.315  -6.598  -0.244   6.439  31.472 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  3.19593    0.75048   4.258 2.26e-05 ***
-## u160         0.06912    0.01416   4.881 1.24e-06 ***
-## u162         0.17000    0.03328   5.108 3.93e-07 ***
-## u164         0.28641    0.03589   7.979 4.17e-15 ***
-## u165         0.21311    0.03107   6.858 1.25e-11 ***
-## u167         0.32008    0.02156  14.846  &lt; 2e-16 ***
+## (Intercept) 37.12690    0.94148  39.434  &lt; 2e-16 ***
+## perc_u142    3.74768    1.21255   3.091  0.00205 ** 
+## perc_u144    1.16865    0.25328   4.614 4.48e-06 ***
+## perc_u146    1.05408    0.09335  11.291  &lt; 2e-16 ***
+## perc_u149   -1.56948    0.08435 -18.606  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 5.977 on 963 degrees of freedom
-## Multiple R-squared:  0.436,	Adjusted R-squared:  0.4331 
-## F-statistic: 148.9 on 5 and 963 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="regression-analysis.html#cb264-1"></a><span class="co"># Not rendered in bookdown</span></span>
-<span id="cb264-2"><a href="regression-analysis.html#cb264-2"></a><span class="kw">stargazer</span>(public_transp_model)</span></code></pre></div>
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Nov 30, 2020 - 06:25:00 PM
+## Residual standard error: 9.481 on 964 degrees of freedom
+## Multiple R-squared:  0.3846,	Adjusted R-squared:  0.3821 
+## F-statistic: 150.6 on 4 and 964 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="regression-analysis.html#cb267-1"></a><span class="co"># Not rendered in bookdown</span></span>
+<span id="cb267-2"><a href="regression-analysis.html#cb267-2"></a><span class="kw">stargazer</span>(commuting_model1, <span class="dt">header=</span><span class="ot">FALSE</span>)</span></code></pre></div>
 
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="regression-analysis.html#cb265-1"></a>public_transp_model <span class="op">%&gt;%</span></span>
-<span id="cb265-2"><a href="regression-analysis.html#cb265-2"></a><span class="st">  </span><span class="kw">rstandard</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb265-3"><a href="regression-analysis.html#cb265-3"></a><span class="st">  </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="regression-analysis.html#cb268-1"></a>commuting_model1 <span class="op">%&gt;%</span></span>
+<span id="cb268-2"><a href="regression-analysis.html#cb268-2"></a><span class="st">  </span><span class="kw">rstandard</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb268-3"><a href="regression-analysis.html#cb268-3"></a><span class="st">  </span><span class="kw">shapiro.test</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Shapiro-Wilk normality test
 ## 
 ## data:  .
-## W = 0.9969, p-value = 0.05628</code></pre>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="regression-analysis.html#cb267-1"></a>public_transp_model <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb267-2"><a href="regression-analysis.html#cb267-2"></a><span class="st">  </span><span class="kw">bptest</span>()</span></code></pre></div>
+## W = 0.99889, p-value = 0.8307</code></pre>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="regression-analysis.html#cb270-1"></a>commuting_model1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb270-2"><a href="regression-analysis.html#cb270-2"></a><span class="st">  </span><span class="kw">bptest</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	studentized Breusch-Pagan test
 ## 
 ## data:  .
-## BP = 45.986, df = 5, p-value = 9.142e-09</code></pre>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="regression-analysis.html#cb269-1"></a>public_transp_model <span class="op">%&gt;%</span></span>
-<span id="cb269-2"><a href="regression-analysis.html#cb269-2"></a><span class="st">  </span><span class="kw">dwtest</span>()</span></code></pre></div>
+## BP = 28.403, df = 4, p-value = 1.033e-05</code></pre>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="regression-analysis.html#cb272-1"></a>commuting_model1 <span class="op">%&gt;%</span></span>
+<span id="cb272-2"><a href="regression-analysis.html#cb272-2"></a><span class="st">  </span><span class="kw">dwtest</span>()</span></code></pre></div>
 <pre><code>## 
 ## 	Durbin-Watson test
 ## 
 ## data:  .
-## DW = 1.8463, p-value = 0.007967
+## DW = 1.835, p-value = 0.004908
 ## alternative hypothesis: true autocorrelation is greater than 0</code></pre>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="regression-analysis.html#cb271-1"></a><span class="kw">library</span>(car)</span>
-<span id="cb271-2"><a href="regression-analysis.html#cb271-2"></a></span>
-<span id="cb271-3"><a href="regression-analysis.html#cb271-3"></a>public_transp_model <span class="op">%&gt;%</span></span>
-<span id="cb271-4"><a href="regression-analysis.html#cb271-4"></a><span class="st">  </span><span class="kw">vif</span>()</span></code></pre></div>
-<pre><code>##     u160     u162     u164     u165     u167 
-## 1.405480 1.486768 1.163760 1.353682 1.428418</code></pre>
-<p>The output above suggests that the model is fit (<span class="math inline">\(F(5, 963) = 148.88\)</span>, <span class="math inline">\(p &lt; .001\)</span>), indicating that a model based on the number of people working in the five selected occupations can account for 43.31% of the number of people using public transportation to commute to work. However the model is only partially robust. The residuals are normally distributed (Shapiro-Wilk test, <span class="math inline">\(W = 1\)</span>, <span class="math inline">\(p =0.06\)</span>) and there seems to be no multicollinearity with average VIF <span class="math inline">\(1.37\)</span>, but the residuals don’t satisfy the homoscedasticity assumption (Breusch-Pagan test, <span class="math inline">\(BP = 45.99\)</span>, <span class="math inline">\(p &lt; .001\)</span>), nor the independence assumption (Durbin-Watson test, <span class="math inline">\(DW = 1.85\)</span>, <span class="math inline">\(p &lt; .01\)</span>).</p>
-<p>The coefficient values calculated by the <code>lm</code> functions are important to create the model, and provide useful information. For instance, the coefficient for the variable <code>u165</code> is <code>0.21</code>, which indicates that if the number of people employed in sales and customer service occupations increases by one unit, the number of people using public transportation to commute to work increases by <code>0.21</code> units, according to the model. The coefficients also indicate that the number of people in elementary occupations has the biggest impact (in the context of the variables selected for the model) on the number of people using public transportation to commute to wor0, whereas the number of people in professional occupations has the lowest impact.</p>
-<p>In this example, all variables use the same unit and are of a similar type, which makes interpretating the model relatively simple. When that is not the case, it can be useful to look at the standardized <span class="math inline">\(\beta\)</span>, which provide the same information but measured in terms of standard deviation, which make comparisons between variables of different types easier to draw. For instance, the values calculated below using the function <code>lm.beta</code> of the library <code>QuantPsyc</code> indicate that if the number of people employed in sales and customer service occupations increases by one standard deviation, the number of people using public transportation to commute to work increases by <code>0.19</code> standard deviations, according to the model.</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="regression-analysis.html#cb273-1"></a><span class="co"># Install lm.beta library if necessary</span></span>
-<span id="cb273-2"><a href="regression-analysis.html#cb273-2"></a><span class="co"># install.packages(&quot;lm.beta&quot;)</span></span>
-<span id="cb273-3"><a href="regression-analysis.html#cb273-3"></a><span class="kw">library</span>(lm.beta)</span>
-<span id="cb273-4"><a href="regression-analysis.html#cb273-4"></a></span>
-<span id="cb273-5"><a href="regression-analysis.html#cb273-5"></a><span class="kw">lm.beta</span>(public_transp_model)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="regression-analysis.html#cb274-1"></a><span class="kw">library</span>(car)</span>
+<span id="cb274-2"><a href="regression-analysis.html#cb274-2"></a></span>
+<span id="cb274-3"><a href="regression-analysis.html#cb274-3"></a>commuting_model1 <span class="op">%&gt;%</span></span>
+<span id="cb274-4"><a href="regression-analysis.html#cb274-4"></a><span class="st">  </span><span class="kw">vif</span>()</span></code></pre></div>
+<pre><code>## perc_u142 perc_u144 perc_u146 perc_u149 
+##  1.006906  1.016578  1.037422  1.035663</code></pre>
+<p>The output above suggests that the model is fit (<span class="math inline">\(F(4, 964) = 150.62\)</span>, <span class="math inline">\(p &lt; .001\)</span>), indicating that a model based on the presence of people working in the four selected industry sectors can account for 38.21% of the number of people using private transportation to commute to work. However the model is only partially robust. The residuals are normally distributed (Shapiro-Wilk test, <span class="math inline">\(W = 1\)</span>, <span class="math inline">\(p =0.83\)</span>) and there seems to be no multicollinearity with average VIF <span class="math inline">\(1.02\)</span>, but the residuals don’t satisfy the homoscedasticity assumption (Breusch-Pagan test, <span class="math inline">\(BP = 28.4\)</span>, <span class="math inline">\(p &lt; .001\)</span>), nor the independence assumption (Durbin-Watson test, <span class="math inline">\(DW = 1.84\)</span>, <span class="math inline">\(p &lt; .01\)</span>).</p>
+<p>The coefficient values calculated by the <code>lm</code> functions are important to create the model, and provide useful information. For instance, the coefficient for the variable <code>perc_u144</code> is <code>1.169</code>, which indicates that if the presence of people working in electricity, gas, steam and air conditioning supply increases by one percentage point, the number of people using private transportation to commute to work increases by <code>1.169</code> percentage points, according to the model. The coefficients also indicate that the presence of people working in accommodation and food service activities actually has a negative impact (in the context of the variables selected for the model) on the number of people using private transportation to commute to work.</p>
+<p>In this example, all variables use the same unit and are of a similar type, which makes interpreting the model relatively simple. When that is not the case, it can be useful to look at the standardized <span class="math inline">\(\beta\)</span>, which provide the same information but measured in terms of standard deviation, which make comparisons between variables of different types easier to draw. For instance, the values calculated below using the function <code>lm.beta</code> of the library <code>lm.beta</code> indicate that if the presence of people working in construction has the highest impact on the outcome varaible. If the presence of people working in construction increases by one standard deviation, the number of people using private transportation to commute to work increases by <code>0.29</code> standard deviations, according to the model.</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="regression-analysis.html#cb276-1"></a><span class="co"># Install lm.beta library if necessary</span></span>
+<span id="cb276-2"><a href="regression-analysis.html#cb276-2"></a><span class="co"># install.packages(&quot;lm.beta&quot;)</span></span>
+<span id="cb276-3"><a href="regression-analysis.html#cb276-3"></a><span class="kw">library</span>(lm.beta)</span>
+<span id="cb276-4"><a href="regression-analysis.html#cb276-4"></a></span>
+<span id="cb276-5"><a href="regression-analysis.html#cb276-5"></a><span class="kw">lm.beta</span>(commuting_model1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## lm(formula = u120 ~ u160 + u162 + u164 + u165 + u167)
+## lm(formula = perc_u121 ~ perc_u142 + perc_u144 + perc_u146 + 
+##     perc_u149)
 ## 
 ## Standardized Coefficients::
-## (Intercept)        u160        u162        u164        u165        u167 
-##   0.0000000   0.1400270   0.1507236   0.2083107   0.1931035   0.4293988</code></pre>
+## (Intercept)   perc_u142   perc_u144   perc_u146   perc_u149 
+##  0.00000000  0.07836017  0.11754058  0.29057993 -0.47841083</code></pre>
 </div>
 </div>
-<div id="exercise-9.1" class="section level2">
-<h2><span class="header-section-number">8.3</span> Exercise 9.1</h2>
-<p><strong>Question 9.1.2:</strong> Is the number of people using public transportation to commute to work statistically, linearly related to mean age (<code>u020</code>)?</p>
-<p><strong>Question 9.1.3:</strong> Is the number of people using public transportation to commute to work statistically, linearly related to (a subset of) the age structure categories (<code>u007</code> to <code>u019</code>)?</p>
+<div id="exercise-324.1" class="section level2">
+<h2><span class="header-section-number">8.3</span> Exercise 324.1</h2>
+<p><strong>Question 324.1.1:</strong> Create a model having as outcome variable the presence of people using private transport for commuting to work, and using a stepwise <em>“both”</em> approach, having all the variables created for the example above and related to the presence of people working in different industry sectors (<code>perc_u141 to perc_u158</code>) as scope.</p>
+<p><strong>Question 324.1.2:</strong> Is the presence of people using public transportation to commute to work statistically, linearly related to mean age (<code>u020</code>)?</p>
+<p><strong>Question 324.1.3:</strong> Is the presence of people using public transportation to commute to work statistically, linearly related to (a subset of) the age structure categories (<code>u007</code> to <code>u019</code>)?</p>
 
 </div>
 </div>

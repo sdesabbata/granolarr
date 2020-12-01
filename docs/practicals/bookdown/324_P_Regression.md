@@ -39,7 +39,7 @@ library(nycflights13)
 
 # November 20th, 2013
 flights_nov_20 <- nycflights13::flights %>%
-  filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
+  dplyr::filter(!is.na(dep_delay), !is.na(arr_delay), month == 11, day ==20) 
 ```
 
 
@@ -105,9 +105,9 @@ The output indicates:
 
 ```r
 flights_nov_20 %>%
-  ggplot(aes(x = dep_delay, y = arr_delay)) +
-  geom_point() + coord_fixed(ratio = 1) +
-  geom_abline(intercept = 4.0943, slope = 1.04229, color="red")
+  ggplot2::ggplot(aes(x = dep_delay, y = arr_delay)) +
+  ggplot2::geom_point() + ggplot2::coord_fixed(ratio = 1) +
+  ggplot2::geom_abline(intercept = 4.0943, slope = 1.04229, color="red")
 ```
 
 ![](324_P_Regression_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
@@ -122,8 +122,8 @@ The Shapiro-Wilk test can be used to check for the normality of standard residua
 
 ```r
 delay_model %>% 
-  rstandard() %>% 
-  shapiro.test()
+  stats::rstandard() %>% 
+  stats::shapiro.test()
 ```
 
 ```
@@ -147,7 +147,7 @@ The Breusch-Pagan test can be used to check for the homoscedasticity of standard
 library(lmtest)
 
 delay_model %>% 
-  bptest()
+  lmtest::bptest()
 ```
 
 ```
@@ -166,7 +166,7 @@ The Durbin-Watson test can be used to check for the independence of residuals. T
 ```r
 # Also part of the library lmtest
 delay_model %>%
-  dwtest()
+  lmtest::dwtest()
 ```
 
 ```
@@ -185,10 +185,31 @@ The [`plot.lm` function](https://www.rdocumentation.org/packages/stats/versions/
 
 ```r
 delay_model %>%
-  plot()
+  plot(which = c(1))
 ```
 
-![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-2.png)<!-- -->![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-3.png)<!-- -->![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-4.png)<!-- -->
+![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+
+```r
+delay_model %>%
+  plot(which = c(2))
+```
+
+![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-2.png)<!-- -->
+
+```r
+delay_model %>%
+  plot(which = c(3))
+```
+
+![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-3.png)<!-- -->
+
+```r
+delay_model %>%
+  plot(which = c(5))
+```
+
+![](324_P_Regression_files/figure-epub3/unnamed-chunk-10-4.png)<!-- -->
 </center>
 
 ### How to report
@@ -205,12 +226,10 @@ The [`stargazer` function of the `stargazer` library](https://www.rdocumentation
 library(stargazer)
 
 # Not rendered in bookdown
-stargazer(delay_model)
+stargazer(delay_model, header = FALSE)
 ```
 
 
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Nov 30, 2020 - 06:26:23 PM
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -249,72 +268,100 @@ The assumptions are the same as the simple regression, plus the assumption of **
 
 ### Example
 
-The example below explores whether a regression model can be created to estimate the number of people in Leicester commuting to work using public transport (`u120`) in Leicester, using the number of people in different occupations as predictors. 
+The example below explores whether a regression model can be created to estimate the number of people in Leicester commuting to work using private transport (`u121`) in Leicester, using the number of people in different industry sectors as predictors. 
 
-For instance, occupations such as skilled traders usually require to travel some distances with equipment, thus the related variable `u163` is not included in the model, whereas professional and administrative occupations might be more likely to use public transportation to commute to work. 
+For instance, occupations such as electricity, gas, steam and air conditioning supply (`u144`) require to travel some distances with equipment, thus the related variable `u144` is included in the model, whereas people working in information and communication might be more likely to work from home or commute by public transport. 
 
 A multiple regression model can be specified in a similar way as a simple regression model, using the same `lm` function, but adding the additional predictor variables using a `+` operator.
 
 
 ```r
-leicester_2011OAC <- read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
+leicester_2011OAC <- readr::read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
 ```
 
 
 
 
 ```r
-# u120: Method of Travel to Work, Public Transport
-# u159: Employment, Managers, directors and senior officials
-# u160: Employment, Professional occupations
-# u161: Employment, Associate professional and technical occupations
-# u162: Employment, Administrative and secretarial occupations
-# u163: Employment, Skilled trades occupations
-# u164: Employment, Caring, leisure and other service occupations
-# u165: Employment, Sales and customer service occupations
-# u166: Employment, Process, plant and machine operatives
-# u167: Employment, Elementary occupations
-public_transp_model <- leicester_2011OAC %$%
-  lm(u120 ~ u160 + u162 + u164 + u165 + u167) 
+# Select and 
+# normalise variables
+leicester_2011OAC_transp <-
+  leicester_2011OAC %>%
+  dplyr::select(
+    OA11CD, 
+    Total_Pop_No_NI_Students_16_to_74, Total_Employment_16_to_74, 
+    u121, u141:u158
+  ) %>%
+  # percentage method of travel
+  dplyr::mutate(
+    u121 = (u121 / Total_Pop_No_NI_Students_16_to_74) * 100
+  ) %>%
+  # percentage across industry sector columns
+  dplyr::mutate(
+    dplyr::across( 
+      u141:u158,
+      function(x){ (x / Total_Employment_16_to_74) * 100 }
+    )
+  ) %>%
+  # rename columns
+  dplyr::rename_with(
+    function(x){ paste0("perc_", x) },
+    c(u121, u141:u158)
+  )
 
-public_transp_model %>%
+# Selected variables
+
+# perc_u120: Method of Travel to Work, Private Transport
+# perc_u142: Industry Sector, Mining and quarrying
+# perc_u144: Industry Sector, Electricity, gas, steam and air conditioning ...
+# perc_u146: Industry Sector, Construction
+# perc_u149: Industry Sector, Accommodation and food service activities
+
+# Create model
+commuting_model1 <- 
+  leicester_2011OAC_transp %$%
+  lm(
+    perc_u121 ~ 
+      perc_u142 + perc_u144 + perc_u146 + perc_u149
+  )
+
+# Print summary
+commuting_model1 %>%
   summary()
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = u120 ~ u160 + u162 + u164 + u165 + u167)
+## lm(formula = perc_u121 ~ perc_u142 + perc_u144 + perc_u146 + 
+##     perc_u149)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -16.8606  -4.0247  -0.1084   3.7912  24.6359 
+##     Min      1Q  Median      3Q     Max 
+## -35.315  -6.598  -0.244   6.439  31.472 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)  3.19593    0.75048   4.258 2.26e-05 ***
-## u160         0.06912    0.01416   4.881 1.24e-06 ***
-## u162         0.17000    0.03328   5.108 3.93e-07 ***
-## u164         0.28641    0.03589   7.979 4.17e-15 ***
-## u165         0.21311    0.03107   6.858 1.25e-11 ***
-## u167         0.32008    0.02156  14.846  < 2e-16 ***
+## (Intercept) 37.12690    0.94148  39.434  < 2e-16 ***
+## perc_u142    3.74768    1.21255   3.091  0.00205 ** 
+## perc_u144    1.16865    0.25328   4.614 4.48e-06 ***
+## perc_u146    1.05408    0.09335  11.291  < 2e-16 ***
+## perc_u149   -1.56948    0.08435 -18.606  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 5.977 on 963 degrees of freedom
-## Multiple R-squared:  0.436,	Adjusted R-squared:  0.4331 
-## F-statistic: 148.9 on 5 and 963 DF,  p-value: < 2.2e-16
+## Residual standard error: 9.481 on 964 degrees of freedom
+## Multiple R-squared:  0.3846,	Adjusted R-squared:  0.3821 
+## F-statistic: 150.6 on 4 and 964 DF,  p-value: < 2.2e-16
 ```
 
 
 ```r
 # Not rendered in bookdown
-stargazer(public_transp_model)
+stargazer(commuting_model1, header=FALSE)
 ```
 
 
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Nov 30, 2020 - 06:26:23 PM
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
@@ -323,32 +370,29 @@ stargazer(public_transp_model)
 \hline \\[-1.8ex] 
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
-\\[-1.8ex] & u120 \\ 
+\\[-1.8ex] & perc\_u121 \\ 
 \hline \\[-1.8ex] 
- u160 & 0.069$^{***}$ \\ 
-  & (0.014) \\ 
+ perc\_u142 & 3.748$^{***}$ \\ 
+  & (1.213) \\ 
   & \\ 
- u162 & 0.170$^{***}$ \\ 
-  & (0.033) \\ 
+ perc\_u144 & 1.169$^{***}$ \\ 
+  & (0.253) \\ 
   & \\ 
- u164 & 0.286$^{***}$ \\ 
-  & (0.036) \\ 
+ perc\_u146 & 1.054$^{***}$ \\ 
+  & (0.093) \\ 
   & \\ 
- u165 & 0.213$^{***}$ \\ 
-  & (0.031) \\ 
+ perc\_u149 & $-$1.569$^{***}$ \\ 
+  & (0.084) \\ 
   & \\ 
- u167 & 0.320$^{***}$ \\ 
-  & (0.022) \\ 
-  & \\ 
- Constant & 3.196$^{***}$ \\ 
-  & (0.750) \\ 
+ Constant & 37.127$^{***}$ \\ 
+  & (0.941) \\ 
   & \\ 
 \hline \\[-1.8ex] 
 Observations & 969 \\ 
-R$^{2}$ & 0.436 \\ 
-Adjusted R$^{2}$ & 0.433 \\ 
-Residual Std. Error & 5.977 (df = 963) \\ 
-F Statistic & 148.884$^{***}$ (df = 5; 963) \\ 
+R$^{2}$ & 0.385 \\ 
+Adjusted R$^{2}$ & 0.382 \\ 
+Residual Std. Error & 9.481 (df = 964) \\ 
+F Statistic & 150.622$^{***}$ (df = 4; 964) \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
@@ -357,7 +401,7 @@ F Statistic & 148.884$^{***}$ (df = 5; 963) \\
 
 
 ```r
-public_transp_model %>%
+commuting_model1 %>%
   rstandard() %>% 
   shapiro.test()
 ```
@@ -367,12 +411,12 @@ public_transp_model %>%
 ## 	Shapiro-Wilk normality test
 ## 
 ## data:  .
-## W = 0.9969, p-value = 0.05628
+## W = 0.99889, p-value = 0.8307
 ```
 
 
 ```r
-public_transp_model %>% 
+commuting_model1 %>% 
   bptest()
 ```
 
@@ -381,12 +425,12 @@ public_transp_model %>%
 ## 	studentized Breusch-Pagan test
 ## 
 ## data:  .
-## BP = 45.986, df = 5, p-value = 9.142e-09
+## BP = 28.403, df = 4, p-value = 1.033e-05
 ```
 
 
 ```r
-public_transp_model %>%
+commuting_model1 %>%
   dwtest()
 ```
 
@@ -395,7 +439,7 @@ public_transp_model %>%
 ## 	Durbin-Watson test
 ## 
 ## data:  .
-## DW = 1.8463, p-value = 0.007967
+## DW = 1.835, p-value = 0.004908
 ## alternative hypothesis: true autocorrelation is greater than 0
 ```
 
@@ -403,20 +447,20 @@ public_transp_model %>%
 ```r
 library(car)
 
-public_transp_model %>%
+commuting_model1 %>%
   vif()
 ```
 
 ```
-##     u160     u162     u164     u165     u167 
-## 1.405480 1.486768 1.163760 1.353682 1.428418
+## perc_u142 perc_u144 perc_u146 perc_u149 
+##  1.006906  1.016578  1.037422  1.035663
 ```
 
-The output above suggests that the model is fit ($F(5, 963) = 148.88$, $p < .001$), indicating that a model based on the number of people working in the five selected occupations can account for 43.31% of the number of people using public transportation to commute to work. However the model is only partially robust. The residuals are normally distributed (Shapiro-Wilk test, $W =  1$, $p =0.06$) and there seems to be no multicollinearity with average VIF $1.37$, but the residuals don't satisfy the homoscedasticity assumption (Breusch-Pagan test, $BP = 45.99$, $p < .001$), nor the independence assumption (Durbin-Watson test, $DW = 1.85$, $p < .01$).
+The output above suggests that the model is fit ($F(4, 964) = 150.62$, $p < .001$), indicating that a model based on the presence of people working in the four selected industry sectors can account for 38.21% of the number of people using private transportation to commute to work. However the model is only partially robust. The residuals are normally distributed (Shapiro-Wilk test, $W =  1$, $p =0.83$) and there seems to be no multicollinearity with average VIF $1.02$, but the residuals don't satisfy the homoscedasticity assumption (Breusch-Pagan test, $BP = 28.4$, $p < .001$), nor the independence assumption (Durbin-Watson test, $DW = 1.84$, $p < .01$).
 
-The coefficient values calculated by the `lm` functions are important to create the model, and provide useful information. For instance, the coefficient for the variable `u165` is `0.21`, which indicates that if the number of people employed in sales and customer service occupations increases by one unit, the number of people using public transportation to commute to work increases by `0.21` units, according to the model. The coefficients also indicate that the number of people in elementary occupations has the biggest impact (in the context of the variables selected for the model) on the number of people using public transportation to commute to wor0, whereas the number of people in professional occupations has the lowest impact.
+The coefficient values calculated by the `lm` functions are important to create the model, and provide useful information. For instance, the coefficient for the variable `perc_u144` is `1.169`, which indicates that if the presence of people working in electricity, gas, steam and air conditioning supply increases by one percentage point, the number of people using private transportation to commute to work increases by `1.169` percentage points, according to the model. The coefficients also indicate that the presence of people working in accommodation and food service activities actually has a negative impact (in the context of the variables selected for the model) on the number of people using private transportation to commute to work.
 
-In this example, all variables use the same unit and are of a similar type, which makes interpretating the model relatively simple. When that is not the case, it can be useful to look at the standardized $\beta$, which provide the same information but measured in terms of standard deviation, which make comparisons between variables of different types easier to draw. For instance, the values calculated below using the function `lm.beta` of the library `QuantPsyc` indicate that if the number of people employed in sales and customer service occupations increases by one standard deviation, the number of people using public transportation to commute to work increases by `0.19` standard deviations, according to the model.
+In this example, all variables use the same unit and are of a similar type, which makes interpreting the model relatively simple. When that is not the case, it can be useful to look at the standardized $\beta$, which provide the same information but measured in terms of standard deviation, which make comparisons between variables of different types easier to draw. For instance, the values calculated below using the function `lm.beta` of the library `lm.beta` indicate that if the presence of people working in construction has the highest impact on the outcome varaible. If the presence of people working in construction increases by one standard deviation, the number of people using private transportation to commute to work increases by `0.29` standard deviations, according to the model.
 
 
 ```r
@@ -424,24 +468,26 @@ In this example, all variables use the same unit and are of a similar type, whic
 # install.packages("lm.beta")
 library(lm.beta)
 
-lm.beta(public_transp_model)
+lm.beta(commuting_model1)
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = u120 ~ u160 + u162 + u164 + u165 + u167)
+## lm(formula = perc_u121 ~ perc_u142 + perc_u144 + perc_u146 + 
+##     perc_u149)
 ## 
 ## Standardized Coefficients::
-## (Intercept)        u160        u162        u164        u165        u167 
-##   0.0000000   0.1400270   0.1507236   0.2083107   0.1931035   0.4293988
+## (Intercept)   perc_u142   perc_u144   perc_u146   perc_u149 
+##  0.00000000  0.07836017  0.11754058  0.29057993 -0.47841083
 ```
 
-## Exercise 9.1
+## Exercise 324.1
 
+**Question 324.1.1:** Create a model having as outcome variable the presence of people using private transport for commuting to work, and using a stepwise *"both"* approach, having all the variables created for the example above and related to the presence of people working in different industry sectors (`perc_u141 to perc_u158`) as scope.
 
-**Question 9.1.2:** Is the number of people using public transportation to commute to work statistically, linearly related to mean age (`u020`)?
+**Question 324.1.2:** Is the presence of people using public transportation to commute to work statistically, linearly related to mean age (`u020`)?
 
-**Question 9.1.3:** Is the number of people using public transportation to commute to work statistically, linearly related to (a subset of) the age structure categories (`u007` to `u019`)?
+**Question 324.1.3:** Is the presence of people using public transportation to commute to work statistically, linearly related to (a subset of) the age structure categories (`u007` to `u019`)?
 
 

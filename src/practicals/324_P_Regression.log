@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.29)  30 NOV 2020 18:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.29)  1 DEC 2020 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -484,14 +484,14 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 
 {/opt/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-late
-x/unnamed-chunk-4-1.pdf, id=65, 202.7575pt x 206.7725pt>
+x/unnamed-chunk-4-1.pdf, id=65, 271.0125pt x 279.0425pt>
 File: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure
 -latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-
 latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regr
 ession_files/figure-latex/unnamed-chunk-4-1.pdf  used on input line 190.
-(pdftex.def)             Requested size: 202.76318pt x 206.77829pt.
+(pdftex.def)             Requested size: 271.0201pt x 279.05032pt.
 [2 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-l
 atex/unnamed-chunk-4-1.pdf>]
 <images/Regression_output_annotated.png, id=77, 468.75125pt x 305.14pt>
@@ -501,94 +501,89 @@ Package pdftex.def Info: images/Regression_output_annotated.png  used on input
 line 243.
 (pdftex.def)             Requested size: 328.82457pt x 214.05283pt.
 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-late
-x/unnamed-chunk-6-1.pdf, id=79, 137.51375pt x 135.50626pt>
+x/unnamed-chunk-6-1.pdf, id=79, 271.0125pt x 279.0425pt>
 File: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure
 -latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-
 latex/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regr
 ession_files/figure-latex/unnamed-chunk-6-1.pdf  used on input line 286.
-(pdftex.def)             Requested size: 137.51761pt x 135.51004pt.
-[3 <./images/Regression_output_annotated.png> </home/rstudio/granolarr/docs/pra
-cticals/pdf/324_P_Regression_files/figure-latex/unnamed-chunk-6-1.pdf>]
+(pdftex.def)             Requested size: 271.0201pt x 279.05032pt.
+[3 <./images/Regression_output_annotated.png>]
 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-late
-x/unnamed-chunk-8-1.pdf, id=93, 279.0425pt x 134.5025pt>
+x/unnamed-chunk-8-1.pdf, id=85, 423.5825pt x 279.0425pt>
 File: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure
 -latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-
 latex/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regr
 ession_files/figure-latex/unnamed-chunk-8-1.pdf  used on input line 317.
-(pdftex.def)             Requested size: 279.04607pt x 134.5042pt.
+(pdftex.def)             Requested size: 423.59439pt x 279.05032pt.
 [4 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-l
-atex/unnamed-chunk-8-1.pdf>]
+atex/unnamed-chunk-6-1.pdf>] [5 </home/rstudio/granolarr/docs/practicals/pdf/32
+4_P_Regression_files/figure-latex/unnamed-chunk-8-1.pdf>]
 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-late
-x/unnamed-chunk-11-1.pdf, id=112, 187.70125pt x 173.64874pt>
+x/unnamed-chunk-11-1.pdf, id=117, 400.49625pt x 173.64874pt>
 File: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure
 -latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 <use /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-
 latex/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regr
 ession_files/figure-latex/unnamed-chunk-11-1.pdf  used on input line 389.
-(pdftex.def)             Requested size: 187.70651pt x 173.65361pt.
+(pdftex.def)             Requested size: 400.50748pt x 173.65361pt.
 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-late
-x/unnamed-chunk-11-2.pdf, id=113, 194.7275pt x 176.66pt>
+x/unnamed-chunk-11-2.pdf, id=118, 404.51125pt x 176.66pt>
 File: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure
 -latex/unnamed-chunk-11-2.pdf Graphic file (type pdf)
 <use /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-
 latex/unnamed-chunk-11-2.pdf>
 Package pdftex.def Info: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regr
-ession_files/figure-latex/unnamed-chunk-11-2.pdf  used on input line 390.
-(pdftex.def)             Requested size: 194.72997pt x 176.66225pt.
+ession_files/figure-latex/unnamed-chunk-11-2.pdf  used on input line 398.
+(pdftex.def)             Requested size: 404.51642pt x 176.66225pt.
 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-late
-x/unnamed-chunk-11-3.pdf, id=114, 191.71625pt x 181.67876pt>
+x/unnamed-chunk-11-3.pdf, id=119, 404.51125pt x 181.67876pt>
 File: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure
 -latex/unnamed-chunk-11-3.pdf Graphic file (type pdf)
 <use /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-
 latex/unnamed-chunk-11-3.pdf>
 Package pdftex.def Info: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regr
-ession_files/figure-latex/unnamed-chunk-11-3.pdf  used on input line 391.
-(pdftex.def)             Requested size: 191.72162pt x 181.68384pt.
+ession_files/figure-latex/unnamed-chunk-11-3.pdf  used on input line 407.
+(pdftex.def)             Requested size: 404.51642pt x 181.68106pt.
+[6 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-l
+atex/unnamed-chunk-11-1.pdf> </home/rstudio/granolarr/docs/practicals/pdf/324_P
+_Regression_files/figure-latex/unnamed-chunk-11-2.pdf>]
 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-late
-x/unnamed-chunk-11-4.pdf, id=115, 202.7575pt x 176.66pt>
+x/unnamed-chunk-11-4.pdf, id=139, 419.5675pt x 176.66pt>
 File: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure
 -latex/unnamed-chunk-11-4.pdf Graphic file (type pdf)
 <use /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-
 latex/unnamed-chunk-11-4.pdf>
 Package pdftex.def Info: /home/rstudio/granolarr/docs/practicals/pdf/324_P_Regr
-ession_files/figure-latex/unnamed-chunk-11-4.pdf  used on input line 392.
-(pdftex.def)             Requested size: 202.76009pt x 176.66225pt.
-
-Overfull \hbox (108.8475pt too wide) in paragraph at lines 389--393
-[][] [] []
- []
-
-[5 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-l
-atex/unnamed-chunk-11-1.pdf> </home/rstudio/granolarr/docs/practicals/pdf/324_P
-_Regression_files/figure-latex/unnamed-chunk-11-2.pdf> </home/rstudio/granolarr
-/docs/practicals/pdf/324_P_Regression_files/figure-latex/unnamed-chunk-11-3.pdf
-> </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-la
-tex/unnamed-chunk-11-4.pdf>] [6] [7] [8] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 726.
-[10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 726.
+ession_files/figure-latex/unnamed-chunk-11-4.pdf  used on input line 416.
+(pdftex.def)             Requested size: 419.56647pt x 176.65956pt.
+[7 </home/rstudio/granolarr/docs/practicals/pdf/324_P_Regression_files/figure-l
+atex/unnamed-chunk-11-3.pdf> </home/rstudio/granolarr/docs/practicals/pdf/324_P
+_Regression_files/figure-latex/unnamed-chunk-11-4.pdf>] [8] [9] [10] [11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 777.
+[12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 777.
 (./324_P_Regression.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 726.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 726.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 777.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 777.
 Package rerunfilecheck Info: File `324_P_Regression.out' has not changed.
-(rerunfilecheck)             Checksum: CC8889D68D9832299FDF262C4085C612;1017.
+(rerunfilecheck)             Checksum: CF5442AC502833C885C772F975F2CDAD;1027.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11766 strings out of 482854
- 169313 string characters out of 5956822
- 441505 words of memory out of 5000000
+ 11768 strings out of 482854
+ 169331 string characters out of 5956822
+ 440508 words of memory out of 5000000
  26855 multiletter control sequences out of 15000+600000
  591930 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 43i,10n,37p,859b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,10n,37p,859b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/t
 exlive/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/texmf-dist/f
 onts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/texmf-dist/fonts/enc/dvips/lm/
@@ -606,10 +601,10 @@ e/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/texmf-dist/fo
 nts/type1/public/lm/lmsy7.pfb></usr/local/texlive/texmf-dist/fonts/type1/public
 /lm/lmtk10.pfb></usr/local/texlive/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
 </usr/local/texlive/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on 324_P_Regression.pdf (10 pages, 622839 bytes).
+Output written on 324_P_Regression.pdf (12 pages, 630333 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 197 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
+ 258 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
+ 39 named destinations out of 1000 (max. 500000)
  105 words of extra memory for PDF output out of 10000 (max. 10000000)
 
