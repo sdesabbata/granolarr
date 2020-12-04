@@ -12,7 +12,6 @@ rm(list = ls())
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(magrittr)
 library(knitr)
 ```
 
@@ -63,6 +62,9 @@ The code below generates the model using the function `lm`, and the function `su
 # Classic R coding version
 # delay_model <- lm(arr_delay ~ dep_delay, data = flights_nov_20)
 # delay_model_summary <- summary(delay_model)
+
+# Load magrittr library to use %$%
+library(magrittr)
 
 delay_model <- flights_nov_20 %$%
   lm(arr_delay ~ dep_delay) 

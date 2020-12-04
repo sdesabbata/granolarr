@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  1 DEC 2020 13:08
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  3 DEC 2020 18:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1097,12 +1097,12 @@ ype pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[96]
-Underfull \vbox (badness 1776) has occurred while \output is active []
-
-[97]
+[96] [97]
 File: images/Regression_output_annotated.png Graphic file (type bmp)
 <images/Regression_output_annotated.png>
+
+Underfull \vbox (badness 2088) has occurred while \output is active []
+
 [98]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (t
 ype pdf)
@@ -1115,13 +1115,10 @@ ype pdf)
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-10-1.pdf>
+[101]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-10-2.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-10-2.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[101]
 File: 324_P_Regression_files/figure-latex/unnamed-chunk-10-3.pdf Graphic file (
 type pdf)
 <use 324_P_Regression_files/figure-latex/unnamed-chunk-10-3.pdf>
@@ -1134,20 +1131,20 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [102] [103] [104]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[105] [106] [107] [108]
-Chapter 9.
-[109
+[105] [106] [107] [108] [109] [110
 
-] [110
+]
+Chapter 9.
+[111] [112
 
 ]
 Chapter 10.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4713.
-[111]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4713.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4737.
+[113]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4737.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4713.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4713.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4737.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4737.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 352EC5388831DA8EC9E44346880C8843;7701.
@@ -1162,6 +1159,6 @@ Here is how much of TeX's memory you used:
  34176 multiletter control sequences out of 15000+600000
  541579 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 53i,10n,118p,1090b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,10n,118p,1090b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (111 pages).
+Output written on _main.pdf (113 pages).

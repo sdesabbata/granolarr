@@ -55,6 +55,28 @@ The code below generates the model using the function `lm`, and the function `su
 # delay_model <- lm(arr_delay ~ dep_delay, data = flights_nov_20)
 # delay_model_summary <- summary(delay_model)
 
+# Load magrittr library to use %$%
+library(magrittr)
+```
+
+```
+## 
+## Attaching package: 'magrittr'
+```
+
+```
+## The following object is masked from 'package:purrr':
+## 
+##     set_names
+```
+
+```
+## The following object is masked from 'package:tidyr':
+## 
+##     extract
+```
+
+```r
 delay_model <- flights_nov_20 %$%
   lm(arr_delay ~ dep_delay) 
 

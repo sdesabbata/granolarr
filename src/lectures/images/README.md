@@ -23,6 +23,8 @@
    - `MnistExamples_2.png` derived from work by Josef Steppan, via [Wikimedia Commons](https://commons.wikimedia.org)
    - [`Overfitting.svg.png`](https://commons.wikimedia.org/wiki/File:Overfitting.svg) by Chabacano, via [Wikimedia Commons](https://commons.wikimedia.org)
    - [`Typical_cnn.png`](https://commons.wikimedia.org/wiki/File:Typical_cnn.png) by Aphex34, via [Wikimedia Commons](https://commons.wikimedia.org)
+- [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
+   - [Reinforcement learning diagram.svg.png](https://en.wikipedia.org/wiki/File:Reinforcement_learning_diagram.svg) by Megajuice, via [Wikimedia Commons](https://commons.wikimedia.org)
 
 ### Other open licenses
 
