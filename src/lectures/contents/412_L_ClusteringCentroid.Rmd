@@ -14,15 +14,24 @@ rm(list = ls())
 
 **Prev**: Principal Component Analysis
 
-- 
-- 
-- 
+- Principal Components
+- Interpretation 
 
 **Now**: Centroid-based clustering
 
 - K-means
 - Fuzzy c-means
 - Geodemographic classification
+
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,}
+library(tidyverse)
+library(magrittr)  
+library(palmerpenguins)
+library(lmtest)
+```
+
 
 
 ## Clustering task
@@ -44,64 +53,99 @@ Methods:
 
 ## Example
 
+Can we automatically identify the two groups visible in the scatterplot, without any previous knowledge of the groups?
+
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
-data_to_cluster <- data.frame(
-  x_values = c(rnorm(40, 5, 1), rnorm(60, 10, 1), rnorm(20, 12, 3)),
-  y_values = c(rnorm(40, 5, 1), rnorm(60, 5, 3), rnorm(20, 15, 1)),
-  original_group = c(rep("A", 40), rep("B", 60), rep("C", 20)) )
+# Prepared data
+penguins_to_cluster <-
+  palmerpenguins::penguins %>%
+  dplyr::filter(
+    species %in%
+      c("Adelie", "Gentoo")
+  ) %>%
+  dplyr::filter(
+    !is.na(body_mass_g) | 
+      !is.na(bill_depth_mm)
+  )
 ```
 
-<center>
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
-library(tidyverse)
-library(knitr)
+:::
 
-data_to_cluster %>%
-  ggplot(aes(x = x_values, y = y_values, colour = original_group)) +
-  geom_point() +
-  theme(legend.position = "bottom") +
-  scale_color_manual(values = c("#e41a1c", "#377eb8", "#4daf4a")) +
-  coord_fixed(ratio = 1)
+::: {.col data-latex="{0.5\textwidth}"}
+
+
+<center>
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 5, fig.height = 5}
+penguins_to_cluster %>%
+  ggplot2::ggplot(aes(x = body_mass_g, y = bill_depth_mm)) +
+  ggplot2::geom_point(aes(color = species,
+                 shape = species),
+             size = 2) +
+  ggplot2::scale_color_manual(values = c("darkorange", "cyan4")) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "bottom")
 ```
 </center>
 
-## k-means
+:::
+::::::
 
-k-mean clusters `n` observations in `k` clusters, minimising the within-cluster sum of squares (WCSS)
 
-<font size="4">	
+## k-means algorithm
+
+k-mean clusters $n$ observations ($x$) in $k$ clusters ($c$), minimising the within-cluster sum of squares (WCSS)
+
+$$WCSS = \sum_{c=1}^{k} \sum_{x \in c} (x - \overline{x}_c)^2$$
+
 **Algorithm**: `k` observations a randomly selected as initial centroids, then repeat
 
-- **assignment step**: observations are assigned to the closest centroids
-- **update step**: calculate means for each cluster to use as new the centroid
+- **assignment step**: observations assigned to closest centroids
+- **update step**: calculate means for each cluster, as new centroid
 
 until centroids don't change anymore, the algorithm has **converged**
-</font>
+
+
+
+## stats::kmeans
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
-kmeans_found_clusters <- data_to_cluster %>%
-  dplyr::select(x_values, y_values) %>%
-  kmeans(centers=3, iter.max=50)
+# Execute k-means
+bm_bd_clusters <- 
+  penguins_to_cluster %>%
+  dplyr::select(body_mass_g, bill_depth_mm) %>%
+  stats::kmeans(
+    centers = 2,  # number of clusters (k)
+    iter.max = 50 # max number of iterations
+  )
 
-data_to_cluster <- data_to_cluster %>%
-  add_column(kmeans_cluster = kmeans_found_clusters$cluster)
+# Add clusters to table
+penguins_clustered_bm_bd <- 
+  penguins_to_cluster %>%
+  tibble::add_column(
+    bm_bd_cluster = bm_bd_clusters %$% cluster
+  )
 ```
 
-## K-means result
+## k-means result
 
 :::::: {.cols data-latex=""}
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
-data_to_cluster %>%
-  ggplot(aes(
-    x = x_values, y = y_values, 
-    colour = original_group)) +
-  geom_point() +
-  theme(legend.position = "bottom") +
-  scale_color_manual(values = c("#e41a1c", "#377eb8", "#4daf4a")) +
-  coord_fixed(ratio = 1)
+penguins_clustered_bm_bd %>%
+  ggplot2::ggplot(aes(x = body_mass_g, y = bill_depth_mm)) +
+  ggplot2::geom_point(aes(color = species,
+                 shape = species),
+             size = 2) +
+  ggplot2::scale_color_manual(values = c("darkorange", "cyan4")) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -109,22 +153,155 @@ data_to_cluster %>%
 ::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
-data_to_cluster %>%
-  ggplot(aes(
-    x = x_values, y = y_values, 
-    colour = factor(kmeans_cluster))) +
-  geom_point() +
-  theme(legend.position = "bottom") +
-  scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
-  coord_fixed(ratio = 1)
+penguins_clustered_bm_bd %>%
+  ggplot2::ggplot(aes(
+    x = body_mass_g, y = bill_depth_mm, 
+    colour = factor(bm_bd_cluster))) +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_manual(values = c("#e41a1c", "#377eb8")) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
 ::::::
 
+## stats::kmeans
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+# First, normalise values
+penguins_norm <-
+  penguins_to_cluster %>%
+  dplyr::mutate(
+  	body_mass_norm = scale(body_mass_g),
+  	bill_depth_norm = scale(bill_depth_mm)
+  )
+
+bm_bd_norm_clusters <- 
+  penguins_norm %>%
+  dplyr::select(body_mass_norm, bill_depth_norm) %>%
+  stats::kmeans(centers = 2, iter.max = 50)
+
+penguins_clustered_bm_bd_norm <- penguins_norm %>%
+  tibble::add_column(
+    bm_bd_cluster = bm_bd_norm_clusters %$% cluster
+  )
+```
+
+## k-means result
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
+penguins_clustered_bm_bd_norm %>%
+  ggplot2::ggplot(aes(x = body_mass_norm, y = bill_depth_norm)) +
+  ggplot2::geom_point(aes(color = species,
+                 shape = species),
+             size = 2) +
+  ggplot2::scale_color_manual(values = c("darkorange", "cyan4")) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "bottom")
+```
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
+penguins_clustered_bm_bd_norm %>%
+  ggplot2::ggplot(aes(
+    x = body_mass_norm, y = bill_depth_norm, 
+    colour = factor(bm_bd_cluster))) +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_manual(values = c("#e41a1c", "#377eb8")) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "bottom")
+```
+
+:::
+::::::
+
+
+## Limitations
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+K-means requires to select a fixed number of clusters **in advance**
+
+**Elbow method**:
+
+- calculate clusters for a range of number of clusters
+- select the minimum number of clusters that minimises WCSS
+- before increasing number of clusters leads minimal benefit
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+<center>
+
+```{r, include=FALSE}
+data_to_cluster <- data.frame(
+  x_values = c(rnorm(40, 5, 1), rnorm(60, 10, 1), rnorm(20, 12, 3)),
+  y_values = c(rnorm(40, 5, 1), rnorm(60, 5, 3), rnorm(20, 15, 1))
+  )
+
+# Number of samples per k
+bootstrap_n <- 1000
+
+# k values to be taken into account
+within_sum_squares <- rep(0,15)
+
+# Value for k = 1 (only one cluster)
+within_sum_squares[1] <- (nrow(data_to_cluster)-1)*sum(apply(data_to_cluster,2,var))
+
+for (i in 2:15){
+  print(i)
+  # Bootstrapping
+  # calculated k-means the number of time specified by bootstrap_n
+  within_sum_squares_bootstrap <- c()
+  for (x in 1:bootstrap_n){
+    # create the vector containing WCSS per each time k-means is calculated
+    within_sum_squares_bootstrap <- c(
+      within_sum_squares_bootstrap,
+      # Sum within-cluster sum of squares
+      # from each cluster
+      sum(
+        kmeans(
+          data_to_cluster, 
+          centers=i, iter.max=50
+        )$withinss #within-cluster sum of squares
+      )
+    )
+  }
+  # take the minimum 
+  within_sum_squares[i] <- min(within_sum_squares_bootstrap)
+}
+```
+
+```{r, echo=FALSE, fig.height=5, fig.width=5}
+# Plot
+plot(1:15, within_sum_squares[1:15], type="b", xlab="Number of clusters (k)", ylab="Within cluster sum of squares (WCSS)", xlim=c(1,15))
+abline(v=3, col="red")
+```
+
+<font size="4">	
+Example for random data<br/>
+generated to be in 3 clusters
+</font>
+</center>
+
+:::
+::::::
+
+
 ## Fuzzy c-means
 
-Fuzzy c-means is similar to k-means but allows for *"fuzzy*" membership to clusters
+Similar to k-means but allows for *"fuzzy*" membership to clusters
 
 Each observation is assigned with a value per each cluster
 
@@ -135,12 +312,12 @@ Each observation is assigned with a value per each cluster
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 library(e1071)
 
-cmeans_result <- data_to_cluster %>%
-  dplyr::select(x_values, y_values) %>%
-  cmeans(centers=3, iter.max=50)
+bm_bd_norm_fclusters <- penguins_norm %>%
+  dplyr::select(body_mass_norm, bill_depth_norm) %>%
+  e1071::cmeans(centers = 2, iter.max = 50)
 
-data_to_cluster <- data_to_cluster %>%
-  add_column(c_means_assigned_cluster = cmeans_result$cluster)
+penguins_clustered_bm_bd_fuzzy <- penguins_norm %>%
+  tibble::add_column(bm_bd_fuzzy_cluster = bm_bd_norm_fclusters %$% cluster)
 ```
 
 ## Fuzzy c-means
@@ -151,15 +328,16 @@ A *"crisp"* classification can be created by picking the highest membership valu
 - leaving some observations without a cluster
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
-data_to_cluster <- data_to_cluster %>%
-  add_column(
-    c_means_membership = apply(cmeans_result$membership, 1, max)
+penguins_clustered_bm_bd_fuzzy <- 
+  penguins_clustered_bm_bd_fuzzy %>%
+  tibble::add_column(
+    bm_bd_fuzzy_cluster_membership = 
+      apply(bm_bd_norm_fclusters %$% membership, 1, max)
   ) %>%
-  mutate(
-    c_means_cluster = ifelse(
-      c_means_membership > 0.75, 
-      c_means_assigned_cluster, 
-      0
+  dplyr::mutate(
+    bm_bd_crisp_cluster = ifelse(
+      bm_bd_fuzzy_cluster_membership < 0.75, 
+      0, bm_bd_fuzzy_cluster
     )
   )
 ```
@@ -171,14 +349,14 @@ data_to_cluster <- data_to_cluster %>%
 ::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
-data_to_cluster %>%
-  ggplot(aes(
-    x = x_values, y = y_values, 
-    colour = original_group)) +
-  geom_point() +
-  theme(legend.position = "bottom") +
-  scale_color_manual(values = c("#e41a1c", "#377eb8", "#4daf4a")) +
-  coord_fixed(ratio = 1)
+penguins_clustered_bm_bd_fuzzy %>%
+  ggplot2::ggplot(aes(x = body_mass_norm, y = bill_depth_norm)) +
+  ggplot2::geom_point(aes(color = species,
+                 shape = species),
+             size = 2) +
+  ggplot2::scale_color_manual(values = c("darkorange", "cyan4")) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -186,14 +364,22 @@ data_to_cluster %>%
 ::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
-data_to_cluster %>%
-  ggplot(aes(
-    x = x_values, y = y_values, 
-    colour = factor(c_means_cluster))) +
-  geom_point() +
-  theme(legend.position = "bottom") +
-  scale_color_manual(values = c("#666666", "#1b9e77", "#d95f02", "#7570b3")) +
-  coord_fixed(ratio = 1)
+# data_to_cluster %>%
+#   ggplot(aes(
+#     x = x_values, y = y_values, 
+#     colour = factor(c_means_cluster))) +
+#   geom_point() +
+#   theme(legend.position = "bottom") +
+#   scale_color_manual(values = c("#666666", "#1b9e77", "#d95f02", "#7570b3")) +
+#   coord_fixed(ratio = 1)
+penguins_clustered_bm_bd_fuzzy %>%
+  ggplot2::ggplot(aes(
+    x = body_mass_norm, y = bill_depth_norm, 
+    colour = factor(bm_bd_crisp_cluster))) +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_manual(values = c("#984ea3", "#fbb4ae", "#b3cde3")) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -202,9 +388,9 @@ data_to_cluster %>%
 
 ## Geodemographic classifications
 
-In GIScience, the clustering is commonly used to create *geodemographic classifications* such as the 2011 Output Area Classification (Gale *et al.*, 2016)
+In GIScience, clustering is used to create *geodemographic classifications* such as the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) from the  UK Census 2011 ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)) 
 
-- initial set of 167 prospective variables from the United Kingdom Census 2011
+- initial set of 167 prospective variables 
     - 86 were removed, 
     - 41 were retained as they are
     - 40 were combined
@@ -212,7 +398,7 @@ In GIScience, the clustering is commonly used to create *geodemographic classifi
 - k-means clustering approach to create 
     - 8 supergroups
     - 26 groups
-    - 76 subgroups. 
+    - 76 subgroups
 
 
 

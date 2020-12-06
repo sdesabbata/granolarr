@@ -21,13 +21,6 @@
 - Density-based
 
 
-## Libraries
-
-
-```r
-library(tidyverse)
-```
-
 ```
 ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
 ```
@@ -45,60 +38,116 @@ library(tidyverse)
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
 
-```r
-library(e1071)
-library(dbscan)
+```
+## 
+## Attaching package: 'magrittr'
+```
+
+```
+## The following object is masked from 'package:purrr':
+## 
+##     set_names
+```
+
+```
+## The following object is masked from 'package:tidyr':
+## 
+##     extract
 ```
 
 
 ## Example
 
+Can we automatically identify the two groups visible in the scatterplot, without any previous knowledge of the groups?
+
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
 
 ```r
-data_to_cluster <- data.frame(
-  x_values = c(rnorm(40, 5, 1), rnorm(60, 10, 1), rnorm(20, 12, 3)),
-  y_values = c(rnorm(40, 5, 1), rnorm(60, 5, 3), rnorm(20, 15, 1)),
-  original_group = c(rep("A", 40), rep("B", 60), rep("C", 20)) )
+# First, normalise values
+penguins_norm <-
+  palmerpenguins::penguins %>%
+  dplyr::filter(
+    !is.na(body_mass_g) | 
+      !is.na(bill_depth_mm)
+  ) %>%
+  dplyr::mutate(
+  	body_mass_norm = 
+  	  scale(body_mass_g),
+  	bill_depth_norm = 
+  	  scale(bill_depth_mm)
+  )
 ```
 
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+
+:::
+::::::
 
 
 ## Hierarchical clustering
 
-<font size="4">	
-**Algorithm**: each object is initialised as, then repeat
+Bottom-up approach
 
-- join the two most similar clusters based on a distance-based metric
-- e.g., Ward's (1963) approach is based on variance
+- rather than splitting objects into clusters
+- aggregate from single objects upwards
 
-until only one single cluster is achieved
-</font>
+**Algorithm**: 
+
+- each object is initialised as it's own cluster
+- then repeat
+  - join the two most similar clusters 
+    - based on a distance-based metric
+    - e.g., Ward's (1963) approach is based on variance
+  - until only one single cluster is achieved
+
+**Limitation**: computationally expensive
 
 
-```r
-hclust_result <- data_to_cluster %>%
-  dplyr::select(x_values, y_values) %>%
-  dist(method="euclidean") %>%
-  hclust(method="ward.D2")
-
-data_to_cluster <- data_to_cluster %>%
-  add_column(hclust_cluster = cutree(hclust_result, k=3))
-```
-
-## Clustering tree
-
-This approach generates a clustering tree (dendrogram), which can then be *"cut"* at the desired height
+## stats::hclust
 
 
 ```r
-plot(hclust_result) + abline(h = 30, col = "red")
+penguins_hclust_result <- 
+  penguins_norm %>%
+  dplyr::select(
+    body_mass_norm, 
+    bill_depth_norm
+  ) %>%
+  # Calculate distance matrix
+  stats::dist(method="euclidean") %>%
+  # Cluster data
+  stats::hclust(method="ward.D2")
+
+penguins_bm_bd_hclust <- penguins_norm %>%
+  add_column(
+    bm_bd_hclust = cutree(
+      penguins_hclust_result, 
+      k = 2
+    )
+  )
 ```
 
-![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
+
+
+## clustering tree
+
+Generates a clustering tree (dendrogram), which can then be *"cut"* at the desired height
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
 
 ```
 ## integer(0)
 ```
+
+
 
 ## Hierarchical clustering result
 
@@ -106,13 +155,13 @@ plot(hclust_result) + abline(h = 30, col = "red")
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
 
 :::
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
 
 :::
 ::::::
@@ -120,19 +169,42 @@ plot(hclust_result) + abline(h = 30, col = "red")
 
 ## Bagged clustering
 
-Bootstrap aggregating (*b-agg-ed*) clustering approach (Leisch, 1999)
+Bootstrap aggregating (*b-agg-ed*) clustering approach
 
-- first k-means on samples
-- then a hierarchical clustering of the centroids generated through the samples
+- first, k-means
+  - randomly select a sample
+  - calculate K-means
+  - repeat on *many* samples
+- then, hierarchical 
+  - execute hierarchical clustering on the centroids of the clusters generated in the previous step
+- finally
+  - select required number of clusters
+  - assign object to closest centroid
+  
+<font size="4">	
+Leisch, F., 1999. Bagged clustering.
+</font>
+
+## e1071::bclust
 
 
 ```r
-bclust_result <- data_to_cluster %>%
-  dplyr::select(x_values, y_values) %>%
-  bclust(hclust.method="ward.D2", resample = TRUE)
+penguins_bclust_result <- 
+  penguins_norm %>%
+  dplyr::select(body_mass_norm, bill_depth_norm) %>%
+  e1071::bclust(
+    hclust.method = "ward.D2", 
+    resample = TRUE
+  )
 
-data_to_cluster <- data_to_cluster %>%
-  add_column(bclust_cluster = clusters.bclust(bclust_result, 3))
+penguins_bm_bd_bclust <- 
+  penguins_norm %>%
+  add_column(
+    bm_bd_bclust = clusters.bclust(
+      penguins_bclust_result, 
+      2
+    )
+  )
 ```
 
 ## Bagged clustering result
@@ -141,13 +213,13 @@ data_to_cluster <- data_to_cluster %>%
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
 
 :::
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
 
 :::
 ::::::
@@ -156,31 +228,129 @@ data_to_cluster <- data_to_cluster %>%
 
 ## Density based clustering
 
-DBSCAN (*"density-based spatial clustering of applications with noise"*) starts from an unclustered point and proceeds by aggregating its neighbours to the same cluster, as long as they are within a certain distance. (Ester *et al*, 1996)
+Density-based spatial clustering of applications with noise (DBSCAN)
+
+- start from a random unclustered point
+  - proceed by aggregating its neighbours to the same cluster
+    - as long as they are within a certain distance `eps`
+- once no more objects can be added
+  - select another random point
+  - and start aggregating again to a new cluster
+
+**Limitation**: selection of `eps`
+
+<font size="4">	
+Ester, M., Kriegel, H.P., Sander, J. and Xu, X., 1996, August. Density-based spatial clustering of applications with noise. In Int. Conf. Knowledge Discovery and Data Mining (Vol. 240, p. 6).
+</font>
+  
+## dbscan::dbscan
 
 
 ```r
-dbscan_result <- data_to_cluster %>%
-  dplyr::select(x_values, y_values) %>%
-   dbscan(eps = 1, minPts = 5)
+penguins_dbscan_result <- 
+  penguins_norm %>%
+  dplyr::select(body_mass_norm, bill_depth_norm) %>%
+  dbscan::dbscan(
+    eps = 1, 
+    minPts = 5
+  )
 
-data_to_cluster <- data_to_cluster %>%
-  add_column(dbscan_cluster = dbscan_result$cluster)
+penguins_bm_bd_dbscan <- 
+  penguins_norm %>%
+  add_column(
+    bm_bd_dbscan = 
+      penguins_dbscan_result %$% 
+      cluster
+  )
 ```
 
+
+
 ## DBSCAN result
+
+Using: `dbscan(eps = 1, minPts = 5)`
 
 :::::: {.cols data-latex=""}
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
 
 :::
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+
+:::
+::::::
+
+
+## DBSCAN result
+
+Using: `dbscan(eps = 0.5, minPts = 5)`
+
+
+
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
+
+:::
+::::::
+
+
+## DBSCAN result
+
+Using: `dbscan(eps = 0.1, minPts = 5)`
+
+
+
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
+
+:::
+::::::
+
+
+## Not alwasy that easy...
+
+
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-21-1.png)<!-- -->
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-22-1.png)<!-- -->
+
+:::
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-23-1.png)<!-- -->
+
+![](413_L_ClusteringHierarchicalDensity_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
 
 :::
 ::::::

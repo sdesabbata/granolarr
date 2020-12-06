@@ -162,19 +162,23 @@ Semi-supervised learning
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-Based on the idea of training agents 
+Based on the idea of training agents to learn how to
 
-- taking actions to maximize reward
-- balancing
+- take actions
+  - which affect 
+    - agent state
+    - environment
+  - to maximize reward
+  - balancing
     - exploration (new paths/options)
     - exploitation (of current knowledge)
 
 :::
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 70%; text-align: right;" data-latex="{0.5\textwidth}"}
 
 <center>
-![](images/Reinforcement_learning_diagram.svg.png){width=90%}
+![](images/Reinforcement_learning_diagram.svg.png)
 
 
 <br/>
@@ -189,31 +193,6 @@ CC0 1.0
 ::::::
 
 
-## Limits
-
-:::::: {.cols data-latex=""}
-
-::: {.col data-latex="{0.5\textwidth}"}
-
-- Overfitting
-    - creating a model perfect for the training data, but not generic enough to be useful
-
-:::
-
-::: {.col data-latex="{0.5\textwidth}"}
-
-<center>
-![](images/Overfitting.svg.png){width=100%}
-
-<br/>
-<font size="4">	
-by Chabacano<br/>ia Wikimedia Commons,<br/>CC-BY-SA-4.0
-</font>
-</center>
-
-:::
-::::::
-
 
 
 ## Limits
@@ -227,13 +206,54 @@ by Chabacano<br/>ia Wikimedia Commons,<br/>CC-BY-SA-4.0
 - Black-boxes
     - recent developments in explainable artificial intelligence
     
-# Limits
 
-Algorithmic bias
 
-- Training dataset quality
-    - garbage in, garbage out
-    - e.g., [Facial Recognition Is Accurate, if You’re a White Guy](https://www.nytimes.com/2018/02/09/technology/facial-recognition-race-artificial-intelligence.html) by Steve Lohr (New York Times, Feb. 9, 2018)
+## Overfitting
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.5\textwidth}"}
+
+- creating a model 
+  - perfect for the training data
+  - but not generic enough
+  - to be useful for prediction
+- An issue for machine learning
+  - e.g., regression
+    - n predictors can generate a line fitting the data exactly n cases
+  - Occam's razor
+  - one in ten rule
+    - 10 cases per predictor 
+
+
+:::
+
+::: {.col style="width: 70%; text-align: right;" data-latex="{0.5\textwidth}"}
+
+<center>
+![](images/Overfitted_Data.png)
+
+<br/>
+<font size="4">	
+by Ghiles<br/>ia Wikimedia Commons,<br/>CC-BY-SA-4.0
+</font>
+</center>
+
+:::
+::::::
+
+    
+## Algorithmic bias
+
+Assumptions and training dataset quality still matter!
+
+- garbage in, garbage out
+
+Joy Buolamwini and Timnit Gebru's work on facial recognition 
+
+- black women were 35% less likely to be recognised than white men.
+- Buolamwini, J. and Gebru, T., 2018. [Gender shades: Intersectional accuracy disparities in commercial gender classification](http://proceedings.mlr.press/v81/buolamwini18a.html?mod=article_inline). In Conference on fairness, accountability and transparency (pp. 77-91).
+- see also, [Facial Recognition Is Accurate, if You’re a White Guy](https://www.nytimes.com/2018/02/09/technology/facial-recognition-race-artificial-intelligence.html) by Steve Lohr (New York Times, Feb. 9, 2018)
 
 
 
@@ -245,11 +265,11 @@ Machine Learning
 - Types
 - Limitations
 
-**Next**: Centroid-based clustering
+**Next**:  Artificial Neural Networks
 
-- K-means
-- Fuzzy c-means
-- Geodemographic classification
+- Logistic regression
+- Artificial neural networks
+- Deep learning
 
 ```{r cleanup, include=FALSE}
 rm(list = ls())

@@ -8,7 +8,7 @@
 
 ## Recap
 
-**Prev**: Comparing data
+**Prev**: Regression models
 
 - 321 Lecture Simple regression
 - 322 Lecture Assessing regression assumptions
@@ -57,7 +57,7 @@ Machine learning approaches are divided into two main types
 
 - **Supervised**
     - training of a *"predictive"* model from data
-    - one attribute of the dataset is used to "predict" another attribute
+    - one (or more) attribute of the dataset is used to "predict" another attribute
     - e.g., classification
 
 - **Unsupervised**
@@ -136,48 +136,52 @@ CC-BY-SA-3.0
 ::::::
 
 
-## ... more
+## Semi-supervised learning
 
-- **Semi-supervised learning**
-    - between unsupervised and supervised learning
-    - combines a small amount of labelled data with a larger un-labelled dataset
-    - continuity, cluster, and manifold (lower dimensionality) assumption
+Supervised learning requires *"labelled data"*
 
-- **Reinforcement learning**
-    - training agents take actions to maximize reward
-    - balancing
-        - exploration (new paths/options)
-        - exploitation (of current knowledge)
+- which can be expensive to acquire
+
+Semi-supervised learning
+
+- combines a small amount of labelled data with a larger un-labelled dataset
+  - train on small labelled dataset
+  - apply model to larger unlabled dataset generating *"pseudo-labels"*
+  - re-train the model with all data (including *"pseudo-labels"*)
+- assumptions: continuity, cluster, and manifold (lower dimensionality)
 
 
-## Neural networks
+
+## Reinforcement learning
 
 :::::: {.cols data-latex=""}
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-Supervised learning approach simulating simplistic neurons
+Based on the idea of training agents to learn how to
 
-- Classic model with 3 sets 
-    - input neurons
-    - output neurons
-    - hidden layer
-        - combines input values using **weights**
-        - **activation function**
-- The **traning algorithm** is used to define the best weights
+- take actions
+  - which affect 
+    - agent state
+    - environment
+  - to maximize reward
+  - balancing
+    - exploration (new paths/options)
+    - exploitation (of current knowledge)
 
 :::
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 70%; text-align: right;" data-latex="{0.5\textwidth}"}
 
 <center>
-![](images/ANN_description.png){width=70%}
+![](images/Reinforcement_learning_diagram.svg.png)
+
 
 <br/>
 <font size="4">	
-by Egm4313.s12 and Glosser.ca<br/>
+by 	Megajuice<br/>
 via Wikimedia Commons,<br/>
-CC-BY-SA-3.0
+CC0 1.0
 </font>
 </center>
 
@@ -185,89 +189,68 @@ CC-BY-SA-3.0
 ::::::
 
 
-## Deep neural networks
-
-:::::: {.cols data-latex=""}
-
-::: {.col data-latex="{0.5\textwidth}"}
-
-Neural networks with **multiple hidden layers**
-
-The fundamental idea is that *"deeper"* neurons allow for the encoding of more complex characteristics
-
-<font size="4">	
-**Example**: De Sabbata, S. and Liu, P. (2019). [Deep learning geodemographics with autoencoders and geographic convolution](https://www.researchgate.net/publication/334251358_Deep_learning_geodemographics_with_autoencoders_and_geographic_convolution). In proceedings of the 22nd AGILE Conference on Geographic Information Science, Limassol, Cyprus.
-</font>
-
-:::
-
-::: {.col data-latex="{0.5\textwidth}"}
-
-<center>
-![](images/Colored_deep_neural_network-01.png){width=70%}
-
-<br/>
-<font size="4">	
-derived from work by Glosser.ca<br/>
-via Wikimedia Commons,<br/>
-CC-BY-SA-3.0
-</font>
-</center>
-
-:::
-::::::
-
-
-## Convolutional neural networks
-
-Deep neural networks with **convolutional hidden layers**
-
-- used very successfully on image object recognition
-- convolutional hidden layers *"convolve"* the images
-    - a process similar to applying smoothing filters
-
-<font size="4">	
-**Example**: Liu, P. and De Sabbata, S. (2019). [Learning Digital Geographies through a Graph-Based Semi-supervised Approach](https://www.researchgate.net/publication/336021293_Learning_Digital_Geographies_through_a_Graph-Based_Semi-supervised_Approach). In proceedings of the 15th International Conference on GeoComputation, Queenstown, New Zealand.
-</font>
-
-<center>
-![](images/Typical_cnn.png){width=70%}
-
-<br/>
-<font size="4">	
-by Aphex34 via Wikimedia Commons, CC-BY-SA-4.0
-</font>
-</center>
 
 
 ## Limits
 
+- Complexity
+- Creating a model requires hundreds of decisions
+    - variable selection and normalisation
+    - model, components, algorithm
+    - hyper-parameters
+    - evaluation
+- Black-boxes
+    - recent developments in explainable artificial intelligence
+    
+
+
+## Overfitting
+
 :::::: {.cols data-latex=""}
 
 ::: {.col data-latex="{0.5\textwidth}"}
 
-- Complexity
-- Training dataset quality
-    - garbage in, garbage out
-    - e.g., [Facial Recognition Is Accurate, if You’re a White Guy](https://www.nytimes.com/2018/02/09/technology/facial-recognition-race-artificial-intelligence.html) by Steve Lohr (New York Times, Feb. 9, 2018)
-- Overfitting
-    - creating a model perfect for the training data, but not generic enough to be useful
+- creating a model 
+  - perfect for the training data
+  - but not generic enough
+  - to be useful for prediction
+- An issue for machine learning
+  - e.g., regression
+    - n predictors can generate a line fitting the data exactly n cases
+  - Occam's razor
+  - one in ten rule
+    - 10 cases per predictor 
+
 
 :::
 
-::: {.col data-latex="{0.5\textwidth}"}
+::: {.col style="width: 70%; text-align: right;" data-latex="{0.5\textwidth}"}
 
 <center>
-![](images/Overfitting.svg.png){width=100%}
+![](images/Overfitted_Data.png)
 
 <br/>
 <font size="4">	
-by Chabacano<br/>ia Wikimedia Commons,<br/>CC-BY-SA-4.0
+by Ghiles<br/>ia Wikimedia Commons,<br/>CC-BY-SA-4.0
 </font>
 </center>
 
 :::
 ::::::
+
+    
+## Algorithmic bias
+
+Assumptions and training dataset quality still matter!
+
+- garbage in, garbage out
+
+Joy Buolamwini and Timnit Gebru's work on facial recognition 
+
+- black women were 35% less likely to be recognised than white men.
+- Buolamwini, J. and Gebru, T., 2018. [Gender shades: Intersectional accuracy disparities in commercial gender classification](http://proceedings.mlr.press/v81/buolamwini18a.html?mod=article_inline). In Conference on fairness, accountability and transparency (pp. 77-91).
+- see also, [Facial Recognition Is Accurate, if You’re a White Guy](https://www.nytimes.com/2018/02/09/technology/facial-recognition-race-artificial-intelligence.html) by Steve Lohr (New York Times, Feb. 9, 2018)
+
 
 
 ## Summary
@@ -278,10 +261,10 @@ Machine Learning
 - Types
 - Limitations
 
-**Next**: Centroid-based clustering
+**Next**:  Artificial Neural Networks
 
-- K-means
-- Fuzzy c-means
-- Geodemographic classification
+- Logistic regression
+- Artificial neural networks
+- Deep learning
 
 
