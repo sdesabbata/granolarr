@@ -1,0 +1,367 @@
+---
+title: "Practical session materials | granolarr"
+author: "Stefano De Sabbata"
+date: "`r Sys.Date()`"
+description: "Geographic data science reproducible teaching resource in R, Practical session materials"
+url: 'https://sdesabbata.github.io/granolarr/'
+github-repo: "sdesabbata/granolarr"
+site: bookdown::bookdown_site
+documentclass: book
+biblio-style: apalike
+output:
+  bookdown::gitbook:
+    config:
+      toc:
+        before: |
+          <li><a href="https://sdesabbata.github.io/granolarr/practicals/bookdown/">Practicals | granolarr</a></li>
+        after: |
+          <li><a href="https://sdesabbata.github.io/granolarr/">granolarr</a></li>
+      search: yes
+      download:
+        - ["granolarr_practical_session_materials.pdf", "PDF"]
+        - ["granolarr_practical_session_materials.epub", "EPUB"]
+  bookdown::pdf_book:
+     latex_engine: xelatex
+---
+
+# Preface {-}
+
+Placeholder
+
+
+## Session info {-}
+
+<!--chapter:end:index.Rmd-->
+
+
+# Introduction to R
+
+Placeholder
+
+
+## The R programming language
+### Using RStudio
+## Interpreting values
+## Variables
+## Basic types
+### Numeric
+### Logical
+### Character
+## Tidyverse
+### stringr
+### The pipe operator
+## Coding style
+## Exercise 104.1
+## Exercise 104.2
+
+<!--chapter:end:104_P_Introduction.Rmd-->
+
+
+# R programming
+
+Placeholder
+
+
+## R Scripts
+## Vectors
+## Filtering
+## Conditional statements
+## Loops
+### Conditional Loops
+### Deterministic Loops
+## Exercise 114.1
+## Function definition
+### Functions and control structures
+## Exercise 114.2
+## Debugging
+## Exercise 6.2
+## Solutions
+### Exercise 6.1
+### Exercise 6.2
+
+<!--chapter:end:114_P_RProgramming.Rmd-->
+
+
+# Data wrangling Pt. 1
+
+Placeholder
+
+
+## R Projects
+## Install libraries
+### Loading R scripts
+## Data manipulation
+### Summarise
+### Select and filter
+### Mutate
+### Arrange
+## Data manipulation example
+## Exercise 204.1
+
+<!--chapter:end:204_P_SelectionManipulation.Rmd-->
+
+
+# Data wrangling Pt. 2
+
+Placeholder
+
+
+## Table manipulation
+### Long and wide formats
+### Join
+## Read and write data
+### File paths
+## Data wrangling example
+### Re-shaping 
+### Join
+## Exercise 214.1
+## Exercise 214.2
+## Solutions
+
+<!--chapter:end:214_P_TableOperations.Rmd-->
+
+
+# Reproducibility
+
+Placeholder
+
+
+## Markdown
+### R Markdown
+## Exercise 224.1
+## Exercise 224.2
+## Git
+### Git and RStudio
+## Exercise 224.3
+## Cloning granolarr
+
+<!--chapter:end:224_P_Reproducibility.Rmd-->
+
+
+# Exploratory data analysis
+
+Placeholder
+
+
+## Introduction
+## GGlot2 recap
+## Data visualisation
+### Distributions
+### Relationships
+## Exercise 304.1
+## Exploratory statistics
+### Descriptive statistics
+## Exercise 304.2
+
+<!--chapter:end:304_P_Exploratory.Rmd-->
+
+
+# Comparing data
+
+Placeholder
+
+
+## Introduction
+## ANOVA
+### Example
+## Exercise 314.1
+## Correlation
+### Example
+## Exercise 314.2
+
+<!--chapter:end:314_P_ComparingData.Rmd-->
+
+
+# Regression analysis
+
+Placeholder
+
+
+## Simple regression
+### Example
+### Checking assumptions
+#### Normality
+#### Homoscedasticity
+#### Independence
+#### Plots
+### How to report
+## Multiple regression
+### Example
+## Exercise 324.1
+
+<!--chapter:end:324_P_Regression.Rmd-->
+
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = Sys.getenv("GRANOLARR_HOME"))
+rm(list = ls())
+```
+
+# Supervised machine learning
+
+*[Stefano De Sabbata](https://stefanodesabbata.com)*
+
+[This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence).
+
+To-do.
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```
+
+<!--chapter:end:404_P_SupervisedLearning.Rmd-->
+
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = Sys.getenv("GRANOLARR_HOME"))
+rm(list = ls())
+
+# Libraries
+library(tidyverse)
+library(magrittr)
+library(psych)
+```
+
+# Unsupervised machine learning
+
+*[Stefano De Sabbata](https://stefanodesabbata.com)*
+
+[This work](https://github.com/sdesabbata/granolarr) is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Contains public sector information licensed under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence).
+
+## Introduction
+
+The field of **machine learning** sits at the intersection of computer science and statistics, and it is a core component of data science. According to Mitchell (1997), *"the field of machine learning is concerned with the question of how to construct computer programs that automatically improve with experience."*
+
+Machine learning approaches are divided into two main types.
+
+- **Supervised**:
+    - training of a *"predictive"* model from data;
+    - one (or more) attribute of the dataset is used to "predict" another attribute.
+
+- **Unsupervised**:
+    - discovery of *descriptive* patterns in data;
+    - commonly used in data mining.
+    
+Clustering is a classic unsupervised machine learning task, which aims to *"automatically divides the data into* ***clusters*** *, or groups of similar items"*(Lantz, 2019). In computer science, a wide range of approaches has been developed to tackle clustering. Among those approaches, the most commons are centroid-based approaches (such as k-means) and hierarchical approaches. Other approaches include density based clustering methods (such as DBSCAN) and midex approaches (such as bagged clustering), which combine different aspects of centroid-based  and hierarchical approaches.
+
+### K-means
+
+The k-mean approach clusters $n$ observations ($x$) in $k$ clusters ($c$) by minimising the within-cluster sum of squares (WCSS) through an iterative process. That is, the algorithm calculates the distance between each observation (i.e., each case, object, row in the table) and the centroid of its cluster. The square values of those distances are summed up for each cluster, and then for the whole dataset. The aim of the algorithm is minimase that value.
+
+$$WCSS = \sum_{c=1}^{k} \sum_{x \in c} (x - \overline{x}_c)^2$$
+
+To minimise WCSS, while trying to identify `k` clusters, k-mean first randomly select `k` observations as initial centroids. Then, k-means repeats the two steps below. Every time k-means repeats those two steps the new centroids will be closer to the two actual center. The process continues until centroids don't change anymore (within a certain margin of error) or until it has reached a maximum number of iterations set by the analyst.
+
+- **assignment step**: observations assigned to closest centroids
+- **update step**: calculate means for each cluster, as new centroid
+
+
+### Geodemographic Classification
+
+In GIScience, clustering approaches are commonly used to create *geodemographic classifications*. For instance, [Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150) created the [2011 Output Area Classification (2011 OAC)](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) starting from an initial set of 167 prospective variablesfrom the UK Census 2011.
+
+In the process of creating the classification, 86 variables were removed from the initial set, including highly correlated variables that don't bring additional informatio to the classification process. Furthermore, 41 variable were retained as they were, whereas 40 were combined, to create final set of 60 variables. The k-mean approach was then applied to cluster the census Output Areas (OAs) into 8 supergroups, 26 groups and 76 subgroups.
+
+The [paper](http://josis.net/index.php/josis/article/view/232/150) provides a detail report of the process. In particular, it is interesting to see how the authors applied a process of variable selection involving repeated clustering while excluding one variable, to see how the within sum of square measure (WCSS) would be affected. Variable that produced significantly higher WCSS when excluded were considered for exclusion from the final analysis, in order to increase the homogeneity of the clusters. 
+
+Once the clustering is completed, the final step in geodemographic classification is the interpretation of the resulting cluster, which is commonly done by observing theaverage values of the variables for each cluster.
+
+## Examples
+
+
+### Clustering two age groups
+
+```{r, echo=TRUE, eval=FALSE}
+leicester_2011OAC_ages <- readr::read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+leicester_2011OAC <- readr::read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
+```
+
+```{r}
+leic_household_comp <-
+  leicester_2011OAC %>%
+  dplyr::select(
+    OA11CD, 
+    Total_Households, 
+    u059:u073
+  ) %>%
+  # # percentage across ages
+  # dplyr::mutate(
+  #   dplyr::across( 
+  #     u059:u073,
+  #     function(x){ (x / Total_Households) * 100 }
+  #   )
+  # ) %>%
+  # # rename columns
+  # dplyr::rename_with(
+  #   function(x){ paste0("perc_", x) },
+  #   u059:u073
+  # )
+  # max across ages
+  dplyr::mutate(
+    dplyr::across( 
+      u059:u073,
+      scale()
+    )
+  ) %>%
+  # rename columns
+  dplyr::rename_with(
+    function(x){ paste0("scale_", x) },
+    u059:u073
+  )
+```
+
+```{r}
+leic_household_comp %>%
+  dplyr::select(scale_u059:scale_u073) %>%
+  psych::pairs.panels()
+```
+
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+#u071	Household Composition	Count	Household	Household Type	Household Composition	Other household types: All full-time students	Other_household_types_All_fulltime_students
+#u072	Household Composition	Count	Household	Household Type	Household Composition	Other household types: All aged 65 and over	Other_household_types_All_aged_65_and_over
+leic_household_comp %>%
+  ggplot2::ggplot(
+    aes(
+      x = scale_u071, 
+      y = scale_u072, 
+    )
+  ) +
+  ggplot2::geom_point() +
+  ggplot2::coord_fixed(ratio = 1)
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+
+scale_u071_u072_kmeans <- leic_household_comp %>%
+  dplyr::select(scale_u071, scale_u072) %>%
+  stats::kmeans(centers=2, iter.max=50)
+
+leic_household_comp <- 
+  leic_household_comp %>%
+  tibble::add_column(
+    scale_u071_u072_cluster = scale_u071_u072_kmeans %$% cluster
+  )
+
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+leic_household_comp %>%
+  ggplot(aes(
+    x = scale_u071, y = scale_u072, 
+    colour = factor(scale_u071_u072_cluster))) +
+  geom_point() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Set1") +
+  ggplot2::coord_fixed(ratio = 1)
+```
+
+
+
+```{r cleanup, include=FALSE}
+rm(list = ls())
+```
+
+<!--chapter:end:414_P_UnsupervisedLearning.Rmd-->
+

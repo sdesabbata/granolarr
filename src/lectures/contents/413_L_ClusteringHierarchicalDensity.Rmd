@@ -47,9 +47,12 @@ Can we automatically identify the two groups visible in the scatterplot, without
 ::: {.col data-latex="{0.5\textwidth}"}
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
-# First, normalise values
 penguins_norm <-
   palmerpenguins::penguins %>%
+  dplyr::filter(
+    species %in%
+      c("Adelie", "Gentoo")
+  ) %>%
   dplyr::filter(
     !is.na(body_mass_g) | 
       !is.na(bill_depth_mm)
@@ -74,7 +77,7 @@ penguins_norm %>%
              size = 2) +
   ggplot2::scale_color_manual(values = c("darkorange","darkorchid","cyan4")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -115,8 +118,8 @@ penguins_hclust_result <-
   stats::hclust(method="ward.D2")
 
 penguins_bm_bd_hclust <- penguins_norm %>%
-  add_column(
-    bm_bd_hclust = cutree(
+  tibble::add_column(
+    bm_bd_hclust = stats::cutree(
       penguins_hclust_result, 
       k = 2
     )
@@ -151,7 +154,7 @@ penguins_bm_bd_hclust %>%
              size = 2) +
   ggplot2::scale_color_manual(values = c("darkorange","darkorchid","cyan4")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -160,13 +163,13 @@ penguins_bm_bd_hclust %>%
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
 penguins_bm_bd_hclust %>%
-  ggplot(aes(
+  ggplot2::ggplot(aes(
     x = body_mass_norm, y = bill_depth_norm, 
     colour = factor(bm_bd_hclust))) +
-  geom_point() +
-  scale_color_manual(values = c("#d95f02", "#1b9e77")) +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_manual(values = c("#d95f02", "#1b9e77")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -204,8 +207,8 @@ penguins_bclust_result <-
 
 penguins_bm_bd_bclust <- 
   penguins_norm %>%
-  add_column(
-    bm_bd_bclust = clusters.bclust(
+  tibble::add_column(
+    bm_bd_bclust = e1071::clusters.bclust(
       penguins_bclust_result, 
       2
     )
@@ -226,7 +229,7 @@ penguins_bm_bd_bclust %>%
              size = 2) +
   ggplot2::scale_color_manual(values = c("darkorange","darkorchid","cyan4")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -235,13 +238,13 @@ penguins_bm_bd_bclust %>%
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
 penguins_bm_bd_bclust %>%
-  ggplot(aes(
+  ggplot2::ggplot(aes(
     x = body_mass_norm, y = bill_depth_norm, 
     colour = factor(bm_bd_bclust))) +
-  geom_point() +
-  scale_color_manual(values = c("#d95f02", "#1b9e77")) +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_manual(values = c("#d95f02", "#1b9e77")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -279,7 +282,7 @@ penguins_dbscan_result <-
 
 penguins_bm_bd_dbscan <- 
   penguins_norm %>%
-  add_column(
+  tibble::add_column(
     bm_bd_dbscan = 
       penguins_dbscan_result %$% 
       cluster
@@ -304,7 +307,7 @@ penguins_bm_bd_dbscan %>%
              size = 2) +
   ggplot2::scale_color_manual(values = c("darkorange","darkorchid","cyan4")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -313,13 +316,13 @@ penguins_bm_bd_dbscan %>%
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
 penguins_bm_bd_dbscan %>%
-  ggplot(aes(
+  ggplot2::ggplot(aes(
     x = body_mass_norm, y = bill_depth_norm, 
     colour = factor(bm_bd_dbscan))) +
-  geom_point() +
-  scale_color_manual(values = c("#d95f02", "#1b9e77")) +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_manual(values = c("#d95f02", "#1b9e77")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -334,10 +337,10 @@ Using: `dbscan(eps = 0.5, minPts = 5)`
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 penguins_dbscan_result2 <- penguins_norm %>%
   dplyr::select(body_mass_norm, bill_depth_norm) %>%
-  dbscan(eps = 0.5, minPts = 5)
+  dbscan::dbscan(eps = 0.5, minPts = 5)
 
 penguins_bm_bd_dbscan2 <- penguins_norm %>%
-  add_column(bm_bd_dbscan = penguins_dbscan_result2 %$% cluster)
+  tibble::add_column(bm_bd_dbscan = penguins_dbscan_result2 %$% cluster)
 ```
 
 :::::: {.cols data-latex=""}
@@ -352,7 +355,7 @@ penguins_bm_bd_dbscan2 %>%
              size = 2) +
   ggplot2::scale_color_manual(values = c("darkorange","darkorchid","cyan4")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -364,10 +367,10 @@ penguins_bm_bd_dbscan2 %>%
   ggplot(aes(
     x = body_mass_norm, y = bill_depth_norm, 
     colour = factor(bm_bd_dbscan))) +
-  geom_point() +
-  scale_color_manual(values = c("#d95f02", "#1b9e77", "#7570b3")) +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_manual(values = c("#d95f02", "#1b9e77", "#7570b3")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -382,10 +385,10 @@ Using: `dbscan(eps = 0.1, minPts = 5)`
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 penguins_dbscan_result3 <- penguins_norm %>%
   dplyr::select(body_mass_norm, bill_depth_norm) %>%
-  dbscan(eps = 0.1, minPts = 5)
+  dbscan::dbscan(eps = 0.1, minPts = 5)
 
 penguins_bm_bd_dbscan3 <- penguins_norm %>%
-  add_column(bm_bd_dbscan = penguins_dbscan_result3 %$% cluster)
+  tibble::add_column(bm_bd_dbscan = penguins_dbscan_result3 %$% cluster)
 ```
 
 :::::: {.cols data-latex=""}
@@ -400,7 +403,7 @@ penguins_bm_bd_dbscan3 %>%
              size = 2) +
   ggplot2::scale_color_manual(values = c("darkorange","darkorchid","cyan4")) +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -409,13 +412,13 @@ penguins_bm_bd_dbscan3 %>%
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 5}
 penguins_bm_bd_dbscan3 %>%
-  ggplot(aes(
+  ggplot2::ggplot(aes(
     x = body_mass_norm, y = bill_depth_norm, 
     colour = factor(bm_bd_dbscan))) +
-  geom_point() +
-  scale_color_manual(values = c("#969696", "#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#ff7f00", "#cab2d6", "#6a3d9a", "#ffff99", "#b15928")) +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_brewer(palette = "Dark2") +
   ggplot2::theme_bw() +
-  theme(legend.position = "bottom")
+  ggplot2::theme(legend.position = "bottom")
 ```
 
 :::
@@ -442,7 +445,7 @@ penguins_norm_bills <-
 penguins_norm_bills_kmeans <- 
  penguins_norm_bills %>%
   dplyr::select(bill_length_norm, bill_depth_norm) %>%
-  kmeans(centers = 3,  iter.max = 50)
+  stats::kmeans(centers = 3,  iter.max = 50)
 
 penguins_norm_bills <- 
   penguins_norm_bills %>%
@@ -452,34 +455,34 @@ penguins_norm_bills <-
 penguins_norm_bills_hclust <- 
   penguins_norm_bills %>%
   dplyr::select(bill_length_norm, bill_depth_norm) %>%
-  dist(method="euclidean") %>%
-  hclust(method="ward.D2")
+  stats::dist(method="euclidean") %>%
+  stats::hclust(method="ward.D2")
 
 penguins_norm_bills <- 
   penguins_norm_bills %>%
-  add_column(bills_hclust = cutree(penguins_norm_bills_hclust, k = 3))
+  tibble::add_column(bills_hclust = stats::cutree(penguins_norm_bills_hclust, k = 3))
 
 
 # Bagged
 penguins_norm_bills_bclust <- 
   penguins_norm_bills %>%
   dplyr::select(bill_length_norm, bill_depth_norm) %>%
-  bclust(hclust.method="ward.D2", resample = TRUE)
+  e1071::bclust(hclust.method="ward.D2", resample = TRUE)
 
 penguins_norm_bills <- 
   penguins_norm_bills %>%
-  add_column(bills_bclust = clusters.bclust(penguins_norm_bills_bclust, 3))
+  tibble::add_column(bills_bclust = e1071::clusters.bclust(penguins_norm_bills_bclust, 3))
 
 
 # DBSCAN
 penguins_norm_bills_dbscan <- 
   penguins_norm_bills %>%
   dplyr::select(bill_length_norm, bill_depth_norm) %>%
-  dbscan(eps = 0.2, minPts = 5)
+  dbscan::dbscan(eps = 0.2, minPts = 5)
 
 penguins_norm_bills <- 
   penguins_norm_bills %>%
-  add_column(bills_dbscan = penguins_norm_bills_dbscan %$% cluster)
+  tibble::add_column(bills_dbscan = penguins_norm_bills_dbscan %$% cluster)
 ```
 
 :::::: {.cols data-latex=""}
@@ -488,26 +491,26 @@ penguins_norm_bills <-
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2.75}
 penguins_norm_bills %>%
-  ggplot(aes(
+  ggplot2::ggplot(aes(
     x = bill_length_norm, y = bill_depth_norm, 
     colour = factor(bills_kmeans))) +
-  geom_point() +
-  scale_color_brewer(palette = "Dark2") +
-  ggtitle("K-means") +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_brewer(palette = "Dark2") +
+  ggplot2::ggtitle("K-means") +
   ggplot2::theme_bw() +
-  theme(legend.position = "none")
+  ggplot2::theme(legend.position = "none")
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2.75}
 penguins_norm_bills %>%
-  ggplot(aes(
+  ggplot2::ggplot(aes(
     x = bill_length_norm, y = bill_depth_norm, 
     colour = factor(bills_hclust))) +
-  geom_point() +
-  scale_color_brewer(palette = "Dark2") +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_brewer(palette = "Dark2") +
   ggtitle("Hierarchical") +
   ggplot2::theme_bw() +
-  theme(legend.position = "none")
+  ggplot2::theme(legend.position = "none")
 ```
 
 :::
@@ -516,26 +519,26 @@ penguins_norm_bills %>%
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2.75}
 penguins_norm_bills %>%
-  ggplot(aes(
+  ggplot2::ggplot(aes(
     x = bill_length_norm, y = bill_depth_norm, 
     colour = factor(bills_bclust))) +
-  geom_point() +
-  scale_color_brewer(palette = "Dark2") +
-  ggtitle("Bagged") +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_brewer(palette = "Dark2") +
+  ggplot2::ggtitle("Bagged") +
   ggplot2::theme_bw() +
-  theme(legend.position = "none")
+  ggplot2::theme(legend.position = "none")
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 4, fig.height = 2.75}
 penguins_norm_bills %>%
-  ggplot(aes(
+  ggplot2::ggplot(aes(
     x = bill_length_norm, y = bill_depth_norm, 
     colour = factor(bills_dbscan))) +
-  geom_point() +
-  scale_color_brewer(palette = "Dark2") +
-  ggtitle("DBSCAN") +
+  ggplot2::geom_point() +
+  ggplot2::scale_color_brewer(palette = "Dark2") +
+  ggplot2::ggtitle("DBSCAN") +
   ggplot2::theme_bw() +
-  theme(legend.position = "none")
+  ggplot2::theme(legend.position = "none")
 ```
 
 :::

@@ -43,6 +43,9 @@ toc_sticky: true
 ## 413 Hierarchical and density-based clustering
 
 
+{% include video id="x8l2-myueyw" provider="youtube" %}
+
+
 ### Slides
 
 <div style="position: relative; width: 500px; height: 400px;">
