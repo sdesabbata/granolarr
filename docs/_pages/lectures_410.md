@@ -13,6 +13,9 @@ toc_sticky: true
 
 ## 411 Principal Component Analysis
 
+
+### Slides
+
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/411_L_PrincipalComponents.html" title="411_L_PrincipalComponents" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
@@ -23,6 +26,12 @@ toc_sticky: true
 
 ## 412 Centroid-based clustering
 
+
+{% include video id="Hn75fTPzY0c" provider="youtube" %}
+
+
+### Slides
+
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/412_L_ClusteringCentroid.html" title="412_L_ClusteringCentroid" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
@@ -32,6 +41,9 @@ toc_sticky: true
 </small>
 
 ## 413 Hierarchical and density-based clustering
+
+
+### Slides
 
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/413_L_ClusteringHierarchicalDensity.html" title="413_L_ClusteringHierarchicalDensity" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
