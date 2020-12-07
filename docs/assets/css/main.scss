@@ -4,8 +4,10 @@
 
 @charset "utf-8";
 
-$primary-color: #570F1A !default;
-$footer-background-color: #f9b248 !default;
+//$primary-color: #570F1A !default;
+$primary-color: #252525 !default;
+//$footer-background-color: #f9b248 !default;
+$footer-background-color: #f58020 !default;
 $active-color: mix(#fff, $footer-background-color, 80%) !default;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
