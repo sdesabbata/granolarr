@@ -13,6 +13,8 @@ toc_sticky: true
 
 ## 411 Principal Component Analysis
 
+*The video is forthcoming, due to a change of schedule.*
+
 
 ### Slides
 

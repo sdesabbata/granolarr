@@ -28,6 +28,7 @@ toc_sticky: true
 
 ## 402 Artificial Neural Networks
 
+*The video is forthcoming, due to a change of schedule.*
 
 ### Slides
 
@@ -41,6 +42,7 @@ toc_sticky: true
 
 ## 403 Support vector machines
 
+*The video is forthcoming, due to a change of schedule.*
 
 ### Slides
 
