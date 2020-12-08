@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-12-06" />
+<meta name="date" content="2020-12-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -630,19 +630,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Can we automatically identify the two groups visible in the scatterplot, without any previous knowledge of the groups?</p>
 <div class="cols">
 <div class="col">
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="hierarchical-and-density-based-clustering.html#cb356-1"></a><span class="co"># First, normalise values</span></span>
-<span id="cb356-2"><a href="hierarchical-and-density-based-clustering.html#cb356-2"></a>penguins_norm &lt;-</span>
-<span id="cb356-3"><a href="hierarchical-and-density-based-clustering.html#cb356-3"></a><span class="st">  </span>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
-<span id="cb356-4"><a href="hierarchical-and-density-based-clustering.html#cb356-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(</span>
-<span id="cb356-5"><a href="hierarchical-and-density-based-clustering.html#cb356-5"></a>    <span class="op">!</span><span class="kw">is.na</span>(body_mass_g) <span class="op">|</span><span class="st"> </span></span>
-<span id="cb356-6"><a href="hierarchical-and-density-based-clustering.html#cb356-6"></a><span class="st">      </span><span class="op">!</span><span class="kw">is.na</span>(bill_depth_mm)</span>
-<span id="cb356-7"><a href="hierarchical-and-density-based-clustering.html#cb356-7"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb356-8"><a href="hierarchical-and-density-based-clustering.html#cb356-8"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
-<span id="cb356-9"><a href="hierarchical-and-density-based-clustering.html#cb356-9"></a>  	<span class="dt">body_mass_norm =</span> </span>
-<span id="cb356-10"><a href="hierarchical-and-density-based-clustering.html#cb356-10"></a>  	  <span class="kw">scale</span>(body_mass_g),</span>
-<span id="cb356-11"><a href="hierarchical-and-density-based-clustering.html#cb356-11"></a>  	<span class="dt">bill_depth_norm =</span> </span>
-<span id="cb356-12"><a href="hierarchical-and-density-based-clustering.html#cb356-12"></a>  	  <span class="kw">scale</span>(bill_depth_mm)</span>
-<span id="cb356-13"><a href="hierarchical-and-density-based-clustering.html#cb356-13"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="hierarchical-and-density-based-clustering.html#cb356-1"></a>penguins_norm &lt;-</span>
+<span id="cb356-2"><a href="hierarchical-and-density-based-clustering.html#cb356-2"></a><span class="st">  </span>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
+<span id="cb356-3"><a href="hierarchical-and-density-based-clustering.html#cb356-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(</span>
+<span id="cb356-4"><a href="hierarchical-and-density-based-clustering.html#cb356-4"></a>    species <span class="op">%in%</span></span>
+<span id="cb356-5"><a href="hierarchical-and-density-based-clustering.html#cb356-5"></a><span class="st">      </span><span class="kw">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>)</span>
+<span id="cb356-6"><a href="hierarchical-and-density-based-clustering.html#cb356-6"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb356-7"><a href="hierarchical-and-density-based-clustering.html#cb356-7"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(</span>
+<span id="cb356-8"><a href="hierarchical-and-density-based-clustering.html#cb356-8"></a>    <span class="op">!</span><span class="kw">is.na</span>(body_mass_g) <span class="op">|</span><span class="st"> </span></span>
+<span id="cb356-9"><a href="hierarchical-and-density-based-clustering.html#cb356-9"></a><span class="st">      </span><span class="op">!</span><span class="kw">is.na</span>(bill_depth_mm)</span>
+<span id="cb356-10"><a href="hierarchical-and-density-based-clustering.html#cb356-10"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb356-11"><a href="hierarchical-and-density-based-clustering.html#cb356-11"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
+<span id="cb356-12"><a href="hierarchical-and-density-based-clustering.html#cb356-12"></a>  	<span class="dt">body_mass_norm =</span> </span>
+<span id="cb356-13"><a href="hierarchical-and-density-based-clustering.html#cb356-13"></a>  	  <span class="kw">scale</span>(body_mass_g),</span>
+<span id="cb356-14"><a href="hierarchical-and-density-based-clustering.html#cb356-14"></a>  	<span class="dt">bill_depth_norm =</span> </span>
+<span id="cb356-15"><a href="hierarchical-and-density-based-clustering.html#cb356-15"></a>  	  <span class="kw">scale</span>(bill_depth_mm)</span>
+<span id="cb356-16"><a href="hierarchical-and-density-based-clustering.html#cb356-16"></a>  )</span></code></pre></div>
 </div>
 <div class="col">
 <p><img src="413_L_ClusteringHierarchicalDensity_files/figure-html/unnamed-chunk-3-1.png" width="480" /></p>
@@ -685,8 +688,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb357-10"><a href="hierarchical-and-density-based-clustering.html#cb357-10"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">hclust</span>(<span class="dt">method=</span><span class="st">&quot;ward.D2&quot;</span>)</span>
 <span id="cb357-11"><a href="hierarchical-and-density-based-clustering.html#cb357-11"></a></span>
 <span id="cb357-12"><a href="hierarchical-and-density-based-clustering.html#cb357-12"></a>penguins_bm_bd_hclust &lt;-<span class="st"> </span>penguins_norm <span class="op">%&gt;%</span></span>
-<span id="cb357-13"><a href="hierarchical-and-density-based-clustering.html#cb357-13"></a><span class="st">  </span><span class="kw">add_column</span>(</span>
-<span id="cb357-14"><a href="hierarchical-and-density-based-clustering.html#cb357-14"></a>    <span class="dt">bm_bd_hclust =</span> <span class="kw">cutree</span>(</span>
+<span id="cb357-13"><a href="hierarchical-and-density-based-clustering.html#cb357-13"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(</span>
+<span id="cb357-14"><a href="hierarchical-and-density-based-clustering.html#cb357-14"></a>    <span class="dt">bm_bd_hclust =</span> stats<span class="op">::</span><span class="kw">cutree</span>(</span>
 <span id="cb357-15"><a href="hierarchical-and-density-based-clustering.html#cb357-15"></a>      penguins_hclust_result, </span>
 <span id="cb357-16"><a href="hierarchical-and-density-based-clustering.html#cb357-16"></a>      <span class="dt">k =</span> <span class="dv">2</span></span>
 <span id="cb357-17"><a href="hierarchical-and-density-based-clustering.html#cb357-17"></a>    )</span>
@@ -745,8 +748,8 @@ Leisch, F., 1999. Bagged clustering.
 <span id="cb359-8"><a href="hierarchical-and-density-based-clustering.html#cb359-8"></a></span>
 <span id="cb359-9"><a href="hierarchical-and-density-based-clustering.html#cb359-9"></a>penguins_bm_bd_bclust &lt;-<span class="st"> </span></span>
 <span id="cb359-10"><a href="hierarchical-and-density-based-clustering.html#cb359-10"></a><span class="st">  </span>penguins_norm <span class="op">%&gt;%</span></span>
-<span id="cb359-11"><a href="hierarchical-and-density-based-clustering.html#cb359-11"></a><span class="st">  </span><span class="kw">add_column</span>(</span>
-<span id="cb359-12"><a href="hierarchical-and-density-based-clustering.html#cb359-12"></a>    <span class="dt">bm_bd_bclust =</span> <span class="kw">clusters.bclust</span>(</span>
+<span id="cb359-11"><a href="hierarchical-and-density-based-clustering.html#cb359-11"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(</span>
+<span id="cb359-12"><a href="hierarchical-and-density-based-clustering.html#cb359-12"></a>    <span class="dt">bm_bd_bclust =</span> e1071<span class="op">::</span><span class="kw">clusters.bclust</span>(</span>
 <span id="cb359-13"><a href="hierarchical-and-density-based-clustering.html#cb359-13"></a>      penguins_bclust_result, </span>
 <span id="cb359-14"><a href="hierarchical-and-density-based-clustering.html#cb359-14"></a>      <span class="dv">2</span></span>
 <span id="cb359-15"><a href="hierarchical-and-density-based-clustering.html#cb359-15"></a>    )</span>
@@ -797,7 +800,7 @@ Ester, M., Kriegel, H.P., Sander, J. and Xu, X., 1996, August. Density-based spa
 <span id="cb360-8"><a href="hierarchical-and-density-based-clustering.html#cb360-8"></a></span>
 <span id="cb360-9"><a href="hierarchical-and-density-based-clustering.html#cb360-9"></a>penguins_bm_bd_dbscan &lt;-<span class="st"> </span></span>
 <span id="cb360-10"><a href="hierarchical-and-density-based-clustering.html#cb360-10"></a><span class="st">  </span>penguins_norm <span class="op">%&gt;%</span></span>
-<span id="cb360-11"><a href="hierarchical-and-density-based-clustering.html#cb360-11"></a><span class="st">  </span><span class="kw">add_column</span>(</span>
+<span id="cb360-11"><a href="hierarchical-and-density-based-clustering.html#cb360-11"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(</span>
 <span id="cb360-12"><a href="hierarchical-and-density-based-clustering.html#cb360-12"></a>    <span class="dt">bm_bd_dbscan =</span> </span>
 <span id="cb360-13"><a href="hierarchical-and-density-based-clustering.html#cb360-13"></a>      penguins_dbscan_result <span class="op">%$%</span><span class="st"> </span></span>
 <span id="cb360-14"><a href="hierarchical-and-density-based-clustering.html#cb360-14"></a><span class="st">      </span>cluster</span>

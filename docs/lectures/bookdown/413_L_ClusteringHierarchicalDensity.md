@@ -67,9 +67,12 @@ Can we automatically identify the two groups visible in the scatterplot, without
 
 
 ```r
-# First, normalise values
 penguins_norm <-
   palmerpenguins::penguins %>%
+  dplyr::filter(
+    species %in%
+      c("Adelie", "Gentoo")
+  ) %>%
   dplyr::filter(
     !is.na(body_mass_g) | 
       !is.na(bill_depth_mm)
@@ -127,8 +130,8 @@ penguins_hclust_result <-
   stats::hclust(method="ward.D2")
 
 penguins_bm_bd_hclust <- penguins_norm %>%
-  add_column(
-    bm_bd_hclust = cutree(
+  tibble::add_column(
+    bm_bd_hclust = stats::cutree(
       penguins_hclust_result, 
       k = 2
     )
@@ -199,8 +202,8 @@ penguins_bclust_result <-
 
 penguins_bm_bd_bclust <- 
   penguins_norm %>%
-  add_column(
-    bm_bd_bclust = clusters.bclust(
+  tibble::add_column(
+    bm_bd_bclust = e1071::clusters.bclust(
       penguins_bclust_result, 
       2
     )
@@ -257,7 +260,7 @@ penguins_dbscan_result <-
 
 penguins_bm_bd_dbscan <- 
   penguins_norm %>%
-  add_column(
+  tibble::add_column(
     bm_bd_dbscan = 
       penguins_dbscan_result %$% 
       cluster

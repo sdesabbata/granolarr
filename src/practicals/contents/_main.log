@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  6 DEC 2020 23:48
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  8 DEC 2020 14:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1139,26 +1139,147 @@ Chapter 9.
 
 ]
 Chapter 10.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4737.
-[113]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4737.
+[113] [114] [115] [116]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-6-1.pdf Graph
+ic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-6-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[117] [118] [119]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-9-1.pdf Graph
+ic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-9-1.pdf>
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-9-2.pdf Graph
+ic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-9-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[120]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-9-3.pdf Graph
+ic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-9-3.pdf>
+[121]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-11-1.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-11-1.pdf>
+[122]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-12-1.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-12-1.pdf>
+[123]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-13-1.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-13-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[124]
+Underfull \vbox (badness 10000) detected at line 5152
+ []
+
+
+Underfull \vbox (badness 8170) has occurred while \output is active []
+
+[125] [126]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-16-1.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-16-1.pdf>
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-16-2.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-16-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[127]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-16-3.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-16-3.pdf>
+[128]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-18-1.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-18-1.pdf>
+[129]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-19-1.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-19-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[130]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-1.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-1.pdf>
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-2.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-2.pdf>
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-3.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-3.pdf>
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-4.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-4.pdf>
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-5.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-20-5.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 5306--5307
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5306--5307
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5306--5307
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5306--5307
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[131]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[132]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[133]
+File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-21-1.pdf Grap
+hic file (type pdf)
+<use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-21-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[134]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5321.
+[135]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5321.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4737.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4737.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 5321.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5321.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 352EC5388831DA8EC9E44346880C8843;7701.
+(rerunfilecheck)             Checksum: 2B0FB8405519F6584BBF16B8A917B368;7928.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17346 strings out of 481704
- 309307 string characters out of 5933764
+ 17465 strings out of 481704
+ 316621 string characters out of 5933764
  734513 words of memory out of 5000000
- 34176 multiletter control sequences out of 15000+600000
- 541579 words of font info for 87 fonts, out of 8000000 for 9000
+ 34276 multiletter control sequences out of 15000+600000
+ 541587 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  53i,10n,118p,1090b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (113 pages).
+Output written on _main.pdf (135 pages).
