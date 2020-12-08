@@ -39,9 +39,9 @@ A key limitation of k-mean is that it requires to select the number of clusters 
 
 The most well-known method is the *"elbow method"*. This approach suggests to calculate k-means for a range of values of k, calculate the WCSS obtained for each k, and then select the value of k that minimises WCSS without increasing the number of clusters beyond the point where the decrease in WCSS is minimal. This approach is called *"elbow method"* because (as can be seen in the examples below) when printing a line representing the value of WCSS for all values of k taken into account, it suggests to select the value of k at the *"elbow"* or inflation point of the line.
 
-Other hheuristics exist, which suggest using alternative measures of cluster quality. For instance, the `cluster` library provides simple ways to calculate the [silhouette](https://en.wikipedia.org/wiki/Silhouette_(clustering)) measure and the [gap statistic](http://web.stanford.edu/~hastie/Papers/gap.pdf). The silhouette value indicates how well observations fit within their clusters, whereas the gap statistic measures the dispersion within each cluster, compared to a uniform distribution of values. The higher the value of the gap statistic, the further away the distribution is from uniform (thus the higher the quality of the clustering).
+Other heuristics exist, which suggest using alternative measures of cluster quality. For instance, the `cluster` library provides simple ways to calculate the [silhouette](https://en.wikipedia.org/wiki/Silhouette_(clustering)) measure and the [gap statistic](http://web.stanford.edu/~hastie/Papers/gap.pdf). The silhouette value indicates how well observations fit within their clusters, whereas the gap statistic measures the dispersion within each cluster, compared to a uniform distribution of values. The higher the value of the gap statistic, the further away the distribution is from uniform (thus the higher the quality of the clustering).
 
-For all three hheuristics, the best approach would be to calculate those values using a bootstrapping approach. That is, to calculate the same statistics multiple times on samples of the dataset, in order to account for random variation. However, only the `clusGap` function of the `cluster` library allows for bootstrapping natively, as illustrated below.
+For all three heuristics, the best approach would be to calculate those values using a bootstrapping approach. That is, to calculate the same statistics multiple times on samples of the dataset, in order to account for random variation. However, only the `clusGap` function of the `cluster` library allows for bootstrapping natively, as illustrated below.
 
 
 ```r
@@ -154,11 +154,10 @@ The code below illustrates how to create three plots. The first follows the elbo
 # Get only the data necessary for testing
 data_for_testing <-
   leicester_dwellings %>%
-  dplyr::select(perc_detached:perc_carava_tmp)
+  dplyr::select(perc_semidetached, perc_terraced)
 
 # Calculate WCSS and silhouette
 # for k = 2 to 15
-
 # Set up two vectors where to store
 # the calculated WCSS and silhouette value
 testing_wcss <- rep(NA, 15)
@@ -166,48 +165,31 @@ testing_silhouette <- rep(NA, 15)
 
 # for k = 2 to 15
 for (testing_k in 2:15){
-  
   # Calculate kmeans
   kmeans_result <- 
-    kmeans(
-      data_for_testing, 
-      centers = testing_k, 
-      iter.max = 50
-    )
+    stats::kmeans(data_for_testing, centers = testing_k, iter.max = 50)
   
   # Extract WCSS
   # and save it in the vector
-  testing_wcss[testing_k] <- 
-    kmeans_result %$%
-    tot.withinss
+  testing_wcss[testing_k] <- kmeans_result %$% tot.withinss
   
   # Calculate average silhouette
   # and save it in the vector
   testing_silhouette[testing_k] <- 
+    kmeans_result %$% cluster %>%
     cluster::silhouette(
-      kmeans_result %$% cluster, 
       data_for_testing %>% dist()
     ) %>%
-    magrittr::extract(3) %>%
-    mean()
-  
+    magrittr::extract(, 3) %>% mean()
 }
-```
 
-\newpage
-
-
-```r
-# Calculate the gap statistic
-# using bootstrapping
+# Calculate the gap statistic using bootstrapping
 testing_gap <- 
   cluster::clusGap(
     data_for_testing, 
     FUN = kmeans, 
-    # max number of clusters
-    K.max = 15, 
-    # number of samples
-    B = 50
+    K.max = 15, # max number of clusters
+    B = 50      # number of samples
   )
 ```
 
@@ -215,31 +197,46 @@ testing_gap <-
 ```r
 # Plots
 plot(2:15, testing_wcss[2:15], type="b", xlab="Number of Clusters", 
-     ylab="WCSS", xlim=c(1,15))
-abline(v=6, col="red")
+     ylab="WCSS", xlim=c(1,15)) +
+abline(v = 3, col = "red") +
+abline(v = 6, col = "red")
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+
+```
+## integer(0)
+```
 
 ```r
 plot(2:15, testing_silhouette[2:15], type="b", xlab="Number of Clusters", 
-     ylab="Silhouette", xlim=c(1,15))
-abline(v=6, col="red")
+     ylab="Silhouette", xlim=c(1,15)) +
+abline(v = 3, col = "red") +
+abline(v = 6, col = "red")
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-9-2.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-8-2.png)<!-- -->
+
+```
+## integer(0)
+```
 
 ```r
 plot(2:15, testing_gap[["Tab"]][2:15, "gap"], type="b", xlab="Number of Clusters", 
-     ylab="Gap", xlim=c(1,15))
-abline(v=6, col="red")
+     ylab="Gap", xlim=c(1,15)) +
+abline(v = 3, col = "red") +
+abline(v = 6, col = "red")
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-9-3.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-8-3.png)<!-- -->
 
-Based on the WCSS plot, the number of clusters k best fitting the data could range between `k = 4` and `k = 6`, which are all around the inflation point (elbow) of the line. The silhouette plot shows a local maximum at `k = 6`, which indicates that the observations best fit within their clusters when `k = 6`. Similarly, the gap statistic steadily increases until it reaches a plateau around `k = 6`. That indicates that clustering improves as we move from 2 to 6 cluster, but the quality doesn't increase as much afterwards.
+```
+## integer(0)
+```
 
-As such, all hheuristics seem to indicate that `k = 6` clusters might be the best fitting approach in this case. We can then calculate the clusters for `k = 6` as shown below.
+Based on the WCSS plot, the number of clusters k best fitting the data could range between `k = 3` and `k = 6`, which are all around the inflation point (elbow) of the line. The silhouette plot shows a local maximum at `k = 3` and `k = 6`, which indicates that the observations best fit within their clusters when 3 or 6 clusters are created. The gap statistic steadily increases until it reaches a plateau around `k = 5`. That indicates that clustering improves as we move from 2 to 5 clusters, but the quality doesn't increase as much afterwards. The value for `k = 6` (which is the value suggested by the other two heuristics) is a local minimum, but still the difference with neighbouring values is relatively small. 
+
+Overall, the heuristics seem to indicate that `k = 3` could lead to a good clustering result. However, the gap statistic indicates that those three clusters would not be very compact. That is probably due to the fact that the observations at center of the scatterplot seen above are rather uniformally distributed over the space between the three main clusters. As such, chosing `k = 6` clusters might be the best fitting approach in this case. We can then calculate the clusters for `k = 6` as shown below.
 
 
 ```r
@@ -250,8 +247,7 @@ terr_sede_kmeans <- leicester_dwellings %>%
 leicester_dwellings <- 
   leicester_dwellings %>%
   tibble::add_column(
-    terr_sede_cluster = 
-      terr_sede_kmeans %$% cluster %>% as.character()
+    terr_sede_cluster = terr_sede_kmeans %$% cluster %>% as.character()
   )
 ```
 
@@ -270,7 +266,7 @@ leicester_dwellings %>%
   )
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
 
 Another common approach in interpreting the results is to create *heatmaps* for the average values of the variables used in the clustering process for each cluster.
 
@@ -278,7 +274,7 @@ Another common approach in interpreting the results is to create *heatmaps* for 
 ```r
 leicester_dwellings %>%
   group_by(terr_sede_cluster) %>%
-  dplyr::mutate(
+  dplyr::summarise(
     avg_perc_semidetached = mean(perc_semidetached), 
     avg_perc_terraced = mean(perc_terraced)
   ) %>%
@@ -288,22 +284,22 @@ leicester_dwellings %>%
     names_to = "clustering_dimension",
     values_to = "value"
   ) %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = clustering_dimension,
       y = terr_sede_cluster
     )
   ) +
-  geom_tile(aes(fill = value)) +
-  xlab("Clustering dimension") + ylab("Cluster") +
-  scale_fill_viridis_c(option = "inferno") +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  ggplot2::geom_tile(aes(fill = value)) +
+  ggplot2::xlab("Clustering dimension") + 
+  ggplot2::ylab("Cluster") +
+  ggplot2::scale_fill_viridis_c(option = "inferno") +
+  ggplot2::theme_bw()
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
 
-The plot above, clearly illustrates how cluster 4 has a high percentage of semi-detached houses and a low percentages of terraced houses. Cluster 2 has a high percentage of terraced houses and a low percentages of semi-detached houses. Cluster 6 has a low percentage of both semi-detached and terraced houses. Those are the three clusters that we first identified from the first scatterplot above.
+The plot above, clearly illustrates how cluster 6 has a high percentage of semi-detached houses and a low percentages of terraced houses. Cluster 2 has a high percentage of terraced houses and a low percentages of semi-detached houses. Cluster 4 has a low percentage of both semi-detached and terraced houses. Those are the three clusters that we first identified from the first scatterplot above.
 
 Moreover, the clustering process identifies cluster 1, which includes similar percentages of semi-detached and terraced houses; as well as cluster 5, including mostly semi-detached but also some terraced houses, and cluster 3, including mostly terraced but also some semi-detached houses.
 
@@ -323,7 +319,7 @@ leicester_dwellings %>%
   )
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
 
 In order to identify the number of clusters `k` which best fits the data, we can use the elbow method, along with the silhouette and gap statistic measures, as seen in the previous example. The only difference is that in this case `data_for_testing` will include all five variables.
 
@@ -336,7 +332,6 @@ data_for_testing <-
 
 # Calculate WCSS and silhouette
 # for k = 2 to 15
-
 # Set up two vectors where to store
 # the calculated WCSS and silhouette value
 testing_wcss <- rep(NA, 15)
@@ -344,48 +339,28 @@ testing_silhouette <- rep(NA, 15)
 
 # for k = 2 to 15
 for (testing_k in 2:15){
-  
   # Calculate kmeans
   kmeans_result <- 
-    kmeans(
-      data_for_testing, 
-      centers = testing_k, 
-      iter.max = 50
-    )
+    stats::kmeans(data_for_testing, centers = testing_k, iter.max = 50)
   
   # Extract WCSS
   # and save it in the vector
-  testing_wcss[testing_k] <- 
-    kmeans_result %$%
-    tot.withinss
+  testing_wcss[testing_k] <- kmeans_result %$% tot.withinss
   
   # Calculate average silhouette
   # and save it in the vector
   testing_silhouette[testing_k] <- 
+    kmeans_result %$% cluster %>%
     cluster::silhouette(
-      kmeans_result %$% cluster, 
       data_for_testing %>% dist()
     ) %>%
-    magrittr::extract(3) %>%
-    mean()
-  
+    magrittr::extract(, 3) %>% mean()
 }
-```
 
-\newpage
-
-
-```r
-# Calculate the gap statistic
-# using bootstrapping
+# Calculate the gap statistic using bootstrapping
 testing_gap <- 
-  cluster::clusGap(
-    data_for_testing, 
-    FUN = kmeans, 
-    # max number of clusters
-    K.max = 15, 
-    # number of samples
-    B = 50
+  cluster::clusGap(data_for_testing, FUN = kmeans, 
+    K.max = 15, B = 50
   )
 ```
 
@@ -394,11 +369,11 @@ testing_gap <-
 # Plots
 plot(2:15, testing_wcss[2:15], type="b", xlab="Number of Clusters", 
      ylab="WCSS", xlim=c(1,15)) +
-abline(v=5, col="red") +
-abline(v=9, col="red")
+abline(v = 3, col = "red") +
+abline(v = 6, col = "red")
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
 
 ```
 ## integer(0)
@@ -407,11 +382,11 @@ abline(v=9, col="red")
 ```r
 plot(2:15, testing_silhouette[2:15], type="b", xlab="Number of Clusters", 
      ylab="Silhouette", xlim=c(1,15)) +
-abline(v=5, col="red") +
-abline(v=9, col="red")
+abline(v = 3, col = "red") +
+abline(v = 6, col = "red")
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-16-2.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-14-2.png)<!-- -->
 
 ```
 ## integer(0)
@@ -420,17 +395,17 @@ abline(v=9, col="red")
 ```r
 plot(2:15, testing_gap[["Tab"]][2:15, "gap"], type="b", xlab="Number of Clusters", 
      ylab="Gap", xlim=c(1,15)) +
-abline(v=5, col="red") +
-abline(v=9, col="red")
+abline(v = 3, col = "red") +
+abline(v = 6, col = "red")
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-16-3.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-14-3.png)<!-- -->
 
 ```
 ## integer(0)
 ```
 
-In this case, the elbow method (i.e., WCSS) and silhouette seem to inidicate that `k = 5` might be the best choice. However, the gap statistic suggests that `k = 9` might lead to less dispersion within the clusters. Let's see what the result is when chosing `k = 5`.
+As in the previous example, the elbow method (i.e., WCSS), silhouette and gap statistic seem to indicate that `k = 3` or  `k = 6` might be the best choice. Let's see what the result is when choosing `k = 6`.
 
 
 
@@ -438,7 +413,7 @@ In this case, the elbow method (i.e., WCSS) and silhouette seem to inidicate tha
 dwellings_kmeans <- leicester_dwellings %>%
   dplyr::select(perc_detached:perc_carava_tmp) %>%
   stats::kmeans(
-    centers = 5, 
+    centers = 6, 
     iter.max = 50
   )
 
@@ -467,9 +442,9 @@ leicester_dwellings %>%
   )
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
 
-As in the previous example, we can use an *"heatmap"* plot to explore how the clusters are characterised by the variables used in the clustering process.
+As in the previous example, we can use an *"heatmap"* plot to explore how the clusters are characterised by the variables used in the clustering process (see also Exercise 414.1.1 below).
 
 
 ```r
@@ -477,10 +452,7 @@ dwellings_cluster_avgs <-
   leicester_dwellings %>%
   group_by(dwellings_cluster) %>%
   dplyr::summarise(
-    dplyr::across(
-      perc_detached:perc_carava_tmp,
-      mean
-    ) 
+    dplyr::across(perc_detached:perc_carava_tmp,mean) 
   ) %>%
   # rename columns
   dplyr::rename_with(
@@ -494,34 +466,36 @@ dwellings_cluster_avgs %>%
     names_to = "clustering_dimension",
     values_to = "value"
   )  %>%
-  ggplot(
+  ggplot2::ggplot(
     aes(
       x = clustering_dimension,
       y = dwellings_cluster
     )
   ) +
-  geom_tile(
-    aes(
-      fill = value
-    )
-  ) +
-  xlab("Clustering dimension") + ylab("Cluster") +
-  #scale_fill_brewer(palette = "YlOrRd", direction = 1) +
-  scale_fill_viridis_c(option = "inferno") +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  ggplot2::geom_tile(aes(fill = value)) +
+  ggplot2::xlab("Clustering dimension") + 
+  ggplot2::ylab("Cluster") +
+  ggplot2::scale_fill_viridis_c(option = "inferno") +
+  ggplot2::theme_bw() +
+  ggplot2::theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ```
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
 
 Another very common approach to explore the characteristics of the clusters created through k-means for the geodemongraphic classification is to use radar charts (also known as spider charts, web charts or polar charts), which can be created in R using a number of libraries, including the `radarchart` of the `fmsb` library.
 
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-20-2.png)<!-- -->![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-20-3.png)<!-- -->![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-20-4.png)<!-- -->![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-20-5.png)<!-- -->
+![](414_P_UnsupervisedLearning_files/figure-epub3/figures-side-1.png)<!-- -->
+
+The radar charts are very effective in visualising the values for multiple varaibles, as long as the variables are all of similar type, value and range. In this case, as all values are percentages, radar chart are very effective in illustrating which variables have particularly high averages in each cluster.
 
 Finally, we can map the cluster cartographically to analyse their spatial distribution.
 
-![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-21-1.png)<!-- -->
+
+
+![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
+
+
 
 
 
