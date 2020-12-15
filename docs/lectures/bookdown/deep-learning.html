@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-12-08" />
+<meta name="date" content="2020-12-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -524,9 +524,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="26" data-path="deep-learning.html"><a href="deep-learning.html"><i class="fa fa-check"></i><b>26</b> Deep learning</a><ul>
 <li class="chapter" data-level="26.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>26.1</b> Recap</a></li>
 <li class="chapter" data-level="26.2" data-path="deep-learning.html"><a href="deep-learning.html#neural-networks"><i class="fa fa-check"></i><b>26.2</b> Neural networks</a></li>
-<li class="chapter" data-level="26.3" data-path="deep-learning.html"><a href="deep-learning.html#deep-neural-networks"><i class="fa fa-check"></i><b>26.3</b> Deep neural networks</a></li>
-<li class="chapter" data-level="26.4" data-path="deep-learning.html"><a href="deep-learning.html#convolutional-neural-networks"><i class="fa fa-check"></i><b>26.4</b> Convolutional neural networks</a></li>
-<li class="chapter" data-level="26.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>26.5</b> Summary</a></li>
+<li class="chapter" data-level="26.3" data-path="deep-learning.html"><a href="deep-learning.html#artificial-neurons"><i class="fa fa-check"></i><b>26.3</b> Artificial neurons</a></li>
+<li class="chapter" data-level="26.4" data-path="deep-learning.html"><a href="deep-learning.html#logistic-regression"><i class="fa fa-check"></i><b>26.4</b> Logistic regression</a></li>
+<li class="chapter" data-level="26.5" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>26.5</b> Example</a></li>
+<li class="chapter" data-level="26.6" data-path="join-operations.html"><a href="join-operations.html#example-1"><i class="fa fa-check"></i><b>26.6</b> Example</a></li>
+<li class="chapter" data-level="26.7" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-2"><i class="fa fa-check"></i><b>26.7</b> Example</a></li>
+<li class="chapter" data-level="26.8" data-path="deep-learning.html"><a href="deep-learning.html#statsglm"><i class="fa fa-check"></i><b>26.8</b> stats::glm</a></li>
+<li class="chapter" data-level="26.9" data-path="deep-learning.html"><a href="deep-learning.html#logistic-regression-1"><i class="fa fa-check"></i><b>26.9</b> Logistic regression</a></li>
+<li class="chapter" data-level="26.10" data-path="deep-learning.html"><a href="deep-learning.html#defining-a-newtwork"><i class="fa fa-check"></i><b>26.10</b> Defining a newtwork</a></li>
+<li class="chapter" data-level="26.11" data-path="deep-learning.html"><a href="deep-learning.html#network-topology"><i class="fa fa-check"></i><b>26.11</b> Network topology</a></li>
+<li class="chapter" data-level="26.12" data-path="deep-learning.html"><a href="deep-learning.html#deep-neural-networks"><i class="fa fa-check"></i><b>26.12</b> Deep neural networks</a></li>
+<li class="chapter" data-level="26.13" data-path="deep-learning.html"><a href="deep-learning.html#convolutional-neural-networks"><i class="fa fa-check"></i><b>26.13</b> Convolutional neural networks</a></li>
+<li class="chapter" data-level="26.14" data-path="deep-learning.html"><a href="deep-learning.html#neuralnetneuralnet"><i class="fa fa-check"></i><b>26.14</b> neuralnet::neuralnet</a></li>
+<li class="chapter" data-level="26.15" data-path="deep-learning.html"><a href="deep-learning.html#performance"><i class="fa fa-check"></i><b>26.15</b> Performance</a></li>
+<li class="chapter" data-level="26.16" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>26.16</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>27</b> Support vector machines</a><ul>
 <li class="chapter" data-level="27.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>27.1</b> Recap</a></li>
@@ -596,17 +607,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">26</span> Deep learning</h1>
 <div id="recap" class="section level2">
 <h2><span class="header-section-number">26.1</span> Recap</h2>
-<p><strong>Prev</strong>: Machine learning</p>
+<p><strong>Prev</strong>: Machine Learning</p>
 <ul>
-<li>X</li>
-<li>Y</li>
-<li>Z</li>
+<li>What’s Machine Learning?</li>
+<li>Types</li>
+<li>Limitations</li>
 </ul>
 <p><strong>Now</strong>: Artificial Neural Networks</p>
 <ul>
-<li>X</li>
-<li>Y</li>
-<li>Z</li>
+<li>Logistic regression</li>
+<li>Artificial neural networks</li>
+<li>Deep learning</li>
 </ul>
 </div>
 <div id="neural-networks" class="section level2">
@@ -619,7 +630,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>input neurons</li>
 <li>output neurons</li>
-<li>hidden layer
+<li>hidden layer(s)
 <ul>
 <li>combines input values using <strong>weights</strong></li>
 <li><strong>activation function</strong></li>
@@ -641,8 +652,203 @@ CC-BY-SA-3.0
 </div>
 </div>
 </div>
+<div id="artificial-neurons" class="section level2">
+<h2><span class="header-section-number">26.3</span> Artificial neurons</h2>
+<p>A model of the relationship between</p>
+<ul>
+<li>a series of <strong>input</strong> values (predictors, independent variables)</li>
+<li>one <strong>output</strong> value (outcome, dependent variable)</li>
+</ul>
+<div class="cols">
+<div class="col">
+<p>Learns</p>
+<ul>
+<li>one <strong>weight</strong> (coefficient) per input</li>
+</ul>
+<p>Using</p>
+<ul>
+<li>an <strong>activation function</strong></li>
+<li>a <strong>training algorithm</strong></li>
+</ul>
+</div>
+<div class="col">
+<p><br/></p>
+<p><img src="images/artificial_neuron.png" /></p>
+</div>
+</div>
+</div>
+<div id="logistic-regression" class="section level2">
+<h2><span class="header-section-number">26.4</span> Logistic regression</h2>
+<p>The most common activation function is the <em>logistic sigmoid</em></p>
+<div class="cols">
+<div class="col">
+<p><span class="math display">\[f(x) = \frac{1}{1 + e^{-x}}\]</span>
+<br/></p>
+<p>That would render each neuron a <strong>logistic regression model</strong></p>
+<ul>
+<li>special case of the general linear model</li>
+<li>categorical outcomes</li>
+</ul>
+</div>
+<div class="col" style="width: 70%; text-align: right;">
+<p><img src="402_L_NeuralNetworks_files/figure-html/unnamed-chunk-2-1.png" width="384" /></p>
+</div>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2><span class="header-section-number">26.5</span> Example</h2>
+<p>Can we automatically identify the two groups visible in the scatterplot, without any previous knowledge of the groups?</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="deep-learning.html#cb345-1"></a>penguins_to_learn &lt;-</span>
+<span id="cb345-2"><a href="deep-learning.html#cb345-2"></a><span class="st">  </span>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
+<span id="cb345-3"><a href="deep-learning.html#cb345-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(species <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb345-4"><a href="deep-learning.html#cb345-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">species =</span> forcats<span class="op">::</span><span class="kw">fct_drop</span>(species)) <span class="op">%&gt;%</span></span>
+<span id="cb345-5"><a href="deep-learning.html#cb345-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(body_mass_g) <span class="op">|</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(bill_depth_mm)) <span class="op">%&gt;%</span></span>
+<span id="cb345-6"><a href="deep-learning.html#cb345-6"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(dplyr<span class="op">::</span><span class="kw">across</span>(bill_length_mm<span class="op">:</span>body_mass_g, scale))</span></code></pre></div>
+<center>
+<img src="402_L_NeuralNetworks_files/figure-html/unnamed-chunk-4-1.png" width="768" />
+</center>
+</div>
+<div id="example-1" class="section level2">
+<h2><span class="header-section-number">26.6</span> Example</h2>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="deep-learning.html#cb346-1"></a>penguins_to_learn &lt;-</span>
+<span id="cb346-2"><a href="deep-learning.html#cb346-2"></a><span class="st">  </span>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
+<span id="cb346-3"><a href="deep-learning.html#cb346-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(species <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb346-4"><a href="deep-learning.html#cb346-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">species =</span> forcats<span class="op">::</span><span class="kw">fct_drop</span>(species)) <span class="op">%&gt;%</span></span>
+<span id="cb346-5"><a href="deep-learning.html#cb346-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(body_mass_g) <span class="op">|</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(bill_depth_mm)) <span class="op">%&gt;%</span></span>
+<span id="cb346-6"><a href="deep-learning.html#cb346-6"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(dplyr<span class="op">::</span><span class="kw">across</span>(bill_length_mm<span class="op">:</span>body_mass_g, scale)) <span class="op">%&gt;%</span></span>
+<span id="cb346-7"><a href="deep-learning.html#cb346-7"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
+<span id="cb346-8"><a href="deep-learning.html#cb346-8"></a>    <span class="dt">species_01 =</span> dplyr<span class="op">::</span><span class="kw">recode</span>(species, <span class="dt">Adelie =</span> <span class="dv">0</span>, <span class="dt">Gentoo =</span> <span class="dv">1</span>)</span>
+<span id="cb346-9"><a href="deep-learning.html#cb346-9"></a>  )</span></code></pre></div>
+<center>
+<img src="402_L_NeuralNetworks_files/figure-html/unnamed-chunk-6-1.png" width="768" />
+</center>
+</div>
+<div id="example-2" class="section level2">
+<h2><span class="header-section-number">26.7</span> Example</h2>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="deep-learning.html#cb347-1"></a>penguins_to_learn &lt;-</span>
+<span id="cb347-2"><a href="deep-learning.html#cb347-2"></a><span class="st">  </span>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
+<span id="cb347-3"><a href="deep-learning.html#cb347-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(species <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb347-4"><a href="deep-learning.html#cb347-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">species =</span> forcats<span class="op">::</span><span class="kw">fct_drop</span>(species)) <span class="op">%&gt;%</span></span>
+<span id="cb347-5"><a href="deep-learning.html#cb347-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(body_mass_g) <span class="op">|</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(bill_depth_mm)) <span class="op">%&gt;%</span></span>
+<span id="cb347-6"><a href="deep-learning.html#cb347-6"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(dplyr<span class="op">::</span><span class="kw">across</span>(bill_length_mm<span class="op">:</span>body_mass_g, scale)) <span class="op">%&gt;%</span></span>
+<span id="cb347-7"><a href="deep-learning.html#cb347-7"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
+<span id="cb347-8"><a href="deep-learning.html#cb347-8"></a>    <span class="dt">species_01 =</span> dplyr<span class="op">::</span><span class="kw">recode</span>(species, <span class="dt">Adelie =</span> <span class="dv">0</span>, <span class="dt">Gentoo =</span> <span class="dv">1</span>)</span>
+<span id="cb347-9"><a href="deep-learning.html#cb347-9"></a>  )</span></code></pre></div>
+<center>
+<img src="402_L_NeuralNetworks_files/figure-html/unnamed-chunk-8-1.png" width="768" />
+</center>
+</div>
+<div id="statsglm" class="section level2">
+<h2><span class="header-section-number">26.8</span> stats::glm</h2>
+<div class="small_r_all">
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="deep-learning.html#cb348-1"></a>sp_bm_model &lt;-<span class="st"> </span>penguins_to_learn <span class="op">%$%</span></span>
+<span id="cb348-2"><a href="deep-learning.html#cb348-2"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">glm</span>(species_<span class="dv">01</span> <span class="op">~</span><span class="st"> </span>body_mass_g, <span class="dt">family =</span> <span class="kw">binomial</span>())</span>
+<span id="cb348-3"><a href="deep-learning.html#cb348-3"></a></span>
+<span id="cb348-4"><a href="deep-learning.html#cb348-4"></a>sp_bm_model <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb348-5"><a href="deep-learning.html#cb348-5"></a><span class="st">  </span><span class="kw">summary</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## stats::glm(formula = species_01 ~ body_mass_g, family = binomial())
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -2.17324  -0.16597  -0.02288   0.14154   2.42133  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -0.5839     0.2666  -2.190   0.0285 *  
+## body_mass_g   5.2072     0.7271   7.161 7.98e-13 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 376.98  on 273  degrees of freedom
+## Residual deviance: 102.07  on 272  degrees of freedom
+## AIC: 106.07
+## 
+## Number of Fisher Scoring iterations: 7</code></pre>
+</div>
+</div>
+<div id="logistic-regression-1" class="section level2">
+<h2><span class="header-section-number">26.9</span> Logistic regression</h2>
+<p>Assumptions</p>
+<ul>
+<li><strong>Linearity</strong> of the logit
+<ul>
+<li>predictors have linear relationship with log of outcome</li>
+</ul></li>
+<li>When more than one predictor: <strong>no multicollinearity</strong>
+<ul>
+<li>if two or more predictor variables are used in the model, each pair of variables not correlated</li>
+</ul></li>
+</ul>
+<p>Pseudo-R2</p>
+<ul>
+<li>Approaches to calculate model quality (power)</li>
+</ul>
+<p>Adding complexity</p>
+<ul>
+<li>Multiple logistic regression: multiple predictors</li>
+<li>Multinomial logistic regression: several categories as outcome</li>
+</ul>
+</div>
+<div id="defining-a-newtwork" class="section level2">
+<h2><span class="header-section-number">26.10</span> Defining a newtwork</h2>
+<ul>
+<li>Activation function
+<ul>
+<li>sigmoids</li>
+<li><a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">Rectified Linear Unit (ReLU)</a></li>
+</ul></li>
+<li>Training algorithm
+<ul>
+<li>Stochastic Gradient Descent</li>
+<li>Adam</li>
+<li>L-BFGS (quasi-Newton method)</li>
+</ul></li>
+<li>Training approach
+<ul>
+<li>feedforward (<em>“simple”</em> iterative training)</li>
+<li>recurrent (<em>“short-memory”</em> of previous values)</li>
+<li>backpropagation (of errors)</li>
+</ul></li>
+</ul>
+</div>
+<div id="network-topology" class="section level2">
+<h2><span class="header-section-number">26.11</span> Network topology</h2>
+<div class="cols">
+<div class="col">
+<p>Number of layers</p>
+<ul>
+<li>Single-layer network
+<ul>
+<li>effectively a logistic regression</li>
+</ul></li>
+<li>Multi-layer network
+<ul>
+<li>usully add one hidden layer</li>
+</ul></li>
+<li>Deep neural networks</li>
+</ul>
+<p><br/>
+Number of nodes</p>
+</div>
+<div class="col" style="width: 40%; text-align: right;">
+<center>
+<p><img src="images/ANN_description.png" /></p>
+<br/>
+<font size="4">
+by Egm4313.s12 and Glosser.ca<br/>
+via Wikimedia Commons,<br/>
+CC-BY-SA-3.0
+</font>
+</center>
+</div>
+</div>
+</div>
 <div id="deep-neural-networks" class="section level2">
-<h2><span class="header-section-number">26.3</span> Deep neural networks</h2>
+<h2><span class="header-section-number">26.12</span> Deep neural networks</h2>
 <div class="cols">
 <div class="col">
 <p>Neural networks with <strong>multiple hidden layers</strong></p>
@@ -651,9 +857,9 @@ CC-BY-SA-3.0
 <strong>Example</strong>: De Sabbata, S. and Liu, P. (2019). <a href="https://www.researchgate.net/publication/334251358_Deep_learning_geodemographics_with_autoencoders_and_geographic_convolution">Deep learning geodemographics with autoencoders and geographic convolution</a>. In proceedings of the 22nd AGILE Conference on Geographic Information Science, Limassol, Cyprus.
 </font></p>
 </div>
-<div class="col">
+<div class="col" style="width: 140%; text-align: right;">
 <center>
-<p><img src="images/Colored_deep_neural_network-01.png" style="width:70.0%" /></p>
+<p><img src="images/Colored_deep_neural_network-01.png" /></p>
 <br/>
 <font size="4">
 derived from work by Glosser.ca<br/>
@@ -665,7 +871,7 @@ CC-BY-SA-3.0
 </div>
 </div>
 <div id="convolutional-neural-networks" class="section level2">
-<h2><span class="header-section-number">26.4</span> Convolutional neural networks</h2>
+<h2><span class="header-section-number">26.13</span> Convolutional neural networks</h2>
 <p>Deep neural networks with <strong>convolutional hidden layers</strong></p>
 <ul>
 <li>used very successfully on image object recognition</li>
@@ -685,19 +891,106 @@ by Aphex34 via Wikimedia Commons, CC-BY-SA-4.0
 </font>
 </center>
 </div>
+<div id="neuralnetneuralnet" class="section level2">
+<h2><span class="header-section-number">26.14</span> neuralnet::neuralnet</h2>
+<div class="small_r_all">
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="deep-learning.html#cb350-1"></a>penguins_for_training &lt;-<span class="st"> </span>penguins_to_learn <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice_sample</span>(<span class="dt">prop =</span> <span class="fl">0.8</span>)</span>
+<span id="cb350-2"><a href="deep-learning.html#cb350-2"></a></span>
+<span id="cb350-3"><a href="deep-learning.html#cb350-3"></a>penguins_for_test &lt;-<span class="st"> </span>penguins_to_learn <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">anti_join</span>(penguins_for_training)</span>
+<span id="cb350-4"><a href="deep-learning.html#cb350-4"></a></span>
+<span id="cb350-5"><a href="deep-learning.html#cb350-5"></a>species_nnet &lt;-</span>
+<span id="cb350-6"><a href="deep-learning.html#cb350-6"></a><span class="st">  </span>neuralnet<span class="op">::</span><span class="kw">neuralnet</span>(</span>
+<span id="cb350-7"><a href="deep-learning.html#cb350-7"></a>    species <span class="op">~</span><span class="st"> </span>body_mass_g <span class="op">+</span><span class="st"> </span>bill_length_mm <span class="op">+</span><span class="st"> </span>bill_depth_mm <span class="op">+</span>flipper_length_mm,</span>
+<span id="cb350-8"><a href="deep-learning.html#cb350-8"></a>    <span class="dt">hidden =</span> <span class="dv">3</span>, <span class="dt">data =</span> penguins_for_training</span>
+<span id="cb350-9"><a href="deep-learning.html#cb350-9"></a>  )</span>
+<span id="cb350-10"><a href="deep-learning.html#cb350-10"></a></span>
+<span id="cb350-11"><a href="deep-learning.html#cb350-11"></a>species_nnet <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">plot</span>(<span class="dt">rep =</span> <span class="st">&quot;best&quot;</span>)</span></code></pre></div>
+<p><img src="402_L_NeuralNetworks_files/figure-html/unnamed-chunk-10-1.png" width="768" /></p>
+</div>
+</div>
+<div id="performance" class="section level2">
+<h2><span class="header-section-number">26.15</span> Performance</h2>
+<div class="cols">
+<div class="col">
+<div class="small_r_all">
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="deep-learning.html#cb351-1"></a><span class="co"># Use the model to predict species</span></span>
+<span id="cb351-2"><a href="deep-learning.html#cb351-2"></a>penguins_predicted &lt;-</span>
+<span id="cb351-3"><a href="deep-learning.html#cb351-3"></a><span class="st">  </span>neuralnet<span class="op">::</span><span class="kw">compute</span>(</span>
+<span id="cb351-4"><a href="deep-learning.html#cb351-4"></a>    species_nnet, </span>
+<span id="cb351-5"><a href="deep-learning.html#cb351-5"></a>    penguins_for_test</span>
+<span id="cb351-6"><a href="deep-learning.html#cb351-6"></a>)</span>
+<span id="cb351-7"><a href="deep-learning.html#cb351-7"></a></span>
+<span id="cb351-8"><a href="deep-learning.html#cb351-8"></a><span class="co"># Add predicted species to table</span></span>
+<span id="cb351-9"><a href="deep-learning.html#cb351-9"></a>penguins_for_test &lt;-</span>
+<span id="cb351-10"><a href="deep-learning.html#cb351-10"></a><span class="st">  </span>penguins_for_test <span class="op">%&gt;%</span></span>
+<span id="cb351-11"><a href="deep-learning.html#cb351-11"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
+<span id="cb351-12"><a href="deep-learning.html#cb351-12"></a>    <span class="dt">predicted_species =</span> </span>
+<span id="cb351-13"><a href="deep-learning.html#cb351-13"></a>      penguins_predicted <span class="op">%$%</span></span>
+<span id="cb351-14"><a href="deep-learning.html#cb351-14"></a><span class="st">      </span>net.result <span class="op">%&gt;%</span></span>
+<span id="cb351-15"><a href="deep-learning.html#cb351-15"></a><span class="st">      </span>max.col <span class="op">%&gt;%</span></span>
+<span id="cb351-16"><a href="deep-learning.html#cb351-16"></a><span class="st">      </span><span class="kw">recode</span>(</span>
+<span id="cb351-17"><a href="deep-learning.html#cb351-17"></a>        <span class="st">`</span><span class="dt">1</span><span class="st">`</span> =<span class="st"> &quot;Adelie&quot;</span>,</span>
+<span id="cb351-18"><a href="deep-learning.html#cb351-18"></a>        <span class="st">`</span><span class="dt">2</span><span class="st">`</span> =<span class="st"> &quot;Gentoo&quot;</span></span>
+<span id="cb351-19"><a href="deep-learning.html#cb351-19"></a>      )</span>
+<span id="cb351-20"><a href="deep-learning.html#cb351-20"></a>  )</span>
+<span id="cb351-21"><a href="deep-learning.html#cb351-21"></a></span>
+<span id="cb351-22"><a href="deep-learning.html#cb351-22"></a><span class="co"># Calculate confusion matrix</span></span>
+<span id="cb351-23"><a href="deep-learning.html#cb351-23"></a>caret<span class="op">::</span><span class="kw">confusionMatrix</span>(</span>
+<span id="cb351-24"><a href="deep-learning.html#cb351-24"></a>  penguins_for_test <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb351-25"><a href="deep-learning.html#cb351-25"></a><span class="st">    </span><span class="kw">pull</span>(predicted_species) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb351-26"><a href="deep-learning.html#cb351-26"></a><span class="st">    </span>forcats<span class="op">::</span><span class="kw">as_factor</span>(),</span>
+<span id="cb351-27"><a href="deep-learning.html#cb351-27"></a>  penguins_for_test <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb351-28"><a href="deep-learning.html#cb351-28"></a><span class="st">    </span><span class="kw">pull</span>(species) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb351-29"><a href="deep-learning.html#cb351-29"></a><span class="st">    </span>forcats<span class="op">::</span><span class="kw">as_factor</span>()</span>
+<span id="cb351-30"><a href="deep-learning.html#cb351-30"></a>  )</span></code></pre></div>
+</div>
+</div>
+<div class="col">
+<div class="small_r_all">
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction Adelie Gentoo
+##     Adelie     28      0
+##     Gentoo      0     27
+##                                      
+##                Accuracy : 1          
+##                  95% CI : (0.9351, 1)
+##     No Information Rate : 0.5091     
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16  
+##                                      
+##                   Kappa : 1          
+##                                      
+##  Mcnemar&#39;s Test P-Value : NA         
+##                                      
+##             Sensitivity : 1.0000     
+##             Specificity : 1.0000     
+##          Pos Pred Value : 1.0000     
+##          Neg Pred Value : 1.0000     
+##              Prevalence : 0.5091     
+##          Detection Rate : 0.5091     
+##    Detection Prevalence : 0.5091     
+##       Balanced Accuracy : 1.0000     
+##                                      
+##        &#39;Positive&#39; Class : Adelie     
+## </code></pre>
+</div>
+</div>
+</div>
+</div>
 <div id="summary" class="section level2">
-<h2><span class="header-section-number">26.5</span> Summary</h2>
+<h2><span class="header-section-number">26.16</span> Summary</h2>
 <p>Artificial Neural Networks</p>
 <ul>
-<li>X</li>
-<li>Y</li>
-<li>Z</li>
+<li>Logistic regression</li>
+<li>Artificial neural networks</li>
+<li>Deep learning</li>
 </ul>
 <p><strong>Next</strong>: Support vector machines</p>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>Hyperplanes</li>
+<li>Linear separability</li>
+<li>Kernels</li>
 </ul>
 
 <style type="text/css">

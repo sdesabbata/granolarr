@@ -444,6 +444,8 @@ leicester_dwellings %>%
 
 ![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
 
+\newpage
+
 As in the previous example, we can use an *"heatmap"* plot to explore how the clusters are characterised by the variables used in the clustering process (see also Exercise 414.1.1 below).
 
 
@@ -452,7 +454,10 @@ dwellings_cluster_avgs <-
   leicester_dwellings %>%
   group_by(dwellings_cluster) %>%
   dplyr::summarise(
-    dplyr::across(perc_detached:perc_carava_tmp,mean) 
+    dplyr::across(
+      perc_detached:perc_carava_tmp,
+      mean
+    ) 
   ) %>%
   # rename columns
   dplyr::rename_with(
@@ -472,18 +477,51 @@ dwellings_cluster_avgs %>%
       y = dwellings_cluster
     )
   ) +
-  ggplot2::geom_tile(aes(fill = value)) +
+  ggplot2::geom_tile(
+    aes(
+      fill = value
+    )
+  ) +
   ggplot2::xlab("Clustering dimension") + 
   ggplot2::ylab("Cluster") +
   ggplot2::scale_fill_viridis_c(option = "inferno") +
   ggplot2::theme_bw() +
-  ggplot2::theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  ggplot2::theme(
+    axis.text.x = 
+      element_text(
+        angle = 90, 
+        vjust = 0.5, 
+        hjust=1
+      )
+    )
 ```
 
 ![](414_P_UnsupervisedLearning_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
 
 Another very common approach to explore the characteristics of the clusters created through k-means for the geodemongraphic classification is to use radar charts (also known as spider charts, web charts or polar charts), which can be created in R using a number of libraries, including the `radarchart` of the `fmsb` library.
 
+
+```r
+# install.packages("fmsb")
+library(fmsb)
+
+par(mar=rep(3,4))
+par(mfrow=c(3,2))
+
+for(cluster_number in 1:6){
+  rbind (
+    # The radar chart requires a maximum and a minimum row 
+    # before the actual data
+    rep(100, 5), # max 100% for 5 variables
+    rep(0, 5),   # min 0% for 5 variables
+    dwellings_cluster_avgs %>%
+      dplyr::filter(dwellings_cluster == cluster_number) %>%
+      dplyr::select(-dwellings_cluster) %>%
+      as.data.frame()
+    ) %>%
+    fmsb::radarchart(title = paste("Cluster", cluster_number))
+}
+```
 
 ![](414_P_UnsupervisedLearning_files/figure-epub3/figures-side-1.png)<!-- -->
 

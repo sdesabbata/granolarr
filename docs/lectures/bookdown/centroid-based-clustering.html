@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-12-08" />
+<meta name="date" content="2020-12-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -524,9 +524,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="26" data-path="deep-learning.html"><a href="deep-learning.html"><i class="fa fa-check"></i><b>26</b> Deep learning</a><ul>
 <li class="chapter" data-level="26.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>26.1</b> Recap</a></li>
 <li class="chapter" data-level="26.2" data-path="deep-learning.html"><a href="deep-learning.html#neural-networks"><i class="fa fa-check"></i><b>26.2</b> Neural networks</a></li>
-<li class="chapter" data-level="26.3" data-path="deep-learning.html"><a href="deep-learning.html#deep-neural-networks"><i class="fa fa-check"></i><b>26.3</b> Deep neural networks</a></li>
-<li class="chapter" data-level="26.4" data-path="deep-learning.html"><a href="deep-learning.html#convolutional-neural-networks"><i class="fa fa-check"></i><b>26.4</b> Convolutional neural networks</a></li>
-<li class="chapter" data-level="26.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>26.5</b> Summary</a></li>
+<li class="chapter" data-level="26.3" data-path="deep-learning.html"><a href="deep-learning.html#artificial-neurons"><i class="fa fa-check"></i><b>26.3</b> Artificial neurons</a></li>
+<li class="chapter" data-level="26.4" data-path="deep-learning.html"><a href="deep-learning.html#logistic-regression"><i class="fa fa-check"></i><b>26.4</b> Logistic regression</a></li>
+<li class="chapter" data-level="26.5" data-path="functions.html"><a href="functions.html#example"><i class="fa fa-check"></i><b>26.5</b> Example</a></li>
+<li class="chapter" data-level="26.6" data-path="join-operations.html"><a href="join-operations.html#example-1"><i class="fa fa-check"></i><b>26.6</b> Example</a></li>
+<li class="chapter" data-level="26.7" data-path="exploring-assumptions.html"><a href="exploring-assumptions.html#example-2"><i class="fa fa-check"></i><b>26.7</b> Example</a></li>
+<li class="chapter" data-level="26.8" data-path="deep-learning.html"><a href="deep-learning.html#statsglm"><i class="fa fa-check"></i><b>26.8</b> stats::glm</a></li>
+<li class="chapter" data-level="26.9" data-path="deep-learning.html"><a href="deep-learning.html#logistic-regression-1"><i class="fa fa-check"></i><b>26.9</b> Logistic regression</a></li>
+<li class="chapter" data-level="26.10" data-path="deep-learning.html"><a href="deep-learning.html#defining-a-newtwork"><i class="fa fa-check"></i><b>26.10</b> Defining a newtwork</a></li>
+<li class="chapter" data-level="26.11" data-path="deep-learning.html"><a href="deep-learning.html#network-topology"><i class="fa fa-check"></i><b>26.11</b> Network topology</a></li>
+<li class="chapter" data-level="26.12" data-path="deep-learning.html"><a href="deep-learning.html#deep-neural-networks"><i class="fa fa-check"></i><b>26.12</b> Deep neural networks</a></li>
+<li class="chapter" data-level="26.13" data-path="deep-learning.html"><a href="deep-learning.html#convolutional-neural-networks"><i class="fa fa-check"></i><b>26.13</b> Convolutional neural networks</a></li>
+<li class="chapter" data-level="26.14" data-path="deep-learning.html"><a href="deep-learning.html#neuralnetneuralnet"><i class="fa fa-check"></i><b>26.14</b> neuralnet::neuralnet</a></li>
+<li class="chapter" data-level="26.15" data-path="deep-learning.html"><a href="deep-learning.html#performance"><i class="fa fa-check"></i><b>26.15</b> Performance</a></li>
+<li class="chapter" data-level="26.16" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary"><i class="fa fa-check"></i><b>26.16</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>27</b> Support vector machines</a><ul>
 <li class="chapter" data-level="27.1" data-path="core-concepts.html"><a href="core-concepts.html#recap"><i class="fa fa-check"></i><b>27.1</b> Recap</a></li>
@@ -634,17 +645,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Can we automatically identify the two groups visible in the scatterplot, without any previous knowledge of the groups?</p>
 <div class="cols">
 <div class="col">
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="centroid-based-clustering.html#cb345-1"></a><span class="co"># Prepared data</span></span>
-<span id="cb345-2"><a href="centroid-based-clustering.html#cb345-2"></a>penguins_to_cluster &lt;-</span>
-<span id="cb345-3"><a href="centroid-based-clustering.html#cb345-3"></a><span class="st">  </span>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
-<span id="cb345-4"><a href="centroid-based-clustering.html#cb345-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(</span>
-<span id="cb345-5"><a href="centroid-based-clustering.html#cb345-5"></a>    species <span class="op">%in%</span></span>
-<span id="cb345-6"><a href="centroid-based-clustering.html#cb345-6"></a><span class="st">      </span><span class="kw">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>)</span>
-<span id="cb345-7"><a href="centroid-based-clustering.html#cb345-7"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb345-8"><a href="centroid-based-clustering.html#cb345-8"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(</span>
-<span id="cb345-9"><a href="centroid-based-clustering.html#cb345-9"></a>    <span class="op">!</span><span class="kw">is.na</span>(body_mass_g) <span class="op">|</span><span class="st"> </span></span>
-<span id="cb345-10"><a href="centroid-based-clustering.html#cb345-10"></a><span class="st">      </span><span class="op">!</span><span class="kw">is.na</span>(bill_depth_mm)</span>
-<span id="cb345-11"><a href="centroid-based-clustering.html#cb345-11"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="centroid-based-clustering.html#cb353-1"></a><span class="co"># Prepared data</span></span>
+<span id="cb353-2"><a href="centroid-based-clustering.html#cb353-2"></a>penguins_to_cluster &lt;-</span>
+<span id="cb353-3"><a href="centroid-based-clustering.html#cb353-3"></a><span class="st">  </span>palmerpenguins<span class="op">::</span>penguins <span class="op">%&gt;%</span></span>
+<span id="cb353-4"><a href="centroid-based-clustering.html#cb353-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(</span>
+<span id="cb353-5"><a href="centroid-based-clustering.html#cb353-5"></a>    species <span class="op">%in%</span></span>
+<span id="cb353-6"><a href="centroid-based-clustering.html#cb353-6"></a><span class="st">      </span><span class="kw">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>)</span>
+<span id="cb353-7"><a href="centroid-based-clustering.html#cb353-7"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb353-8"><a href="centroid-based-clustering.html#cb353-8"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(</span>
+<span id="cb353-9"><a href="centroid-based-clustering.html#cb353-9"></a>    <span class="op">!</span><span class="kw">is.na</span>(body_mass_g) <span class="op">|</span><span class="st"> </span></span>
+<span id="cb353-10"><a href="centroid-based-clustering.html#cb353-10"></a><span class="st">      </span><span class="op">!</span><span class="kw">is.na</span>(bill_depth_mm)</span>
+<span id="cb353-11"><a href="centroid-based-clustering.html#cb353-11"></a>  )</span></code></pre></div>
 </div>
 <div class="col">
 <center>
@@ -666,21 +677,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="statskmeans" class="section level2">
 <h2><span class="header-section-number">29.5</span> stats::kmeans</h2>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="centroid-based-clustering.html#cb346-1"></a><span class="co"># Execute k-means</span></span>
-<span id="cb346-2"><a href="centroid-based-clustering.html#cb346-2"></a>bm_bd_clusters &lt;-<span class="st"> </span></span>
-<span id="cb346-3"><a href="centroid-based-clustering.html#cb346-3"></a><span class="st">  </span>penguins_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb346-4"><a href="centroid-based-clustering.html#cb346-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(body_mass_g, bill_depth_mm) <span class="op">%&gt;%</span></span>
-<span id="cb346-5"><a href="centroid-based-clustering.html#cb346-5"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">kmeans</span>(</span>
-<span id="cb346-6"><a href="centroid-based-clustering.html#cb346-6"></a>    <span class="dt">centers =</span> <span class="dv">2</span>,  <span class="co"># number of clusters (k)</span></span>
-<span id="cb346-7"><a href="centroid-based-clustering.html#cb346-7"></a>    <span class="dt">iter.max =</span> <span class="dv">50</span> <span class="co"># max number of iterations</span></span>
-<span id="cb346-8"><a href="centroid-based-clustering.html#cb346-8"></a>  )</span>
-<span id="cb346-9"><a href="centroid-based-clustering.html#cb346-9"></a></span>
-<span id="cb346-10"><a href="centroid-based-clustering.html#cb346-10"></a><span class="co"># Add clusters to table</span></span>
-<span id="cb346-11"><a href="centroid-based-clustering.html#cb346-11"></a>penguins_clustered_bm_bd &lt;-<span class="st"> </span></span>
-<span id="cb346-12"><a href="centroid-based-clustering.html#cb346-12"></a><span class="st">  </span>penguins_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb346-13"><a href="centroid-based-clustering.html#cb346-13"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(</span>
-<span id="cb346-14"><a href="centroid-based-clustering.html#cb346-14"></a>    <span class="dt">bm_bd_cluster =</span> bm_bd_clusters <span class="op">%$%</span><span class="st"> </span>cluster</span>
-<span id="cb346-15"><a href="centroid-based-clustering.html#cb346-15"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="centroid-based-clustering.html#cb354-1"></a><span class="co"># Execute k-means</span></span>
+<span id="cb354-2"><a href="centroid-based-clustering.html#cb354-2"></a>bm_bd_clusters &lt;-<span class="st"> </span></span>
+<span id="cb354-3"><a href="centroid-based-clustering.html#cb354-3"></a><span class="st">  </span>penguins_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb354-4"><a href="centroid-based-clustering.html#cb354-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(body_mass_g, bill_depth_mm) <span class="op">%&gt;%</span></span>
+<span id="cb354-5"><a href="centroid-based-clustering.html#cb354-5"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">kmeans</span>(</span>
+<span id="cb354-6"><a href="centroid-based-clustering.html#cb354-6"></a>    <span class="dt">centers =</span> <span class="dv">2</span>,  <span class="co"># number of clusters (k)</span></span>
+<span id="cb354-7"><a href="centroid-based-clustering.html#cb354-7"></a>    <span class="dt">iter.max =</span> <span class="dv">50</span> <span class="co"># max number of iterations</span></span>
+<span id="cb354-8"><a href="centroid-based-clustering.html#cb354-8"></a>  )</span>
+<span id="cb354-9"><a href="centroid-based-clustering.html#cb354-9"></a></span>
+<span id="cb354-10"><a href="centroid-based-clustering.html#cb354-10"></a><span class="co"># Add clusters to table</span></span>
+<span id="cb354-11"><a href="centroid-based-clustering.html#cb354-11"></a>penguins_clustered_bm_bd &lt;-<span class="st"> </span></span>
+<span id="cb354-12"><a href="centroid-based-clustering.html#cb354-12"></a><span class="st">  </span>penguins_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb354-13"><a href="centroid-based-clustering.html#cb354-13"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(</span>
+<span id="cb354-14"><a href="centroid-based-clustering.html#cb354-14"></a>    <span class="dt">bm_bd_cluster =</span> bm_bd_clusters <span class="op">%$%</span><span class="st"> </span>cluster</span>
+<span id="cb354-15"><a href="centroid-based-clustering.html#cb354-15"></a>  )</span></code></pre></div>
 </div>
 <div id="k-means-result" class="section level2">
 <h2><span class="header-section-number">29.6</span> k-means result</h2>
@@ -695,23 +706,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="statskmeans-1" class="section level2">
 <h2><span class="header-section-number">29.7</span> stats::kmeans</h2>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="centroid-based-clustering.html#cb347-1"></a><span class="co"># First, normalise values</span></span>
-<span id="cb347-2"><a href="centroid-based-clustering.html#cb347-2"></a>penguins_norm &lt;-</span>
-<span id="cb347-3"><a href="centroid-based-clustering.html#cb347-3"></a><span class="st">  </span>penguins_to_cluster <span class="op">%&gt;%</span></span>
-<span id="cb347-4"><a href="centroid-based-clustering.html#cb347-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
-<span id="cb347-5"><a href="centroid-based-clustering.html#cb347-5"></a>  	<span class="dt">body_mass_norm =</span> <span class="kw">scale</span>(body_mass_g),</span>
-<span id="cb347-6"><a href="centroid-based-clustering.html#cb347-6"></a>  	<span class="dt">bill_depth_norm =</span> <span class="kw">scale</span>(bill_depth_mm)</span>
-<span id="cb347-7"><a href="centroid-based-clustering.html#cb347-7"></a>  )</span>
-<span id="cb347-8"><a href="centroid-based-clustering.html#cb347-8"></a></span>
-<span id="cb347-9"><a href="centroid-based-clustering.html#cb347-9"></a>bm_bd_norm_clusters &lt;-<span class="st"> </span></span>
-<span id="cb347-10"><a href="centroid-based-clustering.html#cb347-10"></a><span class="st">  </span>penguins_norm <span class="op">%&gt;%</span></span>
-<span id="cb347-11"><a href="centroid-based-clustering.html#cb347-11"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(body_mass_norm, bill_depth_norm) <span class="op">%&gt;%</span></span>
-<span id="cb347-12"><a href="centroid-based-clustering.html#cb347-12"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">kmeans</span>(<span class="dt">centers =</span> <span class="dv">2</span>, <span class="dt">iter.max =</span> <span class="dv">50</span>)</span>
-<span id="cb347-13"><a href="centroid-based-clustering.html#cb347-13"></a></span>
-<span id="cb347-14"><a href="centroid-based-clustering.html#cb347-14"></a>penguins_clustered_bm_bd_norm &lt;-<span class="st"> </span>penguins_norm <span class="op">%&gt;%</span></span>
-<span id="cb347-15"><a href="centroid-based-clustering.html#cb347-15"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(</span>
-<span id="cb347-16"><a href="centroid-based-clustering.html#cb347-16"></a>    <span class="dt">bm_bd_cluster =</span> bm_bd_norm_clusters <span class="op">%$%</span><span class="st"> </span>cluster</span>
-<span id="cb347-17"><a href="centroid-based-clustering.html#cb347-17"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="centroid-based-clustering.html#cb355-1"></a><span class="co"># First, normalise values</span></span>
+<span id="cb355-2"><a href="centroid-based-clustering.html#cb355-2"></a>penguins_norm &lt;-</span>
+<span id="cb355-3"><a href="centroid-based-clustering.html#cb355-3"></a><span class="st">  </span>penguins_to_cluster <span class="op">%&gt;%</span></span>
+<span id="cb355-4"><a href="centroid-based-clustering.html#cb355-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
+<span id="cb355-5"><a href="centroid-based-clustering.html#cb355-5"></a>  	<span class="dt">body_mass_norm =</span> <span class="kw">scale</span>(body_mass_g),</span>
+<span id="cb355-6"><a href="centroid-based-clustering.html#cb355-6"></a>  	<span class="dt">bill_depth_norm =</span> <span class="kw">scale</span>(bill_depth_mm)</span>
+<span id="cb355-7"><a href="centroid-based-clustering.html#cb355-7"></a>  )</span>
+<span id="cb355-8"><a href="centroid-based-clustering.html#cb355-8"></a></span>
+<span id="cb355-9"><a href="centroid-based-clustering.html#cb355-9"></a>bm_bd_norm_clusters &lt;-<span class="st"> </span></span>
+<span id="cb355-10"><a href="centroid-based-clustering.html#cb355-10"></a><span class="st">  </span>penguins_norm <span class="op">%&gt;%</span></span>
+<span id="cb355-11"><a href="centroid-based-clustering.html#cb355-11"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(body_mass_norm, bill_depth_norm) <span class="op">%&gt;%</span></span>
+<span id="cb355-12"><a href="centroid-based-clustering.html#cb355-12"></a><span class="st">  </span>stats<span class="op">::</span><span class="kw">kmeans</span>(<span class="dt">centers =</span> <span class="dv">2</span>, <span class="dt">iter.max =</span> <span class="dv">50</span>)</span>
+<span id="cb355-13"><a href="centroid-based-clustering.html#cb355-13"></a></span>
+<span id="cb355-14"><a href="centroid-based-clustering.html#cb355-14"></a>penguins_clustered_bm_bd_norm &lt;-<span class="st"> </span>penguins_norm <span class="op">%&gt;%</span></span>
+<span id="cb355-15"><a href="centroid-based-clustering.html#cb355-15"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(</span>
+<span id="cb355-16"><a href="centroid-based-clustering.html#cb355-16"></a>    <span class="dt">bm_bd_cluster =</span> bm_bd_norm_clusters <span class="op">%$%</span><span class="st"> </span>cluster</span>
+<span id="cb355-17"><a href="centroid-based-clustering.html#cb355-17"></a>  )</span></code></pre></div>
 </div>
 <div id="k-means-result-1" class="section level2">
 <h2><span class="header-section-number">29.8</span> k-means result</h2>
@@ -756,14 +767,14 @@ generated to be in 3 clusters
 <li>indicates how well the observation fits within the cluster</li>
 <li>i.e., based on the distance from the centroid</li>
 </ul>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="centroid-based-clustering.html#cb348-1"></a><span class="kw">library</span>(e1071)</span>
-<span id="cb348-2"><a href="centroid-based-clustering.html#cb348-2"></a></span>
-<span id="cb348-3"><a href="centroid-based-clustering.html#cb348-3"></a>bm_bd_norm_fclusters &lt;-<span class="st"> </span>penguins_norm <span class="op">%&gt;%</span></span>
-<span id="cb348-4"><a href="centroid-based-clustering.html#cb348-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(body_mass_norm, bill_depth_norm) <span class="op">%&gt;%</span></span>
-<span id="cb348-5"><a href="centroid-based-clustering.html#cb348-5"></a><span class="st">  </span>e1071<span class="op">::</span><span class="kw">cmeans</span>(<span class="dt">centers =</span> <span class="dv">2</span>, <span class="dt">iter.max =</span> <span class="dv">50</span>)</span>
-<span id="cb348-6"><a href="centroid-based-clustering.html#cb348-6"></a></span>
-<span id="cb348-7"><a href="centroid-based-clustering.html#cb348-7"></a>penguins_clustered_bm_bd_fuzzy &lt;-<span class="st"> </span>penguins_norm <span class="op">%&gt;%</span></span>
-<span id="cb348-8"><a href="centroid-based-clustering.html#cb348-8"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(<span class="dt">bm_bd_fuzzy_cluster =</span> bm_bd_norm_fclusters <span class="op">%$%</span><span class="st"> </span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="centroid-based-clustering.html#cb356-1"></a><span class="kw">library</span>(e1071)</span>
+<span id="cb356-2"><a href="centroid-based-clustering.html#cb356-2"></a></span>
+<span id="cb356-3"><a href="centroid-based-clustering.html#cb356-3"></a>bm_bd_norm_fclusters &lt;-<span class="st"> </span>penguins_norm <span class="op">%&gt;%</span></span>
+<span id="cb356-4"><a href="centroid-based-clustering.html#cb356-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(body_mass_norm, bill_depth_norm) <span class="op">%&gt;%</span></span>
+<span id="cb356-5"><a href="centroid-based-clustering.html#cb356-5"></a><span class="st">  </span>e1071<span class="op">::</span><span class="kw">cmeans</span>(<span class="dt">centers =</span> <span class="dv">2</span>, <span class="dt">iter.max =</span> <span class="dv">50</span>)</span>
+<span id="cb356-6"><a href="centroid-based-clustering.html#cb356-6"></a></span>
+<span id="cb356-7"><a href="centroid-based-clustering.html#cb356-7"></a>penguins_clustered_bm_bd_fuzzy &lt;-<span class="st"> </span>penguins_norm <span class="op">%&gt;%</span></span>
+<span id="cb356-8"><a href="centroid-based-clustering.html#cb356-8"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(<span class="dt">bm_bd_fuzzy_cluster =</span> bm_bd_norm_fclusters <span class="op">%$%</span><span class="st"> </span>cluster)</span></code></pre></div>
 </div>
 <div id="fuzzy-c-means-1" class="section level2">
 <h2><span class="header-section-number">29.11</span> Fuzzy c-means</h2>
@@ -772,18 +783,18 @@ generated to be in 3 clusters
 <li>that also allows to set a membership threshold (e.g., <code>0.75</code>)</li>
 <li>leaving some observations without a cluster</li>
 </ul>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="centroid-based-clustering.html#cb349-1"></a>penguins_clustered_bm_bd_fuzzy &lt;-<span class="st"> </span></span>
-<span id="cb349-2"><a href="centroid-based-clustering.html#cb349-2"></a><span class="st">  </span>penguins_clustered_bm_bd_fuzzy <span class="op">%&gt;%</span></span>
-<span id="cb349-3"><a href="centroid-based-clustering.html#cb349-3"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(</span>
-<span id="cb349-4"><a href="centroid-based-clustering.html#cb349-4"></a>    <span class="dt">bm_bd_fuzzy_cluster_membership =</span> </span>
-<span id="cb349-5"><a href="centroid-based-clustering.html#cb349-5"></a>      <span class="kw">apply</span>(bm_bd_norm_fclusters <span class="op">%$%</span><span class="st"> </span>membership, <span class="dv">1</span>, max)</span>
-<span id="cb349-6"><a href="centroid-based-clustering.html#cb349-6"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb349-7"><a href="centroid-based-clustering.html#cb349-7"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
-<span id="cb349-8"><a href="centroid-based-clustering.html#cb349-8"></a>    <span class="dt">bm_bd_crisp_cluster =</span> <span class="kw">ifelse</span>(</span>
-<span id="cb349-9"><a href="centroid-based-clustering.html#cb349-9"></a>      bm_bd_fuzzy_cluster_membership <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.75</span>, </span>
-<span id="cb349-10"><a href="centroid-based-clustering.html#cb349-10"></a>      <span class="dv">0</span>, bm_bd_fuzzy_cluster</span>
-<span id="cb349-11"><a href="centroid-based-clustering.html#cb349-11"></a>    )</span>
-<span id="cb349-12"><a href="centroid-based-clustering.html#cb349-12"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="centroid-based-clustering.html#cb357-1"></a>penguins_clustered_bm_bd_fuzzy &lt;-<span class="st"> </span></span>
+<span id="cb357-2"><a href="centroid-based-clustering.html#cb357-2"></a><span class="st">  </span>penguins_clustered_bm_bd_fuzzy <span class="op">%&gt;%</span></span>
+<span id="cb357-3"><a href="centroid-based-clustering.html#cb357-3"></a><span class="st">  </span>tibble<span class="op">::</span><span class="kw">add_column</span>(</span>
+<span id="cb357-4"><a href="centroid-based-clustering.html#cb357-4"></a>    <span class="dt">bm_bd_fuzzy_cluster_membership =</span> </span>
+<span id="cb357-5"><a href="centroid-based-clustering.html#cb357-5"></a>      <span class="kw">apply</span>(bm_bd_norm_fclusters <span class="op">%$%</span><span class="st"> </span>membership, <span class="dv">1</span>, max)</span>
+<span id="cb357-6"><a href="centroid-based-clustering.html#cb357-6"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb357-7"><a href="centroid-based-clustering.html#cb357-7"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
+<span id="cb357-8"><a href="centroid-based-clustering.html#cb357-8"></a>    <span class="dt">bm_bd_crisp_cluster =</span> <span class="kw">ifelse</span>(</span>
+<span id="cb357-9"><a href="centroid-based-clustering.html#cb357-9"></a>      bm_bd_fuzzy_cluster_membership <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.75</span>, </span>
+<span id="cb357-10"><a href="centroid-based-clustering.html#cb357-10"></a>      <span class="dv">0</span>, bm_bd_fuzzy_cluster</span>
+<span id="cb357-11"><a href="centroid-based-clustering.html#cb357-11"></a>    )</span>
+<span id="cb357-12"><a href="centroid-based-clustering.html#cb357-12"></a>  )</span></code></pre></div>
 </div>
 <div id="fuzzy-c-means-result" class="section level2">
 <h2><span class="header-section-number">29.12</span> Fuzzy c-means result</h2>
