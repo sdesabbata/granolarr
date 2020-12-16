@@ -17,7 +17,7 @@
 
 
 
-# Deep learning
+# Artificial Neural Networks
 
 ## Recap
 
@@ -132,7 +132,7 @@ That would render each neuron a **logistic regression model**
 
 ## Example
 
-Can we automatically identify the two groups visible in the scatterplot, without any previous knowledge of the groups?
+Can we automatically identify the two species based on the penguins' body mass?
 
 
 ```r
@@ -247,28 +247,13 @@ Assumptions
 
 Pseudo-R2
 
-- Approaches to calculate model quality (power)
+- Approaches to calculating model quality (power)
 
 Adding complexity
 
 - Multiple logistic regression: multiple predictors
 - Multinomial logistic regression: several categories as outcome
 
-
-
-## Defining a newtwork
-
-- Activation function
-  - sigmoids
-  - [Rectified Linear Unit (ReLU)](https://en.wikipedia.org/wiki/Rectifier_(neural_networks))
-- Training algorithm
-  - Stochastic Gradient Descent
-  - Adam 
-  - L-BFGS (quasi-Newton method)
-- Training approach
-  - feedforward (*"simple"* iterative training)
-  - recurrent (*"short-memory"* of previous values)
-  - backpropagation (of errors)
 
 
 ## Network topology
@@ -282,7 +267,7 @@ Number of layers
 - Single-layer network
   - effectively a logistic regression
 - Multi-layer network
-  - usully add one hidden layer
+  - usually add one hidden layer
 - Deep neural networks
 
 <br/>
@@ -305,6 +290,21 @@ CC-BY-SA-3.0
 
 :::
 ::::::
+
+
+## Defining a network
+
+- Activation function
+  - sigmoids
+  - [Rectified Linear Unit (ReLU)](https://en.wikipedia.org/wiki/Rectifier_(neural_networks))
+- Training algorithm
+  - Stochastic Gradient Descent
+  - Adam 
+  - L-BFGS (quasi-Newton method)
+- Training approach
+  - feedforward (*"simple"* iterative training)
+  - recurrent (*"short-memory"* of previous values)
+  - backpropagation (of errors)
 
 
 ## Deep neural networks
@@ -347,10 +347,6 @@ Deep neural networks with **convolutional hidden layers**
 - used very successfully on image object recognition
 - convolutional hidden layers *"convolve"* the images
     - a process similar to applying smoothing filters
-
-<font size="4">	
-**Example**: Liu, P. and De Sabbata, S. (2019). [Learning Digital Geographies through a Graph-Based Semi-supervised Approach](https://www.researchgate.net/publication/336021293_Learning_Digital_Geographies_through_a_Graph-Based_Semi-supervised_Approach). In proceedings of the 15th International Conference on GeoComputation, Queenstown, New Zealand.
-</font>
 
 <center>
 ![](images/Typical_cnn.png){width=70%}
@@ -444,28 +440,28 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction Adelie Gentoo
-##     Adelie     28      0
-##     Gentoo      1     26
-##                                           
-##                Accuracy : 0.9818          
-##                  95% CI : (0.9028, 0.9995)
-##     No Information Rate : 0.5273          
-##     P-Value [Acc > NIR] : 2.592e-14       
-##                                           
-##                   Kappa : 0.9636          
-##                                           
-##  Mcnemar's Test P-Value : 1               
-##                                           
-##             Sensitivity : 0.9655          
-##             Specificity : 1.0000          
-##          Pos Pred Value : 1.0000          
-##          Neg Pred Value : 0.9630          
-##              Prevalence : 0.5273          
-##          Detection Rate : 0.5091          
-##    Detection Prevalence : 0.5091          
-##       Balanced Accuracy : 0.9828          
-##                                           
-##        'Positive' Class : Adelie          
+##     Adelie     35      0
+##     Gentoo      0     20
+##                                      
+##                Accuracy : 1          
+##                  95% CI : (0.9351, 1)
+##     No Information Rate : 0.6364     
+##     P-Value [Acc > NIR] : 1.599e-11  
+##                                      
+##                   Kappa : 1          
+##                                      
+##  Mcnemar's Test P-Value : NA         
+##                                      
+##             Sensitivity : 1.0000     
+##             Specificity : 1.0000     
+##          Pos Pred Value : 1.0000     
+##          Neg Pred Value : 1.0000     
+##              Prevalence : 0.6364     
+##          Detection Rate : 0.6364     
+##    Detection Prevalence : 0.6364     
+##       Balanced Accuracy : 1.0000     
+##                                      
+##        'Positive' Class : Adelie     
 ## 
 ```
 

@@ -21,7 +21,7 @@ rm(list = ls())
 
 
 
-# Deep learning
+# Artificial Neural Networks
 
 ## Recap
 
@@ -149,7 +149,7 @@ ggplot2::ggplot() +
 
 ## Example
 
-Can we automatically identify the two groups visible in the scatterplot, without any previous knowledge of the groups?
+Can we automatically identify the two species based on the penguins' body mass?
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 penguins_to_learn <-
@@ -281,28 +281,13 @@ Assumptions
 
 Pseudo-R2
 
-- Approaches to calculate model quality (power)
+- Approaches to calculating model quality (power)
 
 Adding complexity
 
 - Multiple logistic regression: multiple predictors
 - Multinomial logistic regression: several categories as outcome
 
-
-
-## Defining a newtwork
-
-- Activation function
-  - sigmoids
-  - [Rectified Linear Unit (ReLU)](https://en.wikipedia.org/wiki/Rectifier_(neural_networks))
-- Training algorithm
-  - Stochastic Gradient Descent
-  - Adam 
-  - L-BFGS (quasi-Newton method)
-- Training approach
-  - feedforward (*"simple"* iterative training)
-  - recurrent (*"short-memory"* of previous values)
-  - backpropagation (of errors)
 
 
 ## Network topology
@@ -316,7 +301,7 @@ Number of layers
 - Single-layer network
   - effectively a logistic regression
 - Multi-layer network
-  - usully add one hidden layer
+  - usually add one hidden layer
 - Deep neural networks
 
 <br/>
@@ -339,6 +324,21 @@ CC-BY-SA-3.0
 
 :::
 ::::::
+
+
+## Defining a network
+
+- Activation function
+  - sigmoids
+  - [Rectified Linear Unit (ReLU)](https://en.wikipedia.org/wiki/Rectifier_(neural_networks))
+- Training algorithm
+  - Stochastic Gradient Descent
+  - Adam 
+  - L-BFGS (quasi-Newton method)
+- Training approach
+  - feedforward (*"simple"* iterative training)
+  - recurrent (*"short-memory"* of previous values)
+  - backpropagation (of errors)
 
 
 ## Deep neural networks
@@ -381,10 +381,6 @@ Deep neural networks with **convolutional hidden layers**
 - used very successfully on image object recognition
 - convolutional hidden layers *"convolve"* the images
     - a process similar to applying smoothing filters
-
-<font size="4">	
-**Example**: Liu, P. and De Sabbata, S. (2019). [Learning Digital Geographies through a Graph-Based Semi-supervised Approach](https://www.researchgate.net/publication/336021293_Learning_Digital_Geographies_through_a_Graph-Based_Semi-supervised_Approach). In proceedings of the 15th International Conference on GeoComputation, Queenstown, New Zealand.
-</font>
 
 <center>
 ![](images/Typical_cnn.png){width=70%}
