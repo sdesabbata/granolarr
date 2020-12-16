@@ -27,10 +27,10 @@ rm(list = ls())
 
 **Prev**: Comparing data
 
-- 321 Lecture Introduction to Machine Learning
-- 322 Lecture 
-- 323 Lecture 
-- 324 Practical session
+- 401 Lecture Introduction to Machine Learning
+- 402 Lecture Artificial Neural Networks
+- 403 Lecture Support vector machines
+- 404 Practical session
 
 **Now**: Principal Component Analysis
 
@@ -158,7 +158,7 @@ summary(penguins_pca)
 
 </div>
 
-The first component alone explains `r summary(penguins_pca)$importance[3, 1] %>% round(digits = 2)`% of variance, and the first two together explain `r summary(penguins_pca)$importance[3, 2] %>% round(digits = 2)`% of variance
+The first component alone explains `r (summary(penguins_pca)$importance[3, 1] * 100) %>% round(digits = 2)`% of variance, and the first two together explain `r (summary(penguins_pca)$importance[3, 2] * 100) %>% round(digits = 2)`% of variance
 
 
 

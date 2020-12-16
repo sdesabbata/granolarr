@@ -23,10 +23,10 @@
 
 **Prev**: Comparing data
 
-- 321 Lecture Introduction to Machine Learning
-- 322 Lecture 
-- 323 Lecture 
-- 324 Practical session
+- 401 Lecture Introduction to Machine Learning
+- 402 Lecture Artificial Neural Networks
+- 403 Lecture Support vector machines
+- 404 Practical session
 
 **Now**: Principal Component Analysis
 
@@ -100,7 +100,7 @@ summary(penguins_pca)
 
 </div>
 
-The first component alone explains 0.69% of variance, and the first two together explain 0.88% of variance
+The first component alone explains 68.84% of variance, and the first two together explain 88.16% of variance
 
 
 
