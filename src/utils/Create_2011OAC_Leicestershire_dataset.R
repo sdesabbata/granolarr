@@ -2,9 +2,9 @@
 # This code uses data from the Office for National Statistics
 # to create a small dataset containing all the 167 variables
 # used in the 2011 OAC (https://github.com/geogale/2011OAC)
-# for the Output Area in Leicester City
+# for the Output Area in Rutland City
 # Author: Stefano De Sabbata
-# Date: 17 July 2019
+# Date: 16 December 2020
 # Licensed under the GNU General Public License v3.0 https://www.gnu.org/licenses/gpl-3.0.html
 ##########
 
@@ -18,12 +18,14 @@
 # or see
 # https://osf.io/hd6yf/
 
+rm(list = ls())
+
 library(tidyverse)
 library(sp)
 library(rgdal)
 
 # Create tmp dir if necessary
-ifelse(!dir.exists(file.path(Sys.getenv("GRANOLARR_HOME"), "/tmp"))), dir.create(file.path(Sys.getenv("GRANOLARR_HOME"), "/tmp"))), FALSE)
+ifelse(!dir.exists(file.path(Sys.getenv("GRANOLARR_HOME"), "/tmp")), dir.create(file.path(Sys.getenv("GRANOLARR_HOME"), "/tmp")), FALSE)
 
 # Extract data files
 if (!dir.exists(file.path(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), "2011 OAC 167 Variables"))) {
@@ -32,9 +34,6 @@ if (!dir.exists(file.path(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), "2011 OA
 if (!dir.exists(file.path(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), "OA11_LSOA11_MSOA11_LAD11_EW_LU"))) {
   dir.create(file.path(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), "OA11_LSOA11_MSOA11_LAD11_EW_LU"))
   unzip(paste0(Sys.getenv("GRANOLARR_HOME"), "/storage/OA11_LSOA11_MSOA11_LAD11_EW_LU.zip"), exdir = paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/OA11_LSOA11_MSOA11_LAD11_EW_LU"))
-}
-if (!dir.exists(file.path(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), "E06000016"))) {
-  unzip(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "e06000016.zip"), exdir = paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"))
 }
 
 
@@ -56,25 +55,18 @@ areas_lookup <- read_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/OA11_LSOA11_
   ) %>%
   select(-LAD11NMW)
 
-leic_2011OAC <- readOGR(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/E06000016/E06000016_Leicester.shp"))
-leic_2011OAC_data <- leic_2011OAC@data
-
 # Join data and write
-leic_vars_2011OAC <-  areas_lookup %>%
-  right_join(leic_2011OAC_data, by = c("OA11CD" = "oa_code")) %>%
+areas_lookup %>%
   left_join(vars_2011OAC, by = c("OA11CD" = "OA")) %>%
-  write_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicester.csv"))
-
-# Copy variable names look-up file
-file.copy(
-  paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/2011 OAC 167 Variables/2011_OAC_Raw_uVariables_Lookup.csv"), 
-  paste0(Sys.getenv("GRANOLARR_HOME"), "/data")
-  )
+  dplyr::filter(LAD11NM %in% c("Blaby", "Charnwood", "Harborough", "Hinckley and Bosworth", "Melton", "North West Leicestershire", "Oadby and Wigston")) %>%
+  write_csv(paste0(Sys.getenv("GRANOLARR_HOME"), "/data/", "2011_OAC_Raw_uVariables_Leicestershire.csv"))
 
 # Clean
 unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/2011 OAC 167 Variables"), recursive = TRUE)
 unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/OA11_LSOA11_MSOA11_LAD11_EW_LU"), recursive = TRUE)
-unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/E06000016"), recursive = TRUE)
+unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp/E06000017"), recursive = TRUE)
 if(length(list.files(path = paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), include.dirs = TRUE)) == 0){
   unlink(paste0(Sys.getenv("GRANOLARR_HOME"), "/tmp"), recursive = TRUE)
 }
+
+rm(list = ls())

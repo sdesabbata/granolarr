@@ -27,7 +27,7 @@
 #/Exercises/*.pdf
 
 # Items in Data and tmp folder
-/Storage/*
+/storage/*
 /tmp/*
 /tmp/*
 
