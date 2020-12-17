@@ -104,6 +104,14 @@ Finally, the *kappa statistic* (the most common being [Cohen's kappa](https://en
 
 The two examples below explore the relation between some of the variables from the United Kingdom 2011 Census included among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)) and the [Rural Urban Classification (2011) of Output Areas in England and Wales](https://geoportal.statistics.gov.uk/datasets/rural-urban-classification-2011-of-output-areas-in-england-and-wales) created by the [Office for National Statistics](https://geoportal.statistics.gov.uk/). The various examples and models explore whether it is possible to learn the rural-urban distinction by using some of those census variables, in the Local Authority Districts (LADs) in Leicestershire (excluding the city of Leicester itself.
 
+The code below uses the libraries `caret`, `e1071` and `neuralnet`. Please install them before continuing with the practical
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("caret")
+install.packages("e1071")
+install.packages("neuralnet")
+```
+
 ### Data
 
 The examples use the same data seen in previous practicals, but for the 7 LADs in Leicestershire outside the boundaries of the city of Leicester: Blaby, Charnwood, Harborough, Hinckley and Bosworth, Melton, North West Leicestershire, and Oadby and Wigston. Those data are loaded from the `2011_OAC_Raw_uVariables_Leicestershire.csv`. The second part of the code extracts the data of the Rural Urban Classification (2011) from the compressed file `RUC11_OA11_EW.zip`, loads the extracted data and finally delets them.
@@ -249,13 +257,13 @@ ru_logit_data_testing <-
   )
 
 # Load library for confusion matrix
-library(class)
+library(caret)
 
 # Confusion matrix
 caret::confusionMatrix(
   ru_logit_data_testing %>% dplyr::pull(logit_predicted_ru),
   ru_logit_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
 )
 ```
 
@@ -342,7 +350,7 @@ ru_svm_data_testing <-
 caret::confusionMatrix(
   ru_svm_data_testing %>% dplyr::pull(svm_predicted_ru),
   ru_svm_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
   )
 ```
 
@@ -416,7 +424,7 @@ ru_dwellings_data_testing <-
 caret::confusionMatrix(
   ru_dwellings_data_testing %>% dplyr::pull(dwellings_svm_predicted_ru),
   ru_dwellings_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
   )
 ```
 
@@ -460,7 +468,7 @@ ru_dwellings_data_testing <-
 caret::confusionMatrix(
   ru_dwellings_data_testing %>% dplyr::pull(dwellings_radial_predicted_ru),
   ru_dwellings_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
   )
 ```
 
@@ -566,7 +574,7 @@ ru_dwellings_data_testing <-
 caret::confusionMatrix(
   ru_dwellings_data_testing %>% dplyr::pull(dwellings_nnet_predicted_ru),
   ru_dwellings_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
   )
 ```
 

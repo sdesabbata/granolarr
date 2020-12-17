@@ -99,6 +99,15 @@ Finally, the *kappa statistic* (the most common being [Cohen's kappa](https://en
 
 The two examples below explore the relation between some of the variables from the United Kingdom 2011 Census included among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)) and the [Rural Urban Classification (2011) of Output Areas in England and Wales](https://geoportal.statistics.gov.uk/datasets/rural-urban-classification-2011-of-output-areas-in-england-and-wales) created by the [Office for National Statistics](https://geoportal.statistics.gov.uk/). The various examples and models explore whether it is possible to learn the rural-urban distinction by using some of those census variables, in the Local Authority Districts (LADs) in Leicestershire (excluding the city of Leicester itself.
 
+The code below uses the libraries `caret`, `e1071` and `neuralnet`. Please install them before continuing with the practical
+
+
+```r
+install.packages("caret")
+install.packages("e1071")
+install.packages("neuralnet")
+```
+
 ### Data
 
 The examples use the same data seen in previous practicals, but for the 7 LADs in Leicestershire outside the boundaries of the city of Leicester: Blaby, Charnwood, Harborough, Hinckley and Bosworth, Melton, North West Leicestershire, and Oadby and Wigston. Those data are loaded from the `2011_OAC_Raw_uVariables_Leicestershire.csv`. The second part of the code extracts the data of the Rural Urban Classification (2011) from the compressed file `RUC11_OA11_EW.zip`, loads the extracted data and finally delets them.
@@ -167,7 +176,7 @@ liec_shire_2011OAC_RU %>%
   ggplot2::theme_bw()
 ```
 
-![](404_P_SupervisedLearning_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+![](404_P_SupervisedLearning_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
 
 The two patters in the plot above seem quite close even when plotted using a logarithmically transformed x-axis. As a first step, we can extract from the dataset only the data we need, and create a logarithmic trasformation of the population density vlaue. In oder to be able to perform a simplecross-validatin our model, we can divide that data in a training (80% of the dataset) and a testing set (20% of the dataset).
 
@@ -215,20 +224,20 @@ ru_logit_model %>%
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -2.1911  -0.5632   0.5263   0.6454   2.0067  
+## -2.1912  -0.5610   0.5236   0.6447   2.0057  
 ## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(>|z|)    
-## (Intercept)  -1.1784     0.1274  -9.246   <2e-16 ***
-## density_log   1.7712     0.0979  18.091   <2e-16 ***
+## (Intercept) -1.17352    0.12840   -9.14   <2e-16 ***
+## density_log  1.77756    0.09874   18.00   <2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 2040.5  on 1667  degrees of freedom
-## Residual deviance: 1589.3  on 1666  degrees of freedom
-## AIC: 1593.3
+##     Null deviance: 2028.6  on 1667  degrees of freedom
+## Residual deviance: 1585.5  on 1666  degrees of freedom
+## AIC: 1589.5
 ## 
 ## Number of Fisher Scoring iterations: 4
 ```
@@ -267,13 +276,13 @@ ru_logit_data_testing <-
   )
 
 # Load library for confusion matrix
-library(class)
+library(caret)
 
 # Confusion matrix
 caret::confusionMatrix(
   ru_logit_data_testing %>% dplyr::pull(logit_predicted_ru),
   ru_logit_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
 )
 ```
 
@@ -282,25 +291,29 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction rural urban
-##      rural    77    19
-##      urban    67   254
+##      rural    81    20
+##      urban    70   246
 ##                                           
-##                Accuracy : 0.7938          
-##                  95% CI : (0.7517, 0.8316)
-##     No Information Rate : 0.6547          
-##     P-Value [Acc > NIR] : 3.390e-10       
+##                Accuracy : 0.7842          
+##                  95% CI : (0.7415, 0.8227)
+##     No Information Rate : 0.6379          
+##     P-Value [Acc > NIR] : 7.298e-11       
 ##                                           
-##                   Kappa : 0.5049          
+##                   Kappa : 0.4968          
 ##                                           
-##  Mcnemar's Test P-Value : 4.017e-07       
+##  Mcnemar's Test P-Value : 2.404e-07       
 ##                                           
-##               Precision : 0.8021          
-##                  Recall : 0.5347          
-##                      F1 : 0.6417          
-##              Prevalence : 0.3453          
-##          Detection Rate : 0.1847          
-##    Detection Prevalence : 0.2302          
-##       Balanced Accuracy : 0.7326          
+##             Sensitivity : 0.5364          
+##             Specificity : 0.9248          
+##          Pos Pred Value : 0.8020          
+##          Neg Pred Value : 0.7785          
+##               Precision : 0.8020          
+##                  Recall : 0.5364          
+##                      F1 : 0.6429          
+##              Prevalence : 0.3621          
+##          Detection Rate : 0.1942          
+##    Detection Prevalence : 0.2422          
+##       Balanced Accuracy : 0.7306          
 ##                                           
 ##        'Positive' Class : rural           
 ## 
@@ -331,7 +344,7 @@ liec_shire_2011OAC_RU %>%
   ggplot2::theme_bw()
 ```
 
-![](404_P_SupervisedLearning_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+![](404_P_SupervisedLearning_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
 
 The plot illustrates how the two variables are skewed (note that the axis are logarithmically transformed) and that the two groups are not linearly separable. We can thus follow a procedure similar to the one seen above: extract the necessary data; split the data between training and testing for cross-validation; build the model; predict the values for the testing set and interpret the confusion matrix.
 
@@ -393,7 +406,7 @@ ru_svm_data_testing <-
 caret::confusionMatrix(
   ru_svm_data_testing %>% dplyr::pull(svm_predicted_ru),
   ru_svm_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
   )
 ```
 
@@ -402,27 +415,31 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction rural urban
-##      rural    60    28
-##      urban    58   271
-##                                           
-##                Accuracy : 0.7938          
-##                  95% CI : (0.7517, 0.8316)
-##     No Information Rate : 0.717           
-##     P-Value [Acc > NIR] : 0.0002122       
-##                                           
-##                   Kappa : 0.4494          
-##                                           
-##  Mcnemar's Test P-Value : 0.0017651       
-##                                           
-##               Precision : 0.6818          
-##                  Recall : 0.5085          
-##                      F1 : 0.5825          
-##              Prevalence : 0.2830          
-##          Detection Rate : 0.1439          
-##    Detection Prevalence : 0.2110          
-##       Balanced Accuracy : 0.7074          
-##                                           
-##        'Positive' Class : rural           
+##      rural    56    21
+##      urban    58   282
+##                                          
+##                Accuracy : 0.8106         
+##                  95% CI : (0.7696, 0.847)
+##     No Information Rate : 0.7266         
+##     P-Value [Acc > NIR] : 4.344e-05      
+##                                          
+##                   Kappa : 0.4694         
+##                                          
+##  Mcnemar's Test P-Value : 5.115e-05      
+##                                          
+##             Sensitivity : 0.4912         
+##             Specificity : 0.9307         
+##          Pos Pred Value : 0.7273         
+##          Neg Pred Value : 0.8294         
+##               Precision : 0.7273         
+##                  Recall : 0.4912         
+##                      F1 : 0.5864         
+##              Prevalence : 0.2734         
+##          Detection Rate : 0.1343         
+##    Detection Prevalence : 0.1847         
+##       Balanced Accuracy : 0.7110         
+##                                          
+##        'Positive' Class : rural          
 ## 
 ```
 
@@ -497,7 +514,7 @@ ru_dwellings_data_testing <-
 caret::confusionMatrix(
   ru_dwellings_data_testing %>% dplyr::pull(dwellings_svm_predicted_ru),
   ru_dwellings_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
   )
 ```
 
@@ -507,24 +524,28 @@ caret::confusionMatrix(
 ##           Reference
 ## Prediction rural urban
 ##      rural     0     0
-##      urban   123   294
+##      urban   124   293
 ##                                           
-##                Accuracy : 0.705           
-##                  95% CI : (0.6587, 0.7484)
-##     No Information Rate : 0.705           
-##     P-Value [Acc > NIR] : 0.5243          
+##                Accuracy : 0.7026          
+##                  95% CI : (0.6562, 0.7461)
+##     No Information Rate : 0.7026          
+##     P-Value [Acc > NIR] : 0.5242          
 ##                                           
 ##                   Kappa : 0               
 ##                                           
 ##  Mcnemar's Test P-Value : <2e-16          
 ##                                           
-##               Precision :    NA           
-##                  Recall : 0.000           
-##                      F1 :    NA           
-##              Prevalence : 0.295           
-##          Detection Rate : 0.000           
-##    Detection Prevalence : 0.000           
-##       Balanced Accuracy : 0.500           
+##             Sensitivity : 0.0000          
+##             Specificity : 1.0000          
+##          Pos Pred Value :    NaN          
+##          Neg Pred Value : 0.7026          
+##               Precision :     NA          
+##                  Recall : 0.0000          
+##                      F1 :     NA          
+##              Prevalence : 0.2974          
+##          Detection Rate : 0.0000          
+##    Detection Prevalence : 0.0000          
+##       Balanced Accuracy : 0.5000          
 ##                                           
 ##        'Positive' Class : rural           
 ## 
@@ -571,7 +592,7 @@ ru_dwellings_data_testing <-
 caret::confusionMatrix(
   ru_dwellings_data_testing %>% dplyr::pull(dwellings_radial_predicted_ru),
   ru_dwellings_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
   )
 ```
 
@@ -580,25 +601,29 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction rural urban
-##      rural    45    39
-##      urban    78   255
+##      rural    37    22
+##      urban    87   271
 ##                                           
-##                Accuracy : 0.7194          
-##                  95% CI : (0.6736, 0.7621)
-##     No Information Rate : 0.705           
-##     P-Value [Acc > NIR] : 0.2790238       
+##                Accuracy : 0.7386          
+##                  95% CI : (0.6936, 0.7802)
+##     No Information Rate : 0.7026          
+##     P-Value [Acc > NIR] : 0.05884         
 ##                                           
-##                   Kappa : 0.2569          
+##                   Kappa : 0.2631          
 ##                                           
-##  Mcnemar's Test P-Value : 0.0004429       
+##  Mcnemar's Test P-Value : 8.783e-10       
 ##                                           
-##               Precision : 0.5357          
-##                  Recall : 0.3659          
-##                      F1 : 0.4348          
-##              Prevalence : 0.2950          
-##          Detection Rate : 0.1079          
-##    Detection Prevalence : 0.2014          
-##       Balanced Accuracy : 0.6166          
+##             Sensitivity : 0.29839         
+##             Specificity : 0.92491         
+##          Pos Pred Value : 0.62712         
+##          Neg Pred Value : 0.75698         
+##               Precision : 0.62712         
+##                  Recall : 0.29839         
+##                      F1 : 0.40437         
+##              Prevalence : 0.29736         
+##          Detection Rate : 0.08873         
+##    Detection Prevalence : 0.14149         
+##       Balanced Accuracy : 0.61165         
 ##                                           
 ##        'Positive' Class : rural           
 ## 
@@ -639,7 +664,7 @@ ru_dwellings_nnet_model <-
 ru_dwellings_nnet_model %>%  plot(rep = "best")
 ```
 
-![](404_P_SupervisedLearning_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
+![](404_P_SupervisedLearning_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
 
 ```r
 # Predict the values for the testing dataset
@@ -684,7 +709,7 @@ ru_dwellings_data_testing <-
 caret::confusionMatrix(
   ru_dwellings_data_testing %>% dplyr::pull(dwellings_nnet_predicted_ru),
   ru_dwellings_data_testing %>% dplyr::pull(rural_urban),
-  mode = "prec_recall"
+  mode = "everything"
   )
 ```
 
@@ -693,25 +718,29 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction rural urban
-##      rural    51    32
-##      urban    72   262
+##      rural    47    29
+##      urban    77   264
 ##                                           
-##                Accuracy : 0.7506          
-##                  95% CI : (0.7062, 0.7914)
-##     No Information Rate : 0.705           
-##     P-Value [Acc > NIR] : 0.0221873       
+##                Accuracy : 0.7458          
+##                  95% CI : (0.7012, 0.7869)
+##     No Information Rate : 0.7026          
+##     P-Value [Acc > NIR] : 0.02906         
 ##                                           
-##                   Kappa : 0.3377          
+##                   Kappa : 0.3152          
 ##                                           
-##  Mcnemar's Test P-Value : 0.0001312       
+##  Mcnemar's Test P-Value : 4.994e-06       
 ##                                           
-##               Precision : 0.6145          
-##                  Recall : 0.4146          
-##                      F1 : 0.4951          
-##              Prevalence : 0.2950          
-##          Detection Rate : 0.1223          
-##    Detection Prevalence : 0.1990          
-##       Balanced Accuracy : 0.6529          
+##             Sensitivity : 0.3790          
+##             Specificity : 0.9010          
+##          Pos Pred Value : 0.6184          
+##          Neg Pred Value : 0.7742          
+##               Precision : 0.6184          
+##                  Recall : 0.3790          
+##                      F1 : 0.4700          
+##              Prevalence : 0.2974          
+##          Detection Rate : 0.1127          
+##    Detection Prevalence : 0.1823          
+##       Balanced Accuracy : 0.6400          
 ##                                           
 ##        'Positive' Class : rural           
 ## 
