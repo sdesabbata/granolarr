@@ -66,7 +66,7 @@ The two examples below explore the creation of simple geodemographic classificat
 
 
 ```r
-leicester_2011OAC_ages <- readr::read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
+leicester_2011OAC <- readr::read_csv("2011_OAC_Raw_uVariables_Leicester.csv")
 ```
 
 

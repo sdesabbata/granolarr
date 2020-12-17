@@ -31,7 +31,9 @@ Classification is one of the classic supervised machine learning tasks, where al
 
 Artificial neural networks (ANNs) are one of the most studied approaches in supervised machine learning, and the term actually defines a large set of different approaches. These model aims to simulate a simplistic version of a brain made of artificial neuranos. Each artificial neuron combines a series of input values into one output values, using a series of weights (one per input value) and an activation function. The aim of the model is to learn an optimal set of weights that, once cobined with the input values, generates the correct output value. The latter is also influenced by the activation function, which modulates the final result.
 
-![](images/artificial_neuron.png)
+```{r, echo=FALSE, out.width="50%", fig.align = 'center'}
+knitr::include_graphics(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/practicals/images/artificial_neuron.png"))
+```
 
 Each neuron is effectively a regression model. The input values are the predictors (or independent variables), the output is the outcome (or dependent variable) and the weights are the coefficients (see also previous practical on regression models). The selection of the activation function defines the regression model. As ANNs are commonly used for classification, one of the most common activation functions used are sigmoids, thus rendering each single neuron a logistic regression.
 
@@ -39,7 +41,7 @@ An instance of an ANN is defined by its topology (number of layers and nodes), a
 
 - Number of layers
   - Single-layer network: one node of input variable one node per category of output variable, effectively a logistic regression.
-  - Multi-layer network: adds one hidden layer, which aims to caputre hidden *"features"* of the data, as combinations of the input values, and use that for the final classification.
+  - Multi-layer network: adds one hidden layer, which aims to capture hidden *"features"* of the data, as combinations of the input values, and use that for the final classification.
   - Deep neural networks: several hidden layers, each aiming to capture more and more complex *"features"* of the data.
 - Number of nodes
   - The number of nodes needs to be selected for each one of the hidden layers.
@@ -52,6 +54,51 @@ Support vector machines (SVMs) are anothe very common approach to supervised cla
 
 
 
+### Confusion matrices
+
+Once a classification model has been created, the next step is validation. The latter can involve different approaches and procedures, but one of the most common and simple approaches is to split the data between a training and a testing set. The model in trained on the training set and then validated using the testing set. Both sets will contain both the input values (predictors) and the output values (outcome).
+
+The model trained using the training set can be used to predict the values for the testing set. The outcome of the prediction can be compared to the actual categories in the testing dataset. A **confusion matrix** is a representation of the correspondence between actual values and predicted values in the testing dataset, including:
+
+- true positive: correctly classified as first (positive) class;
+- true negative: correctly classified as second (negative) class;
+- false positive: incorrectly classified as first (positive) class;
+- false negative: incorrectly classified as second (negative) class.
+
+The number of true and false positive and negatives are used to calculated a number of performance measures. The simplest measures of performance are *accuracy* and *error rate*.
+
+$$
+accuracy = \frac{true\ positive + true\ negative}{total\ number\ of\ cases}
+$$
+$$
+error\ rate = 1 - accuracy
+$$
+
+There are also a number of additional measures that can provide further insight into the quality of the prediction, such as *sensitivity* (true positive rate) and *specificity* (true negative rate). If the model has been created to predict a binary categorical variable, based on the definition above (first category is positive, second category is negative), sensitivity is a measure of quality in predicting the first category, and specificity is a measure of quality in predicting the second category.
+
+$$
+sensitivity = \frac{true\ positive}{true\ positive + false\ negative} = \frac{correct\ 1st}{all\ 1st}
+$$
+
+$$
+specificity = \frac{true\ negative}{true\ negative + false\ positive} = \frac{correct\ 2nd}{all\ 2nd}
+$$
+Two further, similar measures are *precision* and *recall*. A model with high precision is a model that can be trusted to make a correct predition when identifying an observation as being part of the first category. The formula for recall is the same used for sensitivity, but in this case it has a different interpretation, derived from the computer science literature on search engines, where a model with high recall is able to correctly retrieve most items of the specified category. Note that both precision and recall are dependent on which one of two categories is defiened as being the first.
+
+$$
+precision = \frac{true\ positive}{true\ positive + false\ positive} = \frac{correct\ 1st}{predicted\ as\ 1st}
+$$
+
+$$
+recall = \frac{true\ positive}{true\ positive + false\ negative} = \frac{correct\ 1st}{all\ 1st}
+$$
+Precision and recall can also be combined into a single measure of performance called *F-score* (a.k.a., *F-measure* or *F1*).
+
+$$
+F-score = \frac{2 \times precision \times recall}{precision + recall}
+$$
+Finally, the *kappa statistic* (the most common being [Cohen's kappa](https://en.wikipedia.org/wiki/Cohen%27s_kappa)) is an additional measure of accuracy, which measures the agreement between prediction and actual values, while also accounting for the probability of correct prediction by chance.
+
 ## Examples
 
 
@@ -62,17 +109,17 @@ The two examples below explore the relation between some of the variables from t
 The examples use the same data seen in previous practicals, but for the 7 LADs in Leicestershire outside the boundaries of the city of Leicester: Blaby, Charnwood, Harborough, Hinckley and Bosworth, Melton, North West Leicestershire, and Oadby and Wigston. Those data are loaded from the `2011_OAC_Raw_uVariables_Leicestershire.csv`. The second part of the code extracts the data of the Rural Urban Classification (2011) from the compressed file `RUC11_OA11_EW.zip`, loads the extracted data and finally delets them.
 
 ```{r, echo=TRUE, eval=FALSE}
-# # Libraries
-# library(tidyverse)
-# library(magrittr)
-# 
-# # 2011 OAC data for Leicestershire (excl. Leicester)
-# liec_shire_2011OAC <- readr::read_csv("2011_OAC_Raw_uVariables_Leicestershire.csv")
-# 
-# # Rural Urban Classification (2011)
-# unzip("RUC11_OA11_EW.zip")
-# ru_class_2011 <- readr::read_csv("RUC11_OA11_EW.csv")
-# unlink("RUC11_OA11_EW.csv")
+# Libraries
+library(tidyverse)
+library(magrittr)
+
+# 2011 OAC data for Leicestershire (excl. Leicester)
+liec_shire_2011OAC <- readr::read_csv("2011_OAC_Raw_uVariables_Leicestershire.csv")
+
+# Rural Urban Classification (2011)
+unzip("RUC11_OA11_EW.zip")
+ru_class_2011 <- readr::read_csv("RUC11_OA11_EW.csv")
+unlink("RUC11_OA11_EW.csv")
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -173,7 +220,7 @@ As per other regression models, it would be necessary to test the assumptions of
 
 We can test the performance of the model through a cross-validation exercise, using the testing dataset. Fianlly, we can compare the restults of the prediction with the original data using a confusion matrix.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
 ru_logit_prediction <- 
   ru_logit_model %>%
   # Use model to predict values
@@ -214,7 +261,7 @@ caret::confusionMatrix(
 
 ### Support vector machines
 
-To showcase the use of SVMs, let's try build a model for urban - rural classification that uses total population and area (logarithmically transformed) as two separate input values. The aim of the SVM is then to find a line that maximises the margin between the two groups shown in the plot below.
+To showcase the use of SVMs, the example below expands on the one above by building a model for urban - rural classification that uses total population and area (logarithmically transformed) as two separate input values, rather than combined as population density. The aim of the SVM is then to find a line that maximises the margin between the two groups shown in the plot below.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 3}
 liec_shire_2011OAC_RU %>%
@@ -299,7 +346,7 @@ caret::confusionMatrix(
   )
 ```
 
-Let's try something more complex, building a model for rural - urban classification using the presence of different dwelling types as input variables.
+As third more complex example, we can explore how to build a model for rural - urban classification using the presence of the five different types of dwelling as input variables. The confusion matrix below clearly illustrates that a simple linear SVM is not adequate to construct such a model.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 # Data for SVM model
@@ -373,11 +420,10 @@ caret::confusionMatrix(
   )
 ```
 
-Clearly the linear model is not adequate.
 
-### SVM kernels
+### Kernels
 
-Instead of replying on simple linear hperplanes, we can use the *"kernel trick"* to project the data into a higher-dimensional space, which might allow groups to be (more easily) linearly separable. 
+Instead of replying on simple linear hyperplanes, we can use the *"kernel trick"* to project the data into a higher-dimensional space, which might allow groups to be (more easily) linearly separable. 
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 # Build a second model
@@ -418,33 +464,11 @@ caret::confusionMatrix(
   )
 ```
 
-```{r}
-# library(ROCR)
-# library(pROC)
-# 
-# ru_svm_dwellings_radial_prob <-
-#   stats::predict(
-#     ru_dwellings_svm_radial_model,
-#     ru_dwellings_data_testing %>% 
-#       dplyr::select(scaled_detached:scaled_carava_tmp),
-#     type="prob", probability = TRUE
-#   )
-# 
-# ru_svm_dwellings_radial_rocr <-
-#   prediction(
-#   attr(ru_svm_dwellings_radial_prob, "probabilities")[,1], 
-#   oa_for_testing %>% dplyr::pull(rural_urban)
-# )
-# 
-# ru_svm_dwellings_radial_performance <- 
-#   performance(ru_svm_dwellings_radial_rocr, "tpr","fpr")
-# 
-# plot(ru_svm_dwellings_radial_performance)
-```
+
 
 ### Artificial neural network
 
-Let's try build an ANNs using the same input and output variable.
+Finally, we can explore the construction of an ANN for the same input and output variables seen in the previous example, and compare which one of the two approaches produces better results. The example below creates a multi-layer ANN, using two hidden layers, with five and two nodes respectively.
 
 ```{r, echo=FALSE, eval=FALSE, message=FALSE, warning=FALSE}
 # Run this code separately 
@@ -508,22 +532,34 @@ ru_dwellings_nnet_prediction <-
       dplyr::select(scaled_detached:scaled_carava_tmp)
   )
 
+# Derive predicted categories
+ru_dwellings_nnet_predicted_categories <-
+  # from the prediction object
+  ru_dwellings_nnet_prediction %$%
+  # extract the result
+  # which is a matrix of probabilities
+  # for each object and category
+  net.result %>%
+  # select the column (thus the category)
+  # with higher probability
+  max.col %>%
+  # recode columns values as
+  # rural or urban
+  dplyr::recode(
+    `1` = "rural",
+    `2` = "urban"
+  ) %>%
+  forcats::as_factor() %>% 
+  forcats::fct_relevel(
+    c("rural", "urban")
+  )
+
 # Add predicted values to the table
 ru_dwellings_data_testing <-
   ru_dwellings_data_testing %>%
   tibble::add_column(
     dwellings_nnet_predicted_ru = 
-      ru_dwellings_nnet_prediction %$%
-      net.result %>%
-      max.col %>%
-      recode(
-        `1` = "rural",
-        `2` = "urban"
-      ) %>%
-      forcats::as_factor() %>% 
-      forcats::fct_relevel(
-        c("rural", "urban")
-      )
+      ru_dwellings_nnet_predicted_categories
   )
 
 # Confusion matrix
@@ -533,6 +569,36 @@ caret::confusionMatrix(
   mode = "prec_recall"
   )
 ```
+
+```{r, echo=FALSE, eval=FALSE}
+library(ROCR)
+library(pROC)
+
+# Get prediction results
+ru_dwellings_nnet_predicted_categories <-
+  # from the prediction object
+  ru_dwellings_nnet_prediction %$%
+  # extract the result
+  # which is a matrix of probabilities
+  # for each object and category
+  net.result
+
+pROC::roc( 
+  response = 
+    ru_dwellings_data_testing %>% dplyr::pull(rural_urban),
+  predictor =
+    ru_dwellings_nnet_predicted_categories[, 1], 
+  plot=TRUE,  grid=TRUE, print.auc=TRUE
+  )
+```
+
+## Exercise 414.1
+
+**Question 414.1.1:** Create a SVM model capable to classify areas in Leicester and Leicestershire as rural or urban based on the series of variable that relate to *"Economic Activity"* among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)).
+
+**Question 414.1.2:** Create an ANN using the same input and output values used in Question 404.1.1.
+
+**Question 414.1.3:** Assess which one of the two models preforms a better classification.
 
 
 ```{r cleanup, include=FALSE}
