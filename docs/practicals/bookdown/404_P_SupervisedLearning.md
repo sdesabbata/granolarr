@@ -24,18 +24,18 @@ Classification is one of the classic supervised machine learning tasks, where al
 
 
 
-### Artificial netural networks
+### Artificial neural networks
 
-Artificial neural networks (ANNs) are one of the most studied approaches in supervised machine learning, and the term actually defines a large set of different approaches. These model aims to simulate a simplistic version of a brain made of artificial neuranos. Each artificial neuron combines a series of input values into one output values, using a series of weights (one per input value) and an activation function. The aim of the model is to learn an optimal set of weights that, once cobined with the input values, generates the correct output value. The latter is also influenced by the activation function, which modulates the final result.
+Artificial neural networks (ANNs) are one of the most studied approaches in supervised machine learning, and the term actually defines a large set of different approaches. These model aims to simulate a simplistic version of a brain made of artificial neurons. Each artificial neuron combines a series of input values into one output values, using a series of weights (one per input value) and an activation function. The aim of the model is to learn an optimal set of weights that, once combined with the input values, generates the correct output value. The latter is also influenced by the activation function, which modulates the final result.
 
 <img src="/home/rstudio/granolarr/src/practicals/images/artificial_neuron.png" width="50%" style="display: block; margin: auto;" />
 
-Each neuron is effectively a regression model. The input values are the predictors (or independent variables), the output is the outcome (or dependent variable) and the weights are the coefficients (see also previous practical on regression models). The selection of the activation function defines the regression model. As ANNs are commonly used for classification, one of the most common activation functions used are sigmoids, thus rendering each single neuron a logistic regression.
+Each neuron is effectively a regression model. The input values are the predictors (or independent variables), the output is the outcome (or dependent variable), and the weights are the coefficients (see also previous practical on regression models). The selection of the activation function defines the regression model. As ANNs are commonly used for classification, one of the most common activation functions used is the sigmoid, thus rendering every single neuron a logistic regression.
 
-An instance of an ANN is defined by its topology (number of layers and nodes), activation functions and the algorithm used to train the network. The selection of all those parameters reders the construction of ANNs a very complex task, and the quality of the result frequently relies on the experience of the data scientist.
+An instance of an ANN is defined by its topology (number of layers and nodes), activation functions and the algorithm used to train the network. The selection of all those parameters renders the construction of ANNs a very complex task, and the quality of the result frequently relies on the experience of the data scientist.
 
 - Number of layers
-  - Single-layer network: one node of input variable one node per category of output variable, effectively a logistic regression.
+  - Single-layer network: one node of input variable one node per category of the output variable, effectively a logistic regression.
   - Multi-layer network: adds one hidden layer, which aims to capture hidden *"features"* of the data, as combinations of the input values, and use that for the final classification.
   - Deep neural networks: several hidden layers, each aiming to capture more and more complex *"features"* of the data.
 - Number of nodes
@@ -45,22 +45,22 @@ An instance of an ANN is defined by its topology (number of layers and nodes), a
 
 ### Support vector machines
 
-Support vector machines (SVMs) are anothe very common approach to supervised classification. SVMs perform the classification task by partitioning the data space into regions separated by hyperplanes. For instance, in a bi-dimensional space, a hyperplane is a line, and the algorithm is designed to find the line that best separates two groups of data. Computationally, the process is not dissimilar to a linear regression.
+Support vector machines (SVMs) are another very common approach to supervised classification. SVMs perform the classification task by partitioning the data space into regions separated by hyperplanes. For instance, in a bi-dimensional space, a hyperplane is a line, and the algorithm is designed to find the line that best separates two groups of data. Computationally, the process is not dissimilar to linear regression.
 
 
 
 ### Confusion matrices
 
-Once a classification model has been created, the next step is validation. The latter can involve different approaches and procedures, but one of the most common and simple approaches is to split the data between a training and a testing set. The model in trained on the training set and then validated using the testing set. Both sets will contain both the input values (predictors) and the output values (outcome).
+Once a classification model has been created, the next step is validation. The latter can involve different approaches and procedures, but one of the most common and simple approaches is to split the data between a training and a testing set. The model is trained on the training set and then validated using the testing set. Both sets will contain both the input values (predictors) and the output values (outcome).
 
 The model trained using the training set can be used to predict the values for the testing set. The outcome of the prediction can be compared to the actual categories in the testing dataset. A **confusion matrix** is a representation of the correspondence between actual values and predicted values in the testing dataset, including:
 
-- true positive: correctly classified as first (positive) class;
-- true negative: correctly classified as second (negative) class;
-- false positive: incorrectly classified as first (positive) class;
-- false negative: incorrectly classified as second (negative) class.
+- true positive: correctly classified as the first (positive) class;
+- true negative: correctly classified as the second (negative) class;
+- false positive: incorrectly classified as the first (positive) class;
+- false negative: incorrectly classified as the second (negative) class.
 
-The number of true and false positive and negatives are used to calculated a number of performance measures. The simplest measures of performance are *accuracy* and *error rate*.
+The number of true and false positive and negatives are used to calculate a number of performance measures. The simplest measures of performance are *accuracy* and *error rate*.
 
 $$
 accuracy = \frac{true\ positive + true\ negative}{total\ number\ of\ cases}
@@ -69,7 +69,7 @@ $$
 error\ rate = 1 - accuracy
 $$
 
-There are also a number of additional measures that can provide further insight into the quality of the prediction, such as *sensitivity* (true positive rate) and *specificity* (true negative rate). If the model has been created to predict a binary categorical variable, based on the definition above (first category is positive, second category is negative), sensitivity is a measure of quality in predicting the first category, and specificity is a measure of quality in predicting the second category.
+There are also a number of additional measures that can provide further insight into the quality of the prediction, such as *sensitivity* (true positive rate) and *specificity* (true negative rate). If the model has been created to predict a binary categorical variable, based on the definition above (the first category is positive, the second category is negative), sensitivity is a measure of quality in predicting the first category, and specificity is a measure of quality in predicting the second category.
 
 $$
 sensitivity = \frac{true\ positive}{true\ positive + false\ negative} = \frac{correct\ 1st}{all\ 1st}
@@ -78,7 +78,8 @@ $$
 $$
 specificity = \frac{true\ negative}{true\ negative + false\ positive} = \frac{correct\ 2nd}{all\ 2nd}
 $$
-Two further, similar measures are *precision* and *recall*. A model with high precision is a model that can be trusted to make a correct predition when identifying an observation as being part of the first category. The formula for recall is the same used for sensitivity, but in this case it has a different interpretation, derived from the computer science literature on search engines, where a model with high recall is able to correctly retrieve most items of the specified category. Note that both precision and recall are dependent on which one of two categories is defiened as being the first.
+
+Two further, similar measures are *precision* and *recall*. A model with high precision is a model that can be trusted to make a correct prediction when identifying an observation as being part of the first category. The formula for recall is the same used for sensitivity, but in this case, it has a different interpretation, derived from the computer science literature on search engines, where a model with high recall is able to correctly retrieve most items of the specified category. Note that both precision and recall are dependent on which one of two categories is defined as being the first.
 
 $$
 precision = \frac{true\ positive}{true\ positive + false\ positive} = \frac{correct\ 1st}{predicted\ as\ 1st}
@@ -99,7 +100,7 @@ Finally, the *kappa statistic* (the most common being [Cohen's kappa](https://en
 
 The two examples below explore the relation between some of the variables from the United Kingdom 2011 Census included among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)) and the [Rural Urban Classification (2011) of Output Areas in England and Wales](https://geoportal.statistics.gov.uk/datasets/rural-urban-classification-2011-of-output-areas-in-england-and-wales) created by the [Office for National Statistics](https://geoportal.statistics.gov.uk/). The various examples and models explore whether it is possible to learn the rural-urban distinction by using some of those census variables, in the Local Authority Districts (LADs) in Leicestershire (excluding the city of Leicester itself.
 
-The code below uses the libraries `caret`, `e1071` and `neuralnet`. Please install them before continuing with the practical
+The code below uses the libraries `caret`, `e1071` and `neuralnet`. Please install them before continuing with the practical.
 
 
 ```r
@@ -110,7 +111,7 @@ install.packages("neuralnet")
 
 ### Data
 
-The examples use the same data seen in previous practicals, but for the 7 LADs in Leicestershire outside the boundaries of the city of Leicester: Blaby, Charnwood, Harborough, Hinckley and Bosworth, Melton, North West Leicestershire, and Oadby and Wigston. Those data are loaded from the `2011_OAC_Raw_uVariables_Leicestershire.csv`. The second part of the code extracts the data of the Rural Urban Classification (2011) from the compressed file `RUC11_OA11_EW.zip`, loads the extracted data and finally delets them.
+The examples use the same data seen in previous practicals, but for the 7 LADs in Leicestershire outside the boundaries of the city of Leicester: Blaby, Charnwood, Harborough, Hinckley and Bosworth, Melton, North West Leicestershire, and Oadby and Wigston. Those data are loaded from the `2011_OAC_Raw_uVariables_Leicestershire.csv`. The second part of the code extracts the data of the Rural Urban Classification (2011) from the compressed file `RUC11_OA11_EW.zip`, loads the extracted data and finally deletes them.
 
 
 ```r
@@ -122,6 +123,9 @@ library(magrittr)
 liec_shire_2011OAC <- readr::read_csv("2011_OAC_Raw_uVariables_Leicestershire.csv")
 
 # Rural Urban Classification (2011)
+# >>> Note that if you upload the file to RStudio Server
+# >>> the file will be automatically unzipped
+# >>> thus the unzip and unlink instrcutions are not necessary
 unzip("RUC11_OA11_EW.zip")
 ru_class_2011 <- readr::read_csv("RUC11_OA11_EW.csv")
 unlink("RUC11_OA11_EW.csv")
@@ -178,7 +182,7 @@ liec_shire_2011OAC_RU %>%
 
 ![](404_P_SupervisedLearning_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
 
-The two patters in the plot above seem quite close even when plotted using a logarithmically transformed x-axis. As a first step, we can extract from the dataset only the data we need, and create a logarithmic trasformation of the population density vlaue. In oder to be able to perform a simplecross-validatin our model, we can divide that data in a training (80% of the dataset) and a testing set (20% of the dataset).
+The two patters in the plot above seem quite close even when plotted using a logarithmically transformed x-axis. As a first step, we can extract from the dataset only the data we need, and create a logarithmic transformation of the population density value. To be able to perform a simple validatin our model, we can divide that data in a training (80% of the dataset) and a testing set (20% of the dataset).
 
 
 ```r
@@ -224,27 +228,27 @@ ru_logit_model %>%
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -2.1912  -0.5610   0.5236   0.6447   2.0057  
+## -2.1611  -0.5339   0.5069   0.6362   2.1174  
 ## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(>|z|)    
-## (Intercept) -1.17352    0.12840   -9.14   <2e-16 ***
-## density_log  1.77756    0.09874   18.00   <2e-16 ***
+## (Intercept)  -1.3786     0.1323  -10.42   <2e-16 ***
+## density_log   1.9218     0.1022   18.80   <2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 2028.6  on 1667  degrees of freedom
-## Residual deviance: 1585.5  on 1666  degrees of freedom
-## AIC: 1589.5
+##     Null deviance: 2065.2  on 1667  degrees of freedom
+## Residual deviance: 1551.3  on 1666  degrees of freedom
+## AIC: 1555.3
 ## 
 ## Number of Fisher Scoring iterations: 4
 ```
 
-As per other regression models, it would be necessary to test the assumptions of the logit model and the overall distribution of the residuals. However, as this model only has one predictor, we will confine our performance analysis to a cross-validation. 
+As per other regression models, it would be necessary to test the assumptions of the logit model and the overall distribution of the residuals. However, as this model only has one predictor, we will confine our performance analysis to simple validation. 
 
-We can test the performance of the model through a cross-validation exercise, using the testing dataset. Fianlly, we can compare the restults of the prediction with the original data using a confusion matrix.
+We can test the performance of the model through a validation exercise, using the testing dataset. Finally, we can compare the results of the prediction with the original data using a confusion matrix.
 
 
 ```r
@@ -291,29 +295,29 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction rural urban
-##      rural    81    20
-##      urban    70   246
+##      rural    57    32
+##      urban    72   256
 ##                                           
-##                Accuracy : 0.7842          
-##                  95% CI : (0.7415, 0.8227)
-##     No Information Rate : 0.6379          
-##     P-Value [Acc > NIR] : 7.298e-11       
+##                Accuracy : 0.7506          
+##                  95% CI : (0.7062, 0.7914)
+##     No Information Rate : 0.6906          
+##     P-Value [Acc > NIR] : 0.0041500       
 ##                                           
-##                   Kappa : 0.4968          
+##                   Kappa : 0.3617          
 ##                                           
-##  Mcnemar's Test P-Value : 2.404e-07       
+##  Mcnemar's Test P-Value : 0.0001312       
 ##                                           
-##             Sensitivity : 0.5364          
-##             Specificity : 0.9248          
-##          Pos Pred Value : 0.8020          
-##          Neg Pred Value : 0.7785          
-##               Precision : 0.8020          
-##                  Recall : 0.5364          
-##                      F1 : 0.6429          
-##              Prevalence : 0.3621          
-##          Detection Rate : 0.1942          
-##    Detection Prevalence : 0.2422          
-##       Balanced Accuracy : 0.7306          
+##             Sensitivity : 0.4419          
+##             Specificity : 0.8889          
+##          Pos Pred Value : 0.6404          
+##          Neg Pred Value : 0.7805          
+##               Precision : 0.6404          
+##                  Recall : 0.4419          
+##                      F1 : 0.5229          
+##              Prevalence : 0.3094          
+##          Detection Rate : 0.1367          
+##    Detection Prevalence : 0.2134          
+##       Balanced Accuracy : 0.6654          
 ##                                           
 ##        'Positive' Class : rural           
 ## 
@@ -346,7 +350,7 @@ liec_shire_2011OAC_RU %>%
 
 ![](404_P_SupervisedLearning_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
 
-The plot illustrates how the two variables are skewed (note that the axis are logarithmically transformed) and that the two groups are not linearly separable. We can thus follow a procedure similar to the one seen above: extract the necessary data; split the data between training and testing for cross-validation; build the model; predict the values for the testing set and interpret the confusion matrix.
+The plot illustrates how the two variables are skewed (note that the axes are logarithmically transformed) and that the two groups are not linearly separable. We can thus follow a procedure similar to the one seen above: extract the necessary data; split the data between training and testing for validation; build the model; predict the values for the testing set and interpret the confusion matrix.
 
 
 ```r
@@ -415,35 +419,35 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction rural urban
-##      rural    56    21
-##      urban    58   282
-##                                          
-##                Accuracy : 0.8106         
-##                  95% CI : (0.7696, 0.847)
-##     No Information Rate : 0.7266         
-##     P-Value [Acc > NIR] : 4.344e-05      
-##                                          
-##                   Kappa : 0.4694         
-##                                          
-##  Mcnemar's Test P-Value : 5.115e-05      
-##                                          
-##             Sensitivity : 0.4912         
-##             Specificity : 0.9307         
-##          Pos Pred Value : 0.7273         
-##          Neg Pred Value : 0.8294         
-##               Precision : 0.7273         
-##                  Recall : 0.4912         
-##                      F1 : 0.5864         
-##              Prevalence : 0.2734         
-##          Detection Rate : 0.1343         
-##    Detection Prevalence : 0.1847         
-##       Balanced Accuracy : 0.7110         
-##                                          
-##        'Positive' Class : rural          
+##      rural    69    30
+##      urban    68   250
+##                                           
+##                Accuracy : 0.765           
+##                  95% CI : (0.7213, 0.8049)
+##     No Information Rate : 0.6715          
+##     P-Value [Acc > NIR] : 1.856e-05       
+##                                           
+##                   Kappa : 0.4267          
+##                                           
+##  Mcnemar's Test P-Value : 0.0001858       
+##                                           
+##             Sensitivity : 0.5036          
+##             Specificity : 0.8929          
+##          Pos Pred Value : 0.6970          
+##          Neg Pred Value : 0.7862          
+##               Precision : 0.6970          
+##                  Recall : 0.5036          
+##                      F1 : 0.5847          
+##              Prevalence : 0.3285          
+##          Detection Rate : 0.1655          
+##    Detection Prevalence : 0.2374          
+##       Balanced Accuracy : 0.6983          
+##                                           
+##        'Positive' Class : rural           
 ## 
 ```
 
-As third more complex example, we can explore how to build a model for rural - urban classification using the presence of the five different types of dwelling as input variables. The confusion matrix below clearly illustrates that a simple linear SVM is not adequate to construct such a model.
+As a third more complex example, we can explore how to build a model for rural - urban classification using the presence of the five different types of dwelling as input variables. The confusion matrix below clearly illustrates that a simple linear SVM is not adequate to construct such a model.
 
 
 ```r
@@ -524,12 +528,12 @@ caret::confusionMatrix(
 ##           Reference
 ## Prediction rural urban
 ##      rural     0     0
-##      urban   124   293
+##      urban   129   288
 ##                                           
-##                Accuracy : 0.7026          
-##                  95% CI : (0.6562, 0.7461)
-##     No Information Rate : 0.7026          
-##     P-Value [Acc > NIR] : 0.5242          
+##                Accuracy : 0.6906          
+##                  95% CI : (0.6438, 0.7347)
+##     No Information Rate : 0.6906          
+##     P-Value [Acc > NIR] : 0.5238          
 ##                                           
 ##                   Kappa : 0               
 ##                                           
@@ -538,11 +542,11 @@ caret::confusionMatrix(
 ##             Sensitivity : 0.0000          
 ##             Specificity : 1.0000          
 ##          Pos Pred Value :    NaN          
-##          Neg Pred Value : 0.7026          
+##          Neg Pred Value : 0.6906          
 ##               Precision :     NA          
 ##                  Recall : 0.0000          
 ##                      F1 :     NA          
-##              Prevalence : 0.2974          
+##              Prevalence : 0.3094          
 ##          Detection Rate : 0.0000          
 ##    Detection Prevalence : 0.0000          
 ##       Balanced Accuracy : 0.5000          
@@ -554,7 +558,7 @@ caret::confusionMatrix(
 
 ### Kernels
 
-Instead of replying on simple linear hyperplanes, we can use the *"kernel trick"* to project the data into a higher-dimensional space, which might allow groups to be (more easily) linearly separable. 
+Instead of relying on simple linear hyperplanes, we can use the *"kernel trick"* to project the data into a higher-dimensional space, which might allow groups to be (more easily) linearly separable. 
 
 
 ```r
@@ -601,29 +605,29 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction rural urban
-##      rural    37    22
-##      urban    87   271
+##      rural    47    17
+##      urban    82   271
 ##                                           
-##                Accuracy : 0.7386          
-##                  95% CI : (0.6936, 0.7802)
-##     No Information Rate : 0.7026          
-##     P-Value [Acc > NIR] : 0.05884         
+##                Accuracy : 0.7626          
+##                  95% CI : (0.7188, 0.8026)
+##     No Information Rate : 0.6906          
+##     P-Value [Acc > NIR] : 0.0007008       
 ##                                           
-##                   Kappa : 0.2631          
+##                   Kappa : 0.3546          
 ##                                           
-##  Mcnemar's Test P-Value : 8.783e-10       
+##  Mcnemar's Test P-Value : 1.257e-10       
 ##                                           
-##             Sensitivity : 0.29839         
-##             Specificity : 0.92491         
-##          Pos Pred Value : 0.62712         
-##          Neg Pred Value : 0.75698         
-##               Precision : 0.62712         
-##                  Recall : 0.29839         
-##                      F1 : 0.40437         
-##              Prevalence : 0.29736         
-##          Detection Rate : 0.08873         
-##    Detection Prevalence : 0.14149         
-##       Balanced Accuracy : 0.61165         
+##             Sensitivity : 0.3643          
+##             Specificity : 0.9410          
+##          Pos Pred Value : 0.7344          
+##          Neg Pred Value : 0.7677          
+##               Precision : 0.7344          
+##                  Recall : 0.3643          
+##                      F1 : 0.4870          
+##              Prevalence : 0.3094          
+##          Detection Rate : 0.1127          
+##    Detection Prevalence : 0.1535          
+##       Balanced Accuracy : 0.6527          
 ##                                           
 ##        'Positive' Class : rural           
 ## 
@@ -633,7 +637,7 @@ caret::confusionMatrix(
 
 ### Artificial neural network
 
-Finally, we can explore the construction of an ANN for the same input and output variables seen in the previous example, and compare which one of the two approaches produces better results. The example below creates a multi-layer ANN, using two hidden layers, with five and two nodes respectively.
+Finally, we can explore the construction of an ANN for the same input and output variables seen in the previous example, and compare which one of the two approaches produces better results. The example below creates a multi-layer ANN, using two hidden layers, with five and two nodes, respectively.
 
 
 
@@ -718,29 +722,29 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction rural urban
-##      rural    47    29
-##      urban    77   264
+##      rural    48    31
+##      urban    81   257
 ##                                           
-##                Accuracy : 0.7458          
-##                  95% CI : (0.7012, 0.7869)
-##     No Information Rate : 0.7026          
-##     P-Value [Acc > NIR] : 0.02906         
+##                Accuracy : 0.7314          
+##                  95% CI : (0.6861, 0.7734)
+##     No Information Rate : 0.6906          
+##     P-Value [Acc > NIR] : 0.03893         
 ##                                           
-##                   Kappa : 0.3152          
+##                   Kappa : 0.2961          
 ##                                           
-##  Mcnemar's Test P-Value : 4.994e-06       
+##  Mcnemar's Test P-Value : 3.656e-06       
 ##                                           
-##             Sensitivity : 0.3790          
-##             Specificity : 0.9010          
-##          Pos Pred Value : 0.6184          
-##          Neg Pred Value : 0.7742          
-##               Precision : 0.6184          
-##                  Recall : 0.3790          
-##                      F1 : 0.4700          
-##              Prevalence : 0.2974          
-##          Detection Rate : 0.1127          
-##    Detection Prevalence : 0.1823          
-##       Balanced Accuracy : 0.6400          
+##             Sensitivity : 0.3721          
+##             Specificity : 0.8924          
+##          Pos Pred Value : 0.6076          
+##          Neg Pred Value : 0.7604          
+##               Precision : 0.6076          
+##                  Recall : 0.3721          
+##                      F1 : 0.4615          
+##              Prevalence : 0.3094          
+##          Detection Rate : 0.1151          
+##    Detection Prevalence : 0.1894          
+##       Balanced Accuracy : 0.6322          
 ##                                           
 ##        'Positive' Class : rural           
 ## 
@@ -750,7 +754,7 @@ caret::confusionMatrix(
 
 ## Exercise 414.1
 
-**Question 414.1.1:** Create a SVM model capable to classify areas in Leicester and Leicestershire as rural or urban based on the series of variable that relate to *"Economic Activity"* among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)).
+**Question 414.1.1:** Create an SVM model capable of classifying areas in Leicester and Leicestershire as rural or urban based on the series of variables that relate to *"Economic Activity"* among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)).
 
 **Question 414.1.2:** Create an ANN using the same input and output values used in Question 404.1.1.
 

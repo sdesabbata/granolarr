@@ -27,20 +27,20 @@ Classification is one of the classic supervised machine learning tasks, where al
 
 
 
-### Artificial netural networks
+### Artificial neural networks
 
-Artificial neural networks (ANNs) are one of the most studied approaches in supervised machine learning, and the term actually defines a large set of different approaches. These model aims to simulate a simplistic version of a brain made of artificial neuranos. Each artificial neuron combines a series of input values into one output values, using a series of weights (one per input value) and an activation function. The aim of the model is to learn an optimal set of weights that, once cobined with the input values, generates the correct output value. The latter is also influenced by the activation function, which modulates the final result.
+Artificial neural networks (ANNs) are one of the most studied approaches in supervised machine learning, and the term actually defines a large set of different approaches. These model aims to simulate a simplistic version of a brain made of artificial neurons. Each artificial neuron combines a series of input values into one output values, using a series of weights (one per input value) and an activation function. The aim of the model is to learn an optimal set of weights that, once combined with the input values, generates the correct output value. The latter is also influenced by the activation function, which modulates the final result.
 
 ```{r, echo=FALSE, out.width="50%", fig.align = 'center'}
 knitr::include_graphics(paste0(Sys.getenv("GRANOLARR_HOME"), "/src/practicals/images/artificial_neuron.png"))
 ```
 
-Each neuron is effectively a regression model. The input values are the predictors (or independent variables), the output is the outcome (or dependent variable) and the weights are the coefficients (see also previous practical on regression models). The selection of the activation function defines the regression model. As ANNs are commonly used for classification, one of the most common activation functions used are sigmoids, thus rendering each single neuron a logistic regression.
+Each neuron is effectively a regression model. The input values are the predictors (or independent variables), the output is the outcome (or dependent variable), and the weights are the coefficients (see also previous practical on regression models). The selection of the activation function defines the regression model. As ANNs are commonly used for classification, one of the most common activation functions used is the sigmoid, thus rendering every single neuron a logistic regression.
 
-An instance of an ANN is defined by its topology (number of layers and nodes), activation functions and the algorithm used to train the network. The selection of all those parameters reders the construction of ANNs a very complex task, and the quality of the result frequently relies on the experience of the data scientist.
+An instance of an ANN is defined by its topology (number of layers and nodes), activation functions and the algorithm used to train the network. The selection of all those parameters renders the construction of ANNs a very complex task, and the quality of the result frequently relies on the experience of the data scientist.
 
 - Number of layers
-  - Single-layer network: one node of input variable one node per category of output variable, effectively a logistic regression.
+  - Single-layer network: one node of input variable one node per category of the output variable, effectively a logistic regression.
   - Multi-layer network: adds one hidden layer, which aims to capture hidden *"features"* of the data, as combinations of the input values, and use that for the final classification.
   - Deep neural networks: several hidden layers, each aiming to capture more and more complex *"features"* of the data.
 - Number of nodes
@@ -50,22 +50,22 @@ An instance of an ANN is defined by its topology (number of layers and nodes), a
 
 ### Support vector machines
 
-Support vector machines (SVMs) are anothe very common approach to supervised classification. SVMs perform the classification task by partitioning the data space into regions separated by hyperplanes. For instance, in a bi-dimensional space, a hyperplane is a line, and the algorithm is designed to find the line that best separates two groups of data. Computationally, the process is not dissimilar to a linear regression.
+Support vector machines (SVMs) are another very common approach to supervised classification. SVMs perform the classification task by partitioning the data space into regions separated by hyperplanes. For instance, in a bi-dimensional space, a hyperplane is a line, and the algorithm is designed to find the line that best separates two groups of data. Computationally, the process is not dissimilar to linear regression.
 
 
 
 ### Confusion matrices
 
-Once a classification model has been created, the next step is validation. The latter can involve different approaches and procedures, but one of the most common and simple approaches is to split the data between a training and a testing set. The model in trained on the training set and then validated using the testing set. Both sets will contain both the input values (predictors) and the output values (outcome).
+Once a classification model has been created, the next step is validation. The latter can involve different approaches and procedures, but one of the most common and simple approaches is to split the data between a training and a testing set. The model is trained on the training set and then validated using the testing set. Both sets will contain both the input values (predictors) and the output values (outcome).
 
 The model trained using the training set can be used to predict the values for the testing set. The outcome of the prediction can be compared to the actual categories in the testing dataset. A **confusion matrix** is a representation of the correspondence between actual values and predicted values in the testing dataset, including:
 
-- true positive: correctly classified as first (positive) class;
-- true negative: correctly classified as second (negative) class;
-- false positive: incorrectly classified as first (positive) class;
-- false negative: incorrectly classified as second (negative) class.
+- true positive: correctly classified as the first (positive) class;
+- true negative: correctly classified as the second (negative) class;
+- false positive: incorrectly classified as the first (positive) class;
+- false negative: incorrectly classified as the second (negative) class.
 
-The number of true and false positive and negatives are used to calculated a number of performance measures. The simplest measures of performance are *accuracy* and *error rate*.
+The number of true and false positive and negatives are used to calculate a number of performance measures. The simplest measures of performance are *accuracy* and *error rate*.
 
 $$
 accuracy = \frac{true\ positive + true\ negative}{total\ number\ of\ cases}
@@ -74,7 +74,7 @@ $$
 error\ rate = 1 - accuracy
 $$
 
-There are also a number of additional measures that can provide further insight into the quality of the prediction, such as *sensitivity* (true positive rate) and *specificity* (true negative rate). If the model has been created to predict a binary categorical variable, based on the definition above (first category is positive, second category is negative), sensitivity is a measure of quality in predicting the first category, and specificity is a measure of quality in predicting the second category.
+There are also a number of additional measures that can provide further insight into the quality of the prediction, such as *sensitivity* (true positive rate) and *specificity* (true negative rate). If the model has been created to predict a binary categorical variable, based on the definition above (the first category is positive, the second category is negative), sensitivity is a measure of quality in predicting the first category, and specificity is a measure of quality in predicting the second category.
 
 $$
 sensitivity = \frac{true\ positive}{true\ positive + false\ negative} = \frac{correct\ 1st}{all\ 1st}
@@ -83,7 +83,8 @@ $$
 $$
 specificity = \frac{true\ negative}{true\ negative + false\ positive} = \frac{correct\ 2nd}{all\ 2nd}
 $$
-Two further, similar measures are *precision* and *recall*. A model with high precision is a model that can be trusted to make a correct predition when identifying an observation as being part of the first category. The formula for recall is the same used for sensitivity, but in this case it has a different interpretation, derived from the computer science literature on search engines, where a model with high recall is able to correctly retrieve most items of the specified category. Note that both precision and recall are dependent on which one of two categories is defiened as being the first.
+
+Two further, similar measures are *precision* and *recall*. A model with high precision is a model that can be trusted to make a correct prediction when identifying an observation as being part of the first category. The formula for recall is the same used for sensitivity, but in this case, it has a different interpretation, derived from the computer science literature on search engines, where a model with high recall is able to correctly retrieve most items of the specified category. Note that both precision and recall are dependent on which one of two categories is defined as being the first.
 
 $$
 precision = \frac{true\ positive}{true\ positive + false\ positive} = \frac{correct\ 1st}{predicted\ as\ 1st}
@@ -104,7 +105,7 @@ Finally, the *kappa statistic* (the most common being [Cohen's kappa](https://en
 
 The two examples below explore the relation between some of the variables from the United Kingdom 2011 Census included among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)) and the [Rural Urban Classification (2011) of Output Areas in England and Wales](https://geoportal.statistics.gov.uk/datasets/rural-urban-classification-2011-of-output-areas-in-england-and-wales) created by the [Office for National Statistics](https://geoportal.statistics.gov.uk/). The various examples and models explore whether it is possible to learn the rural-urban distinction by using some of those census variables, in the Local Authority Districts (LADs) in Leicestershire (excluding the city of Leicester itself.
 
-The code below uses the libraries `caret`, `e1071` and `neuralnet`. Please install them before continuing with the practical
+The code below uses the libraries `caret`, `e1071` and `neuralnet`. Please install them before continuing with the practical.
 
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("caret")
@@ -114,7 +115,7 @@ install.packages("neuralnet")
 
 ### Data
 
-The examples use the same data seen in previous practicals, but for the 7 LADs in Leicestershire outside the boundaries of the city of Leicester: Blaby, Charnwood, Harborough, Hinckley and Bosworth, Melton, North West Leicestershire, and Oadby and Wigston. Those data are loaded from the `2011_OAC_Raw_uVariables_Leicestershire.csv`. The second part of the code extracts the data of the Rural Urban Classification (2011) from the compressed file `RUC11_OA11_EW.zip`, loads the extracted data and finally delets them.
+The examples use the same data seen in previous practicals, but for the 7 LADs in Leicestershire outside the boundaries of the city of Leicester: Blaby, Charnwood, Harborough, Hinckley and Bosworth, Melton, North West Leicestershire, and Oadby and Wigston. Those data are loaded from the `2011_OAC_Raw_uVariables_Leicestershire.csv`. The second part of the code extracts the data of the Rural Urban Classification (2011) from the compressed file `RUC11_OA11_EW.zip`, loads the extracted data and finally deletes them.
 
 ```{r, echo=TRUE, eval=FALSE}
 # Libraries
@@ -125,6 +126,9 @@ library(magrittr)
 liec_shire_2011OAC <- readr::read_csv("2011_OAC_Raw_uVariables_Leicestershire.csv")
 
 # Rural Urban Classification (2011)
+# >>> Note that if you upload the file to RStudio Server
+# >>> the file will be automatically unzipped
+# >>> thus the unzip and unlink instrcutions are not necessary
 unzip("RUC11_OA11_EW.zip")
 ru_class_2011 <- readr::read_csv("RUC11_OA11_EW.csv")
 unlink("RUC11_OA11_EW.csv")
@@ -187,7 +191,7 @@ liec_shire_2011OAC_RU %>%
   ggplot2::theme_bw()
 ```
 
-The two patters in the plot above seem quite close even when plotted using a logarithmically transformed x-axis. As a first step, we can extract from the dataset only the data we need, and create a logarithmic trasformation of the population density vlaue. In oder to be able to perform a simplecross-validatin our model, we can divide that data in a training (80% of the dataset) and a testing set (20% of the dataset).
+The two patters in the plot above seem quite close even when plotted using a logarithmically transformed x-axis. As a first step, we can extract from the dataset only the data we need, and create a logarithmic transformation of the population density value. To be able to perform a simple validatin our model, we can divide that data in a training (80% of the dataset) and a testing set (20% of the dataset).
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 # Data for logit model
@@ -224,9 +228,9 @@ ru_logit_model %>%
   summary()
 ```
 
-As per other regression models, it would be necessary to test the assumptions of the logit model and the overall distribution of the residuals. However, as this model only has one predictor, we will confine our performance analysis to a cross-validation. 
+As per other regression models, it would be necessary to test the assumptions of the logit model and the overall distribution of the residuals. However, as this model only has one predictor, we will confine our performance analysis to simple validation. 
 
-We can test the performance of the model through a cross-validation exercise, using the testing dataset. Fianlly, we can compare the restults of the prediction with the original data using a confusion matrix.
+We can test the performance of the model through a validation exercise, using the testing dataset. Finally, we can compare the results of the prediction with the original data using a confusion matrix.
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 ru_logit_prediction <- 
@@ -291,7 +295,7 @@ liec_shire_2011OAC_RU %>%
   ggplot2::theme_bw()
 ```
 
-The plot illustrates how the two variables are skewed (note that the axis are logarithmically transformed) and that the two groups are not linearly separable. We can thus follow a procedure similar to the one seen above: extract the necessary data; split the data between training and testing for cross-validation; build the model; predict the values for the testing set and interpret the confusion matrix.
+The plot illustrates how the two variables are skewed (note that the axes are logarithmically transformed) and that the two groups are not linearly separable. We can thus follow a procedure similar to the one seen above: extract the necessary data; split the data between training and testing for validation; build the model; predict the values for the testing set and interpret the confusion matrix.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 # Data for SVM model
@@ -354,7 +358,7 @@ caret::confusionMatrix(
   )
 ```
 
-As third more complex example, we can explore how to build a model for rural - urban classification using the presence of the five different types of dwelling as input variables. The confusion matrix below clearly illustrates that a simple linear SVM is not adequate to construct such a model.
+As a third more complex example, we can explore how to build a model for rural - urban classification using the presence of the five different types of dwelling as input variables. The confusion matrix below clearly illustrates that a simple linear SVM is not adequate to construct such a model.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 # Data for SVM model
@@ -431,7 +435,7 @@ caret::confusionMatrix(
 
 ### Kernels
 
-Instead of replying on simple linear hyperplanes, we can use the *"kernel trick"* to project the data into a higher-dimensional space, which might allow groups to be (more easily) linearly separable. 
+Instead of relying on simple linear hyperplanes, we can use the *"kernel trick"* to project the data into a higher-dimensional space, which might allow groups to be (more easily) linearly separable. 
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 # Build a second model
@@ -476,7 +480,7 @@ caret::confusionMatrix(
 
 ### Artificial neural network
 
-Finally, we can explore the construction of an ANN for the same input and output variables seen in the previous example, and compare which one of the two approaches produces better results. The example below creates a multi-layer ANN, using two hidden layers, with five and two nodes respectively.
+Finally, we can explore the construction of an ANN for the same input and output variables seen in the previous example, and compare which one of the two approaches produces better results. The example below creates a multi-layer ANN, using two hidden layers, with five and two nodes, respectively.
 
 ```{r, echo=FALSE, eval=FALSE, message=FALSE, warning=FALSE}
 # Run this code separately 
@@ -602,7 +606,7 @@ pROC::roc(
 
 ## Exercise 414.1
 
-**Question 414.1.1:** Create a SVM model capable to classify areas in Leicester and Leicestershire as rural or urban based on the series of variable that relate to *"Economic Activity"* among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)).
+**Question 414.1.1:** Create an SVM model capable of classifying areas in Leicester and Leicestershire as rural or urban based on the series of variables that relate to *"Economic Activity"* among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)).
 
 **Question 414.1.2:** Create an ANN using the same input and output values used in Question 404.1.1.
 
