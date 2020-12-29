@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  17 DEC 2020 14:05
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  29 DEC 2020 12:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -406,9 +406,6 @@ LaTeX Warning: Label `introduction' multiply defined.
 
 
 LaTeX Warning: Label `examples' multiply defined.
-
-
-LaTeX Warning: Label `exercise-414.1' multiply defined.
 
 )
 \openout1 = `_main.aux'.
@@ -1295,16 +1292,16 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6128.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6128.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: AF244BC7B767D5DFF0D7FBE46F82C84A;8266.
+(rerunfilecheck)             Checksum: 03A3A54229CAEBE2D897A0EFA6EDA125;8266.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17479 strings out of 481704
- 317054 string characters out of 5933764
+ 17480 strings out of 481704
+ 317070 string characters out of 5933764
  734513 words of memory out of 5000000
- 34290 multiletter control sequences out of 15000+600000
+ 34291 multiletter control sequences out of 15000+600000
  541587 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  53i,10n,118p,1090b,461s stack positions out of 5000i,500n,10000p,200000b,80000s

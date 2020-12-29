@@ -515,7 +515,8 @@ leicester_ggmap +
     axis.ticks = element_blank(),
     #legend.position = "none",
     panel.border = element_rect(colour = "black", fill=NA, size=1)
-  )
+  ) +
+  ggplot2::labs(caption = "Contains public sector information from Office for National Statistics and Ordnance Survey licensed under the\nOpen Government Licence v3.0. Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.")
 ```
 
 ```{r, include=FALSE}

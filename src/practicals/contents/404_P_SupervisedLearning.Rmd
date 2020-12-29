@@ -604,13 +604,13 @@ pROC::roc(
   )
 ```
 
-## Exercise 414.1
+## Exercise 404.1
 
-**Question 414.1.1:** Create an SVM model capable of classifying areas in Leicester and Leicestershire as rural or urban based on the series of variables that relate to *"Economic Activity"* among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)).
+**Question 404.1.1:** Create an SVM model capable of classifying areas in Leicester and Leicestershire as rural or urban based on the series of variables that relate to *"Economic Activity"* among the 167 initial variables used to create the [2011 Output Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/oac11/default/BTTTFFT/12/-1.1233/52.6454/) ([Gale *et al.*, 2016](http://josis.net/index.php/josis/article/view/232/150)).
 
-**Question 414.1.2:** Create an ANN using the same input and output values used in Question 404.1.1.
+**Question 404.1.2:** Create an ANN using the same input and output values used in Question 404.1.1.
 
-**Question 414.1.3:** Assess which one of the two models preforms a better classification.
+**Question 404.1.3:** Assess which one of the two models preforms a better classification.
 
 
 ```{r cleanup, include=FALSE}
