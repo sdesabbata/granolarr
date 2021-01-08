@@ -25,8 +25,3 @@
    - [`Typical_cnn.png`](https://commons.wikimedia.org/wiki/File:Typical_cnn.png) by Aphex34, via [Wikimedia Commons](https://commons.wikimedia.org)
 - [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
    - [Reinforcement learning diagram.svg.png](https://en.wikipedia.org/wiki/File:Reinforcement_learning_diagram.svg) by Megajuice, via [Wikimedia Commons](https://commons.wikimedia.org)
-
-### Other open licenses
-
-- [The Code Project Open License](https://www.codeproject.com/info/cpol10.aspx)
-    - `joins.png` by C.L. Moffatt, via [The Code Project](https://www.codeproject.com/articles/33052/visual-representation-of-sql-joins)

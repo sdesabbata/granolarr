@@ -79,11 +79,7 @@ Tables can be joined (or 'merged')
 
 <center>
  ![](images/joins.png){width=75%}
- 
-<br/>
-<font size="4">
-<a href="https://www.codeproject.com/articles/33052/visual-representation-of-sql-joins">by C.L. Moffatt</a>, licensed under <a href="https://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>
-</font>
+
 <center>
 
 

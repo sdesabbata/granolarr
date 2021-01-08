@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2020-12-29" />
+<meta name="date" content="2021-01-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -559,15 +559,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>As discussed in the lecture, the <code>dplyr</code> library offers different types of join operations, which correspond to the different <code>SQL</code> joins illustrated in the image below. The use and implications of these different types of joins will be discussed in more detail in the GY7708 module next semester.</p>
-<div class="figure">
-<img src="images/joins.png" style="width:75.0%" alt="" />
-<p class="caption">by <a href="https://www.codeproject.com/articles/33052/visual-representation-of-sql-joins">C.L. Moffatt</a>, licensed under <a href="https://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a></p>
-</div>
-<!--
-<font size="4">
-<a href="https://www.codeproject.com/articles/33052/visual-representation-of-sql-joins">by C.L. Moffatt</a>, licensed under <a href="https://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>
-</font>
--->
+<p><img src="images/joins.png" style="width:75.0%" /></p>
 <p>Please take your time to understand the example below and check out the <a href="https://dplyr.tidyverse.org/reference/join.html">related <code>dplyr</code> help pages</a> before continuing. The first four examples execute the exact same <em>full join</em> operation using three different syntaxes: with or without using the pipe operator, and specifying the <code>by</code> argument or not. Note that all those approaches to writing the join are valid and produce the same result. The choice about which approach to use will depend on the code you are writing. In particular, you might find it useful to use the syntax that uses the pipe operator when the join operation is itself only one stem in a series of data manipulation steps. Using the <code>by</code> argument is usually advisable unless you are certain that you aim to join two tables with all and exactly the column that have the same names in the two table.</p>
 <p>Note how the result of the join operations is <em>not</em> saved to a variable. The function <code>knitr::kable</code> is added after each join operation through a pipe <code>%&gt;%</code> to display the resulting table in a nice format.</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="data-wrangling-pt-2.html#cb174-1"></a>city_telephone_prexix &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>

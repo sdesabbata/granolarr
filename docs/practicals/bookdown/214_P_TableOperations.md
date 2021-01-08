@@ -130,13 +130,7 @@ A join operation combines two tables into one by matching rows that have the sam
 
 As discussed in the lecture, the `dplyr` library offers different types of join operations, which correspond to the different `SQL` joins illustrated in the image below.  The use and implications of these different types of joins will be discussed in more detail in the GY7708 module next semester.  
 
- ![by [C.L. Moffatt](https://www.codeproject.com/articles/33052/visual-representation-of-sql-joins), licensed under [The Code Project Open License (CPOL)](https://www.codeproject.com/info/cpol10.aspx)](images/joins.png){width=75%}
-
-<!--
-<font size="4">
-<a href="https://www.codeproject.com/articles/33052/visual-representation-of-sql-joins">by C.L. Moffatt</a>, licensed under <a href="https://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>
-</font>
--->
+![](images/joins.png){width=75%}
 
 Please take your time to understand the example below and check out the [related `dplyr` help pages](https://dplyr.tidyverse.org/reference/join.html) before continuing. The first four examples execute the exact same *full join* operation using three different syntaxes: with or without using the pipe operator, and specifying the `by` argument or not. Note that all those approaches to writing the join are valid and produce the same result. The choice about which approach to use will depend on the code you are writing. In particular, you might find it useful to use the syntax that uses the pipe operator when the join operation is itself only one stem in a series of data manipulation steps. Using the `by` argument is usually advisable unless you are certain that you aim to join two tables with all and exactly the column that have the same names in the two table.
 

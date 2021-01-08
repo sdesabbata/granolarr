@@ -179,9 +179,9 @@ employees
 
 ```
 ##   EmployeeName Age       Role     Place Year_of_birth
-## 1        Maria  47  Professor Leicester          1973
-## 2         Pete  34 Researcher Leicester          1986
-## 3        Sarah  33 Researcher Leicester          1987
+## 1        Maria  47  Professor Leicester          1974
+## 2         Pete  34 Researcher Leicester          1987
+## 3        Sarah  33 Researcher Leicester          1988
 ```
 
 
