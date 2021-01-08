@@ -13,7 +13,7 @@ toc_sticky: true
 
 ## 211 Join operations
 
-{% include video id="e5hxiPXG7XI" provider="youtube" %}
+{% include video id="GYY-c3H7xkE" provider="youtube" %}
 
 
 ### Slides
