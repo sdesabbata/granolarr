@@ -193,21 +193,6 @@ Reproducible data analysis is particularly important when working in teams, to s
 
 
 
-## This repository
-
-<center>
-
-![](images/imgs002_github_repo_001.png){width=90%}
-
-<p style="font-size:75%; width: 30%;">
-<br/>
-[github.com/sdesabbata/granolarr](https://github.com/sdesabbata/granolarr)
-</p>
-</center>
-
-
-
-
 ## Summary
 
 Reproduciblity
