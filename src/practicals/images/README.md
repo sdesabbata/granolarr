@@ -11,7 +11,6 @@
 - [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
     - `ANOVA_output_annotated.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
     - `artificial_neuron.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
-    - `git_three_stages.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
     - `joins.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
     - `PipeOperator.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
     - `Regression_output_annotated.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
