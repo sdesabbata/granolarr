@@ -24,7 +24,7 @@
 <meta name="author" content="Stefano De Sabbata" />
 
 
-<meta name="date" content="2021-01-08" />
+<meta name="date" content="2021-03-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -402,10 +402,6 @@ The code uses the pipe operator:
 <p>In RStudio Server, in the <em>Files</em> tab of the bottom-left panel, click on <em>Home</em> to make sure you are in your home folder – if you are working on your own computer, create a folder for granolarr wherever most convenient. Click on <em>New Folder</em> and enter <em>Repos</em> (short for repositories) in the prompt dialogue, to create a folder named <em>Repos</em>.</p>
 <p>Create a GitHub account at <a href="https://github.com/">github.com</a>, if you don’t have one, and create a new repository named <em>my-granolarr</em>, following the instructions available on the <a href="https://help.github.com/en/articles/creating-a-new-repository">GitHub help pages</a>. Make sure you tick the box next to <em>Initialize this repository with a README</em>, which adds a <code>README.md</code> markdown file to your repository.</p>
 <p>Once the repository has been created, GitHub will take you to the repository page. Copy the link to the repository <code>.git</code> file by clicking on the green <em>Clone or download</em> button and copying the <code>https</code> URL there available. Back to RStudio Server, select <em>File &gt; New Project…</em> from the top menu and select <em>Version Control</em> and then <em>Git</em> from the <em>New Project</em> panel. Paste the copied URL in the <em>Repository URL</em> field, select the <em>Repos</em> folder created above as folder for <em>Create project as subdirectory of</em>, and click <em>Create Project</em>. RStudio might ask you for your GitHub username and password at this point.</p>
-<div class="figure">
-<img src="images/git_clone_my-granolarr.png" style="width:60.0%" alt="" />
-<p class="caption">Cloning my-granolarr as R project in RStudio</p>
-</div>
 <p>Before continuing, you need to record your identity with the Git system installed on the RStudio Server, for it to be able to communicate with the GitHub’s server. Open the <em>Terminal</em> tab in RStudio (if not visible, select <em>Tools &gt; Terminal &gt; New Terminal</em> from the top menu). First, paste the command below substituting <code>you@example.com</code> with your university email (make sure to maintain the double quotes) and press the return button.</p>
 <pre><code>git config --global user.email &quot;you@example.com&quot;</code></pre>
 <p>Then, paste the command below substituting <code>Your Name</code> with your name (make sure to maintain the double quotes) and press the return button.</p>
