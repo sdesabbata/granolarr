@@ -21,7 +21,7 @@
 - [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
    - [`MnistExamples.png`](https://commons.wikimedia.org/wiki/File:MnistExamples.png) by Josef Steppan, via [Wikimedia Commons](https://commons.wikimedia.org)
    - `MnistExamples_2.png` derived from work by Josef Steppan, via [Wikimedia Commons](https://commons.wikimedia.org)
-   - [Overfitted_Data.png](https://commons.wikimedia.org/wiki/File:Overfitted_Data.png) by Ghiles, via [Wikimedia Commons](https://commons.wikimedia.org)
+   - [`Overfitted_Data.png`](https://commons.wikimedia.org/wiki/File:Overfitted_Data.png) by Ghiles, via [Wikimedia Commons](https://commons.wikimedia.org)
    - [`Overfitting.svg.png`](https://commons.wikimedia.org/wiki/File:Overfitting.svg) by Chabacano, via [Wikimedia Commons](https://commons.wikimedia.org)
    - [`Typical_cnn.png`](https://commons.wikimedia.org/wiki/File:Typical_cnn.png) by Aphex34, via [Wikimedia Commons](https://commons.wikimedia.org)
 - [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
