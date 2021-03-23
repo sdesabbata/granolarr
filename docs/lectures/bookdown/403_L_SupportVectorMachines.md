@@ -152,26 +152,26 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction Adelie Gentoo
-##     Adelie     28      4
-##     Gentoo      3     20
+##     Adelie     26      3
+##     Gentoo      4     22
 ##                                           
 ##                Accuracy : 0.8727          
 ##                  95% CI : (0.7552, 0.9473)
-##     No Information Rate : 0.5636          
-##     P-Value [Acc > NIR] : 8.309e-07       
+##     No Information Rate : 0.5455          
+##     P-Value [Acc > NIR] : 2.258e-07       
 ##                                           
-##                   Kappa : 0.74            
+##                   Kappa : 0.7442          
 ##                                           
 ##  Mcnemar's Test P-Value : 1               
 ##                                           
-##             Sensitivity : 0.9032          
-##             Specificity : 0.8333          
-##          Pos Pred Value : 0.8750          
-##          Neg Pred Value : 0.8696          
-##              Prevalence : 0.5636          
-##          Detection Rate : 0.5091          
-##    Detection Prevalence : 0.5818          
-##       Balanced Accuracy : 0.8683          
+##             Sensitivity : 0.8667          
+##             Specificity : 0.8800          
+##          Pos Pred Value : 0.8966          
+##          Neg Pred Value : 0.8462          
+##              Prevalence : 0.5455          
+##          Detection Rate : 0.4727          
+##    Detection Prevalence : 0.5273          
+##       Balanced Accuracy : 0.8733          
 ##                                           
 ##        'Positive' Class : Adelie          
 ## 
@@ -255,13 +255,13 @@ caret::confusionMatrix(
 ## 
 ##           Reference
 ## Prediction Adelie Gentoo
-##     Adelie     31      0
-##     Gentoo      0     24
+##     Adelie     30      0
+##     Gentoo      0     25
 ##                                      
 ##                Accuracy : 1          
 ##                  95% CI : (0.9351, 1)
-##     No Information Rate : 0.5636     
-##     P-Value [Acc > NIR] : 2.018e-14  
+##     No Information Rate : 0.5455     
+##     P-Value [Acc > NIR] : 3.324e-15  
 ##                                      
 ##                   Kappa : 1          
 ##                                      
@@ -271,9 +271,9 @@ caret::confusionMatrix(
 ##             Specificity : 1.0000     
 ##          Pos Pred Value : 1.0000     
 ##          Neg Pred Value : 1.0000     
-##              Prevalence : 0.5636     
-##          Detection Rate : 0.5636     
-##    Detection Prevalence : 0.5636     
+##              Prevalence : 0.5455     
+##          Detection Rate : 0.5455     
+##    Detection Prevalence : 0.5455     
 ##       Balanced Accuracy : 1.0000     
 ##                                      
 ##        'Positive' Class : Adelie     

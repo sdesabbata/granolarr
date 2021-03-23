@@ -95,16 +95,18 @@ When working with a git repository
 
 ## Git and RStudio
 
-RStudio includes a git plug-in
+Git can be used
+
+- from the system terminal or shell, using the `git` command
+- dedicated apps such as [GitHub Desktop](https://desktop.github.com/)
+- RStudio git plug-in (top-right panel, `Git` tab)
+
+All approaches allow to
 
 - clone R projects from repositories
 - stage and commit changes
-- push and pull changes
-
-<center>
-![](images/git_rstudio.png){width=70% style="border: 1px solid black"}
-</center>
-
+- push to remote copy 
+- pull changes from remote copy
 
 
 
