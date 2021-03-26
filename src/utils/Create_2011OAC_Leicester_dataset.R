@@ -10,13 +10,9 @@
 
 # Download the file 2011 OAC Variables - 167 Initial.zip in the storage folder
 # http://tiny.cc/OAC-Var-167
-# or see
-# https://osf.io/hd6yf/
 
 # Download the file OA11_LSOA11_MSOA11_LAD11_EW_LU.zip in the storage folder
 # https://borders.ukdataservice.ac.uk/lut_download_data.html?data=oa11_lsoa11_msoa11_lad11_ew_lu
-# or see
-# https://osf.io/hd6yf/
 
 library(tidyverse)
 library(sp)

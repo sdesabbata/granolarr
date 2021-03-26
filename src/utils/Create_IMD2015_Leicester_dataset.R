@@ -9,8 +9,6 @@
 
 # Download the file containing the Indexes of Multiple deprivation 2015 in the Storage folder
 # http://opendatacommunities.org/def/concept/folders/themes/societal-wellbeing
-# or see
-# https://osf.io/hd6yf/
 # Column name 'Indices of Deprivation' edited to 'IndicesOfDeprivation'
 
 library(tidyverse)
