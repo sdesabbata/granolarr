@@ -13,11 +13,6 @@ toc_sticky: true
 
 ## 311 Comparing groups
 
-{% include video id="picRP94zDJs" provider="youtube" %}
-
-
-### Slides
-
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/311_L_ComparingMeans.html" title="311_L_ComparingMeans" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
@@ -28,11 +23,6 @@ toc_sticky: true
 
 ## 312 Correlation
 
-{% include video id="i4LG9NjftYo" provider="youtube" %}
-
-
-### Slides
-
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/312_L_Correlation.html" title="312_L_Correlation" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>
 </div>
@@ -42,11 +32,6 @@ toc_sticky: true
 </small>
 
 ## 313 Data transformations
-
-{% include video id="tUboN6q4FbY" provider="youtube" %}
-
-
-### Slides
 
 <div style="position: relative; width: 500px; height: 400px;">
 <iframe src="https://sdesabbata.github.io/granolarr/lectures/html/313_L_DataTransformations.html" title="313_L_DataTransformations" frameborder="0" style="width: 1000px; height: 800px; -webkit-transform: scale(0.5) translate(-500px,-400px);-moz-transform: scale(0.5) translate(-500px,-400px); "></iframe>

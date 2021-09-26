@@ -1,5 +1,7 @@
 # granolarr
 
+A new version of these materials is currently under development as [R for Geographic Data Science](https://github.com/sdesabbata/r-for-geographic-data-science).
+
 <img src="docs/assets/images/granolarr_hex.png" alt="The granolarr hex sticker" align="right" width="200" style="padding: 0 15px; float: right;"/> **granolarr** is a geog**GR**aphic d**A**ta scie**N**ce, repr**O**ducib**L**e te**A**ching resou**R**ce in **R**
 
 by *[Stefano De Sabbata](https://stefanodesabbata.com)*
