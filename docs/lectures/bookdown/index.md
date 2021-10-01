@@ -1,7 +1,7 @@
 ---
 title: "Lecture materials | granolarr"
 author: "Stefano De Sabbata"
-date: "2021-09-11"
+date: "2021-10-01"
 description: "Geographic data science reproducible teaching resource in R, Lecture materials"
 url: 'https://sdesabbata.github.io/granolarr/'
 github-repo: "sdesabbata/granolarr"

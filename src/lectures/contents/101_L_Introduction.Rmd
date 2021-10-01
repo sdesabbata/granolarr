@@ -66,8 +66,8 @@ tm_shape(leic_2011OAC) +
     bg.color = "#EBE3E1", 
     frame = FALSE) +
   tm_credits(
-    "Contains public sectorinformation licensed\nunder the Open Government Licence v3.0", 
-    size = 0.5, 
+    "Source: CDRC 2011 OAC Geodata Pack by the ESRC Consumer\nDataResearch Centre; Contains National Statistics data Crown\ncopyright and database right 2015; Contains Ordnance Survey\ndata Crown copyright and database right 2015", 
+    size = 0.3, 
     position = c("right", "bottom")
   )
 

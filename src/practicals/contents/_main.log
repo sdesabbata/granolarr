@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  11 SEP 2021 15:49
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.29)  1 OCT 2021 18:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1280,6 +1280,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-19-1.pdf Grap
 hic file (type pdf)
 <use 414_P_UnsupervisedLearning_files/figure-latex/unnamed-chunk-19-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [151]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6118.
 [152]
