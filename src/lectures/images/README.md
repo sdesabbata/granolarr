@@ -20,8 +20,6 @@
     - `git_three_stages.png` by Scott Chacon and Ben Straub, via [Pro Git book](https://git-scm.com/book/en/v2)
 - [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
     - `artificial_neuron.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
-    - `covid19_cases_uk_7DayRateNew_anim_20200301_20201017.gif` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
-    - `covid19_cases_uk_7DayRateNew_anim_20200307.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
     - `DockerDiagram_Docker.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
     - `DockerDiagram_VM.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
     - `joins.png` by Stefano De Sabbata ([granolarr](https://github.com/sdesabbata/granolarr))
